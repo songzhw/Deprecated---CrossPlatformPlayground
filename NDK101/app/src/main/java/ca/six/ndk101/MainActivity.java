@@ -10,10 +10,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView tv = (TextView) findViewById(R.id.sample_text);
 
-    // Example of a call to a native method
-    TextView tv = (TextView) findViewById(R.id.sample_text);
-    tv.setText(stringFromJNI() + " ; "+getId("key"));
+        setId("key", 35);
+        tv.setText(stringFromJNI() + " ; " + getId("key"));
     }
 
 
@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
     public native String stringFromJNI();
 
     public native int getId(String key);
+
     public native void setId(String key, int id);
 
 }
