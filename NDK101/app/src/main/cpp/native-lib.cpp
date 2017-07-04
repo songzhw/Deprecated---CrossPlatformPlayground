@@ -1,34 +1,22 @@
 #include <jni.h>
 #include <string>
 #include <android/log.h>
-#include "ItemHelper.h"
 
-static ItemHelper helper = ItemHelper();
-
-extern "C" jstring Java_ca_six_ndk101_MainActivity_stringFromJNI(
-    JNIEnv *env, jobject /* this */) {
-    __android_log_print(ANDROID_LOG_ERROR, "TRACKERS", "%s", "I'm cpp~");
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_ca_six_ndk101_MainActivity_stringFromJNI(
+        JNIEnv* env,
+        jobject /* this */) {
     std::string hello = "Hello from C++";
     return env->NewStringUTF(hello.c_str());
 }
 
-extern "C" jint Java_ca_six_ndk101_MainActivity_getId
-    (JNIEnv *env, jobject thisObj, jstring str) {
-    const char *cstr = env->GetStringUTFChars(str, 0);
-    std::string key(cstr);
-
-    env->ReleaseStringUTFChars(str, cstr);
-    env->DeleteGlobalRef(str);
-    return helper.data[key];
+JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved){
+    __android_log_print(ANDROID_LOG_ERROR, "szw", "%s", "native onLoad()");
+    return JNI_VERSION_1_6;
 }
 
-extern "C" void Java_ca_six_ndk101_MainActivity_setId
-    (JNIEnv *env, jobject thisObj, jstring str, jint id) {
-    const char *cstr = env->GetStringUTFChars(str, 0);
-    std::string key(cstr);
-
-    env->ReleaseStringUTFChars(str, cstr);
-    env->DeleteGlobalRef(str);
-
-    helper.data[key] = id;
+// 不知道何时被调用, 一直没看到相关日志
+JNIEXPORT void JNICALL JNI_OnUnLoad(JavaVM* vm, void* reserved){
+    __android_log_print(ANDROID_LOG_ERROR, "szw", "%s", "native onUnLoad()");
 }
