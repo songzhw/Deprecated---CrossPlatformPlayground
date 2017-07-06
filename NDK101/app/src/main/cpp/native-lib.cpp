@@ -20,3 +20,12 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved){
 JNIEXPORT void JNICALL JNI_OnUnLoad(JavaVM* vm, void* reserved){
     __android_log_print(ANDROID_LOG_ERROR, "szw", "%s", "native onUnLoad()");
 }
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_ca_six_ndk101_MainActivity_getValue(
+    JNIEnv* env, jobject /* this */, jint key) {
+    char* chars = new char[30];
+    sprintf(chars, "a key from %d", key);
+    return env->NewStringUTF(chars);
+}
