@@ -25,9 +25,19 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved){
 
 
 extern "C"
+JNIEXPORT void JNICALL
+Java_ca_six_ndk101_MainActivity_setValue(JNIEnv *env, jobject instance, jint key, jstring value_) {
+    const char *value = env->GetStringUTFChars(value_, 0);
+
+    string valueInMap(value);
+    player[key] = valueInMap;
+
+    env->ReleaseStringUTFChars(value_, value);
+}
+
+extern "C"
 JNIEXPORT jstring JNICALL
-Java_ca_six_ndk101_MainActivity_getValue(
-    JNIEnv* env, jobject /* this */, jint key) {
+Java_ca_six_ndk101_MainActivity_getValue(JNIEnv* env, jobject /* this */, jint key) {
     char* chars = new char[50];
     sprintf(chars, "a key from %d -> %s", key,  player[key].c_str());
     return env->NewStringUTF(chars);
