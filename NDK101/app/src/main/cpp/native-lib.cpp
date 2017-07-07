@@ -8,14 +8,6 @@ using namespace std;
 
 map<int, jobject> player;
 
-extern "C"
-JNIEXPORT jstring JNICALL
-Java_ca_six_ndk101_MainActivity_stringFromJNI(
-        JNIEnv* env,
-        jobject /* this */) {
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
-}
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved){
     logd("native onLoad()");
