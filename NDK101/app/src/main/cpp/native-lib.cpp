@@ -4,6 +4,8 @@
 #include <android/log.h>
 using namespace std;
 
+#define logd(...) __android_log_print(ANDROID_LOG_DEBUG, "szw", __VA_ARGS__)
+
 // 注意: 全局变量只能声明,不能赋值. 所以赋值语句要写在JNI_OnLoad()里面去
 map<int, string> player;
 
@@ -17,7 +19,7 @@ Java_ca_six_ndk101_MainActivity_stringFromJNI(
 }
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved){
-    __android_log_print(ANDROID_LOG_ERROR, "szw", "%s", "native onLoad()");
+    logd("native onLoad()");
     player[23] = "Jorden";
     player[33] = "Kobe";
     return JNI_VERSION_1_6;
