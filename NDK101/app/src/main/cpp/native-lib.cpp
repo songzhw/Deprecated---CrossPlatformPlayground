@@ -8,6 +8,13 @@ using namespace std;
 
 map<int, jobject> player;
 
+void throwNoSuchPlayerException(JNIEnv *env) {
+    jclass exceptionClass = env->FindClass("ca/six/ndk101/model/NoSuchPlayerException");
+    if (exceptionClass != NULL) {
+        env->ThrowNew(exceptionClass, "error from c++");
+    }
+    env->DeleteLocalRef(exceptionClass);
+}
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved){
     logd("native onLoad()");
@@ -16,7 +23,12 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved){
 
 extern "C" JNIEXPORT jobject JNICALL
 Java_ca_six_ndk101_MainActivity_getValue(JNIEnv *env, jobject instance, jint key) {
-    return player[key];
+    jobject ret =  player[key];
+    if(ret == NULL){
+        throwNoSuchPlayerException(env);
+    } else {
+        return ret;
+    }
 }
 
 extern "C" JNIEXPORT void JNICALL
