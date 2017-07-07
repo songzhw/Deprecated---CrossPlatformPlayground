@@ -20,6 +20,7 @@ public class MainActivity extends Activity {
         sb.append(stringFromJNI()+"\n");
         sb.append(getValue(23)+"\n");
         sb.append(getValue(13)+"\n");
+        sb.append(getValue(1)+"\n"); //=> get a null
         tv.setText(sb.toString());
     }
 
