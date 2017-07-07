@@ -44,7 +44,6 @@ Java_ca_six_ndk101_MainActivity_setValue(JNIEnv *env, jobject instance, jint key
     env->CallVoidMethod(globalPlayer, changeNumberMethod, key + 100);
 
     env->DeleteLocalRef(playerClass);
-    // TODO no need to delete methodID ref?
 
     player[key] = globalPlayer;
 
