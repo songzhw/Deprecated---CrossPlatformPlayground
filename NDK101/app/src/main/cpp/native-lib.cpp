@@ -22,12 +22,12 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved){
     return JNI_VERSION_1_6;
 }
 
-JNIEXPORT jobject JNICALL
+extern "C" JNIEXPORT jobject JNICALL
 Java_ca_six_ndk101_MainActivity_getValue(JNIEnv *env, jobject instance, jint key) {
     return player[key];
 }
 
-JNIEXPORT void JNICALL
+extern "C" JNIEXPORT void JNICALL
 Java_ca_six_ndk101_MainActivity_setValue(JNIEnv *env, jobject instance, jint key, jobject value) {
     player[key] = value;
 }
