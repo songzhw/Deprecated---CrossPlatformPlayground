@@ -26,9 +26,8 @@ Java_ca_six_ndk101_MainActivity_getValue(JNIEnv *env, jobject instance, jint key
     jobject ret =  player[key];
     if(ret == NULL){
         throwNoSuchPlayerException(env);
-    } else {
-        return ret;
     }
+    return ret;
 }
 
 extern "C" JNIEXPORT void JNICALL
