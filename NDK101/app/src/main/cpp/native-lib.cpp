@@ -29,5 +29,11 @@ Java_ca_six_ndk101_MainActivity_getValue(JNIEnv *env, jobject instance, jint key
 
 extern "C" JNIEXPORT void JNICALL
 Java_ca_six_ndk101_MainActivity_setValue(JNIEnv *env, jobject instance, jint key, jobject value) {
-    player[key] = value;
+    jobject globalPlayer = env->NewGlobalRef(value);
+    if(globalPlayer == NULL){
+        return;
+    }
+
+    player[key] = globalPlayer;
+
 }
