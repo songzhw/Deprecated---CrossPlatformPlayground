@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import ca.six.ndk101.model.NoSuchPlayerException;
+import ca.six.ndk101.model.Player;
+
 public class MainActivity extends Activity {
 
     @Override
@@ -11,18 +14,33 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    // Example of a call to a native method
-    TextView tv = (TextView) findViewById(R.id.sample_text);
-    tv.setText(stringFromJNI());
+        setValue(33, new Player(33, "Shark"));
+        setValue(13, new Player(13, "Songzhw"));
+
+
+        TextView tv = (TextView)findViewById(R.id.sample_text);
+        StringBuilder sb = new StringBuilder();
+        try {
+            sb.append(getValue(23) + "\n");
+        } catch (Exception e) {
+            sb.append("no 23 player"+"\n");
+        }
+        try {
+            sb.append(getValue(13) + "\n");
+        } catch (Exception e) {
+            sb.append("no 13 player"+"\n");
+        }
+        try {
+            sb.append(getValue(1) + "\n");
+        } catch (Exception e) {
+            sb.append("no 1 player"+"\n");
+        }
+        tv.setText(sb.toString());
     }
 
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native String stringFromJNI();
+    public native Player getValue(int key) throws NoSuchPlayerException;
+    public native void setValue(int key, Player value);
 
-    // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
     }

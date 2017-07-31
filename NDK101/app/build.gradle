@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "26.0.0"
     defaultConfig {
         applicationId "ca.six.ndk101"
         minSdkVersion 15
@@ -10,15 +10,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
         externalNativeBuild {
             cmake {
-                cppFlags "-fexceptions"
+                cppFlags "-std=c++11 -frtti -fexceptions"
             }
-        }
-
-        ndk{
-            abiFilters 'armeabi-v7a'
         }
     }
     buildTypes {
@@ -36,8 +31,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    testCompile 'junit:junit:4.12'
+
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
+
 }
