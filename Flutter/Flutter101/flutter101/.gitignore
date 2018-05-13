@@ -46,8 +46,3 @@ proguard/
 *.iws
 .idea/
 
-GeneratedPluginRegistrant.java
-.DS_Store
-
-
-
