@@ -9,8 +9,8 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
         title: "Welcome to Flutter",
         home: new Scaffold(
-            appBar: new AppBar(title: const Text("Flutter 101")),
-            body: new Center(child: new RandomWordsWidget())
+            appBar: new AppBar(title: const Text("Startup Name Generator")),
+            body: new RandomWordsWidget()
         )
     );
   }
