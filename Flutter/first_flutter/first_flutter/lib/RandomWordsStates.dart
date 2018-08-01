@@ -2,8 +2,14 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
 class RandomWordsWidget extends StatefulWidget {
+  RandomWordsState state = new RandomWordsState();
+
   @override
-  RandomWordsState createState() => new RandomWordsState();
+  RandomWordsState createState() => state;
+
+  void pushSaved() {
+    state.pushSaved();
+  }
 }
 
 class RandomWordsState extends State<RandomWordsWidget> {
@@ -39,8 +45,9 @@ class RandomWordsState extends State<RandomWordsWidget> {
         isAlreadySaved ? Icons.favorite : Icons.favorite_border,
         color: isAlreadySaved ? Colors.red : null,
       ),
-      onTap: (){
-        setState( (){ //react式. 调用setState()会引起State.build()的方法被调用 (类似MVVM)
+      onTap: () {
+        setState(() {
+          //react式. 调用setState()会引起State.build()的方法被调用 (类似MVVM)
           toggle(isAlreadySaved, wordPair);
         });
       },
@@ -53,5 +60,9 @@ class RandomWordsState extends State<RandomWordsWidget> {
     } else {
       _saved.add(wordPair);
     }
+  }
+
+  void pushSaved() {
+    Navigator.of(context).push(null);
   }
 }
