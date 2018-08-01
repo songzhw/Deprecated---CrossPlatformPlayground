@@ -1,4 +1,5 @@
 import 'package:english_words/english_words.dart';
+import 'package:first_flutter/favorited.dart';
 import 'package:flutter/material.dart';
 
 class RandomWordsWidget extends StatefulWidget {
@@ -47,8 +48,8 @@ class RandomWordsState extends State<RandomWordsWidget> {
       ),
       onTap: () {
         setState(() {
-          //react式. 调用setState()会引起State.build()的方法被调用 (类似MVVM)
-          toggle(isAlreadySaved, wordPair);
+          toggle(isAlreadySaved,
+              wordPair); //react式. 调用setState()会引起State.build()的方法被调用 (类似MVVM)
         });
       },
     );
@@ -63,6 +64,7 @@ class RandomWordsState extends State<RandomWordsWidget> {
   }
 
   void pushSaved() {
-    Navigator.of(context).push(null);
+    Favorited favoritedPage = new Favorited(context, _saved);
+    Navigator.of(context).push(favoritedPage.favoritePageRoute());
   }
 }
