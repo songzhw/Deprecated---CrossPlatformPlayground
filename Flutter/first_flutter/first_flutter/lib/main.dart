@@ -1,4 +1,4 @@
-import 'package:first_flutter/RandomWordsStates.dart';
+import 'package:first_flutter/name_list.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
