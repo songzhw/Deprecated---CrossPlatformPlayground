@@ -43,10 +43,14 @@ class ChatState extends State<ChatScreen>{
       child: iconButton
     );
 
-    return new Container(
+    var row = new Container(
       margin: const EdgeInsets.symmetric(horizontal: 8.0), //单位相当于andorid中的dp
       child: new Row(children: <Widget>[textFieldPart, iconPart],),
     );
+
+    return new IconTheme(
+        data: new IconThemeData(color: Theme.of(context).accentColor),
+        child: row);
 
   }
 
