@@ -32,10 +32,20 @@ class ChatState extends State<ChatScreen>{
       onSubmitted: _onSumit,
       decoration: new InputDecoration.collapsed(hintText: "Type to sned"),
     );
+    var textFieldPart = new Flexible(child: textField,);
+
+    var iconButton = new IconButton(
+        icon: new Icon(Icons.send),
+        onPressed: () => _onSumit(_textController.text)
+    );
+    var iconPart = new Container(
+      margin: new EdgeInsets.symmetric(horizontal: 4.0),
+      child: iconButton
+    );
 
     return new Container(
       margin: const EdgeInsets.symmetric(horizontal: 8.0), //单位相当于andorid中的dp
-      child: textField,
+      child: new Row(children: <Widget>[textFieldPart, iconPart],),
     );
 
   }
