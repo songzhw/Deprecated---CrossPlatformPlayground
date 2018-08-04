@@ -66,12 +66,20 @@ class ChatState extends State<ChatScreen> with TickerProviderStateMixin {
     void _onSumit(String text) {
         _textController.clear();
 
-        final animController = new AnimationController(duration: new Duration(milliseconds: 700), vsync: this);
+        final animController = new AnimationController(duration: new Duration(milliseconds: 500), vsync: this);
         final message = new ChatMessage(text, animController);
         setState(  () {  //=> 这是dart中的Lambda, 即(item) { ... }
           _messages.insert(0, message);
         });
         message.animController.forward();
+    }
+
+    @override
+    void dispose() {
+        for (ChatMessage msg in _messages) {
+            msg.animController.dispose();
+        }
+        super.dispose();
     }
 
 }
