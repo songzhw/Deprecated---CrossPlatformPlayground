@@ -7,7 +7,7 @@ class ChatScreen extends StatefulWidget {
     State createState() => new ChatState();
 }
 
-class ChatState extends State<ChatScreen>{
+class ChatState extends State<ChatScreen> with TickerProviderStateMixin {
     final _textController = new TextEditingController();
     final List<ChatMessage> _messages = <ChatMessage>[];
 
@@ -65,10 +65,13 @@ class ChatState extends State<ChatScreen>{
 
     void _onSumit(String text) {
         _textController.clear();
-        final message = new ChatMessage(text);
+
+        final animController = new AnimationController(duration: new Duration(milliseconds: 700), vsync: this);
+        final message = new ChatMessage(text, animController);
         setState(  () {  //=> 这是dart中的Lambda, 即(item) { ... }
           _messages.insert(0, message);
         });
+        message.animController.forward();
     }
 
 }
@@ -76,8 +79,9 @@ class ChatState extends State<ChatScreen>{
 // ============
 class ChatMessage extends StatelessWidget {
     final String text;
+    final AnimationController animController;
 
-    ChatMessage(this.text);
+    ChatMessage(this.text, this.animController);
 
     @override
   Widget build(BuildContext context) {
@@ -97,12 +101,19 @@ class ChatMessage extends StatelessWidget {
     );
 
 
-    return new Container(
+    var chatMessage =  new Container(
         margin: const EdgeInsets.symmetric(vertical: 10.0),
         child: new Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[avatar, nameMessageText],
         ),
+    );
+
+
+    return new SizeTransition(
+        sizeFactor: new CurvedAnimation(parent: animController, curve: Curves.easeOut),
+        axisAlignment: 0.0,
+        child: chatMessage
     );
   }
 }
