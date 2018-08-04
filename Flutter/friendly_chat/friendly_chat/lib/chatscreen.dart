@@ -8,13 +8,29 @@ class ChatScreen extends StatefulWidget {
 }
 
 class ChatState extends State<ChatScreen>{
-    var _textController = new TextEditingController();
+    final _textController = new TextEditingController();
+    final List<ChatMessage> _messages = <ChatMessage>[];
 
     @override
     Widget build(BuildContext context) {
+        final msgList = new Flexible(child: new ListView.builder(
+            padding: new EdgeInsets.all(8.0),
+            reverse: true,
+            itemCount: _messages.length,
+            itemBuilder: (_, index) => _messages[index])
+        );
+
+        final divider = new Divider(height: 1.0,);
+
+        final inputWidget = new Container(
+            decoration: new BoxDecoration(color: Theme.of(context).cardColor),
+            child: _buildTextComposer()
+        );
+
+
         var scaffold = new Scaffold(
             appBar: new AppBar(title: new Text("FriendlyChat"),),
-            body: _buildTextComposer(),
+            body: new Column(children: <Widget>[msgList, divider, inputWidget],),
         );
         return scaffold;
     }
@@ -49,6 +65,10 @@ class ChatState extends State<ChatScreen>{
 
     void _onSumit(String text) {
         _textController.clear();
+        final message = new ChatMessage(text);
+        setState(  () {  //=> 这是dart中的Lambda, 即(item) { ... }
+          _messages.insert(0, message);
+        });
     }
 
 }
