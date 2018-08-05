@@ -10,6 +10,7 @@ class ChatScreen extends StatefulWidget {
 class ChatState extends State<ChatScreen> with TickerProviderStateMixin {
     final _textController = new TextEditingController();
     final List<ChatMessage> _messages = <ChatMessage>[];
+    var _hasText = false;
 
     @override
     Widget build(BuildContext context) {
@@ -40,12 +41,17 @@ class ChatState extends State<ChatScreen> with TickerProviderStateMixin {
             controller: _textController,
             onSubmitted: _onSumit,
             decoration: new InputDecoration.collapsed(hintText: "Type to sned"),
+            onChanged: (String text) {
+                setState(() {
+                    _hasText = text.trim().length > 0;
+                });
+            },
         );
         var textFieldPart = new Flexible(child: textField,);
 
         var iconButton = new IconButton(
             icon: new Icon(Icons.send),
-            onPressed: () => _onSumit(_textController.text)
+            onPressed: () => _hasText ? _onSumit(_textController.text) : null,
         );
         var iconPart = new Container(
             margin: new EdgeInsets.symmetric(horizontal: 4.0),
@@ -70,6 +76,7 @@ class ChatState extends State<ChatScreen> with TickerProviderStateMixin {
         final message = new ChatMessage(text, animController);
         setState(  () {  //=> 这是dart中的Lambda, 即(item) { ... }
           _messages.insert(0, message);
+          _hasText = false;
         });
         message.animController.forward();
     }
