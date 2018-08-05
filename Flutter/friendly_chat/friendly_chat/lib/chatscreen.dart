@@ -110,9 +110,11 @@ class ChatMessage extends StatelessWidget {
         margin: const EdgeInsets.only(top: 5.0),
         child: new Text(text)
     );
-    var nameMessageText = new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[nameText, messageText],
+    var nameMessageText = new Expanded(
+      child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[nameText, messageText],
+      ),
     );
 
 
