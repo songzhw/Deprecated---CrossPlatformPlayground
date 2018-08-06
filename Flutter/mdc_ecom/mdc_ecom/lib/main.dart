@@ -11,8 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: new Scaffold(
           appBar: AppBar(title: Text("test"),),
-          body: Image.asset('assets/diamond.png')
-
+          body: Image.asset("assets/diamond.png")
       ),
     );
   }
