@@ -18,7 +18,10 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
               SizedBox(height: 80.0,),
               logo,
-              SizedBox(height: 120.0,)
+              SizedBox(height: 120.0,),
+              TextField(decoration: InputDecoration(labelText: 'Username'),),
+              SizedBox(height: 12.0,),
+              TextField(decoration: InputDecoration(labelText: 'Password'),obscureText: true,),
           ],
       );
       return Scaffold(body: list);
