@@ -26,6 +26,8 @@ $ expo start
 (expo scan the QR code on the terminate or http://localhost:19002)
 ```
 
+5. modify the app.js
+and you would see the effect in Expo app
 
 
 p.s. Update Node.js & npm
