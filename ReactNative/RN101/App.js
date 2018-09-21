@@ -1,14 +1,6 @@
 import React, {Component} from 'react';
 import { AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
 
-class Greeting extends Component {
-  render() {
-    return (
-      <Text> Hello : {this.props.name} </Text>
-    )
-  }
-}
-
 export default class App extends Component {
   render() {
     let pic = { uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg' }
@@ -18,8 +10,8 @@ export default class App extends Component {
         <Text>Open up App.js to start working on your app!</Text>
         <Text>Hello World: </Text>
         <Image source={pic} style={{ width: 386, height: 220 }} />
-        <Greeting name="React Native" />
-        <Greeting name="Java"/>
+        <Greeting name="React Native" id="23"/>
+        <Greeting name="Java" id="100"/>
       </View>
     );
   }
@@ -34,7 +26,13 @@ const styles = StyleSheet.create({
   },
 });
 
-
+class Greeting extends Component {
+  render() {
+    return (
+      <Text> Hello : {this.props.name}  - {this.props.id} </Text>
+    )
+  }
+}
 
 // skip this line if using Create-React-Native-App
 // AppRegistry.registerComponent('RN101', ()=>Bananas)
