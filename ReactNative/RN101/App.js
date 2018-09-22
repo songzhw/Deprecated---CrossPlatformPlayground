@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
 
 export default class App extends Component {
@@ -7,11 +7,11 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <Text>Hello World </Text>
+        <Text style={{ color: 'red', fontSize: 33 }}>Hello World </Text>
         <Image source={pic} style={{ width: 386, height: 220 }} />
-        <Greeting name="React Native" id="23"/>
-        <Greeting name="Java" id="100"/>
-        <Blink myText="I am React Native"/>
+        <Greeting name="React Native" id="23" />
+        <Greeting name="Java" id="100" />
+        <Blink myText="I am React Native" />
       </View>
     );
   }
@@ -36,18 +36,18 @@ class Greeting extends Component {
 
 // may use Redux or Mobx to modify the state rather than calling "setState()" directly
 class Blink extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state = {isShowingText : true}
+    this.state = { isShowingText: true }
 
-    setInterval( () => {
-      this.setState( oldState => {
-        return {isShowingText: !oldState.isShowingText}
+    setInterval(() => {
+      this.setState(oldState => {
+        return { isShowingText: !oldState.isShowingText }
       })
     }, 1200)
   }
 
-  render(){
+  render() {
     let display = this.state.isShowingText ? this.props.myText : ' '
     return (
       <Text> {display} </Text>
