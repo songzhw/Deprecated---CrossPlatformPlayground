@@ -13,10 +13,15 @@ export default class App extends Component {
       //   <Greeting name="Java" id="100" />
       //   <Blink myText="I am React Native" />
       // </View>
-      <View style={{height:300}}>
-        <View style={{flex: 1, backgroundColor: 'powderblue'}}/>
-        <View style={{flex: 2, backgroundColor: 'skyblue'}}/>
-        <View style={{flex: 3, backgroundColor: 'steelblue'}}/>
+      <View style={{
+        flex: 1, 
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'stretch'
+        }}>
+        <View style={{width:90, height: 90, backgroundColor: 'powderblue'}}/>
+        <View style={{width:90, height: 90, backgroundColor: 'skyblue'}}/>
+        <View style={{width:90, height: 90, backgroundColor: 'steelblue'}}/>
       </View>
     );
   }
