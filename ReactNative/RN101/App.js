@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View, TextInput } from 'react-native';
+import { Image, StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 
 export default class App extends Component {
   render() {
@@ -7,11 +7,12 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={{ color: 'red', fontSize: 33 }}>Hello World </Text>
+        <Text style={{ color: 'red', fontSize: 23 }}>Hello World </Text>
+        <Pizza style={{width:200, height: 120}}/>
         <Image source={pic} style={{ width: 386, height: 220 }} />
         <Greeting name="React Native" id="23" />
         <Blink myText="I am React Native" />
-        <Pizza style={{width:200, height: 120}}/>
+        <Button title="click me" onPress={ ()=> Alert.alert('Clicked!')}/>
       </View>
     );
   }
