@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView, FlatList, SectionList } from 'react-native';
+import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView, FlatList, SectionList, ActivityIndicator } from 'react-native';
 
 export default class App extends Component {
   render() {
@@ -7,14 +7,15 @@ export default class App extends Component {
 
     return (
       <ScrollView >
-        <Text style={{ color: 'red', fontSize: 23 }}>Hello World </Text>
+        <Text style={{ color: 'red', fontSize: 33 }}>Hello World </Text>
         <Pizza style={{ width: 200, height: 120 }} />
         <Image source={pic} style={{ width: 386, height: 220 }} />
         <Greeting name="React Native" id="23" />
         <Blink myText="I am React Native" />
         <Button title="click me" onPress={() => Alert.alert('Clicked!')} />
+        <MovieInfo />
         <FlatList data={[{ key: 'Apple' }, { key: 'Banana' }, { key: 'Cat' }]}
-          renderItem={({ item }) => <Text>{item.key}</Text>} />
+          renderItem={({ item }) => <Text style={{ fontSize: 30 }}>{item.key}</Text>} />
         <ContactInfo />
       </ScrollView>
     );
@@ -30,7 +31,8 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     backgroundColor: 'rgba(247,247,247,1.0)',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: 30
   }
 });
 
@@ -94,7 +96,7 @@ class ContactInfo extends Component {
             { title: "A", data: ['Apple', "Alien"] },
             { title: "B", data: ['Bing', "Bang", "bat", "batman"] }
           ]}
-          renderItem={({ item }) => <Text> {item} </Text>}
+          renderItem={({ item }) => <Text style={{ fontSize: 26 }}> {item} </Text>}
           renderSectionHeader={({ section }) => <Text style={styles.sectionHeader}> {section.title} </Text>}
           keyExtractor={(item, index) => index}
         />
@@ -110,7 +112,45 @@ function getMoviesFromApiAsync() {
     .catch(err => console.error(err))
 }
 
+class MovieInfo extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { isLoading: true }
+  }
 
+  componentDidMount() {
+    return fetch("https://facebook.github.io/react-native/movies.json")
+      .then(resp => resp.json)
+      .then(respJson => {
+        console.log("szw " + respJson.movies)
+        this.setState({
+          isLoading: false,
+          payload: respJson.movies
+        })
+      })
+      .catch(err => console.error("szw error = " + err))
+  }
+
+  render() {
+    if (this.state.isLoading) {
+      return (
+        <View>
+          <ActivityIndicator />
+        </View>
+      )
+    }
+
+    return (
+      <View >
+        <FlatList
+          data={this.state.payload}
+          renderItem={({ item }) => <Text> {item.title} (from {item.releaseYear})</Text>}
+          keyExtractor={({ id }, index) => id}
+        />
+      </View>
+    )
+  }
+}
 
 
 // skip this line if using Create-React-Native-App
