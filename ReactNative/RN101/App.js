@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
+import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView } from 'react-native';
 
 export default class App extends Component {
   render() {
     let pic = { uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg' }
 
     return (
-      <View style={styles.container}>
+      <ScrollView >
         <Text style={{ color: 'red', fontSize: 23 }}>Hello World </Text>
-        <Pizza style={{width:200, height: 120}}/>
+        <Pizza style={{ width: 200, height: 120 }} />
         <Image source={pic} style={{ width: 386, height: 220 }} />
         <Greeting name="React Native" id="23" />
         <Blink myText="I am React Native" />
-        <Button title="click me" onPress={ ()=> Alert.alert('Clicked!')}/>
-      </View>
+        <Button title="click me" onPress={() => Alert.alert('Clicked!')} />
+        <Text style={{ fontSize: 96 }}>Framework around?</Text>
+        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
+        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
+        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
+        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
+        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
+        <Text style={{ fontSize: 80 }}>React Native</Text>
+      </ScrollView>
     );
   }
 }
@@ -69,7 +76,7 @@ class Pizza extends Component {
         <Text>
           {this.state.text
             .split(' ')
-            .map( (word) => word && '🍕')
+            .map((word) => word && '🍕')
             .join('-')
           }
         </Text>
