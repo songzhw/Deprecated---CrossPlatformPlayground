@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView } from 'react-native';
+import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView, FlatList, SectionList } from 'react-native';
 
 export default class App extends Component {
   render() {
@@ -13,13 +13,9 @@ export default class App extends Component {
         <Greeting name="React Native" id="23" />
         <Blink myText="I am React Native" />
         <Button title="click me" onPress={() => Alert.alert('Clicked!')} />
-        <Text style={{ fontSize: 96 }}>Framework around?</Text>
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
-        <Image source={{ uri: "https://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64 }} />
-        <Text style={{ fontSize: 80 }}>React Native</Text>
+        <FlatList data={[{ key: 'Apple' }, { key: 'Banana' }, { key: 'Cat' }]}
+          renderItem={({ item }) => <Text>{item.key}</Text>} />
+        <ContactInfo />
       </ScrollView>
     );
   }
@@ -32,6 +28,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  sectionHeader: {
+    backgroundColor: 'rgba(247,247,247,1.0)',
+    fontWeight: 'bold'
+  }
 });
 
 class Greeting extends Component {
@@ -84,6 +84,25 @@ class Pizza extends Component {
     )
   }
 }
+
+class ContactInfo extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <SectionList
+          sections={[
+            { title: "A", data: ['Apple', "Alien"] },
+            { title: "B", data: ['Bing', "Bang", "bat", "batman"] }
+          ]}
+          renderItem={({ item }) => <Text> {item} </Text>}
+          renderSectionHeader={({ section }) => <Text style={styles.sectionHeader}> {section.title} </Text>}
+          keyExtractor={(item, index) => index}
+        />
+      </View>
+    )
+  }
+}
+
 
 // skip this line if using Create-React-Native-App
 // AppRegistry.registerComponent('RN101', ()=>Bananas)
