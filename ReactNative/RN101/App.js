@@ -103,6 +103,15 @@ class ContactInfo extends Component {
   }
 }
 
+function getMoviesFromApiAsync() {
+  return fetch("http://facebook.github.io/react-native/movies.json")
+    .then((response) => response.json)
+    .then(respJson => respJson.movies)
+    .catch(err => console.error(err))
+}
+
+
+
 
 // skip this line if using Create-React-Native-App
 // AppRegistry.registerComponent('RN101', ()=>Bananas)
