@@ -105,13 +105,6 @@ class ContactInfo extends Component {
   }
 }
 
-function getMoviesFromApiAsync() {
-  return fetch("http://facebook.github.io/react-native/movies.json")
-    .then((response) => response.json)
-    .then(respJson => respJson.movies)
-    .catch(err => console.error(err))
-}
-
 class MovieInfo extends Component {
   constructor(props) {
     super(props)
@@ -120,9 +113,8 @@ class MovieInfo extends Component {
 
   componentDidMount() {
     return fetch("https://facebook.github.io/react-native/movies.json")
-      .then(resp => resp.json)
+      .then(resp => resp.json())  //写成了resp.json, 结果总是没有任何数据出来
       .then(respJson => {
-        console.log("szw " + respJson.movies)
         this.setState({
           isLoading: false,
           payload: respJson.movies
