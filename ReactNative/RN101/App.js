@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView, FlatList, SectionList, ActivityIndicator, Platform } from 'react-native'
-import {createStackNavigator} from 'react-navigation'
+import { createStackNavigator } from 'react-navigation'
 
 
 // Only one default export allowed per module. 
@@ -17,6 +17,8 @@ class HomeScreen extends Component {
         <Blink myText="I am React Native" />
         <Button title="click me" onPress={() => Alert.alert('Clicked!')} />
         <MovieInfo />
+        <Button title="=> details screen"
+          onPress={() => this.props.navigation.navigate('Details')} />
         <FlatList data={[{ key: 'Apple' }, { key: 'Banana' }, { key: 'Cat' }]}
           renderItem={({ item }) => <Text style={{ fontSize: 30 }}>{item.key}</Text>} />
         <ContactInfo />
@@ -25,16 +27,11 @@ class HomeScreen extends Component {
   }
 }
 
-// React-Naviagation得入到homeScreen的定义之下才行
-// 另外, 这库除了导航, 还能帮我们创建一个toolbar, 免得内容与status bar重叠了
-export default createStackNavigator({
-  Home: {screen: HomeScreen}
-})
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    ...Platform.select( {
+    ...Platform.select({
       ios: {
         backgroundColor: '#fff',
       },
@@ -42,7 +39,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ccc',
       }
     }),
-    
+
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -158,6 +155,32 @@ class MovieInfo extends Component {
         />
       </View>
     )
+  }
+}
+
+class DetailScreen extends Component {
+  render() {
+    return (
+      <View>
+        <Text> Detail page</Text>
+      </View>
+    )
+  }
+}
+
+// React-Naviagation得入到homeScreen的定义之下才行
+// 另外, 这库除了导航, 还能帮我们创建一个toolbar, 免得内容与status bar重叠了
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Details: DetailScreen
+  }, {
+    initialRouteName: 'Home'
+  })
+
+export default class App extends Component {
+  render() {
+    return <RootStack />
   }
 }
 
