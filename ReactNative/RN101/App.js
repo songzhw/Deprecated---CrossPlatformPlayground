@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView, FlatList, SectionList, ActivityIndicator } from 'react-native';
+import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView, FlatList, SectionList, ActivityIndicator, Platform } from 'react-native';
 
 export default class App extends Component {
   render() {
@@ -25,7 +25,15 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    ...Platform.select( {
+      ios: {
+        backgroundColor: '#fff',
+      },
+      android: {
+        backgroundColor: '#ccc',
+      }
+    }),
+    
     alignItems: 'center',
     justifyContent: 'center',
   },
