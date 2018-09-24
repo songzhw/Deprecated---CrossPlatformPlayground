@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView, FlatList, SectionList, ActivityIndicator, Platform } from 'react-native';
+import React, { Component } from 'react'
+import { Image, StyleSheet, Text, View, TextInput, Button, Alert, ScrollView, FlatList, SectionList, ActivityIndicator, Platform } from 'react-native'
+import {createStackNavigator} from 'react-navigation'
 
-export default class App extends Component {
+
+// Only one default export allowed per module. 
+class HomeScreen extends Component {
   render() {
     let pic = { uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg' }
 
@@ -21,6 +24,12 @@ export default class App extends Component {
     );
   }
 }
+
+// React-Naviagation得入到homeScreen的定义之下才行
+// 另外, 这库除了导航, 还能帮我们创建一个toolbar, 免得内容与status bar重叠了
+export default createStackNavigator({
+  Home: {screen: HomeScreen}
+})
 
 const styles = StyleSheet.create({
   container: {
