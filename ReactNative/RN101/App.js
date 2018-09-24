@@ -8,6 +8,8 @@ class HomeScreen extends Component {
   render() {
     let pic = { uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg' }
 
+    let details = { id: 23, name: "cellphone" }
+
     return (
       <ScrollView >
         <Text style={{ color: 'red', fontSize: 33 }}>Hello World </Text>
@@ -18,7 +20,7 @@ class HomeScreen extends Component {
         <Button title="click me" onPress={() => Alert.alert('Clicked!')} />
         <MovieInfo />
         <Button title="=> details screen"
-          onPress={() => this.props.navigation.navigate('Details')} />
+          onPress={() => this.props.navigation.navigate('Details', details)} />
         <FlatList data={[{ key: 'Apple' }, { key: 'Banana' }, { key: 'Cat' }]}
           renderItem={({ item }) => <Text style={{ fontSize: 30 }}>{item.key}</Text>} />
         <ContactInfo />
@@ -160,9 +162,21 @@ class MovieInfo extends Component {
 
 class DetailScreen extends Component {
   render() {
+    const { navigation } = this.props
+    const id = navigation.getParam("id", "NO-ID")
+    const name = navigation.getParam("name", "NULL Name")
+
     return (
-      <View>
+      <View style={ {flex:1}}>
         <Text> Detail page</Text>
+        <Text> id: {id}, name : {name}</Text>
+        <Button title="go back" onPress={() => this.props.navigation.goBack()} />
+        <Button title="go to detail again"
+          onPress={() => {
+            this.props.navigation.push('Details', {
+              id: Math.floor(Math.random() * 100)
+            })
+          }} />
       </View>
     )
   }
