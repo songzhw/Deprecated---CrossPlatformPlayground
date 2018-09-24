@@ -5,6 +5,10 @@ import { createStackNavigator } from 'react-navigation'
 
 // Only one default export allowed per module. 
 class HomeScreen extends Component {
+  static navigationOptions = {
+    title: 'Home'
+  }
+
   render() {
     let pic = { uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg' }
 
@@ -161,13 +165,17 @@ class MovieInfo extends Component {
 }
 
 class DetailScreen extends Component {
+  static navigationOptions = {
+    title: 'Details'
+  }
+
   render() {
     const { navigation } = this.props
     const id = navigation.getParam("id", "NO-ID")
     const name = navigation.getParam("name", "NULL Name")
 
     return (
-      <View style={ {flex:1}}>
+      <View style={{ flex: 1 }}>
         <Text> Detail page</Text>
         <Text> id: {id}, name : {name}</Text>
         <Button title="go back" onPress={() => this.props.navigation.goBack()} />
@@ -189,7 +197,11 @@ const RootStack = createStackNavigator(
     Home: HomeScreen,
     Details: DetailScreen
   }, {
-    initialRouteName: 'Home'
+    initialRouteName: 'Home',
+    navigationOptions: {
+      headerStyle: { backgroundColor: '#f4511e' },
+      headerTintColor: '#fff'
+    }
   })
 
 export default class App extends Component {
