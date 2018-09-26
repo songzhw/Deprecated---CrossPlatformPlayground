@@ -7,7 +7,7 @@ export default class LinksScreen extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { isFirstTime: false }
+    this.state = { isFirstTime: true }
   }
 
   componentDidMount() {
@@ -15,7 +15,7 @@ export default class LinksScreen extends React.Component {
       .then(hasItem => {
         console.log(`has(key) = ${hasItem}`)
         if (!hasItem) {
-          this.setState(prevState => ({ isFirstTime: true }))
+          this.setState(prevState => ({ isFirstTime: false }))
           Storage200.set("isFirstTime", false)
         }
       })
@@ -28,11 +28,7 @@ export default class LinksScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        if(this.state.isFirstTime) {
-          <View>
-            <Text>You just installed this app. Congrutulations!</Text>
-          </View>
-        }
+        {this.state.isFirstTime ? <Text>FirstTime</Text> : null }
 
         <Image style={{ width: 80, height: 80 }}
           source={require('../assets/images/humberger.png')} />
