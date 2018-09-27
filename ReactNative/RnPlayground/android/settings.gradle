@@ -1,0 +1,3 @@
+rootProject.name = 'RnPlayground'
+
+include ':app'

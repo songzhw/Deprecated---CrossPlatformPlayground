@@ -30,6 +30,33 @@ $ expo start
 and you would see the effect in Expo app
 
 
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+
+If you are trying to integrate existing android/ios project, here is the procedures:
+
+1.
+```s
+$ sudo npm install -g react-native-cli
+```
+
+
+2. 
+```s
+$ react-native init [projectName]
+```
+
+3. run the android project
+(it will rn the JS server for you)
+
+```s
+$ cd [projectName]
+$ react-native run-android
+```
+
+
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+
 p.s. Update Node.js & npm
 ```s
 # update npm
