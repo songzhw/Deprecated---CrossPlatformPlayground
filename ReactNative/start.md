@@ -53,6 +53,8 @@ $ cd [projectName]
 $ react-native run-android
 ```
 
+4. If you got a " the development server returned response error code 500" error in your device, try to run `adb reverse tcp:8081 tcp:8081` first
+
 
 
 = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
