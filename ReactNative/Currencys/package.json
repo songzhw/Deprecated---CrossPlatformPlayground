@@ -6,12 +6,19 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "lint": "./node_modules/eslint/bin/eslint app/",
+    "lint:fix": "./node_modules/eslint/bin/eslint app/ --fix"
   },
   "dependencies": {
+    "@expo/vector-icons": "6.2.0",
+    "color": "3.0.0",
     "expo": "^30.0.1",
+    "moment": "2.18.1",
+    "prop-types": "^15.6.2",
     "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-extended-stylesheet": "0.8.0"
   },
   "devDependencies": {
     "eslint": "^5.6.1",
