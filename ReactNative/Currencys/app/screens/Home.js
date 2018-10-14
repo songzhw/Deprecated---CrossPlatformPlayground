@@ -11,3 +11,4 @@ export default () => (
     </View>
   </Container>
 )
+// vs light这个theme中 html.attribute是f00红色, 不是错误, 注意哦
