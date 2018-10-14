@@ -5,17 +5,11 @@ import styles from './styles'
 
 const Logo = () => (
   <View style={styles.container}>
-    <ImageBackground
-      resizeMode="contain"
-      style={styles.containerImage}
-      source={require('./images/background.png')}
-    >
-      <Image
-        resizeMode="contain"
-        style={styles.logo}
-        source={require('./images/logo.png')}
-      />
-    </ImageBackground>
+    <Image
+      source={{ uri: 'https://facebook.github.io/react/logo-og.png' }}
+      style={{ width: 200, height: 200 }}
+      blurRadius={5}
+    />
     <Text style={styles.text}> Currency Converter</Text>
   </View>
 )
