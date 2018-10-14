@@ -1,14 +1,13 @@
 import React from 'react'
-import { View } from 'react-native'
-import ExtStyle from 'react-native-extended-stylesheet'
-import { Container } from '../components/Container'
+import { View, StatusBar, Text } from 'react-native'
 
-ExtStyle.build({
-  $primaryBlue: '#4F6D7A',
-})
+import { Container } from '../components/Container'
 
 export default () => (
   <Container>
-    <View />
+    <StatusBar translucent={false} barStyle="light-content" />
+    <View>
+      <Text>Singleton</Text>
+    </View>
   </Container>
 )
