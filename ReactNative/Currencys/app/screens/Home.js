@@ -19,10 +19,15 @@ class Home extends Component {
         <InputWithButton
           buttonText={BASE_CURRENCEY}
           onPress={this.handlePressBaseCurrency}
+          defaultValue={BASE_PRICE}
+          keyboardType="numeric"
+          onChangeText={this.changeText}
         />
         <InputWithButton
           buttonText={QUOTE_CURRENCY}
           onPress={this.handlePressQuotoCurrency}
+          value={QUOTE_PRICE}
+          editable={false}
         />
       </Container>
     )
@@ -33,6 +38,9 @@ class Home extends Component {
   }
   handlePressQuotoCurrency = () => {
     console.log('szw press quote currency')
+  }
+  changeText = () => {
+    console.log('szw change text')
   }
 }
 

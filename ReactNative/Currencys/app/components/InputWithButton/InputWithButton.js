@@ -11,7 +11,11 @@ const InputWithButton = ({ editable, onPress, buttonText, ...props }) => {
         <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableHighlight>
       <View style={styles.separator} />
-      <TextInput style={styles.input} />
+      <TextInput
+        style={styles.input}
+        underlineColorAndroid="transparent"
+        {...props}
+      />
     </View>
   )
 }
