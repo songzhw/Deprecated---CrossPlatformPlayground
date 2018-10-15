@@ -3,6 +3,7 @@ import { StatusBar } from 'react-native'
 
 import { Container } from '../components/Container'
 import { Logo } from '../components/Logo'
+import { InputWithButton } from '../components/InputWithButton'
 
 const BASE_CURRENCEY = 'CAD'
 const QUOTE_CURRENCY = 'RMB'
@@ -15,8 +16,23 @@ class Home extends Component {
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
         <Logo />
+        <InputWithButton
+          buttonText={BASE_CURRENCEY}
+          onPress={this.handlePressBaseCurrency}
+        />
+        <InputWithButton
+          buttonText={QUOTE_CURRENCY}
+          onPress={this.handlePressQuotoCurrency}
+        />
       </Container>
     )
+  }
+
+  handlePressBaseCurrency = () => {
+    console.log('szw press base currency')
+  }
+  handlePressQuotoCurrency = () => {
+    console.log('szw press quote currency')
   }
 }
 
