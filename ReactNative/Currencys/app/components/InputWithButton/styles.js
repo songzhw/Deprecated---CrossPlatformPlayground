@@ -23,6 +23,7 @@ export default ExtStyle.create({
     height: INPUT_HEIGHT,
     alignItems: 'center',
     justifyContent:'center',
+    backgroundColor: '$white'
   },
   buttonText: {
     fontSize: 20,
@@ -37,5 +38,8 @@ export default ExtStyle.create({
   },
   input: {
     height: INPUT_HEIGHT,
+    paddingHorizontal: 14,
+    color: '$inputText',
+    fontSize: 19,
   },
 })
