@@ -15,7 +15,7 @@ const InputWithButton = ({ editable, onPress, buttonText, ...props }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={containerStyle}>
       <TouchableHighlight onPress={onPress} style={styles.buttonContainer}>
         <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableHighlight>

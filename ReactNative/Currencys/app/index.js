@@ -5,7 +5,7 @@ import Home from './screens/Home'
 ExtStyle.build({
   $primaryBlue: '#4F6D7A',
   $white: '#FFFFFF',
-  $lightGray: '#f0f0f0',
+  $lightGray: '#e1e1e1',
   $border: '#979797',
   $inputText: '#797979',
 })

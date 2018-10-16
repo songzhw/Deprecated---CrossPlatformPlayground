@@ -29,6 +29,7 @@ export default ExtStyle.create({
   separator: {
     height: INPUT_HEIGHT,
     width: StyleSheet.hairlineWidth,
+    backgroundColor: '$border'
   },
   input: {
     height: INPUT_HEIGHT,
