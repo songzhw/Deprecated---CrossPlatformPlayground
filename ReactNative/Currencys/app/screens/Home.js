@@ -12,25 +12,12 @@ const QUOTE_PRICE = '5.1'
 
 class Home extends Component {
   render() {
-    return (
-      <Container>
+    return <Container>
         <StatusBar translucent={false} barStyle="light-content" />
         <Logo />
-        <InputWithButton
-          buttonText={BASE_CURRENCEY}
-          onPress={this.handlePressBaseCurrency}
-          defaultValue={BASE_PRICE}
-          keyboardType="numeric"
-          onChangeText={this.changeText}
-        />
-        <InputWithButton
-          buttonText={QUOTE_CURRENCY}
-          onPress={this.handlePressQuotoCurrency}
-          value={QUOTE_PRICE}
-          editable={false}
-        />
+        <InputWithButton buttonText={BASE_CURRENCEY} onPress={this.handlePressBaseCurrency} defaultValue={BASE_PRICE} keyboardType="numeric" onChangeText={this.changeText} />
+        <InputWithButton buttonText={QUOTE_CURRENCY} onPress={this.handlePressQuotoCurrency} value={QUOTE_PRICE} editable={false} />
       </Container>
-    )
   }
 
   handlePressBaseCurrency = () => {
