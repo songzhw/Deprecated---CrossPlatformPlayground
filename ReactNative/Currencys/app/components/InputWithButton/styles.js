@@ -19,12 +19,16 @@ export default ExtStyle.create({
   containerDisabled: {
     backgroundColor: '$lightGray',
   },
-  buttonContainer: {
+  buttonDesp: {
     height: INPUT_HEIGHT,
     alignItems: 'center',
+    justifyContent:'center',
   },
   buttonText: {
     fontSize: 20,
+    fontWeight: '600',
+    paddingHorizontal: 16,
+    color: '$primaryBlue'
   },
   separator: {
     height: INPUT_HEIGHT,
