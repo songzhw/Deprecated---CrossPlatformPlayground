@@ -9,6 +9,12 @@ export default ExtStyle.create({
   $buttonBgColorModifier: 0.1,
   container: {
     alignItems: 'center',
+    backgroundColor: '$white',
+    width: '90%',
+    height: INPUT_HEIGHT,
+    flexDirection: 'row',
+    borderRadius: BORDER_RADIUS,
+    marginVertical: 11,
   },
   containerDisabled: {
     backgroundColor: '$lightGray',

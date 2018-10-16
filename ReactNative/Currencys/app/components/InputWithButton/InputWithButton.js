@@ -5,6 +5,15 @@ import color from 'color'
 import styles from './styles'
 
 const InputWithButton = ({ editable, onPress, buttonText, ...props }) => {
+  // const underlayColor = color(styles.$buttonBgColorBase).darken(
+  //   styles.$buttonBgColorModifier
+  // )
+
+  const containerStyle = [styles.container]
+  if (editable === false) {
+    containerStyle.push(styles.containerDisabled)
+  }
+
   return (
     <View style={styles.container}>
       <TouchableHighlight onPress={onPress} style={styles.buttonContainer}>
