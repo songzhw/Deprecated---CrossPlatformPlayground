@@ -4,22 +4,47 @@ import { StatusBar } from 'react-native'
 import { Container } from '../components/Container'
 import { Logo } from '../components/Logo'
 import { InputWithButton } from '../components/InputWithButton'
-import {ClearButton} from '../components/Button'
+import { ClearButton } from '../components/Button'
+import { LastPrice } from '../components/Text'
 
 const BASE_CURRENCEY = 'CAD'
 const QUOTE_CURRENCY = 'RMB'
 const BASE_PRICE = '100'
 const QUOTE_PRICE = '5.1'
+const LAST_PRICE = new Date()
+const CONVERSION_RATE = 0.531
 
 class Home extends Component {
   render() {
-    return <Container>
+    return (
+      <Container>
         <StatusBar translucent={false} barStyle="light-content" />
         <Logo />
-        <InputWithButton buttonText={BASE_CURRENCEY} onPress={this.handlePressBaseCurrency} defaultValue={BASE_PRICE} keyboardType="numeric" onChangeText={this.changeText} />
-        <InputWithButton buttonText={QUOTE_CURRENCY} onPress={this.handlePressQuotoCurrency} value={QUOTE_PRICE} editable={false} />
-        <ClearButton text="Reverse Currencies" onPress={this.handleSwapCurrency}/>
+        <InputWithButton
+          buttonText={BASE_CURRENCEY}
+          onPress={this.handlePressBaseCurrency}
+          defaultValue={BASE_PRICE}
+          keyboardType="numeric"
+          onChangeText={this.changeText}
+        />
+        <InputWithButton
+          buttonText={QUOTE_CURRENCY}
+          onPress={this.handlePressQuotoCurrency}
+          value={QUOTE_PRICE}
+          editable={false}
+        />
+        <LastPrice
+          date={LAST_PRICE}
+          base={BASE_CURRENCEY}
+          quote={QUOTE_CURRENCY}
+          conversionRate={CONVERSION_RATE}
+        />
+        <ClearButton
+          text="Reverse Currencies"
+          onPress={this.handleSwapCurrency}
+        />
       </Container>
+    )
   }
 
   handlePressBaseCurrency = () => {
