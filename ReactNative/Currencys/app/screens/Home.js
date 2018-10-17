@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native'
 import { Container } from '../components/Container'
 import { Logo } from '../components/Logo'
 import { InputWithButton } from '../components/InputWithButton'
+import {ClearButton} from '../components/Button'
 
 const BASE_CURRENCEY = 'CAD'
 const QUOTE_CURRENCY = 'RMB'
@@ -17,6 +18,7 @@ class Home extends Component {
         <Logo />
         <InputWithButton buttonText={BASE_CURRENCEY} onPress={this.handlePressBaseCurrency} defaultValue={BASE_PRICE} keyboardType="numeric" onChangeText={this.changeText} />
         <InputWithButton buttonText={QUOTE_CURRENCY} onPress={this.handlePressQuotoCurrency} value={QUOTE_PRICE} editable={false} />
+        <ClearButton text="Reverse Currencies" onPress={this.handleSwapCurrency}/>
       </Container>
   }
 
@@ -28,6 +30,9 @@ class Home extends Component {
   }
   changeText = () => {
     console.log('szw change text')
+  }
+  handleSwapCurrency = () => {
+    console.log('szw swap currency')
   }
 }
 
