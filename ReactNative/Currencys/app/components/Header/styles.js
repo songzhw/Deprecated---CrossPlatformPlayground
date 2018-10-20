@@ -5,7 +5,6 @@ export default ExtStyle.create({
   container: {
     // 若不加Position, 就会因为<Container>组件会将内容全居中, 就不是在最上了. 我们希望Header在最上, 只在statusBar之下
     position: 'absolute',
-    left: 0,
     right: 0,
     top: 0,
     // 光加上面的几句, header就会和StatusBar重合. 所以这里要加上marginTop

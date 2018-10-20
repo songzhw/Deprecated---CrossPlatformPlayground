@@ -19,6 +19,7 @@ class Home extends Component {
   render() {
     return (
       <Container>
+        {/* 这里看样式, 是Status不在Container的水平/垂直都居中的限制的, 可能是StatusBar的特殊性  */}
         <StatusBar translucent={false} barStyle="light-content" />
         <Header onPress={this.handleOptionsPress}/>
         <Logo />
