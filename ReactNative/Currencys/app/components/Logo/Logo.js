@@ -48,6 +48,30 @@ class Logo extends Component {
       </View>
     )
   }
+
+  componentDidMount() {
+    const platform = Platform.OS === 'ios' ? 'will' : 'Did'
+    this.keyboardDidShowListener = Keyboard.addListener(
+      `keyboard${platform}Show`,
+      this.keyboardWillShow
+    )
+    this.keyboardDidHideListener = Keyboard.addListener(
+      `keyboard${platform}Hide`,
+      this.keyboardWillHide
+    )
+  }
+  componentWillUnmount() {
+    this.keyboardDidShowListener.remove()
+    this.keyboardDidHideListener.remove()
+  }
+
+  keyboardWillShow = () => {
+    console.log("show")
+  }
+  keyboardWillHide = () => {
+    console.log("hide");
+    
+  }
 }
 
 export default Logo
