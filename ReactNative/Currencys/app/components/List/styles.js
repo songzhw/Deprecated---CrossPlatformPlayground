@@ -23,12 +23,14 @@ export default ExtStyle.create({
     marginLeft: 20,
   },
   icon: {
+    backgroundColor: 'transparent',
     width: 30,
     height: 30,
     alignItems: 'center',
     justifyContent: 'center',
   },
   iconVisible: {
+    backgroundColor: '$primaryBlue',
   },
   checkIcon: {
     width: 18,
