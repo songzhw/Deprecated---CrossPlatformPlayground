@@ -10,7 +10,7 @@ import {
 
 import styles from './styles'
 
-const ANIMATION_DURATION = 300
+const ANIMATION_DURATION = 500
 
 class Logo extends Component {
   constructor(props) {
@@ -66,11 +66,31 @@ class Logo extends Component {
   }
 
   keyboardWillShow = () => {
-    console.log("show")
+    const { containerSize, imageSize } = this.state
+
+    Animated.parallel([
+      Animated.timing(containerSize, {
+        toValue: styles.$minContainerSize,
+        duration: ANIMATION_DURATION
+      }),
+      Animated.timing(imageSize, {
+        toValue: styles.$minImageSize,
+        duration: ANIMATION_DURATION
+      })
+    ]).start()
   }
   keyboardWillHide = () => {
-    console.log("hide");
-    
+    const { containerSize, imageSize } = this.state
+    Animated.parallel([
+      Animated.timing(containerSize, {
+        toValue: styles.$maxContainerSize,
+        duration: ANIMATION_DURATION
+      }),
+      Animated.timing(imageSize, {
+        toValue: styles.$maxImageSize,
+        duration: ANIMATION_DURATION
+      })
+    ]).start()
   }
 }
 
