@@ -19,24 +19,25 @@ export default ExtStyle.create({
   containerDisabled: {
     backgroundColor: '$lightGray',
   },
-  buttonDesp: {
+  currencyTouch: {
     height: INPUT_HEIGHT,
     alignItems: 'center',
-    justifyContent:'center',
-    backgroundColor: '$white'
+    justifyContent: 'center',
+    backgroundColor: '$white',
   },
-  buttonText: {
+  currencyText: {
     fontSize: 20,
     fontWeight: '600',
     paddingHorizontal: 16,
-    color: '$primaryBlue'
+    color: '$primaryBlue',
   },
   separator: {
     height: INPUT_HEIGHT,
     width: StyleSheet.hairlineWidth,
-    backgroundColor: '$border'
+    backgroundColor: '$border',
   },
   input: {
+    flex: 1,
     height: INPUT_HEIGHT,
     paddingHorizontal: 14,
     color: '$inputText',

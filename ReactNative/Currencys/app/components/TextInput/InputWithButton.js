@@ -18,10 +18,10 @@ const InputWithButton = ({ editable, onPress, buttonText, ...props }) => {
     <View style={containerStyle}>
       <TouchableHighlight
         onPress={onPress}
-        style={styles.buttonDesp}
+        style={styles.currencyTouch}
         underlayColor={underlayColor}
       >
-        <Text style={styles.buttonText}>{buttonText}</Text>
+        <Text style={styles.currencyText}>{buttonText}</Text>
       </TouchableHighlight>
 
       <View style={styles.separator} />
