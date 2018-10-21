@@ -3,6 +3,7 @@
 
 .packages
 .pub/
+packager-info.json
 
 build/
 
@@ -92,3 +93,4 @@ android/app/libs
 android/keystores/debug.keystore
 
 .deco/
+.expo/
