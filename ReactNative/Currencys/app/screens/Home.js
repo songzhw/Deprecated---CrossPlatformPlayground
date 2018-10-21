@@ -22,7 +22,9 @@ class Home extends Component {
         {/* 这里看样式, 是Status不在Container的水平/垂直都居中的限制的, 可能是StatusBar的特殊性  */}
         <StatusBar translucent={false} barStyle="light-content" />
         <Header onPress={this.handleOptionsPress} />
-        <KeyboardAvoidingView behavior="padding">
+
+        {/*KeyboardAvoidingView.behavior:  padding, height, position*/}
+        <KeyboardAvoidingView behavior="padding"> 
           <Logo />
           <InputWithButton
             buttonText={BASE_CURRENCEY}
@@ -48,6 +50,7 @@ class Home extends Component {
             onPress={this.handleSwapCurrency}
           />
         </KeyboardAvoidingView>
+
       </Container>
     )
   }
