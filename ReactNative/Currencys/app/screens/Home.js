@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { StatusBar } from 'react-native'
+import { StatusBar, KeyboardAvoidingView } from 'react-native'
 
-import {Header} from '../components/Header'
+import { Header } from '../components/Header'
 import { Container } from '../components/Container'
 import { Logo } from '../components/Logo'
-import { InputWithButton } from '../components/InputWithButton'
+import { InputWithButton } from '../components/TextInput'
 import { ClearButton } from '../components/Button'
 import { LastPrice } from '../components/Text'
 
@@ -21,31 +21,33 @@ class Home extends Component {
       <Container>
         {/* 这里看样式, 是Status不在Container的水平/垂直都居中的限制的, 可能是StatusBar的特殊性  */}
         <StatusBar translucent={false} barStyle="light-content" />
-        <Header onPress={this.handleOptionsPress}/>
-        <Logo />
-        <InputWithButton
-          buttonText={BASE_CURRENCEY}
-          onPress={this.handlePressBaseCurrency}
-          defaultValue={BASE_PRICE}
-          keyboardType="numeric"
-          onChangeText={this.changeText}
-        />
-        <InputWithButton
-          buttonText={QUOTE_CURRENCY}
-          onPress={this.handlePressQuotoCurrency}
-          value={QUOTE_PRICE}
-          editable={false}
-        />
-        <LastPrice
-          date={LAST_PRICE}
-          base={BASE_CURRENCEY}
-          quote={QUOTE_CURRENCY}
-          conversionRate={CONVERSION_RATE}
-        />
-        <ClearButton
-          text="Reverse Currencies"
-          onPress={this.handleSwapCurrency}
-        />
+        <Header onPress={this.handleOptionsPress} />
+        {/* <KeyboardAvoidingView behavior="padding"> */}
+          <Logo />
+          <InputWithButton
+            buttonText={BASE_CURRENCEY}
+            onPress={this.handlePressBaseCurrency}
+            defaultValue={BASE_PRICE}
+            keyboardType="numeric"
+            onChangeText={this.changeText}
+          />
+          <InputWithButton
+            buttonText={QUOTE_CURRENCY}
+            onPress={this.handlePressQuotoCurrency}
+            value={QUOTE_PRICE}
+            editable={false}
+          />
+          <LastPrice
+            date={LAST_PRICE}
+            base={BASE_CURRENCEY}
+            quote={QUOTE_CURRENCY}
+            conversionRate={CONVERSION_RATE}
+          />
+          <ClearButton
+            text="Reverse Currencies"
+            onPress={this.handleSwapCurrency}
+          />
+        {/* </KeyboardAvoidingView> */}
       </Container>
     )
   }
@@ -63,7 +65,7 @@ class Home extends Component {
     console.log('szw swap currency')
   }
   handleOptionsPress = () => {
-    console.log("szw click header option");
+    console.log('szw click header option')
   }
 }
 
