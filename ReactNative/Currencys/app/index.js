@@ -7,7 +7,9 @@ ExtStyle.build({
   $primaryBlue: '#4F6D7A',
   $white: '#FFFFFF',
   $lightGray: '#e1e1e1',
-  $border: '#979797',
+  $border: '#e2e2e2',
   $inputText: '#797979',
+  $darkText: '#343434',
 })
+
 export default () => <CurrencyList />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StatusBar, FlatList, Text, View } from 'react-native'
-
 import currencies from '../data/currencies'
+import {ListItem, Separator} from '../components/List'
 
 class CurrencyList extends Component {
   render() {
@@ -13,6 +13,7 @@ class CurrencyList extends Component {
           data={currencies}
           renderItem={({ item }) => <Text> {item}</Text>}
           keyExtractor={item => item}
+          ItemSeparatorComponent={Separator}
         />
       </View>
     )
