@@ -8,6 +8,7 @@ export default ExtStyle.create({
   $minImageSize: LogoSize / 4,
   $maxContainerSize: LogoSize,
   $maxImageSize: LogoSize / 2,
+  
   container: {
     alignItems: 'center',
   },

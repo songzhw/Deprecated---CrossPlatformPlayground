@@ -24,15 +24,23 @@ class Logo extends Component {
   render() {
     const { containerSize, imageSize } = this.state
 
+    const imageStyle = [
+      styles.containerImage,
+      { width: containerSize, height: containerSize },
+    ]
+    const topImgStyle = [styles.logo, { width: imageSize }]
+
     return (
       <View style={styles.container}>
-        <Animated.View>
+        <Animated.View style={imageStyle}>
           <Animated.Image
             resizeMode="contain"
+            style={[StyleSheet.absoluteFill, imageStyle]}
             source={require('./images/background.png')}
           />
           <Animated.Image
             resizeMode="contain"
+            style={topImgStyle}
             source={require('./images/logo.png')}
           />
         </Animated.View>
