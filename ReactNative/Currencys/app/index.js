@@ -1,9 +1,6 @@
 import React from 'react'
 import ExtStyle from 'react-native-extended-stylesheet'
-// import Home from './screens/Home'
-// import CurrencyList from './screens/CurrencyList'
-// import Options from './screens/Options'
-import Theme from './screens/Theme'
+import Navigator from './config/routes'
 
 ExtStyle.build({
   $primaryBlue: '#4F6D7A',
@@ -17,4 +14,4 @@ ExtStyle.build({
   $darkText: '#343434',
 })
 
-export default () => <Theme />
+export default () => <Navigator />

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { StatusBar, KeyboardAvoidingView } from 'react-native'
 
@@ -16,6 +17,10 @@ const LAST_PRICE = new Date()
 const CONVERSION_RATE = 0.531
 
 class Home extends Component {
+  static propTpes = {
+    navigation: PropTypes.object,
+  }
+
   render() {
     return (
       <Container>
@@ -56,10 +61,12 @@ class Home extends Component {
   }
 
   handlePressBaseCurrency = () => {
-    console.log('szw press base currency')
+    const {navigation} = this.props
+    navigation.navigate('CurrencyList', {title: 'Base Currency'})
   }
   handlePressQuotoCurrency = () => {
-    console.log('szw press quote currency')
+    const {navigation} = this.props
+    navigation.navigate('CurrencyList', {title: 'Quote Currency'})
   }
   changeText = () => {
     console.log('szw change text')
