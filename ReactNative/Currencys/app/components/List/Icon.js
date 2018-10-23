@@ -3,10 +3,12 @@ import React, { Component } from 'react'
 import { View, Image } from 'react-native'
 import styles from './styles'
 
-const Icon = ({ visible, checkmark }) => {
+const Icon = ({ visible, checkmark, bg }) => {
   if (visible) {
     const iconStyles = [styles.icon, styles.iconVisible]
-
+    if (bg) {
+      iconStyles.push({ backgroundColor: bg })
+    }
     return (
       <View style={iconStyles}>
         {checkmark ? (
@@ -19,12 +21,13 @@ const Icon = ({ visible, checkmark }) => {
       </View>
     )
   }
-  return <View style={styles.icon} />
+  return <View style={styles.icon}/>
 }
 
 Icon.propTypes = {
   visible: PropTypes.bool,
   checkmark: PropTypes.bool,
+  bg: PropTypes.string,
 }
 
 export default Icon

@@ -9,6 +9,15 @@ const ICON_SIZE = 23
 
 
 class Options extends Component {
+
+  handlePressTheme() {
+    console.log('click theme')
+  }
+
+  handlePressFixer() {
+    console.log('click fixer')
+  }
+
   render() {
     return (
       <ScrollView>
@@ -32,13 +41,7 @@ class Options extends Component {
     )
   }
 
-  handlePressTheme() {
-    console.log('click theme')
-  }
 
-  handlePressFixer() {
-    console.log('click fixer')
-  }
 }
 
 export default Options
