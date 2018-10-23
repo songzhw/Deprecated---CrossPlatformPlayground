@@ -8,7 +8,7 @@ export default createStackNavigator(
   {
     Home: {
       screen: Home,
-      navigationOptions: {
+      navigationOptions: { //不加这个, Home页最上面, statusBar下面就会有一个白条
         header: () => null,
       },
     },
@@ -22,12 +22,12 @@ export default createStackNavigator(
   },
 
 
-  {
-    mode: 'modal',
-    cardStyle: {
-      paddingTop: StatusBar.currentHeight,
-    },
-  },
+  // {
+  //   mode: 'modal',
+  //   cardStyle: {
+  //     paddingTop: StatusBar.currentHeight,
+  //   },
+  // },
 
 
 )

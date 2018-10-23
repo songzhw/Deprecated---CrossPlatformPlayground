@@ -17,7 +17,7 @@ const LAST_PRICE = new Date()
 const CONVERSION_RATE = 0.531
 
 class Home extends Component {
-  static propTpes = {
+  static propTypes = {
     navigation: PropTypes.object,
   }
 
@@ -63,6 +63,7 @@ class Home extends Component {
   handlePressBaseCurrency = () => {
     const {navigation} = this.props
     navigation.navigate('CurrencyList', {title: 'Base Currency'})
+    // 相当于this.porops.navigation.navigate('', {})
   }
   handlePressQuotoCurrency = () => {
     const {navigation} = this.props

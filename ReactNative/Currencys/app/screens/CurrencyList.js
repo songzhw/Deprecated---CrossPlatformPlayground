@@ -7,7 +7,7 @@ import { ListItem, Separator } from '../components/List'
 const DEFAULT_CURRENCY = 'CAD'
 
 class CurrencyList extends Component {
-  static propTpes = {
+  static propTypes = {
     navigation: PropTypes.object,
   }
 
