@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React from 'react'
 import { View, Text, TouchableHighlight } from 'react-native'
 import styles from './styles'
 import Icon from './Icon'
@@ -10,21 +10,23 @@ const ListItem = ({
   checkmark = true,
   selected = false,
   visible = true,
+  customIcon = null,
 }) => (
   <TouchableHighlight onPress={onPress} underlayColor={styles.$underlayColor}>
     <View style={styles.row}>
       <Text style={styles.text}>{text}</Text>
       {selected ? <Icon visible={visible} checkmark={checkmark} /> : <Icon />}
+      {customIcon}
     </View>
   </TouchableHighlight>
 )
 
-ListItem.propTypes = {
-  text: PropTypes.string,
+ListItem.propTypes = { text: PropTypes.string,
   onPress: PropTypes.func,
   visible: PropTypes.bool,
   checkmark: PropTypes.bool,
   selected: PropTypes.bool,
+  customIcon: PropTypes.element,
 }
 
 export default ListItem
