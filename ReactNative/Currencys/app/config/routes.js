@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation'
 
 import Home from '../screens/Home'
 import Options from '../screens/Options'
-import Themes from '../screens/Theme'
+import Themes from '../screens/Themes'
 import CurrencyList from '../screens/CurrencyList'
 
 const HomeStack = createStackNavigator(
@@ -46,7 +46,14 @@ const CurrencyListStack = createStackNavigator({
   },
 })
 
-export default createStackNavigator({
-  Home: HomeStack,
-  CurrencyList: CurrencyListStack,
-})
+export default createStackNavigator(
+  {
+    Home: HomeStack,
+    CurrencyList: CurrencyListStack,
+  },
+  {
+    mode: 'modal',
+    // 前面HeaderStack有自己的headerMode, 为了避免两层header, 所以这里总的一层是用none
+    headerMode: 'none',
+  },
+)

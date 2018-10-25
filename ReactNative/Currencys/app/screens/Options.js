@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { StatusBar, ScrollView, Platform } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
@@ -9,15 +10,20 @@ const ICON_SIZE = 23
 
 
 class Options extends Component {
-
-  handlePressTheme() {
-    console.log('click theme')
+  // 不加这个propTypes, 就会报错: "undefined : 'this.props.navigation' "
+  static propTypes = {
+    navigation: PropTypes.object,
   }
-
+  
+  // handlePressTheme() { //写成这样, 就识别不了"this.props.navigation"了
+  handlePressTheme = () => {
+    this.props.navigation.navigate('Themes')
+  }
+  
   handlePressFixer() {
     console.log('click fixer')
   }
-
+  
   render() {
     return (
       <ScrollView>
@@ -40,8 +46,8 @@ class Options extends Component {
       </ScrollView>
     )
   }
-
-
+  
+  
 }
 
 export default Options

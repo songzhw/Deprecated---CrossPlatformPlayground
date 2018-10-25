@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { StatusBar, ScrollView } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
 import { ListItem, Separator } from '../components/List'
 import ExtStyles from 'react-native-extended-stylesheet'
 
@@ -11,9 +11,18 @@ const styles = ExtStyles.create({
   $purple: '$primaryPurple',
 })
 
-class Theme extends Component {
-  handlePressTheme = () => {
-    console.log('click theme')
+class Themes extends Component {
+  // 不加这个propTypes, 就会报错: "undefined : 'this.props.navigation' "
+  static propTypes = {
+    navigation: PropTypes.object,
+  }
+  
+  handlePressTheme = (color) => {
+    console.log("press theme - ", color)
+    // this.props.navigation.goBack()
+    const {navigation} = this.props
+    navigation.goBack()
+    
   }
 
   render() {
@@ -24,7 +33,7 @@ class Theme extends Component {
           text="Blue"
           selected
           checkmark={false}
-          onPress={this.handlePressTheme(styles.$blue)}
+          onPress={ () => this.handlePressTheme(styles.$blue)}
           bg={styles.$blue}
         />
         <Separator/>
@@ -32,7 +41,7 @@ class Theme extends Component {
           text="Orange"
           selected
           checkmark={true}
-          onPress={this.handlePressFixer}
+          onPress={this.handlePressTheme(styles.$orange)}
           bg={styles.$orange}
         />
         <Separator/>
@@ -40,7 +49,7 @@ class Theme extends Component {
           text="Purple"
           selected
           checkmark={false}
-          onPress={this.handlePressFixer}
+          onPress={() => this.handlePressTheme(styles.$purple)}
           bg={styles.$purple}
         />
       </ScrollView>
@@ -49,4 +58,4 @@ class Theme extends Component {
 
 }
 
-export default Theme
+export default Themes
