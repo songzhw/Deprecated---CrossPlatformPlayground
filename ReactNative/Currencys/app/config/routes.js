@@ -1,33 +1,52 @@
+/* eslint-disable object-curly-newline */
+
 import { StatusBar } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 
 import Home from '../screens/Home'
+import Options from '../screens/Options'
+import Themes from '../screens/Theme'
 import CurrencyList from '../screens/CurrencyList'
 
-export default createStackNavigator(
+const HomeStack = createStackNavigator(
   {
     Home: {
       screen: Home,
-      navigationOptions: { //不加这个, Home页最上面, statusBar下面就会有一个白条
+      // 不加这个, Home页最上面, statusBar下面就会有一个白条
+      navigationOptions: {
         header: () => null,
+        headerTitle: 'Home',
       },
     },
-
-    CurrencyList: {
-      screen: CurrencyList,
-      navigationOptions: ({ navigation }) => ({
-        headerTitle: navigation.state.params.title,
-      }),
+    Options: {
+      screen: Options,
+      navigationOptions: {
+        headerTitle: 'Options',
+      },
+    },
+    Themes: {
+      screen: Themes,
+      navigationOptions: {
+        headerTitle: 'Themes',
+      },
     },
   },
-
-
-  // {
-  //   mode: 'modal',
-  //   cardStyle: {
-  //     paddingTop: StatusBar.currentHeight,
-  //   },
-  // },
-
-
+  
+  {
+    headerMode: 'screen',
+  },
 )
+
+const CurrencyListStack = createStackNavigator({
+  CurrencyList: {
+    screen: CurrencyList,
+    navigationOptions: ({ navigation }) => ({
+      headerTitle: navigation.state.params.title,
+    }),
+  },
+})
+
+export default createStackNavigator({
+  Home: HomeStack,
+  CurrencyList: CurrencyListStack,
+})

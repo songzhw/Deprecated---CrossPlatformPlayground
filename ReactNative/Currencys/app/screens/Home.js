@@ -76,7 +76,7 @@ class Home extends Component {
     console.log('szw swap currency')
   }
   handleOptionsPress = () => {
-    console.log('szw click header option')
+    his.props.navigation.navigate('Options')
   }
 }
 
