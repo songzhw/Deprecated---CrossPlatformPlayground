@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { StatusBar, FlatList, Text, View } from 'react-native'
 import currencies from '../data/currencies'
 import { ListItem, Separator } from '../components/List'
-import {withNavigationFocus} from 'react-navigation'
 
 const DEFAULT_CURRENCY = 'CAD'
 
@@ -11,18 +10,20 @@ class CurrencyList extends Component {
   static propTypes = {
     navigation: PropTypes.object,
   }
-
+  
   handlePress = () => {
-    const {navigation} = this.props
+    const { navigation } = this.props
     navigation.goBack(null)
   }
-
+  
   render() {
     const text = this.props.navigation.isFocused() ? "focused" : "not focused"
+    
     return (
       <View style={{ flex: 1 }}>
         <StatusBar translucent={false} barStyle="light-content"/>
         <Text> {text} </Text>
+        
         {/* renderItem中的完整参数是: {item, index. separator}. 只用其一, 所以要加个{} */}
         <FlatList
           data={currencies}
@@ -41,15 +42,17 @@ class CurrencyList extends Component {
   }
   
   componentWillMount() {
-    console.log("CurrencyList componentWillMount")
+    console.log('CurrencyList componentWillMount')
   }
+  
   componentDidMount() {
-    console.log("CurrencyList componentDidMount")
+    console.log('CurrencyList componentDidMount')
   }
+  
   componentWillUnmount() {
-    console.log("CurrencyList componentWillUnmount")
+    console.log('CurrencyList componentWillUnmount')
   }
-
+  
 }
 
-export default withNavigationFocus(CurrencyList)
+export default CurrencyList

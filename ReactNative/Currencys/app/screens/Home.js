@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { StatusBar, KeyboardAvoidingView } from 'react-native'
-import {withNavigationFocus} from 'react-navigation'
 
 import { Header } from '../components/Header'
 import { Container } from '../components/Container'
@@ -91,6 +90,6 @@ class Home extends Component {
   }
 }
 
-export default withNavigationFocus(Home)
+export default Home
 // vs light这个theme中 html.attribute是f00红色, 不是错误, 注意哦
 // test222
