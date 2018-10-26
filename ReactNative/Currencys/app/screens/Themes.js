@@ -41,7 +41,7 @@ class Themes extends Component {
           text="Orange"
           selected
           checkmark={true}
-          onPress={this.handlePressTheme(styles.$orange)}
+          onPress={() => this.handlePressTheme(styles.$orange)}
           bg={styles.$orange}
         />
         <Separator/>
