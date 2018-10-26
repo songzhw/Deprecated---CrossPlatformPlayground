@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { StatusBar, ScrollView, Platform } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { ListItem, Separator } from '../components/List'
+import {withNavigationFocus} from 'react-navigation'
 
 const ICON_PREFIX = Platform.OS === 'ios' ? 'ios' : 'md'
 const ICON_COLOR = '#868686'
@@ -46,8 +47,18 @@ class Options extends Component {
       </ScrollView>
     )
   }
+  componentWillMount() {
+    console.log("Options componentWillMount")
+  }
+  componentDidMount() {
+    console.log("Options componentDidMount")
+  }
+  componentWillUnmount() {
+    console.log("Options componentWillUnmount")
+  }
+  
   
   
 }
 
-export default Options
+export default withNavigationFocus(Options)

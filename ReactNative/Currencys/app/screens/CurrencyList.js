@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { StatusBar, FlatList, Text, View } from 'react-native'
 import currencies from '../data/currencies'
 import { ListItem, Separator } from '../components/List'
+import {withNavigationFocus} from 'react-navigation'
 
 const DEFAULT_CURRENCY = 'CAD'
 
@@ -36,8 +37,17 @@ class CurrencyList extends Component {
       </View>
     )
   }
-
+  
+  componentWillMount() {
+    console.log("CurrencyList componentWillMount")
+  }
+  componentDidMount() {
+    console.log("CurrencyList componentDidMount")
+  }
+  componentWillUnmount() {
+    console.log("CurrencyList componentWillUnmount")
+  }
 
 }
 
-export default CurrencyList
+export default withNavigationFocus(CurrencyList)
