@@ -18,9 +18,11 @@ class CurrencyList extends Component {
   }
 
   render() {
+    const text = this.props.navigation.isFocused() ? "focused" : "not focused"
     return (
       <View style={{ flex: 1 }}>
         <StatusBar translucent={false} barStyle="light-content"/>
+        <Text> {text} </Text>
         {/* renderItem中的完整参数是: {item, index. separator}. 只用其一, 所以要加个{} */}
         <FlatList
           data={currencies}
