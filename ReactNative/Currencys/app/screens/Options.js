@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { StatusBar, ScrollView, Platform } from 'react-native'
+import { StatusBar, ScrollView, Platform, Linking } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { ListItem, Separator } from '../components/List'
 
@@ -20,8 +20,9 @@ class Options extends Component {
     this.props.navigation.navigate('Themes')
   }
   
-  handlePressFixer() {
-    console.log('click fixer')
+  handlePressSite() {
+    Linking.openURL('https://songzhw.github.io')
+      .catch( () => alert('An error happend' ) )
   }
   
   render() {
@@ -37,8 +38,8 @@ class Options extends Component {
         />
         <Separator/>
         <ListItem
-          text="Fixer"
-          onPress={this.handlePressFixer}
+          text="songzhw.github.io"
+          onPress={this.handlePressSite}
           customIcon={
             <Ionicons name={`${ICON_PREFIX}-link`} size={ICON_SIZE} color={ICON_COLOR}/>
           }
@@ -46,16 +47,18 @@ class Options extends Component {
       </ScrollView>
     )
   }
+  
   componentWillMount() {
-    console.log("Options componentWillMount")
-  }
-  componentDidMount() {
-    console.log("Options componentDidMount")
-  }
-  componentWillUnmount() {
-    console.log("Options componentWillUnmount")
+    console.log('Options componentWillMount')
   }
   
+  componentDidMount() {
+    console.log('Options componentDidMount')
+  }
+  
+  componentWillUnmount() {
+    console.log('Options componentWillUnmount')
+  }
   
   
 }

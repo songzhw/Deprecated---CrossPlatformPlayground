@@ -22,6 +22,9 @@ class Themes extends Component {
     // this.props.navigation.goBack()
     const {navigation} = this.props
     navigation.goBack()
+  
+    // 这会有一种clear_top的效果. Theme与栈中的Option没有了. 根据是这样子回到home页后,再按back, 就退出应用了
+    // navigation.navigate('Home')
     
   }
 
