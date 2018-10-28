@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { StatusBar, ScrollView } from 'react-native'
 import { ListItem, Separator } from '../components/List'
 import ExtStyles from 'react-native-extended-stylesheet'
+import { connect } from 'react-redux'
+import { changePrimaryColor } from '../actions/theme'
 
 const styles = ExtStyles.create({
   $blue: '$primaryBlue',
@@ -15,19 +17,21 @@ class Themes extends Component {
   // 不加这个propTypes, 就会报错: "undefined : 'this.props.navigation' "
   static propTypes = {
     navigation: PropTypes.object,
+    dispatch: PropTypes.func,
   }
   
   handlePressTheme = (color) => {
-    console.log("press theme - ", color)
-    // this.props.navigation.goBack()
-    const {navigation} = this.props
+    const { navigation, dispatch } = this.props
+    
+    dispatch(changePrimaryColor(color))
+    
     navigation.goBack()
-  
-    // 这会有一种clear_top的效果. Theme与栈中的Option没有了. 根据是这样子回到home页后,再按back, 就退出应用了
+    
+    // 下面的代码会有一种clear_top的效果. Theme与栈中的Option没有了. 根据是这样子回到home页后,再按back, 就退出应用了
     // navigation.navigate('Home')
     
   }
-
+  
   render() {
     return (
       <ScrollView>
@@ -36,7 +40,7 @@ class Themes extends Component {
           text="Blue"
           selected
           checkmark={false}
-          onPress={ () => this.handlePressTheme(styles.$blue)}
+          onPress={() => this.handlePressTheme(styles.$blue)}
           bg={styles.$blue}
         />
         <Separator/>
@@ -58,7 +62,7 @@ class Themes extends Component {
       </ScrollView>
     )
   }
-
+  
 }
 
-export default Themes
+export default connect()(Themes)
