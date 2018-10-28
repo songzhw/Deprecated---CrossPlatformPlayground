@@ -21,6 +21,7 @@ class Options extends Component {
   }
   
   handlePressSite() {
+    // 是一个Promise
     Linking.openURL('https://songzhw.github.io')
       .catch( () => alert('An error happend' ) )
   }

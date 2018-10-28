@@ -9,6 +9,8 @@ import { InputWithButton } from '../components/TextInput'
 import { ClearButton } from '../components/Button'
 import { LastPrice } from '../components/Text'
 
+import { changeCurrencyAmount, swapCurrency } from '../actions/currencies'
+
 const BASE_CURRENCEY = 'CAD'
 const QUOTE_CURRENCY = 'RMB'
 const BASE_PRICE = '100'
@@ -29,14 +31,14 @@ class Home extends Component {
         <Header onPress={this.handleOptionsPress} />
 
         {/*KeyboardAvoidingView.behavior:  padding, height, position*/}
-        <KeyboardAvoidingView behavior="padding"> 
+        <KeyboardAvoidingView behavior="padding">
           <Logo />
           <InputWithButton
             buttonText={BASE_CURRENCEY}
             onPress={this.handlePressBaseCurrency}
             defaultValue={BASE_PRICE}
             keyboardType="numeric"
-            onChangeText={this.changeText}
+            onChangeText={this.handleChangeText}
           />
           <InputWithButton
             buttonText={QUOTE_CURRENCY}
@@ -55,38 +57,37 @@ class Home extends Component {
             onPress={this.handleSwapCurrency}
           />
         </KeyboardAvoidingView>
-
       </Container>
     )
   }
 
   handlePressBaseCurrency = () => {
-    const {navigation} = this.props
-    navigation.navigate('CurrencyList', {title: 'Base Currency'})
+    const { navigation } = this.props
+    navigation.navigate('CurrencyList', { title: 'Base Currency' })
     // 相当于this.porops.navigation.navigate('', {})
   }
   handlePressQuotoCurrency = () => {
-    const {navigation} = this.props
-    navigation.navigate('CurrencyList', {title: 'Quote Currency'})
+    const { navigation } = this.props
+    navigation.navigate('CurrencyList', { title: 'Quote Currency' })
   }
-  changeText = () => {
-    console.log('szw change text')
+  handleChangeText = text => {
+    console.log(changeCurrencyAmount(text))
   }
   handleSwapCurrency = () => {
-    console.log('szw swap currency')
+    console.log( swapCurrency())
   }
   handleOptionsPress = () => {
     this.props.navigation.navigate('Options')
   }
-  
+
   componentWillMount() {
-    console.log("Home componentWillMount")
+    console.log('Home componentWillMount')
   }
   componentDidMount() {
-    console.log("Home componentDidMount")
+    console.log('Home componentDidMount')
   }
   componentWillUnmount() {
-    console.log("Home componentWillUnmount")
+    console.log('Home componentWillUnmount')
   }
 }
 
