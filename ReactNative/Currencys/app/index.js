@@ -1,6 +1,8 @@
 import React from 'react'
 import ExtStyle from 'react-native-extended-stylesheet'
+import { Provider } from 'react-redux'
 import Navigator from './config/routes'
+import store from './config/store'
 
 ExtStyle.build({
   $primaryBlue: '#4F6D7A',
@@ -14,4 +16,8 @@ ExtStyle.build({
   $darkText: '#343434',
 })
 
-export default () => <Navigator />
+export default () => (
+  <Provider store={store}>
+    <Navigator onNavigationStateChange={null} />
+  </Provider>
+)
