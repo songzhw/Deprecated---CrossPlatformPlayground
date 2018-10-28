@@ -70,6 +70,7 @@ const setConversions = (state, action) => {
 export default (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_CURRENCY_AMOUNT:
+      // action带上了type与amount
       return { ...state, amount: action.amount || 0 }
     case SWAP_CURRENCY:
       return {

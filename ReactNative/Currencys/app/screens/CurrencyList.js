@@ -8,7 +8,6 @@ import {
   changeBaseCurrency, changeQuoteCurrency,
 } from '../actions/currencies'
 
-const DEFAULT_CURRENCY = 'CAD'
 
 class CurrencyList extends Component {
   static propTypes = {
@@ -29,6 +28,12 @@ class CurrencyList extends Component {
   }
   
   render() {
+    const {baseCurrency, quoteCurrency, navigation} = this.props
+    let comparisonCurrency = baseCurrency
+    if(navigation.state.params.type === 'quote'){
+      comparisonCurrency = quoteCurrency
+    }
+    
     return (
       <View style={{ flex: 1 }}>
         <StatusBar translucent={false} barStyle="light-content"/>
@@ -39,7 +44,7 @@ class CurrencyList extends Component {
           renderItem={({ item }) => (
             <ListItem
               text={item}
-              selected={item == DEFAULT_CURRENCY}
+              selected={item === comparisonCurrency}
               onPress={() => this.handlePress(item)}
             />
           )}
@@ -50,18 +55,13 @@ class CurrencyList extends Component {
     )
   }
   
-  componentWillMount() {
-    console.log('CurrencyList componentWillMount')
-  }
-  
-  componentDidMount() {
-    console.log('CurrencyList componentDidMount')
-  }
-  
-  componentWillUnmount() {
-    console.log('CurrencyList componentWillUnmount')
-  }
-  
 }
 
-export default connect()(CurrencyList)
+
+const mapStateToProps = state => ({
+  baseCurrency: state.currencies.baseCurrency,
+  quoteCurrency: state.currencies.quoteCurrency,
+})
+
+
+export default connect(mapStateToProps)(CurrencyList)
