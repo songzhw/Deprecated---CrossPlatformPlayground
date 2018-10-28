@@ -22,6 +22,7 @@ class Home extends Component {
     conversionRate: PropTypes.number,
     lastConvertedDate: PropTypes.object,
     isFetching: PropTypes.bool,
+    primaryColor: PropTypes.string,
   }
   
   render() {
@@ -32,15 +33,16 @@ class Home extends Component {
       baseCurrency,
       quoteCurrency,
       lastConvertedDate,
+      primaryColor
     } = this.props
     
-    let quotePrice = '...'
+    let quotePrice = '...'  // 默认显示为"..."
     if (!isFetching) {
       quotePrice = (amount * conversionRate).toFixed(2)
     }
     
     return (
-      <Container>
+      <Container backgroundColor={primaryColor}>
         {/* 这里看样式, 是Status不在Container的水平/垂直都居中的限制的, 可能是StatusBar的特殊性  */}
         <StatusBar translucent={false} barStyle="light-content"/>
         <Header onPress={this.handleOptionsPress}/>
@@ -121,6 +123,7 @@ const mapStateToProps = (state) => {
     conversionRate: rates[quoteCurrency] || 0,
     lastConvertedDate: conversionSelector.date ? new Date(conversionSelector.date) : new Date(),
     isFetching: conversionSelector.isFetching,
+    primaryColor: state.theme.primaryColor
   }
 }
 
