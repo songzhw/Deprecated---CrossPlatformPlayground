@@ -5,7 +5,7 @@ const initState = {
 }
 
 export default (state = initState, action) => {
-  switch (action) {
+  switch (action.type) {
     case CHANGE_PRIMARY_COLOR:
       return { ...state, primaryColor: action.color }
     default:
