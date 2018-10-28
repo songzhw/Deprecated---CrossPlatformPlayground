@@ -78,12 +78,12 @@ class Home extends Component {
   
   handlePressBaseCurrency = () => {
     const { navigation } = this.props
-    navigation.navigate('CurrencyList', { title: 'Base Currency' })
+    navigation.navigate('CurrencyList', { title: 'Base Currency', type: 'base' })
     // 相当于this.porops.navigation.navigate('', {})
   }
   handlePressQuotoCurrency = () => {
     const { navigation } = this.props
-    navigation.navigate('CurrencyList', { title: 'Quote Currency' })
+    navigation.navigate('CurrencyList', { title: 'Quote Currency', type: 'quote' })
   }
   handleChangeText = text => {
     const { dispatch } = this.props
