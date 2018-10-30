@@ -17,7 +17,7 @@ class Child extends Component {
         <Text> Hello {this.props.desp} </Text>
         <Button
           title="click => pass event to parents"
-          onPress={this.click}
+          onPress={this.click.bind(this)}
         />
       </View>
     )
