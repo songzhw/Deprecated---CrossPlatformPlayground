@@ -10,6 +10,24 @@ class Parent extends Component {
     this.state = {
       name: 'child->parent',
     }
+    
+    var names = [{ name: 'Bruce', age: 30 }, { name: 'Clark', age: 32 }]
+    
+    var user = {
+      names: [{ name: 'Kate', age: 11 }, { name: 'Jim', age: 12 }],
+      selectOne: function() {
+        let tmp = parseInt(Math.random() * 10)
+        let randomIndex = tmp % 2
+        let person = this.names[randomIndex]
+        console.log(person)
+      },
+    }
+    
+    user.selectOne() //结果不是Kate, 就是Jim
+    
+    var another = user.selectOne
+    console.log(this.names) //=> undefined
+  
   }
   
   onChildClick(name) {
