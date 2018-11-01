@@ -10,7 +10,7 @@ import { InputWithButton } from '../components/TextInput'
 import { ClearButton } from '../components/Button'
 import { LastPrice } from '../components/Text'
 
-import { changeCurrencyAmount, swapCurrency } from '../actions/currencies'
+import { changeCurrencyAmount, swapCurrency, getInitialConversion } from '../actions/currencies'
 
 class Home extends Component {
   static propTypes = {
@@ -25,6 +25,13 @@ class Home extends Component {
     primaryColor: PropTypes.string,
   }
   
+  // componentWillMount() is deprecated since React 16.3.0
+  componentDidMount() {
+    const { dispatch } = this.props
+    dispatch(getInitialConversion())
+  }
+  
+  
   render() {
     const {
       isFetching,
@@ -33,7 +40,7 @@ class Home extends Component {
       baseCurrency,
       quoteCurrency,
       lastConvertedDate,
-      primaryColor
+      primaryColor,
     } = this.props
     
     let quotePrice = '...'  // 默认显示为"..."
@@ -99,17 +106,6 @@ class Home extends Component {
     this.props.navigation.navigate('Options')
   }
   
-  componentWillMount() {
-    console.log('Home componentWillMount')
-  }
-  
-  componentDidMount() {
-    console.log('Home componentDidMount')
-  }
-  
-  componentWillUnmount() {
-    console.log('Home componentWillUnmount')
-  }
 }
 
 const mapStateToProps = (state) => {
@@ -123,7 +119,7 @@ const mapStateToProps = (state) => {
     conversionRate: rates[quoteCurrency] || 0,
     lastConvertedDate: conversionSelector.date ? new Date(conversionSelector.date) : new Date(),
     isFetching: conversionSelector.isFetching,
-    primaryColor: state.theme.primaryColor
+    primaryColor: state.theme.primaryColor,
   }
 }
 
