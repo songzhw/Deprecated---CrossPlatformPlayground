@@ -69,28 +69,28 @@ const setConversions = (state, action) => {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_CURRENCY_AMOUNT:
-      // action带上了type与amount
-      return { ...state, amount: action.amount || 0 }
-    case SWAP_CURRENCY:
-      return {
-        ...state,
-        baseCurrency: state.quoteCurrency,
-        quoteCurrency: state.baseCurrency,
-      }
-    case CHANGE_BASE_CURRENCY:
-      return {
-        ...state,
-        baseCurrency: action.currency,
-        conversions: setConversions(state, action),
-      }
-    case CHANGE_QUOTE_CURRENCY:
-      return {
-        ...state,
-        quoteCurrency: action.currency,
-        conversions: setConversions(state, action),
-      }
-    default:
-      return state
+  case CHANGE_CURRENCY_AMOUNT:
+    // action带上了type与amount
+    return { ...state, amount: action.amount || 0 }
+  case SWAP_CURRENCY:
+    return {
+      ...state,
+      baseCurrency: state.quoteCurrency,
+      quoteCurrency: state.baseCurrency,
+    }
+  case CHANGE_BASE_CURRENCY:
+    return {
+      ...state,
+      baseCurrency: action.currency,
+      conversions: setConversions(state, action),
+    }
+  case CHANGE_QUOTE_CURRENCY:
+    return {
+      ...state,
+      quoteCurrency: action.currency,
+      conversions: setConversions(state, action),
+    }
+  default:
+    return state
   }
 }
