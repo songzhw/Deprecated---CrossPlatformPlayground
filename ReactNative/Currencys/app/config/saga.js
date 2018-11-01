@@ -11,7 +11,20 @@ export const doFetch = currency => fetch(`http://fixer.handlebarlabs.com/latest?
 
 const fetchRates = function* (action) {
   try {
-  
+    let { currency } = action
+    if (currency === undefined) {
+      currency = yield select(state => state.currencies.baseCurrency)
+    }
+    
+    const resp = yield call(doFetch, currency)
+    const result = yield resp.json()
+    
+    if (result.error) {
+      yield put({ type: CONVERSION_ERROR, error: result.error })
+    } else {
+      yield put({ type: CONVERSION_RESULT, result })
+    }
+    
   } catch (error) {
     yield put({ type: CONVERSION_ERROR, error: error.message })
   }
