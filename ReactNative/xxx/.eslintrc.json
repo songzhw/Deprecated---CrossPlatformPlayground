@@ -13,12 +13,11 @@
     "rules": {
         // Eslint built in (https://eslint.org/docs/rules/)
         "constructor-super": "error",
-        "indent": ["error", 2],
+        "indent": ["error", 2, {"SwitchCase":1}],
         "no-case-declarations": "error",
         "no-class-assign": "error",
         "no-compare-neg-zero": "error",
         "no-cond-assign": "error",
-        "no-console": "error",
         "no-const-assign": "error",
         "no-constant-condition": "error",
         "no-control-regex": "error",

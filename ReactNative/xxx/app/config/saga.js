@@ -28,7 +28,6 @@ const fetchRates = function* (action) {
   } catch (error) {
     yield put({ type: CONVERSION_ERROR, error: error.message })
   }
-  yield
 }
 
 const rootSaga = function* () {
