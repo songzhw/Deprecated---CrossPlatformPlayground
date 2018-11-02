@@ -1,6 +1,12 @@
 export const FETCH_CURRENCY = "FETCH_CURRENCY"
-export const fetchCurrencyEvent = {
-  type: FETCH_CURRENCY,
+// 原来是直接返回一个event = {}对象. 但现在我们需要外面传来base这个值, 毕竟不同货币的兑换表是不一样的. 所以改成了方法
+export const fetchCurrencyEvent = (currency) => {
+  return {
+    type: FETCH_CURRENCY,
+    payload: {
+      thisCurrency: currency
+    }
+  }
 }
 
 
