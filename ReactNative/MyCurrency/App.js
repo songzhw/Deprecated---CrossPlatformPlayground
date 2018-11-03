@@ -1,21 +1,27 @@
 import React from 'react';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, Text, View, FlatList, Button} from 'react-native';
+import {fetchCurrencyEvent} from "./app/redux/action_currency";
 
 // 1. Home页, 只有一个ListView
 class App extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {list: []}
   }
 
   componentDidMount() {
-    fetch("http://fixer.handlebarlabs.com/latest?base=CAD")
+    fetch("http://fixer.handlebarlabs.com/latest?base=AUD")
       .then(resp => resp.json())
-      .then(respBody => Object.keys(respBody.rates) )
+      .then(respBody => Object.keys(respBody.rates))
       .then(currencies => {
         this.setState(prevState => ({list: currencies}))
       })
+  }
+
+  clicks = () => {
+    const {dispatch} = this.props
+    dispatch(fetchCurrencyEvent("CNY"))
   }
 
   render() {
@@ -23,6 +29,7 @@ class App extends React.Component {
 
     return <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
+      <Button onPress={this.clicks} title="Go Fetch Data"/>
       <FlatList
         data={list}
         keyExtractor={item => item}
