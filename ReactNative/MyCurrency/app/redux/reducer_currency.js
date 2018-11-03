@@ -10,10 +10,10 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CURRENCY:
-      console.log(`"reducer: fetch()`)
+      console.log(`   reducer: fetch()`)
       return {...state, conversion: {}}
     case FETCHED_DATA:
-      console.log(`reducer: onResp()`)
+      console.log(`   reducer: onResp()`)
       return {...state }
   }
 }
