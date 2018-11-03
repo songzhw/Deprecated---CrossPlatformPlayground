@@ -9,6 +9,14 @@ export const fetchCurrencyEvent = (currency) => {
   }
 }
 
+export const FETCHED_DATA = 'FETCHED_DATA'
+export const fetchedDataEvent = (result) => {
+  return {
+    type: FETCHED_DATA,
+    payload: result
+  }
+}
+
 
 /*
 标准action                出错时的action
