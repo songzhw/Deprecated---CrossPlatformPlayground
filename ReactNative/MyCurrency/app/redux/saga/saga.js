@@ -5,8 +5,14 @@ function* doIt() {
   yield put({type: FETCHED_DATA, payload: {text: 'done'}})
 }
 
+function* increaseAsync(){
+  yield delay(2000)
+  yield put( {type: 'doneIncrease'})
+}
+
 function* saga(){
   yield takeEvery(FETCH_CURRENCY, doIt)
+  yield takeEvery('increase', increaseAsync)
 }
 
 export default saga

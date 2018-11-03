@@ -25,12 +25,18 @@ class App extends React.Component {
     dispatch(fetchCurrencyEvent("CNY"))
   }
 
+  increseAsync = ()=>{
+    const {dispatch} = this.props
+    dispatch( {type: 'increase'})
+  }
+
   render() {
     let {list} = this.state
 
     return <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
       <Button onPress={this.clicks} title="Go Fetch Data"/>
+      <Button onPress={this.increseAsync} title="increase async"/>
       <FlatList
         data={list}
         keyExtractor={item => item}
