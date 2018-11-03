@@ -1,5 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, FlatList, Button} from 'react-native';
+import {Provider} from 'react-redux'
+import store from './app/redux/store'
 import {fetchCurrencyEvent} from "./app/redux/action_currency";
 
 // 1. Home页, 只有一个ListView
@@ -50,4 +52,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App
+export default () => (
+  <Provider store={store}>
+    <App/>
+  </Provider>
+)

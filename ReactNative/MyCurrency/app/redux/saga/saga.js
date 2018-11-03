@@ -9,6 +9,8 @@ function* saga(){
   yield takeEvery(FETCH_CURRENCY, doIt)
 }
 
+export default saga
+
 //
 // export const doFetch = currency => {
 //   fetch(`http://fixer.handlebarlabs.com/latest?base=${currency}`)
