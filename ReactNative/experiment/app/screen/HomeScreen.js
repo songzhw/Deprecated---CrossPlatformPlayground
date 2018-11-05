@@ -16,13 +16,15 @@ class App extends React.Component {
     // dispatch(fetchCurrencyEvent("CNY"))
   }
 
+
+
   render() {
     let {list} = this.state
 
     return <View style={styles.container}>
       <Text>Top...</Text>
       <Text>{this.props.text2}</Text>
-      <Button onPress={this.clicks} title="button2"/>
+      <Button onPress={this.props.clicks} title="button2"/>
       <FlatList
         data={list}
         keyExtractor={item => item}
