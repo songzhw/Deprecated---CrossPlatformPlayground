@@ -51,7 +51,11 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   //=> state: {"base":"USD","quote":"CAD","conversion":{},"error":null,"payload":{"newText":"now done"}}
   console.log(`szw map1 : ${JSON.stringify(state)}`)
-  let myText = state.payload.newText
+  let myText = "default Value"
+  if (state === undefined) {
+  } else {
+    myText = state.payload.newText
+  }
   return {
     list: [],
     text2: myText
