@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, FlatList, Button} from 'react-native';
 import {connect} from 'react-redux'
-import {fetchCurrencyEvent} from "../redux/action_currency";
+import {FETCH_CURRENCY, fetchCurrencyEvent} from "../redux/action_currency";
 
 // 1. Home页, 只有一个ListView
 class App extends React.Component {
@@ -53,6 +53,7 @@ const mapStateToProps = (state) => {
   console.log(`szw map1 : ${JSON.stringify(state)}`)
   let myText = "default Value"
   if (state === undefined) {
+    console.log(`szw mapStateToProps() : state is null`)
   } else {
     myText = state.payload.newText
   }
@@ -61,4 +62,19 @@ const mapStateToProps = (state) => {
     text2: myText
   }
 }
-export default connect(mapStateToProps)(App)
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    clicks: () => {
+      console.log(`szw click button`)
+      dispatch({
+        type: FETCH_CURRENCY,
+        payload: {
+          thisCurrency: 'USD'
+        }
+      });
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
