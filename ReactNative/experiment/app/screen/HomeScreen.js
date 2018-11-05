@@ -21,11 +21,11 @@ class App extends React.Component {
   }
 
   render() {
-    let {list, newText} = this.state
+    let {list} = this.state
 
     return <View style={styles.container}>
       <Text>Top...</Text>
-      <Text>{newText}</Text>
+      <Text>{this.props.text2}</Text>
       <Button onPress={this.clicks} title="button2"/>
       <FlatList
         data={list}
@@ -47,4 +47,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect()(App)
+// 第一参mapStateToProps, 是一个函数. 它在执行后应该返回一个对象, 里面的每一个k-v对都是一个映射.
+const mapStateToProps = (state) => {
+  //=> state: {"base":"USD","quote":"CAD","conversion":{},"error":null,"payload":{"newText":"now done"}}
+  console.log(`${JSON.stringify(state)}`)
+  // let myText = state.payload.newText
+  return {
+    list: [],
+    text2: "333444"
+  }
+}
+export default connect(mapStateToProps)(App)

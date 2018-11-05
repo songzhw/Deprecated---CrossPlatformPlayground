@@ -8,5 +8,3 @@ export default () => (
     <Home/>
   </Provider>
 )
-
-
