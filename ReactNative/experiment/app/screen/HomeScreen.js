@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
 // 第一参mapStateToProps, 是一个函数. 它在执行后应该返回一个对象, 里面的每一个k-v对都是一个映射.
 const mapStateToProps = (state) => {
   //=> state: {"base":"USD","quote":"CAD","conversion":{},"error":null,"payload":{"newText":"now done"}}
-  console.log(`${JSON.stringify(state)}`)
-  // let myText = state.payload.newText
+  console.log(`szw map1 : ${JSON.stringify(state)}`)
+  let myText = state.payload.newText
   return {
     list: [],
-    text2: "333444"
+    text2: myText
   }
 }
 export default connect(mapStateToProps)(App)
