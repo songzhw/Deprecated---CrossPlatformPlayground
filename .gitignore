@@ -94,3 +94,5 @@ android/keystores/debug.keystore
 
 .deco/
 .expo/
+yarn.lock
+package-lock.json
