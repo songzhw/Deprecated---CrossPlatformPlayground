@@ -9,6 +9,7 @@ import {
 
 export const doFetch = currency => fetch(`http://fixer.handlebarlabs.com/latest?base=${currency}`)
 
+// action都有type; 另外还或有, 或没有, currecny字段. 所以这里会处理当currency===undefined的话怎么办
 const fetchRates = function* (action) {
   try {
     let { currency } = action
@@ -22,6 +23,7 @@ const fetchRates = function* (action) {
     if (result.error) {
       yield put({ type: CONVERSION_ERROR, error: result.error })
     } else {
+      console.log(`szw 002`)
       yield put({ type: CONVERSION_RESULT, result })
     }
     

@@ -62,6 +62,7 @@ export default (state = initialState, action) => {
     case CONVERSION_ERROR:
       return { ...state, error: action.error }
     case CONVERSION_RESULT:
+      // resp = {"base":"CAD","date":"2018-09-06","rates":{"AUD":1.0539, ...} }
       return {
         ...state,
         baseCurrency: action.result.base,
