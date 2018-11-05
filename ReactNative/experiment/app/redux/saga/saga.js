@@ -2,17 +2,11 @@ import {FETCH_CURRENCY, FETCHED_DATA} from "../action_currency";
 import {takeEvery, put, call} from 'redux-saga/effects'
 
 function* doIt() {
-  yield put({type: FETCHED_DATA, payload: {text: 'done'}})
-}
-
-function* increaseAsync(){
-  yield delay(2000)
-  yield put( {type: 'doneIncrease'})
+  yield put({type: FETCHED_DATA, payload: {text: 'now done'}})
 }
 
 function* saga(){
   yield takeEvery(FETCH_CURRENCY, doIt)
-  yield takeEvery('increase', increaseAsync)
 }
 
 export default saga

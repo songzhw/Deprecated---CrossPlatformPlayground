@@ -12,31 +12,21 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://fixer.handlebarlabs.com/latest?base=AUD")
-      .then(resp => resp.json())
-      .then(respBody => Object.keys(respBody.rates))
-      .then(currencies => {
-        this.setState(prevState => ({list: currencies}))
-      })
-  }
-
-  clicks = () => {
     const {dispatch} = this.props
     dispatch(fetchCurrencyEvent("CNY"))
   }
 
-  increseAsync = ()=>{
-    const {dispatch} = this.props
-    dispatch( {type: 'increase'})
+  clicks = () => {
+    console.log(`"click button`)
   }
 
   render() {
-    let {list} = this.state
+    let {list, newText} = this.state
 
     return <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Button onPress={this.clicks} title="Go Fetch Data"/>
-      <Button onPress={this.increseAsync} title="increase async"/>
+      <Text>Top...</Text>
+      <Text>{newText}</Text>
+      <Button onPress={this.clicks} title="button2"/>
       <FlatList
         data={list}
         keyExtractor={item => item}

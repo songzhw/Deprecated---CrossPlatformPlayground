@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
       console.log(`   reducer: fetch()`)
       return {...state, conversion: {}}
     case FETCHED_DATA:
-      console.log(`   reducer: onResp()`)
-      return {...state }
+      console.log(`   reducer: onResp() : ${action.payload.text}`)
+      return {...state, payload: {newText: action.payload.text} }
   }
 }
