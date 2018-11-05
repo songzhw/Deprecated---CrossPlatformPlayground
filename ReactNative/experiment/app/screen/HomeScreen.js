@@ -12,12 +12,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const {dispatch} = this.props
-    dispatch(fetchCurrencyEvent("CNY"))
-  }
-
-  clicks = () => {
-    console.log(`"click button`)
+    // const {dispatch} = this.props
+    // dispatch(fetchCurrencyEvent("CNY"))
   }
 
   render() {
