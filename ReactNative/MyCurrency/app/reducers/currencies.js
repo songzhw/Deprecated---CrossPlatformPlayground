@@ -69,7 +69,7 @@ export default (state = initialState, action) => {
         conversions: {
           ...state.conversions,
           [action.result.base]: {
-            isFetching: true,
+            isFetching: false,
             ...action.result,
           },
         },
