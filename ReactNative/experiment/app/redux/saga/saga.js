@@ -1,5 +1,5 @@
 import {FETCH_CURRENCY, FETCHED_DATA} from "../action_currency";
-import {takeEvery, put, call} from 'redux-saga/effects'
+import {takeEvery, put, call, select} from 'redux-saga/effects'
 
 function* doIt() {
   // console.log(`saga FETCH_CURRENCY : currency = ${action.payload.thisCurrency}`)

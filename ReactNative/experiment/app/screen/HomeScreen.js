@@ -64,12 +64,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     clicks: () => {
-      // console.log(`szw click button`)
-      dispatch({
-        type: FETCH_CURRENCY,
-        payload: {
-          thisCurrency: 'USD'
-        }
+      dispatch({type: FETCH_CURRENCY, payload: { thisCurrency: 'USD'}
       });
     }
   };
