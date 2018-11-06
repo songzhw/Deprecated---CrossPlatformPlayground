@@ -109,6 +109,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // console.log(`szw Home state->prop() : ${JSON.stringify(state)}`)
   const { baseCurrency, quoteCurrency } = state.currencies
   const conversionSelector = state.currencies.conversions[baseCurrency] || {}
   const rates = conversionSelector.rates || {}
