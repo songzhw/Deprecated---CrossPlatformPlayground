@@ -10,10 +10,10 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CURRENCY:
-      console.log(`   reducer: fetch()`)
+      console.log(`reducer FETCH_CURRENCY`)
       return {...state, conversion: {}}
     case FETCHED_DATA:
-      console.log(`   reducer: onResp() : ${action.payload.text}`)
+      console.log(`reducer FETCHED_DATA : ${action.payload.text}`)
       return {...state, payload: {newText: action.payload.text} }
   }
 }

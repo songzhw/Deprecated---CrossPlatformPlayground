@@ -48,10 +48,10 @@ const styles = StyleSheet.create({
 // 第一参mapStateToProps, 是一个函数. 它在执行后应该返回一个对象, 里面的每一个k-v对都是一个映射.
 const mapStateToProps = (state) => {
   //=> state: {"base":"USD","quote":"CAD","conversion":{},"error":null,"payload":{"newText":"now done"}}
-  console.log(`szw map1 : ${JSON.stringify(state)}`)
+  // console.log(`szw map1 : ${JSON.stringify(state)}`)
   let myText = "default Value"
   if (state === undefined) {
-    console.log(`szw mapStateToProps() : state is null`)
+    // console.log(`szw mapStateToProps() : state is null`)
   } else {
     myText = state.payload.newText
   }
@@ -64,7 +64,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     clicks: () => {
-      console.log(`szw click button`)
+      // console.log(`szw click button`)
       dispatch({
         type: FETCH_CURRENCY,
         payload: {
