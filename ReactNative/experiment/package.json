@@ -9,7 +9,11 @@
     "eject": "expo eject",
     "lint": "./node_modules/eslint/bin/eslint app/",
     "lint:fix": "./node_modules/eslint/bin/eslint app/ --fix",
-    "test": "jest"
+    "test": "jest",
+    "test-init": "jest --init"
+  },
+  "jest": {
+    "preset": "react-native"
   },
   "dependencies": {
     "@expo/vector-icons": "6.2.0",
