@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Provider} from 'react-redux'
 import store from './app/redux/store'
-import ReduxSagaScreen from './app/screen/ReduxSagaScreen'
+import Router from './app/core/route'
 
 export default () => (
   <Provider store={store}>
-    <ReduxSagaScreen/>
+    <Router/>
   </Provider>
 )
