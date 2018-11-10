@@ -38,7 +38,7 @@ export default class App extends Component {
     // console.log(`onChange() array1 = ${this.state.previousAppStates}`)
     // console.log(`onChange() array2 = ${tmp}`)
     console.log(`=======================================`)
-    this.setState({thisAppState, tmp})
+    this.setState({appState: thisAppState, previousAppStates: tmp})
   }
 
   render() {
