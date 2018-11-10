@@ -1,6 +1,6 @@
 import {fetchWithCallback, fetchWithPromise} from '../app/temp/Asyncs'
 
-test('test async method', (done) => {
+test('test async method (callback)', (done) => {
   function callback(id) {
     expect(id).toBe(23)
     done()
@@ -9,6 +9,10 @@ test('test async method', (done) => {
   fetchWithCallback(23, callback)
 })
 
-test('export 23', () => {
-  expect(fetchWithPromise()).toBe(23)
+// be sure to return the promise
+test('test async method (promise)', () => {
+  return fetchWithPromise("szw")
+    .then(data => {
+      expect(data).toBe('szw')
+    })
 })
