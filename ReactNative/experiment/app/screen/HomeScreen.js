@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {StyleSheet, Text, View, FlatList, Button} from 'react-native';
 import {connect} from 'react-redux'
 import {FETCH_CURRENCY, fetchCurrencyEvent} from "../redux/action_currency";
 
 // 1. Home页, 只有一个ListView
-class App extends React.Component {
+class App extends Component {
 
   constructor(props) {
     super(props)

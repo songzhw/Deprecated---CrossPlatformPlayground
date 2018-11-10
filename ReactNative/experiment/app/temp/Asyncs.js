@@ -1,7 +1,10 @@
-const fetchWithCallback = function (id, callback) {
+export function fetchWithCallback(id, callback) {
   setTimeout(() => {
     callback(id)
-  }, 3000)
+  }, 2000)
 }
 
-export default fetchWithCallback
+export function fetchWithPromise() {
+  return 23
+}
+
