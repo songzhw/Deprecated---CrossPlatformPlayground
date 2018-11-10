@@ -1,4 +1,4 @@
-import fetchWithCallback from '../app/temp/Asyncs'
+import fetchA from '../app/temp/Asyncs'
 
 test('test async method', (done) => {
   function callback(id) {
@@ -6,5 +6,5 @@ test('test async method', (done) => {
     done()
   }
 
-  fetchWithCallback(23, callback)
+  fetchA(23, callback)
 })
