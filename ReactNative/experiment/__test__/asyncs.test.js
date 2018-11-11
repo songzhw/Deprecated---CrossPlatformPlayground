@@ -13,17 +13,22 @@ test('test async method (callback)', (done) => {
 
 // be sure to return the promise
 test('test async method (promise)', () => {
-  return fetchWithPromise("szw")
-    .then(data => {
-      expect(data).toBe('szw')
-    })
+  // 以下两种方式都行
+  
+  // return fetchWithPromise("szw")
+  //   .then(data => {
+  //     expect(data).toBe('szw')
+  //   })
+
+  return expect(fetchWithPromise('szw'))
+    .resolves
+    .toBe('szw')
 })
 
 // be sure to return the promise
 test('test async methid (failed promise)', () => {
-  // expect.assertions(1)
-  return fetchWithPromise_fail()
-    .catch(err => {
-      expect(err).toMatch('300')
-    })
+  let error = new Error("failed 400")
+  return expect(fetchWithPromise_fail())
+    .rejects
+    .toEqual(error)
 })
