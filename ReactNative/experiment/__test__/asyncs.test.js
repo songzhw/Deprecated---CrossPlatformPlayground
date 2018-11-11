@@ -14,7 +14,7 @@ test('test async method (callback)', (done) => {
 // be sure to return the promise
 test('test async method (promise)', () => {
   // 以下两种方式都行
-  
+
   // return fetchWithPromise("szw")
   //   .then(data => {
   //     expect(data).toBe('szw')
@@ -31,4 +31,15 @@ test('test async methid (failed promise)', () => {
   return expect(fetchWithPromise_fail())
     .rejects
     .toEqual(error)
+})
+
+test('test prmise with async', async () => {
+  const data = await fetchWithPromise('xl')
+  expect(data).toBe('xl')
+})
+
+test('test promise with async 2', async () => {
+  await expect(fetchWithPromise('bing'))
+    .resolves
+    .toBe('bing')
 })
