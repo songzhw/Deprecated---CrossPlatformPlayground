@@ -12,3 +12,10 @@ export function fetchWithPromise(name) {
   })
 }
 
+export function fetchWithPromise_fail() {
+  return new Promise((resolve, reject) => {
+    setTimeout( () => {
+      reject(new Error("failed 400"))
+    }, 240)
+  })
+}

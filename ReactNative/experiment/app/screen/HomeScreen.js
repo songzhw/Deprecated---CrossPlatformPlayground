@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {ScrollView, Button, StyleSheet} from 'react-native'
+import {ScrollView, Text, Button, StyleSheet} from 'react-native'
 
 class HomeScreen extends Component {
   render() {
     return (
       <ScrollView style={{flex: 1}}>
         <Button style={styles.aButton} title="Redux-saga" onPress={this.go2ReduxSaga}/>
+        <Text></Text>
         <Button style={styles.aButton} title="App-State" onPress={this.go2AppState}/>
       </ScrollView>
     )
@@ -25,8 +26,8 @@ const styles = StyleSheet.create({
   aButton: {
     marginTop: 20,
     fontSize: 30,
-    color: 'red'
-  }
+    color: 'red',
+  },
 })
 
 export default HomeScreen

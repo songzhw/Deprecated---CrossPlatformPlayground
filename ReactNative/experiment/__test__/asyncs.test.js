@@ -1,4 +1,6 @@
-import {fetchWithCallback, fetchWithPromise} from '../app/temp/Asyncs'
+import {
+  fetchWithCallback, fetchWithPromise, fetchWithPromise_fail
+} from '../app/temp/Asyncs'
 
 test('test async method (callback)', (done) => {
   function callback(id) {
@@ -14,5 +16,14 @@ test('test async method (promise)', () => {
   return fetchWithPromise("szw")
     .then(data => {
       expect(data).toBe('szw')
+    })
+})
+
+// be sure to return the promise
+test('test async methid (failed promise)', () => {
+  // expect.assertions(1)
+  return fetchWithPromise_fail()
+    .catch(err => {
+      expect(err).toMatch('300')
     })
 })
