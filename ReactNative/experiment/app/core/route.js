@@ -4,6 +4,7 @@ import {createStackNavigator} from 'react-navigation'
 import HomeScreen from '../screen/HomeScreen'
 import AppStateScreen from '../screen/AppStateScreen'
 import ReduxSagaScreen from '../screen/ReduxSagaScreen'
+import AsyncStorageScreen from '../screen/AsyncStorageScreen'
 
 const HomeStack = createStackNavigator(
   {
@@ -13,12 +14,16 @@ const HomeStack = createStackNavigator(
     },
     App_State: {
       screen: AppStateScreen,
-      navigationOptions: { headerTitle: 'App-State'}
+      navigationOptions: { headerTitle: 'App-State Demo'}
     },
     Redux_Saga: {
       screen: ReduxSagaScreen,
-      navigationOptions: { headerTitle: 'Redux-Saga'}
+      navigationOptions: { headerTitle: 'Redux-Saga Demo'}
     },
+    AsyncStorageScreen: {
+      screen: AsyncStorageScreen,
+      navigationOptions: {headerTitle: 'Async Storage Demo'}
+    }
   },
   {
     headerMode: 'screen'

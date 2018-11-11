@@ -6,8 +6,8 @@ class HomeScreen extends Component {
     return (
       <ScrollView style={{flex: 1}}>
         <Button style={styles.aButton} title="Redux-saga" onPress={this.go2ReduxSaga}/>
-        <Text></Text>
         <Button style={styles.aButton} title="App-State" onPress={this.go2AppState}/>
+        <Button style={styles.aButton} title="Async-Storage" onPress={this.go2AsyncStorage}/>
       </ScrollView>
     )
   }
@@ -18,6 +18,10 @@ class HomeScreen extends Component {
 
   go2AppState = () => {
     this.props.navigation.navigate('App_State')
+  }
+
+  go2AsyncStorage = () => {
+    this.props.navigation.navigate('AsyncStorageScreen')
   }
 
 }
