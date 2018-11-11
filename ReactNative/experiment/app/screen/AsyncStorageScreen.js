@@ -14,7 +14,7 @@ class AsyncStorageScreen extends Component {
   }
 
   onInit = async () => {
-    let value = await AsyncStorage.getItem()
+    let value = await AsyncStorage.getItem(SAVED_EMAIL_KEY)
     this.setState({email: value})
   }
 
@@ -22,7 +22,7 @@ class AsyncStorageScreen extends Component {
     return (
       <View>
         <TextInput value={this.state.email}
-                   onChangeText={email => this.state({email: email})}
+                   onChangeText={email => this.setState({email: email})}
         />
         <Button title="log in" onPress={this.onSave}/>
       </View>
@@ -31,8 +31,12 @@ class AsyncStorageScreen extends Component {
 
   onSave = async () => {
     let email = this.state.email
-    console.log(`onSave(${email})`)
-    await AsyncStorage.setItem(SAVED_EMAIL_KEY, email)
+    let value = `(saved) ${email}`
+    try {
+      await AsyncStorage.setItem(SAVED_EMAIL_KEY, value)
+    } catch (err){
+      console.error(`AsyncStorage error on saving: ${err.message}`)
+    }
   }
 
 }
