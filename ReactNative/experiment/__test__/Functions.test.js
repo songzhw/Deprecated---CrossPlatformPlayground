@@ -26,3 +26,16 @@ test('test .mock.instance', () => {
   console.log(`02 : ${MyMock.mock.instances[0].name}`)
   console.log(`03 : ${MyMock.mock.instances[1].name}`)
 })
+
+// 其实用 fn.test( x => x + 12)也是写明了mock returned value
+test('mock returned value', () => {
+  const myMock = jest.fn();
+  console.log(myMock());  //=> undefined
+
+  myMock
+    .mockReturnValueOnce(10)
+    .mockReturnValueOnce('x')
+    .mockReturnValue(true);
+
+  console.log(myMock(), myMock(), myMock(), myMock());//=> 10, 'x', true, true
+})
