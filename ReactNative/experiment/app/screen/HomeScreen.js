@@ -2,6 +2,23 @@ import React, {Component} from 'react';
 import {ScrollView, Text, Button, StyleSheet} from 'react-native'
 
 class HomeScreen extends Component {
+
+  componentDidMount() {
+    let value = this.getCurrencyRateToRMB('USD')
+    console.log(`RMB = ${JSON.stringify(value)}`)
+  }
+
+  getCurrencyRateToRMB = (base) => {
+    let url = `http://fixer.handlebarlabs.com/latest?base=${base}`
+    return fetch(url)
+      .then(resp => resp.json())
+      .then(resp => {
+        console.log(`in resp = ${JSON.stringify(resp)}`)
+        return resp
+      })
+  }
+
+
   render() {
     return (
       <ScrollView style={{flex: 1}}>

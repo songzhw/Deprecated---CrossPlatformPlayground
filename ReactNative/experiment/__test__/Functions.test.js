@@ -1,4 +1,4 @@
-import {forEachIn} from "../app/temp/Functions";
+import {forEachIn} from "../app/temp/module1/Functions";
 
 test(`test function arguments`, () => {
   let mockCallback = jest.fn(x => x + 12)
@@ -39,3 +39,5 @@ test('mock returned value', () => {
 
   console.log(myMock(), myMock(), myMock(), myMock());//=> 10, 'x', true, true
 })
+
+// verify() ==> expect(mockFun).toBeCalledWith(arg1, arg2)
