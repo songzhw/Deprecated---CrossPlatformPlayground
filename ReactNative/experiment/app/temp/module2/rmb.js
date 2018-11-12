@@ -1,6 +1,6 @@
 import {getCurrencyRateToRMB} from './HttpEngine'
 
 export function getRMB(base) {
-  return getCurrencyRateToRMB('USD')
+  return getCurrencyRateToRMB(base)
     .then(rates => rates.CNY)
 }

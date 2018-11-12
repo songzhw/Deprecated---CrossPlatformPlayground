@@ -6,6 +6,7 @@ const rates = {
 }
 
 export function getCurrencyRatesWhen(base) {
+  console.log(`0002 mock`)
   return new Promise((resolve, reject) => {
     resolve(rates)
   })
