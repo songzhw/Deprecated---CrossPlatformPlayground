@@ -15,3 +15,18 @@ test('check if consumer called workder', () => {
   expect(Worker).toHaveBeenCalledTimes(1) // 在CF中, 被new了
 })
 
+test('', ()=> {
+  let consumer = new Consumer()
+  let id = 100
+  consumer.workOn(id)
+
+  let mockWorker = Worker.mock.instances[0]
+  let mockMethod = mockWorker.work //若是mockWorker.work(id), 那右值就是函数返回值了
+
+  expect(mockMethod).toBeCalled()
+
+  var calledMethodArg = mockMethod.mock.calls[0][0]
+  expect(calledMethodArg).toBe(100)
+})
+
+

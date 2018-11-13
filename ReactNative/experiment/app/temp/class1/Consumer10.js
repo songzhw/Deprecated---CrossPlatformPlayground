@@ -5,8 +5,7 @@ export default class Consumer10 {
     this.worker = new Worker()
   }
 
-  workOn() {
-    let id = 23
+  workOn(id) {
     this.worker.work(id)
   }
 }
