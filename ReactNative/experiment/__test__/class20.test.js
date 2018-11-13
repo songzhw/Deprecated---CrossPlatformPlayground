@@ -13,6 +13,7 @@ test('could lambda be verified?', ()=> {
   consumer.workLambdaOn(100)
 
   let mockWorker = Worker.mock.instances[0]
+  // let mockMethod = mockWorker.workLambda // will fail the test
   let mockMethod = mockWorker.work
 
   expect(mockMethod).toBeCalled()
