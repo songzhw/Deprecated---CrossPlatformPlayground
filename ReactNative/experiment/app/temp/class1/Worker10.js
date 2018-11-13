@@ -6,4 +6,5 @@ export default class Worker10 {
   work(id) {
     console.log(`worker work(${id}, ${this.foo})`)
   }
+
 }

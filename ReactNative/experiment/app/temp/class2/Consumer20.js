@@ -1,11 +1,11 @@
-import Worker from './Worker10'
+import Worker from './Worker20'
 
-export default class Consumer10 {
+export default class Consumer20 {
   constructor() {
     this.worker = new Worker()
   }
 
-  workOn(id) {
+  workLambdaOn(id){
     this.worker.work(id)
   }
 

@@ -15,7 +15,7 @@ test('check if consumer called workder', () => {
   expect(Worker).toHaveBeenCalledTimes(1) // 在CF中, 被new了
 })
 
-test('', ()=> {
+test('verify one method with specific argument get called', ()=> {
   let consumer = new Consumer()
   let id = 100
   consumer.workOn(id)
