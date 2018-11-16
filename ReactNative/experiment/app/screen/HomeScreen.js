@@ -7,7 +7,7 @@ class HomeScreen extends Component {
     return (
       <ScrollView style={{flex: 1}}>
         <Button style={styles.aButton} title="Redux-saga" onPress={this.go2ReduxSaga}/>
-        <Button style={styles.aButton} title="App-State" onPress={this.go2AppState}/>
+        <Button style={styles.aButton} title="AppState - NetInfo" onPress={this.go2AppState}/>
         <Button style={styles.aButton} title="Async-Storage" onPress={this.go2AsyncStorage}/>
       </ScrollView>
     )

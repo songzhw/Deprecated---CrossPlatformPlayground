@@ -4,7 +4,7 @@ import React from "react";
 
 export default class App extends Component {
   state = {
-    connection: null,
+    connection: {},
     appState: AppState.currentState,
     previousAppStates: []
   }
@@ -13,7 +13,7 @@ export default class App extends Component {
     AppState.addEventListener('change', this.onAppStateChange)
 
     NetInfo.addEventListener('connectionChange', this.onNetInfoChange)
-    NetInfo.fetch()
+    NetInfo.getConnectionInfo()
       .then(conn => this.onNetInfoChange(conn))
   }
 
@@ -36,7 +36,7 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <Text>One</Text>
+        <Text>Connection: {JSON.stringify(this.state.connection)}</Text>
         <Text>{JSON.stringify(this.state.previousAppStates)}</Text>
       </View>
     )
@@ -44,3 +44,7 @@ export default class App extends Component {
 
 
 }
+
+// {type: "none", effectiveType: 'unknow'}
+// {type: "wife", effectiveType: 'unknow'}
+// {type: "cellular", effectiveType: '4g'}
