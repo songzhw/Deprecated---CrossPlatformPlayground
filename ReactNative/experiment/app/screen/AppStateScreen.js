@@ -12,14 +12,14 @@ export default class App extends Component {
   componentDidMount() {
     AppState.addEventListener('change', this.onAppStateChange)
 
-    NetInfo.addEventListener('change', this.onNetInfoChange)
+    NetInfo.addEventListener('connectionChange', this.onNetInfoChange)
     NetInfo.fetch()
-      .then(conn => this.onNetInfoChange)
+      .then(conn => this.onNetInfoChange(conn))
   }
 
   componentWillUnmount() {
     AppState.removeEventListener('change', this.onAppStateChange)
-    NetInfo.removeEventListener('change', this.onNetInfoChange)
+    NetInfo.removeEventListener('connectionChange', this.onNetInfoChange)
   }
 
   onNetInfoChange = (connc) => {
