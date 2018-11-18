@@ -3,13 +3,7 @@ import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers'
 import { NavigationActions } from 'react-navigation'
 import NavigationStack from './navigationStack'
-
-// action type
-export const ACTION_NEXT = 'NEXT'
-// action creator
-export const goNext = () => ({
-  type: ACTION_NEXT
-})
+import {ACTION_NEXT} from './actions'
 
 const ActionForFirstPage = NavigationStack.router.getActionForPathAndParams(
   'screen1'

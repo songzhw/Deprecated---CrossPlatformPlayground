@@ -5,7 +5,7 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native'
-import {goNext} from './store'
+import {goNext} from './actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
