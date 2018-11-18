@@ -3,18 +3,13 @@ import createSagaMiddleware from 'redux-saga'
 import logger from 'redux-saga'
 import reducer from './reducer_currency'
 import saga from './saga/saga'
-import {reduxNavReducer, reduxNavMiddleware} from '../navigation'
+// Unable to resolve "reducer_currency" from "app/redux/store.js"
 
 const sagaMiddleware = createSagaMiddleware()
 const middlewares = [sagaMiddleware]
 // TODO debug => add logger
 
-const rootReducer = combineReducer({
-  nav: reduxNavReducer,
-  ...
-})
-
-const store = createStore(rootReducer, applyMiddleware(...middlewares))
+const store = createStore(reducer, applyMiddleware(...middlewares))
 
 sagaMiddleware.run(saga)
 
