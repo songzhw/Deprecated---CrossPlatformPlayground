@@ -1,9 +1,3 @@
-/**
- * desc：
- * author：
- * date：
- */
-
 import React, {Component} from 'react'
 import {
   StyleSheet,
@@ -13,7 +7,8 @@ import {
 } from 'react-native'
 import {goNext} from './store'
 import { connect } from 'react-redux'
-import { bindActionCreators, createStore } from 'redux'
+import { bindActionCreators } from 'redux'
+
 class FirstPage extends Component {
   next () {
     console.log(this.props.navigation)

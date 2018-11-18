@@ -1,12 +1,9 @@
 import createLogger from 'redux-logger'
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
-import {
-  reduxifyNavigator,
-  createReactNavigationReduxMiddleware,
-  createNavigationReducer
-} from 'react-navigation-redux-helpers'
-import { NavigationActions, StackNavigator } from 'react-navigation'
+import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers'
+import { NavigationActions } from 'react-navigation'
 import NavigationStack from './navigationStack'
+
 // action type
 export const ACTION_NEXT = 'NEXT'
 // action creator

@@ -1,9 +1,3 @@
-/**
- * desc：
- * author：
- * date：
- */
- 
 import React, {Component} from 'react'
 import {
   StyleSheet,

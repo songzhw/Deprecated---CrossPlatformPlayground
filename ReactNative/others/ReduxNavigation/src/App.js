@@ -1,21 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react'
 import { NavigationActions } from 'react-navigation'
-import {
-  reduxifyNavigator,
-  createReactNavigationReduxMiddleware,
-  createNavigationReducer
-} from 'react-navigation-redux-helpers'
+import { reduxifyNavigator } from 'react-navigation-redux-helpers'
 import { BackHandler } from 'react-native'
 import { connect, Provider } from 'react-redux'
-import { store } from './store'
 import { store2 } from './store2'
 import NavigationStack from './navigationStack'
 
