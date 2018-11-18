@@ -1,12 +1,12 @@
 import {connect} from 'react-redux'
 import {reduxifyNavigator} from 'react-navigation-redux-helpers'
-import reducer from './redux_nav'
+import reduce from './redux_nav'
 import HomeStack from './route'
 
-const {navReducer, middleware} = reducer(HomeStack)
+const {reduxNavReducer, reduxNavMiddleware} = reduce(HomeStack)
 
-const highOrderStack = reduxifyNavigator(HomeStack, 'root')
+const AppNavigation = reduxifyNavigator(HomeStack, 'root')
 const mapStateToProps = state => ({staet: state.nav})
-const HighOrderNavigator = connect(mapStateToProps)(highOrderStack)
+const HighOrderNavigator = connect(mapStateToProps)(AppNavigation)
 
-export {HighOrderNavigator, navReducer, middleware}
+export {HighOrderNavigator, reduxNavReducer, reduxNavMiddleware}

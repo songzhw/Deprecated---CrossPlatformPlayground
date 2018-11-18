@@ -2,8 +2,8 @@ import {createReactNavigationReduxMiddleware, createNavigationReducer} from 'rea
 
 export default (AppNavigator) => {
   const middleware = createReactNavigationReduxMiddleware("root", state => state.nav)
-  const reducer = createNavigationReducer(AppNavigator)
-  return {reducer, middleware}
+  const reduxNavReducer = createNavigationReducer(AppNavigator)
+  return {reduxNavReducer, reduxNavMiddleware}
 }
 
 
