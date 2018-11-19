@@ -1,5 +1,5 @@
 import { expectSaga } from 'redux-saga-test-plan'
-import { userSaga } from '../app/temp/saga/TempSaga'
+import { userSaga } from '../../app/temp/saga/TempSaga'
 
 test('01 simple saga test', () => {
   const api = {

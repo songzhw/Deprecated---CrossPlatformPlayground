@@ -3,8 +3,8 @@ import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { throwError } from 'redux-saga-test-plan/providers'
 
-import { api } from '../app/temp/saga/api'
-import { petSaga } from '../app/temp/saga/saga2'
+import { api } from '../../app/temp/saga/api'
+import { petSaga } from '../../app/temp/saga/saga2'
 
 
 
