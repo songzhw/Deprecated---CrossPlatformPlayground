@@ -7,7 +7,7 @@ test('01 simple saga test', () => {
   }
 
   return expectSaga(userSaga, api)
-    .put({ type: 'RECEIVE_USER', payload: {male: true, age: 23, name: 'song'} })
+    .put({ type: 'RECEIVE_USER', payload: {id: {male: true, age: 23}, name: 'song'} })
     .dispatch({ type: 'REQUEST_USER', payload: {male: true, age: 23} })
     .run()
 })
