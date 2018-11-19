@@ -1,4 +1,4 @@
-import { take, call, put } from 'redux-saga'
+import { take, call, put } from 'redux-saga/effects'
 
 function* userSaga(api) {
   const action = yield take('REQUEST_USER')
