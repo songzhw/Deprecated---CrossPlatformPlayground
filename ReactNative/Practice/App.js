@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import ScreenAwakeModule from './src/natives/ScreenAwakeModule'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,6 +19,14 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  componentDidMount() {
+    if(Platform.OS === 'android'){
+      ScreenAwakeModule.keepScreenAwake()
+    }
+  }
+
+
   render() {
     return (
       <View style={styles.container}>

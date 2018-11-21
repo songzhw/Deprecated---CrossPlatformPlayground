@@ -1,4 +1,4 @@
-package com.practice;
+package com.practice.utils.awake;
 
 import android.app.Activity;
 import android.view.WindowManager;
