@@ -1,2 +1,2 @@
 import {NativeModules} from 'react-native'
-export default NativeModules.ScreenAwakeModule
+export default NativeModules.Module_ScreenAwake
