@@ -48,3 +48,4 @@ export default class App extends Component {
 // {type: "none", effectiveType: 'unknow'}
 // {type: "wife", effectiveType: 'unknow'}
 // {type: "cellular", effectiveType: '4g'}
+
