@@ -1,10 +1,8 @@
-import {FETCH_CURRENCY, FETCHED_DATA} from "../action_currency";
-import {takeEvery, put, call, select} from 'redux-saga/effects'
+import { FETCH_CURRENCY, FETCHED_DATA } from '../action_currency'
+import { takeEvery, put } from 'redux-saga/effects'
 
 function* doIt() {
-  // let state = yield select()
-  // console.log(`saga FETCH_CURRENCY : ${JSON.stringify(state)}`)
-  yield put({type: FETCHED_DATA, payload: {text: 'now done'}})
+  yield put({ type: FETCHED_DATA, payload: { text: 'now done' } })
 }
 
 function* saga() {
