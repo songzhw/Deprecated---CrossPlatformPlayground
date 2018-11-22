@@ -1,4 +1,4 @@
-package com.practice.utils.picker;
+package com.practice.utils.natives;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -29,7 +29,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule {
 
 	@Override
 	public String getName() {
-		return "ImagePickerModule";
+		return "Module_ImagePicker";
 	}
 
 	private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
