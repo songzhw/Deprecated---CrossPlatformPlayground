@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover"
   }
 });
+// resizeMode: 'cover' -- 图片宽高比不变;  缩放, 直到宽高都>=容器
 
 /* playground cards ========================================================= */
 
