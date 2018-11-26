@@ -12,6 +12,7 @@ class UiLoginScreen extends Component {
       <View style={styles.root}>
         <Image style={styles.pattenDots} source={require('../../assets/pattern-dots.png')}/>
         <Image style={styles.illustrator} source={require('../../assets/illustration.png')}/>
+
       </View>
     )
 
@@ -27,6 +28,8 @@ const styles = StyleSheet.create({
   },
   illustrator: {
     height: 200,
+    position: 'absolute',
+    top: 0
   },
 })
 
