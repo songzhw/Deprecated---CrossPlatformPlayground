@@ -20,13 +20,23 @@ class UiLoginScreen extends Component {
     const { animValue } = this.state
 
     // Math.min是说delay值为2700时, 应该不超过3000, 所以要改为3000
+    let maxValue = Math.min(delay + 500, 3000)
     return {
       // 所以animValue的值在0到delay之时, opacity全为0, 即不显示出来
       opacity: animValue.interpolate({
-        inputRange: [delay, Math.min(delay + 500, 3000)],
+        inputRange: [delay, maxValue],
         outputRange: [0, 1],
         extrapolate: 'clamp',
       }),
+      // 仍是delay开始transform. [20,0]的outputRange就是从下方升上来
+      // 但注意, 这里的transform不再是一个对象, 而是一组
+      transform: [{
+        translateY: animValue.interpolate({
+          inputRange: [delay, maxValue],
+          outputRange: [20, 0],
+          extrapolate: 'clamp',
+        }),
+      }],
     }
 
   }
