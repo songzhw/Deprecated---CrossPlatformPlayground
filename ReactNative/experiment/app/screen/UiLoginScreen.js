@@ -48,8 +48,12 @@ class UiLoginScreen extends Component {
         <Image style={styles.illustrator} source={require('../../assets/illustration.png')}/>
         <Image source={require('../../assets/logo.png')}/>
 
-        <Animated.View style={this.fadeIn(500)}>
+        <Animated.View style={this.fadeIn(300)}>
           <Text style={styles.h1}>Facebook Developer Conference</Text>
+        </Animated.View>
+
+        <Animated.View style={this.fadeIn(800)}>
+          <Text style={styles.h2}> April 18 + 19, San Jose</Text>
         </Animated.View>
       </View>
     )
@@ -72,6 +76,10 @@ const styles = StyleSheet.create({
   },
   h1: {
     fontSize: 23,
+    marginTop: 30,
+  },
+  h2: {
+    fontSize: 20,
     marginTop: 30,
   },
 })
