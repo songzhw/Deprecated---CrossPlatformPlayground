@@ -12,6 +12,7 @@ class UiLoginScreen extends Component {
       <View style={styles.root}>
         <Image style={styles.pattenDots} source={require('../../assets/pattern-dots.png')}/>
         <Image style={styles.illustrator} source={require('../../assets/illustration.png')}/>
+        <Image source={require('../../assets/logo.png')}/>
 
       </View>
     )
@@ -22,6 +23,7 @@ class UiLoginScreen extends Component {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    alignItems: 'center'
   },
   pattenDots: {
     height: 200,
