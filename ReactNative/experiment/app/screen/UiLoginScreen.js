@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image, Text, Animated, StyleSheet } from 'react-native'
+import { View, Image, Text, Button, Animated, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 class UiLoginScreen extends Component {
@@ -55,9 +55,18 @@ class UiLoginScreen extends Component {
         <Animated.View style={this.fadeIn(800)}>
           <Text style={styles.h2}> April 18 + 19, San Jose</Text>
         </Animated.View>
+
+        <Animated.View style={[styles.loginButtonContainer, this.fadeIn(1300)]}>
+          <Text style={styles.text}> Use Facebook to find your friends at F8</Text>
+          <Button title="Login" onPress={this.login}/>
+        </Animated.View>
       </View>
     )
 
+  }
+
+  login = () => {
+    console.log("press login button")
   }
 }
 
@@ -80,7 +89,13 @@ const styles = StyleSheet.create({
   },
   h2: {
     fontSize: 20,
-    marginTop: 30,
+    marginTop: 15,
+  },
+  loginButtonContainer: {
+    marginTop: 24
+  },
+  text: {
+    fontSize: 17,
   },
 })
 
