@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {ScrollView, Text, Button, StyleSheet} from 'react-native'
+import {connect} from 'react-redux'
 
 class HomeScreen extends Component {
 
@@ -9,6 +10,7 @@ class HomeScreen extends Component {
         <Button style={styles.aButton} title="Redux-saga" onPress={this.go2ReduxSaga}/>
         <Button style={styles.aButton} title="AppState - NetInfo" onPress={this.go2AppState}/>
         <Button style={styles.aButton} title="Async-Storage" onPress={this.go2AsyncStorage}/>
+        <Button style={styles.aButton} title="UI-LoginScreen" onPress={this.go2Login}/>
       </ScrollView>
     )
   }
@@ -25,6 +27,10 @@ class HomeScreen extends Component {
     this.props.navigation.navigate('AsyncStorageScreen')
   }
 
+  go2Login = () => {
+    this.props.navigation.navigate('UiLoginScreen')
+  }
+
 }
 
 const styles = StyleSheet.create({
@@ -35,4 +41,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default HomeScreen
+export default connect()(HomeScreen)

@@ -76,6 +76,7 @@ class LoginScreen extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="default" />
+
         <View style={styles.header}>
           <Image
             source={require("../common/img/pattern-dots.png")}
@@ -88,6 +89,7 @@ class LoginScreen extends React.Component {
           />
           <Image source={require("./img/logo.png")} />
         </View>
+
         <View style={styles.content}>
           <View style={styles.mainHeadingSection}>
             <Animated.View style={this.fadeIn(500, 5)}>
