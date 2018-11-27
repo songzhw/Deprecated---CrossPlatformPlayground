@@ -1,17 +1,21 @@
 // for those button that need to show "in progress" after getting a click
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import React from 'react'
+import { StyleSheet } from 'react-native'
 import ExButton from './ExButton'
 
-class ActionButton extends React.Component{
+class ActionButton extends React.Component {
   state = {
-    working: false
+    isWorking: false,
   }
 
   render() {
-    return (
-      <View></View>
-    )
+    if (this.state.isWorking) {
+      return (
+        <ExButton text="Please waiting..." onPress={() => {}}/>
+      )
+    } else {
+      // TODO
+    }
   }
 
 }
