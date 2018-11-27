@@ -20,7 +20,7 @@ class ExButton extends React.Component {
       </View>
     )
     return (
-      <TouchableOpacity style={styles.root}>
+      <TouchableOpacity style={styles.root} onPress={this.props.onPress}>
         {content}
       </TouchableOpacity>
     )

@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
   skipLogin: {
     fontSize: 16,
     color: 'rgba(1, 23, 65, 1)',
+    marginTop: 15,
   },
 })
 
