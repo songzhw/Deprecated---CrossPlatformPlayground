@@ -11,6 +11,7 @@ class HomeScreen extends Component {
         <Button style={styles.aButton} title="AppState - NetInfo" onPress={this.go2AppState}/>
         <Button style={styles.aButton} title="Async-Storage" onPress={this.go2AsyncStorage}/>
         <Button style={styles.aButton} title="UI-LoginScreen" onPress={this.go2Login}/>
+        <Button style={styles.aButton} title="UI-LoginScreen" onPress={this.go2Schedule}/>
       </ScrollView>
     )
   }
@@ -29,6 +30,10 @@ class HomeScreen extends Component {
 
   go2Login = () => {
     this.props.navigation.navigate('UiLoginScreen')
+  }
+
+  go2Schedule = () => {
+    this.props.navigation.navigate('UiScheduleScreen')
   }
 
 }

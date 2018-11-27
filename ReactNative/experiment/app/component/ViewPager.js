@@ -33,12 +33,12 @@ class ViewPager extends React.Component {
   renderChildren = () => {
     var pages = []
     pages.push(
-      <View>
+      <View key={0}>
         <Text>First Page</Text>
       </View>
     )
     pages.push(
-      <View>
+      <View key={1}>
         <Text>Second Page</Text>
       </View>
     )
