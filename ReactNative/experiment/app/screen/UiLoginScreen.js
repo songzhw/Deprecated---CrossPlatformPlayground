@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
-import { View, Image, Text, Button, Animated, StyleSheet } from 'react-native'
+import { View, Image, Text, Button, Animated, TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 class UiLoginScreen extends Component {
   state = {
     animValue: new Animated.Value(0),
+  }
+
+  static defaultProps = {
+    isNeedArrow: true,
   }
 
   componentDidMount() {
@@ -56,17 +60,38 @@ class UiLoginScreen extends Component {
           <Text style={styles.h2}> April 18 + 19, San Jose</Text>
         </Animated.View>
 
-        <Animated.View style={[styles.loginButtonContainer, this.fadeIn(1300)]}>
+        {this.renderArrow()}
+
+        <Animated.View style={[styles.loginButtonContainer, this.fadeIn(1500)]}>
           <Text style={styles.text}> Use Facebook to find your friends at F8</Text>
-          <Button title="Login" onPress={this.login}/>
+          <Button title="Login" onPress={this.login} style={styles.loginButton}/>
+          <TouchableOpacity onPress={this.skipLogin}>
+            <Text style={styles.skipLogin}> SKIP FOR NOW </Text>
+          </TouchableOpacity>
         </Animated.View>
       </View>
     )
 
   }
 
+  renderArrow() {
+    if (this.props.isNeedArrow) {
+      return (
+        <Animated.View style={this.fadeIn(1100)}>
+          <Image source={require('../../assets/arrow.png')}/>
+        </Animated.View>
+      )
+    } else {
+      return null
+    }
+  }
+
   login = () => {
-    console.log("press login button")
+    console.log('press login button')
+  }
+
+  skipLogin = () => {
+    console.log(`press skip login`)
   }
 }
 
@@ -92,10 +117,20 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   loginButtonContainer: {
-    marginTop: 24
+    marginTop: 20,
+    alignItems: 'center',
   },
   text: {
     fontSize: 17,
+  },
+  loginButton: {
+    width: 200,
+    alignSelf: 'center',
+    fontSize: 20,
+  },
+  skipLogin: {
+    fontSize: 16,
+    color: 'rgba(1, 23, 65, 1)',
   },
 })
 
