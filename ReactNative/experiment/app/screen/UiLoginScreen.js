@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { View, Image, Text, Button, Animated, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Image, Text, Animated, TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
+import ExButton from '../component/ExButton'
 
 class UiLoginScreen extends Component {
   state = {
@@ -64,7 +65,7 @@ class UiLoginScreen extends Component {
 
         <Animated.View style={[styles.loginButtonContainer, this.fadeIn(1500)]}>
           <Text style={styles.text}> Use Facebook to find your friends at F8</Text>
-          <Button title="Login" onPress={this.login} style={styles.loginButton}/>
+          <ExButton text="login" onPress={this.login}/>
           <TouchableOpacity onPress={this.skipLogin}>
             <Text style={styles.skipLogin}> SKIP FOR NOW </Text>
           </TouchableOpacity>
@@ -122,11 +123,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 17,
-  },
-  loginButton: {
-    width: 200,
-    alignSelf: 'center',
-    fontSize: 20,
   },
   skipLogin: {
     fontSize: 16,
