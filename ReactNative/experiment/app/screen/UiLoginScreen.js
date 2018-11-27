@@ -88,7 +88,7 @@ class UiLoginScreen extends Component {
   }
 
   login = () => {
-    console.log('press login button')
+    this.props.navigation.pop()
     this.props.navigation.navigate('UiScheduleScreen')
   }
 
