@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import ViewPager from '../component/ViewPager'
 
-class UiScheduleScreen extends Component{
-  render(){
+class UiScheduleScreen extends Component {
+  render() {
     return (
       <View>
-        <Text>Schedule Screen</Text>
+        <ViewPager
+        />
       </View>
     )
   }
