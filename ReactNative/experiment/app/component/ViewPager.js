@@ -31,18 +31,12 @@ class ViewPager extends React.Component {
   }
 
   renderChildren = () => {
-    var pages = []
-    pages.push(
-      <View key={0}>
-        <Text>First Page</Text>
+    const {children} = this.props
+    return React.Children.map(children, (child, i) => (
+      <View style={styles.pageStyle} key={"r_"+i}>
+        {child}
       </View>
-    )
-    pages.push(
-      <View key={1}>
-        <Text>Second Page</Text>
-      </View>
-    )
-    return pages
+    ))
   }
 
   onPageSelected = () => {
@@ -51,6 +45,11 @@ class ViewPager extends React.Component {
 
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    pageStyle: {
+    alignItems: 'center',
+    padding: 20,
+  },}
+  })
 
 export default ViewPager

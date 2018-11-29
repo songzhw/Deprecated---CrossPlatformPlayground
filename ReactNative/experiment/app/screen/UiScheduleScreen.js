@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Text, ViewPagerAndroid } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
 import ViewPager from '../component/ViewPager'
 
 class UiScheduleScreen extends Component {
   render() {
     return (
-      <ViewPagerAndroid
+      <ViewPager
         style={styles.viewPager}
-        initialPage={0}>
+      >
         <View style={styles.pageStyle}>
           <Text>First page</Text>
         </View>
@@ -18,19 +18,19 @@ class UiScheduleScreen extends Component {
         <View style={styles.pageStyle}>
           <Text>Third page</Text>
         </View>
-      </ViewPagerAndroid>
+      </ViewPager>
     )
   }
 }
 
 const styles = StyleSheet.create({
   viewPager: {
-    flex: 1
+    flex: 1,
   },
   pageStyle: {
     alignItems: 'center',
     padding: 20,
-  }
+  },
 })
 
 export default connect()(UiScheduleScreen)
