@@ -6,6 +6,7 @@ import ReduxSagaScreen from '../screen/ReduxSagaScreen'
 import AsyncStorageScreen from '../screen/AsyncStorageScreen'
 import UiLoginScreen from '../screen/UiLoginScreen'
 import UiScheduleScreen from '../screen/UiScheduleScreen'
+import ScheduleDay1 from '../screen/ScheduleDay1'
 
 const HomeStack = createStackNavigator(
   {
@@ -30,7 +31,7 @@ const HomeStack = createStackNavigator(
       navigationOptions: {headerTitle: 'Login Screen'}
     },
     UiScheduleScreen: {
-      screen: UiScheduleScreen,
+      screen: ScheduleDay1,
       navigationOptions: {headerTitle: 'Schedule Screen'}
     },
   },

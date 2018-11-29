@@ -11,6 +11,7 @@ class ScheduleDay1 extends Component {
         <FlatList
           data={[{name:'a'}, {name:'b'}]}
           renderItem = {item => <Text> {item.name} </Text>}
+          keyExtractor={ (item, index) => item.name}
         />
       </View>
     )
