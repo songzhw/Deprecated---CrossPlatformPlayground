@@ -31,9 +31,9 @@ class ViewPager extends React.Component {
   }
 
   renderChildren = () => {
-    const {children} = this.props
+    const { children } = this.props
     return React.Children.map(children, (child, i) => (
-      <View style={styles.pageStyle} key={"r_"+i}>
+      <View style={styles.pageStyle} key={'r_' + i}>
         {child}
       </View>
     ))
@@ -46,10 +46,10 @@ class ViewPager extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    pageStyle: {
+  pageStyle: {
     alignItems: 'center',
     padding: 20,
-  },}
-  })
+  },
+})
 
 export default ViewPager
