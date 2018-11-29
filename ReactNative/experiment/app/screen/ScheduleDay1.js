@@ -7,11 +7,11 @@ class ScheduleDay1 extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <Text>Gantt Day 1</Text>
+        <Text style={styles.gantt}>Gantt Day 1</Text>
         <FlatList
-          data={[{name:'a'}, {name:'b'}]}
-          renderItem = {item => <Text> {item.name} </Text>}
-          keyExtractor={ (item, index) => item.name}
+          data={[{ name: 'a' }, { name: 'b' }]}
+          renderItem={item => <Text style={{ fontSize: 22 }}> {item.name} </Text>}
+          keyExtractor={(item, index) => `item ${index}`}
         />
       </View>
     )
@@ -21,6 +21,11 @@ class ScheduleDay1 extends Component {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+  },
+  gantt: {
+    fontSize: 18,
+    height: 40,
+    backgroundColor: 'white',
   },
 
 })

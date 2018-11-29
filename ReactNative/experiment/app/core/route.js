@@ -30,6 +30,7 @@ const HomeStack = createStackNavigator(
       screen: UiLoginScreen,
       navigationOptions: {headerTitle: 'Login Screen'}
     },
+    //TODO revert it to back to UiSchedulerScreen here
     UiScheduleScreen: {
       screen: ScheduleDay1,
       navigationOptions: {headerTitle: 'Schedule Screen'}
