@@ -1,15 +1,19 @@
-import {createStore, applyMiddleware} from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import logger from 'redux-saga'
-import reducer from './reducer_currency'
+import reducerCurrency from './reducer_currency'
+import reducerSchedule from './reducer_schedule'
 import saga from './saga/saga'
 // Unable to resolve "reducer_currency" from "app/redux/store.js"
 
 const sagaMiddleware = createSagaMiddleware()
 const middlewares = [sagaMiddleware]
-// TODO debug => add logger
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(logger)
+}
 
-const store = createStore(reducer, applyMiddleware(...middlewares))
+const reducers = combineReducers({reducerCurrency, reducerSchedule})
+const store = createStore(reducers, applyMiddleware(...middlewares))
 
 sagaMiddleware.run(saga)
 
