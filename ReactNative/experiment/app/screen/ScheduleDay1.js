@@ -10,7 +10,7 @@ class ScheduleDay1 extends Component {
         <Text style={styles.gantt}>Gantt Day 1</Text>
         <FlatList
           data={[{ name: 'a' }, { name: 'b' }]}
-          renderItem={item => <Text style={{ fontSize: 22 }}> {item.name} </Text>}
+          renderItem={ ({item}) => <Text style={{ fontSize: 22 }}> {item.name} </Text>}
           keyExtractor={(item, index) => `item ${index}`}
         />
       </View>
