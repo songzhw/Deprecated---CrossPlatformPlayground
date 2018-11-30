@@ -4,7 +4,6 @@ import logger from 'redux-saga'
 import reducerCurrency from './reducer_currency'
 import reducerSchedule from './reducer_schedule'
 import saga from './saga/saga'
-// Unable to resolve "reducer_currency" from "app/redux/store.js"
 
 const sagaMiddleware = createSagaMiddleware()
 const middlewares = [sagaMiddleware]

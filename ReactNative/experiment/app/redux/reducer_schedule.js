@@ -4,5 +4,7 @@ export default (state = {}, action) => {
   switch(action.type){
     case GOT_SCHEDULE:
       return { ...state, schedules: action.data}
+    default:
+      return state
   }
 }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text, FlatList } from 'react-native'
-import {fetchSchedule} from '../redux/action_schedule'
-
-// import {connect} from 'react-redux'
+import { fetchSchedule } from '../redux/action_schedule'
+import { connect } from 'react-redux'
 
 class ScheduleDay1 extends Component {
 
@@ -17,7 +16,7 @@ class ScheduleDay1 extends Component {
         <Text style={styles.gantt}>Gantt Day 1</Text>
         <FlatList
           data={[{ name: 'a' }, { name: 'b' }]}
-          renderItem={ ({item}) => <Text style={{ fontSize: 22 }}> {item.name} </Text>}
+          renderItem={({ item }) => <Text style={{ fontSize: 22 }}> {item.name} </Text>}
           keyExtractor={(item, index) => `item ${index}`}
         />
       </View>
@@ -37,5 +36,5 @@ const styles = StyleSheet.create({
 
 })
 
-export default ScheduleDay1
-// export default connect()(ScheduleDay1)
+// export default ScheduleDay1
+export default connect()(ScheduleDay1)

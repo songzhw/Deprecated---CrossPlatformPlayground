@@ -15,5 +15,7 @@ export default (state = initialState, action) => {
     case FETCHED_DATA:
       console.log(`reducer FETCHED_DATA : ${action.payload.text}`)
       return {...state, payload: {newText: action.payload.text} }
+    default:
+      return state
   }
 }
