@@ -1,12 +1,25 @@
 import { FETCH_CURRENCY, FETCHED_DATA } from '../action_currency'
-import { takeEvery, put } from 'redux-saga/effects'
+import { takeEvery, put, call } from 'redux-saga/effects'
+import { FETCH_SCHEDULE, gotSchedule } from '../action_schedule'
 
-function* doIt() {
+function* demo1() {
   yield put({ type: FETCHED_DATA, payload: { text: 'now done' } })
 }
 
+// https://www.mocky.io/v2/5c01947f3500005000ad0a26?day=2
+
+export const doFetch = id => fetch(`https://www.mocky.io/v2/${id}`)
+
+function* fetchScheduleForDay(action){
+  let {day} = action
+  const rawResp = yield call(doFetch, day)
+  const resp = rawResp.json()
+  yield put(gotSchedule(resp))
+}
+
 function* saga() {
-  yield takeEvery(FETCH_CURRENCY, doIt)
+  yield takeEvery(FETCH_CURRENCY, demo1)
+  yield takeEvery(FETCH_SCHEDULE, fetchScheduleForDay)
 }
 
 export default saga

@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text, FlatList } from 'react-native'
+import {fetchSchedule} from '../redux/action_schedule'
 
 // import {connect} from 'react-redux'
 
 class ScheduleDay1 extends Component {
+
+  componentDidMount() {
+    this.props.dispatch(fetchSchedule(1))
+  }
+
+
   render() {
     return (
       <View style={styles.root}>
