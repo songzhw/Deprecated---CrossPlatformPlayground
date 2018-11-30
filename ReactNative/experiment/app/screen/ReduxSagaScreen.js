@@ -50,7 +50,8 @@ const mapStateToProps = (state) => {
   //=> state: {"base":"USD","quote":"CAD","conversion":{},"error":null,"payload":{"newText":"now done"}}
   // console.log(`szw map1 : ${JSON.stringify(state)}`)
   let myText = "default Value"
-  if (state === undefined) {
+  console.log(`szw state = ${JSON.stringify(state)}`)
+  if (state === undefined || Object.keys(state).length === 0) {
     // console.log(`szw mapStateToProps() : state is null`)
   } else {
     myText = state.payload.newText
