@@ -4,7 +4,8 @@ const initialState = {
   base: 'USD',
   quote: 'CAD',
   conversion: {},
-  error: null
+  error: null,
+  payload: {newText: 'default from reducer'}
 }
 
 export default (state = initialState, action) => {
@@ -16,6 +17,6 @@ export default (state = initialState, action) => {
       console.log(`reducer FETCHED_DATA : ${action.payload.text}`)
       return {...state, payload: {newText: action.payload.text} }
     default:
-      return {}  // need this empty object, so ReduxSagaScreen would show "default value"
+      return state  // need this empty object, so ReduxSagaScreen would show "default value"
   }
 }
