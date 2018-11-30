@@ -12,7 +12,11 @@ export const doFetch = id => fetch(`https://www.mocky.io/v2/${id}`)
 
 function* fetchScheduleForDay(action){
   let {day} = action
-  const rawResp = yield call(doFetch, day)
+  let apiID = ''
+  if(day === 1){
+    apiID = '5c01947f3500005000ad0a26'
+  }
+  const rawResp = yield call(doFetch, apiID)
   const resp = rawResp.json()
   yield put(gotSchedule(resp))
 }
