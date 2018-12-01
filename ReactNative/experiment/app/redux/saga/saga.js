@@ -3,6 +3,7 @@ import { takeEvery, put, call } from 'redux-saga/effects'
 import { FETCH_SCHEDULE, gotSchedule } from '../action_schedule'
 
 function* demo1() {
+  console.log(`saga demo1() FETCH_CURRENCY => FETCHED_DATA `)
   yield put({ type: FETCHED_DATA, payload: { text: 'now done' } })
 }
 

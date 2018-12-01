@@ -54,7 +54,9 @@ const mapStateToProps = (state) => {
   if (state === undefined || Object.keys(state).length === 0) {
     // console.log(`szw mapStateToProps() : state is null`)
   } else {
-    myText = state.payload.newText
+    //TODO revert it back
+    // myText = state.payload.newText
+    myText = JSON.stringify(state)
   }
   return {
     list: [],
