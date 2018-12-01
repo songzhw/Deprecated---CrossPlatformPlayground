@@ -3,8 +3,12 @@ import { takeEvery, put, call } from 'redux-saga/effects'
 import { FETCH_SCHEDULE, gotSchedule } from '../action_schedule'
 
 function* demo1() {
+  try{
   console.log(`saga demo1() FETCH_CURRENCY => FETCHED_DATA `)
   yield put({ type: FETCHED_DATA, payload: { text: 'now done' } })
+  } catch(error){
+    console.log(`saga demo1 error = ${error}`)
+  }
 }
 
 // https://www.mocky.io/v2/5c01947f3500005000ad0a26?day=2
@@ -12,14 +16,19 @@ function* demo1() {
 export const doFetch = id => fetch(`https://www.mocky.io/v2/${id}`)
 
 function* fetchScheduleForDay(action){
-  let {day} = action
-  let apiID = ''
-  if(day === 1){
-    apiID = '5c01947f3500005000ad0a26'
+  try {
+    let {day} = action
+    let apiID = ''
+    if (day === 1) {
+      apiID = '5c01947f3500005000ad0a26'
+    }
+    const rawResp = yield call(doFetch, apiID)
+    const resp = yield rawResp.json()
+    yield put(gotSchedule(resp))
+  } catch (err) {
+    console.log(`saga fetchScheduleForDay error = ${err}`)
+
   }
-  const rawResp = yield call(doFetch, apiID)
-  const resp = rawResp.json()
-  yield put(gotSchedule(resp))
 }
 
 function* saga() {
