@@ -11,12 +11,13 @@ function* demo1() {
   }
 }
 
-// https://www.mocky.io/v2/5c01947f3500005000ad0a26?day=2
+// https://www.mocky.io/v2/5c01947f3500005000ad0a26
 
 export const doFetch = id => fetch(`https://www.mocky.io/v2/${id}`)
 
 function* fetchScheduleForDay(action){
   try {
+    console.log(`02 action = ${JSON.stringify(action)}`)
     let {day} = action
     let apiID = ''
     if (day === 1) {
