@@ -20,6 +20,15 @@ class LoginScreen extends Component {
       .start()
   }
 
+  componentWillReceiveProps(nextProps, nextContext) {
+    console.log(`componentWillReceiveProps(${JSON.stringify(nextProps)})`)
+    // LOG: componentWillReceiveProps({"navigation":{"state":{"routeName":"LoginScreen","key":"id-1543727736791-1"},"actions":{}},"succ":true,"isNeedArrow":true})
+    let isLoginSucc = nextProps.succ
+    if(isLoginSucc){
+      this.props.navigation.goBack()  //TODO nav to another page
+    }
+  }
+
   // return a style object with opacity and transform
   fadeIn = (delay) => {
     const {animValue} = this.state
@@ -47,6 +56,7 @@ class LoginScreen extends Component {
   }
 
   render() {
+    console.log(`szw LoginScreen render()`)
     return (
       <View style={styles.root}>
         <Image style={styles.pattenDots} source={require('../../assets/pattern-dots.png')}/>
@@ -130,4 +140,11 @@ const styles = StyleSheet.create({
   },
 })
 
-export default connect()(LoginScreen)
+const mapStateToProps = (state) => {
+  console.log(`szw mapStateToProps: ${JSON.stringify(state)}`)
+  return {
+    succ: state.succ
+  }
+}
+
+export default connect(mapStateToProps)(LoginScreen)

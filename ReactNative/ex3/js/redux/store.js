@@ -6,9 +6,9 @@ import saga from './saga'
 
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware];
-if (process.env.NODE_ENV === 'development') {
-  middleware.push(logger);
-}
+// if (process.env.NODE_ENV === 'development') {
+//   middleware.push(logger);
+// }
 
 // const reducers = combineReducers({reducerCurrency, reducerSchedule})
 const store = createStore(reduceSession, applyMiddleware(...middleware));
