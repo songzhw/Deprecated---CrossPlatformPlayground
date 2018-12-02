@@ -25,7 +25,7 @@ class LoginScreen extends Component {
     // LOG: componentWillReceiveProps({"navigation":{"state":{"routeName":"LoginScreen","key":"id-1543727736791-1"},"actions":{}},"succ":true,"isNeedArrow":true})
     let isLoginSucc = nextProps.succ
     if(isLoginSucc){
-      this.props.navigation.goBack()  //TODO nav to another page
+      this.props.navigation.navigate('ScheduleScreen')
     }
   }
 
