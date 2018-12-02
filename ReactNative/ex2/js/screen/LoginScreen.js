@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {View, Image, Text, Animated, TouchableOpacity, StyleSheet} from 'react-native'
-import {connect} from 'react-redux'
+import {View, Image, Button, Text, Animated, TouchableOpacity, StyleSheet} from 'react-native'
 
 class LoginScreen extends Component {
   state = {
@@ -64,7 +63,7 @@ class LoginScreen extends Component {
 
         <Animated.View style={[styles.loginButtonContainer, this.fadeIn(1500)]}>
           <Text style={styles.text}> Use Facebook to find your friends at F8</Text>
-          <Button text="login" onPress={this.login}/>
+          <Button title="login" onPress={this.login}/>
           <TouchableOpacity onPress={this.skipLogin}>
             <Text style={styles.skipLogin}> SKIP FOR NOW </Text>
           </TouchableOpacity>
@@ -127,4 +126,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default connect()(LoginScreen)
+export default LoginScreen

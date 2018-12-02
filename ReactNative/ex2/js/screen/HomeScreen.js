@@ -12,6 +12,7 @@ class HomeScreen extends Component {
   }
 
   go2Login = () => {
+    this.props.navigation.navigate('LoginScreen')
   }
 
 }
