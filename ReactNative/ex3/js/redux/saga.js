@@ -1,5 +1,5 @@
 import {takeEvery, call, put} from "redux-saga/effects";
-import {TRY_LOGIN, LOGIN_SUCC, loginSucc} from "./actionSession";
+import {TRY_LOGIN, loginSucc} from "./actionSession";
 import {API_ID_LOGIN} from './apiConstants'
 
 const rootSaga = function* () {

@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // const reducers = combineReducers({reducerCurrency, reducerSchedule})
-const store = createStore(reduceSession, applyMiddleware(...middlewares))
+const store = createStore(reduceSession, applyMiddleware(sagaMiddleware))
 
 sagaMiddleware.run(saga)
 
