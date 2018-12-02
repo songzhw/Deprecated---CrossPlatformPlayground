@@ -1,1 +1,2 @@
 export const API_ID_LOGIN = "5c03483b3000002b00bb9408"
+export const API_ID_DAY1  = "5c01947f3500005000ad0a26"

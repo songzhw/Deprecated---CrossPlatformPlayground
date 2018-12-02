@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text, FlatList } from 'react-native'
 import { connect } from 'react-redux'
+import {tryDay1} from "../redux/actionSchedule";
 
 class ScheduleDay1 extends Component {
 
   componentDidMount() {
-    // this.props.dispatch(fetchSchedule(1))
+    this.props.dispatch(tryDay1())
   }
 
   render() {
