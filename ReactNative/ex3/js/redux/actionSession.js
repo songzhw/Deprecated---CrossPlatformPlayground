@@ -4,7 +4,7 @@ export const tryLogin = () => ({
 })
 
 export const LOGIN_SUCC = 'LOGIN_SUCC'
-export const loginSucc = session => ({
+export const loginSucc = resp => ({
   type: LOGIN_SUCC,
-  session
+  ...resp
 })

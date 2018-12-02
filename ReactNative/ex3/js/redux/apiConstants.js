@@ -1,1 +1,1 @@
-export const LOGIN_API_ID = "5c03483b3000002b00bb9408"
+export const API_ID_LOGIN = "5c03483b3000002b00bb9408"
