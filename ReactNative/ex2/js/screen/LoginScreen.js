@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {View, Image, Button, Text, Animated, TouchableOpacity, StyleSheet} from 'react-native'
+import {TRY_LOGIN, tryLogin} from "../redux/actionSession";
+import { connect } from 'react-redux'
 
 class LoginScreen extends Component {
   state = {
@@ -86,6 +88,7 @@ class LoginScreen extends Component {
   }
 
   login = () => {
+    this.props.dispatch(tryLogin())
   }
 
   skipLogin = () => {
@@ -126,4 +129,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default LoginScreen
+export default connect()(LoginScreen)
