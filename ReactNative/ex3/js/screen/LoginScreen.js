@@ -30,11 +30,6 @@ class LoginScreen extends Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        // 加上这句, 免得后面退出Schedule页, 再在首页点login进入login页, 在login页中点选login, 就无动静了, 因为没有走到更新这
-        return nextProps.succ
-    }
-
     // return a style object with opacity and transform
     fadeIn = (delay) => {
         const {animValue} = this.state
