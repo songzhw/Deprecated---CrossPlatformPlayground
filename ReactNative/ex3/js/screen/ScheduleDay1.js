@@ -24,7 +24,19 @@ class ScheduleDay1 extends Component {
     )
   }
 
-  renderEachSchedule(item) {
+  renderEachSchedule(row) {
+      /*
+       now the item becomse:
+       {
+         "item":{"startTime":"10:00","endTime":"10:30","topic":{"title":"Android Dev in 10 minutes","desp":""}},
+         "index":1,
+         "separators":{}
+       }
+
+       原来我们写的是:  renderItem = {({item}) => <Text> {item.topic.title </Title>
+       原来没有item也行, 是因为用了desctructure变量的特性
+       */
+      let {item} = row
       return (
           <View>
             <Text> {item.startTime} - {item.endTime}</Text>
