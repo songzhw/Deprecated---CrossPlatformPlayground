@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   console.log(`szw mapStateToProps: ${JSON.stringify(state)}`)
   return {
-    succ: state.succ
+    succ: state.reduceSession.succ
   }
 }
 
