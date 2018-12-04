@@ -6,6 +6,7 @@ import {tryDay1} from "../redux/actionSchedule";
 class ScheduleDay1 extends Component {
 
   componentDidMount() {
+    console.log('\n\n')
     this.props.dispatch(tryDay1())
   }
 
@@ -14,8 +15,8 @@ class ScheduleDay1 extends Component {
       <View style={styles.root}>
         <Text style={styles.gantt}>Gantt Day 1</Text>
         <FlatList
-          data={[{ name: 'a' }, { name: 'b' }]}
-          renderItem={({ item }) => <Text style={{ fontSize: 22 }}> {item.name} </Text>}
+          data={this.props.schedulers1}
+          renderItem={({ item }) => <Text style={{ fontSize: 22 }}> {item.title} </Text>}
           keyExtractor={(item, index) => `item ${index}`}
         />
       </View>
@@ -35,5 +36,11 @@ const styles = StyleSheet.create({
 
 })
 
+const mapStateToProps = (state) => {
+    return {
+        schedulers1: state.reduceSchedule.schedules
+    }
+}
+
 // export default ScheduleDay1
-export default connect()(ScheduleDay1)
+export default connect(mapStateToProps)(ScheduleDay1)
