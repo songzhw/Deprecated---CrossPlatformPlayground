@@ -7,6 +7,7 @@ class HomeScreen extends Component {
     return (
       <ScrollView style={{flex: 1}}>
         <Button style={styles.aButton} title="Login" onPress={this.go2Login}/>
+          <Button style={styles.aButton} title="Schedule" onPress={this.go2Schedule}/>
       </ScrollView>
     )
   }
@@ -14,6 +15,10 @@ class HomeScreen extends Component {
   go2Login = () => {
     this.props.navigation.navigate('LoginScreen')
   }
+
+    go2Schedule = () => {
+        this.props.navigation.navigate('ScheduleScreen')
+    }
 
 }
 

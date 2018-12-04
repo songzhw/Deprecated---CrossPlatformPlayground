@@ -17,11 +17,20 @@ class ScheduleDay1 extends Component {
         <Text style={styles.gantt}>Gantt Day 1</Text>
         <FlatList
           data={this.props.schedulers1}
-          renderItem={({ item }) => <Text style={{ fontSize: 22 }}> {item.topic.title} </Text>}
+          renderItem={this.renderEachSchedule}
           keyExtractor={(item, index) => `item ${index}`}
         />
       </View>
     )
+  }
+
+  renderEachSchedule(item) {
+      return (
+          <View>
+            <Text> {item.startTime} - {item.endTime}</Text>
+            <Text style={{ fontSize: 22 }}> {item.topic.title} </Text>
+          </View>
+      )
   }
 }
 
