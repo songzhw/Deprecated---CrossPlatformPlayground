@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { View, StyleSheet, Text, FlatList } from 'react-native'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {View, StyleSheet, Text, FlatList} from 'react-native'
+import {connect} from 'react-redux'
 import {tryDay1} from "../redux/actionSchedule";
 
 class ScheduleDay1 extends Component {
@@ -25,24 +25,24 @@ class ScheduleDay1 extends Component {
   }
 
   renderEachSchedule(row) {
-      /*
-       now the item becomse:
-       {
-         "item":{"startTime":"10:00","endTime":"10:30","topic":{"title":"Android Dev in 10 minutes","desp":""}},
-         "index":1,
-         "separators":{}
-       }
+    /*
+     now the item becomse:
+     {
+       "item":{"startTime":"10:00","endTime":"10:30","topic":{"title":"Android Dev in 10 minutes","desp":""}},
+       "index":1,
+       "separators":{}
+     }
 
-       原来我们写的是:  renderItem = {({item}) => <Text> {item.topic.title </Title>
-       原来没有item也行, 是因为用了desctructure变量的特性
-       */
-      let {item} = row
-      return (
-          <View>
-            <Text> {item.startTime} - {item.endTime}</Text>
-            <Text style={{ fontSize: 22 }}> {item.topic.title} </Text>
-          </View>
-      )
+     原来我们写的是:  renderItem = {({item}) => <Text> {item.topic.title </Title>
+     原来没有item也行, 是因为用了desctructure变量的特性
+     */
+    let {item} = row
+    return (
+      <View>
+        <Text> {item.startTime} - {item.endTime}</Text>
+        <Text style={{fontSize: 22}}> {item.topic.title} </Text>
+      </View>
+    )
   }
 }
 
@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
-    console.log(`szw Day1 mapStateToProps: ${JSON.stringify(state)}`)
-    return {
-        schedulers1: state.reduceSchedule.schedules
-    }
+  console.log(`szw Day1 mapStateToProps: ${JSON.stringify(state)}`)
+  return {
+    schedulers1: state.reduceSchedule.schedules
+  }
 }
 
 // export default ScheduleDay1

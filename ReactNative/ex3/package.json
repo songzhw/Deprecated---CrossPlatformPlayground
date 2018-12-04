@@ -18,10 +18,12 @@
     "redux-saga": "0.16.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
     "babel-jest": "23.6.0",
+    "babel-preset-expo": "^5.0.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.50.0",
+    "prettier": "^1.15.3",
+    "prettierrc": "^0.0.0-5",
     "react-test-renderer": "16.6.1"
   },
   "jest": {
