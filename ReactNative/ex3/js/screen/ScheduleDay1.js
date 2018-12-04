@@ -11,12 +11,13 @@ class ScheduleDay1 extends Component {
   }
 
   render() {
+    console.log(`szw Day1 render() : ${JSON.stringify(this.props.schedulers1)}`)
     return (
       <View style={styles.root}>
         <Text style={styles.gantt}>Gantt Day 1</Text>
         <FlatList
           data={this.props.schedulers1}
-          renderItem={({ item }) => <Text style={{ fontSize: 22 }}> {item.title} </Text>}
+          renderItem={({ item }) => <Text style={{ fontSize: 22 }}> {item.topic.title} </Text>}
           keyExtractor={(item, index) => `item ${index}`}
         />
       </View>
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
+    console.log(`szw Day1 mapStateToProps: ${JSON.stringify(state)}`)
     return {
         schedulers1: state.reduceSchedule.schedules
     }
