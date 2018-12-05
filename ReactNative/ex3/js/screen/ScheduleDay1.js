@@ -17,7 +17,9 @@ class ScheduleDay1 extends Component {
         <Text style={styles.gantt}>Gantt Day 1</Text>
         <SectionList
           sections={this.props.schedulers1}
-          renderItem={ ({item}) => <Text> {item.topic.title} </Text> }
+          renderItem={ ({item, index, section}) => {
+            console.log(`item${index} ${JSON.stringify(section)} = ${JSON.stringify(item)} `)
+            return <Text key={index}> {item.topic.title} </Text> }}
           renderSectionHeader={({section}) => <Text style={{fontSize: 22}}> {section.key} </Text> }
           keyExtractor={(item, index) => `item ${index}`}
         />
@@ -66,6 +68,7 @@ const mapStateToProps = (state) => {
     obj['data'] = value
     result.push(obj)
   })
+  console.log(`\nresult = ${JSON.stringify(result)}\n`)
   return {
     schedulers1: result,
   }
