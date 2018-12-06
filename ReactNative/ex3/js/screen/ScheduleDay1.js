@@ -19,7 +19,8 @@ class ScheduleDay1 extends Component {
           renderItem={({ item, index, section }) => <Text key={index}> {item.topic.title} </Text>}
           renderSectionHeader={({ section }) => <Text style={{ fontSize: 22 }}> {section.key} </Text>}
           keyExtractor={(item, index) => `item ${index}`}
-          ItemSeparatorComponent={() => <View style={styles.separator}/>}
+          ItemSeparatorComponent={() => <View style={styles.innerSeparator}/>}
+          SectionSeparatorComponent={() => <View style={styles.sectionSeparator}/>}
         />
       </View>
     )
@@ -36,10 +37,13 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: 'white',
   },
-  separator: {
-    backgroundColor: '#e2e2e2',
+  innerSeparator: {
+    backgroundColor: '#00ff00',
     height: StyleSheet.hairlineWidth,
-    flex: 1,
+  },
+  sectionSeparator: {
+    backgroundColor: '#ff0000',
+    height: StyleSheet.hairlineWidth,
   },
 })
 
