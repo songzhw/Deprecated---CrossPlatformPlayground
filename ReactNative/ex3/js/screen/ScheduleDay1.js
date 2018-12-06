@@ -11,17 +11,15 @@ class ScheduleDay1 extends Component {
   }
 
   render() {
-    console.log(`szw Day1 render() : ${JSON.stringify(this.props.schedulers1)}`)
     return (
       <View style={styles.root}>
         <Text style={styles.gantt}>Gantt Day 1</Text>
         <SectionList
           sections={this.props.schedulers1}
-          renderItem={ ({item, index, section}) => {
-            console.log(`item${index} ${JSON.stringify(section)} = ${JSON.stringify(item)} `)
-            return <Text key={index}> {item.topic.title} </Text> }}
-          renderSectionHeader={({section}) => <Text style={{fontSize: 22}}> {section.key} </Text> }
+          renderItem={({ item, index, section }) => <Text key={index}> {item.topic.title} </Text>}
+          renderSectionHeader={({ section }) => <Text style={{ fontSize: 22 }}> {section.key} </Text>}
           keyExtractor={(item, index) => `item ${index}`}
+          ItemSeparatorComponent={() => <View style={styles.separator}/>}
         />
       </View>
     )
@@ -38,7 +36,11 @@ const styles = StyleSheet.create({
     height: 40,
     backgroundColor: 'white',
   },
-
+  separator: {
+    backgroundColor: '#e2e2e2',
+    height: StyleSheet.hairlineWidth,
+    flex: 1,
+  },
 })
 
 const mapStateToProps = (state) => {
