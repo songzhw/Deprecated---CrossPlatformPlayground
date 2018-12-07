@@ -5,6 +5,11 @@ import { tryDay1 } from '../redux/actionSchedule'
 
 class ScheduleDay1 extends Component {
 
+  constructor(props){
+    super(props)
+    this.onItemClick = this.onItemClick.bind(this)
+  }
+
   componentDidMount() {
     console.log('\n\n')
     this.props.dispatch(tryDay1())
@@ -33,7 +38,7 @@ class ScheduleDay1 extends Component {
   // index是指在section中的index哦, 可不是总的索引哦.
   renderItem({item, index, section}) {
     return (
-      <TouchableOpacity onPress={this.onItemClick}>
+      <TouchableOpacity onPress={this.onItemClick.bind(null, item, index, section)}>
         <Text style={{ fontSize: 18 }}> {item.topic.title} </Text>
       </TouchableOpacity>
     )
