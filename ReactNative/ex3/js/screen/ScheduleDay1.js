@@ -26,17 +26,20 @@ class ScheduleDay1 extends Component {
     )
   }
 
+  onItemClick = (item, index) => {
+    console.log(`clicked item ${index} : ${JSON.stringify(item)}`)
+  }
+
+  // index是指在section中的index哦, 可不是总的索引哦. (这可以用index与section得到)
   renderItem({item, index, section}) {
     return (
-      <TouchableOpacity onPress={()=> this.onItemClick(item, index)}>
+      <TouchableOpacity onPress={()=> console.log(`clicked item ${index} : ${JSON.stringify(item)}`)}>
         <Text style={{ fontSize: 18 }}> {item.topic.title} </Text>
       </TouchableOpacity>
     )
   }
 
-  onItemClick = (item, index) => {
-    console.log(`clicked item ${index} : ${JSON.stringify(item)}`)
-  }
+
 }
 
 
