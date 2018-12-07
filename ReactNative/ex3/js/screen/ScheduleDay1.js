@@ -34,7 +34,7 @@ class ScheduleDay1 extends Component {
     )
   }
 
-  onItemClick = (item, index) => {
+  function onItemClick(item, index)  {
     console.log(`clicked item ${index} : ${JSON.stringify(item)}`)
   }
 }
