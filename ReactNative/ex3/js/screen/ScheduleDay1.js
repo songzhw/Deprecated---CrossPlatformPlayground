@@ -16,7 +16,7 @@ class ScheduleDay1 extends Component {
         <Text style={styles.gantt}>Gantt Day 1</Text>
         <SectionList
           sections={this.props.schedulers1}
-          renderItem={({ item, index, section }) => <Text key={index}> {item.topic.title} </Text>}
+          renderItem={this.renderItem}
           renderSectionHeader={({ section }) => <Text style={{ fontSize: 22 }}> {section.key} </Text>}
           keyExtractor={(item, index) => `item ${index}`}
           ItemSeparatorComponent={() => <View style={styles.innerSeparator}/>}
@@ -26,7 +26,11 @@ class ScheduleDay1 extends Component {
     )
   }
 
+  renderItem({item, index, session}) {
+
+  }
 }
+
 
 const styles = StyleSheet.create({
   root: {
