@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Text, SectionList } from 'react-native'
+import { View, StyleSheet, Text, SectionList, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { tryDay1 } from '../redux/actionSchedule'
 
@@ -26,8 +26,16 @@ class ScheduleDay1 extends Component {
     )
   }
 
-  renderItem({item, index, session}) {
+  renderItem({item, index, section}) {
+    return (
+      <TouchableOpacity onPress={()=> this.onItemClick(item, index)}>
+        <Text style={{ fontSize: 18 }}> {item.topic.title} </Text>
+      </TouchableOpacity>
+    )
+  }
 
+  onItemClick = (item, index) => {
+    console.log(`clicked item ${index} : ${JSON.stringify(item)}`)
   }
 }
 
