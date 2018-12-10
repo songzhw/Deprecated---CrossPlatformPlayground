@@ -21,7 +21,14 @@ class ScheduleDay1 extends Component {
         <SectionList
           sections={this.props.schedulers1}
           renderItem={({ item, index, section }) => (
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('SessionDetailScreen')}>
+            <TouchableOpacity onPress={() =>
+              this.props.navigation.navigate('SessionDetailScreen', {
+                title: item.topic.title,
+                desp: item.topic.desp,
+                start: item.startTime,
+                end: item.endTime
+              })
+            }>
               <Text style={styles.content}> {item.topic.title} </Text>
             </TouchableOpacity>
           )}
