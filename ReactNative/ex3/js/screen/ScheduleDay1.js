@@ -36,8 +36,9 @@ class ScheduleDay1 extends Component {
 
   // index是指在section中的index哦, 可不是总的索引哦.
   renderItem({ item, index, section }) {
+    let {navigation} = this.props
     return (
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('SessionDetailScreen')}>
+      <TouchableOpacity onPress={() => navigation.navigate('SessionDetailScreen')}>
         <Text style={styles.content}> {item.topic.title} </Text>
       </TouchableOpacity>
     )
