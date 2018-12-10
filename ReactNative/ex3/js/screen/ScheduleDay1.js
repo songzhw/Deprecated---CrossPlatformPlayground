@@ -20,7 +20,11 @@ class ScheduleDay1 extends Component {
         <Text style={styles.gantt}>Gantt Day 1</Text>
         <SectionList
           sections={this.props.schedulers1}
-          renderItem={this.renderItem}
+          renderItem={({ item, index, section }) => (
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('SessionDetailScreen')}>
+              <Text style={styles.content}> {item.topic.title} </Text>
+            </TouchableOpacity>
+          )}
           renderSectionHeader={({ section }) => <Text style={styles.title}> {section.key} </Text>}
           keyExtractor={(item, index) => `item ${index}`}
           ItemSeparatorComponent={() => <View style={styles.innerSeparator}/>}
@@ -30,20 +34,22 @@ class ScheduleDay1 extends Component {
     )
   }
 
+// = = = = = = = = = = = = "this" bind pitfalls = = = = = = = = = = = =
+  /*
   // onItemClick = (item, index, section) => {
   //   console.log(`clicked item ${index} : ${JSON.stringify(item)}`)
   // }
 
   // index是指在section中的index哦, 可不是总的索引哦.
-  renderItem({ item, index, section }) {
-    let {navigation} = this.props
-    return (
-      <TouchableOpacity onPress={() => navigation.navigate('SessionDetailScreen')}>
-        <Text style={styles.content}> {item.topic.title} </Text>
-      </TouchableOpacity>
-    )
-  }
-
+  // renderItem({ item, index, section }) {
+  //   return (
+  //     <TouchableOpacity onPress={() => this.props.navigation.navigate('SessionDetailScreen')}>
+  //       <Text style={styles.content}> {item.topic.title} </Text>
+  //     </TouchableOpacity>
+  //   )
+  // }
+  */
+// = = = = = = = = = = = = "this" bind pitfalls = = = = = = = = = = = =
 
 }
 
