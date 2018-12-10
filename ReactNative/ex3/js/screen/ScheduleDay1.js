@@ -5,9 +5,8 @@ import { tryDay1 } from '../redux/actionSchedule'
 
 class ScheduleDay1 extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.onItemClick = this.onItemClick.bind(this)
   }
 
   componentDidMount() {
@@ -22,7 +21,7 @@ class ScheduleDay1 extends Component {
         <SectionList
           sections={this.props.schedulers1}
           renderItem={this.renderItem}
-          renderSectionHeader={({ section }) => <Text style={{ fontSize: 22 }}> {section.key} </Text>}
+          renderSectionHeader={({ section }) => <Text style={styles.title}> {section.key} </Text>}
           keyExtractor={(item, index) => `item ${index}`}
           ItemSeparatorComponent={() => <View style={styles.innerSeparator}/>}
           SectionSeparatorComponent={() => <View style={styles.sectionSeparator}/>}
@@ -31,15 +30,15 @@ class ScheduleDay1 extends Component {
     )
   }
 
-  onItemClick = (item, index, section) => {
-    console.log(`clicked item ${index} : ${JSON.stringify(item)}`)
-  }
+  // onItemClick = (item, index, section) => {
+  //   console.log(`clicked item ${index} : ${JSON.stringify(item)}`)
+  // }
 
   // index是指在section中的index哦, 可不是总的索引哦.
-  renderItem({item, index, section}) {
+  renderItem({ item, index, section }) {
     return (
-      <TouchableOpacity onPress={this.onItemClick.bind(null, item, index, section)}>
-        <Text style={{ fontSize: 18 }}> {item.topic.title} </Text>
+      <TouchableOpacity onPress={() => console.log(`clicked item ${index} : ${JSON.stringify(item)}`)}>
+        <Text style={styles.content}> {item.topic.title} </Text>
       </TouchableOpacity>
     )
   }
@@ -64,6 +63,19 @@ const styles = StyleSheet.create({
   sectionSeparator: {
     backgroundColor: '#ff0000',
     height: StyleSheet.hairlineWidth,
+  },
+  title: {
+    fontSize: 22,
+    backgroundColor: '#e1e1e1',
+    fontWeight: 'bold',
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
+  },
+  content: {
+    fontSize: 19,
+    height: 30,
   },
 })
 
