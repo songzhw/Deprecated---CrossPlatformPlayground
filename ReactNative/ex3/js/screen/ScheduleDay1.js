@@ -58,24 +58,26 @@ const styles = StyleSheet.create({
   },
   innerSeparator: {
     backgroundColor: '#00ff00',
-    height: StyleSheet.hairlineWidth,
+    height: 1,
   },
   sectionSeparator: {
     backgroundColor: '#ff0000',
     height: StyleSheet.hairlineWidth,
   },
   title: {
-    fontSize: 22,
+    flex: 1,
+    fontSize: 23,
     backgroundColor: '#e1e1e1',
     fontWeight: 'bold',
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1
+    height: 42,
+    textAlignVertical: 'center',
   },
   content: {
-    fontSize: 19,
-    height: 30,
+    fontSize: 20,
+    height: 33,
+    marginLeft: 20,
+    marginTop: 6,
+    marginBottom: 6,
   },
 })
 
