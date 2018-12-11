@@ -55,7 +55,6 @@ class ScheduleDay1 extends Component {
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
   },
   gantt: {
     fontSize: 18,
