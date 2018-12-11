@@ -33,7 +33,7 @@ export class ViewPager extends React.Component {
   }
 
   renderContent() {
-    const style = Platform.OS === 'ios' && styles.card
+    const style = styles.card
     return React.Children.map(this.props.children, (child, i) => (
       <View style={style} key={'r_' + i}>
         {child}
@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   card: {
-    backgroundColor: 'transparent',
+    backgroundColor: '#FF9800',
   },
 })

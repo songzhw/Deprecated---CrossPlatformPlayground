@@ -4,6 +4,7 @@ import HomeScreen from '../screen/HomeScreen'
 import LoginScreen from '../screen/LoginScreen'
 import ScheduleDay1 from '../screen/ScheduleDay1'
 import SessionDetailScreen from '../screen/SessionDetailScreen'
+import ScheduleScreen from '../screen/ScheduleScreen'
 
 const HomeStack = createStackNavigator(
   {
@@ -16,7 +17,7 @@ const HomeStack = createStackNavigator(
       navigationOptions: { headerTitle: 'Log In' },
     },
     ScheduleScreen: {
-      screen: ScheduleDay1,
+      screen: ScheduleScreen,
       navigationOptions: { headerTitle: 'Schedule' },
     },
     SessionDetailScreen: {
