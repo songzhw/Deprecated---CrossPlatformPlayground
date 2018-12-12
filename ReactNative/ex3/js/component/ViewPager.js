@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   card: {
-    backgroundColor: '#FF9800',
+    backgroundColor: 'transparent',
   },
 })

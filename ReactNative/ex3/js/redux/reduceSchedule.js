@@ -8,10 +8,12 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
     case GOT_DAY1:
-    case GOT_DAY2:
-      const {schedules} = action
+      const {schedules} = action.day1
       console.log(`reducer schedule = ${JSON.stringify(schedules)}`)
       return {schedules}
+    case GOT_DAY2:
+
+
     default:
       return state
   }
