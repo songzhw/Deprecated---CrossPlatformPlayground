@@ -13,8 +13,8 @@ class ScheduleScreen extends Component {
           <ScheduleDay1 event={tryDay1} onPress={this.go2SessionDetail}/>
         </View>
         <View style={styles.pageStyle}>
-          {/*<ScheduleDay1 event={tryDay2} onPress={this.go2SessionDetail}/>*/}
-          <Text>Second page</Text>
+          <ScheduleDay1 event={tryDay2} onPress={this.go2SessionDetail}/>
+          {/*<Text>Second page</Text>*/}
         </View>
         <View style={styles.pageStyle}>
           <Text>Third page</Text>

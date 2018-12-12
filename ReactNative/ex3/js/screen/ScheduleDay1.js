@@ -79,13 +79,22 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   console.log(`szw Day1 mapStateToProps: ${JSON.stringify(state)}`)
-  let { schedules } = state.reduceSchedule
+  let sessions = []
+  let { sessions1 } = state.reduceSchedule
+  if(sessions1){
+    sessions = sessions1
+  } else {
+    let { sessions2 } = state.reduceSchedule
+    sessions = sessions2
+  }
+
+  console.log(`szw day1 : sessions = ${JSON.stringify(sessions)}`)
 
   // {"startTime":"10:00","endTime":"10:30","topic":{"title":"Android Dev in 10 minutes","desp":""}},
   //没比较双层循环, 因为这会有大量的重复比对, 完全没必要. 所以这里借用一个map
   let map = new Map()
-  for (let index in schedules) {  //index分别是0,1,2
-    let item = schedules[index]
+  for (let index in sessions) {  //index分别是0,1,2
+    let item = sessions[index]
     let { startTime } = item
     if (map.has(startTime)) {
       let list = map.get(startTime)
