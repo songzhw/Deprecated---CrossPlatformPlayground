@@ -9,7 +9,7 @@ class ScheduleScreen extends Component {
     return (
       <ViewPager style={styles.viewPager}>
         <View style={styles.pageStyle}>
-          <ScheduleDay1/>
+          <ScheduleDay1 onPress={this.go2SessionDetail}/>
         </View>
         <View style={styles.pageStyle}>
           <Text>Second page</Text>
@@ -20,6 +20,16 @@ class ScheduleScreen extends Component {
       </ViewPager>
     )
   }
+
+  go2SessionDetail(item, index, section){
+    this.props.navigation.navigate('SessionDetailScreen', {
+      title: item.topic.title,
+      desp: item.topic.desp,
+      start: item.startTime,
+      end: item.endTime
+    })
+  }
+
 }
 
 const styles = StyleSheet.create({

@@ -31,19 +31,10 @@ class ScheduleDay1 extends Component {
   }
 
 // = = = = = = = = = = = = "this" bind pitfalls = = = = = = = = = = = =
-  onItemClick = (item, index, section) => {
-    this.props.navigation.navigate('SessionDetailScreen', {
-      title: item.topic.title,
-      desp: item.topic.desp,
-      start: item.startTime,
-      end: item.endTime
-    })
-  }
-
   // index是指在section中的index哦, 可不是总的索引哦.
   renderItem = ({ item, index, section }) => {
     return (
-      <TouchableOpacity onPress={() => this.onItemClick(item, index, section)}>
+      <TouchableOpacity onPress={() => this.props.onPress(item, index, section)}>
         <Text style={styles.content}> {item.topic.title} </Text>
       </TouchableOpacity>
     )
