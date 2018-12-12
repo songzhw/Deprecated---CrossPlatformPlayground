@@ -1,11 +1,12 @@
 import {takeEvery, call, put} from "redux-saga/effects";
 import {TRY_LOGIN, loginSucc} from "./actionSession";
-import {API_ID_DAY1, API_ID_LOGIN} from './apiConstants'
-import {gotDay1, TRY_SCHEDULE_DAY1} from "./actionSchedule";
+import { API_ID_DAY1, API_ID_DAY2, API_ID_LOGIN } from './apiConstants'
+import { gotDay1, gotDay2, TRY_SCHEDULE_DAY1, TRY_SCHEDULE_DAY2 } from './actionSchedule'
 
 const rootSaga = function* () {
   yield takeEvery(TRY_LOGIN, tryLogin)
   yield takeEvery(TRY_SCHEDULE_DAY1, tryDay1)
+  yield takeEvery(TRY_SCHEDULE_DAY2, tryDay2)
 }
 
 const tryLogin = function* (action) {
@@ -29,6 +30,18 @@ const tryDay1 = function*(action) {
     yield put(newAction)
   } catch (err) {
     console.log(`saga.tryDay1 error = ${err}`)
+  }
+}
+
+const tryDay2 = function*(action) {
+  try {
+    const rawResp = yield call(doFetch, API_ID_DAY2)
+    const resp = yield rawResp.json()
+    const newAction = gotDay2(resp)
+    console.log(`\n\nszw saga.day2 = ${JSON.stringify(newAction)}`)
+    yield put(newAction)
+  } catch (err) {
+    console.log(`saga.tryDay2 error = ${err}`)
   }
 }
 

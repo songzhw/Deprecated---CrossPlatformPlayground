@@ -3,16 +3,17 @@ import { View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
 import ScheduleDay1 from './ScheduleDay1'
 import { ViewPager } from '../component/ViewPager'
+import { tryDay1, tryDay2 } from '../redux/actionSchedule'
 
 class ScheduleScreen extends Component {
   render() {
     return (
       <ViewPager style={styles.viewPager}>
         <View style={styles.pageStyle}>
-          <ScheduleDay1 onPress={this.go2SessionDetail}/>
+          <ScheduleDay1 event={tryDay1} onPress={this.go2SessionDetail}/>
         </View>
         <View style={styles.pageStyle}>
-          <Text>Second page</Text>
+          <ScheduleDay1 event={tryDay2} onPress={this.go2SessionDetail}/>
         </View>
         <View style={styles.pageStyle}>
           <Text>Third page</Text>

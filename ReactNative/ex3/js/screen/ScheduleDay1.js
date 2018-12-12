@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text, SectionList, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import { tryDay1 } from '../redux/actionSchedule'
+
 
 class ScheduleDay1 extends Component {
 
@@ -11,7 +11,7 @@ class ScheduleDay1 extends Component {
 
   componentDidMount() {
     console.log('\n\n')
-    this.props.dispatch(tryDay1())
+    this.props.dispatch(this.props.event())
   }
 
   render() {
