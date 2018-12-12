@@ -21,12 +21,12 @@ class ScheduleScreen extends Component {
     )
   }
 
-  go2SessionDetail(item, index, section){
+  go2SessionDetail = (item, index, section) => {
     this.props.navigation.navigate('SessionDetailScreen', {
       title: item.topic.title,
       desp: item.topic.desp,
       start: item.startTime,
-      end: item.endTime
+      end: item.endTime,
     })
   }
 
@@ -35,7 +35,7 @@ class ScheduleScreen extends Component {
 const styles = StyleSheet.create({
   viewPager: {
     flex: 1,
-    backgroundColor: '#4CAF50'
+    backgroundColor: '#4CAF50',
   },
   pageStyle: {
     padding: 20,
