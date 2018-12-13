@@ -8,9 +8,7 @@ class TextIndicator extends React.Component{
     return (
       <View>
         {
-          for(let title of titles){
-            <Text> title </Text>
-          }
+          titles.forEach( title => <Text> {title} </Text>)
         }
       </View>
     )
