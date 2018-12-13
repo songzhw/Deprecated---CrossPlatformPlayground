@@ -133,7 +133,7 @@ class GeneralScheduleView extends React.Component {
           sessions={sessions}
           renderEmptyList={this.renderEmptyList}
           renderHeader={_ => this.renderGanttChart(1, sessions)}
-          renderFooter={_ => <F8TimelineBackground height={80} />}
+          renderFooter={_ => <F8TimelineBackground height={80}/>}
           navigator={this.props.navigator}
         />
         <ScheduleListView
@@ -142,7 +142,7 @@ class GeneralScheduleView extends React.Component {
           sessions={sessions}
           renderEmptyList={this.renderEmptyList}
           renderHeader={_ => this.renderGanttChart(2, sessions)}
-          renderFooter={_ => <F8TimelineBackground height={80} />}
+          renderFooter={_ => <F8TimelineBackground height={80}/>}
           navigator={this.props.navigator}
         />
       </ListContainer>
@@ -200,7 +200,7 @@ class GeneralScheduleView extends React.Component {
     if (hasFilters || !sessions.length) {
       // intercept when list is filtered
       // also disallow empty sessions to prevent the overflow color view from rendering
-      return <View style={{ height: 15 }} />; // TODO: better solution than spacer view
+      return <View style={{ height: 15 }}/>; // TODO: better solution than spacer view
     }
     return (
       <View style={{ paddingBottom: 15 }}>

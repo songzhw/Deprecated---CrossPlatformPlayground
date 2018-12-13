@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import DaySessionList from './DaySessionList'
 import { ViewPager } from '../component/ViewPager'
 import { tryDay1 } from '../redux/actionSchedule'
+import TextIndicator from '../component/TextIndicator'
 
 class ScheduleScreen extends Component {
   componentDidMount() {
@@ -13,18 +14,17 @@ class ScheduleScreen extends Component {
 
   render() {
     return (
-      <ViewPager style={styles.viewPager}>
-        <View style={styles.pageStyle}>
-          <DaySessionList sessions={this.props.sessions1} onPress={this.go2SessionDetail}/>
-        </View>
-        <View style={styles.pageStyle}>
-          <DaySessionList sessions={this.props.sessions2} onPress={this.go2SessionDetail}/>
-          {/*<Text>Second page</Text>*/}
-        </View>
-        <View style={styles.pageStyle}>
-          <Text>Third page</Text>
-        </View>
-      </ViewPager>
+      <View style={styles.root}>
+        <TextIndicator titles={["Day1", "Day2"]}/>
+        <ViewPager style={styles.viewPager}>
+          <View style={styles.pageStyle}>
+            <DaySessionList sessions={this.props.sessions1} onPress={this.go2SessionDetail}/>
+          </View>
+          <View style={styles.pageStyle}>
+            <DaySessionList sessions={this.props.sessions2} onPress={this.go2SessionDetail}/>
+          </View>
+        </ViewPager>
+      </View>
     )
   }
 
@@ -40,10 +40,16 @@ class ScheduleScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  viewPager: {
+  root: {
     flex: 1,
-    backgroundColor: '#4CAF50',
   },
+  title: {
+    fontSize: 20,
+    alignSelf: 'center',
+    marginTop: 10,
+    marginBottom: 4,
+  },
+  viewPager: {},
   pageStyle: {
     padding: 20,
   },
@@ -57,11 +63,11 @@ const mapStateToProps = (state) => {
   let dataDay2 = extractDayData(day2.schedules)
   return {
     sessions1: dataDay1,
-    sessions2: dataDay2
+    sessions2: dataDay2,
   }
 }
 
-function extractDayData(sessions){
+function extractDayData(sessions) {
   // {"startTime":"10:00","endTime":"10:30","topic":{"title":"Android Dev in 10 minutes","desp":""}},
   //没比较双层循环, 因为这会有大量的重复比对, 完全没必要. 所以这里借用一个map
   let map = new Map()

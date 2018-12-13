@@ -11,7 +11,6 @@ class DaySessionList extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <Text style={styles.gantt}>Gantt Day 1</Text>
         <SectionList
           sections={this.props.sessions}
           renderItem={this.renderItem}
