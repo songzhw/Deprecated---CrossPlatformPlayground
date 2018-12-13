@@ -1,15 +1,15 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
-class TextIndicator extends React.Component{
+class TextIndicator extends React.Component {
 
   render() {
-    let {titles} = this.props
+    let { titles } = this.props
+    var children = []
+    titles.forEach( item => children.push(<Text> {item} </Text>))
     return (
       <View>
-        {
-          titles.forEach( title => <Text> {title} </Text>)
-        }
+        {children}
       </View>
     )
   }
