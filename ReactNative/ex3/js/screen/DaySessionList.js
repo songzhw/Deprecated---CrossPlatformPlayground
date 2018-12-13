@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, StyleSheet, Text, SectionList, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
-class ScheduleDay1 extends Component {
+class DaySessionList extends Component {
 
   constructor(props) {
     super(props)
@@ -72,5 +72,5 @@ const styles = StyleSheet.create({
 
 
 // export default ScheduleDay1
-export default connect()(ScheduleDay1)
+export default connect()(DaySessionList)
 

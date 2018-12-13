@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
-import ScheduleDay1 from './ScheduleDay1'
+import DaySessionList from './DaySessionList'
 import { ViewPager } from '../component/ViewPager'
 import { tryDay1 } from '../redux/actionSchedule'
 
@@ -15,10 +15,10 @@ class ScheduleScreen extends Component {
     return (
       <ViewPager style={styles.viewPager}>
         <View style={styles.pageStyle}>
-          <ScheduleDay1 sessions={this.props.sessions1} onPress={this.go2SessionDetail}/>
+          <DaySessionList sessions={this.props.sessions1} onPress={this.go2SessionDetail}/>
         </View>
         <View style={styles.pageStyle}>
-          <ScheduleDay1 sessions={this.props.sessions2} onPress={this.go2SessionDetail}/>
+          <DaySessionList sessions={this.props.sessions2} onPress={this.go2SessionDetail}/>
           {/*<Text>Second page</Text>*/}
         </View>
         <View style={styles.pageStyle}>

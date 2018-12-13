@@ -2,7 +2,6 @@ import { createStackNavigator } from 'react-navigation'
 
 import HomeScreen from '../screen/HomeScreen'
 import LoginScreen from '../screen/LoginScreen'
-import ScheduleDay1 from '../screen/ScheduleDay1'
 import SessionDetailScreen from '../screen/SessionDetailScreen'
 import ScheduleScreen from '../screen/ScheduleScreen'
 
