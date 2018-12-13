@@ -6,7 +6,10 @@ class TextIndicator extends React.Component {
   render() {
     let { titles } = this.props
     var children = []
-    titles.forEach( item => children.push(<Text> {item} </Text>))
+    titles.forEach( item => {
+      let thisKey = `vp_indi_${item}`
+      children.push(<Text key={thisKey}> {item} </Text>)
+    })
     return (
       <View>
         {children}
