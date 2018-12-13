@@ -52,9 +52,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   console.log(`szw Day1 mapStateToProps: ${JSON.stringify(state)}`)
-  let { day1, day2 } = state
-  let dataDay1 = extractDayData(day1)
-  let dataDay2 = extractDayData(day2)
+  let { day1, day2 } = state.reduceSchedule
+  let dataDay1 = extractDayData(day1.schedules)
+  let dataDay2 = extractDayData(day2.schedules)
   return {
     sessions1: dataDay1,
     sessions2: dataDay2
