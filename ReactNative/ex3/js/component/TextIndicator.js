@@ -11,8 +11,11 @@ class TextIndicator extends React.Component {
       children.push(<Text key={thisKey} style={styles.indicator}> {item} </Text>)
     })
     return (
-      <View style={styles.root}>
-        {children}
+      <View>
+        <View style={styles.root}>
+          {children}
+        </View>
+        <View style={styles.bar}/>
       </View>
     )
   }
@@ -28,6 +31,10 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginLeft: 20,
   },
+  bar: {
+    backgroundColor: '#1565c0',
+    height: 6,
+  }
 })
 
 export default TextIndicator
