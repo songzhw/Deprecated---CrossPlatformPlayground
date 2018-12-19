@@ -11,7 +11,7 @@ class TextIndicator extends React.Component {
       children.push(
         <View key={thisKey}>
           <Text key={thisKey + '_text'} style={styles.indicator}> {item} </Text>
-          {getIndicatorBar(index)}
+          {this.getIndicatorBar(index)}
         </View>,
       )
     })
