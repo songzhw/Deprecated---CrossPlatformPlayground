@@ -15,7 +15,7 @@ class ScheduleScreen extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <TextIndicator titles={["Day1", "Day2"]}/>
+        <TextIndicator titles={["Day1", "Day2"]} selectedIndex={0}/>
         <ViewPager style={styles.viewPager}>
           <View style={styles.pageStyle}>
             <DaySessionList sessions={this.props.sessions1} onPress={this.go2SessionDetail}/>

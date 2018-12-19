@@ -6,18 +6,28 @@ class TextIndicator extends React.Component {
   render() {
     let { titles } = this.props
     var children = []
-    titles.forEach(item => {
+    titles.forEach((item, index) => {
       let thisKey = `vp_indi_${item}`
-      children.push(<Text key={thisKey} style={styles.indicator}> {item} </Text>)
+      children.push(
+        <View key={thisKey}>
+          <Text key={thisKey + '_text'} style={styles.indicator}> {item} </Text>
+          {getIndicatorBar(index)}
+        </View>,
+      )
     })
     return (
-      <View>
-        <View style={styles.root}>
-          {children}
-        </View>
-        <View style={styles.bar}/>
+      <View style={styles.root}>
+        {children}
       </View>
     )
+  }
+
+  getIndicatorBar = (which) => {
+    if (which === this.props.selectedIndex) {
+      return <View style={styles.bar}/>
+    } else {
+        return null
+    }
   }
 }
 
@@ -29,12 +39,13 @@ const styles = StyleSheet.create({
   },
   indicator: {
     fontSize: 22,
-    marginLeft: 20,
+    marginLeft: 10,
+    marginRight: 10,
   },
   bar: {
     backgroundColor: '#1565c0',
     height: 6,
-  }
+  },
 })
 
 export default TextIndicator
