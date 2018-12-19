@@ -6,18 +6,28 @@ class TextIndicator extends React.Component {
   render() {
     let { titles } = this.props
     var children = []
-    titles.forEach( item => {
+    titles.forEach(item => {
       let thisKey = `vp_indi_${item}`
-      children.push(<Text key={thisKey}> {item} </Text>)
+      children.push(<Text key={thisKey} style={styles.indicator}> {item} </Text>)
     })
     return (
-      <View>
+      <View style={styles.root}>
         {children}
       </View>
     )
   }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  root: {
+    // flex: 1, // 加了这个, TextIndicator就占了好大一块地方(但仍没有占满一屏)
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  indicator: {
+    fontSize: 22,
+    marginLeft: 20,
+  },
+})
 
 export default TextIndicator
