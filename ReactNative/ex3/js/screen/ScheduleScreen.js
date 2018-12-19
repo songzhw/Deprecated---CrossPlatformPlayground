@@ -7,6 +7,9 @@ import { tryDay1 } from '../redux/actionSchedule'
 import TextIndicator from '../component/TextIndicator'
 
 class ScheduleScreen extends Component {
+  state = {
+    selectedIndex : 0
+  }
   componentDidMount() {
     console.log('\n\n')
     this.props.dispatch(tryDay1())
@@ -15,8 +18,8 @@ class ScheduleScreen extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <TextIndicator titles={["Day1", "Day2"]} selectedIndex={0}/>
-        <ViewPager style={styles.viewPager}>
+        <TextIndicator titles={['Day1', 'Day2']} selectedIndex={this.state.selectedIndex}/>
+        <ViewPager style={styles.viewPager} onPageChanged={num => this.onPageChanged(num)}>
           <View style={styles.pageStyle}>
             <DaySessionList sessions={this.props.sessions1} onPress={this.go2SessionDetail}/>
           </View>
@@ -26,6 +29,10 @@ class ScheduleScreen extends Component {
         </ViewPager>
       </View>
     )
+  }
+
+  onPageChanged = (num) => {
+    this.setState({selectedIndex: num})
   }
 
   go2SessionDetail = (item, index, section) => {

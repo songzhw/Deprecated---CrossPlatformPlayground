@@ -43,6 +43,7 @@ export class ViewPager extends React.Component {
 
   handleHorizontalScroll(ev) {
     let selectedIndex = ev.nativeEvent.position
+    this.props.onPageChanged(selectedIndex)
     console.log(`szw scrollListener: selected = ${selectedIndex}`)
   }
 
