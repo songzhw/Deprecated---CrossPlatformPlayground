@@ -9,7 +9,10 @@ class ReadedComponent extends React.Component {
       <View style={styles.root}>
         <View style={styles.topBg}/>
         <View style={styles.cover}/>
-        <Text style={styles.text}>The Three-Body Problem</Text>
+        <Text style={[styles.centerText, {marginTop: 32, fontSize: 17}]}>The Three-Body Problem</Text>
+        <Text style={[styles.centerText, {marginTop: 6, fontSize: 15, color: '#424242'}]}>Liu CiXin</Text>
+        <Text style={[styles.centerText, {marginTop: 4, fontSize: 15, color: '#757575'}]}>0% Read | 20 Hours</Text>
+        <Image style={styles.moreDots} source={require('../../assets/more_vertical.png')}/>
       </View>
     )
   }
@@ -18,8 +21,10 @@ class ReadedComponent extends React.Component {
 const styles = StyleSheet.create({
   root: {
     width: 300,
-    height: 260,
-    backgroundColor: '#0f0'
+    height: 270,
+    marginRight: 20,
+    marginTop: 10,
+    backgroundColor: 'white'
   },
   topBg: {
     height: 155,
@@ -33,10 +38,16 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     top: '21%'
   },
-  text: {
-    position: 'relative',
+  centerText: {
     alignSelf: 'center',
-    top: 20
+  },
+  moreDots: {
+    position: 'absolute',
+    alignSelf: 'flex-end',
+    width: 25,
+    height: 25,
+    top: '60%',
+    right: 6
   }
 })
 
