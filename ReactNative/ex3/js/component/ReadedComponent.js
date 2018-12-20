@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, StyleSheet} from 'react-native'
+import {View, StyleSheet, Image, Text} from 'react-native'
 
 class ReadedComponent extends React.Component {
   state = {}
@@ -9,6 +9,7 @@ class ReadedComponent extends React.Component {
       <View style={styles.root}>
         <View style={styles.topBg}/>
         <View style={styles.cover}/>
+        <Text style={styles.text}>The Three-Body Problem</Text>
       </View>
     )
   }
@@ -25,12 +26,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#f00'
   },
   cover: {
-    width: 100,
-    height: 100,
+    width: 105,
+    height: 125,
     position: 'absolute',
     backgroundColor: '#00f',
     alignSelf: 'center',
-    top: 75
+    top: '21%'
+  },
+  text: {
+    position: 'relative',
+    alignSelf: 'center',
+    top: 20
   }
 })
 
