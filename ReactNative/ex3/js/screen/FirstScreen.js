@@ -4,9 +4,12 @@ import {connect} from 'react-redux'
 import ReadedComponent from "../component/ReadedComponent";
 import {tryFirstPageInfo} from "../redux/actionFirst";
 
-var listHeight = 0
 
 class FirstScreen extends Component {
+  state = {
+    listHeight: 0,
+    listWidth: 0
+  }
 
   componentDidMount() {
     this.props.dispatch(tryFirstPageInfo())
@@ -24,7 +27,10 @@ class FirstScreen extends Component {
             keyExtractor={(item, index) => `${item}_${index}`}
             renderItem={({item}) => <ReadedComponent/>}
             ListEmptyComponent={this.renderEmptyView()}
-            onLayout={e => listHeight = e.nativeEvent.layout.height}
+            onLayout={e => this.setState({
+              listHeight: e.nativeEvent.layout.height,
+              listWidth: e.nativeEvent.layout.width
+            })}
           />
         </View>
         <Text>Second two </Text>
@@ -37,9 +43,9 @@ class FirstScreen extends Component {
   }
 
   renderEmptyView = () => {
-    console.log(`szw list height = ${listHeight}`)
+    let {listHeight, listWidth} = this.state
     return (
-      <View style={styles.emptyView}>
+      <View style={{height: listHeight, width: listWidth, alignItems: 'center', justifyContent: 'center'}}>
         <Image source={require('../../assets/ic_open_book.png')}/>
         <Text style={{fontSize: 21}}>You don't have any read book</Text>
       </View>
@@ -53,11 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   recentRead: {},
-  emptyView: {
-    height: listHeight,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
+  emptyView: {}
 })
 
 const mapStateToProps = (state) => {
