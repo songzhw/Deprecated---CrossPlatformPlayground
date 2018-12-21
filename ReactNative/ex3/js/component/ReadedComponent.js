@@ -1,13 +1,15 @@
 import React from 'react'
 import {View, StyleSheet, Image, Text} from 'react-native'
+import {randomColor} from 'randomcolor'
 
 class ReadedComponent extends React.Component {
   render() {
     let {img, title, author, progress, length} = this.props.data
+    let color = randomColor()
     return (
       <View style={styles.root}>
-        <View style={styles.topBg}/>
-        <View style={styles.cover}/>
+        <View style={[styles.topBg, {backgroundColor: color}]}/>
+        <Image style={styles.cover} source={{uri: img}}/>
         <Text style={[styles.centerText, {marginTop: 32, fontSize: 17}]}>{title}</Text>
         <Text style={[styles.centerText, {marginTop: 6, fontSize: 15, color: '#424242'}]}>{author}</Text>
         <Text style={[styles.centerText, {marginTop: 4, fontSize: 15, color: '#757575'}]}>{progress} Read | {length}</Text>
@@ -28,7 +30,6 @@ const styles = StyleSheet.create({
   },
   topBg: {
     height: 155,
-    backgroundColor: '#f00'
   },
   cover: {
     width: 105,
