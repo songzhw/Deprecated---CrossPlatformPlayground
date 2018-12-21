@@ -1,19 +1,19 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text} from 'react-native'
+import {View, StyleSheet, Text, FlatList} from 'react-native'
 import {connect} from 'react-redux'
 import ReadedComponent from "../component/ReadedComponent";
-import {ViewPager} from "../component/ViewPager";
 
 class LayoutDemoScreen extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <ViewPager style={styles.viewPager} onPageChanged={num => this.onPageChanged(num)}>
-          <ReadedComponent/>
-          <ReadedComponent/>
-          <ReadedComponent/>
-          <ReadedComponent/>
-        </ViewPager>
+        <FlatList
+          horizontal={true}
+          data={[1, 2, 3]}
+          keyExtractor={(item, index) => `${item}_${index}`}
+          renderItem={({item}) => <ReadedComponent/>}
+        />
+
       </View>
     )
   }
