@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 import ReadedComponent from "../component/ReadedComponent";
 import {tryFirstPageInfo} from "../redux/actionFirst";
 
+var listHeight = 0
+
 class FirstScreen extends Component {
 
   componentDidMount() {
@@ -22,6 +24,7 @@ class FirstScreen extends Component {
             keyExtractor={(item, index) => `${item}_${index}`}
             renderItem={({item}) => <ReadedComponent/>}
             ListEmptyComponent={this.renderEmptyView()}
+            onLayout={e => listHeight = e.nativeEvent.layout.height}
           />
         </View>
         <Text>Second two </Text>
@@ -34,6 +37,7 @@ class FirstScreen extends Component {
   }
 
   renderEmptyView = () => {
+    console.log(`szw list height = ${listHeight}`)
     return (
       <View style={styles.emptyView}>
         <Image source={require('../../assets/ic_open_book.png')}/>
@@ -50,7 +54,7 @@ const styles = StyleSheet.create({
   },
   recentRead: {},
   emptyView: {
-    width: '100%', height:'100%',
+    height: listHeight,
     alignItems: 'center',
     justifyContent: 'center'
   }
