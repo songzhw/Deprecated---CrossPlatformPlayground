@@ -2,8 +2,14 @@ import React, {Component} from 'react'
 import {View, StyleSheet, Text, FlatList} from 'react-native'
 import {connect} from 'react-redux'
 import ReadedComponent from "../component/ReadedComponent";
+import {tryFirstPageInfo} from "../redux/actionFirst";
 
-class LayoutDemoScreen extends Component {
+class FirstScreen extends Component {
+
+  componentDidMount() {
+    this.props.dispatch(tryFirstPageInfo())
+  }
+
   render() {
     return (
       <View style={styles.root}>
@@ -30,7 +36,9 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
+  console.log(`szw FirstPage mapState2Props() : ${JSON.stringify(state)}`)
+  // state is {"reduceFirst": { "opened": [ {}, {} ] }, ...}
   return {}
 }
 
-export default connect(mapStateToProps)(LayoutDemoScreen)
+export default connect(mapStateToProps)(FirstScreen)

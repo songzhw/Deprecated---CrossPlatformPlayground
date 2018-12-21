@@ -1,8 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
+import saga from './saga'
 import reduceSession from './reduceSession'
 import reduceSchedule from './reduceSchedule'
-import saga from './saga'
+import reduceFirst from "./reduceFirst";
 
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware];
@@ -10,7 +11,7 @@ const middleware = [sagaMiddleware];
 //   middleware.push(logger);  // import logger from 'redux-logger'
 // }
 
-const reducers = combineReducers({reduceSession, reduceSchedule})
+const reducers = combineReducers({reduceSession, reduceSchedule, reduceFirst})
 const store = createStore(reducers, applyMiddleware(...middleware));
 
 sagaMiddleware.run(saga);

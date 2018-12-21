@@ -8,7 +8,7 @@ class HomeScreen extends Component {
       <ScrollView style={styles.root}>
         <HomeButton title="Login" onPress={this.go2Login}/>
         <HomeButton title="Schedule" onPress={this.go2Schedule}/>
-        <HomeButton title="Layout Demo" onPress={this.go2LayoutDemo}/>
+        <HomeButton title="First Page" onPress={this.go2FirstPage}/>
       </ScrollView>
     )
   }
@@ -21,8 +21,8 @@ class HomeScreen extends Component {
     this.props.navigation.navigate('ScheduleScreen')
   }
 
-  go2LayoutDemo = () => {
-    this.props.navigation.navigate('LayoutDemoScreen')
+  go2FirstPage = () => {
+    this.props.navigation.navigate('FirstScreen')
   }
 
 }

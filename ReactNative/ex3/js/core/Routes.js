@@ -4,7 +4,7 @@ import HomeScreen from '../screen/HomeScreen'
 import LoginScreen from '../screen/LoginScreen'
 import SessionDetailScreen from '../screen/SessionDetailScreen'
 import ScheduleScreen from '../screen/ScheduleScreen'
-import LayoutDemoScreen from '../screen/LayoutDemoScreen'
+import FirstScreen from '../screen/FirstScreen'
 
 const HomeStack = createStackNavigator(
   {
@@ -24,9 +24,9 @@ const HomeStack = createStackNavigator(
       screen: SessionDetailScreen,
       navigationOptions: { headerTitle: 'Session Detail' },
     },
-    LayoutDemoScreen: {
-      screen: LayoutDemoScreen,
-      navigationOptions: { headerTitle: 'Layout Demo' },
+    FirstScreen: {
+      screen: FirstScreen,
+      navigationOptions: { headerTitle: 'First Screen' },
     },
   },
   {
