@@ -3,13 +3,14 @@ import {View, StyleSheet, Image, Text} from 'react-native'
 
 class ReadedComponent extends React.Component {
   render() {
+    let {img, title, author, progress, length} = this.props.data
     return (
       <View style={styles.root}>
         <View style={styles.topBg}/>
         <View style={styles.cover}/>
-        <Text style={[styles.centerText, {marginTop: 32, fontSize: 17}]}>The Three-Body Problem</Text>
-        <Text style={[styles.centerText, {marginTop: 6, fontSize: 15, color: '#424242'}]}>Liu CiXin</Text>
-        <Text style={[styles.centerText, {marginTop: 4, fontSize: 15, color: '#757575'}]}>0% Read | 20 Hours</Text>
+        <Text style={[styles.centerText, {marginTop: 32, fontSize: 17}]}>{title}</Text>
+        <Text style={[styles.centerText, {marginTop: 6, fontSize: 15, color: '#424242'}]}>{author}</Text>
+        <Text style={[styles.centerText, {marginTop: 4, fontSize: 15, color: '#757575'}]}>{progress} Read | {length}</Text>
         <Image style={styles.icDownload} source={require('../../assets/ic_download.png')}/>
         <Image style={styles.icMoreDots} source={require('../../assets/ic_more_vertical.png')}/>
       </View>

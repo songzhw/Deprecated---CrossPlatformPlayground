@@ -18,14 +18,15 @@ class FirstScreen extends Component {
   render() {
     return (
       <View style={styles.root}>
+        {/*to make the FlatList's size not too big*/}
         <View style={{height: 286}}>
           <FlatList
             style={styles.recentRead}
             showsHorizontalScrollIndicator={false}
             horizontal={true}
-            data={[]}
+            data={this.props.open}
             keyExtractor={(item, index) => `${item}_${index}`}
-            renderItem={({item}) => <ReadedComponent/>}
+            renderItem={this.renderItem}
             ListEmptyComponent={this.renderEmptyView()}
             onLayout={e => this.setState({
               listHeight: e.nativeEvent.layout.height,
@@ -33,6 +34,7 @@ class FirstScreen extends Component {
             })}
           />
         </View>
+
         <Text>Second two </Text>
       </View>
     )
@@ -42,14 +44,25 @@ class FirstScreen extends Component {
     //TODO
   }
 
+  renderItem = ({item}) => {
+    return (
+      <ReadedComponent data={item}/>
+    )
+  }
+
   renderEmptyView = () => {
     let {listHeight, listWidth} = this.state
     return (
-      <View style={{height: listHeight, width: listWidth, alignItems: 'center', justifyContent: 'center'}}>
+      <View style={{
+        height: listHeight,
+        width: listWidth,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white'
+      }}>
         <Image source={require('../../assets/ic_open_book.png')}/>
-        <Text style={{fontSize: 21}}>You don't have any read book</Text>
+        <Text style={{fontSize: 21, marginTop: 10}}>You don't have any read book</Text>
       </View>
-
     )
   }
 }
@@ -65,7 +78,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   console.log(`szw FirstPage mapState2Props() : ${JSON.stringify(state)}`)
   // state is {"reduceFirst": { "opened": [ {}, {} ] }, ...}
-  return {}
+  let {opened} = state.reduceFirst
+  return {open: opened}
 }
 
 export default connect(mapStateToProps)(FirstScreen)
