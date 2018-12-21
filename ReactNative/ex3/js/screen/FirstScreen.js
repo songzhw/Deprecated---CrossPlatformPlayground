@@ -13,13 +13,17 @@ class FirstScreen extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <FlatList
-          horizontal={true}
-          data={[1, 2, 3]}
-          keyExtractor={(item, index) => `${item}_${index}`}
-          renderItem={({item}) => <ReadedComponent/>}
-        />
-
+        <View style={{height: 286}}>
+          <FlatList
+            style={styles.recentRead}
+            showsHorizontalScrollIndicator={false}
+            horizontal={true}
+            data={[1, 2, 3]}
+            keyExtractor={(item, index) => `${item}_${index}`}
+            renderItem={({item}) => <ReadedComponent/>}
+          />
+        </View>
+        <Text>Second two </Text>
       </View>
     )
   }
@@ -33,6 +37,8 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
+  recentRead: {
+  }
 })
 
 const mapStateToProps = (state) => {
