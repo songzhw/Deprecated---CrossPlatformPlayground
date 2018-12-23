@@ -3,6 +3,7 @@ import {View, StyleSheet, Text, FlatList, Image} from 'react-native'
 import {connect} from 'react-redux'
 import ReadedComponent from "../component/ReadedComponent";
 import {tryFirstPageInfo} from "../redux/actionFirst";
+import FirstCarousel from "../component/FirstCarousel";
 
 
 class FirstScreen extends Component {
@@ -35,7 +36,10 @@ class FirstScreen extends Component {
           />
         </View>
 
-        <Text>Second two </Text>
+        <FirstCarousel title="Recommended"/>
+        <FirstCarousel title="Popular Book"/>
+        <FirstCarousel title="Recommended"/>
+
       </View>
     )
   }
