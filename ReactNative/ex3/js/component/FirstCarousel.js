@@ -42,11 +42,14 @@ const styles = StyleSheet.create({
   },
   more: {
     position: 'absolute',
-    alignSelf: 'flex-end'
+    alignSelf: 'flex-end',
+    right: 20,
+    fontSize: 15,
+    color: '#0D47A1'
   },
   book: {
     width: 110,
-    height: 110,
+    height: 150,
     marginLeft: 10,
     marginRight: 10
   },

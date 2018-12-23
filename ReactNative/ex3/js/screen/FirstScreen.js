@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, FlatList, Image} from 'react-native'
+import {View, StyleSheet, Text, FlatList, Image, ScrollView} from 'react-native'
 import {connect} from 'react-redux'
 import ReadedComponent from "../component/ReadedComponent";
 import {tryFirstPageInfo} from "../redux/actionFirst";
@@ -18,7 +18,7 @@ class FirstScreen extends Component {
 
   render() {
     return (
-      <View style={styles.root}>
+      <ScrollView style={styles.root}>
         {/*to make the FlatList's size not too big*/}
         <View style={{height: 286}}>
           <FlatList
@@ -40,7 +40,7 @@ class FirstScreen extends Component {
         <FirstCarousel title="Popular Book"/>
         <FirstCarousel title="Recommended"/>
 
-      </View>
+      </ScrollView>
     )
   }
 
