@@ -6,6 +6,7 @@ import SessionDetailScreen from '../screen/SessionDetailScreen'
 import ScheduleScreen from '../screen/ScheduleScreen'
 import FirstScreen from '../screen/FirstScreen'
 import ChallengeOneScreen from "../screen/ChallengeOneScreen";
+import SetStatePitfallScreen from "../screen/SetStatePitfallScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -28,6 +29,10 @@ const HomeStack = createStackNavigator(
     FirstScreen: {
       screen: FirstScreen,
       navigationOptions: { headerTitle: 'First Screen' },
+    },
+    SetStatePitfallScreen: {
+      screen: SetStatePitfallScreen,
+      navigationOptions: { headerTitle: 'setState() pitfall' },
     },
     ChallengeOneScreen: {
       screen: ChallengeOneScreen,
