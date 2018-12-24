@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import {View, StyleSheet, Text, FlatList} from 'react-native'
 import {connect} from 'react-redux'
 import {fetchChallengeOnePage} from "../redux/reduxChanllengeOne";
+import ReadedComponent from "./FirstScreen";
 
 class ChallengeOneScreen extends Component{
 
@@ -12,8 +13,20 @@ class ChallengeOneScreen extends Component{
   render(){
     return (
       <View style={styles.root}>
-        <Text>ChallengeOneScreen Screen</Text>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          data={[1,2,3,4,5,6,7]}
+          keyExtractor={(item, index) => `${item}_${index}`}
+          renderItem={this.renderItem}
+          numColumns={2}
+        />
       </View>
+    )
+  }
+
+  renderItem = ({item}) => {
+    return (
+      <Text>render item</Text>
     )
   }
 }
