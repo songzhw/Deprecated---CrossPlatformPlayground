@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import {connect} from 'react-redux'
+import {fetchChallengeOnePage} from "../redux/reduxChanllengeOne";
 
 class ChallengeOneScreen extends Component{
+
+  componentDidMount() {
+    this.props.dispatch(fetchChallengeOnePage(1))
+  }
+
   render(){
     return (
       <View style={styles.root}>
@@ -19,6 +25,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
+  console.log(`szw challenge01 : state = ${JSON.stringify(state)}`)
   return {
 
   }

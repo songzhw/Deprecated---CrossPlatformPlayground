@@ -1,13 +1,15 @@
 import {takeEvery, call, put} from "redux-saga/effects";
 import {TRY_LOGIN, loginSucc} from "./actionSession";
-import {API_FIRST_PAGE, API_ID_DAY1, API_ID_DAY2, API_ID_LOGIN} from './apiConstants'
+import {API_CHALLENGE1_PAGE1, API_FIRST_PAGE, API_ID_DAY1, API_ID_DAY2, API_ID_LOGIN} from './apiConstants'
 import { gotDay1, TRY_SCHEDULE_DAY1 } from './actionSchedule'
 import {gotFirstPageInfo, TRY_FIRST_PAGE_INFO} from "./actionFirst";
+import {onGotChallenge1Page, TRY_CHALLENGE1_PAGE} from "./reduxChanllengeOne";
 
 const rootSaga = function* () {
   yield takeEvery(TRY_LOGIN, tryLogin)
   yield takeEvery(TRY_SCHEDULE_DAY1, tryDay1)
   yield takeEvery(TRY_FIRST_PAGE_INFO, tryGetFirstPageInfo)
+  yield takeEvery(TRY_CHALLENGE1_PAGE, tryFetchChallenge1)
 }
 
 const tryLogin = function* (action) {
@@ -46,6 +48,16 @@ const tryGetFirstPageInfo = function*(aciton) {
   }
 }
 
+const tryFetchChallenge1 = function* (action) {
+  try{
+    const rawResp = yield call(doFetch, API_CHALLENGE1_PAGE1)
+    const resp = yield rawResp.json()
+    const newAction = onGotChallenge1Page(resp)
+    yield put(newAction)
+  }catch (err) {
+    console.log(`saga.tryFetchChallenge1 error = ${err}`)
+  }
+}
 
 export const doFetch = id => fetch(`http://www.mocky.io/v2/${id}`)
 
