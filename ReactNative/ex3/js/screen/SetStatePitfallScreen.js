@@ -10,6 +10,7 @@ class SetStatePitfallScreen extends Component {
       <View style={styles.root}>
         <Button title="increase state 3 times" onPress={this.clickPitfall}/>
         <Button title="[1] increase state 3 times" onPress={this.clickPitfall2}/>
+        <Button title="[2] increase state 3 times" onPress={this.clickPitfall3}/>
         <Button title="what's the state?" onPress={this.checkState}/>
       </View>
     )
@@ -31,6 +32,14 @@ class SetStatePitfallScreen extends Component {
     this.setState((prevState, pros) => ({
       num: prevState.num + 1
     }))
+  }
+
+  clickPitfall3 = () => {
+    this.setState({num: this.state.num + 1}, () => {
+      this.setState({num: this.state.num + 1}, () => {
+        this.setState({num: this.state.num + 1})
+      })
+    })
   }
 
   checkState = () => {
