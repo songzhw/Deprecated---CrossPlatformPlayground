@@ -5,6 +5,7 @@ import LoginScreen from '../screen/LoginScreen'
 import SessionDetailScreen from '../screen/SessionDetailScreen'
 import ScheduleScreen from '../screen/ScheduleScreen'
 import FirstScreen from '../screen/FirstScreen'
+import ChallengeOneScreen from "../screen/ChallengeOneScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -28,6 +29,10 @@ const HomeStack = createStackNavigator(
       screen: FirstScreen,
       navigationOptions: { headerTitle: 'First Screen' },
     },
+    ChallengeOneScreen: {
+      screen: ChallengeOneScreen,
+      navigationOptions: {headerTitle: 'Challenge One'}
+    }
   },
   {
     headerMode: 'screen',
