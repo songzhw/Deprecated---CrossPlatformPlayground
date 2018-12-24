@@ -22,7 +22,15 @@ class SetStatePitfallScreen extends Component {
   }
 
   clickPitfall2 = () => {
-
+    this.setState((prevState, pros) => {
+      return {num: prevState.num + 1}
+    })
+    this.setState((prevState, pros) => {
+      return {num: prevState.num + 1}
+    })
+    this.setState((prevState, pros) => ({
+      num: prevState.num + 1
+    }))
   }
 
   checkState = () => {
