@@ -1,32 +1,39 @@
-import React, { Component } from 'react'
-import {View, StyleSheet, Text, FlatList} from 'react-native'
+import React, {Component} from 'react'
+import {View, StyleSheet, Text, FlatList, Image} from 'react-native'
 import {connect} from 'react-redux'
 import {fetchChallengeOnePage} from "../redux/reduxChanllengeOne";
 import ReadedComponent from "./FirstScreen";
 
-class ChallengeOneScreen extends Component{
+class ChallengeOneScreen extends Component {
+  state = {}
 
   componentDidMount() {
     this.props.dispatch(fetchChallengeOnePage(1))
   }
 
-  render(){
+  render() {
     return (
       <View style={styles.root}>
         <FlatList
           showsHorizontalScrollIndicator={false}
           data={this.props.users}
           keyExtractor={(item, index) => `${item}_${index}`}
-          renderItem={this.renderItem}
-          numColumns={2}
+          renderItem={this.renderListItem}
+          numColumns={1}
         />
       </View>
     )
   }
 
-  renderItem = ({item}) => {
+  renderListItem = ({item}) => {
     return (
-      <Text>{item.first_name} {item.last_name}</Text>
+      <View style={[styles.itemInList, {backgroundColor: item.backgroundColor}]}>
+        <Image style={styles.avatarInList} source={{uri: item.avatar}}/>
+        <View style={styles.textContainerInList}>
+          <Text style={styles.nameInList}>{item.first_name} {item.last_name}</Text>
+          <Text style={styles.emailInList}>{item.email}</Text>
+        </View>
+      </View>
     )
   }
 }
@@ -35,6 +42,27 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
+  itemInList: {
+    flexDirection: 'row'
+  },
+  avatarInList: {
+    width: 100,
+    height: 100
+  },
+  textContainerInList: {
+    flexDirection: 'column',
+  },
+  nameInList: {
+    fontSize: 20,
+    marginTop: 26,
+    color: 'white',
+    fontWeight: 'bold'
+  },
+  emailInList: {
+    fontSize: 17,
+    marginTop: 9,
+    color: 'blue'
+  }
 })
 
 const mapStateToProps = (state) => {
