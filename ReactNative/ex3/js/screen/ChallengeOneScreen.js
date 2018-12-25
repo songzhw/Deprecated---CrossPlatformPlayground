@@ -15,7 +15,7 @@ class ChallengeOneScreen extends Component{
       <View style={styles.root}>
         <FlatList
           showsHorizontalScrollIndicator={false}
-          data={[1,2,3,4,5,6,7]}
+          data={this.props.users}
           keyExtractor={(item, index) => `${item}_${index}`}
           renderItem={this.renderItem}
           numColumns={2}
@@ -26,7 +26,7 @@ class ChallengeOneScreen extends Component{
 
   renderItem = ({item}) => {
     return (
-      <Text>render item</Text>
+      <Text>{item.first_name} {item.last_name}</Text>
     )
   }
 }
@@ -38,9 +38,9 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
-  console.log(`szw challenge01 : state = ${JSON.stringify(state)}`)
+  console.log(`szw challenge01 : state = ${JSON.stringify(state.reduceChallenge1.length)}`)
   return {
-
+    users: state.reduceChallenge1
   }
 }
 
