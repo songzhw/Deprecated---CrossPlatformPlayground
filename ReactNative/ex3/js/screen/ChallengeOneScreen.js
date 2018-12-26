@@ -64,12 +64,21 @@ class ChallengeOneScreen extends Component {
 
   clickSort = () => {
     let newIndex = (this.state.sortIndex + 1) % 3
-    let users = this.props.users;
-    if(newIndex !== 0){
-      users = this.props.users.slice()
-      users.sort((a,b) => a.localeCompare(b))
+    let users = this.props.users.slice();
+    if(newIndex === 1){
+      users.sort((a,b) => this.compareTwoStrings(a,b))
+    } else if(newIndex === 2){
+      users.sort((a,b) => this.compareTwoStrings(b, a))
+    } else {
+      users = []
     }
     this.setState({...this.state, sortIndex: newIndex, users: users})
+  }
+
+  compareTwoStrings = (a, b) => {
+    if (a.last_name === null) return 1;
+    if (b.last_name === null) return -1;
+    return a.last_name.localeCompare(b.last_name)
   }
 
   clickLayout = () => {
