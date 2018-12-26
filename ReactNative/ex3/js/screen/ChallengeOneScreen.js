@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, FlatList, Image} from 'react-native'
+import {View, StyleSheet, Text, FlatList, Image, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
 import {fetchChallengeOnePage} from "../redux/reduxChanllengeOne";
 import ReadedComponent from "./FirstScreen";
@@ -7,20 +7,47 @@ import ReadedComponent from "./FirstScreen";
 class ChallengeOneScreen extends Component {
   state = {}
 
+  // 加一个默认值, 以免数据还没加载下来就crash了
+  static defaultProps = {
+    users: [],
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchChallengeOnePage(1))
   }
 
   render() {
+    // 发现单单加默认props没用, 仍有可能出错; 所以在render()里加入, 以确保100%不crash
+    let userData = []
+    if (this.props.users) {
+      userData = this.props.users
+    }
+
     return (
       <View style={styles.root}>
+
+        <View style={styles.headerContainer}>
+
+          <Text style={{fontSize: 15, marginLeft: 20}}>All Users</Text>
+          <TouchableOpacity style={[styles.iconRight, {right: 12}]} onPress={this.clickSort}>
+            <Image source={require('../../assets/ic_sort_az.png')}/>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={[styles.iconRight, {right: 52}]} onPress={this.clickLayout}>
+            <Image style={styles.imgLayout} source={require('../../assets/ic_grid.png')}/>
+          </TouchableOpacity>
+
+        </View>
+
+
         <FlatList
           showsHorizontalScrollIndicator={false}
-          data={this.props.users}
+          data={userData}
           keyExtractor={(item, index) => `${item}_${index}`}
           renderItem={this.renderListItem}
           numColumns={1}
         />
+        
       </View>
     )
   }
@@ -36,19 +63,43 @@ class ChallengeOneScreen extends Component {
       </View>
     )
   }
+
+  clickSort = () => {
+    console.log(`click sort`)
+  }
+
+  clickLayout = () => {
+    console.log(`click layout`)
+  }
 }
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
+
+
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 36,
+  },
+  iconRight: {
+    position: 'absolute',
+    width: 36,
+    height: 36,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+
   itemInList: {
     flexDirection: 'row'
   },
   avatarInList: {
     width: 100,
     height: 100,
-    resizeMode: 'center'
+    resizeMode: 'center',
   },
   textContainerInList: {
     flexDirection: 'column',
