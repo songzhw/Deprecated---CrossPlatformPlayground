@@ -4,8 +4,11 @@ import {connect} from 'react-redux'
 import {fetchChallengeOnePage} from "../redux/reduxChanllengeOne";
 
 class ChallengeOneScreen extends Component {
+  sortTypes = [SORT.NONE, SORT.AZ, SORT.ZA];
+  sortImages = [require('../../assets/ic_sort_az.png'), require('../../assets/ic_sort_za.png'), require('../../assets/ic_refresh.png')]
+
   state = {
-    sort: SORT.NONE,
+    sortIndex: 0
   }
 
   // 加一个默认值, 以免数据还没加载下来就crash了
@@ -24,6 +27,8 @@ class ChallengeOneScreen extends Component {
       userData = this.props.users
     }
 
+    let sortImage = this.sortImages[this.state.sortIndex]
+
     return (
       <View style={styles.root}>
 
@@ -31,7 +36,7 @@ class ChallengeOneScreen extends Component {
           <Text style={{fontSize: 15, marginLeft: 20}}>All Users</Text>
 
           <TouchableOpacity style={[styles.iconRight, {right: 12}]} onPress={this.clickSort}>
-            <Image source={require('../../assets/ic_sort_az.png')}/>
+            <Image source={sortImage}/>
           </TouchableOpacity>
 
           <TouchableOpacity style={[styles.iconRight, {right: 52}]} onPress={this.clickLayout}>
@@ -67,7 +72,8 @@ class ChallengeOneScreen extends Component {
   }
 
   clickSort = () => {
-    console.log(`click sort`)
+    let newIndex = (this.state.sortIndex + 1) % 3
+    this.setState({...this.state, sortIndex: newIndex})
   }
 
   clickLayout = () => {
