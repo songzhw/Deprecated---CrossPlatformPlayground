@@ -8,12 +8,8 @@ class ChallengeOneScreen extends Component {
   sortImages = [require('../../assets/ic_sort_az.png'), require('../../assets/ic_sort_za.png'), require('../../assets/ic_refresh.png')]
 
   state = {
-    sortIndex: 0
-  }
-
-  // 加一个默认值, 以免数据还没加载下来就crash了
-  static defaultProps = {
-    users: [],
+    sortIndex: 0,
+    users: []
   }
 
   componentDidMount() {
@@ -21,19 +17,14 @@ class ChallengeOneScreen extends Component {
   }
 
   render() {
-    // 发现单单加默认props没用, 仍有可能出错; 所以在render()里加入, 以确保100%不crash
-    let userData = []
-    if (this.props.users) {
-      userData = this.props.users
-    }
-
     let sortImage = this.sortImages[this.state.sortIndex]
+    let users = this.state.sortIndex === 0 ? this.props.users : this.state.users;
 
     return (
       <View style={styles.root}>
 
         <View style={styles.headerContainer}>
-          <Text style={{fontSize: 15, marginLeft: 20}}>All Users</Text>
+          <Text style={{fontSize: 18, marginLeft: 20}}>All Users</Text>
 
           <TouchableOpacity style={[styles.iconRight, {right: 12}]} onPress={this.clickSort}>
             <Image source={sortImage}/>
@@ -48,7 +39,7 @@ class ChallengeOneScreen extends Component {
 
         <FlatList
           showsHorizontalScrollIndicator={false}
-          data={userData}
+          data={users}
           keyExtractor={(item, index) => `${item}_${index}`}
           renderItem={this.renderListItem}
           numColumns={1}
@@ -73,7 +64,12 @@ class ChallengeOneScreen extends Component {
 
   clickSort = () => {
     let newIndex = (this.state.sortIndex + 1) % 3
-    this.setState({...this.state, sortIndex: newIndex})
+    let users = this.props.users;
+    if(newIndex !== 0){
+      users = this.props.users.slice()
+      users.sort((a,b) => a.localeCompare(b))
+    }
+    this.setState({...this.state, sortIndex: newIndex, users: users})
   }
 
   clickLayout = () => {
