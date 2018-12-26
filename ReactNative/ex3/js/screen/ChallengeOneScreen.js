@@ -2,10 +2,11 @@ import React, {Component} from 'react'
 import {View, StyleSheet, Text, FlatList, Image, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
 import {fetchChallengeOnePage} from "../redux/reduxChanllengeOne";
-import ReadedComponent from "./FirstScreen";
 
 class ChallengeOneScreen extends Component {
-  state = {}
+  state = {
+    sort: SORT.NONE,
+  }
 
   // 加一个默认值, 以免数据还没加载下来就crash了
   static defaultProps = {
@@ -27,8 +28,8 @@ class ChallengeOneScreen extends Component {
       <View style={styles.root}>
 
         <View style={styles.headerContainer}>
-
           <Text style={{fontSize: 15, marginLeft: 20}}>All Users</Text>
+
           <TouchableOpacity style={[styles.iconRight, {right: 12}]} onPress={this.clickSort}>
             <Image source={require('../../assets/ic_sort_az.png')}/>
           </TouchableOpacity>
@@ -46,8 +47,9 @@ class ChallengeOneScreen extends Component {
           keyExtractor={(item, index) => `${item}_${index}`}
           renderItem={this.renderListItem}
           numColumns={1}
+          ListEmptyComponent={(<Text> Empty </Text>)}
         />
-        
+
       </View>
     )
   }
@@ -125,3 +127,9 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(ChallengeOneScreen)
+
+const SORT = Object.freeze({
+  NONE: 'None',
+  AZ: 'AZ',
+  ZA: 'ZA'
+})
