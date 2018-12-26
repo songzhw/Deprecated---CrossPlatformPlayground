@@ -25,12 +25,12 @@ class ChallengeOneScreen extends Component {
     )
   }
 
-  renderListItem = ({item}) => {
+  renderListItem = ({item, index}) => {
     return (
       <View style={[styles.itemInList, {backgroundColor: item.backgroundColor}]}>
         <Image style={styles.avatarInList} source={{uri: item.avatar}}/>
         <View style={styles.textContainerInList}>
-          <Text style={styles.nameInList}>{item.first_name} {item.last_name}</Text>
+          <Text style={styles.nameInList}>{index + 1}. {item.first_name} {item.last_name}</Text>
           <Text style={styles.emailInList}>{item.email}</Text>
         </View>
       </View>
@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
   },
   avatarInList: {
     width: 100,
-    height: 100
+    height: 100,
+    resizeMode: 'center'
   },
   textContainerInList: {
     flexDirection: 'column',
