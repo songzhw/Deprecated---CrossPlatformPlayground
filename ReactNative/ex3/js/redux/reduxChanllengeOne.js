@@ -19,12 +19,8 @@ export const SORT_ZA_ACTION = {type: SORT_ZA}
 export const SORT_NONE = "SORT_NONE"
 export const SORT_NONE_ACTION = {type: SORT_NONE}
 
-const initState = {
-  payload: {},
-}
-
-var originalUsers = [];
-
+var originalUsers = [];  // save the original users data
+const initState = []
 export default (state = initState, action) => {
   switch (action.type) {
     case GOT_CHALLENGE1_PAGE:
