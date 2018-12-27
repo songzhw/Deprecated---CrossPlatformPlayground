@@ -4,11 +4,12 @@ import {connect} from 'react-redux'
 import {fetchChallengeOnePage, SORT_AZ_ACTION, SORT_NONE_ACTION, SORT_ZA_ACTION} from "../redux/reduxChanllengeOne";
 
 class ChallengeOneScreen extends Component {
-  sortTypes = [SORT.NONE, SORT.AZ, SORT.ZA];
   sortImages = [require('../../assets/ic_sort_az.png'), require('../../assets/ic_sort_za.png'), require('../../assets/ic_refresh.png')]
+  layoutImages = [require('../../assets/ic_grid.png'), require('../../assets/ic_list.png')]
 
   state = {
-    sortIndex: 0,
+    sortIndex: Sort.None,
+    layoutIndex: Layout.List
   }
 
   componentDidMount() {
@@ -17,6 +18,7 @@ class ChallengeOneScreen extends Component {
 
   render() {
     let sortImage = this.sortImages[this.state.sortIndex]
+    let layoutImage = this.layoutImages[this.state.layoutIndex]
 
     return (
       <View style={styles.root}>
@@ -29,7 +31,7 @@ class ChallengeOneScreen extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity style={[styles.iconRight, {right: 52}]} onPress={this.clickLayout}>
-            <Image style={styles.imgLayout} source={require('../../assets/ic_grid.png')}/>
+            <Image style={styles.imgLayout} source={layoutImage}/>
           </TouchableOpacity>
 
         </View>
@@ -61,9 +63,9 @@ class ChallengeOneScreen extends Component {
 
   clickSort = () => {
     let newIndex = (this.state.sortIndex + 1) % 3
-    if(newIndex === 1){
+    if (newIndex === Sort.AZ) {
       this.props.dispatch(SORT_AZ_ACTION)
-    } else if(newIndex === 2){
+    } else if (newIndex === Sort.ZA) {
       this.props.dispatch(SORT_ZA_ACTION)
     } else {
       this.props.dispatch(SORT_NONE_ACTION)
@@ -72,9 +74,10 @@ class ChallengeOneScreen extends Component {
   }
 
 
-
   clickLayout = () => {
-    console.log(`click layout`)
+    let newIndex = (this.state.layoutIndex + 1) % 2
+    //TODO
+    this.setState({...this.state, layoutIndex: newIndex})
   }
 }
 
@@ -131,8 +134,13 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(ChallengeOneScreen)
 
-const SORT = Object.freeze({
-  NONE: 'None',
-  AZ: 'AZ',
-  ZA: 'ZA'
+const Layout = Object.freeze({
+  List: 0,
+  Grid: 1,
+})
+
+const Sort = Object.freeze({
+  None: 0,
+  AZ: 1,
+  ZA: 2
 })
