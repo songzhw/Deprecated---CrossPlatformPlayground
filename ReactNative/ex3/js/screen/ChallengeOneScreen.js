@@ -38,7 +38,7 @@ class ChallengeOneScreen extends Component {
 
         <FlatList
           showsHorizontalScrollIndicator={false}
-          data={this.props.users}
+          data={this.props.users || []}
           keyExtractor={(item, index) => `${item}_${index}`}
           renderItem={this.renderListItem}
           numColumns={1}
