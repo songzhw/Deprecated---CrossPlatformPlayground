@@ -19,6 +19,8 @@ class ChallengeOneScreen extends Component {
   render() {
     let sortImage = this.sortImages[this.state.sortIndex]
     let layoutImage = this.layoutImages[this.state.layoutIndex]
+    let layoutColumnCount = this.state.layoutIndex === Layout.List ? 1 : 2
+    let flatListKey = this.state.layoutIndex === Layout.List ? 'listChallenge1' : 'gridChallenge1'
 
     return (
       <View style={styles.root}>
@@ -38,10 +40,11 @@ class ChallengeOneScreen extends Component {
 
         <FlatList
           showsHorizontalScrollIndicator={false}
-          data={this.props.users || []}
+          data={this.props.users}
           keyExtractor={(item, index) => `${item}_${index}`}
           renderItem={this.renderListItem}
-          numColumns={1}
+          numColumns={layoutColumnCount}
+          key={flatListKey}
           ListEmptyComponent={(<Text> Empty </Text>)}
         />
 
