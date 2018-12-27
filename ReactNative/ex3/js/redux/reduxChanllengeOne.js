@@ -1,4 +1,3 @@
-
 export const TRY_CHALLENGE1_PAGE = 'TRY_CHALLENGE1_PAGE'
 export const fetchChallengeOnePage = (page) => ({
   type: TRY_CHALLENGE1_PAGE,
@@ -47,9 +46,9 @@ export default (state = initState, action) => {
   }
 }
 
-
-function compareTwoStrings(a, b) {
+this.compareTwoStrings = function (a, b) {
   if (a.last_name === null) return 1;
   if (b.last_name === null) return -1;
   return a.last_name.localeCompare(b.last_name)
 }
+

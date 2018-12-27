@@ -34,7 +34,6 @@ class ChallengeOneScreen extends Component {
 
         </View>
 
-
         <FlatList
           showsHorizontalScrollIndicator={false}
           data={this.props.users}
