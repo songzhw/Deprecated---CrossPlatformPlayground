@@ -116,11 +116,14 @@ const styles = StyleSheet.create({
 
 
   itemInGrid: {
-    height: 220
+    flex: 1,
+    height: 220,
+    alignItems: 'center'
   },
   avatarInGrid: {
     width: 140,
     height: 140,
+    padding: 10,
     resizeMode: 'stretch',
   },
   nameInGrid: {
