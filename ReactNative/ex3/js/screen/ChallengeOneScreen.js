@@ -58,8 +58,8 @@ class ChallengeOneScreen extends Component {
     return (
       <View style={[styles.itemInGrid, {backgroundColor: item.backgroundColor}]}>
         <Image style={styles.avatarInGrid} source={{uri: item.avatar}}/>
-        <Text style={styles.nameInGrid}>{index + 1}. {item.first_name} {item.last_name}</Text>
-        <Text style={styles.emailInGrid}>{item.email}</Text>
+        <Text style={styles.nameInGrid} ellipsizeMode='tail' numberOfLines={1}>{index + 1}. {item.first_name} {item.last_name}</Text>
+        <Text style={styles.emailInGrid} ellipsizeMode='tail' numberOfLines={1}>{item.email}</Text>
       </View>
     )
   }
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch',
   },
   nameInGrid: {
-    fontSize: 20,
+    fontSize: 17,
     marginTop: 12,
     marginLeft: 9,
     marginRight: 9,
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   emailInGrid: {
-    fontSize: 17,
+    fontSize: 14,
     marginTop: 6,
     marginLeft: 9,
     marginRight: 9,
