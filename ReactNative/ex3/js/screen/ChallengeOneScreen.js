@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, FlatList, Image, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
-import {fetchChallengeOnePage} from "../redux/reduxChanllengeOne";
+import {fetchChallengeOnePage, SORT_AZ_ACTION, SORT_NONE_ACTION, SORT_ZA_ACTION} from "../redux/reduxChanllengeOne";
 
 class ChallengeOneScreen extends Component {
   sortTypes = [SORT.NONE, SORT.AZ, SORT.ZA];
@@ -9,7 +9,6 @@ class ChallengeOneScreen extends Component {
 
   state = {
     sortIndex: 0,
-    users: []
   }
 
   componentDidMount() {
@@ -18,7 +17,6 @@ class ChallengeOneScreen extends Component {
 
   render() {
     let sortImage = this.sortImages[this.state.sortIndex]
-    let users = this.state.sortIndex === 0 ? this.props.users : this.state.users;
 
     return (
       <View style={styles.root}>
@@ -39,7 +37,7 @@ class ChallengeOneScreen extends Component {
 
         <FlatList
           showsHorizontalScrollIndicator={false}
-          data={users}
+          data={this.props.users}
           keyExtractor={(item, index) => `${item}_${index}`}
           renderItem={this.renderListItem}
           numColumns={1}
@@ -64,22 +62,17 @@ class ChallengeOneScreen extends Component {
 
   clickSort = () => {
     let newIndex = (this.state.sortIndex + 1) % 3
-    let users = this.props.users.slice();
     if(newIndex === 1){
-      users.sort((a,b) => this.compareTwoStrings(a,b))
+      this.props.dispatch(SORT_AZ_ACTION)
     } else if(newIndex === 2){
-      users.sort((a,b) => this.compareTwoStrings(b, a))
+      this.props.dispatch(SORT_ZA_ACTION)
     } else {
-      users = []
+      this.props.dispatch(SORT_NONE_ACTION)
     }
-    this.setState({...this.state, sortIndex: newIndex, users: users})
+    this.setState({...this.state, sortIndex: newIndex})
   }
 
-  compareTwoStrings = (a, b) => {
-    if (a.last_name === null) return 1;
-    if (b.last_name === null) return -1;
-    return a.last_name.localeCompare(b.last_name)
-  }
+
 
   clickLayout = () => {
     console.log(`click layout`)

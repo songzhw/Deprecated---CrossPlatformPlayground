@@ -11,16 +11,45 @@ export const onGotChallenge1Page = resp => ({
   payload: resp
 })
 
+export const SORT_AZ = "SORT_AZ"
+export const SORT_AZ_ACTION = {type: SORT_AZ}
+
+export const SORT_ZA = "SORT_ZA"
+export const SORT_ZA_ACTION = {type: SORT_ZA}
+
+export const SORT_NONE = "SORT_NONE"
+export const SORT_NONE_ACTION = {type: SORT_NONE}
+
 const initState = {
   payload: {},
 }
+
+var originalUsers = [];
 
 export default (state = initState, action) => {
   switch (action.type) {
     case GOT_CHALLENGE1_PAGE:
       let { payload } = action
+      originalUsers = payload // payload.slice() ?
       return payload
+    case SORT_AZ:
+      let usersAz = originalUsers.slice()
+      usersAz.sort((a,b) => this.compareTwoStrings(a,b))
+      return usersAz
+    case SORT_ZA:
+      let usersZa = originalUsers.slice()
+      usersZa.sort((a,b) => this.compareTwoStrings(b,a))
+      return usersZa
+    case SORT_NONE:
+      return originalUsers
     default:
       return state
   }
+}
+
+
+function compareTwoStrings(a, b) {
+  if (a.last_name === null) return 1;
+  if (b.last_name === null) return -1;
+  return a.last_name.localeCompare(b.last_name)
 }
