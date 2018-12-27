@@ -21,6 +21,7 @@ class ChallengeOneScreen extends Component {
     let layoutImage = this.layoutImages[this.state.layoutIndex]
     let layoutColumnCount = this.state.layoutIndex === Layout.List ? 1 : 2
     let flatListKey = this.state.layoutIndex === Layout.List ? 'listChallenge1' : 'gridChallenge1'
+    let renderItem = this.state.layoutIndex === Layout.List ? this.renderListItem : this.renderGridItem
 
     return (
       <View style={styles.root}>
@@ -42,12 +43,23 @@ class ChallengeOneScreen extends Component {
           showsHorizontalScrollIndicator={false}
           data={this.props.users}
           keyExtractor={(item, index) => `${item}_${index}`}
-          renderItem={this.renderListItem}
+          renderItem={renderItem}
           numColumns={layoutColumnCount}
           key={flatListKey}
           ListEmptyComponent={(<Text> Empty </Text>)}
         />
 
+      </View>
+    )
+  }
+
+  renderGridItem = ({item, index}) => {
+    // let avatarUri = item.avatar_large || item.avatar  //avatar_large竟有3000*2000这么大, 内存怕受不住啊
+    return (
+      <View style={[styles.itemInGrid, {backgroundColor: item.backgroundColor}]}>
+        <Image style={styles.avatarInGrid} source={{uri: item.avatar}}/>
+        <Text style={styles.nameInGrid}>{index + 1}. {item.first_name} {item.last_name}</Text>
+        <Text style={styles.emailInGrid}>{item.email}</Text>
       </View>
     )
   }
@@ -89,7 +101,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -103,6 +114,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+
+  itemInGrid: {
+    height: 220
+  },
+  avatarInGrid: {
+    width: 140,
+    height: 140,
+    resizeMode: 'stretch',
+  },
+  nameInGrid: {
+    fontSize: 20,
+    marginTop: 12,
+    marginLeft: 9,
+    marginRight: 9,
+    color: 'white',
+    fontWeight: 'bold'
+  },
+  emailInGrid: {
+    fontSize: 17,
+    marginTop: 6,
+    marginLeft: 9,
+    marginRight: 9,
+    color: 'blue'
+  },
 
   itemInList: {
     flexDirection: 'row'
