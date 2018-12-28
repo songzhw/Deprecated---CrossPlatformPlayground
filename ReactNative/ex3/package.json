@@ -1,34 +1,45 @@
 {
+  "name": "empty-project-template",
   "main": "node_modules/expo/AppEntry.js",
+  "private": true,
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "jest"
-  },
-  "dependencies": {
-    "expo": "^31.0.2",
-    "randomcolor": "^0.5.3",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
-    "react-navigation": "2.5.5",
-    "react-redux": "5.0.4",
-    "redux": "4.0.0",
-    "redux-logger": "3.0.1",
-    "redux-saga": "0.16.0"
-  },
-  "devDependencies": {
-    "babel-jest": "23.6.0",
-    "babel-preset-expo": "^5.0.0",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.50.0",
-    "prettier": "^1.15.3",
-    "prettierrc": "^0.0.0-5",
-    "react-test-renderer": "16.6.1"
+    "lint": "./node_modules/eslint/bin/eslint app/",
+    "lint:fix": "./node_modules/eslint/bin/eslint app/ --fix",
+    "test": "jest",
+    "test-init": "jest --init"
   },
   "jest": {
     "preset": "react-native"
   },
-  "private": true
+  "dependencies": {
+    "@expo/vector-icons": "6.2.0",
+    "color": "3.0.0",
+    "expo": "^30.0.1",
+    "hoist-non-react-statics": "3.0.1",
+    "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-dropdownalert": "3.1.2",
+    "react-native-extended-stylesheet": "^0.8.0",
+    "react-navigation": "2.5.5",
+    "react-redux": "5.0.4",
+    "redux": "4.0.0",
+    "redux-logger": "3.0.1",
+    "redux-saga": "0.16.0",
+    "redux-saga-test-plan": "^3.7.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0"
+  }
 }
