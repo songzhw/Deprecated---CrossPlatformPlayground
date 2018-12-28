@@ -49,7 +49,7 @@ const tryGetFirstPageInfo = function*(aciton) {
   }
 }
 
-const tryFetchChallenge1 = function* (action) {
+export const tryFetchChallenge1 = function* (action) {
   try{
     const rawResp = yield call(doFetch, API_CHALLENGE1_PAGE1)
     const resp = yield rawResp.json()

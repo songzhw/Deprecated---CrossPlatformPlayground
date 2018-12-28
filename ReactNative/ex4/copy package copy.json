@@ -19,12 +19,7 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
-    "jest": "^23.6.0",
-    "redux-saga-test-plan": "^3.7.0"
-  },
-  "jest": {
-    "preset": "react-native",
-    "verbose": true
+    "jest": "^23.6.0"
   },
   "private": true
 }
