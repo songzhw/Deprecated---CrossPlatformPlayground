@@ -18,13 +18,17 @@
     "redux-saga": "^0.16.2"
   },
   "devDependencies": {
+    "babel-7-jest": "^21.3.3",
     "babel-preset-expo": "^5.0.0",
-    "jest": "^23.6.0",
-    "redux-saga-test-plan": "^3.7.0"
+    "jest": "^23.6.0"
   },
   "jest": {
-    "preset": "react-native",
-    "verbose": true
+    "transform": {
+      "^.+\\.m?jsx?$": "babel-jest"
+    }
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
   },
   "private": true
 }
