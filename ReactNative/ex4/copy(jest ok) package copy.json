@@ -20,8 +20,7 @@
   "devDependencies": {
     "babel-7-jest": "^21.3.3",
     "babel-preset-expo": "^5.0.0",
-    "jest": "^23.6.0",
-    "redux-saga-test-plan": "^3.7.0"
+    "jest": "^23.6.0"
   },
   "jest": {
     "transform": {
