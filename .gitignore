@@ -96,3 +96,6 @@ android/keystores/debug.keystore
 .expo/
 yarn.lock
 package-lock.json
+
+#TypeScript
+Tsbuild/
