@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, FlatList, ActivityIndicator} from 'react-native'
 import {connect} from 'react-redux'
+import RefreshListView from "../component/refresh_list/RefreshList";
+import RefreshState from "../component/refresh_list/RefreshState";
 
 class LoadingListScreen extends Component {
   state = {
@@ -10,15 +12,13 @@ class LoadingListScreen extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <FlatList
+        <RefreshListView
+          ref={(ref) => this.listView = ref}
           data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}
           keyExtractor={(item, index) => `${item}_${index}`}
           renderItem={({item}) => <Text style={{fontSize: 45}}> {item} </Text>}
-          ListFooterComponent={() => <ActivityIndicator color='red' size='large'/>}
-          onEndReachedThreshold={0.3}
-          onEndReached={() => console.log(`szw reach end`)}
-          onRefresh={this.topRefresh}
-          refreshing={this.state.isTopRefreshing}
+          onHeaderRefresh={this.topRefresh}
+          onFooterRefresh={this.bottomRefresh}
         />
       </View>
     )
@@ -26,8 +26,13 @@ class LoadingListScreen extends Component {
 
   topRefresh = () => {
     console.log(`szw refresh top`)
-    this.setState({isTopRefreshing: true})
-    setTimeout(()=>this.setState({isTopRefreshing: false}), 3000)
+    setTimeout(() => this.listView.endRefreshing(RefreshState.Idle), 3000)
+  }
+
+  bottomRefresh = () => {
+    console.log(`szw refresh bottom`)
+    setTimeout(() => this.listView.endRefreshing(RefreshState.NoMoreData), 2000)
+
   }
 }
 
