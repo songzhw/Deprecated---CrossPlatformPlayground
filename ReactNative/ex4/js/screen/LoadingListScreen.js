@@ -11,6 +11,8 @@ class LoadingListScreen extends Component {
           keyExtractor={(item, index) => `${item}_${index}`}
           renderItem={({item}) => <Text style={{fontSize: 45}}> {item} </Text>}
           ListFooterComponent={() => <ActivityIndicator color='red' size='large'/>}
+          onEndReachedThreshold={0.3}
+          onEndReached={()=> console.log(`szw reach end`)}
         />
       </View>
     )
