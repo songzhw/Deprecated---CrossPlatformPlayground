@@ -1,10 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {Component} from 'react'
+import {View, Text, StyleSheet} from 'react-native';
 
-interface Props{}
-interface State{}
-
-export default class App extends React.Component<Props, State> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
