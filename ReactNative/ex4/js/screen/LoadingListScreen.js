@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, FlatList, ActivityIndicator} from 'react-native'
+import {View, StyleSheet, Text,} from 'react-native'
 import {connect} from 'react-redux'
 import RefreshListView from "../component/refresh_list/RefreshList";
 import RefreshState from "../component/refresh_list/RefreshState";
