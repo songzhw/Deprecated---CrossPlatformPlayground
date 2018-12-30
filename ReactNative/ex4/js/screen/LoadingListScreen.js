@@ -3,6 +3,10 @@ import {View, StyleSheet, Text, FlatList, ActivityIndicator} from 'react-native'
 import {connect} from 'react-redux'
 
 class LoadingListScreen extends Component {
+  state = {
+    isTopRefreshing: false,
+  }
+
   render() {
     return (
       <View style={styles.root}>
@@ -12,10 +16,18 @@ class LoadingListScreen extends Component {
           renderItem={({item}) => <Text style={{fontSize: 45}}> {item} </Text>}
           ListFooterComponent={() => <ActivityIndicator color='red' size='large'/>}
           onEndReachedThreshold={0.3}
-          onEndReached={()=> console.log(`szw reach end`)}
+          onEndReached={() => console.log(`szw reach end`)}
+          onRefresh={this.topRefresh}
+          refreshing={this.state.isTopRefreshing}
         />
       </View>
     )
+  }
+
+  topRefresh = () => {
+    console.log(`szw refresh top`)
+    this.setState({isTopRefreshing: true})
+    setTimeout(()=>this.setState({isTopRefreshing: false}), 3000)
   }
 }
 
