@@ -7,6 +7,7 @@ import ScheduleScreen from '../screen/ScheduleScreen'
 import FirstScreen from '../screen/FirstScreen'
 import ChallengeOneScreen from "../screen/ChallengeOneScreen";
 import SetStatePitfallScreen from "../screen/SetStatePitfallScreen";
+import LoadingListScreen from "../screen/LoadingListScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -29,6 +30,10 @@ const HomeStack = createStackNavigator(
     FirstScreen: {
       screen: FirstScreen,
       navigationOptions: { headerTitle: 'First Screen' },
+    },
+    LoadingListScreen: {
+      screen: LoadingListScreen,
+      navigationOptions: { headerTitle: 'Loading More + Refresh' },
     },
     SetStatePitfallScreen: {
       screen: SetStatePitfallScreen,
