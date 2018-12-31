@@ -18,14 +18,16 @@ class ChallengeOneScreen extends Component {
     this.props.dispatch(fetchPageList())
   }
 
-  // this.props: { navigation: {...}, pages: [], users: [] }
-  // nextProps:  { navigation: {...}, pages:['1', '2', '3'], users: [] }
-  componentWillReceiveProps(nextProps) {
-    console.log(`szw componentWillReceiveProps(1) = ${JSON.stringify(this.props)}`)
-    console.log(`szw componentWillReceiveProps(2) = ${JSON.stringify(nextProps)}`)
-  }
-
   shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props)}`)
+    console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps)}`)
+    if (this.props.pages.length === 0) {
+      if(nextProps.pages.length > 0) {
+        this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0]))
+      }
+      return false;
+    }
+    return true;
   }
 
   render() {
@@ -70,7 +72,8 @@ class ChallengeOneScreen extends Component {
     return (
       <View style={[styles.itemInGrid, {backgroundColor: item.backgroundColor}]}>
         <Image style={styles.avatarInGrid} source={{uri: item.avatar}}/>
-        <Text style={styles.nameInGrid} ellipsizeMode='tail' numberOfLines={1}>{index + 1}. {item.first_name} {item.last_name}</Text>
+        <Text style={styles.nameInGrid} ellipsizeMode='tail'
+              numberOfLines={1}>{index + 1}. {item.first_name} {item.last_name}</Text>
         <Text style={styles.emailInGrid} ellipsizeMode='tail' numberOfLines={1}>{item.email}</Text>
       </View>
     )

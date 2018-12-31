@@ -3,6 +3,7 @@ export const fetchChallengeOnePage = (page) => ({
   type: TRY_CHALLENGE1_PAGE,
   page
 })
+// sent action:  {"type":"TRY_CHALLENGE1_PAGE","page": "http://..."}
 
 export const GOT_CHALLENGE1_PAGE = 'GOT_CHALLENGE1_PAGE'
 export const onGotChallenge1Page = resp => ({

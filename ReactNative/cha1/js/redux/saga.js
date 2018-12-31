@@ -5,6 +5,7 @@ import {fetchPageList, onGotPageList, TRY_FETCH_PAGES} from "./reduxPages";
 
 const rootSaga = function* () {
   yield takeEvery(TRY_FETCH_PAGES, tryFetchPageList)
+  yield takeEvery(TRY_CHALLENGE1_PAGE, tryFetchPage1)
 }
 
 export const tryFetchPageList = function* (action) {
@@ -21,7 +22,7 @@ export const tryFetchPageList = function* (action) {
 export const tryFetchPage1 = function* (action) {
   try {
     // TODO change the API
-    const rawResp = yield call(doFetch, '5c21d5663500005900d5531c')
+    const rawResp = yield call(doFetch, action.page)
     const resp = yield rawResp.json()
     const newAction = onGotChallenge1Page(resp)
     yield put(newAction)
