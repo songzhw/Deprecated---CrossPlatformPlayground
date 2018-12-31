@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import {View, StyleSheet, Text, FlatList, Image, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
 import {fetchChallengeOnePage, SORT_AZ_ACTION, SORT_NONE_ACTION, SORT_ZA_ACTION} from "../redux/reduxChanllengeOne";
+import {fetchPageList} from "../redux/reduxPages";
 
+// 更新时调用: componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate
 class ChallengeOneScreen extends Component {
   sortImages = [require('../../assets/ic_sort_az.png'), require('../../assets/ic_sort_za.png'), require('../../assets/ic_refresh.png')]
   layoutImages = [require('../../assets/ic_grid.png'), require('../../assets/ic_list.png')]
@@ -13,7 +15,17 @@ class ChallengeOneScreen extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchChallengeOnePage(1))
+    this.props.dispatch(fetchPageList())
+  }
+
+  // this.props: { navigation: {...}, pages: [], users: [] }
+  // nextProps:  { navigation: {...}, pages:['1', '2', '3'], users: [] }
+  componentWillReceiveProps(nextProps) {
+    console.log(`szw componentWillReceiveProps(1) = ${JSON.stringify(this.props)}`)
+    console.log(`szw componentWillReceiveProps(2) = ${JSON.stringify(nextProps)}`)
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
   }
 
   render() {
@@ -166,9 +178,19 @@ const styles = StyleSheet.create({
   }
 })
 
+/*
+state内容是:
+{
+  "reduceChallenge1": [],
+  "reduxPages": {
+    "pages": [ "1", "2", "3"]
+  }
+}
+ */
 const mapStateToProps = (state) => {
-  console.log(`szw challenge01 : state = ${JSON.stringify(state.reduceChallenge1.length)}`)
+  console.log(`szw challenge01 : state = ${JSON.stringify(state)}`)
   return {
+    pages: state.reduxPages.pages,
     users: state.reduceChallenge1
   }
 }
