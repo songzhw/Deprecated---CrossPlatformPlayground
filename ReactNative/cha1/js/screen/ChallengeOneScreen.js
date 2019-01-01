@@ -13,6 +13,7 @@ class ChallengeOneScreen extends Component {
     sortIndex: Sort.None,
     layoutIndex: Layout.List
   }
+  currentIndex = 0
 
   componentDidMount() {
     this.props.dispatch(fetchPageList())
@@ -22,11 +23,12 @@ class ChallengeOneScreen extends Component {
     // console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props)}`)
     // console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps)}`)
     if (this.props.pages.length === 0) {
-      if(nextProps.pages.length > 0) {
+      if (nextProps.pages.length > 0) {
         this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0], 0))
       }
       return false;
     }
+
     return true;
   }
 
@@ -69,8 +71,12 @@ class ChallengeOneScreen extends Component {
     )
   }
 
-  onReachEnd = ()=>{
-    console.log(`szw reach end`)
+  onReachEnd = () => {
+    this.currentIndex++
+    console.log(`szw onReachEnd(${this.currentIndex})`)
+    if(this.currentIndex < this.props.pages.length){
+      this.props.dispatch(fetchChallengeOnePage(this.props.pages[this.currentIndex], this.currentIndex))
+    }
   }
 
   renderGridItem = ({item, index}) => {
@@ -195,7 +201,7 @@ state内容是:
 }
  */
 const mapStateToProps = (state) => {
-  console.log(`szw challenge01 : state = ${JSON.stringify(state)}`)
+  console.log(`szw challenge01 : state = ${JSON.stringify(state.reduceChallenge1.payload.length)}`)
   return {
     pages: state.reduxPages.pages,
     users: state.reduceChallenge1.payload,

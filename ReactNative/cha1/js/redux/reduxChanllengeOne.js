@@ -29,8 +29,9 @@ export default (state = initState, action) => {
   switch (action.type) {
     case GOT_CHALLENGE1_PAGE:
       let {payload, index} = action
+      console.log(`szw redux got page1 : orig = ${originalUsers.length}, resp = ${payload.length}`)
       currentIndex = index
-      originalUsers = payload
+      Array.prototype.push.apply(originalUsers, payload)
       return {payload: payload, index: currentIndex}
     case SORT_AZ:
       let usersAz = originalUsers.slice()
