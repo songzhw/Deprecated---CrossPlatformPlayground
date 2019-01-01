@@ -19,11 +19,11 @@ class ChallengeOneScreen extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props)}`)
-    console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps)}`)
+    // console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props)}`)
+    // console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps)}`)
     if (this.props.pages.length === 0) {
       if(nextProps.pages.length > 0) {
-        this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0]))
+        this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0], 0))
       }
       return false;
     }
@@ -61,10 +61,16 @@ class ChallengeOneScreen extends Component {
           numColumns={layoutColumnCount}
           key={flatListKey}
           ListEmptyComponent={(<Text> Empty </Text>)}
+          onEndReachedThreshold={1}
+          onEndReached={this.onReachEnd}
         />
 
       </View>
     )
+  }
+
+  onReachEnd = ()=>{
+    console.log(`szw reach end`)
   }
 
   renderGridItem = ({item, index}) => {
@@ -103,10 +109,8 @@ class ChallengeOneScreen extends Component {
     this.setState({...this.state, sortIndex: newIndex})
   }
 
-
   clickLayout = () => {
     let newIndex = (this.state.layoutIndex + 1) % 2
-    //TODO
     this.setState({...this.state, layoutIndex: newIndex})
   }
 }
@@ -194,7 +198,7 @@ const mapStateToProps = (state) => {
   console.log(`szw challenge01 : state = ${JSON.stringify(state)}`)
   return {
     pages: state.reduxPages.pages,
-    users: state.reduceChallenge1
+    users: state.reduceChallenge1.payload,
   }
 }
 

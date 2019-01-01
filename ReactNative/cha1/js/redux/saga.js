@@ -22,9 +22,10 @@ export const tryFetchPageList = function* (action) {
 export const tryFetchPage1 = function* (action) {
   try {
     // TODO change the API
+    console.log(`szw saga action = ${JSON.stringify(action)}`)
     const rawResp = yield call(doFetch, action.page)
     const resp = yield rawResp.json()
-    const newAction = onGotChallenge1Page(resp)
+    const newAction = onGotChallenge1Page(resp, action.index)
     yield put(newAction)
   } catch (err) {
     console.log(`saga.tryFetchChallenge1 error = ${JSON.stringify(err)}`)
