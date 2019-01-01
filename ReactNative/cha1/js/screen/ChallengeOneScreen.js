@@ -63,7 +63,7 @@ class ChallengeOneScreen extends Component {
           numColumns={layoutColumnCount}
           key={flatListKey}
           ListEmptyComponent={(<Text> Empty </Text>)}
-          onEndReachedThreshold={1}
+          onEndReachedThreshold={0.1}
           onEndReached={this.onReachEnd}
         />
 
