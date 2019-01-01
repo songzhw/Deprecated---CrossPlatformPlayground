@@ -32,7 +32,7 @@ export default (state = initState, action) => {
       console.log(`szw redux got page1 : orig = ${originalUsers.length}, resp = ${payload.length}`)
       currentIndex = index
       Array.prototype.push.apply(originalUsers, payload)
-      return {payload: payload, index: currentIndex}
+      return {payload: originalUsers, index: currentIndex}
     case SORT_AZ:
       let usersAz = originalUsers.slice()
       usersAz.sort((a, b) => this.compareTwoStrings(a, b))
