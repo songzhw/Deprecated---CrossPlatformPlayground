@@ -22,6 +22,8 @@ export const SORT_ZA_ACTION = {type: SORT_ZA}
 export const SORT_NONE = "SORT_NONE"
 export const SORT_NONE_ACTION = {type: SORT_NONE}
 
+export const CLEAR_CHA1 = "CLEAR_CHA1"
+
 var originalUsers = [];  // save the original users data
 var currentIndex = 0
 const initState = {payload: [], index: 0}
@@ -43,6 +45,9 @@ export default (state = initState, action) => {
       return {payload: usersZa, index: currentIndex}
     case SORT_NONE:
       return {payload: originalUsers, index: currentIndex}
+    case CLEAR_CHA1:
+      currentIndex = 0
+      return {payload: [], index: currentIndex}
     default:
       return state
   }

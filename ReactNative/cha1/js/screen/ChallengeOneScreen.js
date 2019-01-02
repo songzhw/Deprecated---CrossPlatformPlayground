@@ -1,7 +1,13 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, FlatList, Image, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
-import {fetchChallengeOnePage, SORT_AZ_ACTION, SORT_NONE_ACTION, SORT_ZA_ACTION} from "../redux/reduxChanllengeOne";
+import {
+  CLEAR_CHA1,
+  fetchChallengeOnePage,
+  SORT_AZ_ACTION,
+  SORT_NONE_ACTION,
+  SORT_ZA_ACTION
+} from "../redux/reduxChanllengeOne";
 import {fetchPageList} from "../redux/reduxPages";
 
 // 更新时调用: componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate
@@ -19,9 +25,13 @@ class ChallengeOneScreen extends Component {
     this.props.dispatch(fetchPageList())
   }
 
+  componentWillUnmount() {
+    this.props.dispatch({type: CLEAR_CHA1})
+  }
+
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    // console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props)}`)
-    // console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps)}`)
+    console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props)}`)
+    console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps)}`)
     if (this.props.pages.length === 0) {
       if (nextProps.pages.length > 0) {
         this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0], 0))
