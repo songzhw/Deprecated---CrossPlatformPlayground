@@ -46,8 +46,10 @@ export default (state = initState, action) => {
     case SORT_NONE:
       return {payload: originalUsers, index: currentIndex}
     case CLEAR_CHA1:
+      console.log(`redux cha1`)
       currentIndex = 0
-      return {payload: [], index: currentIndex}
+      originalUsers = []
+      return {payload: originalUsers, index: currentIndex}
     default:
       return state
   }

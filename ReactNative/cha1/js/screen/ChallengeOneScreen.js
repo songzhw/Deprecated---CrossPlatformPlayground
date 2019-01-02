@@ -26,12 +26,17 @@ class ChallengeOneScreen extends Component {
   }
 
   componentWillUnmount() {
+    console.log(`componentWillUnmount()`)
     this.props.dispatch({type: CLEAR_CHA1})
+  }
+  
+  componentWillReceiveProps(nextProps, nextContext) {
+    console.log(`szw componentWillReceiveProps()`)
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props)}`)
-    console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps)}`)
+    console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props.pages.length)}`)
+    console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps.pages.length)}`)
     if (this.props.pages.length === 0) {
       if (nextProps.pages.length > 0) {
         this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0], 0))
@@ -43,6 +48,7 @@ class ChallengeOneScreen extends Component {
   }
 
   render() {
+    console.log(`render()`)
     let sortImage = this.sortImages[this.state.sortIndex]
     let layoutImage = this.layoutImages[this.state.layoutIndex]
     let layoutColumnCount = this.state.layoutIndex === Layout.List ? 1 : 2
@@ -212,6 +218,7 @@ state内容是:
  */
 const mapStateToProps = (state) => {
   console.log(`szw challenge01 : state = ${JSON.stringify(state.reduceChallenge1.payload.length)}`)
+  console.log(`szw challenge01 : state = ${JSON.stringify(state.reduxPages.pages.length)}`)
   return {
     pages: state.reduxPages.pages,
     users: state.reduceChallenge1.payload,
