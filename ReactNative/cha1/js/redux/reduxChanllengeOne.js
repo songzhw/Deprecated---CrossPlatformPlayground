@@ -49,7 +49,7 @@ export default (state = initState, action) => {
       console.log(`redux cha1`)
       currentIndex = 0
       originalUsers = []
-      return {payload: originalUsers, index: currentIndex}
+      return {payload: [...originalUsers], index: currentIndex}
     default:
       return state
   }
