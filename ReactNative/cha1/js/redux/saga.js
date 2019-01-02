@@ -1,7 +1,7 @@
 import {takeEvery, call, put} from "redux-saga/effects";
 import {onGotChallenge1Page, TRY_CHALLENGE1_PAGE} from "./reduxChanllengeOne";
 import {API_PAGE_LIST, doFetch} from '../core/HttpEngine'
-import {fetchPageList, onGotPageList, TRY_FETCH_PAGES} from "./reduxPages";
+import {onGotPageList, TRY_FETCH_PAGES} from "./reduxPages";
 
 const rootSaga = function* () {
   yield takeEvery(TRY_FETCH_PAGES, tryFetchPageList)
