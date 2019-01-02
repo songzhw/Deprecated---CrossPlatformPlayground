@@ -9,13 +9,23 @@ test('one', () => {
 })
 
 test('fetch code1', () => {
-  const result = [{id: 23}, {id: 24}]
+  const result = `[{id: 23}, {id: 24}]`
+  const stub = getMockResponse(result)
   const expected = onGotChallenge1Page(result)
 
   return expectSaga(tryFetchChallenge1, {})
     .provide([
-      [matchers.call.fn(doFetch), result]
+      [matchers.call.fn(doFetch), stub]
     ])
     .put(expected)
     .run()
 })
+
+// utils method : add this to make sure the "rawResp.json()" works
+function getMockResponse(content){
+  return {
+    json() {
+      return content
+    }
+  }
+}

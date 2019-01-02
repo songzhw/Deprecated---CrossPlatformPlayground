@@ -18,7 +18,7 @@ test('[saga] fetch pages', ()=>{
     .run()
 })
 
-// add this to make sure the "rawResp.json" works
+// utils method : add this to make sure the "rawResp.json()" works
 function getMockResponse(content){
   return {
     json() {

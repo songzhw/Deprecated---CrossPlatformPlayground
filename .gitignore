@@ -99,3 +99,7 @@ package-lock.json
 
 #TypeScript
 Tsbuild/
+
+
+# jest
+coverage/
