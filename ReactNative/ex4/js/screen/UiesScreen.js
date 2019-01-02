@@ -1,14 +1,20 @@
-import React, { Component } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
-import {connect} from 'react-redux'
+import React, {Component} from 'react'
+import {View, StyleSheet, Text, Button} from 'react-native'
 
-class UiesScreen extends Component{
-  render(){
+class UiesScreen extends Component {
+  index = 0
+
+  render() {
     return (
       <View style={styles.root}>
         <Text>UiesScreen Screen</Text>
+        <Button title="btn" onPress={this.clickBtn}/>
       </View>
     )
+  }
+
+  clickBtn = () => {
+    index++
   }
 }
 

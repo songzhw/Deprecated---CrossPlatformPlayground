@@ -103,3 +103,4 @@ Tsbuild/
 
 # jest
 coverage/
+__snapshots__/
