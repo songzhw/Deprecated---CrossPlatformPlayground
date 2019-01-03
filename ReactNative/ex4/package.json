@@ -23,7 +23,10 @@
     "@types/react-test-renderer": "^16.0.3",
     "babel-7-jest": "^21.3.3",
     "babel-preset-expo": "^5.0.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "jest": "^23.6.0",
+    "react-dom": "^16.7.0",
     "react-test-renderer": "^16.7.0",
     "redux-saga-test-plan": "^3.7.0"
   },
@@ -31,7 +34,18 @@
     "transform": {
       "^.+\\.m?jsx?$": "babel-jest"
     },
-    "preset": "react-native"
+    "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/__tests__/setup"
+    ],
+    "unmockedModulePathPatterns": [
+      "node_modules/react/",
+      "node_modules/enzyme/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/__tests__/setup.js"
+    ]
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
