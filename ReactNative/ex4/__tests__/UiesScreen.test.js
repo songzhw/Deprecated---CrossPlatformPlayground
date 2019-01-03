@@ -1,8 +1,9 @@
 import renderer from 'react-test-renderer'
 import React from 'react'
-import {Text, Button} from 'react-native'
+import {Text, Button, Image} from 'react-native'
 import UiesScreen from "../js/screen/UiesScreen";
 import {shallow} from "enzyme";
+import TestImage from "../js/component/TestImage";
 
 describe('test Ui Screen', () => {
   test('check has one <Text/> child', ()=> {
@@ -54,5 +55,12 @@ describe('test Ui Screen', () => {
 
     wrapper.find(Button).simulate('kiss')
     expect(wrapper.state('num')).toEqual(13)
+  })
+
+  test('check has one <Image/> child', ()=> {
+    const wrapper = shallow(<UiesScreen/>)
+    console.log("dive() : " + wrapper.debug())
+
+    expect(wrapper.find(TestImage).dive().find(Image).length).toBe(1)
   })
 })
