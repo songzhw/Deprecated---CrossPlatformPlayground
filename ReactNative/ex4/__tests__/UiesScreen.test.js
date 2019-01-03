@@ -12,14 +12,23 @@ describe('test Ui Screen', () => {
   })
 
   test('second', () => {
-    const tree = setup()
+    const tree = setup(0)
     expect(tree.instance().props.title).toBe('san')
   })
 
-  function setup() {
-    let num = 0
+
+  function setup(num) {
     let _press = () => num++
     const tree = shallow(<UiesScreen title="san" imageName={null} onPress={_press}/>)
     return tree
   }
+
+  test('three', ()=>{
+    let num = 0
+    let _press = () => num++
+    const tree = shallow(<UiesScreen title="san" imageName={null} onPress={_press}/>)
+
+    tree.simulate('press')
+    expect(num).toBe(1)
+  })
 })
