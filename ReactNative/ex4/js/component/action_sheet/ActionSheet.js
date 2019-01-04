@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, StyleSheet, Dimensions, TouchableWithoutFeedback} from 'react-native'
+import {View, StyleSheet, Dimensions, TouchableWithoutFeedback, Platform, BackHandler} from 'react-native'
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window')
 
@@ -7,6 +7,28 @@ class ActionSheet extends React.Component {
   state = {
     isShowing: false
   }
+
+  componentWillMount() {
+    if (Platform.OS === 'android') {
+      BackHandler.addEventListener('hardwareBackPress', this.onPressBack)
+    }
+  }
+
+  componentWillUnmount() {
+    if (Platform.OS === 'android') {
+      BackHandler.removeEventListener('hardwareBackPress', this.onPressBack)
+    }
+  }
+
+  onPressBack = ()=>{
+    if(this.state.isShowing){
+      this.dismiss()
+      return true  // 我消费了这个事件, 系统就不用管了
+    } else {
+      return false // 我不处理. 系统来管吧
+    }
+  }
+
 
   render() {
     console.log(`render() ${this.state.isShowing} : ${screenWidth} - ${screenHeight}`)
@@ -51,7 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     opacity: 0.6  //1是全黑了
   },
-  content:{
+  content: {
     backgroundColor: '#33691E',
     width: screenWidth,
     height: 260,
