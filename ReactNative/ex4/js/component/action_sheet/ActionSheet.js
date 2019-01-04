@@ -94,6 +94,9 @@ const styles = StyleSheet.create({
   content: {
     width: screenWidth - 20,
     height: contentHeight,
+    position: 'absolute',
+    bottom: 10,
+    alignSelf: 'center'
   }
 })
 
