@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Button, TextInput} from 'react-native'
 import {connect} from 'react-redux'
+import ActionSheet from "../component/action_sheet/ActionSheet";
 
 class ActionSheetDemo extends Component {
   render() {
@@ -8,12 +9,13 @@ class ActionSheetDemo extends Component {
       <View style={styles.root}>
         <TextInput style={styles.input} placeholder="edit text / text input"/>
         <Button title="action sheet" onPress={this.press}/>
+        <ActionSheet ref={(target)=> this.actionSheet = target}/>
       </View>
     )
   }
 
   press = () => {
-
+    this.actionSheet.show()
   }
 }
 
