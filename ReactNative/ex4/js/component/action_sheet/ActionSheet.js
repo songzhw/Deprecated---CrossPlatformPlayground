@@ -44,9 +44,9 @@ class ActionSheet extends React.Component {
     return (
       <TouchableWithoutFeedback onPress={() => this.dismiss()}>
         <View style={styles.root}>
-          {/*<Animated.View style={[styles.content, {transform: [{translateY: this.state.y}]}]}>*/}
+          <Animated.View style={[styles.content, {transform: [{translateY: this.state.y}]}]}>
           {this.renderContent()}
-          {/*</Animated.View>*/}
+          </Animated.View>
         </View>
       </TouchableWithoutFeedback>
     )
@@ -54,10 +54,11 @@ class ActionSheet extends React.Component {
 
   renderContent = () => {
     return (
-      <View style={[styles.content, {backgroundColor: '#33691E', transform: [{translateY: 110}]}]}>
+      <View style={{backgroundColor: '#33691E', height: contentHeight}}>
       </View>
     )
   }
+  //<View style={[styles.content, {backgroundColor: '#33691E', transform: [{translateY: 110}]}]}>
 
   show() {
     if (this.state.isShowing) {
@@ -70,12 +71,12 @@ class ActionSheet extends React.Component {
     console.log(`szw _showInternal()`)
     Animated.timing(
       this.state.y,
-      {toValue: 0}
+      {toValue: new Animated.Value(0)}
     ).start()
   }
 
   dismiss() {
-    this.setState({...this.state, isShowing: false})
+    this.setState({...this.state, isShowing: false, y: new Animated.Value(contentHeight)})
   }
 
 
@@ -93,9 +94,6 @@ const styles = StyleSheet.create({
   content: {
     width: screenWidth - 20,
     height: contentHeight,
-    position: 'absolute',
-    bottom: 0,
-    alignSelf: 'center'
   }
 })
 
