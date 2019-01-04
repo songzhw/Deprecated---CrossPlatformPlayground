@@ -1,11 +1,16 @@
 import React from 'react'
-import {View, StyleSheet, Dimensions, TouchableWithoutFeedback, Platform, BackHandler} from 'react-native'
+import {
+  View, StyleSheet, Dimensions, TouchableWithoutFeedback, Platform, BackHandler,
+  Animated
+} from 'react-native'
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window')
+const contentHeight = 260
 
 class ActionSheet extends React.Component {
   state = {
-    isShowing: false
+    isShowing: false,
+    y: new Animated.Value(contentHeight)
   }
 
   componentWillMount() {
@@ -20,8 +25,8 @@ class ActionSheet extends React.Component {
     }
   }
 
-  onPressBack = ()=>{
-    if(this.state.isShowing){
+  onPressBack = () => {
+    if (this.state.isShowing) {
       this.dismiss()
       return true  // 我消费了这个事件, 系统就不用管了
     } else {
@@ -39,10 +44,18 @@ class ActionSheet extends React.Component {
     return (
       <TouchableWithoutFeedback onPress={() => this.dismiss()}>
         <View style={styles.root}>
-          <View style={styles.content}>
-          </View>
+          <Animated.View style={[styles.content, {transform: [{translateY: this.state.y}]}]}>
+            {this.renderContent()}
+          </Animated.View>
         </View>
       </TouchableWithoutFeedback>
+    )
+  }
+
+  renderContent = () => {
+    return (
+      <View style={{backgroundColor: '#33691E',}}>
+      </View>
     )
   }
 
@@ -55,6 +68,10 @@ class ActionSheet extends React.Component {
 
   _showInternal() {
     console.log(`szw _showInternal()`)
+    Animated.timing(
+      this.state.y,
+      {toValue: 0}
+    ).start()
   }
 
   dismiss() {
@@ -74,11 +91,11 @@ const styles = StyleSheet.create({
     opacity: 0.6  //1是全黑了
   },
   content: {
-    backgroundColor: '#33691E',
-    width: screenWidth,
-    height: 260,
+    width: screenWidth - 20,
+    height: contentHeight,
     position: 'absolute',
-    bottom: 0
+    bottom: 0,
+    alignSelf: 'center'
   }
 })
 
