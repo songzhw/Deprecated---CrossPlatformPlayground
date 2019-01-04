@@ -44,9 +44,9 @@ class ActionSheet extends React.Component {
     return (
       <TouchableWithoutFeedback onPress={() => this.dismiss()}>
         <View style={styles.root}>
-          <Animated.View style={[styles.content, {transform: [{translateY: this.state.y}]}]}>
-            {this.renderContent()}
-          </Animated.View>
+          {/*<Animated.View style={[styles.content, {transform: [{translateY: this.state.y}]}]}>*/}
+          {this.renderContent()}
+          {/*</Animated.View>*/}
         </View>
       </TouchableWithoutFeedback>
     )
@@ -54,7 +54,7 @@ class ActionSheet extends React.Component {
 
   renderContent = () => {
     return (
-      <View style={{backgroundColor: '#33691E',}}>
+      <View style={[styles.content, {backgroundColor: '#33691E', transform: [{translateY: 110}]}]}>
       </View>
     )
   }
