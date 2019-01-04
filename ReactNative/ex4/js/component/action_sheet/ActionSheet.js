@@ -71,7 +71,7 @@ class ActionSheet extends React.Component {
     console.log(`szw _showInternal()`)
     Animated.timing(
       this.state.y,
-      {toValue: new Animated.Value(0)}
+      {toValue: 0}
     ).start()
   }
 
