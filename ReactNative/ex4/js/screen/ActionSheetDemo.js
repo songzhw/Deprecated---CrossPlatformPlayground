@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Button, TextInput} from 'react-native'
+import {View, StyleSheet, Button, TextInput, TouchableWithoutFeedback, Animated} from 'react-native'
 import {connect} from 'react-redux'
 import ActionSheet from "../component/action_sheet/ActionSheet";
 
