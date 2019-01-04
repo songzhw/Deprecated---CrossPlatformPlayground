@@ -12,8 +12,13 @@ class HomeScreen extends Component {
         <HomeButton title="Refresh + Load More" onPress={this.go2LoadingList}/>
         <HomeButton title="setState() pitfall" onPress={this.go2pitfall1}/>
         <HomeButton title="Challenge One" onPress={this.go2Challenge1}/>
+        <HomeButton title="Action Sheet" onPress={this.go2ActionSheet}/>
       </ScrollView>
     )
+  }
+
+  go2ActionSheet = () => {
+    this.props.navigation.navigate('ActionSheetDemo')
   }
 
   go2Login = () => {

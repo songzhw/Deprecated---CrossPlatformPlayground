@@ -8,6 +8,7 @@ import FirstScreen from '../screen/FirstScreen'
 import ChallengeOneScreen from "../screen/ChallengeOneScreen";
 import SetStatePitfallScreen from "../screen/SetStatePitfallScreen";
 import LoadingListScreen from "../screen/LoadingListScreen";
+import ActionSheetDemo from "../screen/ActionSheetDemo";
 
 const HomeStack = createStackNavigator(
   {
@@ -42,6 +43,10 @@ const HomeStack = createStackNavigator(
     ChallengeOneScreen: {
       screen: ChallengeOneScreen,
       navigationOptions: {headerTitle: 'Challenge One'}
+    },
+    ActionSheetDemo: {
+      screen: ActionSheetDemo,
+      navigationOptions: {headerTitle: 'Custom ActionSheet'}
     }
   },
   {
