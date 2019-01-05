@@ -5,13 +5,19 @@ import {connect} from 'react-redux'
 const CIRCLE_SIZE = 76
 
 class GestureAnimScreen extends Component {
-  state = {bg: 'green'}
+  state = {
+    style: {backgroundColor: 'green', left: 0, top: 0}
+  }
+  downLeft = 0
+  downTop = 0
+  currLeft = 0
+  currTop = 0
 
   render() {
     return (
       <View
         {...this.gesture.panHandlers}
-        style={[styles.circle, {backgroundColor: this.state.bg}]}/>
+        style={[styles.circle, this.state.style]}/>
     )
   }
 
@@ -21,29 +27,18 @@ class GestureAnimScreen extends Component {
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
 
       onPanResponderGrant: (evt, gestureState) => {
-        this.setState({...this.state, bg: 'red'})
+        this.setState({style: {backgroundColor: 'red', left: 0, top: 0}})
       },
       onPanResponderRelease: (evt, gestureState) => {
-        this.setState({...this.state, bg: 'green'})
+        this.setState({style: {backgroundColor: 'green', left: 0, top: 0}})
       },
 
       onPanResponderMove: (evt, gestureState) => {
-        // The most recent move distance is gestureState.move{X,Y}
+        this.currLeft = this.downLeft + gestureState.dx
+        this.currTop = this.downTop + gestureState.dy
+        this.setState({style: {backgroundColor: 'red', left: this.currLeft, top: this.currTop}})
+      },
 
-        // The accumulated gesture distance since becoming responder is
-        // gestureState.d{x,y}
-      },
-      onPanResponderTerminationRequest: (evt, gestureState) => true,
-
-      onPanResponderTerminate: (evt, gestureState) => {
-        // Another component has become the responder, so this gesture
-        // should be cancelled
-      },
-      onShouldBlockNativeResponder: (evt, gestureState) => {
-        // Returns whether this component should block native components from becoming the JS
-        // responder. Returns true by default. Is currently only supported on android.
-        return true;
-      },
     })
   }
 
