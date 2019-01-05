@@ -5,10 +5,12 @@ import {connect} from 'react-redux'
 const CIRCLE_SIZE = 76
 
 class GestureAnimScreen extends Component {
+  state = {bg: 'blue'}
+
   render() {
     return (
       <View
-        style={styles.circle}/>
+        style={[styles.circle, {backgroundColor: this.state.bg}]}/>
     )
   }
 }
@@ -23,8 +25,5 @@ const styles = StyleSheet.create({
   },
 })
 
-const mapStateToProps = (state) => {
-  return {}
-}
 
-export default connect(mapStateToProps)(GestureAnimScreen)
+export default GestureAnimScreen
