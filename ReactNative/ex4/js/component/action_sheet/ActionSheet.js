@@ -6,6 +6,7 @@ import {
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window')
 const contentHeight = 260
+const animDuration = 1200
 
 class ActionSheet extends React.Component {
   state = {
@@ -59,8 +60,6 @@ class ActionSheet extends React.Component {
     )
   }
 
-  //<View style={[styles.content, {backgroundColor: '#33691E', transform: [{translateY: 110}]}]}>
-
   show() {
     if (this.state.isShowing) {
       return
@@ -73,7 +72,7 @@ class ActionSheet extends React.Component {
     console.log(`szw _showInternal()`)
     Animated.timing(
       this.state.y,
-      {toValue: 0}
+      {toValue: 0, duration: animDuration}
     ).start()
   }
 
