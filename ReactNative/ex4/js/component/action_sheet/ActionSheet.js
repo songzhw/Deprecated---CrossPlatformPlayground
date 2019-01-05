@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   View, StyleSheet, Dimensions, TouchableWithoutFeedback, Platform, BackHandler,
-  Animated
+  Animated, Keyboard
 } from 'react-native'
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window')
@@ -45,7 +45,7 @@ class ActionSheet extends React.Component {
       <TouchableWithoutFeedback onPress={() => this.dismiss()}>
         <View style={styles.root}>
           <Animated.View style={[styles.content, {transform: [{translateY: this.state.y}]}]}>
-          {this.renderContent()}
+            {this.renderContent()}
           </Animated.View>
         </View>
       </TouchableWithoutFeedback>
@@ -58,12 +58,14 @@ class ActionSheet extends React.Component {
       </View>
     )
   }
+
   //<View style={[styles.content, {backgroundColor: '#33691E', transform: [{translateY: 110}]}]}>
 
   show() {
     if (this.state.isShowing) {
       return
     }
+    Keyboard.dismiss()
     this.setState({...this.state, isShowing: true}, this._showInternal)
   }
 
@@ -95,7 +97,7 @@ const styles = StyleSheet.create({
     width: screenWidth - 20,
     height: contentHeight,
     position: 'absolute',
-    bottom: 10,
+    bottom: 90,
     alignSelf: 'center'
   }
 })
