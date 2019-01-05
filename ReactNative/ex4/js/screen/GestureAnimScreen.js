@@ -1,27 +1,30 @@
-import React, { Component } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import React, {Component} from 'react'
+import {View, StyleSheet, Text} from 'react-native'
 import {connect} from 'react-redux'
 
-class GestureAnimScreen extends Component{
-  render(){
+const CIRCLE_SIZE = 76
+
+class GestureAnimScreen extends Component {
+  render() {
     return (
-      <View style={styles.root}>
-        <Text>GestureAnimScreen Screen</Text>
-      </View>
+      <View
+        style={styles.circle}/>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
+  circle: {
+    width: CIRCLE_SIZE,
+    height: CIRCLE_SIZE,
+    borderRadius: CIRCLE_SIZE / 2,
+    backgroundColor: 'green',
+    position: 'absolute'
   },
 })
 
 const mapStateToProps = (state) => {
-  return {
-
-  }
+  return {}
 }
 
 export default connect(mapStateToProps)(GestureAnimScreen)
