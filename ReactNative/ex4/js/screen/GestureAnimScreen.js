@@ -27,10 +27,12 @@ class GestureAnimScreen extends Component {
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
 
       onPanResponderGrant: (evt, gestureState) => {
-        this.setState({style: {backgroundColor: 'red', left: 0, top: 0}})
+        this.setState({style: {...this.state.style, backgroundColor: 'red'}})
       },
       onPanResponderRelease: (evt, gestureState) => {
-        this.setState({style: {backgroundColor: 'green', left: 0, top: 0}})
+        this.downLeft = this.currLeft
+        this.downTop = this.currTop
+        this.setState({style: {...this.state.style, backgroundColor: 'green'}})
       },
 
       onPanResponderMove: (evt, gestureState) => {
