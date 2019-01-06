@@ -35,7 +35,7 @@ describe('Test UI', () => {
   test('render item - props', () => {
     let data = {item: open[0]}
     let item = wrapper.instance().renderItem(data)
-    expect(item.props).toBe({data: open[0]})
+    expect(item.props).toEqual({data: open[0]})
   })
 })
 
