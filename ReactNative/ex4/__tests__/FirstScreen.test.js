@@ -10,7 +10,8 @@ describe('Test UI', ()=> {
   let wrapper
 
   beforeEach(()=>{
-    wrapper = shallow(<FirstScreen />)
+    let props = {dispatch: (action)=>{}}
+    wrapper = shallow(<FirstScreen {...props}/>)
   })
 
   test('exist one FlatList', ()=>{
