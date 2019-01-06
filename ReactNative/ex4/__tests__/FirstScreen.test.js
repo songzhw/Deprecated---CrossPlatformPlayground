@@ -1,10 +1,25 @@
 import React from 'react'
 import {Text, FlatList, Image} from 'react-native'
 import ConnectedFirstScreen, {FirstScreen} from "../js/screen/FirstScreen"
-import {mount, shallow} from "enzyme"
+import {shallow} from "enzyme"
 import configMockStore from 'redux-mock-store'
 import {Provider} from "react-redux";
 import {TRY_FIRST_PAGE_INFO, tryFirstPageInfo} from "../js/redux/actionFirst";
+
+describe('Test UI', ()=> {
+  let wrapper
+
+  beforeEach(()=>{
+    wrapper = shallow(<FirstScreen />)
+  })
+
+  test('exist one FlatList', ()=>{
+    expect(wrapper.find(FlatList).length).toBe(1)
+  })
+})
+
+
+
 
 describe('Test Redux + Screen', ()=> {
   let initState = {reducerFirst: {opened: []}}
@@ -13,11 +28,9 @@ describe('Test Redux + Screen', ()=> {
 
   beforeEach(()=> {
     store = mockStore(initState)
-    wrapper = mount(<Provider store={store}><ConnectedFirstScreen/></Provider>)
-  })
-
-  test('check has one <ConnectedFirstScreen/> child', ()=> {
-    expect(wrapper.find(ConnectedFirstScreen).length).toBe(1)
+    // wrapper = shallow(<Provider store={store}><ConnectedFirstScreen/></Provider>)
+    //   .find(ConnectedFirstScreen)
+    wrapper = shallow(<ConnectedFirstScreen/>, {context: store})
   })
 
   test('check props is correct', () => {
@@ -27,13 +40,23 @@ describe('Test Redux + Screen', ()=> {
   })
   // TODO -> -> 我去除store.dispatch()这句, 测试就失败了. 但我们componentWillMount()里不是发了这个嘛?! 为什么会失败?
 
-  test('check has one <FlatList/> child', ()=> {
-    let screen = wrapper.find(FirstScreen)
-    // let tmp = screen.children().at(0)
-    console.log(`(3). ${screen.debug()}`)
-    // console.log(`(4). ${tmp.debug()}`)
-    // expect(screen.find(FlatList).length).toBe(1)
-  })
+  // test('xxx', ()=> {
+  //   console.log(`(1) wrapper = ${wrapper.debug()}`)
+  //   expect(wrapper.find(FlatList).length).toBe(1)
+  // })
+
+  // test('check has one <ConnectedFirstScreen/> child', ()=> {
+  //   expect(wrapper.find(ConnectedFirstScreen).length).toBe(1)
+  // })
+  //
+  // test('check has one <FlatList/> child', ()=> {
+  //   let screen = wrapper.dive()
+  //   // let t2 = shallow(screen.getElement())
+  //   let tmp = screen.children().at(0)
+  //   console.log(`(3). ${screen.debug()}`)
+  //   console.log(`(4). ${tmp.debug()}`)
+  //   // expect(screen.find(FlatList).length).toBe(1)
+  // })
   /*
   screen结果是:
       <ContextConsumer>
