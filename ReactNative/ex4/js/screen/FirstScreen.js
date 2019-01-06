@@ -6,7 +6,7 @@ import {tryFirstPageInfo} from "../redux/actionFirst";
 import FirstCarousel from "../component/FirstCarousel";
 
 
-class FirstScreen extends Component {
+export class FirstScreen extends Component {
   state = {
     listHeight: 0,
     listWidth: 0

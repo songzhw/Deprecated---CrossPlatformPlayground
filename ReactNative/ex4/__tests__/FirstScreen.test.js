@@ -2,13 +2,21 @@ import React from 'react'
 import {Text, FlatList, Image} from 'react-native'
 import FirstScreen from "../js/screen/FirstScreen"
 import {shallow} from "enzyme"
+import configMockStore from 'redux-mock-store'
+import {Provider} from "react-redux";
 
-test('xx', () => {
-  expect(1 + 2).toBe(3)
-})
+describe('Test Redux + Screen', ()=> {
+  let initState = {reducerFirst: {opened: []}}
+  let mockStore = configMockStore()
+  let wrapper, store
 
-test('check has one <FlatList/> child', ()=> {
-  const wrapper = shallow(<FirstScreen/>)
-  console.log(`FirstScreen ${wrapper.debug()}`)
-  expect(wrapper.find(FlatList).length).toBe(1)
+  beforeEach(()=> {
+    store = mockStore(initState)
+    wrapper = shallow(<Provider store={store}><FirstScreen/></Provider>)
+  })
+
+  test('check has one <FlatList/> child', ()=> {
+    console.log(`FirstScreen ${wrapper.debug()}`)
+    expect(wrapper.find(FirstScreen).length).toBe(1)
+  })
 })
