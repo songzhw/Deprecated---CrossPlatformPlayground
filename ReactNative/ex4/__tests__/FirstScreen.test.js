@@ -1,30 +1,32 @@
 import React from 'react'
-import {Text, FlatList, Image} from 'react-native'
+import {FlatList} from 'react-native'
 import ConnectedFirstScreen, {FirstScreen} from "../js/screen/FirstScreen"
 import {shallow} from "enzyme"
-import configMockStore from 'redux-mock-store'
-import {Provider} from "react-redux";
-import {TRY_FIRST_PAGE_INFO, tryFirstPageInfo} from "../js/redux/actionFirst";
 import ReadedComponent from "../js/component/ReadedComponent";
 
 describe('Test UI', () => {
   let wrapper
   let open
+  let dispatchFun
 
   beforeEach(() => {
     open = [
       {img: null, title: '1', author: 'a', progress: '10%', length: "2h"},
       {img: null, title: '2', author: 'b', progress: '93%', length: "1h30min"}
     ]
+    dispatchFun = jest.fn()
     let props = {
-      dispatch: (action) => {
-      }, open: open
+      dispatch: dispatchFun, open: open
     }
     wrapper = shallow(<FirstScreen {...props}/>)
   })
 
   test('exist one FlatList', () => {
     expect(wrapper.find(FlatList).length).toBe(1)
+  })
+
+  test('componentWillMount dispatch an event', ()=> {
+    expect(dispatchFun).toBeCalled()
   })
 
   test('render item - returned value', () => {
