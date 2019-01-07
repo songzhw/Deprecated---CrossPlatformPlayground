@@ -11,7 +11,7 @@ import {
 import {fetchPageList} from "../redux/reduxPages";
 
 // 更新时调用: componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate
-class ChallengeOneScreen extends Component {
+export class ChallengeOneScreen extends Component {
   sortImages = [require('../../assets/ic_sort_az.png'), require('../../assets/ic_sort_za.png'), require('../../assets/ic_refresh.png')]
   layoutImages = [require('../../assets/ic_grid.png'), require('../../assets/ic_list.png')]
 

@@ -1,13 +1,13 @@
 import React from 'react'
 import {FlatList} from 'react-native'
-import ConnectedFirstScreen, {FirstScreen} from "../js/screen/FirstScreen"
 import {shallow} from "enzyme"
+import ConnectedFirstScreen, {FirstScreen} from "../js/screen/FirstScreen"
 import ReadedComponent from "../js/component/ReadedComponent";
 
 describe('Test UI', () => {
   let wrapper
-  let open
   let dispatchFun
+  let open
 
   beforeEach(() => {
     open = [
