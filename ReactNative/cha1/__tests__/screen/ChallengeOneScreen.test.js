@@ -10,7 +10,9 @@ describe('test UI', () => {
   beforeEach(()=> {
     dispatchFun = jest.fn()
     let props = {
-      dispatch: dispatchFun
+      dispatch: dispatchFun,
+      pages: [],
+      users: []
     }
     wrapper = shallow(<Screen {...props}/>)
   })
