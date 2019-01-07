@@ -9,7 +9,9 @@ class ActionSheetDemo extends Component {
       <View style={styles.root}>
         <TextInput style={styles.input} placeholder="edit text / text input"/>
         <Button title="action sheet" onPress={this.press}/>
-        <ActionSheet ref={(target)=> this.actionSheet = target}/>
+        <ActionSheet ref={(target)=> this.actionSheet = target}
+          data={['Red', 'Green', 'Blue']}
+        />
       </View>
     )
   }

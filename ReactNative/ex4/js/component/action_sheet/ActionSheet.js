@@ -45,7 +45,7 @@ class ActionSheet extends React.Component {
       <TouchableWithoutFeedback onPress={() => this.dismiss()}>
         <View style={styles.root}>
           <Animated.View style={[styles.content, {transform: [{translateY: this.state.y}]}]}>
-          {this.renderContent()}
+            {this.renderContent()}
           </Animated.View>
         </View>
       </TouchableWithoutFeedback>
@@ -58,6 +58,7 @@ class ActionSheet extends React.Component {
       </View>
     )
   }
+
   //<View style={[styles.content, {backgroundColor: '#33691E', transform: [{translateY: 110}]}]}>
 
   show() {
@@ -71,12 +72,19 @@ class ActionSheet extends React.Component {
     console.log(`szw _showInternal()`)
     Animated.timing(
       this.state.y,
-      {toValue: 0}
+      {toValue: 0, duration: 350}
     ).start()
   }
 
   dismiss() {
-    this.setState({...this.state, isShowing: false, y: new Animated.Value(contentHeight)})
+    Animated.timing(this.state.y,
+      {toValue: contentHeight, duration: 350}
+    ).start( isFinished => {
+      if (isFinished) {
+        this.setState({...this.state, isShowing: false})
+      }
+    })
+
   }
 
 
