@@ -13,6 +13,7 @@ class HomeScreen extends Component {
         <HomeButton title="setState() pitfall" onPress={this.go2pitfall1}/>
         <HomeButton title="Challenge One" onPress={this.go2Challenge1}/>
         <HomeButton title="Action Sheet" onPress={this.go2ActionSheet}/>
+        <HomeButton title="Gesture + Animation" onPress={this.go2GestureAnim}/>
       </ScrollView>
     )
   }
@@ -44,6 +45,11 @@ class HomeScreen extends Component {
   go2Challenge1 = () => {
     this.props.navigation.navigate('ChallengeOneScreen')
   }
+
+  go2GestureAnim = () => {
+    this.props.navigation.navigate('GestureAnimScreen')
+  }
+
 
 }
 

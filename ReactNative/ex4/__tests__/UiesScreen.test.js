@@ -59,7 +59,7 @@ describe('test Ui Screen', () => {
 
   test('check has one <Image/> child', ()=> {
     const wrapper = shallow(<UiesScreen/>)
-    console.log("dive() : " + wrapper.debug())
+    // console.log("dive() : " + wrapper.debug())
 
     expect(wrapper.find(TestImage).dive().find(Image).length).toBe(1)
   })
