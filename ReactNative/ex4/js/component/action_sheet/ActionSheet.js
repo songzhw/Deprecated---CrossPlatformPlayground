@@ -5,7 +5,7 @@ import {
 } from 'react-native'
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window')
-const contentHeight = 260
+var contentHeight = 260
 
 class ActionSheet extends React.Component {
   state = {
@@ -17,6 +17,11 @@ class ActionSheet extends React.Component {
     if (Platform.OS === 'android') {
       BackHandler.addEventListener('hardwareBackPress', this.onPressBack)
     }
+
+    //计算高度
+    let size = this.props.data.length
+    contentHeight = (size + 1) * 50 + size //最后是divider的个数
+    console.log(`szw contentHeight = ${contentHeight}`)
   }
 
   componentWillUnmount() {
