@@ -16,8 +16,13 @@ describe('test UI', () => {
   })
 
   test('FlatList exists', ()=> {
-    expect(wrapper.find(FlatList).length).toBe(1)
+    let flatList = wrapper.find(FlatList)
+    console.log(`list = ${flatList.debug()}`)
+    expect(flatList.length).toBe(1)
+    expect(flatList.prop('numColumns')).toBe(1)
   })
+
+
 
 
 })
