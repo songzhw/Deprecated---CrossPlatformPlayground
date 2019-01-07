@@ -1,7 +1,8 @@
 import React from 'react'
 import {FlatList} from 'react-native'
 import {shallow} from "enzyme"
-import {ChallengeOneScreen as Screen, Layout} from "../../js/screen/ChallengeOneScreen";
+import {ChallengeOneScreen as Screen, Layout, Sort} from "../../js/screen/ChallengeOneScreen";
+import {SORT_AZ_ACTION, SORT_ZA_ACTION} from "../../js/redux/reduxChanllengeOne";
 
 describe('test UI', () => {
   let wrapper
@@ -31,6 +32,15 @@ describe('test UI', () => {
 
     screen.clickLayout()
     expect(wrapper.state('layoutIndex')).toBe(Layout.Grid)
+  })
+
+  test('FlatList -> order', ()=> {
+    let screen = wrapper.instance()
+    expect(wrapper.state('sortIndex')).toBe(Sort.None)
+
+    screen.clickSort()
+    expect(dispatchFun).toBeCalledWith(SORT_AZ_ACTION)
+    expect(wrapper.state('sortIndex')).toBe(Sort.AZ)
   })
 
 })

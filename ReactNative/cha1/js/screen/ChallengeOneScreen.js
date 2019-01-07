@@ -232,7 +232,7 @@ export const Layout = Object.freeze({
   Grid: 1,
 })
 
-const Sort = Object.freeze({
+export const Sort = Object.freeze({
   None: 0,
   AZ: 1,
   ZA: 2
