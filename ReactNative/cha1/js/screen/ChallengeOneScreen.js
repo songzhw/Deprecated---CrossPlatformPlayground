@@ -227,7 +227,7 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(ChallengeOneScreen)
 
-const Layout = Object.freeze({
+export const Layout = Object.freeze({
   List: 0,
   Grid: 1,
 })

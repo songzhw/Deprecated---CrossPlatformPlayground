@@ -1,7 +1,7 @@
 import React from 'react'
 import {FlatList} from 'react-native'
 import {shallow} from "enzyme"
-import {ChallengeOneScreen as Screen} from "../../js/screen/ChallengeOneScreen";
+import {ChallengeOneScreen as Screen, Layout} from "../../js/screen/ChallengeOneScreen";
 
 describe('test UI', () => {
   let wrapper
@@ -27,10 +27,10 @@ describe('test UI', () => {
 
   test('FlatList -> GridView', ()=> {
     let screen = wrapper.instance()
-    screen.clickLayout()
+    expect(wrapper.state('layoutIndex')).toBe(Layout.List)
 
-    let flatList = wrapper.find(FlatList)
-    expect(flatList.length).toBe(2)
+    screen.clickLayout()
+    expect(wrapper.state('layoutIndex')).toBe(Layout.Grid)
   })
 
 })
