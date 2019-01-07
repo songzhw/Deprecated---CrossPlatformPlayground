@@ -12,6 +12,7 @@ class ActionSheetDemo extends Component {
         <ActionSheet ref={(target) => this.actionSheet = target}
                      title="Select a color"
                      data={['Red', 'Green', 'Blue']}
+                     actions={[this.clickRed, this.clickGreen, this.clickBlue]}
         />
       </View>
     )
@@ -20,6 +21,17 @@ class ActionSheetDemo extends Component {
   press = () => {
     this.actionSheet.show()
   }
+
+  clickRed = () => {
+    console.log(`click red`)
+  }
+  clickGreen = () => {
+    console.log(`click green`)
+  }
+  clickBlue = () => {
+    console.log(`click blue`)
+  }
+
 }
 
 const styles = StyleSheet.create({

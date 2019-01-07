@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   View, StyleSheet, Dimensions, TouchableWithoutFeedback, Platform, BackHandler,
-  Animated, Text
+  Animated, Text, TouchableOpacity
 } from 'react-native'
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window')
@@ -58,19 +58,27 @@ class ActionSheet extends React.Component {
     data.forEach((item, index) => {
       let thisKey = `as_option_${index}`
       thisChildren.push(
-        <View key={thisKey}>
-          <View style={styles.divider}/>
-          <Text style={styles.textOption}>{item}</Text>
-        </View>
+        <TouchableOpacity key={thisKey} onPress={() => this.clickOneOption(this.props.actions[index])}>
+          <View>
+            <View style={styles.divider}/>
+            <Text style={styles.textOption}>{item}</Text>
+          </View>
+        </TouchableOpacity>
       )
     })
 
     return (
       <View style={styles.content_Options}>
-        <Text key="as_title" style={{fontWeight: 'normal', fontSize: 18, textAlign: 'center', padding: 10}}> {this.props.title} </Text>
+        <Text key="as_title"
+              style={{fontWeight: 'normal', fontSize: 18, textAlign: 'center', padding: 10}}> {this.props.title} </Text>
         {thisChildren}
       </View>
     )
+  }
+
+  clickOneOption = (action) => {
+    action()
+    this.dismiss()
   }
 
   //<View style={[styles.content, {backgroundColor: '#33691E', transform: [{translateY: 110}]}]}>
