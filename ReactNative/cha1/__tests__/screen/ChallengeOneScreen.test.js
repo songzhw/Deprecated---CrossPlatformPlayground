@@ -23,7 +23,13 @@ describe('test UI', () => {
   })
 
 
+  test('FlatList -> GridView', ()=> {
+    let screen = wrapper.instance()
+    screen.clickLayout()
 
+    let flatList = wrapper.find(FlatList)
+    expect(flatList.length).toBe(2)
+  })
 
 })
 
