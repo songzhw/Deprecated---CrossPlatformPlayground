@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   View, StyleSheet, Dimensions, TouchableWithoutFeedback, Platform, BackHandler,
-  Animated
+  Animated, Text
 } from 'react-native'
 
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window')
@@ -44,7 +44,7 @@ class ActionSheet extends React.Component {
     return (
       <TouchableWithoutFeedback onPress={() => this.dismiss()}>
         <View style={styles.root}>
-          <Animated.View style={[styles.content, {transform: [{translateY: this.state.y}]}]}>
+          <Animated.View style={[styles.content_Anim, {transform: [{translateY: this.state.y}]}]}>
             {this.renderContent()}
           </Animated.View>
         </View>
@@ -53,8 +53,22 @@ class ActionSheet extends React.Component {
   }
 
   renderContent = () => {
+    let {data} = this.props
+    var thisChildren = []
+    data.forEach((item, index) => {
+      let thisKey = `as_option_${index}`
+      thisChildren.push(
+        <View key={thisKey}>
+          <View style={styles.divider}/>
+          <Text style={styles.textOption}>{item}</Text>
+        </View>
+      )
+    })
+
     return (
-      <View style={{backgroundColor: '#33691E', height: contentHeight}}>
+      <View style={styles.content_Options}>
+        <Text key="as_title" style={{fontWeight: 'normal', fontSize: 18, textAlign: 'center', padding: 10}}> {this.props.title} </Text>
+        {thisChildren}
       </View>
     )
   }
@@ -79,7 +93,7 @@ class ActionSheet extends React.Component {
   dismiss() {
     Animated.timing(this.state.y,
       {toValue: contentHeight, duration: 350}
-    ).start( isFinished => {
+    ).start(isFinished => {
       if (isFinished) {
         this.setState({...this.state, isShowing: false})
       }
@@ -96,15 +110,32 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: screenWidth,
     height: screenHeight,
-    backgroundColor: 'black',
-    opacity: 0.6  //1是全黑了
+    backgroundColor: '#0000007e',
+    // opacity: 0.6  //1是全黑了
   },
-  content: {
+  content_Anim: {
     width: screenWidth - 20,
     height: contentHeight,
     position: 'absolute',
     bottom: 10,
     alignSelf: 'center'
+  },
+  content_Options: {
+    height: contentHeight,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    backgroundColor: 'white',
+  },
+  divider: {
+    backgroundColor: 'black',
+    height: 1
+  },
+  textOption: {
+    color: '#1e1e1e',
+    fontSize: 24,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    padding: 5
   }
 })
 
