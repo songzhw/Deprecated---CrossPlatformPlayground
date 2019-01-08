@@ -2,14 +2,14 @@ import React from 'react'
 import {FlatList} from 'react-native'
 import {shallow} from "enzyme"
 import {ChallengeOneScreen as Screen, Layout, Sort} from "../../js/screen/ChallengeOneScreen";
-import {fetchChallengeOnePage, SORT_AZ_ACTION, SORT_ZA_ACTION} from "../../js/redux/reduxChanllengeOne";
+import {CLEAR_CHA1, fetchChallengeOnePage, SORT_AZ_ACTION, SORT_ZA_ACTION} from "../../js/redux/reduxChanllengeOne";
 
 describe('test UI', () => {
   let wrapper
   let dispatchFun
   let pages = ["1", "2"]
 
-  beforeEach(()=> {
+  beforeEach(() => {
     dispatchFun = jest.fn()
     let props = {
       dispatch: dispatchFun,
@@ -19,7 +19,7 @@ describe('test UI', () => {
     wrapper = shallow(<Screen {...props}/>)
   })
 
-  test('FlatList exists', ()=> {
+  test('FlatList exists', () => {
     let flatList = wrapper.find(FlatList)
     console.log(`list = ${flatList.debug()}`)
     expect(flatList.length).toBe(1)
@@ -27,7 +27,7 @@ describe('test UI', () => {
   })
 
 
-  test('FlatList -> GridView', ()=> {
+  test('FlatList -> GridView', () => {
     let screen = wrapper.instance()
     expect(wrapper.state('layoutIndex')).toBe(Layout.List)
 
@@ -35,7 +35,7 @@ describe('test UI', () => {
     expect(wrapper.state('layoutIndex')).toBe(Layout.Grid)
   })
 
-  test('FlatList -> order', ()=> {
+  test('FlatList -> order', () => {
     let screen = wrapper.instance()
     expect(wrapper.state('sortIndex')).toBe(Sort.None)
 
@@ -44,7 +44,7 @@ describe('test UI', () => {
     expect(wrapper.state('sortIndex')).toBe(Sort.AZ)
   })
 
-  test('onReachEnd, current index++', ()=> {
+  test('onReachEnd, current index++', () => {
     let screen = wrapper.instance()
     expect(screen.currentIndex).toBe(0)
 
@@ -52,12 +52,16 @@ describe('test UI', () => {
     expect(screen.currentIndex).toBe(1)
   })
 
-  test('reach end, then send action to redux', ()=> {
+  test('reach end, then send action to redux', () => {
     let screen = wrapper.instance()
     screen.onReachEnd()
 
     let action = fetchChallengeOnePage("2", 1)
     expect(dispatchFun).toBeCalledWith(action)
+  })
+
+  test('unmounting will dispatch CLEAR_CHA1 action', () => {
+    expect(dispatchFun).toBeCalledWith({type: CLEAR_CHA1})
   })
 
 })
