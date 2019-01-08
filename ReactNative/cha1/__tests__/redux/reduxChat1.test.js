@@ -3,11 +3,12 @@ import reducer, {
   onGotChallenge1Page,
   SORT_AZ_ACTION,
   TRY_CHALLENGE1_PAGE,
-  originalUsers, CLEAR_CHA1
+  originalUsers, CLEAR_CHA1, SORT_ZA_ACTION
 } from "../../js/redux/reduxChanllengeOne";
 
 beforeEach(() => {
-  originalUsers = []
+  let clearAction = {type: CLEAR_CHA1}
+  reducer({}, clearAction)
 })
 
 test('fetch page action', () => {

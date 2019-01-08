@@ -26,17 +26,17 @@ export class ChallengeOneScreen extends Component {
   }
 
   componentWillUnmount() {
-    console.log(`componentWillUnmount()`)
+    // console.log(`componentWillUnmount()`)
     this.props.dispatch({type: CLEAR_CHA1})
   }
   
   componentWillReceiveProps(nextProps, nextContext) {
-    console.log(`szw componentWillReceiveProps()`)
+    // console.log(`szw componentWillReceiveProps()`)
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props.pages.length)}`)
-    console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps.pages.length)}`)
+    // console.log(`szw shouldComponentUpdate(1) = ${JSON.stringify(this.props.pages.length)}`)
+    // console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps.pages.length)}`)
     if (this.props.pages.length === 0) {
       if (nextProps.pages.length > 0) {
         this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0], 0))
@@ -48,7 +48,7 @@ export class ChallengeOneScreen extends Component {
   }
 
   render() {
-    console.log(`render()`)
+    // console.log(`render()`)
     let sortImage = this.sortImages[this.state.sortIndex]
     let layoutImage = this.layoutImages[this.state.layoutIndex]
     let layoutColumnCount = this.state.layoutIndex === Layout.List ? 1 : 2
@@ -89,7 +89,7 @@ export class ChallengeOneScreen extends Component {
 
   onReachEnd = () => {
     this.currentIndex++
-    console.log(`szw onReachEnd(${this.currentIndex})`)
+    // console.log(`szw onReachEnd(${this.currentIndex})`)
     if(this.currentIndex < this.props.pages.length){
       this.props.dispatch(fetchChallengeOnePage(this.props.pages[this.currentIndex], this.currentIndex))
     }
@@ -217,8 +217,8 @@ state内容是:
 }
  */
 const mapStateToProps = (state) => {
-  console.log(`szw challenge01 : state = ${JSON.stringify(state.reduceChallenge1.payload.length)}`)
-  console.log(`szw challenge01 : state = ${JSON.stringify(state.reduxPages.pages.length)}`)
+  // console.log(`szw challenge01 : state = ${JSON.stringify(state.reduceChallenge1.payload.length)}`)
+  // console.log(`szw challenge01 : state = ${JSON.stringify(state.reduxPages.pages.length)}`)
   return {
     pages: state.reduxPages.pages,
     users: state.reduceChallenge1.payload,
