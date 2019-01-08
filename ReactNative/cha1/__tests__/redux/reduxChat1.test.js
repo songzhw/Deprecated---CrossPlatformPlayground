@@ -37,9 +37,18 @@ test('sort ascending', () => {
 })
 
 test('sort descending', () => {
+  let action1 = onGotChallenge1Page([{last_name: 'apple'}, {last_name: 'ben'}], 0)
+  reducer({}, action1)
 
+  let action2 = {...SORT_ZA_ACTION}
+  let state = reducer({}, action2)
+  expect(state).toEqual({payload: [{last_name: 'ben'}, {last_name: 'apple'}], index: 0})
 })
 
 test('clear data', () => {
-
+  let clearAction = {type: CLEAR_CHA1}
+  let state = reducer({}, clearAction)
+  expect(state).toEqual({payload:[], index: 0})
 })
+
+// TODO "SORT_NONE" 与  "default" 情形就不测试了
