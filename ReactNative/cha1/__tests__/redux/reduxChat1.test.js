@@ -8,7 +8,7 @@ test('fetch page action', () => {
 test('fetch cha1 data originally, got a non-array, should have error', () => {
   let action = onGotChallenge1Page(23, 0)
   // let newState = reducer({}, action)
-  expect(reducer({}, action)).toThrow(new TypeError('CreateListFromArrayLike called on non-object'))
+  expect(() => reducer({}, action)).toThrow(new TypeError('CreateListFromArrayLike called on non-object'))
 })
 
 test('fetch cha1 data originally', () => {
