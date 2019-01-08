@@ -24,7 +24,7 @@ export const SORT_NONE_ACTION = {type: SORT_NONE}
 
 export const CLEAR_CHA1 = "CLEAR_CHA1"
 
-var originalUsers = [];  // save the original users data
+export var originalUsers = [];  // save the original users data
 var currentIndex = 0
 const initState = {payload: [], index: 0}
 export default (state = initState, action) => {

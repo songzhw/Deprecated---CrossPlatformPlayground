@@ -7,6 +7,7 @@ import reducer, {
 } from "../../js/redux/reduxChanllengeOne";
 
 beforeEach(() => {
+  originalUsers = []
 })
 
 test('fetch page action', () => {
