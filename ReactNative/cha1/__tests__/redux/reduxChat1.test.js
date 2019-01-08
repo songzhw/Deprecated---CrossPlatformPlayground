@@ -1,4 +1,13 @@
-import reducer, {fetchChallengeOnePage, onGotChallenge1Page, TRY_CHALLENGE1_PAGE} from "../../js/redux/reduxChanllengeOne";
+import reducer, {
+  fetchChallengeOnePage,
+  onGotChallenge1Page,
+  SORT_AZ_ACTION,
+  TRY_CHALLENGE1_PAGE,
+  originalUsers, CLEAR_CHA1
+} from "../../js/redux/reduxChanllengeOne";
+
+beforeEach(() => {
+})
 
 test('fetch page action', () => {
   let action = fetchChallengeOnePage(1, 'b')
@@ -7,18 +16,22 @@ test('fetch page action', () => {
 
 test('fetch cha1 data originally, got a non-array, should have error', () => {
   let action = onGotChallenge1Page(23, 0)
-  // let newState = reducer({}, action)
-  expect(() => reducer({}, action)).toThrow(new TypeError('CreateListFromArrayLike called on non-object'))
+  expect(() => reducer({}, action)).toThrow()
 })
 
 test('fetch cha1 data originally', () => {
-  let action = onGotChallenge1Page([{id:1}, {id:2}], 0)
+  let action = onGotChallenge1Page([{id: 1}, {id: 2}], 0)
   let newState = reducer({}, action)
-  expect(newState).toEqual({payload: [{id:1}, {id:2}], index: 0})
+  expect(newState).toEqual({payload: [{id: 1}, {id: 2}], index: 0})
 })
 
 test('sort ascending', () => {
+  let action1 = onGotChallenge1Page([{last_name: 'c'}, {last_name: 'ben'}], 0)
+  reducer({}, action1)
 
+  let action2 = {...SORT_AZ_ACTION}
+  let state = reducer({}, action2)
+  expect(state).toEqual({payload: [{last_name: 'ben'}, {last_name: 'c'}], index: 0})
 })
 
 test('sort descending', () => {

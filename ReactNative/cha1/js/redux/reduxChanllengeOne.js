@@ -34,9 +34,12 @@ export default (state = initState, action) => {
       console.log(`szw redux got page1 : orig = ${originalUsers.length}, resp = ${payload.length}`)
       currentIndex = index
       Array.prototype.push.apply(originalUsers, payload)
+      console.log(`None : orig = ${JSON.stringify(originalUsers)}`)
       return {payload: originalUsers, index: currentIndex}
     case SORT_AZ:
+      console.log(`AZ : orig = ${JSON.stringify(originalUsers)}`)
       let usersAz = originalUsers.slice()
+      console.log(`AZ : orig = ${JSON.stringify(usersAz)}`)
       usersAz.sort((a, b) => this.compareTwoStrings(a, b))
       return {payload: usersAz, index: currentIndex}
     case SORT_ZA:
@@ -58,6 +61,7 @@ export default (state = initState, action) => {
 this.compareTwoStrings = function (a, b) {
   if (a.last_name === null) return 1;
   if (b.last_name === null) return -1;
+  console.log(`a = ${a.last_name} ; b = ${b.last_name}`)
   return a.last_name.localeCompare(b.last_name)
 }
 
