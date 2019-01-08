@@ -2,17 +2,18 @@ import React from 'react'
 import {FlatList} from 'react-native'
 import {shallow} from "enzyme"
 import {ChallengeOneScreen as Screen, Layout, Sort} from "../../js/screen/ChallengeOneScreen";
-import {SORT_AZ_ACTION, SORT_ZA_ACTION} from "../../js/redux/reduxChanllengeOne";
+import {fetchChallengeOnePage, SORT_AZ_ACTION, SORT_ZA_ACTION} from "../../js/redux/reduxChanllengeOne";
 
 describe('test UI', () => {
   let wrapper
   let dispatchFun
+  let pages = ["1", "2"]
 
   beforeEach(()=> {
     dispatchFun = jest.fn()
     let props = {
       dispatch: dispatchFun,
-      pages: [],
+      pages: pages,
       users: []
     }
     wrapper = shallow(<Screen {...props}/>)
@@ -41,6 +42,22 @@ describe('test UI', () => {
     screen.clickSort()
     expect(dispatchFun).toBeCalledWith(SORT_AZ_ACTION)
     expect(wrapper.state('sortIndex')).toBe(Sort.AZ)
+  })
+
+  test('onReachEnd, current index++', ()=> {
+    let screen = wrapper.instance()
+    expect(screen.currentIndex).toBe(0)
+
+    screen.onReachEnd()
+    expect(screen.currentIndex).toBe(1)
+  })
+
+  test('reach end, then send action to redux', ()=> {
+    let screen = wrapper.instance()
+    screen.onReachEnd()
+
+    let action = fetchChallengeOnePage("2", 1)
+    expect(dispatchFun).toBeCalledWith(action)
   })
 
 })
