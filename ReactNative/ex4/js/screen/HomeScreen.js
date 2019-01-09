@@ -14,8 +14,13 @@ class HomeScreen extends Component {
         <HomeButton title="Challenge One" onPress={this.go2Challenge1}/>
         <HomeButton title="Action Sheet" onPress={this.go2ActionSheet}/>
         <HomeButton title="Gesture + Animation" onPress={this.go2GestureAnim}/>
+        <HomeButton title="Custom Navigation" onPress={this.go2CustomNav}/>
       </ScrollView>
     )
+  }
+
+  go2CustomNav = () => {
+    this.props.navigation.navigate('DynamicTitleScreen', {name: 'home3'})
   }
 
   go2ActionSheet = () => {

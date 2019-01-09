@@ -10,6 +10,7 @@ import SetStatePitfallScreen from "../screen/SetStatePitfallScreen";
 import LoadingListScreen from "../screen/LoadingListScreen";
 import ActionSheetDemo from "../screen/ActionSheetDemo";
 import GestureAnimScreen from "../screen/GestureAnimScreen";
+import DynamicTitleScreen from "../screen/navigation/DynamicTitleScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -52,6 +53,22 @@ const HomeStack = createStackNavigator(
     GestureAnimScreen: {
       screen: GestureAnimScreen,
       navigationOptions: {headerTitle: 'gesture + animation'}
+    },
+    DynamicTitleScreen: {
+      screen: DynamicTitleScreen,
+      navigationOptions: (props) => {
+        const {navigation} = props
+        const {params} = navigation.state
+        return {
+          title: params.title? params.title : "Static Title",
+          headerRight: (
+            <Button
+              title={params.mode === 'edit' ? "save" : "edit"}
+              onPress={()=> navigation.setParams({mode: params.mode === 'edit' ? "" : "edit"})}
+              />
+          )
+        }
+      }
     }
   },
   {
