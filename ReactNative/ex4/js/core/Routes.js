@@ -56,6 +56,7 @@ const HomeStack = createStackNavigator(
   },
   {
     headerMode: 'screen',
+    gesturesEnabled: true,
   },
 )
 

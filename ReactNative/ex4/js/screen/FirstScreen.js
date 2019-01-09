@@ -13,6 +13,7 @@ export class FirstScreen extends Component {
   }
 
   componentDidMount() {
+    console.log(`FirstScreen  componentDidMount()`)
     this.props.dispatch(tryFirstPageInfo())
   }
 
