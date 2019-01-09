@@ -1,16 +1,14 @@
 export const TRY_CHALLENGE1_PAGE = 'TRY_CHALLENGE1_PAGE'
-export const fetchChallengeOnePage = (page, index) => ({
+export const fetchChallengeOnePage = (page) => ({
   type: TRY_CHALLENGE1_PAGE,
   page: page,
-  index: index
 })
 // sent action:  {"type":"TRY_CHALLENGE1_PAGE","page": "http://..."}
 
 export const GOT_CHALLENGE1_PAGE = 'GOT_CHALLENGE1_PAGE'
-export const onGotChallenge1Page = (resp, index) => ({
+export const onGotChallenge1Page = (resp) => ({
   type: GOT_CHALLENGE1_PAGE,
   payload: resp,
-  index: index
 })
 
 export const SORT_AZ = "SORT_AZ"
@@ -25,29 +23,26 @@ export const SORT_NONE_ACTION = {type: SORT_NONE}
 export const CLEAR_CHA1 = "CLEAR_CHA1"
 
 var originalUsers = [];  // save the original users data
-var currentIndex = 0
-const initState = {payload: [], index: 0}
+const initState = {payload: []}
 export default (state = initState, action) => {
   switch (action.type) {
     case GOT_CHALLENGE1_PAGE:
-      let {payload, index} = action
-      currentIndex = index
+      let {payload} = action
       Array.prototype.push.apply(originalUsers, payload)
-      return {payload: originalUsers, index: currentIndex}
+      return {payload: originalUsers}
     case SORT_AZ:
       let usersAz = originalUsers.slice()
       usersAz.sort((a, b) => this.compareTwoStrings(a, b))
-      return {payload: usersAz, index: currentIndex}
+      return {payload: usersAz}
     case SORT_ZA:
       let usersZa = originalUsers.slice()
       usersZa.sort((a, b) => this.compareTwoStrings(b, a))
-      return {payload: usersZa, index: currentIndex}
+      return {payload: usersZa}
     case SORT_NONE:
-      return {payload: originalUsers, index: currentIndex}
+      return {payload: originalUsers}
     case CLEAR_CHA1:
-      currentIndex = 0
       originalUsers = []
-      return {payload: [...originalUsers], index: currentIndex}
+      return {payload: [...originalUsers]}
     default:
       return state
   }

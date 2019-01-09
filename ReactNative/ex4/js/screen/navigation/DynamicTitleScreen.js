@@ -6,11 +6,11 @@ class DynamicTitleScreen extends Component{
     const {navigation} = this.props
     const {params} = navigation.state
     const textAction = params.mode === 'edit' ? 'edit' : 'done'
-
+    
     return (
       <View style={styles.root}>
-        <Text style={{fontSize: 20}}>{textAction}</Text>
-        <TextInput
+        <Text style={{fontSize: 24}}>{textAction}</Text>
+        <TextInput style={{backgroundColor: 'white', fontSize: 20}}
           onChangeText={ text => {
             if (params.mode === 'edit') {
               navigation.setParams({title: text})

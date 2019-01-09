@@ -39,7 +39,7 @@ export class ChallengeOneScreen extends Component {
     // console.log(`szw shouldComponentUpdate(2) = ${JSON.stringify(nextProps.pages.length)}`)
     if (this.props.pages.length === 0) {
       if (nextProps.pages.length > 0) {
-        this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0], 0))
+        this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0]))
       }
       return false;
     }
@@ -91,7 +91,7 @@ export class ChallengeOneScreen extends Component {
     this.currentIndex++
     // console.log(`szw onReachEnd(${this.currentIndex})`)
     if(this.currentIndex < this.props.pages.length){
-      this.props.dispatch(fetchChallengeOnePage(this.props.pages[this.currentIndex], this.currentIndex))
+      this.props.dispatch(fetchChallengeOnePage(this.props.pages[this.currentIndex]))
     }
   }
 
