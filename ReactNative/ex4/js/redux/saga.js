@@ -4,7 +4,7 @@ import {API_CHALLENGE1_PAGE1, API_FIRST_PAGE, API_ID_DAY1, API_ID_DAY2, API_ID_L
 import { gotDay1, TRY_SCHEDULE_DAY1 } from './actionSchedule'
 import {gotFirstPageInfo, TRY_FIRST_PAGE_INFO} from "./actionFirst";
 import {onGotChallenge1Page, TRY_CHALLENGE1_PAGE} from "./reduxChanllengeOne";
-import { doFetch } from '../core/HttpEngine'
+import {doFetch} from "../core/HttpEngine";
 
 const rootSaga = function* () {
   yield takeEvery(TRY_LOGIN, tryLogin)

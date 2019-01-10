@@ -1,8 +1,8 @@
 import {tryFetchChallenge1} from "../js/redux/saga";
 import {expectSaga} from "redux-saga-test-plan";
 import * as matchers from 'redux-saga-test-plan/matchers'
-import {doFetch} from "../js/core/HttpEngine";
 import {onGotChallenge1Page} from "../js/redux/reduxChanllengeOne";
+import {doFetch} from "../js/core/HttpEngine";
 
 test('fetch code1', () => {
   const result = `[{id: 23}, {id: 24}]`
