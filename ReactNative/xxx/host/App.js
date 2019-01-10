@@ -8,7 +8,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Open up host/App.js to start working on your app!</Text>
-        <Text> {addedResult} </Text>
+        <Text> result = {addedResult} </Text>
       </View>
     );
   }
