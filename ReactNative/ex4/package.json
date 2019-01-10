@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "jest",
+    "temp": "open 'http://www.google.ca' && which java"
   },
   "dependencies": {
     "expo": "^31.0.2",
