@@ -8,15 +8,22 @@
     "tsx": "tsc"
   },
   "dependencies": {
+    "@types/react-navigation": "^3.0.1",
     "expo": "^31.0.2",
+    "randomcolor": "^0.5.3",
     "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-navigation": "2.5.5",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2"
   },
   "devDependencies": {
     "@types/expo": "^31.0.6",
     "@types/react": "^16.7.18",
     "@types/react-native": "^0.57.24",
     "react-native-typescript-transformer": "^1.2.11",
+    "redux-saga-test-plan": "^3.7.0",
     "typescript": "^3.2.2"
   },
   "private": true
