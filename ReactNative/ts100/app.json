@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ex100",
-    "slug": "ex100",
+    "name": "ts100",
+    "slug": "ts100",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [

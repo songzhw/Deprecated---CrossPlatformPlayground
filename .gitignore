@@ -94,10 +94,11 @@ android/keystores/debug.keystore
 
 .deco/
 .expo/
+yarn-error.log
 
 
 #TypeScript
-Tsbuild/
+tsbuild/
 
 
 # jest
