@@ -1,9 +1,13 @@
 import React from "react";
 import {Button} from 'react-native'
 
-import {createStackNavigator} from 'react-navigation'
+import {createStackNavigator, NavigationScreenProp} from 'react-navigation'
 import HomeScreen from "../screen/HomeScreen";
 import UiesScreen from "../screen/UiesScreen";
+
+export interface ScreenProps {
+  navigation: NavigationScreenProp<any, any>
+}
 
 const HomeStack = createStackNavigator(
   {

@@ -1,7 +1,11 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, Button, ScrollView} from 'react-native'
+import {ScreenProps} from "../core/Routes";
 
-class HomeScreen extends Component {
+interface HomeScreenProps extends ScreenProps{
+}
+
+class HomeScreen extends Component<HomeScreenProps> {
   render() {
     return (
       <ScrollView style={styles.root}>
@@ -27,8 +31,14 @@ const styles = StyleSheet.create({
   },
 })
 
+// = = = = = = = = = = = = = = = = = = = = = = = =
 
-class HomeButton extends Component {
+interface HomeButtonProps {
+  title: string;
+  onPress: () => void;
+}
+
+class HomeButton extends Component<HomeButtonProps> {
   render() {
     return (
       <View style={styles.aButton}>
