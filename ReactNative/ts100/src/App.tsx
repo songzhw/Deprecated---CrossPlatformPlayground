@@ -1,96 +1,42 @@
 import React from 'react'
-import {Text, View} from'react-native'
+import {Button, StyleSheet, Text, View} from 'react-native'
 
-export default ()=> (
-  <View style = {{marginTop: 40}}>
-    <Text> Hello Expo 102</Text>
-  </View>
-)
+export default class First extends React.Component {
+  state = {id: 100}
 
-// // components/Hello.tsx
-// import React from 'react';
-// import {Button, StyleSheet, Text, View} from 'react-native';
-//
-// export interface Props {
-//   name: string;
-//   enthusiasmLevel?: number;
-// }
-//
-// interface State {
-//   enthusiasmLevel: number;
-// }
-//
-// export class Hello extends React.Component<Props, State> {
-//   constructor(props: Props) {
-//     super(props);
-//
-//     if ((props.enthusiasmLevel || 0) <= 0) {
-//       throw new Error('You could be a little more enthusiastic. :D');
-//     }
-//
-//     this.state = {
-//       enthusiasmLevel: props.enthusiasmLevel || 1,
-//     };
-//   }
-//
-//   onIncrement = () =>
-//     this.setState({enthusiasmLevel: this.state.enthusiasmLevel + 1});
-//   onDecrement = () =>
-//     this.setState({enthusiasmLevel: this.state.enthusiasmLevel - 1});
-//   getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
-//
-//   render() {
-//     return (
-//       <View style={styles.root}>
-//         <Text style={styles.greeting}>
-//           Hello{' '}
-//           {this.props.name +
-//           this.getExclamationMarks(this.state.enthusiasmLevel)}
-//         </Text>
-//
-//         <View style={styles.buttons}>
-//           <View style={styles.button}>
-//             <Button
-//               title="-"
-//               onPress={this.onDecrement}
-//               accessibilityLabel="decrement"
-//               color="red"
-//             />
-//           </View>
-//
-//           <View style={styles.button}>
-//             <Button
-//               title="+"
-//               onPress={this.onIncrement}
-//               accessibilityLabel="increment"
-//               color="blue"
-//             />
-//           </View>
-//         </View>
-//       </View>
-//     );
-//   }
-// }
-//
-// // styles
-// const styles = StyleSheet.create({
-//   root: {
-//     alignItems: 'center',
-//     alignSelf: 'center',
-//   },
-//   buttons: {
-//     flexDirection: 'row',
-//     minHeight: 70,
-//     alignItems: 'stretch',
-//     alignSelf: 'center',
-//     borderWidth: 5,
-//   },
-//   button: {
-//     flex: 1,
-//     paddingVertical: 0,
-//   },
-//   greeting: {
-//     color: '#999',
-//     fontWeight: 'bold',
-//   },
-// });
+  render() {
+    return (
+      <View style={styles.root}>
+        <Text> Hello Expo {this.state.id}</Text>
+        <Button title="+ 1" onPress={this.onIncrease}/>
+      </View>
+    )
+  }
+
+  onIncrease = () => {
+    this.setState({id: this.state.id + 1})
+  }
+}
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  buttons: {
+    flexDirection: 'row',
+    minHeight: 70,
+    alignItems: 'stretch',
+    alignSelf: 'center',
+    borderWidth: 5,
+  },
+  button: {
+    flex: 1,
+    paddingVertical: 0,
+  },
+  greeting: {
+    color: '#999',
+    fontWeight: 'bold',
+  },
+});
