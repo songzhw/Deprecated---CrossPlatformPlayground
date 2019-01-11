@@ -3,7 +3,7 @@ import {Text, View} from'react-native'
 
 export default ()=> (
   <View style = {{marginTop: 40}}>
-    <Text> Hello Expo</Text>
+    <Text> Hello Expo 102</Text>
   </View>
 )
 
