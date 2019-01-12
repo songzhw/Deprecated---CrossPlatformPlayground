@@ -12,10 +12,13 @@ class HomeScreen extends Component<HomeScreenProps> {
         <HomeButton title="Ui For Test" onPress={this.go2Uies}/>
         <HomeButton title="First Page" onPress={this.go2First}/>
         <HomeButton title="Login Page" onPress={this.go2Login}/>
+        <HomeButton title="2 day schedule" onPress={this.go2Schedule}/>
       </ScrollView>
     )
   }
-
+  go2Schedule = ()=> {
+    this.props.navigation.navigate('ScheduleScreen')
+  }
   go2Uies = () => {
     this.props.navigation.navigate('UiesScreen')
   }
