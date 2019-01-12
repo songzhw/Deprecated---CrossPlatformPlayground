@@ -14,7 +14,7 @@ export interface RouterReduxProps extends DispatchProps, NavigationProps{}
 // = = = = = = = = = = = = = =
 
 export interface ViewProps{
-  style: any;
+  style?: any;
 }
 
 // = = = = = = = = = = = = = =
