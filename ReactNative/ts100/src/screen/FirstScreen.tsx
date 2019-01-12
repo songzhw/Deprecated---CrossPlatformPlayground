@@ -3,8 +3,8 @@ import {View, StyleSheet, Text, FlatList, Image, ScrollView} from 'react-native'
 import {connect} from 'react-redux'
 import {FirstPageRespponseItem, tryFirstPageInfo} from "../redux/reducerFirst";
 import {ReduxState} from "../redux/store";
-import ReadComponent from "../component/ReadComponent";
-import FirstCarousel from "../component/FirstCarousel";
+import ReadComponent from "../component/first/ReadComponent";
+import FirstCarousel from "../component/first/FirstCarousel";
 import {DispatchProps} from "../core/CoreProps";
 
 interface Props extends DispatchProps{

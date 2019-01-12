@@ -10,3 +10,10 @@ export interface NavigationProps {
 }
 
 export interface RouterReduxProps extends DispatchProps, NavigationProps{}
+
+// = = = = = = = = = = = = = =
+
+export interface SectionListData {
+  key: string;
+  data: any;
+}

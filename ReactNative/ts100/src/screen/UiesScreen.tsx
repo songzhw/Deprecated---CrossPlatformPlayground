@@ -13,7 +13,6 @@ class UiesScreen extends Component<Props> {
   }
 
   render() {
-    // @ts-ignore
     return (
       <TouchableOpacity onPress={this.props.onPress}>
         <Text>{this.props.title}</Text>
