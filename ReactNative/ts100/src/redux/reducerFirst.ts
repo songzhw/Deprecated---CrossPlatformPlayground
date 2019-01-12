@@ -32,7 +32,7 @@ export interface FirstPageRespponseItem {
   img: string;
   title: string;
   author: string;
-  propress: string;
+  progress: string;
   length: string
 }
 

@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     color: '#0D47A1'
   },
   book: {
-    width: 110,
-    height: 150,
+    width: 135,
+    height: 190,
     marginLeft: 10,
     marginRight: 10
   },
