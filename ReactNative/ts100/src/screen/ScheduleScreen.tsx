@@ -54,7 +54,7 @@ const mapStateToProps = (state: ReduxState) => {
   }
 }
 
-function extractDayData(sessions: Schedule[]) {
+function extractDayData(sessions: Schedule[]) : SectionListData[] {
   // {"startTime":"10:00","endTime":"10:30","topic":{"title":"Android Dev in 10 minutes","desp":""}},
   //没比较双层循环, 因为这会有大量的重复比对, 完全没必要. 所以这里借用一个map
   let map = new Map()
