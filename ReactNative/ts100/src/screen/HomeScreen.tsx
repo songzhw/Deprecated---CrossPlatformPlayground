@@ -13,8 +13,13 @@ class HomeScreen extends Component<HomeScreenProps> {
         <HomeButton title="First Page" onPress={this.go2First}/>
         <HomeButton title="Login Page" onPress={this.go2Login}/>
         <HomeButton title="2 day schedule" onPress={this.go2Schedule}/>
+        <HomeButton title="Gesture Anim" onPress={this.go2GestureAnim}/>
       </ScrollView>
     )
+  }
+
+  go2GestureAnim = ()=>{
+    this.props.navigation.navigate('GestureAnimScreen')
   }
   go2Schedule = ()=> {
     this.props.navigation.navigate('ScheduleScreen')

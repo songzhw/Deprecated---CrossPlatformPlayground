@@ -7,6 +7,7 @@ import UiesScreen from "../screen/UiesScreen";
 import FirstScreen from "../screen/FirstScreen";
 import LoginScreen from "../screen/LoginScreen";
 import ScheduleScreen from "../screen/ScheduleScreen";
+import GestureAnimScreen from "../screen/GestureAnimScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -30,6 +31,10 @@ const HomeStack = createStackNavigator(
       screen: ScheduleScreen,
       navigationOptions: {headerTitle: 'Sessions In Two Days'},
     },
+    GestureAnimScreen: {
+      screen: GestureAnimScreen,
+      navigationOptions: {headerTitle: 'anim with your finger'}
+    }
   },
   {
     headerMode: 'screen'
