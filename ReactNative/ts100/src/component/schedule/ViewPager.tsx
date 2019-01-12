@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {ComponentProps, PropsWithRef} from 'react'
 import {
   View,
   StyleSheet,
@@ -8,8 +8,9 @@ import {
   NativeSyntheticEvent,
   ViewPagerAndroidOnPageSelectedEventData
 } from 'react-native'
+import {ViewProps} from "../../core/CoreProps";
 
-interface Props {
+interface Props extends ViewProps{
   onPageChanged: (index: number) => void;
 }
 

@@ -4,8 +4,12 @@ import {connect} from 'react-redux'
 import {Schedule, trySchedule} from "../redux/reducerSchedule";
 import {DispatchProps, SectionListData} from "../core/CoreProps";
 import {ReduxState} from "../redux/store";
+import {ViewPager} from "../component/schedule/ViewPager";
+import DaySessionList from "../component/schedule/DaySessionList";
 
 interface Props extends DispatchProps{
+  sessions1: SectionListData[];
+  sessions2: SectionListData[];
 }
 
 class ScheduleScreen extends Component<Props>{
@@ -21,8 +25,24 @@ class ScheduleScreen extends Component<Props>{
     return (
       <View style={styles.root}>
         <Text>ScheduleScreen Screen</Text>
+        <ViewPager style={styles.viewPager} onPageChanged={num => this.onPageChanged(num)}>
+          <View style={styles.pageStyle}>
+            <DaySessionList sessions={this.props.sessions1} onPress={this.go2SessionDetail}/>
+          </View>
+          <View style={styles.pageStyle}>
+            <DaySessionList sessions={this.props.sessions2} onPress={this.go2SessionDetail}/>
+          </View>
+        </ViewPager>
       </View>
     )
+  }
+
+  onPageChanged = (num: number) => {
+    this.setState({selectedIndex: num})
+  }
+
+  go2SessionDetail = (item: Schedule) => {
+    console.log(`-> detail screen`)
   }
 }
 
