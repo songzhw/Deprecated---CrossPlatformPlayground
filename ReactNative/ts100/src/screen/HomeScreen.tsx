@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, Button, ScrollView} from 'react-native'
-import {ScreenProps} from "../core/Routes";
+import {NavigationProps} from "../core/CoreProps";
 
-interface HomeScreenProps extends ScreenProps{
+interface HomeScreenProps extends NavigationProps{
 }
 
 class HomeScreen extends Component<HomeScreenProps> {
@@ -11,6 +11,7 @@ class HomeScreen extends Component<HomeScreenProps> {
       <ScrollView style={styles.root}>
         <HomeButton title="Ui For Test" onPress={this.go2Uies}/>
         <HomeButton title="First Page" onPress={this.go2First}/>
+        <HomeButton title="Login Page" onPress={this.go2Login}/>
       </ScrollView>
     )
   }
@@ -21,6 +22,10 @@ class HomeScreen extends Component<HomeScreenProps> {
 
   go2First = ()=> {
     this.props.navigation.navigate('FirstScreen')
+  }
+
+  go2Login = ()=> {
+    this.props.navigation.navigate('LoginScreen')
   }
 }
 

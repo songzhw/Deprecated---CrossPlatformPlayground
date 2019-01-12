@@ -5,10 +5,7 @@ import {createStackNavigator, NavigationScreenProp} from 'react-navigation'
 import HomeScreen from "../screen/HomeScreen";
 import UiesScreen from "../screen/UiesScreen";
 import FirstScreen from "../screen/FirstScreen";
-
-export interface ScreenProps {
-  navigation: NavigationScreenProp<any, any>
-}
+import LoginScreen from "../screen/LoginScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -23,6 +20,10 @@ const HomeStack = createStackNavigator(
     FirstScreen: {
       screen: FirstScreen,
       navigationOptions: {headerTitle: 'Dashboard'},
+    },
+    LoginScreen: {
+      screen: LoginScreen,
+      navigationOptions: {headerTitle: 'Log In'},
     },
   },
   {

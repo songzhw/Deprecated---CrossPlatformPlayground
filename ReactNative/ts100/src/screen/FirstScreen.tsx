@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import {View, StyleSheet, Text, FlatList, Image, ScrollView} from 'react-native'
 import {connect} from 'react-redux'
 import {FirstPageRespponseItem, tryFirstPageInfo} from "../redux/reducerFirst";
-import {DispatchProps, ReduxState} from "../redux/store";
+import {ReduxState} from "../redux/store";
 import ReadComponent from "../component/ReadComponent";
 import FirstCarousel from "../component/FirstCarousel";
+import {DispatchProps} from "../core/CoreProps";
 
 interface Props extends DispatchProps{
   open: FirstPageRespponseItem[]
