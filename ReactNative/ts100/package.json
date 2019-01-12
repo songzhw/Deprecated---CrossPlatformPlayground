@@ -8,9 +8,13 @@
     "tsx": "tsc"
   },
   "dependencies": {
-    "@types/react-navigation": "^3.0.1",
+    "@types/randomcolor": "^0.5.1",
+    "@types/react-navigation": "^2.5.5",
+    "@types/react-redux": "^6.0.12",
+    "@types/redux": "^3.6.0",
+    "@types/redux-saga": "^0.10.5",
     "expo": "^31.0.2",
-    "randomcolor": "^0.5.3",
+    "randomcolor": "^0.5.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
     "react-navigation": "2.5.5",

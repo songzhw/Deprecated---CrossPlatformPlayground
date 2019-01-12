@@ -10,12 +10,17 @@ class HomeScreen extends Component<HomeScreenProps> {
     return (
       <ScrollView style={styles.root}>
         <HomeButton title="Ui For Test" onPress={this.go2Uies}/>
+        <HomeButton title="First Page" onPress={this.go2First}/>
       </ScrollView>
     )
   }
 
   go2Uies = () => {
     this.props.navigation.navigate('UiesScreen')
+  }
+
+  go2First = ()=> {
+    this.props.navigation.navigate('FirstScreen')
   }
 }
 
