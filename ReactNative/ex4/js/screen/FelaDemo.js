@@ -12,6 +12,8 @@ const rules = StyleSheet.create({
 
 class FelaDemo extends Component {
   render() {
+    let tmp = this.props.renderer
+    console.log(`${JSON.stringify(tmp)}`)
     return (
       <View>
         <Text>FelaDemo Screen</Text>
