@@ -1,6 +1,6 @@
 import {takeEvery, call, put} from "redux-saga/effects";
 import {TRY_LOGIN, loginSucc} from "./actionSession";
-import {API_CHALLENGE1_PAGE1, API_FIRST_PAGE, API_ID_DAY1, API_ID_DAY2, API_ID_LOGIN} from './apiConstants'
+import {API_CHALLENGE1_PAGE1, API_FIRST_PAGE, API_ID_DAY1, API_ID_DAY2, API_ID_LOGIN} from '../core/apiConstants'
 import { gotDay1, TRY_SCHEDULE_DAY1 } from './actionSchedule'
 import {gotFirstPageInfo, TRY_FIRST_PAGE_INFO} from "./actionFirst";
 import {onGotChallenge1Page, TRY_CHALLENGE1_PAGE} from "./reduxChanllengeOne";

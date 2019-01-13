@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
-import DaySessionList from './DaySessionList'
+import DaySessionList from '../component/DaySessionList'
 import { ViewPager } from '../component/ViewPager'
 import { tryDay1 } from '../redux/actionSchedule'
 import TextIndicator from '../component/TextIndicator'
