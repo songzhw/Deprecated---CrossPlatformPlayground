@@ -24,7 +24,7 @@ const fetchSchedule = function* () {
   }
 }
 
-const fetchFirstPage = function* () {
+export const fetchFirstPage = function* () {
   try {
     const rawResp = yield call(doFetch, API_FIRST_PAGE)
     const resp = yield rawResp.json()
