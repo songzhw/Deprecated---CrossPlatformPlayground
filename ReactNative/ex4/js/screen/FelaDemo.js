@@ -1,46 +1,25 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {View, Text} from 'react-native'
-import {connect} from 'react-redux'
 import {StyleSheet} from 'fela-tools'
-import PropTypes from 'prop-types'
+import {FelaRenderer} from 'react-fela'
 
 const rules = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: 'red',
-    padding: 20
+    padding: 20,
   }
 })
 
-class FelaDemo extends Component {
-  render() {
-    let {renderer} = this.context
-    console.log(`felaDemo renderer = ${JSON.stringify(renderer)}`)
-    return (
-      <View>
-        <Text>FelaDemo Screen</Text>
-      </View>
-    )
-  }
-}
-
-FelaDemo.contextTypes = {renderer: PropTypes.object}
-
-const App = (_, {renderer}) => {
-  console.log(`App renderer1 = ${JSON.stringify(renderer)}`)
-  // console.log(`App renderer2 = ${JSON.stringify(this.props.context)}`)
-
+const FelaDemo = () => {
   return (
-    <View style={{padding: 25}}>
-      <Text> first line</Text>
-      <FelaDemo/>
-    </View>
+    <FelaRenderer>
+      {renderer => <Text style={renderer.renderRule(rules.root)}> 333 </Text>}
+    </FelaRenderer>
   )
 }
 
-App.contextTypes = {renderer: PropTypes.object}
-
-export default App
+export default FelaDemo
 
 
 // const mapStateToProps = (state) => {

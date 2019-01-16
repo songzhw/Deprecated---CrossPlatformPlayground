@@ -2976,7 +2976,7 @@ fbjs@0.8.17, fbjs@^0.8.0, fbjs@^0.8.4, fbjs@^0.8.9:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.18"
 
-fela-bindings@^10.0.1:
+fela-bindings@^10.1.1:
   version "10.1.1"
   resolved "https://registry.yarnpkg.com/fela-bindings/-/fela-bindings-10.1.1.tgz#8b90c15f98b4091400ec8b7b72dd7e9044704f32"
   integrity sha512-D4SP6evRkFxvc66ZRUUqZZo+iFOuZcVtfO3XuVipLwT7ZXoVDkapqVas38TFsUyQYgJNt8RViSFddBoSszitRA==
@@ -2987,7 +2987,7 @@ fela-bindings@^10.0.1:
     react-addons-shallow-compare "^15.6.2"
     shallow-equal "^1.0.0"
 
-fela-dom@^10.0.1, fela-dom@^10.1.1:
+fela-dom@^10.1.1:
   version "10.1.1"
   resolved "https://registry.yarnpkg.com/fela-dom/-/fela-dom-10.1.1.tgz#203824b57ae0239f28f87ef01e57dd2e51b800a3"
   integrity sha512-lKB3nSafHsOmn8eu7xMz94xM74jM2RT9xJjpc7kx3KkTs4JzEmiX62LOMDrKC6AsozSAGDQWtLbdnVOja1IJMA==
@@ -5863,13 +5863,13 @@ react-dom@^16.7.0:
     prop-types "^15.6.2"
     scheduler "^0.12.0"
 
-react-fela@10.0.1:
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/react-fela/-/react-fela-10.0.1.tgz#df2b25d1764c2f5d3f9fe4e91dd7e572e39cbe87"
-  integrity sha512-FYRpFWjTi4Zsbl/5qog5V+bUVpMrNvK69LR+1hG8b2TAAp53kFHeZbgifob46l//qaA4hFQZIFLGA2cvPZCKhw==
+react-fela@10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/react-fela/-/react-fela-10.1.1.tgz#d8fa9b9c81dc9552cc033997429d40635afeadf4"
+  integrity sha512-V1qAwixIC2TKU2nTrbocTjug77mSMr2WyZtIH2AjFqk+leqNLaKWgz/3YZgURAa29JgdslHbTkdUxFRcmuLbAw==
   dependencies:
-    fela-bindings "^10.0.1"
-    fela-dom "^10.0.1"
+    fela-bindings "^10.1.1"
+    fela-dom "^10.1.1"
     prop-types "^15.5.8"
 
 react-is@^16.3.2, react-is@^16.6.1, react-is@^16.6.3, react-is@^16.7.0:
