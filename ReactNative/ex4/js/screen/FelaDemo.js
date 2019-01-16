@@ -6,7 +6,8 @@ import {StyleSheet} from 'fela-tools'
 const rules = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: 'red'
+    backgroundColor: 'red',
+    padding: 20
   }
 })
 
@@ -15,16 +16,17 @@ class FelaDemo extends Component {
     let tmp = this.props.renderer
     console.log(`${JSON.stringify(tmp)}`)
     return (
-      <View>
+      <View style={rules.root}>
         <Text>FelaDemo Screen</Text>
       </View>
     )
   }
 }
 
+export default FelaDemo
 
-const mapStateToProps = (state) => {
-  return {}
-}
-
-export default connect(mapStateToProps)(FelaDemo)
+// const mapStateToProps = (state) => {
+//   return {}
+// }
+//
+// export default connect(mapStateToProps)(FelaDemo)
