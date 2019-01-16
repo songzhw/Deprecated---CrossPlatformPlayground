@@ -6,15 +6,26 @@ import {FelaRenderer} from 'react-fela'
 const rules = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: 'red',
-    padding: 20,
+    backgroundColor: '#ccc',
+  },
+  firstText: {
+    fontSize: 24
   }
 })
 
 const FelaDemo = () => {
+  let style = (renderer, styleItem) => {
+    return renderer.renderRule(styleItem)
+  }
+
   return (
     <FelaRenderer>
-      {renderer => <Text style={renderer.renderRule(rules.root)}> 333 </Text>}
+      {renderer =>
+        <View style={style(renderer, rules.root)}>
+          <Text style={style(renderer, rules.firstText)}> 333 </Text>
+        </View>
+      }
+
     </FelaRenderer>
   )
 }
