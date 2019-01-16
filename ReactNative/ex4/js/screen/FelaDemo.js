@@ -17,7 +17,7 @@ class FelaDemo extends Component {
     let {renderer} = this.context
     console.log(`felaDemo renderer = ${JSON.stringify(renderer)}`)
     return (
-      <View style={{padding: 20}}>
+      <View>
         <Text>FelaDemo Screen</Text>
       </View>
     )
@@ -27,9 +27,8 @@ class FelaDemo extends Component {
 FelaDemo.contextTypes = {renderer: PropTypes.object}
 
 const App = (_, {renderer}) => {
-  // let {renderer2} = this.context
   console.log(`App renderer1 = ${JSON.stringify(renderer)}`)
-  // console.log(`App renderer2 = ${JSON.stringify(renderer2)}`)
+  // console.log(`App renderer2 = ${JSON.stringify(this.props.context)}`)
 
   return (
     <View style={{padding: 25}}>
