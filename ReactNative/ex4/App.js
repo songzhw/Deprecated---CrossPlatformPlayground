@@ -16,14 +16,14 @@
 // )
 
 import React from 'react'
-import {Provider as FelaProvider} from 'react-fela'
+import {RendererProvider} from 'react-fela'
 import {createRenderer} from 'fela-native'
-import FelaDemo from "./js/screen/FelaDemo";
+import App from "./js/screen/FelaDemo";
 
 const render = createRenderer()
 
 export default () => (
-  <FelaProvider renderer={render}>
-    <FelaDemo/>
-  </FelaProvider>
+  <RendererProvider renderer={render}>
+    <App/>
+  </RendererProvider>
 )
