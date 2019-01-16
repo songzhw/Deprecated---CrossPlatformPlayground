@@ -21,20 +21,15 @@ const Mother = () => {
   return <Child/>;
 };
 
-// FamilyConsumer uses a render.prop to expose the context object to its children
-class Child extends FamilyConsumer {
-  render(){
-    console.log(`children = ${JSON.stringify(this.props)}`)
-  }
-}
-// const Child = () => {
-//   let text = (context) => `${context.firstName}_${context.lastName}`
-//   return (
-//     <FamilyConsumer>
-//       {context => <Text> {text(context)} </Text>}
-//     </FamilyConsumer>
-//   );
-// };
+// FamilyConsumer uses a render prop to expose the context object to its children
+const Child = () => {
+  let text = (context) => `${context.firstName}_${context.lastName}`
+  return (
+    <FamilyConsumer>
+      {context => <Text> {text(context)} </Text>}
+    </FamilyConsumer>
+  );
+};
 
 export default () => (
   <Grandmother/>
