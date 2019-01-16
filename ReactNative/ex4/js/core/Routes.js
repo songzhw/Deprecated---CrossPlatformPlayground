@@ -15,6 +15,7 @@ import ActionSheetDemo from "../screen/ActionSheetDemo";
 import GestureAnimScreen from "../screen/GestureAnimScreen";
 import DynamicTitleScreen from "../screen/navigation/DynamicTitleScreen";
 import FelaDemo from "../screen/FelaDemo";
+import ContextDemo from "../screen/ContextDemo";
 
 
 const HomeStack = createStackNavigator(
@@ -65,12 +66,12 @@ const HomeStack = createStackNavigator(
         const {navigation} = props
         const {params} = navigation.state
         return {
-          title: params.title? params.title : "Static Title",
+          title: params.title ? params.title : "Static Title",
           headerRight: (
             <Button
               title={params.mode === 'edit' ? "save" : "edit"}
-              onPress={()=> navigation.setParams({mode: params.mode === 'edit' ? "" : "edit"})}
-              />
+              onPress={() => navigation.setParams({mode: params.mode === 'edit' ? "" : "edit"})}
+            />
           )
         }
       }
@@ -78,7 +79,11 @@ const HomeStack = createStackNavigator(
     FelaDemo: {
       screen: FelaDemo,
       navigationOptions: {headerTitle: 'fela demo'}
-    }
+    },
+    ContextDemo: {
+      screen: ContextDemo,
+      navigationOptions: {headerTitle: 'new Context API'}
+    },
   },
   {
     headerMode: 'screen',
