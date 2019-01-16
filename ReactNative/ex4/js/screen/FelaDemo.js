@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {View, Text} from 'react-native'
 import {connect} from 'react-redux'
 import {StyleSheet} from 'fela-tools'
+import PropTypes from 'prop-types'
 
 const rules = StyleSheet.create({
   root: {
