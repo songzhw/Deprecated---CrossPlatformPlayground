@@ -4,13 +4,14 @@ import {FamilyConsumer, FamilyProvider} from "../core/context/FamilyContext";
 
 export class Grandmother extends React.Component {
   state = {
-    lastName: "Song"
+    lastName: "Galler",
+    firstName: "Ross"
   };
 
   render() {
     return (
       // We wrap all of the components that need access to the lastName property in FamilyProvider.
-      <FamilyProvider value={this.state.lastName}>
+      <FamilyProvider value={this.state}>
         <Mother/>
       </FamilyProvider>
     );
@@ -24,7 +25,11 @@ const Mother = () => {
 const Child = () => {
   // We wrap the component that actaully needs access to
   // the lastName property in FamilyConsumer
-  return <FamilyConsumer>{context => <Text>{context}</Text>}</FamilyConsumer>;
+  let text = (context) => `${context.firstName}_${context.lastName}`
+  return (
+    <FamilyConsumer>
+    {context => <Text> {text(context)} </Text>}
+  </FamilyConsumer>);
 };
 
 export default () => (
