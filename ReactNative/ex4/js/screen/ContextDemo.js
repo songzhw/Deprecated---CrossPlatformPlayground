@@ -10,7 +10,6 @@ export class Grandmother extends React.Component {
 
   render() {
     return (
-      // We wrap all of the components that need access to the lastName property in FamilyProvider.
       <FamilyProvider value={this.state}>
         <Mother/>
       </FamilyProvider>
@@ -22,15 +21,20 @@ const Mother = () => {
   return <Child/>;
 };
 
-const Child = () => {
-  // We wrap the component that actaully needs access to
-  // the lastName property in FamilyConsumer
-  let text = (context) => `${context.firstName}_${context.lastName}`
-  return (
-    <FamilyConsumer>
-    {context => <Text> {text(context)} </Text>}
-  </FamilyConsumer>);
-};
+// FamilyConsumer uses a render.prop to expose the context object to its children
+class Child extends FamilyConsumer {
+  render(){
+    console.log(`children = ${JSON.stringify(this.props)}`)
+  }
+}
+// const Child = () => {
+//   let text = (context) => `${context.firstName}_${context.lastName}`
+//   return (
+//     <FamilyConsumer>
+//       {context => <Text> {text(context)} </Text>}
+//     </FamilyConsumer>
+//   );
+// };
 
 export default () => (
   <Grandmother/>
