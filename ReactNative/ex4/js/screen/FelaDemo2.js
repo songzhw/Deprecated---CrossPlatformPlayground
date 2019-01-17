@@ -7,6 +7,7 @@ import React, {PureComponent, useContext} from 'react'
 import {View, Text, Button} from 'react-native'
 import {StyleSheet} from 'fela-tools'
 import {connect as connectFela, FelaRenderer, ThemeContext} from 'react-fela'
+import {connect as connectRedux} from "react-redux";
 
 const rules = StyleSheet.create({
   root: {
@@ -19,13 +20,14 @@ const rules = StyleSheet.create({
   }) // props只是名字, 其值也可以是component的state. 它其实来自于renderRule()的第二参.
 })
 
-class FelaDemo extends PureComponent {
+class FelaDemo2 extends PureComponent {
   state = {
     id: 100,
     num: 18
   }
 
   render() {
+    // this.props是 { navigation: {...}, styles: {..}, rules: {...} }
     console.log(`render1 = ${JSON.stringify(this.props)}`)
     return (
       <FelaRenderer>
@@ -47,12 +49,19 @@ class FelaDemo extends PureComponent {
 }
 
 // 参数是{ navigation: {...}, theme: {...} }
-const mapThemeToProps = ({theme}) => {
-  console.log(`map theme = ${JSON.stringify(theme)}`)
-  return {...theme}
+const mapThemeToProps = (top) => {
+  console.log(`map theme = ${JSON.stringify(top)}`)
+  return {...top.theme}
 }
 
-export default connectFela(mapThemeToProps)(FelaDemo)
+const mapStateToProps = (state) => {
+  return {
+  }
+}
+
+export default connectRedux(mapStateToProps)(
+  connectFela(mapThemeToProps)(FelaDemo2)
+)
 
 
 // const mapStateToProps = (state) => {

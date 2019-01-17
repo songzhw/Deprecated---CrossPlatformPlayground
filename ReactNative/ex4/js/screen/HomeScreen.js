@@ -20,7 +20,8 @@ class HomeScreen extends Component {
         <HomeButton title="Context Demo" onPress={this.go2ContextDemo}/>
         <View style={{height: 20}}/>
 
-        <HomeButton title="Fela Demo" onPress={this.go2FelaDemo}/>
+        <HomeButton title="Fela Demo 1" onPress={this.go2FelaDemo1}/>
+        <HomeButton title="Fela Demo 2" onPress={this.go2FelaDemo2}/>
 
       </ScrollView>
     )
@@ -29,8 +30,14 @@ class HomeScreen extends Component {
   go2ContextDemo = () => {
     this.props.navigation.navigate('ContextDemo')
   }
-  go2FelaDemo = () => {
-    this.props.navigation.navigate('FelaDemo')
+
+  go2FelaDemo1 = () => {
+    this.props.navigation.navigate('FelaDemo1')
+  }
+
+
+  go2FelaDemo2 = () => {
+    this.props.navigation.navigate('FelaDemo2')
   }
 
   go2CustomNav = () => {

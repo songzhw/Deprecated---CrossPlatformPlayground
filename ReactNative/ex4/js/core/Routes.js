@@ -14,8 +14,9 @@ import LoadingListScreen from "../screen/LoadingListScreen";
 import ActionSheetDemo from "../screen/ActionSheetDemo";
 import GestureAnimScreen from "../screen/GestureAnimScreen";
 import DynamicTitleScreen from "../screen/navigation/DynamicTitleScreen";
-import FelaDemo from "../screen/FelaDemo";
+import FelaDemo2 from "../screen/FelaDemo2";
 import ContextDemo from "../screen/ContextDemo";
+import FelaDemo1 from "../screen/navigation/FelaDemo1";
 
 
 const HomeStack = createStackNavigator(
@@ -76,9 +77,13 @@ const HomeStack = createStackNavigator(
         }
       }
     },
-    FelaDemo: {
-      screen: FelaDemo,
-      navigationOptions: {headerTitle: 'fela demo'}
+    FelaDemo1: {
+      screen: FelaDemo1,
+      navigationOptions: {headerTitle: 'fela demo 1'}
+    },
+    FelaDemo2: {
+      screen: FelaDemo2,
+      navigationOptions: {headerTitle: 'fela demo 2'}
     },
     ContextDemo: {
       screen: ContextDemo,
