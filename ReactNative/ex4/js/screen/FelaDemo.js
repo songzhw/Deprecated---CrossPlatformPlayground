@@ -11,7 +11,7 @@ import {connect as connectFela, FelaRenderer, ThemeContext} from 'react-fela'
 const rules = StyleSheet.create({
   root: {
     flex: 1,
-    // backgroundColor: '#ccc',
+    backgroundColor: '#ccc',
   },
   size: props => ({
     color: 'blue',
@@ -27,10 +27,6 @@ class FelaDemo extends PureComponent {
 
   render() {
     console.log(`render1 = ${JSON.stringify(this.props)}`)
-
-    let theme = useContext(ThemeContext)
-    console.log(`render2 = ${JSON.stringify(theme)}`)
-
     return (
       <FelaRenderer>
         {renderer =>
@@ -54,7 +50,6 @@ class FelaDemo extends PureComponent {
 const mapThemeToProps = ({theme}) => {
   console.log(`map theme = ${JSON.stringify(theme)}`)
   return {...theme}
-  // return {}
 }
 
 export default connectFela(mapThemeToProps)(FelaDemo)
