@@ -1,5 +1,5 @@
-import React from 'react'
-import {View, Text} from 'react-native'
+import React, {PureComponent} from 'react'
+import {View, Text, Button} from 'react-native'
 import {StyleSheet} from 'fela-tools'
 import {FelaRenderer} from 'react-fela'
 
@@ -13,21 +13,24 @@ const rules = StyleSheet.create({
   }
 })
 
-const FelaDemo = () => {
-  let style = (renderer, styleItem) => {
-    return renderer.renderRule(styleItem)
+class FelaDemo extends PureComponent {
+
+  render() {
+    let style = (renderer, styleItem) => {
+      return renderer.renderRule(styleItem)
+    }
+
+    return (
+      <FelaRenderer>
+        {renderer =>
+          <View style={style(renderer, rules.root)}>
+            <Text style={style(renderer, rules.firstText)}> {this.state.num} </Text>
+          </View>
+        }
+      </FelaRenderer>
+    )
   }
 
-  return (
-    <FelaRenderer>
-      {renderer =>
-        <View style={style(renderer, rules.root)}>
-          <Text style={style(renderer, rules.firstText)}> 333 </Text>
-        </View>
-      }
-
-    </FelaRenderer>
-  )
 }
 
 export default FelaDemo
