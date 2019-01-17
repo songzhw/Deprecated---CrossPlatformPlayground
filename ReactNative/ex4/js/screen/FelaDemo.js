@@ -8,29 +8,32 @@ const rules = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ccc',
   },
-  firstText: {
-    fontSize: 24
+  size: props => {
+    fontSize: props.num
   }
 })
 
 class FelaDemo extends PureComponent {
+  state = {
+    num: 18
+  }
 
   render() {
-    let style = (renderer, styleItem) => {
-      return renderer.renderRule(styleItem)
-    }
-
     return (
       <FelaRenderer>
         {renderer =>
-          <View style={style(renderer, rules.root)}>
-            <Text style={style(renderer, rules.firstText)}> {this.state.num} </Text>
+          <View style={renderer.renderRule(rules.root)}>
+            <Text style={renderer.renderRule(rules.size)}> {this.state.num} </Text>
+            <Button title="+ 1" onPress={this.onPlusOne}/>
           </View>
         }
       </FelaRenderer>
     )
   }
 
+  onPlusOne = () => {
+    this.setState({num: this.state.num + 1})
+  }
 }
 
 export default FelaDemo
