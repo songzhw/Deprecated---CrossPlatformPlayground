@@ -26,6 +26,7 @@ class FelaDemo extends PureComponent {
   }
 
   render() {
+    console.log(`render = ${JSON.stringify(this.props.theme)}`)
     return (
       <FelaRenderer>
         {renderer =>
@@ -43,9 +44,11 @@ class FelaDemo extends PureComponent {
   }
 }
 
+// 参数是{ navigation: {...}, theme: {...} }
 const mapThemeToProps = ({theme}) => {
-    console.log(`map theme = ${JSON.stringify(theme)}`)
-    return {...theme}
+  console.log(`map theme = ${JSON.stringify(theme)}`)
+  // return {...theme}  TODO
+  return {}
 }
 
 export default connectFela(mapThemeToProps)(FelaDemo)
