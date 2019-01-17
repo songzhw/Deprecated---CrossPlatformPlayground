@@ -3,10 +3,10 @@ The most simple Fela demo for React Native
 ( App.js also use <RendererProvider> )
  */
 
-import React, {PureComponent} from 'react'
+import React, {PureComponent, useContext} from 'react'
 import {View, Text, Button} from 'react-native'
 import {StyleSheet} from 'fela-tools'
-import {connect as connectFela, FelaRenderer} from 'react-fela'
+import {connect as connectFela, FelaRenderer, ThemeContext} from 'react-fela'
 
 const rules = StyleSheet.create({
   root: {
@@ -26,7 +26,11 @@ class FelaDemo extends PureComponent {
   }
 
   render() {
-    console.log(`render = ${JSON.stringify(this.props)}`)
+    console.log(`render1 = ${JSON.stringify(this.props)}`)
+
+    let theme = useContext(ThemeContext)
+    console.log(`render2 = ${JSON.stringify(theme)}`)
+
     return (
       <FelaRenderer>
         {renderer =>
