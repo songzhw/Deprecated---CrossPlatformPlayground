@@ -1,3 +1,8 @@
+/*
+The most simple Fela demo for React Native
+( App.js also use <RendererProvider> )
+ */
+
 import React, {PureComponent} from 'react'
 import {View, Text, Button} from 'react-native'
 import {StyleSheet} from 'fela-tools'
@@ -9,8 +14,9 @@ const rules = StyleSheet.create({
     backgroundColor: '#ccc',
   },
   size: props => ({
+    color: 'blue',
     fontSize: props.num
-  })
+  }) // props只是名字, 其值也可以是component的state. 它其实来自于renderRule()的第二参.
 })
 
 class FelaDemo extends PureComponent {

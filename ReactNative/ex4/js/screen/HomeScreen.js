@@ -9,14 +9,19 @@ class HomeScreen extends Component {
         <HomeButton title="Login" onPress={this.go2Login}/>
         <HomeButton title="Schedule" onPress={this.go2Schedule}/>
         <HomeButton title="First Page" onPress={this.go2FirstPage}/>
-        <HomeButton title="Refresh + Load More" onPress={this.go2LoadingList}/>
-        <HomeButton title="setState() pitfall" onPress={this.go2pitfall1}/>
         <HomeButton title="Challenge One" onPress={this.go2Challenge1}/>
         <HomeButton title="Action Sheet" onPress={this.go2ActionSheet}/>
+        <View style={{height: 20}}/>
+
+        <HomeButton title="Refresh + Load More" onPress={this.go2LoadingList}/>
+        <HomeButton title="setState() pitfall" onPress={this.go2pitfall1}/>
         <HomeButton title="Gesture + Animation" onPress={this.go2GestureAnim}/>
         <HomeButton title="Custom Navigation" onPress={this.go2CustomNav}/>
-        <HomeButton title="Fela Demo" onPress={this.go2FelaDemo}/>
         <HomeButton title="Context Demo" onPress={this.go2ContextDemo}/>
+        <View style={{height: 20}}/>
+
+        <HomeButton title="Fela Demo" onPress={this.go2FelaDemo}/>
+
       </ScrollView>
     )
   }
