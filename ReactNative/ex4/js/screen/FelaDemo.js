@@ -8,13 +8,14 @@ const rules = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ccc',
   },
-  size: props => {
+  size: props => ({
     fontSize: props.num
-  }
+  })
 })
 
 class FelaDemo extends PureComponent {
   state = {
+    id: 100,
     num: 18
   }
 
@@ -32,7 +33,7 @@ class FelaDemo extends PureComponent {
   }
 
   onPlusOne = () => {
-    this.setState({num: this.state.num + 1})
+    this.setState({num: this.state.num + 3})
   }
 }
 
