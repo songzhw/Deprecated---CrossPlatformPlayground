@@ -1,8 +1,9 @@
 // =========== 1. ex4 ===========
 import React from 'react'
 import {Provider as ReduxProvider} from 'react-redux'
-import {RendererProvider as FelaProvider} from 'react-fela'
+import {RendererProvider as FelaProvider, ThemeProvider} from 'react-fela'
 import {createRenderer} from 'fela-native'
+import {SixTheme} from "./js/theme/SixTheme";
 import Routes from './js/core/Routes'
 import store from './js/redux/store'
 
@@ -10,9 +11,11 @@ const renderer = createRenderer()
 
 export default () => (
   <FelaProvider renderer={renderer}>
-    <ReduxProvider store={store}>
-      <Routes/>
-    </ReduxProvider>
+    <ThemeProvider theme={SixTheme}>
+      <ReduxProvider store={store}>
+        <Routes/>
+      </ReduxProvider>
+    </ThemeProvider>
   </FelaProvider>
 )
 

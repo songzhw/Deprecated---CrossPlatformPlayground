@@ -6,12 +6,12 @@ The most simple Fela demo for React Native
 import React, {PureComponent} from 'react'
 import {View, Text, Button} from 'react-native'
 import {StyleSheet} from 'fela-tools'
-import {FelaRenderer} from 'react-fela'
+import {connect as connectFela, FelaRenderer} from 'react-fela'
 
 const rules = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#ccc',
+    // backgroundColor: '#ccc',
   },
   size: props => ({
     color: 'blue',
@@ -43,7 +43,12 @@ class FelaDemo extends PureComponent {
   }
 }
 
-export default FelaDemo
+const mapThemeToProps = ({theme}) => {
+    console.log(`map theme = ${JSON.stringify(theme)}`)
+    return {...theme}
+}
+
+export default connectFela(mapThemeToProps)(FelaDemo)
 
 
 // const mapStateToProps = (state) => {
