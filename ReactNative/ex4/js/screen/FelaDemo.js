@@ -24,7 +24,7 @@ class FelaDemo extends PureComponent {
       <FelaRenderer>
         {renderer =>
           <View style={renderer.renderRule(rules.root)}>
-            <Text style={renderer.renderRule(rules.size)}> {this.state.num} </Text>
+            <Text style={renderer.renderRule(rules.size, {num: this.state.num})}> {this.state.num} </Text>
             <Button title="+ 1" onPress={this.onPlusOne}/>
           </View>
         }
