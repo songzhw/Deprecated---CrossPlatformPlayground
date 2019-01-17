@@ -26,12 +26,14 @@ class FelaDemo extends PureComponent {
   }
 
   render() {
-    console.log(`render = ${JSON.stringify(this.props.theme)}`)
+    console.log(`render = ${JSON.stringify(this.props)}`)
     return (
       <FelaRenderer>
         {renderer =>
           <View style={renderer.renderRule(rules.root)}>
-            <Text style={renderer.renderRule(rules.size, {num: this.state.num})}> {this.state.num} </Text>
+            <Text style={[renderer.renderRule(rules.size, {num: this.state.num}), this.props.styles.basicText]}>
+              {this.state.num}
+            </Text>
             <Button title="+ 1" onPress={this.onPlusOne}/>
           </View>
         }
@@ -40,15 +42,15 @@ class FelaDemo extends PureComponent {
   }
 
   onPlusOne = () => {
-    this.setState({num: this.state.num + 3})
+    this.setState({num: this.state.num + 6})
   }
 }
 
 // 参数是{ navigation: {...}, theme: {...} }
 const mapThemeToProps = ({theme}) => {
   console.log(`map theme = ${JSON.stringify(theme)}`)
-  // return {...theme}  TODO
-  return {}
+  return {...theme}
+  // return {}
 }
 
 export default connectFela(mapThemeToProps)(FelaDemo)
