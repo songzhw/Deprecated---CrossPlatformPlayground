@@ -1,4 +1,6 @@
 export const SixTheme = {
-  fontSize: 18,
-  backgroundColor: 'red',
+  basicText: {
+    fontSize: 18,
+    backgroundColor: 'red',
+  }
 }
