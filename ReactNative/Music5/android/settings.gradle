@@ -1,0 +1,3 @@
+rootProject.name = 'Music5'
+
+include ':app'
