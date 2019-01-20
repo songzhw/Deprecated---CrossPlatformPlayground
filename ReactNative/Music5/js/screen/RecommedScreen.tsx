@@ -25,13 +25,17 @@ class RecommedScreen extends Component<Props> {
   }
 
   render() {
-    // let third = this.props.banners[2]
-    // let src = {uri: third.img}
+    let {banners} = this.props
+    let src = {}
+    if(banners !== undefined){
+      let imgUrl = banners[0].img
+      src = {uri: imgUrl}
+    }
     console.log(`szw props = ${JSON.stringify(this.props)}`)
     return (
       <View style={styles.root}>
         <Text>RecommedHome Screen</Text>
-        <Image source={{uri: "https://i.ytimg.com/vi/QL3T2Nzcqcs/maxresdefault.jpg"}} style={{height: 300}} />
+        <Image source={src} style={{height: 300}} />
       </View>
     )
   }
