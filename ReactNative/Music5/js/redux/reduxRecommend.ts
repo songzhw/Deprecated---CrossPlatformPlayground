@@ -13,7 +13,7 @@ const initState = {
   payload: {},
 }
 
-export default (state = initState, action: IActionOnFetch) => {
+export default (state = initState, action: IAction) => {
   switch (action.type) {
     case ON_GET_RECOMMEND_HOME:
       let {payload} = action
@@ -23,9 +23,9 @@ export default (state = initState, action: IActionOnFetch) => {
   }
 }
 
-export interface IActionOnFetch {
+export interface IAction {
   type: string,
-  payload: any
+  payload?: any
 }
 
 export interface IRecommendResponse {
