@@ -1,22 +1,31 @@
-import React, { Component } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import React, {Component, PureComponent} from 'react'
+import {View, StyleSheet, Text, Image} from 'react-native'
 import {connect} from 'react-redux'
-import {fetchRecomendHome} from "../redux/reduxRecommend";
+import reduxRecommend, {fetchRecomendHome, IRecommendResponse} from "../redux/reduxRecommend";
 import {IReduxProps} from "../redux/CoreProps";
 import {IReduxState} from "../redux/store";
 
-interface Props extends IReduxProps{}
+interface Props extends IReduxProps, IRecommendResponse {
+}
 
-class RecommedScreen extends Component<Props>{
+class RecommedScreen extends Component<Props> {
 
   componentWillMount() {
     this.props.dispatch(fetchRecomendHome())
   }
 
-  render(){
+  componentWillReceiveProps(nextProps: Readonly<Props>, nextContext: any): void {
+    console.log(`szw update1 : ${JSON.stringify(nextProps)}`)
+  }
+
+  render() {
+    // let third = this.props.banners[2]
+    // let src = {uri: third.img}
+    console.log(`szw props = ${JSON.stringify(this.props)}\n`)
     return (
       <View style={styles.root}>
         <Text>RecommedHome Screen</Text>
+        <Image source={{uri: "https://i.ytimg.com/vi/QL3T2Nzcqcs/maxresdefault.jpg"}} style={{height: 300}} />
       </View>
     )
   }
@@ -30,9 +39,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: IReduxState) => {
   console.log(`szw map state = ${JSON.stringify(state)}`)
-  return {
-
-  }
+  let ret = {}
+  Object.assign(ret, state.responseRecommend)
+  return ret
 }
 
 export default connect(mapStateToProps)(RecommedScreen)
