@@ -1,5 +1,6 @@
 import React from 'react'
 import {View, StyleSheet, Text, Image, Slider} from 'react-native'
+import PlayButton from "./PlayButton";
 
 class PlayController extends React.Component {
   state = {}
@@ -9,12 +10,25 @@ class PlayController extends React.Component {
       <View style={styles.root}>
         <Slider style={styles.slider}/>
         <View style={styles.layoutButtons}>
-          <Image style={styles.button} source={require('../../assets/icon_prev.png')} resizeMode='center'/>
+          <PlayButton onPress={this.onPressPrevious} url={require('../../assets/icon_prev.png')} style={[styles.button,{backgroundColor: 'red'}]}/>
+          <Image style={[styles.button,{backgroundColor: 'blue'}]} source={require('../../assets/icon_prev.png')} resizeMode='center'/>
           <Image style={styles.button} source={require('../../assets/icon_play.png')} resizeMode='center'/>
           <Image style={styles.button} source={require('../../assets/icon_next.png')} resizeMode='center'/>
         </View>
       </View>
     )
+  }
+
+  onPressPrevious = () => {
+
+  }
+
+  onPressNext = () => {
+
+  }
+
+  onTogglePlayPause = () => {
+
   }
 }
 
@@ -30,7 +44,6 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    width: 40,
     height: 40
   }
 })
