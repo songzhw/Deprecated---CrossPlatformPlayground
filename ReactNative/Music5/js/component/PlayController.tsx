@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, StyleSheet, Text, Image, Slider} from 'react-native'
 import PlayButton from "./PlayButton";
-import Video from "react-native-video";
+import Video, {OnLoadData} from "react-native-video";
 
 class PlayController extends React.Component {
   iconPause = require('../../assets/icon_pause.png')
@@ -10,26 +10,59 @@ class PlayController extends React.Component {
 
   state = {
     isPaused: true,
-    iconPlayPause: this.iconPlay
+    iconPlayPause: this.iconPlay,
+    duration: 0,
+    progress: 0
   }
 
 
   render() {
     return (
       <View style={styles.root}>
-        <Slider style={styles.slider}/>
+        <Slider style={styles.slider}
+          minimumValue={0}
+          maximumValue={this.state.duration}
+          value={this.state.progress}
+        />
         <View style={styles.layoutButtons}>
           <PlayButton onPress={this.onPressPrevious} url={require('../../assets/icon_prev.png')} style={styles.button}/>
           <PlayButton onPress={this.onTogglePlayPause} url={this.state.iconPlayPause} style={styles.button}/>
           <PlayButton onPress={this.onPressNext} url={require('../../assets/icon_next.png')} style={styles.button}/>
         </View>
 
-        <Video source={{uri: this.audioUrl}}
-               paused={this.state.isPaused}
-
+        <Video
+          source={{uri: this.audioUrl}}
+          paused={this.state.isPaused}
+          onLoad={this.onLoaded}
+          progressUpdateInterval={1000.0}
+          onProgress={this.onProgress}
         />
       </View>
     )
+  }
+
+  /*
+  {"canStepForward":true,
+  "duration":62.511,
+  "canPlaySlowReverse":true,
+  "naturalSize":{"orientation":"portrait","height":0,"width":0},
+  "textTracks":[],
+  "canPlayFastForward":true,
+  "canPlaySlowForward":true,
+  "currentTime":0,
+  "audioTracks":[{"language":"","title":"","type":"audio/mpeg","index":0}],
+  "canPlayReverse":true,
+  "canStepBackward":true}
+   */
+  onLoaded = (arg: OnLoadData) => {
+    console.log(`szw onLoaded = ${JSON.stringify(arg)}`)
+    this.setState({...this.state, duration: arg.duration})
+  }
+
+  // arg is {"seekableDuration":62.511,"playableDuration":62.511,"currentTime":0.875}
+  onProgress = ({currentTime} : {currentTime: number}) => {
+    console.log(`szw onProgress = ${JSON.stringify(currentTime)}`)
+    this.setState({...this.state, progress: currentTime})
   }
 
   onPressPrevious = () => {
