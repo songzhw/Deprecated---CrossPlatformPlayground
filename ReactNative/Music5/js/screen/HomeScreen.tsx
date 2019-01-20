@@ -22,7 +22,7 @@ const HomeScreen = createBottomTabNavigator(
         let iconSetting = require('../../assets/icon_settings.png');
         let icon = routeName === 'Recommend' ? iconRecommend : iconSetting;
         return <Image source={icon} style={{width: 25, height: 25}}/>
-      }
+      },
     })
   }
 )

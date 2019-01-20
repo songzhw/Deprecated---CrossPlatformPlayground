@@ -24,5 +24,4 @@ const mapStateToProps = (state: any) => {
   }
 }
 
-export default RecommedScreen
-// export default connect(mapStateToProps)(RecommedScreen)
+export default connect(mapStateToProps)(RecommedScreen)
