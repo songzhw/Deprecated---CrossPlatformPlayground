@@ -3,6 +3,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import HomeScreen from "./js/screen/HomeScreen";
 import {Provider as ReduxProvider} from 'react-redux'
 import store from './js/redux/store'
+import Routes from './js/core/routes'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,7 +19,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <ReduxProvider store={store}>
-        <HomeScreen/>
+        <Routes/>
       </ReduxProvider>
     );
   }

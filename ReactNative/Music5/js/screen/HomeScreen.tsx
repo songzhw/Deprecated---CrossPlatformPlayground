@@ -27,4 +27,4 @@ const HomeScreen = createBottomTabNavigator(
   }
 )
 
-export default createAppContainer(HomeScreen)
+export default HomeScreen
