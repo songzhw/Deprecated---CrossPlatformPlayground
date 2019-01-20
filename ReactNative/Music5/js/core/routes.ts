@@ -1,4 +1,4 @@
-import {createAppContainer, createStackNavigator, NavigationScreenProp} from 'react-navigation'
+import {createStackNavigator, NavigationScreenProp} from 'react-navigation'
 import HomeScreen from "../screen/HomeScreen";
 import PlayScreen from "../screen/PlayScreen";
 
@@ -18,4 +18,4 @@ const HomeStack = createStackNavigator(
   }
 )
 
-export default createAppContainer(HomeStack)
+export default HomeStack

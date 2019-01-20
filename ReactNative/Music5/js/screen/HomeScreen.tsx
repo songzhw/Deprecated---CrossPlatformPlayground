@@ -1,5 +1,5 @@
 import React from 'react'
-import {createAppContainer, createBottomTabNavigator} from "react-navigation";
+import {createBottomTabNavigator} from "react-navigation";
 import RecommedScreen from "./RecommedScreen";
 import SettingScreen from "./SettingScreen";
 import {Image} from "react-native";
@@ -11,17 +11,19 @@ const HomeScreen = createBottomTabNavigator(
     Setting: SettingScreen
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
-      tabBarOptions: {
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray'
-      },
-      tabBarIcon: ({focused, horizontal, tintColor}) => {
+    navigationOptions: ({navigation}) => ({
+      tabBarIcon: ({focused, tintColor}) => {
+        console.log(`szw tint = ${tintColor}`)
         const {routeName} = navigation.state;
         let iconRecommend = require('../../assets/icon_music.png');
         let iconSetting = require('../../assets/icon_settings.png');
         let icon = routeName === 'Recommend' ? iconRecommend : iconSetting;
-        return <Image source={icon} style={{width: 25, height: 25}}/>
+        let tint = focused ? 'tomato' : 'gray';
+        return <Image source={icon} tintColor={tint} style={{width: 25, height: 25}}/>
+      },
+      tabBarOptions: {
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray'
       },
     })
   }
