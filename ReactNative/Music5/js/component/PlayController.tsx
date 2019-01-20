@@ -10,10 +10,9 @@ class PlayController extends React.Component {
       <View style={styles.root}>
         <Slider style={styles.slider}/>
         <View style={styles.layoutButtons}>
-          <PlayButton onPress={this.onPressPrevious} url={require('../../assets/icon_prev.png')} style={[styles.button,{backgroundColor: 'red'}]}/>
-          <Image style={[styles.button,{backgroundColor: 'blue'}]} source={require('../../assets/icon_prev.png')} resizeMode='center'/>
-          <Image style={styles.button} source={require('../../assets/icon_play.png')} resizeMode='center'/>
-          <Image style={styles.button} source={require('../../assets/icon_next.png')} resizeMode='center'/>
+          <PlayButton onPress={this.onPressPrevious} url={require('../../assets/icon_prev.png')} style={styles.button}/>
+          <PlayButton onPress={this.onTogglePlayPause} url={require('../../assets/icon_play.png')} style={styles.button}/>
+          <PlayButton onPress={this.onPressNext} url={require('../../assets/icon_next.png')} style={styles.button}/>
         </View>
       </View>
     )
@@ -44,7 +43,6 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    height: 40
   }
 })
 
