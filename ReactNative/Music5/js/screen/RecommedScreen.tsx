@@ -1,9 +1,10 @@
 import React, {Component, PureComponent} from 'react'
 import {View, StyleSheet, Text, Image} from 'react-native'
 import {connect} from 'react-redux'
-import reduxRecommend, {fetchRecomendHome, IRecommendResponse} from "../redux/reduxRecommend";
+import {fetchRecomendHome, IRecommendResponse} from "../redux/reduxRecommend";
 import {IReduxProps} from "../redux/CoreProps";
 import {IReduxState} from "../redux/store";
+import reducerRecommend from "../redux/reduxRecommend";
 
 interface Props extends IReduxProps, IRecommendResponse {
 }
@@ -26,7 +27,7 @@ class RecommedScreen extends Component<Props> {
   render() {
     // let third = this.props.banners[2]
     // let src = {uri: third.img}
-    console.log(`szw props = ${JSON.stringify(this.props)}\n`)
+    console.log(`szw props = ${JSON.stringify(this.props)}`)
     return (
       <View style={styles.root}>
         <Text>RecommedHome Screen</Text>
@@ -43,8 +44,8 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state: IReduxState) => {
-  console.log(`szw map state = ${JSON.stringify(state)}`)
-  return {...state.responseRecommend}
+  console.log(`szw map state = ${JSON.stringify(state.reducerRecommend)}`)
+  return {...state.reducerRecommend}
 }
 
 export default connect(mapStateToProps)(RecommedScreen)

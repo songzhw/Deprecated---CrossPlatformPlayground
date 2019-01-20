@@ -18,6 +18,6 @@ sagaMiddleware.run(saga);
 export default store
 
 export interface IReduxState {
-  responseRecommend: IRecommendResponse,
+  reducerRecommend: IRecommendResponse,
   reducerPlay: any
 }
