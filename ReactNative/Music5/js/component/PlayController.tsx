@@ -1,9 +1,12 @@
 import React from 'react'
 import {View, StyleSheet, Text, Image, Slider} from 'react-native'
 import PlayButton from "./PlayButton";
+import Video from "react-native-video";
 
 class PlayController extends React.Component {
-  state = {}
+  state = {
+    isPaused : true
+  }
   audioUrl = 'https://s0.vocaroo.com/media/download_temp/Vocaroo_s08Sc4aN9zAv.mp3'
 
   render() {
@@ -15,6 +18,11 @@ class PlayController extends React.Component {
           <PlayButton onPress={this.onTogglePlayPause} url={require('../../assets/icon_play.png')} style={styles.button}/>
           <PlayButton onPress={this.onPressNext} url={require('../../assets/icon_next.png')} style={styles.button}/>
         </View>
+
+        <Video source={{uri: this.audioUrl}}
+               paused={this.state.isPaused}
+
+        />
       </View>
     )
   }
@@ -28,7 +36,8 @@ class PlayController extends React.Component {
   }
 
   onTogglePlayPause = () => {
-
+    let {isPaused} = this.state
+    this.setState({...this.state, isPaused: !isPaused})
   }
 }
 
