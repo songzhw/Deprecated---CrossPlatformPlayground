@@ -17,9 +17,11 @@ class PlayScreen extends Component<Props>{
   render(){
     const {navigation} = this.props;
     let coverUrl = navigation.getParam('url')
+    let title = navigation.getParam('title')
     return (
       <View style={styles.root}>
         <Image source={{uri: coverUrl}} style={styles.cover} resizeMode="cover"/>
+        <Text style={styles.title}> {title} </Text>
         <PlayController/>
       </View>
     )
@@ -35,6 +37,12 @@ const styles = StyleSheet.create({
     width: 202,
     height: 202,
     marginTop: 20
+  },
+  title: {
+    marginTop: 45,
+    fontSize: 30,
+    textAlign: 'center',
+    color: '#1e1e1e'
   }
 })
 

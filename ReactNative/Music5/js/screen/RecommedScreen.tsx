@@ -17,25 +17,28 @@ class RecommedScreen extends PureComponent<Props> {
   render() {
     let {banners} = this.props
     let url = ''
+    let title = ''
     let src = {}
     if (banners !== undefined) {
       url = banners[0].img
+      title = banners[0].title
       src = {uri: url}
     }
     console.log(`szw props = ${JSON.stringify(this.props)}`)
     return (
       <View style={styles.root}>
         <Text>RecommedHome Screen</Text>
-        <TouchableOpacity onPress={() => this.navPlay(url)}>
+        <TouchableOpacity onPress={() => this.navPlay(url, title)}>
           <Image source={src} style={{height: 202}} resizeMode="contain"/>
         </TouchableOpacity>
       </View>
     )
   }
 
-  navPlay = (url: string)=> {
+  navPlay = (url: string, title: string)=> {
     console.log(`szw click !`)
-    this.props.navigation.navigate('PlayScreen', {url: url})
+    this.props.navigation.navigate('PlayScreen',
+      {url: url, title: title})
   }
 }
 
