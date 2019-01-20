@@ -4,10 +4,15 @@ import PlayButton from "./PlayButton";
 import Video from "react-native-video";
 
 class PlayController extends React.Component {
-  state = {
-    isPaused : true
-  }
+  iconPause = require('../../assets/icon_pause.png')
+  iconPlay = require('../../assets/icon_play.png')
   audioUrl = 'https://s0.vocaroo.com/media/download_temp/Vocaroo_s08Sc4aN9zAv.mp3'
+
+  state = {
+    isPaused: true,
+    iconPlayPause: this.iconPlay
+  }
+
 
   render() {
     return (
@@ -15,7 +20,7 @@ class PlayController extends React.Component {
         <Slider style={styles.slider}/>
         <View style={styles.layoutButtons}>
           <PlayButton onPress={this.onPressPrevious} url={require('../../assets/icon_prev.png')} style={styles.button}/>
-          <PlayButton onPress={this.onTogglePlayPause} url={require('../../assets/icon_play.png')} style={styles.button}/>
+          <PlayButton onPress={this.onTogglePlayPause} url={this.state.iconPlayPause} style={styles.button}/>
           <PlayButton onPress={this.onPressNext} url={require('../../assets/icon_next.png')} style={styles.button}/>
         </View>
 
@@ -34,10 +39,12 @@ class PlayController extends React.Component {
   onPressNext = () => {
 
   }
-
+  // first : paused = true, show play icon
+  // click: paused = false, should show pause icon
   onTogglePlayPause = () => {
     let {isPaused} = this.state
-    this.setState({...this.state, isPaused: !isPaused})
+    let icon = isPaused ? this.iconPause : this.iconPlay
+    this.setState({...this.state, isPaused: !isPaused, iconPlayPause: icon})
   }
 }
 
