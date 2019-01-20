@@ -18,6 +18,11 @@ class RecommedScreen extends Component<Props> {
     console.log(`szw update1 : ${JSON.stringify(nextProps)}`)
   }
 
+  shouldComponentUpdate(nextProps: Readonly<Props>, nextState: Readonly<{}>, nextContext: any): boolean {
+    console.log(`szw update2`)
+    return true
+  }
+
   render() {
     // let third = this.props.banners[2]
     // let src = {uri: third.img}
@@ -39,9 +44,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: IReduxState) => {
   console.log(`szw map state = ${JSON.stringify(state)}`)
-  let ret = {}
-  Object.assign(ret, state.responseRecommend)
-  return ret
+  return {...state.responseRecommend}
 }
 
 export default connect(mapStateToProps)(RecommedScreen)

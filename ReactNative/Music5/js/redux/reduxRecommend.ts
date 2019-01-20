@@ -17,7 +17,7 @@ export default (state = initState, action: IAction) => {
   switch (action.type) {
     case ON_GET_RECOMMEND_HOME:
       let {payload} = action
-      return payload
+      return {payload: {...payload}}
     default:
       return state
   }
