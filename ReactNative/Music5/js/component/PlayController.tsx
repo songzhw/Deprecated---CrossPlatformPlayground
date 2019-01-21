@@ -14,6 +14,7 @@ class PlayController extends React.Component {
     duration: 0,
     progress: 0
   }
+  private player: Video | null = null;
 
 
   render() {
@@ -33,6 +34,7 @@ class PlayController extends React.Component {
         </View>
 
         <Video
+          ref={ref => this.player = ref}
           source={{uri: this.audioUrl}}
           paused={this.state.isPaused}
           onLoad={this.onLoaded}
