@@ -19,10 +19,12 @@ class PlayController extends React.Component {
   render() {
     return (
       <View style={styles.root}>
-        <Slider style={styles.slider}
+        <Slider
+          style={styles.slider}
           minimumValue={0}
           maximumValue={this.state.duration}
           value={this.state.progress}
+          onValueChange={this.onValueChange}
         />
         <View style={styles.layoutButtons}>
           <PlayButton onPress={this.onPressPrevious} url={require('../../assets/icon_prev.png')} style={styles.button}/>
@@ -41,6 +43,10 @@ class PlayController extends React.Component {
     )
   }
 
+  onValueChange = (value: number) => {
+    console.log(`szw onValueChange() : ${value}`)
+  }
+
   /*
   {"canStepForward":true,
   "duration":62.511,
@@ -55,13 +61,13 @@ class PlayController extends React.Component {
   "canStepBackward":true}
    */
   onLoaded = (arg: OnLoadData) => {
-    console.log(`szw onLoaded = ${JSON.stringify(arg)}`)
+    // console.log(`szw onLoaded = ${JSON.stringify(arg)}`)
     this.setState({...this.state, duration: arg.duration})
   }
 
   // arg is {"seekableDuration":62.511,"playableDuration":62.511,"currentTime":0.875}
-  onProgress = ({currentTime} : {currentTime: number}) => {
-    console.log(`szw onProgress = ${JSON.stringify(currentTime)}`)
+  onProgress = ({currentTime}: { currentTime: number }) => {
+    // console.log(`szw onProgress = ${JSON.stringify(currentTime)}`)
     this.setState({...this.state, progress: currentTime})
   }
 
