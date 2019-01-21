@@ -25,7 +25,7 @@ class PlayController extends React.Component {
           minimumValue={0}
           maximumValue={this.state.duration}
           value={this.state.progress}
-          onValueChange={this.onValueChange}
+          onValueChange={this.onDragSlider}
         />
         <View style={styles.layoutButtons}>
           <PlayButton onPress={this.onPressPrevious} url={require('../../assets/icon_prev.png')} style={styles.button}/>
@@ -45,7 +45,7 @@ class PlayController extends React.Component {
     )
   }
 
-  onValueChange = (value: number) => {
+  onDragSlider = (value: number) => {
     console.log(`szw onValueChange() : ${value}`)
   }
 

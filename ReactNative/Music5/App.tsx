@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import HomeScreen from "./js/screen/HomeScreen";
+import {Platform} from 'react-native';
 import {Provider as ReduxProvider} from 'react-redux'
 import store from './js/redux/store'
 import Routes from './js/core/routes'
@@ -12,10 +11,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-interface Props {
-}
-
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <ReduxProvider store={store}>
