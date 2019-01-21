@@ -47,6 +47,7 @@ class PlayController extends React.Component {
 
   onDragSlider = (value: number) => {
     console.log(`szw onValueChange() : ${value}`)
+    this.player!.seek(value)
   }
 
   /*
