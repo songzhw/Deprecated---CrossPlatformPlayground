@@ -22,6 +22,7 @@ class FelaDemo3 extends PureComponent {
   }
 
   render() {
+    // this.props是 { navigation: {...}, styles: {..}, rules: {...} }
     return (
       <FelaRenderer>
         {renderer =>
