@@ -24,7 +24,7 @@ class HomeScreen extends Component {
         <HomeButton title="Fela Demo 2" onPress={this.go2FelaDemo2}/>
         <HomeButton title="Fela Demo 3" onPress={this.go2FelaDemo3}/>
         <HomeButton title="Fela Demo 4" onPress={this.go2FelaDemo4}/>
-        <HomeButton title="Fela Demo 5" onPress={this.go2FelaDemo5}/>
+        <HomeButton title="Fela Demo 5 (Error for now !!!)" onPress={this.go2FelaDemo5}/>
 
       </ScrollView>
     )

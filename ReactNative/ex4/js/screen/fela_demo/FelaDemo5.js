@@ -37,7 +37,7 @@ class FelaDemo5 extends PureComponent {
     let TextForNum = createFelaComponent(rulesForText, Text)
     let ButtonIncrease = createFelaComponent(rules.btn, Button, ['title', 'onPress'])
 
-    return Hoc(
+    return (
       <RootView>
         <TextForNum>
           {this.state.num}
