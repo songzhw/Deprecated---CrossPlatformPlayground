@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
 import {View, Text, Button} from 'react-native'
 import {StyleSheet} from 'fela-tools'
-import {connect as connectFela, FelaRenderer, ThemeContext} from 'react-fela'
+import { combineRules } from "fela";
+import {connect as connectFela, FelaRenderer, createComponent as createFelaComponent} from 'react-fela'
 import {connect as connectRedux} from "react-redux";
 
 const rules = StyleSheet.create({
@@ -22,16 +23,24 @@ class FelaDemo3 extends PureComponent {
   }
 
   render() {
-    // this.props是 { navigation: {...}, styles: {..}, rules: {...} }
+    // this.props是 { navigation: {...}, styles: {..}, rules: {...} }. "styles" within it have theme data
+    console.log(`szw render3 = ${JSON.stringify(this.props)}`)
+
+    let RootView = createFelaComponent(rules.root, View)
+
+    let rulesForText = combineRules(rules.size, this.props.styles.basicText)
+    let TextForNum = createFelaComponent(rulesForText, Text)
     return (
       <FelaRenderer>
         {renderer =>
-          <View style={renderer.renderRule(rules.root)}>
-            <Text style={renderer.renderRule(rules.size, {num: this.state.num})}>
+          <RootView>
+            {/*<Text style={[renderer.renderRule(rules.size, {num: this.state.num}), this.props.styles.basicText]}>*/}
+            <TextForNum>
               {this.state.num}
-            </Text>
+            </TextForNum>
+            {/*</Text>*/}
             <Button title="+ 1" onPress={this.onPlusOne}/>
-          </View>
+          </RootView>
         }
       </FelaRenderer>
     )
@@ -50,7 +59,7 @@ const mapThemeToProps = (top) => {
 }
 
 const mapStateToProps = (state) => {
-  return {  }
+  return {}
 }
 
 export default connectRedux(mapStateToProps)(
