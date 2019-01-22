@@ -50,7 +50,7 @@ class FelaDemo2 extends PureComponent {
 
 // 参数是{ navigation: {...}, theme: {...} }
 const mapThemeToProps = (top) => {
-  console.log(`map theme = ${JSON.stringify(top)}`)
+  console.log(`map2 theme2 = ${JSON.stringify(top)}`)
   return {...top.theme}
 }
 

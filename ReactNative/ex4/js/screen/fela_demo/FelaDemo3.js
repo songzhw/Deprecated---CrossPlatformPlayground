@@ -42,9 +42,16 @@ class FelaDemo3 extends PureComponent {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-  }
+// 参数是{ navigation: {...}, theme: {...} }
+const mapThemeToProps = (top) => {
+  console.log(`map3 theme3 = ${JSON.stringify(top)}`)
+  return {...top.theme}
 }
 
-export default connectRedux(mapStateToProps)(FelaDemo3)
+const mapStateToProps = (state) => {
+  return {  }
+}
+
+export default connectRedux(mapStateToProps)(
+  connectFela(mapThemeToProps)(FelaDemo3)
+)
