@@ -22,6 +22,7 @@ class HomeScreen extends Component {
 
         <HomeButton title="Fela Demo 1" onPress={this.go2FelaDemo1}/>
         <HomeButton title="Fela Demo 2" onPress={this.go2FelaDemo2}/>
+        <HomeButton title="Fela Demo 3" onPress={this.go2FelaDemo3}/>
 
       </ScrollView>
     )
@@ -38,6 +39,10 @@ class HomeScreen extends Component {
 
   go2FelaDemo2 = () => {
     this.props.navigation.navigate('FelaDemo2')
+  }
+
+  go2FelaDemo3 = () => {
+    this.props.navigation.navigate('FelaDemo3')
   }
 
   go2CustomNav = () => {
