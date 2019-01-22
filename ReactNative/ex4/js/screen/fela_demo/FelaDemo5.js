@@ -37,7 +37,7 @@ class FelaDemo5 extends PureComponent {
     let TextForNum = createFelaComponent(rulesForText, Text)
     let ButtonIncrease = createFelaComponent(rules.btn, Button, ['title', 'onPress'])
 
-    return (
+    return Hoc(
       <RootView>
         <TextForNum>
           {this.state.num}
@@ -72,8 +72,12 @@ const mapStateToProps = (state) => {
   return {}
 }
 
-export default Hoc(
-  connectRedux(mapStateToProps)(
+export default connectRedux(mapStateToProps)(
     connectFela(mapThemeToProps)(FelaDemo5)
   )
-)
+
+// export default Hoc(
+//   connectRedux(mapStateToProps)(
+//     connectFela(mapThemeToProps)(FelaDemo5)
+//   )
+// )
