@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {View, Text, Button} from 'react-native'
 import {StyleSheet} from 'fela-tools'
-import { combineRules } from "fela";
+import {combineRules} from "fela";
 import {connect as connectFela, FelaRenderer, createComponent as createFelaComponent} from 'react-fela'
 import {connect as connectRedux} from "react-redux";
 
@@ -28,19 +28,21 @@ class FelaDemo3 extends PureComponent {
 
     let RootView = createFelaComponent(rules.root, View)
 
-    let rulesForText = combineRules(rules.size, this.props.styles.basicText)
-    let TextForNum = createFelaComponent(rulesForText, Text)
     return (
       <FelaRenderer>
-        {renderer =>
-          <RootView>
-            {/*<Text style={[renderer.renderRule(rules.size, {num: this.state.num}), this.props.styles.basicText]}>*/}
-            <TextForNum>
-              {this.state.num}
-            </TextForNum>
-            {/*</Text>*/}
-            <Button title="+ 1" onPress={this.onPlusOne}/>
-          </RootView>
+        {renderer => {
+          let sizeIncreaseRule = renderer.renderRule(rules.size, {num: this.state.num})
+          let rulesForText = combineRules(sizeIncreaseRule, this.props.styles.basicText)
+          let TextForNum = createFelaComponent(rulesForText, Text)
+          return (
+            <RootView>
+              <TextForNum>
+                {this.state.num}
+              </TextForNum>
+              <Button title="+ 1" onPress={this.onPlusOne}/>
+            </RootView>
+          )
+        }
         }
       </FelaRenderer>
     )
