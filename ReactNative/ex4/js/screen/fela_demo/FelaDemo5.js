@@ -53,10 +53,10 @@ class FelaDemo5 extends PureComponent {
   }
 }
 
-const Hoc = (myView) => {
+const Hoc = (MyView) => {
   return (
     <FelaRenderer>
-      {renderer => <myView renderer={renderer}/>}
+      {renderer => <MyView renderer={renderer}/>}
     </FelaRenderer>
   )
 }
