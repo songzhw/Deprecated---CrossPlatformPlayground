@@ -32,7 +32,7 @@ class FelaDemo4 extends PureComponent {
 
     let RootView = createFelaComponent(rules.root, View)
 
-    let ButtonIncrease = createFelaComponent(rules.btn, Button)
+    let ButtonIncrease = createFelaComponent(rules.btn, Button, ['title', 'onPress'])
     return (
       <FelaRenderer>
         {renderer => {
