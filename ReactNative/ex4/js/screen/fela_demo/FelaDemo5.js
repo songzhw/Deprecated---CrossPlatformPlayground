@@ -29,33 +29,36 @@ class FelaDemo5 extends PureComponent {
   render() {
     // this.props是 { navigation: {...}, styles: {..}, rules: {...} }. "styles" within it have theme data
     console.log(`szw render5 = ${JSON.stringify(this.props)}`)
+    let {renderer} = this.props
 
     let RootView = createFelaComponent(rules.root, View)
-
+    let sizeIncreaseRule = renderer.renderRule(rules.size, {num: this.state.num})
+    let rulesForText = combineRules(sizeIncreaseRule, this.props.styles.basicText)
+    let TextForNum = createFelaComponent(rulesForText, Text)
     let ButtonIncrease = createFelaComponent(rules.btn, Button, ['title', 'onPress'])
+
     return (
-      <FelaRenderer>
-        {renderer => {
-          let sizeIncreaseRule = renderer.renderRule(rules.size, {num: this.state.num})
-          let rulesForText = combineRules(sizeIncreaseRule, this.props.styles.basicText)
-          let TextForNum = createFelaComponent(rulesForText, Text)
-          return (
-            <RootView>
-              <TextForNum>
-                {this.state.num}
-              </TextForNum>
-              <ButtonIncrease title="+ 1" onPress={this.onPlusOne}/>
-            </RootView>
-          )
-        }
-        }
-      </FelaRenderer>
+      <RootView>
+        <TextForNum>
+          {this.state.num}
+        </TextForNum>
+        <ButtonIncrease title="+ 1" onPress={this.onPlusOne}/>
+      </RootView>
     )
+
   }
 
   onPlusOne = () => {
     this.setState({num: this.state.num + 6})
   }
+}
+
+const Hoc = (myView) => {
+  return (
+    <FelaRenderer>
+      {renderer => <myView renderer={renderer}/>}
+    </FelaRenderer>
+  )
 }
 
 
@@ -69,6 +72,8 @@ const mapStateToProps = (state) => {
   return {}
 }
 
-export default connectRedux(mapStateToProps)(
-  connectFela(mapThemeToProps)(FelaDemo5)
+export default Hoc(
+  connectRedux(mapStateToProps)(
+    connectFela(mapThemeToProps)(FelaDemo5)
+  )
 )
