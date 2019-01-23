@@ -15,7 +15,7 @@ const rules = ({propFontSize}) => ({
 
 class Tmp2 extends PureComponent {
   render(){
-    console.log(`szw fela6 props = ${JSON.stringify(this.props)}`)
+    console.log(`szw fela7 props = ${JSON.stringify(this.props)}`)
     let {txt, styles} = this.props
     return (
       <View style={styles.root}>
@@ -34,6 +34,7 @@ class FelaDemo7 extends PureComponent {
   }
 
   render() {
+    console.log(`szw demo7 : ${JSON.stringify(this.props)}`)
     return (
       <View style={{flex: 1}}>
         <ConnectedTmp propFontSize={this.state.num} txt={this.state.num}/>
