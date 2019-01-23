@@ -14,7 +14,7 @@ const Tmp = ({txt, styles}) => (
   <Text className={styles.size}> {txt} </Text>
 )
 
-const ConnectedTmp = connectFela(size)(Tmp)
+const ConnectedTmp = connectFela({size})(Tmp)
 
 
 class FelaDemo5 extends PureComponent {
