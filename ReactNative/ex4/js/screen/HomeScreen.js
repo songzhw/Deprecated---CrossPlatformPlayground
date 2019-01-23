@@ -20,12 +20,13 @@ class HomeScreen extends Component {
         <HomeButton title="Context Demo" onPress={this.go2ContextDemo}/>
         <View style={{height: 20}}/>
 
-        <HomeButton title="Fela6 : connect(2)" onPress={this.go2FelaDemo6}/>
+        <HomeButton title="Fela7 : connect(3) - render + theme" onPress={this.go2FelaDemo7}/>
         <HomeButton title="Fela1 : FelaRender" onPress={this.go2FelaDemo1}/>
         <HomeButton title="Fela2 : pass theme" onPress={this.go2FelaDemo2}/>
         <HomeButton title="Fela3 : createComonent()" onPress={this.go2FelaDemo3}/>
         <HomeButton title="Fela4 : use dynamic rules" onPress={this.go2FelaDemo4}/>
-        <HomeButton title="Fela5 : connect(1)" onPress={this.go2FelaDemo5}/>
+        <HomeButton title="Fela5 : connect(1) - simplest" onPress={this.go2FelaDemo5}/>
+        <HomeButton title="Fela6 : connect(2) - no FelaRender" onPress={this.go2FelaDemo6}/>
 
       </ScrollView>
     )
@@ -58,6 +59,10 @@ class HomeScreen extends Component {
 
   go2FelaDemo6 = () => {
     this.props.navigation.navigate('FelaDemo6')
+  }
+
+  go2FelaDemo7 = () => {
+    this.props.navigation.navigate('FelaDemo7')
   }
 
   go2CustomNav = () => {

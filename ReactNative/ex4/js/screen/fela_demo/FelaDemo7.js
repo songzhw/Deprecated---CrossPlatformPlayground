@@ -28,7 +28,7 @@ class Tmp2 extends PureComponent {
 const ConnectedTmp = connectFela(rules)(Tmp2)
 
 
-class FelaDemo6 extends PureComponent {
+class FelaDemo7 extends PureComponent {
   state = {
     num: 18
   }
@@ -52,4 +52,4 @@ const mapStateToProps = (state) => {
   return {}
 }
 
-export default connectRedux(mapStateToProps)(FelaDemo6)
+export default connectRedux(mapStateToProps)(FelaDemo7)
