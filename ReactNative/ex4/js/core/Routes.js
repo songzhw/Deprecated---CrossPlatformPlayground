@@ -20,6 +20,7 @@ import FelaDemo1 from "../screen/fela_demo/FelaDemo1";
 import FelaDemo3 from "../screen/fela_demo/FelaDemo3";
 import FelaDemo4 from "../screen/fela_demo/FelaDemo4";
 import FelaDemo5 from "../screen/fela_demo/FelaDemo5";
+import FelaDemo6 from "../screen/fela_demo/FelaDemo6";
 
 
 const HomeStack = createStackNavigator(
@@ -99,6 +100,10 @@ const HomeStack = createStackNavigator(
     FelaDemo5: {
       screen: FelaDemo5,
       navigationOptions: {headerTitle: 'fela demo 5'}
+    },
+    FelaDemo6: {
+      screen: FelaDemo6,
+      navigationOptions: {headerTitle: 'fela demo 6'}
     },
     ContextDemo: {
       screen: ContextDemo,
