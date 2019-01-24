@@ -12,12 +12,12 @@ class FelaDemo7 extends PureComponent {
   }
 
   render() {
-    let MyText = this.renderText('003')
+    // let MyText = this.renderText('003')
     return (
       <View>
         {this.renderText("001")}
         {this.renderText('bbb')}
-        <MyText/>
+        {/*<MyText/>*/}
       </View>
     )
   }
