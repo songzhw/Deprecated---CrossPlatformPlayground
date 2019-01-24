@@ -3,11 +3,6 @@ import {View, Text, Button} from 'react-native'
 import {connect as connectFela, createComponent as createFelaComponent} from 'react-fela'
 import {connect as connectRedux} from "react-redux";
 
-const rules = ({theme}) => ({
-  color: theme.basicText.color,
-  fontWeight: theme.basicText.fontWeight
-})
-
 class FelaDemo7 extends PureComponent {
   state = {
     num: 18
@@ -15,10 +10,9 @@ class FelaDemo7 extends PureComponent {
 
   render() {
     console.log(`szw demo7 : ${JSON.stringify(this.props)}`)
-    let Tmp = createFelaComponent(rules, Text)
     return (
       <View style={{flex: 1}}>
-        <Tmp>{this.state.num}</Tmp>
+        <Text style={this.props.styles.txt}> {this.state.num}</Text>
         <Button title="+ 6" onPress={this.onPlusOne}/>
       </View>
     )
@@ -30,8 +24,20 @@ class FelaDemo7 extends PureComponent {
 
 }
 
+const mapTheme = ({theme}) => {
+  return {
+    txt: {
+      color: theme.basicText.color,
+      fontWeight: theme.basicText.fontWeight,
+      fontSize: 18
+    }
+  }
+}
+
 const mapStateToProps = (state) => {
   return {}
 }
 
-export default connectRedux(mapStateToProps)(FelaDemo7)
+export default connectRedux(mapStateToProps)(
+  connectFela(mapTheme)(FelaDemo7)
+)
