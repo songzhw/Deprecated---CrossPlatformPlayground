@@ -4,40 +4,23 @@ import {connect as connectFela, createComponent as createFelaComponent} from 're
 import {connect as connectRedux} from "react-redux";
 
 class FelaDemo7 extends PureComponent {
-  state = {
-    num: 18
-  }
 
-  render() {
-    console.log(`szw demo7 : ${JSON.stringify(this.props)}`)
+  renderText(text) {
     return (
-      <View style={{flex: 1}}>
-        <Text style={this.props.styles.txt}> {this.state.num}</Text>
-        <Button title="+ 6" onPress={this.onPlusOne}/>
-      </View>
+      <Text> {text} </Text>
     )
   }
 
-  onPlusOne = () => {
-    this.setState({num: this.state.num + 6})
-  }
-
-}
-
-const mapTheme = ({theme}) => {
-  return {
-    txt: {
-      color: theme.basicText.color,
-      fontWeight: theme.basicText.fontWeight,
-      fontSize: 18
-    }
+  render() {
+    let MyText = this.renderText('003')
+    return (
+      <View>
+        {this.renderText("001")}
+        {this.renderText('bbb')}
+        <MyText/>
+      </View>
+    )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {}
-}
-
-export default connectRedux(mapStateToProps)(
-  connectFela(mapTheme)(FelaDemo7)
-)
+export default FelaDemo7
