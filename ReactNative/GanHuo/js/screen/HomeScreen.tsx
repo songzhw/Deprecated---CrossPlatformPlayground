@@ -9,6 +9,18 @@ import {DrawerActions, NavigationRoute, NavigationScreenProp} from "react-naviga
 class HomeScreen extends Component<INavigationProps> {
   private drawer!: DrawerLayout | null;
 
+   isDrawerOpen = false
+
+  componentWillMount() {
+    let headerLeftComponent = (
+      <TouchableOpacity onPress={() => this.toggleLeftDrawer()}>
+        <Image source={require('../../assets/icon_menu.png')} resizeMode='center' style={styles.imgBack}/>
+      </TouchableOpacity>
+    )
+    this.props.navigation.setParams({headerLeftComponent})
+  }
+
+
   render() {
     var drawer = (
       <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -34,18 +46,25 @@ class HomeScreen extends Component<INavigationProps> {
     this.props.navigation.navigate('SettingsScreen')
   }
 
-  static navigationOptions = ({navigation}) => ({
-    headerTitle: "Home",
-    headerLeft: (
-      <TouchableOpacity onPress={() => openLeftDrawer()}>
-        <Image source={require('../../assets/icon_menu.png')} resizeMode='center' style={styles.imgBack}/>
-      </TouchableOpacity>
-    )
-  })
-
-  static openLeftDrawer = () => {
-
+  toggleLeftDrawer = () => {
+     if(this.isDrawerOpen){
+       this.drawer!.closeDrawer()
+     } else {
+       this.drawer!.openDrawer()
+     }
+     this.isDrawerOpen = !this.isDrawerOpen
   }
+
+  static navigationOptions = ({navigation}) => {
+    // need this "||{}", notherwise it will crash at the first place
+    let params = navigation.state.params || {}
+
+    return {
+      headerTitle: "Home",
+      headerLeft: params.headerLeftComponent
+    }
+  }
+
 
 }
 
