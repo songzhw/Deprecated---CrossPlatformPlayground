@@ -32,10 +32,7 @@ class HomeScreen extends Component {
   }
 
   static navigationOptions = {
-    drawerLable: "Home",
-    headerTitle: () => (
-      <Image source={require('../../assets/icon_menu.png')}/>
-    )
+    headerTitle: "Home"
   }
 }
 

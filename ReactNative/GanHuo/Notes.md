@@ -7,6 +7,10 @@
 
 ## react navigation
 
+v2.5.3 [https://blog.csdn.net/weixin_42336002/article/details/80894929](https://blog.csdn.net/weixin_42336002/article/details/80894929)
+v2.9.1 [https://www.jianshu.com/p/2f575cc35780](https://www.jianshu.com/p/2f575cc35780)
+
+
 ### config the header bar
 https://reactnavigation.org/docs/en/headers.html
 

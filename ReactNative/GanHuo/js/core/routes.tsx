@@ -10,9 +10,9 @@ const HomeStack = createStackNavigator(
   {
     headerMode: 'screen',
     navigationOptions: {
-      headerTitle: "Today's Recommendation",
       headerStyle: {backgroundColor: '#1b5e20'},
-      headerTitleStyle: {color: 'white'}
+      headerTitleStyle: {color: 'white'},
+      headerBackImage: ( <Image source={require('../../assets/icon_menu.png')} style={{width: 40, height: 40}}/> )
     },
   }
 )
