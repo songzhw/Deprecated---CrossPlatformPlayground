@@ -63,4 +63,11 @@ If the HomeScreen does not have navigationOptions, and the stackNavigator has na
 , and HomeScreen has its navigationOptions
 then screen will display a menu icon at the left as the title!
 
-#### 2. 
+#### 2. header bar's height
+```javascript
+import {Header} from 'react-navigation'
+
+Header.HEIGHT
+```
+
+#### 3. 

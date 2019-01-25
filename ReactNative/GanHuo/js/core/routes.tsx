@@ -1,7 +1,15 @@
-import {createStackNavigator, NavigationScreenProp} from 'react-navigation'
+import {createStackNavigator, Header, NavigationScreenProp} from 'react-navigation'
 import HomeScreen from "../screen/HomeScreen";
-import {Image} from "react-native";
+import {Image, StatusBar, StyleSheet} from "react-native";
 import React from "react";
+
+const styles = StyleSheet.create({
+  //because I find the size of "headerLeft" is a litle more than header bar's height
+  imgBack: {
+    width: Header.HEIGHT,
+    height: Header.HEIGHT,
+  },
+})
 
 const HomeStack = createStackNavigator(
   {
@@ -12,9 +20,11 @@ const HomeStack = createStackNavigator(
     navigationOptions: {
       headerStyle: {backgroundColor: '#1b5e20'},
       headerTitleStyle: {color: 'white'},
-      headerBackImage: ( <Image source={require('../../assets/icon_menu.png')} style={{width: 40, height: 40}}/> )
+      headerLeft: (<Image source={require('../../assets/icon_menu.png')} resizeMode='center' style={styles.imgBack}/>)
     },
   }
 )
+
+
 
 export default HomeStack
