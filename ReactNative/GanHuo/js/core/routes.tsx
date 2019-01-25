@@ -1,10 +1,11 @@
 import {createStackNavigator, Header, NavigationScreenProp} from 'react-navigation'
 import HomeScreen from "../screen/HomeScreen";
-import {Image, StatusBar, StyleSheet} from "react-native";
+import {Image, StatusBar, StyleSheet, TouchableOpacity} from "react-native";
 import React from "react";
+import SettingsScreen from "../screen/SettingsScreen";
 
 const styles = StyleSheet.create({
-  //because I find the size of "headerLeft" is a litle more than header bar's height
+  //because I find the size of "headerLeft" is a litle more than header bar's heightZ
   imgBack: {
     width: Header.HEIGHT,
     height: Header.HEIGHT,
@@ -14,17 +15,21 @@ const styles = StyleSheet.create({
 const HomeStack = createStackNavigator(
   {
     HomeScreen,
+    SettingsScreen
   },
   {
     headerMode: 'screen',
-    navigationOptions: {
+    navigationOptions: ({navigation}) => ({
       headerStyle: {backgroundColor: '#1b5e20'},
       headerTitleStyle: {color: 'white'},
-      headerLeft: (<Image source={require('../../assets/icon_menu.png')} resizeMode='center' style={styles.imgBack}/>)
-    },
+      headerLeft: (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image source={require('../../assets/icon_back.png')} resizeMode='center' style={styles.imgBack}/>
+        </TouchableOpacity>
+      )
+    }),
   }
 )
-
 
 
 export default HomeStack

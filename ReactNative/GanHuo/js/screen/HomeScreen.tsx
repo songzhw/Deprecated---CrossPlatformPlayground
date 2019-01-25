@@ -3,8 +3,9 @@ import {View, StyleSheet, Text, Button, Image} from 'react-native'
 import {connect} from 'react-redux'
 import DrawerLayout from "react-native-drawer-layout";
 import TodayScreen from "./TodayScreen";
+import {INavigationProps} from "../core/CoreProps";
 
-class HomeScreen extends Component {
+class HomeScreen extends Component<INavigationProps> {
   private drawer!: DrawerLayout | null;
 
   render() {
@@ -28,7 +29,8 @@ class HomeScreen extends Component {
   }
 
   pressOne = () => {
-    this.drawer!.openDrawer()
+    // this.drawer!.openDrawer()
+    this.navigation.navigate('SettingsScreen')
   }
 
   static navigationOptions = {
