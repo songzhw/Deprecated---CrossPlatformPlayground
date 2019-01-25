@@ -11,7 +11,6 @@
 import React from 'react';
 import {Platform,} from 'react-native';
 import Route from './js/core/routes'
-import HomeScreen from "./js/screen/HomeScreen";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -21,5 +20,5 @@ const instructions = Platform.select({
 });
 
 export default () => (
-  <HomeScreen/>
+  <Route/>
 )

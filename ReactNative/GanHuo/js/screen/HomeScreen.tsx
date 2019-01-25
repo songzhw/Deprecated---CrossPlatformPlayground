@@ -9,22 +9,22 @@ class HomeScreen extends Component {
   render() {
     var drawer = (
       <View>
-        <Text style={{fontSize:60, color: 'red'}}>I'm drawer</Text>
+        <Text style={{fontSize: 60, color: 'red'}}>I'm drawer</Text>
       </View>
     )
     return (
       <DrawerLayout
-        ref={(drawer) => {return this.drawer = drawer}}
+        ref={(drawer) => this.drawer = drawer }
         drawerPosition="left"
-        renderNavigationView={()=> drawer}
-      >
+        renderNavigationView={() => drawer}
+        drawerWidth={300}>
         <Button title="HomeScreen Screen" onPress={this.pressOne}/>
 
       </DrawerLayout>
     )
   }
 
-  pressOne = ()=>{
+  pressOne = () => {
     this.drawer!.openDrawer()
   }
 }
