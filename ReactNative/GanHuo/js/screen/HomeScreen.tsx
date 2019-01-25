@@ -30,7 +30,7 @@ class HomeScreen extends Component<INavigationProps> {
 
   pressOne = () => {
     // this.drawer!.openDrawer()
-    this.navigation.navigate('SettingsScreen')
+    this.props.navigation.navigate('SettingsScreen')
   }
 
   static navigationOptions = {
