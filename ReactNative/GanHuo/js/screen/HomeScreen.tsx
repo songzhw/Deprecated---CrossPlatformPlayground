@@ -1,14 +1,31 @@
-import React, { Component } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import React, {Component} from 'react'
+import {View, StyleSheet, Text, Button} from 'react-native'
 import {connect} from 'react-redux'
+import DrawerLayout from "react-native-drawer-layout";
 
-class HomeScreen extends Component{
-  render(){
-    return (
-      <View style={styles.root}>
-        <Text>HomeScreen Screen</Text>
+class HomeScreen extends Component {
+  private drawer!: DrawerLayout | null;
+
+  render() {
+    var drawer = (
+      <View>
+        <Text style={{fontSize:60, color: 'red'}}>I'm drawer</Text>
       </View>
     )
+    return (
+      <DrawerLayout
+        ref={(drawer) => {return this.drawer = drawer}}
+        drawerPosition="left"
+        renderNavigationView={()=> drawer}
+      >
+        <Button title="HomeScreen Screen" onPress={this.pressOne}/>
+
+      </DrawerLayout>
+    )
+  }
+
+  pressOne = ()=>{
+    this.drawer!.openDrawer()
   }
 }
 
