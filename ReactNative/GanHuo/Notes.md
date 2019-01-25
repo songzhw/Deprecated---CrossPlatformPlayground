@@ -70,4 +70,7 @@ import {Header} from 'react-navigation'
 Header.HEIGHT
 ```
 
-#### 3. 
+#### 3. global "going back" logic
+put the "navigation.goBack()" in the route.js
+
+#### 4. 

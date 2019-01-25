@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, Button, Image} from 'react-native'
+import {View, StyleSheet, Text, Button, Image, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
 import DrawerLayout from "react-native-drawer-layout";
 import TodayScreen from "./TodayScreen";
 import {INavigationProps} from "../core/CoreProps";
+import {DrawerActions, NavigationRoute, NavigationScreenProp} from "react-navigation";
 
 class HomeScreen extends Component<INavigationProps> {
   private drawer!: DrawerLayout | null;
@@ -16,7 +17,7 @@ class HomeScreen extends Component<INavigationProps> {
     )
     return (
       <DrawerLayout
-        ref={(drawer) => this.drawer = drawer }
+        ref={(drawer) => this.drawer = drawer}
         drawerPosition="left"
         renderNavigationView={() => drawer}
         drawerWidth={250}
@@ -33,9 +34,19 @@ class HomeScreen extends Component<INavigationProps> {
     this.props.navigation.navigate('SettingsScreen')
   }
 
-  static navigationOptions = {
-    headerTitle: "Home"
+  static navigationOptions = ({navigation}) => ({
+    headerTitle: "Home",
+    headerLeft: (
+      <TouchableOpacity onPress={() => openLeftDrawer()}>
+        <Image source={require('../../assets/icon_menu.png')} resizeMode='center' style={styles.imgBack}/>
+      </TouchableOpacity>
+    )
+  })
+
+  static openLeftDrawer = () => {
+
   }
+
 }
 
 const styles = StyleSheet.create({
