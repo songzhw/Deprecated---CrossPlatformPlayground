@@ -712,6 +712,14 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.8.tgz#8ae4e0ea205fe95c3901a5a1df7f66495e3a56ce"
   integrity sha512-3AQoUxQcQtLHsK25wtTWIoIpgYjH3vSDroZOUr7PpCHw/jLY1RB9z9E8dBT/OSmwStVgkRNvdh+ZHNiomRieaw==
 
+"@types/react-native-drawer-layout@^1.3.5":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@types/react-native-drawer-layout/-/react-native-drawer-layout-1.3.5.tgz#e6ef30f23600f4bfad20679059dea7c1a14c9b23"
+  integrity sha512-K50NIKlBF+nBssVgJunwMJnsI6/f0P3bXea8Iklna6t0FtRE+5jBLz8aqAn0SM4zZ0FWwjSYRJbbEEvL+BzqQQ==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
 "@types/react-native-video@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@types/react-native-video/-/react-native-video-3.1.0.tgz#cbb5c77ef62c5927b893d7db99baba79d618ca76"
@@ -4947,6 +4955,11 @@ react-native-drawer-layout@1.3.2:
   integrity sha512-fjO0scqbJUfNu2wuEpvywL7DYLXuCXJ2W/zYhWz986rdLytidbys1QGVvkaszHrb4Y7OqO96mTkgpOcP8KWevw==
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
+
+react-native-drawer-layout@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-drawer-layout/-/react-native-drawer-layout-2.0.0.tgz#8ce1e4027bd3f3a09045afdb46080e18346be232"
+  integrity sha512-zYmzv+4QKDwxmAj7pF1yr8VUb+Hp7oBlwMjRZsvv56vPwO89I+kPTI8G78uwSNIf5b4e/iOChE4vpB5J2XsJFA==
 
 react-native-gesture-handler@^1.0.12:
   version "1.0.15"
