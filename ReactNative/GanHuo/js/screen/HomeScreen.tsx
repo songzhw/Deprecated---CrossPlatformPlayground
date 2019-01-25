@@ -1,15 +1,16 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, Button} from 'react-native'
+import {View, StyleSheet, Text, Button, Image} from 'react-native'
 import {connect} from 'react-redux'
 import DrawerLayout from "react-native-drawer-layout";
+import TodayScreen from "./TodayScreen";
 
 class HomeScreen extends Component {
   private drawer!: DrawerLayout | null;
 
   render() {
     var drawer = (
-      <View>
-        <Text style={{fontSize: 60, color: 'red'}}>I'm drawer</Text>
+      <View style={{flex: 1, backgroundColor: 'white'}}>
+        <Text style={{fontSize: 60}}>I'm drawer</Text>
       </View>
     )
     return (
@@ -17,15 +18,24 @@ class HomeScreen extends Component {
         ref={(drawer) => this.drawer = drawer }
         drawerPosition="left"
         renderNavigationView={() => drawer}
-        drawerWidth={300}>
+        drawerWidth={250}
+        keyboardDismissMode="on-drag"
+      >
         <Button title="HomeScreen Screen" onPress={this.pressOne}/>
-
+        <TodayScreen/>
       </DrawerLayout>
     )
   }
 
   pressOne = () => {
     this.drawer!.openDrawer()
+  }
+
+  static navigationOptions = {
+    drawerLable: "Home",
+    headerTitle: () => (
+      <Image source={require('../../assets/icon_menu.png')}/>
+    )
   }
 }
 
