@@ -5,13 +5,15 @@ import React from "react";
 
 const HomeStack = createStackNavigator(
   {
-    HomeScreen: {
-      screen: HomeScreen,
-      navigationOptions: {headerTitle: "Today's Recommendation"},
-    },
+    HomeScreen,
   },
   {
     headerMode: 'screen',
+    navigationOptions: {
+      headerTitle: "Today's Recommendation",
+      headerStyle: {backgroundColor: '#1b5e20'},
+      headerTitleStyle: {color: 'white'}
+    },
   }
 )
 

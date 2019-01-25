@@ -9,3 +9,54 @@
 
 ### config the header bar
 https://reactnavigation.org/docs/en/headers.html
+
+
+#### 1. 不能重复
+
+```javascript
+
+const HomeStack = createStackNavigator(
+  {
+    HomeScreen: {
+      screen: HomeScreen,
+      navigationOptions: {
+        headerTitle: "Today's Recommendation",
+      }
+    },
+  },
+  {
+    headerMode: 'screen',
+    navigationOptions: {
+      headerTitle: "Today's Recommendation",
+      headerStyle: {backgroundColor: '#1b5e20'},
+      headerTitleStyle: {color: 'white'}
+    },
+  }
+)
+
+export default HomeStack
+```
+
+
+```javascript
+
+class HomeScreen extends Component {
+  static navigationOptions = {
+    drawerLable: "Home",
+    headerTitle: () => (
+      <Image source={require('../../assets/icon_menu.png')}/>
+    )
+  }
+}
+```
+
+This is not gonna work. You will only see the "Today's Recommendation"
+So you can not override twice. 
+Or you can, but the config in the 'route.js' will always override the config in your screen.js
+
+
+If the HomeScreen does not have navigationOptions, and the stackNavigator has navigationOptions
+, and HomeScreen has its navigationOptions
+then screen will display a menu icon at the left as the title!
+
+#### 2. 
