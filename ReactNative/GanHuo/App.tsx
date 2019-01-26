@@ -9,8 +9,10 @@
  */
 
 import React from 'react';
-import {Platform,} from 'react-native';
+import {Platform} from 'react-native';
+import {Provider as ReduxProvider} from 'react-redux'
 import Route from './js/core/routes'
+import store from './js/redux/store'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -20,5 +22,7 @@ const instructions = Platform.select({
 });
 
 export default () => (
-  <Route/>
+  <ReduxProvider store={store}>
+    <Route/>
+  </ReduxProvider>
 )

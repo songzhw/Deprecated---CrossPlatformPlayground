@@ -3,20 +3,27 @@ import {View, StyleSheet, Text, Button, Image, TouchableOpacity} from 'react-nat
 import {connect} from 'react-redux'
 import DrawerLayout from "react-native-drawer-layout";
 import TodayScreen from "./TodayScreen";
-import {INavigationProps} from "../core/CoreProps";
+import {INavigationProps, IReduxProps} from "../core/CoreProps";
 import {Header, NavigationScreenConfig, NavigationStackScreenOptions} from "react-navigation";
+import {requestToday} from "../redux/reduxGanHuo";
 
+interface Props extends IReduxProps, INavigationProps {
+}
 
-
-class HomeScreen extends Component<INavigationProps> {
+class HomeScreen extends Component<Props> {
   private drawer!: DrawerLayout | null;
 
-   isDrawerOpen = false
+  isDrawerOpen = false
 
   componentWillMount() {
+    // fetch today's ganhuo
+    this.props.dispatch(requestToday())
+
+    // register hamburger menu click event to the static navigationOptions
     let headerLeftComponent = (
       <TouchableOpacity onPress={() => this.toggleLeftDrawer()}>
-        <Image source={require('../../assets/icon_menu.png')} resizeMode='center' style={{ width: Header.HEIGHT, height: Header.HEIGHT,}}/>
+        <Image source={require('../../assets/icon_menu.png')} resizeMode='center'
+               style={{width: Header.HEIGHT, height: Header.HEIGHT,}}/>
       </TouchableOpacity>
     )
     this.props.navigation.setParams({headerLeftComponent})
@@ -48,15 +55,15 @@ class HomeScreen extends Component<INavigationProps> {
   }
 
   toggleLeftDrawer = () => {
-     if(this.isDrawerOpen){
-       this.drawer!.closeDrawer()
-     } else {
-       this.drawer!.openDrawer()
-     }
-     this.isDrawerOpen = !this.isDrawerOpen
+    if (this.isDrawerOpen) {
+      this.drawer!.closeDrawer()
+    } else {
+      this.drawer!.openDrawer()
+    }
+    this.isDrawerOpen = !this.isDrawerOpen
   }
 
-  static navigationOptions : NavigationScreenConfig<NavigationStackScreenOptions>= ({navigation} ) => {
+  static navigationOptions: NavigationScreenConfig<NavigationStackScreenOptions> = ({navigation}) => {
     // need this "||{}", notherwise it will crash at the first place
     let params = navigation.state.params || {}
 
@@ -75,11 +82,11 @@ const styles = StyleSheet.create({
   },
 })
 
-export default HomeScreen
-// const mapStateToProps = (state: any) => {
-//   return {
-//
-//   }
-// }
-//
-// export default connect(mapStateToProps)(HomeScreen)
+const mapStateToProps = (state: any) => {
+  console.log(`szw mapper = ${JSON.stringify(state)}`)
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps)(HomeScreen)
