@@ -4,7 +4,9 @@ import {connect} from 'react-redux'
 import DrawerLayout from "react-native-drawer-layout";
 import TodayScreen from "./TodayScreen";
 import {INavigationProps} from "../core/CoreProps";
-import {DrawerActions, NavigationRoute, NavigationScreenProp} from "react-navigation";
+import {Header, NavigationScreenConfig, NavigationStackScreenOptions} from "react-navigation";
+
+
 
 class HomeScreen extends Component<INavigationProps> {
   private drawer!: DrawerLayout | null;
@@ -14,7 +16,7 @@ class HomeScreen extends Component<INavigationProps> {
   componentWillMount() {
     let headerLeftComponent = (
       <TouchableOpacity onPress={() => this.toggleLeftDrawer()}>
-        <Image source={require('../../assets/icon_menu.png')} resizeMode='center' style={styles.imgBack}/>
+        <Image source={require('../../assets/icon_menu.png')} resizeMode='center' style={{ width: Header.HEIGHT, height: Header.HEIGHT,}}/>
       </TouchableOpacity>
     )
     this.props.navigation.setParams({headerLeftComponent})
@@ -42,7 +44,6 @@ class HomeScreen extends Component<INavigationProps> {
   }
 
   pressOne = () => {
-    // this.drawer!.openDrawer()
     this.props.navigation.navigate('SettingsScreen')
   }
 
@@ -55,7 +56,7 @@ class HomeScreen extends Component<INavigationProps> {
      this.isDrawerOpen = !this.isDrawerOpen
   }
 
-  static navigationOptions = ({navigation}) => {
+  static navigationOptions : NavigationScreenConfig<NavigationStackScreenOptions>= ({navigation} ) => {
     // need this "||{}", notherwise it will crash at the first place
     let params = navigation.state.params || {}
 
