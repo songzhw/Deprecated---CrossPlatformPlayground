@@ -22,7 +22,7 @@ export default (state = initState, action: IAction) => {
     case RESPONSE_TODAY:
       let {payload} = action
       let sections = extractTodayData(payload)
-      return {payload: [{id:1}, {id:2}]}
+      return {payload: sections}
     default:
       return state
   }
