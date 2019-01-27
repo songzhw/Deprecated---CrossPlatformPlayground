@@ -21,13 +21,13 @@ class TodayScreen extends Component<Props> {
     return (
       <View>
         <SectionList
-          keyExtractor={(item, index) => item + index}
+          keyExtractor={(item, index) => item._id}
           sections={[
-            {title: 'one', data: [{_id: '1'}, {_id: '2'}]},
-            {title: 'two', data: [{_id: '3'}]},
+            {key: 'one', data: [{_id: '1'}, {_id: '2'}]},
+            {key: 'two', data: [{_id: '3'}]},
             ]}
-          renderItem={this.renderItem}
-          renderSectionHeader={this.renderSectioHeader}
+          renderItem={ ({item,index,section}) => <Text>{item._id}</Text> }
+          renderSectionHeader={ ({section}) => <Text> {section} </Text> }
         />
       </View>
     )
