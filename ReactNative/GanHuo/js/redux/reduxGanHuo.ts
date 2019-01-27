@@ -21,18 +21,18 @@ export default (state = initState, action: IAction) => {
   switch (action.type) {
     case RESPONSE_TODAY:
       let {payload} = action
-      let sections = extractTodayData(payload)
-      return {payload: sections}
+      // let sections = extractTodayData(payload)
+      // return {payload: sections}
+      return payload
     default:
       return state
   }
 }
 
-function extractTodayData(resp: ITodayResponse) : ISectionListData[] {
+export function extractTodayData(results: any) : ISectionListData[] {
   // 源数据 {'Android': [{}, {}], 'iOS': [{}]  }
   // 预期  [  {key:'Android', data: [{}, {}] },  {key: 'iOS', data: [{}] }  ]
   // console.log(`szw 00 ${JSON.stringify(resp)}`)
-  let {results} = resp
   let mapped : ISectionListData[] = []
   for( let key in results){ // key分别是Android, ios, 福利
     let oneItem = {key: key, data: []}

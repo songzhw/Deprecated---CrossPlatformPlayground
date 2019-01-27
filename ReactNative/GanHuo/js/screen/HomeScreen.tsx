@@ -5,10 +5,13 @@ import DrawerLayout from "react-native-drawer-layout";
 import TodayScreen from "./TodayScreen";
 import {INavigationProps, IReduxProps} from "../core/CoreProps";
 import {Header, NavigationScreenConfig, NavigationStackScreenOptions} from "react-navigation";
-import {requestToday} from "../redux/reduxGanHuo";
+import {extractTodayData, requestToday} from "../redux/reduxGanHuo";
 import {commonStyles} from "../core/styles/CommonStyles";
+import {ITodayResponse} from "../core/data/ResponseData";
+import {ISectionListData} from "../core/data/ViewData";
 
 interface Props extends IReduxProps, INavigationProps {
+  payload: any[]
 }
 
 class HomeScreen extends Component<Props> {
@@ -17,6 +20,8 @@ class HomeScreen extends Component<Props> {
   isDrawerOpen = false
 
   componentWillMount() {
+    this.props.dispatch(requestToday())
+
     let headerLeftComponent = (
       <TouchableOpacity onPress={() => this.toggleLeftDrawer()}>
         <Image source={require('../../assets/icon_menu.png')} resizeMode='center'
@@ -42,7 +47,9 @@ class HomeScreen extends Component<Props> {
         drawerWidth={250}
         keyboardDismissMode="on-drag"
       >
-        <TodayScreen navigation={this.props.navigation}/>
+
+        <TodayScreen navigation={this.props.navigation} data={this.props.payload}/>
+
       </DrawerLayout>
     )
   }
@@ -68,4 +75,11 @@ class HomeScreen extends Component<Props> {
 
 }
 
-export default HomeScreen
+const mapStateToProps = (state: any) => {
+  console.log(`szw mapper = ${JSON.stringify(state)}`)
+  let {results} = state.reducerGanHuo
+  let ret = extractTodayData(results)
+  return {payload: ret}
+}
+
+export default connect(mapStateToProps)(HomeScreen)
