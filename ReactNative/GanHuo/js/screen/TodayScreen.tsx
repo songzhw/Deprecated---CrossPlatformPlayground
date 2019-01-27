@@ -25,9 +25,9 @@ class TodayScreen extends Component<Props> {
           sections={[
             {key: 'one', data: [{_id: '1'}, {_id: '2'}]},
             {key: 'two', data: [{_id: '3'}]},
-            ]}
-          renderItem={ ({item,index,section}) => <Text>{item._id}</Text> }
-          renderSectionHeader={ ({section}) => <Text> {section} </Text> }
+          ]}
+          renderItem={({item, index, section}) => <Text>{item._id}</Text>}
+          renderSectionHeader={({section}) => <Text> {section.key} </Text>}
         />
       </View>
     )
@@ -39,7 +39,7 @@ class TodayScreen extends Component<Props> {
 
   renderSectioHeader = ({section}) => {
     return (
-      <Text> {section} </Text>
+      <Text> {section.key} </Text>
     )
   }
 
