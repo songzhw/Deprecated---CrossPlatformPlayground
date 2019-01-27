@@ -17,10 +17,6 @@ class HomeScreen extends Component<Props> {
   isDrawerOpen = false
 
   componentWillMount() {
-    // fetch today's ganhuo
-    this.props.dispatch(requestToday())
-
-    // register hamburger menu click event to the static navigationOptions
     let headerLeftComponent = (
       <TouchableOpacity onPress={() => this.toggleLeftDrawer()}>
         <Image source={require('../../assets/icon_menu.png')} resizeMode='center'
@@ -37,6 +33,7 @@ class HomeScreen extends Component<Props> {
         <Text style={{fontSize: 60}}>I'm drawer</Text>
       </View>
     )
+    // @ts-ignore
     return (
       <DrawerLayout
         ref={(drawer) => this.drawer = drawer}
@@ -45,14 +42,9 @@ class HomeScreen extends Component<Props> {
         drawerWidth={250}
         keyboardDismissMode="on-drag"
       >
-        <Button title="HomeScreen Screen" onPress={this.pressOne}/>
-        <TodayScreen/>
+        <TodayScreen navigation={this.props.navigation}/>
       </DrawerLayout>
     )
-  }
-
-  pressOne = () => {
-    this.props.navigation.navigate('SettingsScreen')
   }
 
   toggleLeftDrawer = () => {
@@ -74,20 +66,6 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-})
-
-const mapStateToProps = (state: any) => {
-  console.log(`szw mapper = ${JSON.stringify(state)}`)
-  return {
-
-  }
-}
-
-export default connect(mapStateToProps)(HomeScreen)
+export default HomeScreen

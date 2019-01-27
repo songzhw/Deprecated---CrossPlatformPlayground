@@ -3,7 +3,7 @@ import {Category} from "../httpEngine";
 export interface ITodayResponse {
   category: string[],
   error: false,
-  result: any
+  results: any
 }
 
 export interface IGanHuoItem {
