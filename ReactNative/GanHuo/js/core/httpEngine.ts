@@ -1,11 +1,13 @@
 export enum Category {
   beauty = "福利",
+  app="App",
   android = "Android",
   ios = "iOS",
   frontend = "前端",
   all = "all",
   video = "休息视频",
-  more = "拓展资源"
+  more = "拓展资源",
+  random="瞎推荐"
 }
 // 今日干货
 export const API_TODAY = "today"

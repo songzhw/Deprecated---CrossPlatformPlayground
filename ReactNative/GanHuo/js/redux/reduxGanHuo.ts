@@ -1,4 +1,5 @@
 import {IAction} from "../core/CoreProps";
+import {ITodayResponse} from "../core/data/ResponseData";
 
 export const REQUEST_TODAY = 'REQUEST_TODAY'
 export const requestToday = () => ({
@@ -6,7 +7,7 @@ export const requestToday = () => ({
 })
 
 export const RESPONSE_TODAY = "RESPONSE_TODAY"
-export const responseToday = (resp) => ({
+export const responseToday = (resp: ITodayResponse) => ({
   type: RESPONSE_TODAY,
   payload: resp
 })
@@ -24,29 +25,3 @@ export default (state = initState, action: IAction) => {
       return state
   }
 }
-
-
-// export interface IRecommendResponse {
-//   banners: IBanner[],
-//   recommend: IRecommendedMusicList[],
-//   news: INewMusic[]
-// }
-//
-// interface IBanner {
-//   img: string,
-//   title: string,
-//   id: number
-// }
-//
-// interface IRecommendedMusicList {
-//   img: string,
-//   title: string,
-//   id: number
-// }
-//
-//
-// interface INewMusic {
-//   img: string,
-//   title: string,
-//   id: number
-// }

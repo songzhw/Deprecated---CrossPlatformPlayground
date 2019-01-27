@@ -6,6 +6,7 @@ import TodayScreen from "./TodayScreen";
 import {INavigationProps, IReduxProps} from "../core/CoreProps";
 import {Header, NavigationScreenConfig, NavigationStackScreenOptions} from "react-navigation";
 import {requestToday} from "../redux/reduxGanHuo";
+import {commonStyles} from "../core/styles/CommonStyles";
 
 interface Props extends IReduxProps, INavigationProps {
 }
@@ -23,7 +24,7 @@ class HomeScreen extends Component<Props> {
     let headerLeftComponent = (
       <TouchableOpacity onPress={() => this.toggleLeftDrawer()}>
         <Image source={require('../../assets/icon_menu.png')} resizeMode='center'
-               style={{width: Header.HEIGHT, height: Header.HEIGHT,}}/>
+               style={commonStyles.imgBack}/>
       </TouchableOpacity>
     )
     this.props.navigation.setParams({headerLeftComponent})
