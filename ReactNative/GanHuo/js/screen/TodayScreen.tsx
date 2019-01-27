@@ -16,18 +16,26 @@ class TodayScreen extends Component<Props> {
   }
 
   render() {
-    console.log(`szw render = ${JSON.stringify(this.props.payload)}`)
+    let {payload} = this.props
+    console.log(`szw render = ${JSON.stringify(payload[5])}`)
     return (
       <View>
         <SectionList
-          keyExtractor={(item, index) => `item ${index}`}
-          sections={this.props.payload}
+          keyExtractor={(item, index) => item + index}
+          sections={[
+            {title: 'one', data: [{_id: '1'}, {_id: '2'}]},
+            {title: 'two', data: [{_id: '3'}]},
+            ]}
           renderItem={this.renderItem}
           renderSectionHeader={this.renderSectioHeader}
         />
       </View>
     )
   }
+
+
+  // renderItem={this.renderItem}
+  // renderSectionHeader={this.renderSectioHeader}
 
   renderSectioHeader = ({section}) => {
     return (
@@ -37,7 +45,7 @@ class TodayScreen extends Component<Props> {
 
   renderItem = ({item, index, section}) => {
     return (
-      <Text>{item.desc}</Text>
+      <Text>{item._id}</Text>
     )
   }
 }
