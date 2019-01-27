@@ -19,6 +19,8 @@ class TodayScreen extends Component<Props> {
           sections={this.props.data}
           renderItem={this.renderItem}
           renderSectionHeader={this.renderSectioHeader}
+          ItemSeparatorComponent={()=> <View style={styles.itemDivider}/>}
+          SectionSeparatorComponent={()=> <View style={styles.sectionDivider}/>}
         />
       </View>
     )
@@ -41,6 +43,14 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
+  itemDivider: {
+    backgroundColor: '#1e1e1e',
+    height: StyleSheet.hairlineWidth
+  },
+  sectionDivider: {
+    backgroundColor: '#880e4f',
+    height: 1
+  }
 })
 
 export default TodayScreen
