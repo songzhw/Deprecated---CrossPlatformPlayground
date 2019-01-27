@@ -37,7 +37,7 @@ class TodayScreen extends Component<Props> {
 
     if (item.type === Category.beauty) {
       return (
-        <TouchableOpacity onPress={this.onPressBeauty}>
+        <TouchableOpacity onPress={() => this.onPressBeauty(item.url)}>
           <Image source={{uri: item.url}} resizeMode='cover' style={{height: 200, backgroundColor: 'red'}}/>
         </TouchableOpacity>)
     } else {
@@ -46,8 +46,8 @@ class TodayScreen extends Component<Props> {
 
   }
 
-  onPressBeauty = ()=> {
-    this.props.navigation.navigate('SettingsScreen')
+  onPressBeauty = (url: string)=> {
+    this.props.navigation.navigate('BeautyDetailScreen', {img: url})
   }
 }
 

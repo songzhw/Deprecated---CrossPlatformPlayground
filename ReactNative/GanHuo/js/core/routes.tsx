@@ -4,12 +4,14 @@ import {Image, StatusBar, StyleSheet, TouchableOpacity} from "react-native";
 import React from "react";
 import SettingsScreen from "../screen/SettingsScreen";
 import {commonStyles} from "./styles/CommonStyles";
+import BeautyDetailScreen from "../screen/detail/BeautyDetailScreen";
 
 
 const HomeStack = createStackNavigator(
   {
     HomeScreen,
-    SettingsScreen
+    SettingsScreen,
+    BeautyDetailScreen,
   },
   {
     headerMode: 'screen',
