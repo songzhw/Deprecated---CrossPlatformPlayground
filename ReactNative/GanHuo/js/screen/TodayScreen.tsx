@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, SectionList} from 'react-native'
+import {View, StyleSheet, Text, SectionList, Image, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
 import {requestToday} from "../redux/reduxGanHuo";
 import {INavigationProps, IReduxProps} from "../core/CoreProps";
 import {ITodayResponse} from "../core/data/ResponseData";
+import {Category} from "../core/httpEngine";
 
 interface Props extends IReduxProps, INavigationProps {
   data: any[]
@@ -19,23 +20,34 @@ class TodayScreen extends Component<Props> {
           sections={this.props.data}
           renderItem={this.renderItem}
           renderSectionHeader={this.renderSectioHeader}
-          ItemSeparatorComponent={()=> <View style={styles.itemDivider}/>}
-          SectionSeparatorComponent={()=> <View style={styles.sectionDivider}/>}
+          ItemSeparatorComponent={() => <View style={styles.itemDivider}/>}
+          SectionSeparatorComponent={() => <View style={styles.sectionDivider}/>}
         />
       </View>
     )
   }
 
-  renderSectioHeader = ({section} : {section: any}) => {
+  renderSectioHeader = ({section}: { section: any }) => {
     return (
       <Text style={{fontSize: 40}}> {section.key} </Text>
     )
   }
 
-  renderItem = ({item, index, section} : {item: any, index: number, section: any}) => {
-    return (
-      <Text>{item.desc}</Text>
-    )
+  renderItem = ({item, index, section}: { item: any, index: number, section: any }) => {
+
+    if (item.type === Category.beauty) {
+      return (
+        <TouchableOpacity onPress={this.onPressBeauty}>
+          <Image source={{uri: item.url}} resizeMode='cover' style={{height: 200, backgroundColor: 'red'}}/>
+        </TouchableOpacity>)
+    } else {
+      return (<Text>{item.desc}</Text>)
+    }
+
+  }
+
+  onPressBeauty = ()=> {
+    this.props.navigation.navigate('SettingsScreen')
   }
 }
 
