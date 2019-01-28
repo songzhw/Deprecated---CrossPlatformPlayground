@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, Image} from 'react-native'
+import {View, StyleSheet, Text, Image, Dimensions} from 'react-native'
 import {connect} from 'react-redux'
 import {IReduxState} from "../../redux/store";
 import {INavigationProps, IReduxProps} from "../../core/CoreProps";
@@ -18,7 +18,10 @@ class BeautyDetailScreen extends Component<Props>{
     const {navigation} = this.props
     const url = navigation.getParam('img', "")
     Image.getSize(url, (width, height) => {
-      this.setState({...this.state, url: url, height: height})
+      let window = Dimensions.get('window')
+      let screenWidth = window.width  //对于360dp的手机, screenWidth就是360
+      let imageHeight = height * screenWidth / width
+      this.setState({...this.state, height: imageHeight})
     }, (error) => {
       console.log(`szw load image error : ${error}`)
     })
@@ -26,8 +29,8 @@ class BeautyDetailScreen extends Component<Props>{
 
 
   render() {
-    const {navigation} = this.props
-    const url = navigation.getParam('img', "")
+    const url = this.props.navigation.getParam('img', "")
+
     return (
       <View style={styles.root}>
         <Image source={{uri: url}} style={{height: this.state.height}}/>
