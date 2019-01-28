@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, SectionList, Image, TouchableOpacity} from 'react-native'
-import {connect} from 'react-redux'
-import {requestToday} from "../redux/reduxGanHuo";
 import {INavigationProps, IReduxProps} from "../core/CoreProps";
-import {ITodayResponse} from "../core/data/ResponseData";
 import {Category} from "../core/httpEngine";
 
 interface Props extends IReduxProps, INavigationProps {

@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, Image, Dimensions} from 'react-native'
 import {connect} from 'react-redux'
-import {IReduxState} from "../../redux/store";
 import {INavigationProps, IReduxProps} from "../../core/CoreProps";
+import {NavigationScreenConfig, NavigationStackScreenOptions} from "react-navigation";
 
 
 interface Props extends IReduxProps, INavigationProps{
@@ -36,6 +36,12 @@ class BeautyDetailScreen extends Component<Props>{
         <Image source={{uri: url}} style={{height: this.state.height}}/>
       </View>
     )
+  }
+
+  static navigationOptions: NavigationScreenConfig<NavigationStackScreenOptions> = ({navigation}) => {
+    return {
+      headerTitle: "福利 详情",
+    }
   }
 }
 

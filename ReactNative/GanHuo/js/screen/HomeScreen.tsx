@@ -7,8 +7,6 @@ import {INavigationProps, IReduxProps} from "../core/CoreProps";
 import {Header, NavigationScreenConfig, NavigationStackScreenOptions} from "react-navigation";
 import {extractTodayData, requestToday} from "../redux/reduxGanHuo";
 import {commonStyles} from "../core/styles/CommonStyles";
-import {ITodayResponse} from "../core/data/ResponseData";
-import {ISectionListData} from "../core/data/ViewData";
 
 interface Props extends IReduxProps, INavigationProps {
   payload: any[]
