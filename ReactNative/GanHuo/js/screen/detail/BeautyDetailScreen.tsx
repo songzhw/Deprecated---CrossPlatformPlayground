@@ -1,26 +1,36 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, Image} from 'react-native'
 import {connect} from 'react-redux'
+import {IReduxState} from "../../redux/store";
+import {INavigationProps, IReduxProps} from "../../core/CoreProps";
 
-class BeautyDetailScreen extends Component {
+
+interface Props extends IReduxProps, INavigationProps{
+
+}
+
+class BeautyDetailScreen extends Component<Props>{
+  state = {
+    height: 300
+  }
 
   componentWillMount() {
     const {navigation} = this.props
     const url = navigation.getParam('img', "")
-    Image.getSize(url)
-      .then( (width, height) => {
-        console.log(`szw size = ${width}, ${height}`)
-      })
-      .catch( error => {
-        console.log(`szw load image error : ${error}`)
-      })
+    Image.getSize(url, (width, height) => {
+      this.setState({...this.state, url: url, height: height})
+    }, (error) => {
+      console.log(`szw load image error : ${error}`)
+    })
   }
 
 
   render() {
+    const {navigation} = this.props
+    const url = navigation.getParam('img', "")
     return (
       <View style={styles.root}>
-        <Image source={{uri: ""}} style={{}}/>
+        <Image source={{uri: url}} style={{height: this.state.height}}/>
       </View>
     )
   }
