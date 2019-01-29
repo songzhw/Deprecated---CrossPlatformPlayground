@@ -31,20 +31,48 @@ class TodayScreen extends Component<Props> {
   }
 
   renderItem = ({item, index, section}: { item: any, index: number, section: any }) => {
-
     if (item.type === Category.beauty) {
       return (
         <TouchableOpacity onPress={() => this.onPressBeauty(item.url)}>
           <Image source={{uri: item.url}} resizeMode='cover' style={{height: 200, backgroundColor: 'red'}}/>
         </TouchableOpacity>)
+    } else if (item.type === Category.video) {
+      return (
+        <TouchableOpacity onPress={() => this.onPressVideo(item.url)}>
+          {this.renderTextItem(item)}
+        </TouchableOpacity>
+      )
     } else {
-      return (<Text>{item.desc}</Text>)
+      return (
+        <TouchableOpacity onPress={() => this.onPressTextItem(item.url)}>
+          {this.renderTextItem(item)}
+        </TouchableOpacity>
+      )
     }
 
   }
 
-  onPressBeauty = (url: string)=> {
+
+  renderTextItem = (item: any) => {
+    return (
+      <View>
+        <Text style={styles.itemTitle}> {item.desc} </Text>
+        <Text style={styles.itemDate}>{item.createdAt}</Text>
+      </View>
+    )
+  }
+
+
+  onPressBeauty = (url: string) => {
     this.props.navigation.navigate('BeautyDetailScreen', {img: url})
+  }
+
+  onPressVideo = (url: string) => {
+    this.props.navigation.navigate("VideoScreen", {video: url})
+  }
+
+  onPressTextItem = (url: string) => {
+    //TODO
   }
 }
 
@@ -59,6 +87,13 @@ const styles = StyleSheet.create({
   sectionDivider: {
     backgroundColor: '#880e4f',
     height: 1
+  },
+  itemTitle: {
+    fontSize: 24,
+    color: 'red'
+  },
+  itemDate: {
+    alignSelf: 'flex-end'
   }
 })
 

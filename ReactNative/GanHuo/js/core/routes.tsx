@@ -5,6 +5,7 @@ import React from "react";
 import SettingsScreen from "../screen/SettingsScreen";
 import {commonStyles} from "./styles/CommonStyles";
 import BeautyDetailScreen from "../screen/detail/BeautyDetailScreen";
+import VideoScreen from "../screen/detail/VideoScreen";
 
 
 const HomeStack = createStackNavigator(
@@ -12,6 +13,7 @@ const HomeStack = createStackNavigator(
     HomeScreen,
     SettingsScreen,
     BeautyDetailScreen,
+    VideoScreen
   },
   {
     headerMode: 'screen',
