@@ -1,20 +1,25 @@
-import React, { Component } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import React, {Component} from 'react'
+import {View, StyleSheet, Text} from 'react-native'
 import {connect} from 'react-redux'
 import {INavigationProps, IReduxProps} from "../../core/CoreProps";
 import {NavigationScreenConfig, NavigationStackScreenOptions} from "react-navigation";
 
-interface Props extends IReduxProps, INavigationProps{}
+interface Props extends IReduxProps, INavigationProps {
+}
 
-class WebDetailScreen extends Component<Props>{
+class WebDetailScreen extends Component<Props> {
   url = ""
 
   componentWillMount() {
     let {navigation} = this.props
     this.url = navigation.getParam("url", "")
+
+    let title = navigation.getParam("title", "")
+    console.log(`szw 01: ${title}`)
+    navigation.setParams({title})
   }
 
-  render(){
+  render() {
     return (
       <View style={styles.root}>
         <Text> {this.url} </Text>
@@ -23,8 +28,10 @@ class WebDetailScreen extends Component<Props>{
   }
 
   static navigationOptions: NavigationScreenConfig<NavigationStackScreenOptions> = ({navigation}) => {
+    let params = navigation.state.params || {}
+    console.log(`szw 02: ${params.title}`)
     return {
-      headerTitle: "福利 详情",
+      headerTitle: params.title,
     }
   }
 }
@@ -36,9 +43,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state: any) => {
-  return {
-
-  }
+  return {}
 }
 
 export default connect(mapStateToProps)(WebDetailScreen)

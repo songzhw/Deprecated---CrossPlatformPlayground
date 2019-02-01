@@ -39,13 +39,13 @@ class TodayScreen extends Component<Props> {
     } else if (item.type === Category.video) {
       return (
         <TouchableOpacity onPress={() => this.onPressVideo(item.url)}>
-          {this.renderTextItem(item)}
+          {this._renderTextItem(item)}
         </TouchableOpacity>
       )
     } else {
       return (
-        <TouchableOpacity onPress={() => this.onPressTextItem(item.url)}>
-          {this.renderTextItem(item)}
+        <TouchableOpacity onPress={() => this.onPressTextItem(item.url, item.descr)}>
+          {this._renderTextItem(item)}
         </TouchableOpacity>
       )
     }
@@ -53,9 +53,9 @@ class TodayScreen extends Component<Props> {
   }
 
 
-  renderTextItem = (item: any) => {
+  _renderTextItem = (item: any) => {
     return (
-      <TouchableOpacity onPress={() => this.onPressTextItem(item.url, item.descr)}>
+      <TouchableOpacity onPress={() => this.onPressTextItem(item.url, item.desc)}>
         <Text style={styles.itemTitle}> {item.desc} </Text>
         <Text style={styles.itemDate}>{item.createdAt}</Text>
       </TouchableOpacity>
