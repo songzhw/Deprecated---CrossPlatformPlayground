@@ -3,6 +3,7 @@ import {View, StyleSheet, Text} from 'react-native'
 import {connect} from 'react-redux'
 import {INavigationProps, IReduxProps} from "../../core/CoreProps";
 import {NavigationScreenConfig, NavigationStackScreenOptions} from "react-navigation";
+import {WebView} from "react-native-webview";
 
 interface Props extends IReduxProps, INavigationProps {
 }
@@ -15,14 +16,16 @@ class WebDetailScreen extends Component<Props> {
     this.url = navigation.getParam("url", "")
 
     let title = navigation.getParam("title", "")
-    console.log(`szw 01: ${title}`)
     navigation.setParams({title})
   }
 
   render() {
     return (
       <View style={styles.root}>
-        <Text> {this.url} </Text>
+        <WebView
+          source={{uri: this.url}}
+          onLoadProgress={e=> console.log(`szw WebView.progress = ${e.nativeEvent.progress}`)}
+        />
       </View>
     )
   }

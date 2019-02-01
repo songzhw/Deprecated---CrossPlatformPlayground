@@ -95,10 +95,16 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 17,
     height: 46,
-    color: '#1e1e1e'
+    color: '#1e1e1e',
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 3
   },
   itemDate: {
     fontSize: 13,
+    marginRight: 10,
+    marginTop: 5,
+    marginBottom: 7,
     alignSelf: 'flex-end'
   }
 })
