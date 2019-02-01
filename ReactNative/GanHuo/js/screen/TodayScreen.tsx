@@ -26,7 +26,7 @@ class TodayScreen extends Component<Props> {
 
   renderSectioHeader = ({section}: { section: any }) => {
     return (
-      <Text style={{fontSize: 40}}> {section.key} </Text>
+      <Text style={styles.sectionHeader}> {section.key} </Text>
     )
   }
 
@@ -55,10 +55,10 @@ class TodayScreen extends Component<Props> {
 
   renderTextItem = (item: any) => {
     return (
-      <View>
+      <TouchableOpacity onPress={() => this.onPressTextItem(item.url, item.descr)}>
         <Text style={styles.itemTitle}> {item.desc} </Text>
         <Text style={styles.itemDate}>{item.createdAt}</Text>
-      </View>
+      </TouchableOpacity>
     )
   }
 
@@ -71,8 +71,8 @@ class TodayScreen extends Component<Props> {
     this.props.navigation.navigate("VideoScreen", {video: url})
   }
 
-  onPressTextItem = (url: string) => {
-    //TODO
+  onPressTextItem = (url: string, title: string) => {
+    this.props.navigation.navigate("WebDetailScreen", {url: url, title: title})
   }
 }
 
@@ -84,15 +84,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#1e1e1e',
     height: StyleSheet.hairlineWidth
   },
+  sectionHeader: {
+    fontSize: 24,
+    color: "#1a237e"
+  },
   sectionDivider: {
     backgroundColor: '#880e4f',
     height: 1
   },
   itemTitle: {
-    fontSize: 24,
-    color: 'red'
+    fontSize: 17,
+    height: 46,
+    color: '#1e1e1e'
   },
   itemDate: {
+    fontSize: 13,
     alignSelf: 'flex-end'
   }
 })
