@@ -10,7 +10,10 @@ class HomeScreen extends Component {
         <HomeButton title="Schedule" onPress={this.go2Schedule}/>
         <HomeButton title="First Page" onPress={this.go2FirstPage}/>
         <HomeButton title="Challenge One" onPress={this.go2Challenge1}/>
-        <HomeButton title="Action Sheet" onPress={this.go2ActionSheet}/>
+        <View style={{height: 20}}/>
+
+        <HomeButton title="My Action Sheet" onPress={this.go2ActionSheet}/>
+        <HomeButton title="My Drawer Layout" onPress={this.go2Drawer}/>
         <View style={{height: 20}}/>
 
         <HomeButton title="Refresh + Load More" onPress={this.go2LoadingList}/>
@@ -30,6 +33,10 @@ class HomeScreen extends Component {
 
       </ScrollView>
     )
+  }
+
+  go2Drawer = () => {
+    this.props.navigation.navigate('MyDrawerDemoScreen')
   }
 
   go2ContextDemo = () => {

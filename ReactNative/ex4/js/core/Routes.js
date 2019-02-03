@@ -22,6 +22,7 @@ import FelaDemo4 from "../screen/fela_demo/FelaDemo4";
 import FelaDemo5 from "../screen/fela_demo/FelaDemo5";
 import FelaDemo6 from "../screen/fela_demo/FelaDemo6";
 import FelaDemo7 from "../screen/fela_demo/FelaDemo7";
+import MyDrawerDemoScreen from "../screen/drawer/MyDrawerDemoScreen";
 
 
 const HomeStack = createStackNavigator(
@@ -114,6 +115,10 @@ const HomeStack = createStackNavigator(
       screen: ContextDemo,
       navigationOptions: {headerTitle: 'new Context API'}
     },
+    MyDrawerDemoScreen: {
+      screen: MyDrawerDemoScreen,
+      navigationOptions: {headerTitle: 'My Drawer Demo'}
+    }
   },
   {
     headerMode: 'screen',
