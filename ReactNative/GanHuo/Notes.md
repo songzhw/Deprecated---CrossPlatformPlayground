@@ -73,4 +73,11 @@ Header.HEIGHT
 #### 3. global "going back" logic
 put the "navigation.goBack()" in the route.js
 
-#### 4. 
+#### 4. <Drawer>
+onDrawerSlide={ (e)=> console.log(`szw2 slide => ${JSON.stringify(e)}`) }
+结果类似: 
+{"nativeEvent":{"offset":0}}
+{"nativeEvent":{"offset":0.005696248435539386}}
+
+关闭时, offset从1到0
+打开时, offset从0到1

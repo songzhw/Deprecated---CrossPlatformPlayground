@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, Button, Image, TouchableOpacity, FlatList} from 'react-native'
 import {connect} from 'react-redux'
-import DrawerLayout from "react-native-drawer-layout";
+import DrawerLayout, {DrawerLayoutSlideEvent} from "react-native-drawer-layout";
 import TodayScreen from "./TodayScreen";
 import {INavigationProps, IReduxProps} from "../core/CoreProps";
 import {Header, NavigationScreenConfig, NavigationStackScreenOptions} from "react-navigation";
@@ -40,12 +40,23 @@ class HomeScreen extends Component<Props> {
         renderNavigationView={() => drawer}
         drawerWidth={250}
         keyboardDismissMode="on-drag"
+        onDrawerSlide={e => this.onDrawerSlide(e)}
       >
 
         <TodayScreen navigation={this.props.navigation} data={this.props.payload}/>
 
       </DrawerLayout>
     )
+  }
+
+  onDrawerSlide = (e: DrawerLayoutSlideEvent) => {
+    let {offset} = e.nativeEvent
+    console.log(`szw onDrawerSlide : offset = ${offset}`)
+    if (offset === 0) {
+      this.isDrawerOpen = false
+    } else if (offset === 1) {
+      this.isDrawerOpen = true
+    }
   }
 
   renderDrawer = () => {
