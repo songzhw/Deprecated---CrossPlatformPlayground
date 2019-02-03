@@ -7,9 +7,9 @@ class SixDrawerLayout extends React.Component{
   render() {
     return (
       <View style={styles.root}>
-        <Text style={{zIndex: 1, backgroundColor: 'red', fontSize: 40}}> Six Drawer Layout</Text>
-        <Text style={{zIndex: 30,  backgroundColor: 'green', fontSize: 40, width: 150, position: 'absolute'}}> Second Line</Text>
-        <Text style={{zIndex: 10,  backgroundColor: 'blue', fontSize: 40, width: 200, position: 'absolute'}}> Third Line</Text>
+        <Text style={{ backgroundColor: 'red', fontSize: 40, width: 200, position: 'absolute', top: 0}}> Six Drawer Layout</Text>
+        <Text style={{ backgroundColor: 'green', fontSize: 40, width: 150, position: 'absolute', top: 0}}> Second Line</Text>
+        <Text style={{ backgroundColor: 'blue', fontSize: 40, width: 300, position: 'absolute', top: 0}}> Third Line</Text>
       </View>
     )
   }
