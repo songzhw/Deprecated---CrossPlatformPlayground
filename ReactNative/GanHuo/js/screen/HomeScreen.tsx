@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, Button, Image, TouchableOpacity} from 'react-native'
+import {View, StyleSheet, Text, Button, Image, TouchableOpacity, FlatList} from 'react-native'
 import {connect} from 'react-redux'
 import DrawerLayout from "react-native-drawer-layout";
 import TodayScreen from "./TodayScreen";
@@ -31,11 +31,7 @@ class HomeScreen extends Component<Props> {
 
 
   render() {
-    var drawer = (
-      <View style={{flex: 1, backgroundColor: 'white'}}>
-        <Text style={{fontSize: 60}}>I'm drawer</Text>
-      </View>
-    )
+    var drawer = this.renderDrawer()
     // @ts-ignore
     return (
       <DrawerLayout
@@ -50,6 +46,53 @@ class HomeScreen extends Component<Props> {
 
       </DrawerLayout>
     )
+  }
+
+  renderDrawer = () => {
+    var data = [
+      {
+        icon: require('../../assets/category_android.png'),
+        name: "Android",
+      },
+      {
+        icon: require('../../assets/category_ios.png'),
+        name: "iOS",
+      },
+      {
+        icon: require('../../assets/category_app.png'),
+        name: "App",
+      },
+      {
+        icon: require('../../assets/category_js.png'),
+        name: "前端",
+      },
+      {
+        icon: require('../../assets/category_beauty.png'),
+        name: "福利",
+      }
+    ]
+
+    return (
+      <FlatList
+        style={{backgroundColor: 'white', width: 250}}
+        data={data}
+        keyExtractor={(item, index) => `${item.name}`}
+        renderItem={this.renderDrawerItem}
+      />
+    )
+  }
+
+  renderDrawerItem = ({item, index}) => {
+    return (
+      <TouchableOpacity style={styles.drawerItemRoot} onPress={() => this.onPressDrawerItem(item.name)}>
+        <Image source={item.icon} style={styles.drawerItemIcon}/>
+        <Text style={styles.drawerItemText}>{item.name}</Text>
+      </TouchableOpacity>
+    )
+  }
+
+  private onPressDrawerItem(name: string) {
+    this.props.navigation.navigate('CategoryDetailScreen', {name: name})
   }
 
   toggleLeftDrawer = () => {
@@ -71,7 +114,27 @@ class HomeScreen extends Component<Props> {
     }
   }
 
+
 }
+
+
+const styles = StyleSheet.create({
+  drawerItemRoot: {
+    flexDirection: 'row',
+    height: 60,
+    alignItems: 'center'
+  },
+  drawerItemIcon: {
+    width: 30,
+    height: 30,
+    marginLeft: 15
+  },
+  drawerItemText: {
+    fontSize: 20,
+    color: '#1e1e1e',
+    marginLeft: 30,
+  }
+})
 
 const mapStateToProps = (state: any) => {
   console.log(`szw mapper = ${JSON.stringify(state)}`)

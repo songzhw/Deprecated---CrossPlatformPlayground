@@ -7,6 +7,7 @@ import {commonStyles} from "./styles/CommonStyles";
 import BeautyDetailScreen from "../screen/detail/BeautyDetailScreen";
 import VideoScreen from "../screen/detail/VideoScreen";
 import WebDetailScreen from "../screen/detail/WebDetailScreen";
+import CategoryDetailScreen from "../screen/detail/CategoryDetailScreen";
 
 
 const HomeStack = createStackNavigator(
@@ -15,7 +16,8 @@ const HomeStack = createStackNavigator(
     SettingsScreen,
     BeautyDetailScreen,
     VideoScreen,
-    WebDetailScreen
+    WebDetailScreen,
+    CategoryDetailScreen
   },
   {
     headerMode: 'screen',
