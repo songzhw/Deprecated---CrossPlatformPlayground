@@ -6,15 +6,17 @@ class HomeScreen extends Component {
   render() {
     return (
       <ScrollView style={styles.root}>
+
+        <HomeButton title="My Action Sheet" onPress={this.go2ActionSheet}/>
+        <HomeButton title="My Drawer Layout" onPress={this.go2Drawer}/>
+        <View style={{height: 20}}/>
+
         <HomeButton title="Login" onPress={this.go2Login}/>
         <HomeButton title="Schedule" onPress={this.go2Schedule}/>
         <HomeButton title="First Page" onPress={this.go2FirstPage}/>
         <HomeButton title="Challenge One" onPress={this.go2Challenge1}/>
         <View style={{height: 20}}/>
 
-        <HomeButton title="My Action Sheet" onPress={this.go2ActionSheet}/>
-        <HomeButton title="My Drawer Layout" onPress={this.go2Drawer}/>
-        <View style={{height: 20}}/>
 
         <HomeButton title="Refresh + Load More" onPress={this.go2LoadingList}/>
         <HomeButton title="setState() pitfall" onPress={this.go2pitfall1}/>
