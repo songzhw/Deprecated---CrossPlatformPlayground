@@ -16,3 +16,8 @@ export interface IGanHuoItem {
   url: string,
   who: string
 }
+
+export interface IListResponse {
+  error: false,
+  results: IGanHuoItem[]
+}

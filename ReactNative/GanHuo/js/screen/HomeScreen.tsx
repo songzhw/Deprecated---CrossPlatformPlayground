@@ -51,7 +51,6 @@ class HomeScreen extends Component<Props> {
 
   onDrawerSlide = (e: DrawerLayoutSlideEvent) => {
     let {offset} = e.nativeEvent
-    console.log(`szw onDrawerSlide : offset = ${offset}`)
     if (offset === 0) {
       this.isDrawerOpen = false
     } else if (offset === 1) {
@@ -149,7 +148,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state: any) => {
-  console.log(`szw mapper = ${JSON.stringify(state)}`)
+  console.log(`szw HomeScreen.mapper = ${JSON.stringify(state)}`)
   let {results} = state.reducerGanHuo
   let ret = extractTodayData(results)
   return {payload: ret}

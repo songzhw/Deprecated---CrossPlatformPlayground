@@ -1,6 +1,7 @@
 import {IAction} from "../core/CoreProps";
-import {ITodayResponse} from "../core/data/ResponseData";
+import {IListResponse, ITodayResponse} from "../core/data/ResponseData";
 import {ISectionListData} from "../core/data/ViewData";
+import {Category} from "../core/httpEngine";
 
 export const REQUEST_TODAY = 'REQUEST_TODAY'
 export const requestToday = () => ({
@@ -13,6 +14,18 @@ export const responseToday = (resp: ITodayResponse) => ({
   payload: resp
 })
 
+export const REQUEST_CATEGORY = 'REQUEST_CATEGORY'
+export const requestCategory = (category: Category, count: number, page: number) => ({
+  type: REQUEST_CATEGORY,
+  payload: {category, count, page}
+})
+
+export const RESPONSE_CATEGORY = "RESPONSE_CATEGORY"
+export const responseCategory = (resp: IListResponse) => ({
+  type: RESPONSE_CATEGORY,
+  payload: resp
+})
+
 const initState = {
   payload: {}
 }
@@ -20,9 +33,8 @@ const initState = {
 export default (state = initState, action: IAction) => {
   switch (action.type) {
     case RESPONSE_TODAY:
+    case RESPONSE_CATEGORY:
       let {payload} = action
-      // let sections = extractTodayData(payload)
-      // return {payload: sections}
       return payload
     default:
       return state
