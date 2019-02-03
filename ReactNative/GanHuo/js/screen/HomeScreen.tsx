@@ -92,6 +92,7 @@ class HomeScreen extends Component<Props> {
   }
 
   private onPressDrawerItem(name: string) {
+    this.drawer!.closeDrawer()
     this.props.navigation.navigate('CategoryDetailScreen', {name: name})
   }
 

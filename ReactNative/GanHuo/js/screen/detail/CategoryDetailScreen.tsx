@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import {connect} from 'react-redux'
+import {Category} from "../../core/httpEngine";
+import {INavigationProps, IReduxProps} from "../../core/CoreProps";
 
-class CategoryDetailScreen extends Component{
+interface Props extends IReduxProps, INavigationProps {}
+
+class CategoryDetailScreen extends Component<Props>{
+  category = Category.beauty
+
+  componentWillMount() {
+    this.category = this.props.navigation.getParam("name", Category.beauty)
+  }
+
   render(){
     return (
       <View style={styles.root}>
-        <Text>CategoryDetailScreen Screen</Text>
+        <Text>CategoryDetailScreen Screen : {this.category}</Text>
       </View>
     )
   }
