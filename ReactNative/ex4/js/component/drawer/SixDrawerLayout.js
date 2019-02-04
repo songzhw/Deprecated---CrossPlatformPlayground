@@ -7,9 +7,10 @@ class SixDrawerLayout extends React.Component{
   render() {
     return (
       <View style={styles.root}>
-        <Text style={{ backgroundColor: 'red', fontSize: 40, width: 200, position: 'absolute', top: 0}}> Six Drawer Layout</Text>
-        <Text style={{ backgroundColor: 'green', fontSize: 40, width: 150, position: 'absolute', top: 0}}> Second Line</Text>
-        <Text style={{ backgroundColor: 'blue', fontSize: 40, width: 300, position: 'absolute', top: 0}}> Third Line</Text>
+        {this.props.children}
+        <View style={styles.drawerRoot}>
+          {this.props.renderDrawer()}
+        </View>
       </View>
     )
   }
@@ -18,10 +19,11 @@ class SixDrawerLayout extends React.Component{
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: 'transparent'
   },
-  contentRoot: {
+  drawerRoot: {
     flex: 1,
+    backgroundColor: '#0000007e',
+    position: 'absolute'
   }
 })
 
