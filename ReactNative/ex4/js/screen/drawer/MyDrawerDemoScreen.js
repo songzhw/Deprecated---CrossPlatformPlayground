@@ -8,19 +8,27 @@ class MyDrawerDemoScreen extends Component {
     return (
       <View style={styles.root}>
         <SixDrawerLayout
-          renderDrawer={() => <Text style={{fontSize: 33}}>Drawer</Text>}
+          renderDrawer={this.renderDrawer}
         >
           <Text style={{fontSize: 88}}>Content</Text>
         </SixDrawerLayout>
       </View>
     )
   }
+
+  renderDrawer = () => (
+    <Text style={styles.drawer}>Drawer</Text>
+  )
 }
 
 const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
+  drawer: {
+    fontSize: 33,
+    width: 150,
+  }
 })
 
 const mapStateToProps = (state) => {

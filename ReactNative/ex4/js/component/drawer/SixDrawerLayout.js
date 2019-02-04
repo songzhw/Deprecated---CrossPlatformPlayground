@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
   drawerRoot: {
     flex: 1,
     backgroundColor: '#0000007e',
-    position: 'absolute'
+    position: 'absolute',
+    bottom: 0,
   }
 })
 
