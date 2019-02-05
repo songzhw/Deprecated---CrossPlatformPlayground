@@ -26,8 +26,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   drawer: {
+    flex: 1,
     fontSize: 33,
-    width: 150,
+    width: 240,
+    backgroundColor: 'white'
   }
 })
 

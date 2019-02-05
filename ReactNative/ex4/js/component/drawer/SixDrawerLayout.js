@@ -19,10 +19,9 @@ class SixDrawerLayout extends React.Component{
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    backgroundColor: '#0000007e',
   },
   drawerRoot: {
-    flex: 1,
-    backgroundColor: '#0000007e',
     position: 'absolute',
     top: 0,
     bottom: 0,
