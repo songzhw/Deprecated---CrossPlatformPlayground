@@ -6,10 +6,12 @@ class SixDrawerLayout extends React.Component {
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={this.onPressEmptyBackground} style={styles.root}>
-        {this.props.children}
-        <View style={styles.drawerRoot}>
-          {this.props.renderDrawer()}
+      <TouchableWithoutFeedback onPress={this.onPressEmptyBackground} >
+        <View style={styles.root}>
+          {this.props.children}
+          <View style={styles.drawerRoot}>
+            {this.props.renderDrawer()}
+          </View>
         </View>
       </TouchableWithoutFeedback>
     )
