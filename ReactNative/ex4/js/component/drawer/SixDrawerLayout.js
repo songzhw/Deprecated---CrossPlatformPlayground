@@ -1,18 +1,22 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import {View, StyleSheet, TouchableWithoutFeedback} from 'react-native'
 
-class SixDrawerLayout extends React.Component{
+class SixDrawerLayout extends React.Component {
   state = {}
 
   render() {
     return (
-      <View style={styles.root}>
+      <TouchableWithoutFeedback onPress={this.onPressEmptyBackground} style={styles.root}>
         {this.props.children}
         <View style={styles.drawerRoot}>
           {this.props.renderDrawer()}
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     )
+  }
+
+  onPressEmptyBackground = () => {
+    console.log(`szw press bg`)
   }
 }
 

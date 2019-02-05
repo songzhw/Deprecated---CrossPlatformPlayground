@@ -8,8 +8,7 @@ class MyDrawerDemoScreen extends Component {
     return (
       <View style={styles.root}>
         <SixDrawerLayout
-          renderDrawer={this.renderDrawer}
-        >
+          renderDrawer={this.renderDrawer}>
           <Text style={{fontSize: 88}}>Content</Text>
         </SixDrawerLayout>
       </View>
@@ -17,7 +16,13 @@ class MyDrawerDemoScreen extends Component {
   }
 
   renderDrawer = () => (
-    <Text style={styles.drawer}>Drawer</Text>
+    <View style={styles.drawer}>
+      <Text style={styles.drawItem}>Android</Text>
+      <Text style={styles.drawItem}>iOS</Text>
+      <Text style={styles.drawItem}>React Native</Text>
+      <Text style={styles.drawItem}>Flutter</Text>
+      <Text style={styles.drawItem}>Node.js</Text>
+    </View>
   )
 }
 
@@ -30,6 +35,11 @@ const styles = StyleSheet.create({
     fontSize: 33,
     width: 240,
     backgroundColor: 'white'
+  },
+  drawItem: {
+    fontSize: 28,
+    marginTop: 20,
+    marginLeft: 20,
   }
 })
 
