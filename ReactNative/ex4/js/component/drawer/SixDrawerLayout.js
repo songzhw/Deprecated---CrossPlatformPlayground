@@ -2,14 +2,17 @@ import React from 'react'
 import {View, StyleSheet, TouchableWithoutFeedback} from 'react-native'
 
 class SixDrawerLayout extends React.Component {
-  state = {}
+  isOpen = true  //TODO change the value to false later !
+  state = {
+    transform: 0
+  }
 
   render() {
     return (
-      <TouchableWithoutFeedback onPress={this.onPressEmptyBackground} >
+      <TouchableWithoutFeedback onPress={this.onPressEmptyBackground}>
         <View style={styles.root}>
           {this.props.children}
-          <View style={styles.drawerRoot}>
+          <View style={[styles.drawerRoot, {width: this.props.drawerWidth, transform: [{translateX: this.state.transform}]}]}>
             {this.props.renderDrawer()}
           </View>
         </View>
@@ -18,8 +21,26 @@ class SixDrawerLayout extends React.Component {
   }
 
   onPressEmptyBackground = () => {
-    console.log(`szw press bg`)
+    this.closeDrawer()
   }
+
+  toggle = () => {
+    if (this.isOpen) {
+      this.closeDrawer()
+    } else {
+      this.openDrawer()
+    }
+  }
+
+  closeDrawer = () => {
+    if (this.isOpen) {
+
+    }
+  }
+
+  openDrawer = () => {
+  }
+
 }
 
 const styles = StyleSheet.create({

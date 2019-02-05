@@ -8,6 +8,7 @@ class MyDrawerDemoScreen extends Component {
     return (
       <View style={styles.root}>
         <SixDrawerLayout
+          drawerWidth={240}
           renderDrawer={this.renderDrawer}>
           <Text style={{fontSize: 88}}>Content</Text>
         </SixDrawerLayout>
@@ -33,7 +34,6 @@ const styles = StyleSheet.create({
   drawer: {
     flex: 1,
     fontSize: 33,
-    width: 240,
     backgroundColor: 'white'
   },
   drawItem: {
