@@ -34,7 +34,7 @@ class SixDrawerLayout extends React.Component {
 
   closeDrawer = () => {
     if (this.isOpen) {
-
+      this.setState({...this.state, transform: -1 * this.props.drawerWidth})
     }
   }
 
