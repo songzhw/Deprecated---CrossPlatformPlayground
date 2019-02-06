@@ -8,8 +8,9 @@ class SixDrawerLayout extends React.Component {
   }
 
   render() {
-    console.log(`szw anim.value = ${JSON.stringify(this.state.valueForAnim)}`)
     let {valueForAnim} = this.state
+    let {drawerWidth} = this.props
+
     const opacity = valueForAnim.interpolate({
       inputRange: [0, 1],
       outputRange: [0, 0.7],
@@ -17,15 +18,23 @@ class SixDrawerLayout extends React.Component {
     })
     const animatedOpacity = {opacity: opacity}
 
+    const translate = valueForAnim.interpolate({
+      inputRange: [0, 1],
+      outputRange: [-drawerWidth, 0],
+      extrapolate: 'clamp'
+    })
+    const animatedTranslate = {transform: [{translateX: translate}]}
+
     return (
       <View style={styles.root}>
         {this.props.children}
 
         <View style={styles.drawerRoot}>
-          <View style={[styles.drawerContainer,
-            {width: this.props.drawerWidth}]}>
+          <Animated.View style={[styles.drawerContainer,
+            {width: this.props.drawerWidth},
+            animatedTranslate]}>
             {this.props.renderDrawer()}
-          </View>
+          </Animated.View>
 
           <TouchableWithoutFeedback onPress={this.closeDrawer}>
             <Animated.View style={[styles.drawerShadow, {left: this.props.drawerWidth}, animatedOpacity]}/>
