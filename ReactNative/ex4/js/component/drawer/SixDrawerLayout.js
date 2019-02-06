@@ -14,11 +14,11 @@ class SixDrawerLayout extends React.Component {
 
         <View style={styles.drawerRoot}>
           <View style={[styles.drawerContainer,
-            {width: this.props.drawerWidth, transform: [{translateX: this.state.transform}]}]}>
+            {width: this.props.drawerWidth}]}>
             {this.props.renderDrawer()}
           </View>
 
-          <TouchableWithoutFeedback onPress={this.closeDrawer()}
+          <TouchableWithoutFeedback onPress={this.closeDrawer}
                                     style={[styles.drawerShadow, {left: this.props.drawerWidth}]}>
             <View/>
           </TouchableWithoutFeedback>
@@ -44,7 +44,7 @@ class SixDrawerLayout extends React.Component {
   closeDrawer = () => {
     console.log(`szw close drawer`)
     if (this.isOpen) {
-      this.setState({...this.state, transform: -1 * this.props.drawerWidth})
+      // this.setState({...this.state, transform: -1 * this.props.drawerWidth})
     }
   }
 
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     right: 0,
-    backgroundColor: '#0000007e'
+    // backgroundColor: '#0000007e'
+    backgroundColor: 'red'
   }
 })
 
