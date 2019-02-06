@@ -10,7 +10,7 @@ class MyDrawerDemoScreen extends Component {
         <SixDrawerLayout
           drawerWidth={240}
           renderDrawer={this.renderDrawer}>
-          <Text style={{fontSize: 88}}>Content</Text>
+          <Text style={{fontSize: 88, backgroundColor: 'red'}}>Content</Text>
         </SixDrawerLayout>
       </View>
     )

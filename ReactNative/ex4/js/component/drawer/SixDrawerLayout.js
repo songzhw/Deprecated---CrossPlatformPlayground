@@ -8,15 +8,16 @@ class SixDrawerLayout extends React.Component {
   }
 
   render() {
+
     return (
       <View style={styles.root}>
         {this.props.children}
 
         <View style={styles.drawerRoot}>
-          <View style={[styles.drawerContainer,
-            {width: this.props.drawerWidth}]}>
-            {this.props.renderDrawer()}
-          </View>
+          {/*<View style={[styles.drawerContainer,*/}
+            {/*{width: this.props.drawerWidth}]}>*/}
+            {/*{this.props.renderDrawer()}*/}
+          {/*</View>*/}
 
           <TouchableWithoutFeedback onPress={this.closeDrawer}>
             <View style={[styles.drawerShadow, {left: this.props.drawerWidth}]}/>
@@ -28,9 +29,6 @@ class SixDrawerLayout extends React.Component {
     )
   }
 
-  onPressEmptyBackground = () => {
-    this.closeDrawer()
-  }
 
   toggle = () => {
     if (this.isOpen) {
@@ -42,9 +40,10 @@ class SixDrawerLayout extends React.Component {
 
   closeDrawer = () => {
     console.log(`szw close drawer`)
-    if (this.isOpen) {
-      // this.setState({...this.state, transform: -1 * this.props.drawerWidth})
-    }
+    // if (this.isOpen) {
+    //   this.setState({...this.state, transform: -1 * this.props.drawerWidth})
+    // }
+    // this.isOpen = !this.isOpen
   }
 
   openDrawer = () => {
