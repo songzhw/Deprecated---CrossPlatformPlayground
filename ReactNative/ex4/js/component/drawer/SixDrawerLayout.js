@@ -2,7 +2,7 @@ import React from 'react'
 import {View, StyleSheet, TouchableWithoutFeedback, Animated} from 'react-native'
 
 class SixDrawerLayout extends React.Component {
-  isOpen = true  //TODO change the value to false later !
+  isOpen = false
   state = {
     valueForAnim: new Animated.Value(0)
   }
@@ -17,8 +17,10 @@ class SixDrawerLayout extends React.Component {
 
     return (
       <View style={styles.root}>
+        {/*content*/}
         {this.props.children}
 
+        {/*drawer*/}
         <View style={styles.drawerRoot}>
           <Animated.View style={[styles.drawerContainer,
             {width: this.props.drawerWidth},
@@ -26,11 +28,11 @@ class SixDrawerLayout extends React.Component {
             {this.props.renderDrawer()}
           </Animated.View>
 
-          <TouchableWithoutFeedback onPress={this.closeDrawer}>
+          <TouchableWithoutFeedback onPress={this.toggle}>
             <Animated.View style={[styles.drawerShadow, {left: this.props.drawerWidth}, animatedOpacity]}/>
           </TouchableWithoutFeedback>
-
         </View>
+
       </View>
 
     )
@@ -53,21 +55,19 @@ class SixDrawerLayout extends React.Component {
     } else {
       this.openDrawer()
     }
+    this.isOpen = !this.isOpen
   }
 
   closeDrawer = () => {
-    console.log(`szw close drawer`)
-    // if (this.isOpen) {
-    //   this.setState({...this.state, transform: -1 * this.props.drawerWidth})
-    // }
-    // this.isOpen = !this.isOpen
-
     Animated.timing(this.state.valueForAnim,
-      {toValue: 1, duration: 500})
+      {toValue: 0, duration: 500})
       .start()
   }
 
   openDrawer = () => {
+    Animated.timing(this.state.valueForAnim,
+      {toValue: 1, duration: 500})
+      .start()
   }
 
 }
