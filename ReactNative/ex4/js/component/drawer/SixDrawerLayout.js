@@ -18,9 +18,8 @@ class SixDrawerLayout extends React.Component {
             {this.props.renderDrawer()}
           </View>
 
-          <TouchableWithoutFeedback onPress={this.closeDrawer}
-                                    style={[styles.drawerShadow, {left: this.props.drawerWidth}]}>
-            <View/>
+          <TouchableWithoutFeedback onPress={this.closeDrawer}>
+            <View style={[styles.drawerShadow, {left: this.props.drawerWidth}]}/>
           </TouchableWithoutFeedback>
 
         </View>
@@ -74,8 +73,7 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     right: 0,
-    // backgroundColor: '#0000007e'
-    backgroundColor: 'red'
+    backgroundColor: '#0000007e'
   }
 })
 
