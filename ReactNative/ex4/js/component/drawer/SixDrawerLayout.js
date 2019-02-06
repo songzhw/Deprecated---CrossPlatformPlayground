@@ -8,22 +8,12 @@ class SixDrawerLayout extends React.Component {
   }
 
   render() {
-    let {valueForAnim} = this.state
     let {drawerWidth} = this.props
-
-    const opacity = valueForAnim.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, 0.7],
-      extrapolate: 'clamp'
-    })
-    const animatedOpacity = {opacity: opacity}
-
-    const translate = valueForAnim.interpolate({
-      inputRange: [0, 1],
-      outputRange: [-drawerWidth, 0],
-      extrapolate: 'clamp'
-    })
+    const translate = this.getAnimStyle([-drawerWidth, 0])
     const animatedTranslate = {transform: [{translateX: translate}]}
+
+    const opacity = this.getAnimStyle([0, 0.7])
+    const animatedOpacity = {opacity: opacity}
 
     return (
       <View style={styles.root}>
@@ -44,6 +34,16 @@ class SixDrawerLayout extends React.Component {
       </View>
 
     )
+  }
+
+  getAnimStyle = (outputRange) => {
+    let {valueForAnim} = this.state
+    const animStyle = valueForAnim.interpolate({
+      inputRange: [0, 1],
+      outputRange: outputRange,
+      extrapolate: 'clamp'
+    })
+    return animStyle
   }
 
 
