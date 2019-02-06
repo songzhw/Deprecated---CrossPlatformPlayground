@@ -1,26 +1,34 @@
 import React from 'react'
-import {View, StyleSheet, TouchableWithoutFeedback} from 'react-native'
+import {View, StyleSheet, TouchableWithoutFeedback, Animated} from 'react-native'
 
 class SixDrawerLayout extends React.Component {
   isOpen = true  //TODO change the value to false later !
   state = {
-    transform: 0
+    valueForAnim: new Animated.Value(0)
   }
 
   render() {
+    console.log(`szw anim.value = ${JSON.stringify(this.state.valueForAnim)}`)
+    let {valueForAnim} = this.state
+    const opacity = valueForAnim.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 0.7],
+      extrapolate: 'clamp'
+    })
+    const animatedOpacity = {opacity: opacity}
 
     return (
       <View style={styles.root}>
         {this.props.children}
 
         <View style={styles.drawerRoot}>
-          {/*<View style={[styles.drawerContainer,*/}
-            {/*{width: this.props.drawerWidth}]}>*/}
-            {/*{this.props.renderDrawer()}*/}
-          {/*</View>*/}
+          <View style={[styles.drawerContainer,
+            {width: this.props.drawerWidth}]}>
+            {this.props.renderDrawer()}
+          </View>
 
           <TouchableWithoutFeedback onPress={this.closeDrawer}>
-            <View style={[styles.drawerShadow, {left: this.props.drawerWidth}]}/>
+            <Animated.View style={[styles.drawerShadow, {left: this.props.drawerWidth}, animatedOpacity]}/>
           </TouchableWithoutFeedback>
 
         </View>
@@ -44,6 +52,10 @@ class SixDrawerLayout extends React.Component {
     //   this.setState({...this.state, transform: -1 * this.props.drawerWidth})
     // }
     // this.isOpen = !this.isOpen
+
+    Animated.timing(this.state.valueForAnim,
+      {toValue: 1, duration: 500})
+      .start()
   }
 
   openDrawer = () => {
@@ -72,7 +84,7 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     right: 0,
-    backgroundColor: '#0000007e'
+    backgroundColor: '#000'
   }
 })
 
