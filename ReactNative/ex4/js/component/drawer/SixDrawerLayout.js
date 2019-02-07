@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
   },
   contentRoot: {
     flex: 1,
+    zIndex: 0
   },
   drawerRoot: {
     // backgroundColor: '#0000007e',
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
+    zIndex: 1000
   },
   drawerContainer: {
     flex: 1
