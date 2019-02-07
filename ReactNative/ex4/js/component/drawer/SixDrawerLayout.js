@@ -2,10 +2,21 @@ import React from 'react'
 import {View, StyleSheet, TouchableWithoutFeedback, Animated} from 'react-native'
 
 class SixDrawerLayout extends React.Component {
-  isOpen = false
   state = {
+    isOpen : false,
     valueForAnim: new Animated.Value(0)
   }
+
+  componentWillMount() {
+    const {valueForAnim} = this.state
+    valueForAnim.addListener(({value}) => {
+      const isDrawerOpen = value > 0
+      if(isDrawerOpen !== this.state.isOpen){
+        this.setState({...this.state,  isOpen: isDrawerOpen})
+      }
+    })
+  }
+
 
   render() {
     let {drawerWidth} = this.props
@@ -14,7 +25,7 @@ class SixDrawerLayout extends React.Component {
     const opacity = this.getAnimStyle([0, 0.7])
     const animatedOpacity = {opacity: opacity}
 
-    const clickableStatus = this.isOpen ? "auto" : "none"
+    const clickableStatus = this.state.isOpen ? "auto" : "none"
     console.log(`szw render() : ${clickableStatus}`)
 
     return (
@@ -55,20 +66,17 @@ class SixDrawerLayout extends React.Component {
 
 
   toggle = () => {
-    if (this.isOpen) {
+    if (this.state.isOpen) {
       this.closeDrawer()
     } else {
       this.openDrawer()
     }
   }
 
-  // put "this.isOpen = !this.isOpen" here, instead of "toggle()" method
-  // <== because users can just call "closeDrawer()", and "this.isOpen" need to reflect the change too
   closeDrawer = () => {
     Animated.timing(this.state.valueForAnim,
       {toValue: 0, duration: 300})
       .start()
-    this.isOpen = !this.isOpen
   }
 
   openDrawer = () => {
@@ -76,7 +84,6 @@ class SixDrawerLayout extends React.Component {
     Animated.timing(this.state.valueForAnim,
       {toValue: 1, duration: 300})
       .start()
-    this.isOpen = !this.isOpen
   }
 
 }
