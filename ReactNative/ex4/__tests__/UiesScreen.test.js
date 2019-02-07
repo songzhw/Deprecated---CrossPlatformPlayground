@@ -71,7 +71,7 @@ describe('test Ui Screen', () => {
 
   test('check two Images with source propers exist', ()=> {
     const wrapper = shallow(<UiesScreen/>)
-    expect(wrapper.findWhere(n => n.prop('source')!== null).length).toBe(2)
+    expect(wrapper.findWhere(n => n.prop('source')!== undefined).length).toBe(2)
   })
 
   test('check Image with source=1 exist', ()=> {
