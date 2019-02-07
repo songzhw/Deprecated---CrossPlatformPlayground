@@ -57,13 +57,15 @@ class SixDrawerLayout extends React.Component {
     } else {
       this.openDrawer()
     }
-    this.isOpen = !this.isOpen
   }
 
+  // put "this.isOpen = !this.isOpen" here, instead of "toggle()" method
+  // <== because users can just call "closeDrawer()", and "this.isOpen" need to reflect the change too
   closeDrawer = () => {
     Animated.timing(this.state.valueForAnim,
       {toValue: 0, duration: 300})
       .start()
+    this.isOpen = !this.isOpen
   }
 
   openDrawer = () => {
@@ -71,6 +73,7 @@ class SixDrawerLayout extends React.Component {
     Animated.timing(this.state.valueForAnim,
       {toValue: 1, duration: 300})
       .start()
+    this.isOpen = !this.isOpen
   }
 
 }
