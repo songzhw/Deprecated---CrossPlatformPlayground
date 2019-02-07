@@ -11,9 +11,11 @@ class SixDrawerLayout extends React.Component {
     let {drawerWidth} = this.props
     const translate = this.getAnimStyle([-drawerWidth, 0])
     const animatedTranslate = {transform: [{translateX: translate}]}
-
     const opacity = this.getAnimStyle([0, 0.7])
     const animatedOpacity = {opacity: opacity}
+
+    const clickableStatus = this.isOpen ? "auto" : "none"
+    console.log(`szw render() : ${clickableStatus}`)
 
     return (
       <View style={styles.root}>
@@ -30,8 +32,9 @@ class SixDrawerLayout extends React.Component {
             {this.props.renderDrawer()}
           </Animated.View>
 
-          <TouchableWithoutFeedback onPress={this.toggle}>
-            <Animated.View style={[styles.drawerShadow, {left: this.props.drawerWidth}, animatedOpacity]}/>
+          <TouchableWithoutFeedback pointerEvents={clickableStatus} onPress={this.toggle} >
+            <Animated.View pointerEvents={clickableStatus}
+              style={[styles.drawerShadow, {left: this.props.drawerWidth}, animatedOpacity]}/>
           </TouchableWithoutFeedback>
         </View>
 
