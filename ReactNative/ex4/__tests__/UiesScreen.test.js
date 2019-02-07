@@ -63,4 +63,21 @@ describe('test Ui Screen', () => {
 
     expect(wrapper.find(TestImage).dive().find(Image).length).toBe(1)
   })
+
+  test('check two Image exist', ()=> {
+    const wrapper = shallow(<UiesScreen/>)
+    expect(wrapper.find(Image).length).toBe(2)
+  })
+
+
+  test('check Image with source=1 exist', ()=> {
+    const wrapper = shallow(<UiesScreen/>)
+    expect(wrapper.findWhere(n => n.prop('source') === 1).length).toBe(1)
+  })
+
+  test('check Image with source=3 does not exist', ()=> {
+    const wrapper = shallow(<UiesScreen/>)
+    expect(wrapper.findWhere(n => n.prop('source') === 3).length).toBe(0)
+  })
+
 })

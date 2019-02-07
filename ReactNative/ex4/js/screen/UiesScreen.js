@@ -13,6 +13,10 @@ class UiesScreen extends Component {
         <Text>{this.props.title}</Text>
         <Button title="btn3" onPress={() => null} onKiss={this.onKiss}/>
         <TestImage/>
+        <View>
+          <Image source={1}/>
+          <Image source={2}/>
+        </View>
       </TouchableOpacity>
     )
   }
