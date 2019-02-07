@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text} from 'react-native'
+import {View, StyleSheet, Text, Button} from 'react-native'
 import {connect} from 'react-redux'
 import SixDrawerLayout from "../../component/drawer/SixDrawerLayout";
 
@@ -8,12 +8,20 @@ class MyDrawerDemoScreen extends Component {
     return (
       <View style={styles.root}>
         <SixDrawerLayout
+          ref={(ref) => this.drawerLayout = ref}
           drawerWidth={240}
           renderDrawer={this.renderDrawer}>
-          <Text style={{fontSize: 88, backgroundColor: 'red'}}>Content</Text>
+          <View>
+            <Text style={{fontSize: 88, backgroundColor: 'red'}}>Content</Text>
+            <Button onPress={this.openDrawer} title="Open Drawer"/>
+          </View>
         </SixDrawerLayout>
       </View>
     )
+  }
+
+  openDrawer = () => {
+    this.drawerLayout.openDrawer()
   }
 
   renderDrawer = () => (

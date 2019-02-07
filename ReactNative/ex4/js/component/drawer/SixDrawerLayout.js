@@ -18,7 +18,9 @@ class SixDrawerLayout extends React.Component {
     return (
       <View style={styles.root}>
         {/*content*/}
-        {this.props.children}
+        <View style={styles.contentRoot}>
+          {this.props.children}
+        </View>
 
         {/*drawer*/}
         <View style={styles.drawerRoot}>
@@ -60,13 +62,14 @@ class SixDrawerLayout extends React.Component {
 
   closeDrawer = () => {
     Animated.timing(this.state.valueForAnim,
-      {toValue: 0, duration: 500})
+      {toValue: 0, duration: 300})
       .start()
   }
 
   openDrawer = () => {
+    console.log(`szw open drawer`)
     Animated.timing(this.state.valueForAnim,
-      {toValue: 1, duration: 500})
+      {toValue: 1, duration: 300})
       .start()
   }
 
@@ -77,13 +80,16 @@ const styles = StyleSheet.create({
     flex: 1,
 
   },
+  contentRoot: {
+    flex: 1,
+  },
   drawerRoot: {
     // backgroundColor: '#0000007e',
     position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
-    right: 0
+    right: 0,
   },
   drawerContainer: {
     flex: 1
@@ -98,3 +104,7 @@ const styles = StyleSheet.create({
 })
 
 export default SixDrawerLayout
+
+// [TODO]
+// 1. check only one Children : React.Children.only()
+// 2.
