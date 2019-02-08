@@ -132,6 +132,7 @@ class SixDrawerLayout extends React.Component {
 
   onPanResponderRelease = ({moveX, vx}) => {
     console.log(`szw onRelease(${moveX}, vx = ${vx})`)
+    this.state.valueForAnim.setValue(0.6)
   }
 
   // = = = = = = = = = = = = PanResponder = = = = = = = = = = = = =
