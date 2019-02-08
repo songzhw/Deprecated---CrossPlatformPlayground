@@ -11,8 +11,10 @@ class MyDrawerDemoScreen extends Component {
           ref={(ref) => this.drawerLayout = ref}
           drawerWidth={240}
           renderDrawer={this.renderDrawer}>
+          <View>
             <Text style={{fontSize: 88, backgroundColor: 'red'}}>Content</Text>
             <Button onPress={this.openDrawer} title="Open Drawer"/>
+          </View>
         </SixDrawerLayout>
       </View>
     )

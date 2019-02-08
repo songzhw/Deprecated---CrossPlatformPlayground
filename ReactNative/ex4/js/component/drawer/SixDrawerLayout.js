@@ -120,7 +120,6 @@ const styles = StyleSheet.create({
 export default SixDrawerLayout
 
 // [TODO]
-// 1. check only one Children : React.Children.only()
 // 2. overlay extends to the whole screen
 // 3. click event in the drawer
 // 3. PanResponse
