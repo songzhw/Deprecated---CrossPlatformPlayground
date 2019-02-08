@@ -1,9 +1,9 @@
 import React from 'react'
-import {View, StyleSheet, TouchableWithoutFeedback, Animated} from 'react-native'
+import {View, StyleSheet, TouchableWithoutFeedback, Animated, PanResponder} from 'react-native'
 
 class SixDrawerLayout extends React.Component {
   state = {
-    isOpen : false,
+    isOpen: false,
     valueForAnim: new Animated.Value(0)
   }
 
@@ -11,9 +11,31 @@ class SixDrawerLayout extends React.Component {
     const {valueForAnim} = this.state
     valueForAnim.addListener(({value}) => {
       const isDrawerOpen = value > 0
-      if(isDrawerOpen !== this.state.isOpen){
-        this.setState({...this.state,  isOpen: isDrawerOpen})
+      if (isDrawerOpen !== this.state.isOpen) {
+        this.setState({...this.state, isOpen: isDrawerOpen})
       }
+    })
+
+    this.panResponder = PanResponder.create({
+      //用户开始触摸屏幕的时候，是否愿意成为响应者；默认返回false，无法响应，当返回true的时候则可以进行之后的事件传递
+      onStartShouldSetPanResponder: (evt, gestureState) => true,
+      //在每一个触摸点开始移动的时候，再询问一次是否响应触摸交互；
+      onMoveShouldSetPanResponder: this.onShouldSetPanResponder,
+
+
+      //开始手势操作，也可以说按下去。给用户一些视觉反馈，让他们知道发生了什么事情！（如：可以修改颜色）
+      onPanResponderGrant: this.onPanResponderGrant,
+
+      //最近一次的移动距离.如:(获取x轴y轴方向的移动距离 gestureState.dx,gestureState.dy)
+      onPanResponderMove: this.onPanResponderMove,
+
+      //用户放开了所有的触摸点，且此时视图已经成为了响应者。
+      onPanResponderRelease: this.onPanResponderRelease,
+
+
+      //另一个组件已经成为了新的响应者，所以当前手势将被取消。
+      onPanResponderTerminate: () => { },
+      onPanResponderTerminationRequest: () => false,
     })
   }
 
@@ -29,14 +51,14 @@ class SixDrawerLayout extends React.Component {
     console.log(`szw render() : ${clickableStatus}`)
 
     return (
-      <View style={styles.root}>
+      <View style={styles.root} {...this.panResponder.panHandlers}>
         {/*content*/}
         <View style={styles.contentRoot}>
           {this.props.children}
         </View>
 
         {/*drawer*/}
-        <TouchableWithoutFeedback pointerEvents={clickableStatus} onPress={this.toggle} >
+        <TouchableWithoutFeedback pointerEvents={clickableStatus} onPress={this.toggle}>
           <Animated.View pointerEvents={clickableStatus}
                          style={[styles.drawerShadow, animatedOpacity]}/>
         </TouchableWithoutFeedback>
@@ -86,6 +108,25 @@ class SixDrawerLayout extends React.Component {
       .start()
   }
 
+  // = = = = = = = = = = = = PanResponder = = = = = = = = = = = = =
+  onShouldSetPanResponder = (ev, {moveX, dx, dy}) => {
+    console.log(`szw onShouldSetPan(${moveX}, ${dx}, ${dy})`)
+  }
+
+  onPanResponderGrant = () => {
+    console.log(`szw onPanGrant`)
+  }
+
+  onPanResponderMove = (ev, {moveX}) => {
+    console.log(`szw onMove(${moveX}`)
+  }
+
+  onPanResponderRelease = ({moveX, vx}) => {
+    console.log(`szw onRelease(${moveX}, vx = ${vx})`)
+  }
+
+  // = = = = = = = = = = = = PanResponder = = = = = = = = = = = = =
+
 }
 
 const styles = StyleSheet.create({
@@ -121,6 +162,4 @@ const styles = StyleSheet.create({
 export default SixDrawerLayout
 
 // [TODO]
-// 2. overlay extends to the whole screen
-// 3. click event in the drawer
 // 3. PanResponse
