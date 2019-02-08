@@ -45,7 +45,7 @@ class SixDrawerLayout extends React.Component {
 
           <TouchableWithoutFeedback pointerEvents={clickableStatus} onPress={this.toggle} >
             <Animated.View pointerEvents={clickableStatus}
-              style={[styles.drawerShadow, {left: this.props.drawerWidth}, animatedOpacity]}/>
+              style={[styles.drawerShadow, animatedOpacity]}/>
           </TouchableWithoutFeedback>
         </View>
 
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     right: 0,
+    left: 0,
     backgroundColor: '#000'
   }
 })
