@@ -36,17 +36,17 @@ class SixDrawerLayout extends React.Component {
         </View>
 
         {/*drawer*/}
+        <TouchableWithoutFeedback pointerEvents={clickableStatus} onPress={this.toggle} >
+          <Animated.View pointerEvents={clickableStatus}
+                         style={[styles.drawerShadow, animatedOpacity]}/>
+        </TouchableWithoutFeedback>
+
         <View style={styles.drawerRoot}>
           <Animated.View style={[styles.drawerContainer,
             {width: this.props.drawerWidth},
             animatedTranslate]}>
             {this.props.renderDrawer()}
           </Animated.View>
-
-          <TouchableWithoutFeedback pointerEvents={clickableStatus} onPress={this.toggle} >
-            <Animated.View pointerEvents={clickableStatus}
-              style={[styles.drawerShadow, animatedOpacity]}/>
-          </TouchableWithoutFeedback>
         </View>
 
       </View>
