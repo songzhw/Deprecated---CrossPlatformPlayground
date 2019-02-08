@@ -12,7 +12,7 @@ class MyDrawerDemoScreen extends Component {
           drawerWidth={240}
           renderDrawer={this.renderDrawer}>
           <View>
-            <Text style={{fontSize: 88, backgroundColor: 'red'}}>Content</Text>
+            <Text style={{fontSize: 38}}>Content</Text>
             <Button onPress={this.openDrawer} title="Open Drawer"/>
           </View>
         </SixDrawerLayout>

@@ -2,6 +2,8 @@ import React from 'react'
 import {View, StyleSheet, TouchableWithoutFeedback, Animated, PanResponder} from 'react-native'
 
 class SixDrawerLayout extends React.Component {
+  MIN_SWIPE_DISTANCE = 5
+
   state = {
     isOpen: false,
     valueForAnim: new Animated.Value(0)
@@ -34,7 +36,8 @@ class SixDrawerLayout extends React.Component {
 
 
       //另一个组件已经成为了新的响应者，所以当前手势将被取消。
-      onPanResponderTerminate: () => { },
+      onPanResponderTerminate: () => {
+      },
       onPanResponderTerminationRequest: () => false,
     })
   }
@@ -109,8 +112,14 @@ class SixDrawerLayout extends React.Component {
   }
 
   // = = = = = = = = = = = = PanResponder = = = = = = = = = = = = =
+  // moveX相当于安卓中的ev.getX(), 当前位置
+  //TODO this method does not get called ?!
   onShouldSetPanResponder = (ev, {moveX, dx, dy}) => {
-    console.log(`szw onShouldSetPan(${moveX}, ${dx}, ${dy})`)
+    console.log(`szw onShouldSetPan(${Math.round(moveX)}, ${dx}, ${dy})`)
+    if (Math.abs(dx) < this.MIN_SWIPE_DISTANCE) {
+      return false
+    }
+    return true
   }
 
   onPanResponderGrant = () => {
@@ -118,7 +127,7 @@ class SixDrawerLayout extends React.Component {
   }
 
   onPanResponderMove = (ev, {moveX}) => {
-    console.log(`szw onMove(${moveX}`)
+    console.log(`szw onMove(${Math.round(moveX)})`)
   }
 
   onPanResponderRelease = ({moveX, vx}) => {
