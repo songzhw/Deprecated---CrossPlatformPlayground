@@ -115,11 +115,11 @@ class SixDrawerLayout extends React.Component {
   // moveX相当于安卓中的ev.getX(), 当前位置
   //TODO this method does not get called ?!
   onShouldSetPanResponder = (ev, {moveX, dx, dy}) => {
-    console.log(`szw onShouldSetPan(${Math.round(moveX)}, ${dx}, ${dy})`)
-    if (Math.abs(dx) < this.MIN_SWIPE_DISTANCE) {
-      return false
-    }
-    return true
+    // console.log(`szw onShouldSetPan(${Math.round(moveX)}, ${dx}, ${dy})`)
+    // if (Math.abs(dx) < this.MIN_SWIPE_DISTANCE) {
+    //   return false
+    // }
+    // return true
   }
 
   onPanResponderGrant = () => {
@@ -127,12 +127,23 @@ class SixDrawerLayout extends React.Component {
   }
 
   onPanResponderMove = (ev, {moveX}) => {
-    console.log(`szw onMove(${Math.round(moveX)})`)
+    if(moveX > 30){
+      return
+    }
+
+    let ratio = this.getRatio(moveX)
+    this.state.valueForAnim.setValue(ratio)
+    console.log(`szw onMove(${Math.round(moveX)}) ; ratio = ${ratio}`)
+
   }
 
   onPanResponderRelease = ({moveX, vx}) => {
     console.log(`szw onRelease(${moveX}, vx = ${vx})`)
-    this.state.valueForAnim.setValue(0.6)
+
+  }
+
+  getRatio(x){
+    return x / this.props.drawerWidth
   }
 
   // = = = = = = = = = = = = PanResponder = = = = = = = = = = = = =
