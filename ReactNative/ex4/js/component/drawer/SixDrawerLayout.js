@@ -20,9 +20,10 @@ class SixDrawerLayout extends React.Component {
 
     this.panResponder = PanResponder.create({
       //用户开始触摸屏幕的时候，是否愿意成为响应者；默认返回false，无法响应，当返回true的时候则可以进行之后的事件传递
-      onStartShouldSetPanResponder: (evt, gestureState) => true,
+      onStartShouldSetPanResponder: this.onShouldSetPanResponder,
+
       //在每一个触摸点开始移动的时候，再询问一次是否响应触摸交互；
-      onMoveShouldSetPanResponder: this.onShouldSetPanResponder,
+      // onMoveShouldSetPanResponder: this.onShouldSetPanResponder,
 
 
       //开始手势操作，也可以说按下去。给用户一些视觉反馈，让他们知道发生了什么事情！（如：可以修改颜色）
@@ -129,7 +130,6 @@ class SixDrawerLayout extends React.Component {
   onPanResponderMove = (ev, {moveX}) => {
     let ratio = this.getRatio(moveX)
     this.state.valueForAnim.setValue(ratio)
-    console.log(`szw onMove(${Math.round(moveX)}) ; ratio = ${ratio}`)
 
   }
 
