@@ -20,7 +20,7 @@ class SixDrawerLayout extends React.Component {
 
     this.panResponder = PanResponder.create({
       //用户开始触摸屏幕的时候，是否愿意成为响应者；默认返回false，无法响应，当返回true的时候则可以进行之后的事件传递
-      onStartShouldSetPanResponder: this.onShouldStart,
+      // onStartShouldSetPanResponder: this.onShouldStart,
       //在每一个触摸点开始移动的时候，再询问一次是否响应触摸交互；
       onMoveShouldSetPanResponder: this.onShouldMove,
 
@@ -113,13 +113,13 @@ class SixDrawerLayout extends React.Component {
 
   // = = = = = = = = = = = = PanResponder = = = = = = = = = = = = =
 
-  onShouldStart = (ev, {x0}) => {
-    return true
-  }
+  // onShouldStart = (ev, {x0}) => {
+  //   return true
+  // }
 
   // moveX相当于安卓中的ev.getX(), 当前位置
   onShouldMove = (ev, {moveX, dx, dy}) => {
-    console.log(`szw onShouldSetPan(${Math.round(moveX)}, ${dx}, ${dy})`)
+    console.log(`szw onShouldMove(${Math.round(moveX)}, ${dx}, ${dy})`)
     if (Math.abs(dx) < this.MIN_SWIPE_DISTANCE) {
       return false
     }
