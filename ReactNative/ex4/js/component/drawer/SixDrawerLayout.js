@@ -113,13 +113,12 @@ class SixDrawerLayout extends React.Component {
 
   // = = = = = = = = = = = = PanResponder = = = = = = = = = = = = =
 
-  // onShouldStart = (ev, {x0}) => {
-  //   return true
-  // }
+  onShouldStart = (ev, {x0}) => {
+    return true
+  }
 
   // moveX相当于安卓中的ev.getX(), 当前位置
   onShouldMove = (ev, {moveX, dx, dy}) => {
-    console.log(`szw onShouldMove(${Math.round(moveX)}, ${dx}, ${dy})`)
     if (Math.abs(dx) < this.MIN_SWIPE_DISTANCE) {
       return false
     }
@@ -130,17 +129,23 @@ class SixDrawerLayout extends React.Component {
   }
 
   onPanResponderGrant = () => {
-    console.log(`szw onPanGrant`)
   }
 
   onPanResponderMove = (ev, {moveX}) => {
     let ratio = this.getRatio(moveX)
     this.state.valueForAnim.setValue(ratio)
-
+    console.log(`szw onMove: ${moveX} ; ratio = ${ratio}`)
   }
 
+  // vx : velocityX
   onPanResponderRelease = ({moveX, vx}) => {
-    console.log(`szw onRelease(${moveX}, vx = ${vx})`)
+    let ratio = this.getRatio(moveX)
+    console.log(`szw onRelease(${moveX}, vx = ${vx}, ratio = ${ratio})`)
+    if(ratio > 0.5){
+      this.openDrawer()
+    } else {
+      this.closeDrawer()
+    }
 
   }
 
