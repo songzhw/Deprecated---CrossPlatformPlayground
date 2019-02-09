@@ -19,9 +19,8 @@ class SixDrawerLayout extends React.Component {
       }
     })
 
+    // 注意onStartShouldSetPanResponder 与 onMoveShouldSetPanResponder 不能共存, 不然后者就不会被响应
     this.panResponder = PanResponder.create({
-      //用户开始触摸屏幕的时候，是否愿意成为响应者；默认返回false，无法响应，当返回true的时候则可以进行之后的事件传递
-      // onStartShouldSetPanResponder: this.onShouldStart,
       //在每一个触摸点开始移动的时候，再询问一次是否响应触摸交互；
       onMoveShouldSetPanResponder: this.onShouldMove,
 
@@ -37,8 +36,7 @@ class SixDrawerLayout extends React.Component {
 
 
       //另一个组件已经成为了新的响应者，所以当前手势将被取消。
-      onPanResponderTerminate: () => {
-      },
+      onPanResponderTerminate: () => { },
       onPanResponderTerminationRequest: () => false,
     })
   }
@@ -123,7 +121,7 @@ class SixDrawerLayout extends React.Component {
     if (Math.abs(dx) < this.MIN_SWIPE_DISTANCE) {
       return false
     }
-    if(moveX < 35 && dx > 0) {
+    if (moveX < 35 && dx > 0) {
       return true
     }
     return false
@@ -141,7 +139,7 @@ class SixDrawerLayout extends React.Component {
 
   // vx : velocityX
   onPanResponderRelease = () => {
-    if(this.lastExpandRatio > 0.5){
+    if (this.lastExpandRatio > 0.5) {
       this.openDrawer()
       this.lastExpandRatio = 1
     } else {
@@ -151,7 +149,7 @@ class SixDrawerLayout extends React.Component {
 
   }
 
-  getRatio(x){
+  getRatio(x) {
     return x / this.props.drawerWidth
   }
 
@@ -190,6 +188,3 @@ const styles = StyleSheet.create({
 })
 
 export default SixDrawerLayout
-
-// [TODO]
-// 3. PanResponse
