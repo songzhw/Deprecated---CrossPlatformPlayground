@@ -3,6 +3,7 @@ import {View, StyleSheet, TouchableWithoutFeedback, Animated, PanResponder} from
 
 class SixDrawerLayout extends React.Component {
   MIN_SWIPE_DISTANCE = 5
+  lastExpandRatio = 0
 
   state = {
     isOpen: false,
@@ -134,17 +135,18 @@ class SixDrawerLayout extends React.Component {
   onPanResponderMove = (ev, {moveX}) => {
     let ratio = this.getRatio(moveX)
     this.state.valueForAnim.setValue(ratio)
+    this.lastExpandRatio = ratio
     console.log(`szw onMove: ${moveX} ; ratio = ${ratio}`)
   }
 
   // vx : velocityX
-  onPanResponderRelease = ({moveX, vx}) => {
-    let ratio = this.getRatio(moveX)
-    console.log(`szw onRelease(${moveX}, vx = ${vx}, ratio = ${ratio})`)
-    if(ratio > 0.5){
+  onPanResponderRelease = () => {
+    if(this.lastExpandRatio > 0.5){
       this.openDrawer()
+      this.lastExpandRatio = 1
     } else {
       this.closeDrawer()
+      this.lastExpandRatio = 0
     }
 
   }
