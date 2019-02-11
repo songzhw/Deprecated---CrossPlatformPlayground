@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {createBottomTabNavigator} from "react-navigation";
 import RecommedScreen from "./RecommedScreen";
 import SettingScreen from "./SettingScreen";
-import {Image} from "react-native";
+import {Button, Image, StyleSheet, View} from "react-native";
 
-// @ts-ignore
 const HomeScreen = createBottomTabNavigator(
   {
     Recommend: RecommedScreen,
@@ -13,7 +12,6 @@ const HomeScreen = createBottomTabNavigator(
   {
     navigationOptions: ({navigation}) => ({
       tabBarIcon: ({focused, tintColor}) => {
-        console.log(`szw tint = ${tintColor}`)
         const {routeName} = navigation.state;
         let iconRecommend = require('../../assets/icon_music.png');
         let iconSetting = require('../../assets/icon_settings.png');
@@ -28,5 +26,27 @@ const HomeScreen = createBottomTabNavigator(
     })
   }
 )
+
+class HomeButton extends Component {
+  render() {
+    return (
+      <View style={styles.aButton}>
+        <Button title={this.props.title} onPress={this.props.onPress}/>
+      </View>
+    )
+  }
+}
+
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+  aButton: {
+    fontSize: 30,
+    color: 'red',
+    margin: 4
+  },
+})
 
 export default HomeScreen
