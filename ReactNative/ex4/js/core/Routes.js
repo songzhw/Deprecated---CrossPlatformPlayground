@@ -23,6 +23,7 @@ import FelaDemo5 from "../screen/fela_demo/FelaDemo5";
 import FelaDemo6 from "../screen/fela_demo/FelaDemo6";
 import FelaDemo7 from "../screen/fela_demo/FelaDemo7";
 import MyDrawerDemoScreen from "../screen/drawer/MyDrawerDemoScreen";
+import AxiosScreen from "../screen/AxiosScreen";
 
 
 const HomeStack = createStackNavigator(
@@ -118,7 +119,11 @@ const HomeStack = createStackNavigator(
     MyDrawerDemoScreen: {
       screen: MyDrawerDemoScreen,
       navigationOptions: {headerTitle: 'My Drawer Demo'}
-    }
+    },
+    AxiosScreen: {
+      screen: AxiosScreen,
+      navigationOptions: {headerTitle: 'Axios Demo'}
+    },
   },
   {
     headerMode: 'screen',

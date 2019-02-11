@@ -7,6 +7,9 @@ class HomeScreen extends Component {
     return (
       <ScrollView style={styles.root}>
 
+        <HomeButton title="AxiosDemo" onPress={this.go2Axios1}/>
+        <View style={{height: 20}}/>
+
         <HomeButton title="My Action Sheet" onPress={this.go2ActionSheet}/>
         <HomeButton title="My Drawer Layout" onPress={this.go2Drawer}/>
         <View style={{height: 20}}/>
@@ -35,6 +38,10 @@ class HomeScreen extends Component {
 
       </ScrollView>
     )
+  }
+
+  go2Axios1 = () => {
+    this.props.navigation.navigate("AxiosScreen")
   }
 
   go2Drawer = () => {
