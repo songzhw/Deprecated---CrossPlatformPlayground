@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import {connect} from 'react-redux'
+import {strings} from "../core/i18n/i18n"
 
 class SettingScreen extends Component{
 
   render(){
     return (
       <View style={styles.root}>
-        <Text>SettingScreen Screen</Text>
+        <Text>{strings.hello}</Text>
       </View>
     )
   }
