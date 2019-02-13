@@ -29,6 +29,7 @@ const mapStateToProps = (state: any) => {
 export default SettingScreen
 // export default connect(mapStateToProps)(SettingScreen)
 
+
 /*
 
 当在language列表中有两种语言, 且中文排在英文之前时:
