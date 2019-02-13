@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import {connect} from 'react-redux'
-import * as RNLocalize from "react-native-localize";
 
 class SettingScreen extends Component{
-
-  componentWillMount() {
-    console.log("szw" + JSON.stringify(RNLocalize.getLocales()));
-    console.log("szw" + RNLocalize.getCurrencies());
-  }
 
   render(){
     return (

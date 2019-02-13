@@ -11,8 +11,12 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+const data = require("./js/core/i18n/strings.json");
+
+
 export default class App extends Component {
   render() {
+    console.log(`szw i18n data = ${JSON.stringify(data)}`)
     return (
       <ReduxProvider store={store}>
         <Routes/>

@@ -24,7 +24,7 @@ class RecommedScreen extends PureComponent<Props> {
       title = banners[0].title
       src = {uri: url}
     }
-    console.log(`szw props = ${JSON.stringify(this.props)}`)
+    // console.log(`szw props = ${JSON.stringify(this.props)}`)
     return (
       <View style={styles.root}>
         <Text>RecommedHome Screen</Text>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state: IReduxState) => {
-  console.log(`szw map state = ${JSON.stringify(state.reducerRecommend)}`)
+  // console.log(`szw map state = ${JSON.stringify(state.reducerRecommend)}`)
   return {...state.reducerRecommend}
 }
 
