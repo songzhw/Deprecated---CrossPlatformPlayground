@@ -7,17 +7,53 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "prop-types": "^15.6.2",
+    "randomcolor": "^0.5.3",
     "react": "16.6.3",
-    "react-native": "0.58.4"
+    "react-native": "0.58.4",
+    "react-navigation": "2.5.5",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2"
   },
   "devDependencies": {
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "24.1.0",
+    "@types/jest": "^23.3.11",
+    "@types/react-test-renderer": "^16.0.3",
+    "babel-7-jest": "^21.3.3",
+    "babel-preset-expo": "^5.0.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "jest": "24.1.0",
-    "metro-react-native-babel-preset": "0.51.1",
-    "react-test-renderer": "16.6.3"
+    "react-dom": "^16.7.0",
+    "react-test-renderer": "^16.7.0",
+    "redux-mock-store": "^1.5.3",
+    "redux-saga-test-plan": "^3.7.0",
+    "metro-react-native-babel-preset": "0.51.1"
   },
   "jest": {
-    "preset": "react-native"
+    "transform": {
+      "^.+\\.m?jsx?$": "babel-jest"
+    },
+    "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/__tests__/setup"
+    ],
+    "unmockedModulePathPatterns": [
+      "node_modules/react/",
+      "node_modules/enzyme/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/__tests__/setup.js"
+    ]
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
   }
 }
