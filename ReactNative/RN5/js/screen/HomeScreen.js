@@ -12,9 +12,26 @@ class HomeScreen extends Component{
   }
 }
 
+
+class HomeButton extends Component {
+  render() {
+    return (
+      <View style={styles.aButton}>
+        <Button title={this.props.title} onPress={this.props.onPress}/>
+      </View>
+    )
+  }
+}
+
+
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+  },
+  aButton: {
+    fontSize: 30,
+    color: 'red',
+    margin: 4
   },
 })
 
