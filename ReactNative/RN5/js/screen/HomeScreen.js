@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
-import {connect} from 'react-redux'
+import React, {Component} from 'react'
+import {View, StyleSheet, Text, Button} from 'react-native'
 
-class HomeScreen extends Component{
-  render(){
+class HomeScreen extends Component {
+  render() {
+    const {navigation} = this.props
     return (
       <View style={styles.root}>
-        <Text>HomeScreen Screen</Text>
+
+        <View style={{height: 20}}/>
+        <Text style={styles.title}>3rd library demos</Text>
+        <HomeButton title="3rd-Axios" onPress={navigation.navigate("AxiosScreen")}/>
       </View>
     )
   }
@@ -33,13 +36,12 @@ const styles = StyleSheet.create({
     color: 'red',
     margin: 4
   },
+  title: {
+    height: 25,
+    fontSize: 21,
+    textAlign: 'center',
+    color: 'black'
+  }
 })
 
-const mapStateToProps = (state) => {
-  return {
-
-  }
-}
-
-// export default connect(mapStateToProps)(HomeScreen)
 export default HomeScreen

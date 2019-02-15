@@ -3,10 +3,12 @@ import {TouchableOpacity, Image} from 'react-native'
 import {createStackNavigator} from 'react-navigation'
 import HomeScreen from "../screen/HomeScreen";
 import {commonStyles} from "./theme/CommonStyles";
+import AxiosScreen from "../screen/third_party/AxiosScreen";
 
 const HomeStack = createStackNavigator(
   {
-    HomeScreen
+    HomeScreen,
+    AxiosScreen,
   },
   {
     headerMode: 'screen',
