@@ -6,7 +6,7 @@ class AxiosScreen extends Component{
 
   componentWillMount() {
     // resp is : { config, data, headers, request,  }. Real response json is in the "resp.data"
-    axios.get("http://www.mocky.io/v2/5c03483b3000002b00bb9408")
+    axios.get("https://www.mocky.io/v2/5c03483b3000002b00bb9408")
       .then((resp) => console.log(`szw ${JSON.stringify(resp)}`))
       .catch(error => console.error("szw" + error))
       .then( () => console.log("szw request's done~"))
