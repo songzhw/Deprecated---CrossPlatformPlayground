@@ -11,6 +11,7 @@ class HomeScreen extends Component {
         <Text style={styles.title}>RN Tutorial</Text>
         <HomeButton title="Context" onPress={()=>navigation.navigate("ContextDemo")}/>
         <HomeButton title="PanResponder" onPress={()=>navigation.navigate("GestureAnimScreen")}/>
+        <HomeButton title="Toolbar - dynamic title" onPress={()=>navigation.navigate("DynamicTitleScreen", {name: 'home3'})}/>
         <HomeButton title="pitfall - setState()" onPress={()=>navigation.navigate("SetStatePitfallScreen")}/>
 
         <View style={{height: 20}}/>
