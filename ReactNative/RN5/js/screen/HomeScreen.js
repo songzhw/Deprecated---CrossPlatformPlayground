@@ -9,7 +9,7 @@ class HomeScreen extends Component {
 
         <View style={{height: 20}}/>
         <Text style={styles.title}>3rd library demos</Text>
-        <HomeButton title="3rd-Axios" onPress={()=>navigation.navigate("AxiosScreen")}/>
+        <HomeButton title="Axios" onPress={()=>navigation.navigate("AxiosScreen")}/>
       </View>
     )
   }
