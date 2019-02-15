@@ -8,7 +8,7 @@ export const axios = Axios.create({
 
 axios.interceptors.response.use(
   (resp) => {
-    console.log(`szw resp = ${JSON.stringify(resp)}`)
+    console.log(`szw resp = ${JSON.stringify(resp.data)}`)
     return resp
   },
   (error) => {

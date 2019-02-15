@@ -8,6 +8,10 @@ class HomeScreen extends Component {
       <View style={styles.root}>
 
         <View style={{height: 20}}/>
+        <Text style={styles.title}>RN Tutorial</Text>
+        <HomeButton title="Context" onPress={()=>navigation.navigate("ContextDemo")}/>
+
+        <View style={{height: 20}}/>
         <Text style={styles.title}>3rd library demos</Text>
         <HomeButton title="Axios" onPress={()=>navigation.navigate("AxiosScreen")}/>
       </View>

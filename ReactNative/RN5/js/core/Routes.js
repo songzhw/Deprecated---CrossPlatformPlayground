@@ -4,11 +4,13 @@ import {createStackNavigator} from 'react-navigation'
 import HomeScreen from "../screen/HomeScreen";
 import {commonStyles} from "./theme/CommonStyles";
 import AxiosScreen from "../screen/third_party/AxiosScreen";
+import ContextDemo from "../screen/rn_tutorial/ContextDemo";
 
 const HomeStack = createStackNavigator(
   {
     HomeScreen,
     AxiosScreen,
+    ContextDemo
   },
   {
     headerMode: 'screen',
