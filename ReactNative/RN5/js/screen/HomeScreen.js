@@ -10,6 +10,8 @@ class HomeScreen extends Component {
         <View style={{height: 20}}/>
         <Text style={styles.title}>RN Tutorial</Text>
         <HomeButton title="Context" onPress={()=>navigation.navigate("ContextDemo")}/>
+        <HomeButton title="PanResponder" onPress={()=>navigation.navigate("GestureAnimScreen")}/>
+        <HomeButton title="pitfall - setState()" onPress={()=>navigation.navigate("SetStatePitfallScreen")}/>
 
         <View style={{height: 20}}/>
         <Text style={styles.title}>3rd library demos</Text>
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
   },
   title: {
     height: 25,
-    fontSize: 19,
+    fontSize: 18,
     textAlign: 'center',
     color: 'black'
   }
