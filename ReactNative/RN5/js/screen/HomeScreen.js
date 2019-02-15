@@ -9,7 +9,7 @@ class HomeScreen extends Component {
 
         <View style={{height: 20}}/>
         <Text style={styles.title}>3rd library demos</Text>
-        <HomeButton title="3rd-Axios" onPress={navigation.navigate("AxiosScreen")}/>
+        <HomeButton title="3rd-Axios" onPress={()=>navigation.navigate("AxiosScreen")}/>
       </View>
     )
   }
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   title: {
     height: 25,
-    fontSize: 21,
+    fontSize: 19,
     textAlign: 'center',
     color: 'black'
   }
