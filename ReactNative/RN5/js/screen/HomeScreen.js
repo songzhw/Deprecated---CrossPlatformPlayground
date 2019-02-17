@@ -8,6 +8,12 @@ class HomeScreen extends Component {
       <View style={styles.root}>
 
         <View style={{height: 20}}/>
+        <Text style={styles.title}>仿制F8</Text>
+        <HomeButton title="Login" onPress={()=>navigation.navigate("F8LoginScreen")}/>
+
+
+
+        <View style={{height: 8}}/>
         <Text style={styles.title}>Custom View</Text>
         <HomeButton title="Action Sheet" onPress={()=>navigation.navigate("ActionSheetDemo")}/>
         <HomeButton title="Drawer Layout" onPress={()=>navigation.navigate("MyDrawerDemo")}/>
@@ -22,6 +28,8 @@ class HomeScreen extends Component {
         <View style={{height: 20}}/>
         <Text style={styles.title}>3rd library demos</Text>
         <HomeButton title="Axios" onPress={()=>navigation.navigate("AxiosScreen")}/>
+
+
       </View>
     )
   }
