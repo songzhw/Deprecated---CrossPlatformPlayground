@@ -5,7 +5,7 @@ import {API_ID_LOGIN} from "../core/apiConstants";
 
 
 const rootSaga = function* () {
-  yield takeEvery(TRY_LOGIN, tryLogin)
+  // yield takeEvery(TRY_LOGIN, tryLogin)
 }
 
 const tryLogin = function* (action) {
