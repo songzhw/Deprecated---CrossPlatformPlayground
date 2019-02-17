@@ -18,36 +18,9 @@ const initState = {
 }
 
 export default (state = initState, action) => {
-  let {type, nextType, apiId} = action
-  if (!type.startsWith(REDUCER_F8)) {
-    return initState
-  }
-  if (type.startsWith(`${REDUCER_F8}_request_`)) {
-    doFetch(apiId)
-      .then(response => {
-        let resp = response.json()
-        let newAction = createHttpResponseAction(nextType, resp)
-        dispatch(newActio)
-      })
-  }
-  if (type.startsWith(`${REDUCER_F8}_response_`)) {
-
+  console.log(`szw reducer : ${action.type}`)
+  switch (action.type) {
+    default:
+      return state
   }
 }
-
-export function createHttpAction(reducerName, startType, endType, apiId) {
-  // TODO may need to add payload too
-  return {
-    type: `${reducerName}_request_${startType}`,
-    nextType: `${reducerName}_response_${endType}`,
-    apiId : apiId
-  }
-}
-
-export function createHttpResponseAction(type, payload){
-  return {
-    type: type,
-    payload: payload
-  }
-}
-
