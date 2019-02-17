@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {View, Image, Button, Text, Animated, TouchableOpacity, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
+import {tryLogin} from "../../redux/F8Reducer";
 
 class F8LoginScreen extends Component {
   state = {
@@ -25,6 +26,7 @@ class F8LoginScreen extends Component {
     let isLoginSucc = nextProps.succ
     if (isLoginSucc) {
       this.props.navigation.pop()
+      //TODO
       this.props.navigation.navigate('ScheduleScreen')
     }
   }
@@ -140,12 +142,11 @@ const styles = StyleSheet.create({
   },
 })
 
-// const mapStateToProps = (state) => {
-//   console.log(`szw mapStateToProps: ${JSON.stringify(state)}`)
-//   return {
-//     succ: state.reduceSession.succ
-//   }
-// }
-//
-// export default connect(mapStateToProps)(F8LoginScreen)
-export default F8LoginScreen
+const mapStateToProps = (state) => {
+  console.log(`szw mapStateToProps: ${JSON.stringify(state)}`)
+  return {
+    succ: state.F8Reducer.succ
+  }
+}
+
+export default connect(mapStateToProps)(F8LoginScreen)
