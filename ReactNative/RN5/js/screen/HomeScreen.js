@@ -8,6 +8,10 @@ class HomeScreen extends Component {
       <View style={styles.root}>
 
         <View style={{height: 20}}/>
+        <Text style={styles.title}>Custom View</Text>
+        <HomeButton title="ActionSheet" onPress={()=>navigation.navigate("ActionSheetDemo")}/>
+
+        <View style={{height: 20}}/>
         <Text style={styles.title}>RN Tutorial</Text>
         <HomeButton title="Context" onPress={()=>navigation.navigate("ContextDemo")}/>
         <HomeButton title="PanResponder" onPress={()=>navigation.navigate("GestureAnimScreen")}/>
