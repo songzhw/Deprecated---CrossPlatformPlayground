@@ -9,11 +9,12 @@ import GestureAnimScreen from "../screen/rn_tutorial/GestureAnimScreen";
 import SetStatePitfallScreen from "../screen/rn_tutorial/SetStatePitfallScreen";
 import DynamicTitleScreen from "../screen/rn_tutorial/DynamicTitleScreen";
 import ActionSheetDemo from "../screen/custom_view/ActionSheetDemo";
+import MyDrawerDemo from "../screen/custom_view/MyDrawerDemo";
 
 const HomeStack = createStackNavigator(
   {
     HomeScreen, AxiosScreen, ContextDemo, GestureAnimScreen, SetStatePitfallScreen,
-    ActionSheetDemo,
+    ActionSheetDemo, MyDrawerDemo,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
       navigationOptions: (props) => {
