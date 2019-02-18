@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text} from 'react-native'
 import {connect} from 'react-redux'
-import {createRequestAction} from "../../redux/middlewares/HttpMIddlewares";
-import {GOT_DAY1} from "../../redux/F8Reducer";
+import {TRY_SCHEDULE} from "../../redux/F8Reducer";
+import TextIndicator from "../../component/TextIndicator";
+import {ViewPager} from "../../component/ViewPager";
+import DaySessionList from "../../component/DaySessionList";
 
 class F8ScheduleScreen extends Component {
 
@@ -12,11 +14,14 @@ class F8ScheduleScreen extends Component {
 
   componentDidMount() {
     //TODO
-    let request = createRequestAction(TRY_SCHEDULE_DAY1, GOT_DAY1, API_ID_DAY1, API_ID_DAY2)
-    this.props.dispatch(tryDay1())
+    this.props.dispatch({type: TRY_SCHEDULE})
   }
 
   render() {
+    if(this.props.sessions1 === undefined) {
+      return <View/>
+    }
+
     return (
       <View style={styles.root}>
         <TextIndicator titles={['Day1', 'Day2']} selectedIndex={this.state.selectedIndex}/>
@@ -64,9 +69,18 @@ const styles = StyleSheet.create({
 })
 
 
+// 刚创建页面, 还没走到componentDidiMount(), 这里就会调用一次
+// 所以原来已经有的数据, 这里可能不适用, 故有层过滤最好
 const mapStateToProps = (state) => {
   console.log(`szw schedule mapStateToProps: ${JSON.stringify(state)}`)
   let {day1, day2} = state.F8Reducer
+
+  // 加一层过滤. 最开始进入, 还没发起TRY_SCHEDULE请求时, 就不要走了
+  if(day1 === undefined){
+    console.log(`szw 003`)
+    return {}
+  }
+
   let dataDay1 = extractDayData(day1.schedules)
   let dataDay2 = extractDayData(day2.schedules)
   return {
