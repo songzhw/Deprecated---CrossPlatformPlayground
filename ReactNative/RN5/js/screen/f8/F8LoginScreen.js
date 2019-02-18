@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
-  console.log(`szw mapStateToProps: ${JSON.stringify(state)}`)
+  console.log(`szw F8Login mapStateToProps: ${JSON.stringify(state)}`)
   return {
     succ: state.F8Reducer.succ
   }
