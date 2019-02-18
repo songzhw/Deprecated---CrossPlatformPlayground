@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import {View, Image, Button, Text, Animated, TouchableOpacity, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
-import {tryLogin} from "../../redux/F8Reducer";
+import {LOGIN_SUCC, TRY_LOGIN, tryLogin} from "../../redux/F8Reducer";
+import {createRequestAction} from "../../redux/middlewares/HttpMIddlewares";
+import {API_ID_LOGIN} from "../../core/apiConstants";
 
 class F8LoginScreen extends Component {
   state = {
@@ -101,7 +103,8 @@ class F8LoginScreen extends Component {
 
   login = () => {
     console.log(`click login()`)
-    this.props.dispatch(tryLogin())
+    let request = createRequestAction(TRY_LOGIN, LOGIN_SUCC, API_ID_LOGIN)
+    this.props.dispatch(request)
   }
 
   skipLogin = () => {
