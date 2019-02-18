@@ -9,7 +9,7 @@ export default (state = initState, action) => {
   console.log(`szw reducer : ${JSON.stringify(action)}`)
   switch (action.type) {
     case LOGIN_SUCC:
-
+      return state
       break;
     default:
       return state
