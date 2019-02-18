@@ -6,8 +6,11 @@ const initState = {
 }
 
 export default (state = initState, action) => {
-  console.log(`szw reducer : ${action.type}`)
+  console.log(`szw reducer : ${JSON.stringify(action)}`)
   switch (action.type) {
+    case LOGIN_SUCC:
+
+      break;
     default:
       return state
   }

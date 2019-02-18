@@ -8,11 +8,11 @@ export const axios = Axios.create({
 
 axios.interceptors.response.use(
   (resp) => {
-    console.log(`szw resp = ${JSON.stringify(resp.data)}`)
+    console.log(`szw axios resp = ${JSON.stringify(resp.data)}`)
     return resp
   },
   (error) => {
-    console.log(`szw error = ${JSON.stringify(error)}`)
+    console.log(`szw axios error = ${JSON.stringify(error)}`)
   })
 
 

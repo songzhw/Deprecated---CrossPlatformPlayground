@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {View, Image, Button, Text, Animated, TouchableOpacity, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
-import {LOGIN_SUCC, TRY_LOGIN, tryLogin} from "../../redux/F8Reducer";
+import {LOGIN_SUCC, TRY_LOGIN} from "../../redux/F8Reducer";
 import {createRequestAction} from "../../redux/middlewares/HttpMIddlewares";
 import {API_ID_LOGIN} from "../../core/apiConstants";
 
