@@ -14,7 +14,7 @@ import F8LoginScreen from "../screen/f8/F8LoginScreen";
 import F8ScheduleScreen from "../screen/f8/F8ScheduleScreen";
 import F8SessionDetailScreen from "../screen/f8/F8SessionDetailScreen";
 import LoadingListScreen from "../screen/custom_view/LoadingListScreen";
-import {KoFirstScreen} from "../screen/layout/KoFirstScreen";
+import KoFirstScreen from "../screen/layout/KoFirstScreen";
 
 const HomeStack = createStackNavigator(
   {
