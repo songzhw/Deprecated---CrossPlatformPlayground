@@ -13,11 +13,13 @@ import MyDrawerDemo from "../screen/custom_view/MyDrawerDemo";
 import F8LoginScreen from "../screen/f8/F8LoginScreen";
 import F8ScheduleScreen from "../screen/f8/F8ScheduleScreen";
 import F8SessionDetailScreen from "../screen/f8/F8SessionDetailScreen";
+import LoadingListScreen from "../screen/custom_view/LoadingListScreen";
+import {KoFirstScreen} from "../screen/layout/KoFirstScreen";
 
 const HomeStack = createStackNavigator(
   {
     HomeScreen, AxiosScreen, ContextDemo, GestureAnimScreen, SetStatePitfallScreen,
-    ActionSheetDemo, MyDrawerDemo,
+    ActionSheetDemo, MyDrawerDemo, LoadingListScreen, KoFirstScreen,
     F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
