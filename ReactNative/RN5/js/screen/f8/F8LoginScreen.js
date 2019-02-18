@@ -59,7 +59,6 @@ class F8LoginScreen extends Component {
   }
 
   render() {
-    console.log(`szw LoginScreen render()`)
     return (
       <View style={styles.root}>
         <Image style={styles.pattenDots} source={require('../../../assets/pattern-dots.png')}/>
@@ -145,7 +144,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
-  console.log(`szw F8Login mapStateToProps: ${JSON.stringify(state.F8Reducer)}`)
+  // console.log(`szw F8Login mapStateToProps: ${JSON.stringify(state.F8Reducer)}`)
   return {
     succ: state.F8Reducer.succ
   }

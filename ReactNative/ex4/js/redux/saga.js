@@ -18,7 +18,7 @@ const tryLogin = function* (action) {
     console.log(`szw saga tryLogin()`)
     const rawResp = yield call(doFetch, API_ID_LOGIN)
     const resp = yield rawResp.json()
-    const newAction = loginSucc(resp)
+    const newAction = lo1ginSucc(resp)
     yield put(newAction)
   } catch (err) {
     console.log(`saga.tryLogin error = ${err}`)

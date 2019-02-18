@@ -8,6 +8,13 @@ import {axios} from '../../core/HttpEngine'
 
 export const httpMiddleware = store => next => action => {
   const {apiId, nextType} = action
+
+  if(nextType === undefined) {
+    console.log(`szw 001`)
+    return next(action)
+  }
+
+  console.log(`szw 002`)
   // console.log(`szw middle1 ${JSON.stringify(action)}`)
   axios.get(apiId)
     .then(rawResp => {
