@@ -1,7 +1,7 @@
 import {takeEvery, call, put} from "redux-saga/effects";
 import {GOT_SCHEDULE, TRY_SCHEDULE} from "./F8Reducer";
 import {axios} from '../core/HttpEngine'
-import {API_ID_DAY1} from "../core/apiConstants";
+import {API_ID_DAY1, API_ID_DAY2} from "../core/apiConstants";
 
 const rootSaga = function* () {
   yield takeEvery(TRY_SCHEDULE, fetchSchedules)

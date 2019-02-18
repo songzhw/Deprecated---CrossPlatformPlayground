@@ -77,7 +77,6 @@ const mapStateToProps = (state) => {
 
   // 加一层过滤. 最开始进入, 还没发起TRY_SCHEDULE请求时, 就不要走了
   if(day1 === undefined){
-    console.log(`szw 003`)
     return {}
   }
 
