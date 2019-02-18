@@ -28,8 +28,7 @@ class F8LoginScreen extends Component {
     let isLoginSucc = nextProps.succ
     if (isLoginSucc) {
       this.props.navigation.pop()
-      //TODO
-      this.props.navigation.navigate('ScheduleScreen')
+      this.props.navigation.navigate('F8ScheduleScreen')
     }
   }
 
@@ -146,7 +145,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state) => {
-  console.log(`szw F8Login mapStateToProps: ${JSON.stringify(state)}`)
+  console.log(`szw F8Login mapStateToProps: ${JSON.stringify(state.F8Reducer)}`)
   return {
     succ: state.F8Reducer.succ
   }
