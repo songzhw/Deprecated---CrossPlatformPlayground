@@ -12,12 +12,13 @@ import ActionSheetDemo from "../screen/custom_view/ActionSheetDemo";
 import MyDrawerDemo from "../screen/custom_view/MyDrawerDemo";
 import F8LoginScreen from "../screen/f8/F8LoginScreen";
 import F8ScheduleScreen from "../screen/f8/F8ScheduleScreen";
+import F8SessionDetailScreen from "../screen/f8/F8SessionDetailScreen";
 
 const HomeStack = createStackNavigator(
   {
     HomeScreen, AxiosScreen, ContextDemo, GestureAnimScreen, SetStatePitfallScreen,
     ActionSheetDemo, MyDrawerDemo,
-    F8LoginScreen, F8ScheduleScreen,
+    F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
       navigationOptions: (props) => {

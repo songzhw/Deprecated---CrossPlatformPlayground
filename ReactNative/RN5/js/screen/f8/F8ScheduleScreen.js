@@ -42,7 +42,7 @@ class F8ScheduleScreen extends Component {
   }
 
   go2SessionDetail = (item, index, section) => {
-    this.props.navigation.navigate('SessionDetailScreen', {
+    this.props.navigation.navigate('F8SessionDetailScreen', {
       title: item.topic.title,
       desp: item.topic.desp,
       start: item.startTime,
