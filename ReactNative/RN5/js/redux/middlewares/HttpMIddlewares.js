@@ -23,5 +23,11 @@ export const httpMiddleware = store => next => action => {
       console.log(`szw myMiddleware3 result = ${JSON.stringify(result)}`)
       return result
     })
+    .catch(error => console.log(`szw HttpMiddleware error = ${JSON.stringify(error)}`))
 
 }
+
+export const createRespAction = (type, resp) => ({
+  type: type,
+  ...resp
+})
