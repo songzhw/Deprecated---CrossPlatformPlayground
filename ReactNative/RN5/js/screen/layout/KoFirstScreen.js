@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   console.log(`szw KoFirstPage mapState2Props() : ${JSON.stringify(state)}`)
-  let {opened} = state.reduceFirst
+  let {opened} = state.F8Reducer
   if(opened === undefined){
     return {}
   }
