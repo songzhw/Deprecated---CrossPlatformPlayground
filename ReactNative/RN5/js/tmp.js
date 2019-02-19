@@ -43,11 +43,11 @@ let item = {
   isMale: true
 }
 
-let two = deepClone(item)
-item.name.first = 'zw'
-item.education = [1, 2, 3]
-console.log(item)
-console.log(two)
+// let two = deepClone(item)
+// item.name.first = 'zw'
+// item.education = [1, 2, 3]
+// console.log(item)
+// console.log(two)
 /*
 item = { id: 23,
   name: { first: 'zw', last: 'second' },
@@ -60,3 +60,11 @@ two = { id: 23,
   isMale: true }
 
  */
+
+// = = = = = = = = = = = = = = = = = = = = = = = =
+
+let three = JSON.parse(JSON.stringify(item))
+item.name.first = 'zw'
+item.education = [1, 2, 3]
+console.log(item)
+console.log(three)
