@@ -1,14 +1,14 @@
-import React, {Component} from 'react'
-import {View, StyleSheet, Text, FlatList, Image, TouchableOpacity} from 'react-native'
-import {connect} from 'react-redux'
+import React, { Component } from 'react'
+import { View, StyleSheet, Text, FlatList, Image, TouchableOpacity } from 'react-native'
+import { connect } from 'react-redux'
 import {
   CLEAR_CHA1,
   fetchChallengeOnePage,
   SORT_AZ_ACTION,
   SORT_NONE_ACTION,
-  SORT_ZA_ACTION
-} from "../redux/reduxChanllengeOne";
-import {fetchPageList} from "../redux/reduxPages";
+  SORT_ZA_ACTION,
+} from '../redux/reduxChanllengeOne'
+import { fetchPageList } from '../redux/reduxPages'
 
 // 更新时调用: componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate
 export class ChallengeOneScreen extends Component {
@@ -17,7 +17,7 @@ export class ChallengeOneScreen extends Component {
 
   state = {
     sortIndex: Sort.None,
-    layoutIndex: Layout.List
+    layoutIndex: Layout.List,
   }
   currentIndex = 0
 
@@ -27,9 +27,9 @@ export class ChallengeOneScreen extends Component {
 
   componentWillUnmount() {
     // console.log(`componentWillUnmount()`)
-    this.props.dispatch({type: CLEAR_CHA1})
+    this.props.dispatch({ type: CLEAR_CHA1 })
   }
-  
+
   componentWillReceiveProps(nextProps, nextContext) {
     // console.log(`szw componentWillReceiveProps()`)
   }
@@ -41,10 +41,10 @@ export class ChallengeOneScreen extends Component {
       if (nextProps.pages.length > 0) {
         this.props.dispatch(fetchChallengeOnePage(nextProps.pages[0]))
       }
-      return false;
+      return false
     }
 
-    return true;
+    return true
   }
 
   render() {
@@ -59,13 +59,13 @@ export class ChallengeOneScreen extends Component {
       <View style={styles.root}>
 
         <View style={styles.headerContainer}>
-          <Text style={{fontSize: 18, marginLeft: 20}}>All Users</Text>
+          <Text style={{ fontSize: 18, marginLeft: 20 }}>All Users</Text>
 
-          <TouchableOpacity style={[styles.iconRight, {right: 12}]} onPress={this.clickSort}>
+          <TouchableOpacity style={[styles.iconRight, { right: 12 }]} onPress={this.clickSort}>
             <Image source={sortImage}/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.iconRight, {right: 52}]} onPress={this.clickLayout}>
+          <TouchableOpacity style={[styles.iconRight, { right: 52 }]} onPress={this.clickLayout}>
             <Image style={styles.imgLayout} source={layoutImage}/>
           </TouchableOpacity>
 
@@ -90,16 +90,16 @@ export class ChallengeOneScreen extends Component {
   onReachEnd = () => {
     this.currentIndex++
     // console.log(`szw onReachEnd(${this.currentIndex})`)
-    if(this.currentIndex < this.props.pages.length){
+    if (this.currentIndex < this.props.pages.length) {
       this.props.dispatch(fetchChallengeOnePage(this.props.pages[this.currentIndex]))
     }
   }
 
-  renderGridItem = ({item, index}) => {
+  renderGridItem = ({ item, index }) => {
     // let avatarUri = item.avatar_large || item.avatar  //avatar_large竟有3000*2000这么大, 内存怕受不住啊
     return (
-      <View style={[styles.itemInGrid, {backgroundColor: item.backgroundColor}]}>
-        <Image style={styles.avatarInGrid} source={{uri: item.avatar}}/>
+      <View style={[styles.itemInGrid, { backgroundColor: item.backgroundColor }]}>
+        <Image style={styles.avatarInGrid} source={{ uri: item.avatar }}/>
         <Text style={styles.nameInGrid} ellipsizeMode='tail'
               numberOfLines={1}>{index + 1}. {item.first_name} {item.last_name}</Text>
         <Text style={styles.emailInGrid} ellipsizeMode='tail' numberOfLines={1}>{item.email}</Text>
@@ -107,10 +107,10 @@ export class ChallengeOneScreen extends Component {
     )
   }
 
-  renderListItem = ({item, index}) => {
+  renderListItem = ({ item, index }) => {
     return (
-      <View style={[styles.itemInList, {backgroundColor: item.backgroundColor}]}>
-        <Image style={styles.avatarInList} source={{uri: item.avatar}}/>
+      <View style={[styles.itemInList, { backgroundColor: item.backgroundColor }]}>
+        <Image style={styles.avatarInList} source={{ uri: item.avatar }}/>
         <View style={styles.textContainerInList}>
           <Text style={styles.nameInList}>{index + 1}. {item.first_name} {item.last_name}</Text>
           <Text style={styles.emailInList}>{item.email}</Text>
@@ -128,12 +128,12 @@ export class ChallengeOneScreen extends Component {
     } else {
       this.props.dispatch(SORT_NONE_ACTION)
     }
-    this.setState({...this.state, sortIndex: newIndex})
+    this.setState({ ...this.state, sortIndex: newIndex })
   }
 
   clickLayout = () => {
     let newIndex = (this.state.layoutIndex + 1) % 2
-    this.setState({...this.state, layoutIndex: newIndex})
+    this.setState({ ...this.state, layoutIndex: newIndex })
   }
 }
 
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
   itemInGrid: {
     flex: 1,
     height: 220,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   avatarInGrid: {
     width: 140,
@@ -173,18 +173,18 @@ const styles = StyleSheet.create({
     marginLeft: 9,
     marginRight: 9,
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   emailInGrid: {
     fontSize: 14,
     marginTop: 6,
     marginLeft: 9,
     marginRight: 9,
-    color: 'blue'
+    color: 'blue',
   },
 
   itemInList: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   avatarInList: {
     width: 100,
@@ -198,13 +198,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginTop: 26,
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   emailInList: {
     fontSize: 17,
     marginTop: 9,
-    color: 'blue'
-  }
+    color: 'blue',
+  },
 })
 
 /*
@@ -235,5 +235,5 @@ export const Layout = Object.freeze({
 export const Sort = Object.freeze({
   None: 0,
   AZ: 1,
-  ZA: 2
+  ZA: 2,
 })
