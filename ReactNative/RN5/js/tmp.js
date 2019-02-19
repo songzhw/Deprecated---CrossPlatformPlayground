@@ -1,15 +1,7 @@
-let item = {
-  id: 23,
-  name: 'szw',
-  isMale: false
-}
-
-let two = Object.keys(item)
-  .reduce((accumulatedObj, key) => {
-    if(key !== 'isMale') {
-      return {...accumulatedObj, [key]: item[key]}
-    }
-    return accumulatedObj
-  }, {}) // reduce(lambda, initObject)
-
-console.log(two)
+let item = { inner: {id: 10}}
+let two = {...item}
+let three = Object.assign({}, item)
+item.inner.id = 23
+console.log(item)  //=> { inner: { id: 23 } }
+console.log(two)   //=> { inner: { id: 23 } }
+console.log(three)   //=> { inner: { id: 23 } }
