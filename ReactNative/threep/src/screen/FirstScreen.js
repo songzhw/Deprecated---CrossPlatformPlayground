@@ -1,33 +1,24 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- * @lint-ignore-every XPLATJSCOPYRIGHT1
- */
-
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import React, { Component } from "react";
+import { Platform, StyleSheet, Text, View, Button } from "react-native";
 
 const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
+  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
   android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-  web: '[web] nothing need to done; just save your src file,\n' +
-    'this screen will refresh automatically'
+    "Double tap R on your keyboard to reload,\n" +
+    "Shake or press menu button for dev menu",
+  web: "[web] nothing need to done; just save your src file,\n" +
+    "this screen will refresh automatically",
 });
 
-type Props = {};
-export default class FirstScreen extends Component<Props> {
+export default class FirstScreen extends Component {
   render() {
+    let { navigation } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native (3 platfrom)!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-        <Button onPress={()=> console.log(`szw click`)} title="click me"/>
+        <Button onPress={() => navigation.navigate("SecondScreen")} title="click me"/>
       </View>
     );
   }
@@ -36,18 +27,18 @@ export default class FirstScreen extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: "center",
     margin: 10,
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
+    textAlign: "center",
+    color: "#333333",
     marginBottom: 5,
   },
 });
