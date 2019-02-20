@@ -15,7 +15,7 @@ const instructions = Platform.select({
   android:
     'Double tap R on your keyboard to reload,\n' +
     'Shake or press menu button for dev menu',
-  web: 'nothing need to done; just save your src file,\n' +
+  web: '[web] nothing need to done; just save your src file,\n' +
     'this screen will refresh automatically'
 });
 
