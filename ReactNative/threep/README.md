@@ -1,1 +1,0 @@
-one app, for three platform (3p)
