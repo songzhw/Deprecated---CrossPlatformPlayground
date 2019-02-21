@@ -1,45 +1,34 @@
 import React from "react";
-import { Text } from "react-native";
-import { FamilyConsumer, FamilyProvider } from "./FamilyContext";
-import Child from './ContextDemoChild'
+import { FamilyProvider } from "./FamilyContext";
+import Child from "./ContextDemoChild";
 
-export class Grandmother extends React.Component {
-  state = {
-    lastName: "Galler",
-    firstName: "Ross"
+function provider(value, InnerComponent) {
+  return class Outer extends React.Component {
+    render() {
+      return (
+        <FamilyProvider value={value}>
+          <InnerComponent/>
+        </FamilyProvider>
+      );
+    }
   };
+}
 
+class Grandmother extends React.Component {
   render() {
     return (
-      <FamilyProvider value={this.state}>
-        <Mother/>
-      </FamilyProvider>
+      <Mother/>
     );
   }
 }
 
-class Mother extends React.Component{
-  render(){
-    return <Child/>
+class Mother extends React.Component {
+  render() {
+    return <Child/>;
   }
 }
 
 
-
-/*
-// FamilyConsumer uses a render prop to expose the context object to its children
-const Child = () => {
-  let text = (context) => `${context.firstName}_${context.lastName}`
-  return (
-    <FamilyConsumer>
-      {context => <Text> {text(context)} </Text>}
-    </FamilyConsumer>
-  );
-};
-*/
-
-export default () => (
-  <Grandmother/>
-)
+export default provider({ lastName: "Bing", firstName: "Chandler" }, Grandmother);
 
 

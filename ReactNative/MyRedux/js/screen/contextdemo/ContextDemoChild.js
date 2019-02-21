@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { Text } from 'react-native'
 import { FamilyConsumer } from "./FamilyContext";
 
-class Child extends React.Component {
+class Child extends Component {
   render() {
     return (
       <Text style={{ fontSize: 22 }}>{this.props.name}</Text>
