@@ -19,13 +19,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   redbox: {
-    backgroundColor: '#d35700',
+    backgroundColor: "#d35700",
     width: 120,
-    height: 50
+    height: 50,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
   },
   title: {
-    fontSize: 24
-  }
+    fontSize: 24,
+    position: "absolute",
+  },
 });
 
 export default FlexOrNotScreen;
