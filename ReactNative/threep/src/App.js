@@ -6,7 +6,7 @@ import Routes from "./core/Routes";
 
 
 export default () => (
-  <Routes/>
+  <View/>
 )
 
 

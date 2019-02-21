@@ -1,7 +1,7 @@
-import React from 'react';
-import {Platform} from 'react-native';
-import {Provider as ReduxProvider} from 'react-redux'
-import Route from './js/core/Routes'
+import React from "react";
+import { Platform } from "react-native";
+import { Provider as ReduxProvider } from "react-redux";
+import Route from "./js/core/Routes";
 import store from "./js/redux/store";
 
 const instructions = Platform.select({
