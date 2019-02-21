@@ -19,6 +19,7 @@ class HomeScreen extends Component {
         <HomeButton title="PanResponder" onPress={()=>navigation.navigate("GestureAnimScreen")}/>
         <HomeButton title="Toolbar - dynamic title" onPress={()=>navigation.navigate("DynamicTitleScreen", {name: 'home3'})}/>
         <HomeButton title="pitfall - setState()" onPress={()=>navigation.navigate("SetStatePitfallScreen")}/>
+        <HomeButton title="layout - flex?" onPress={()=>navigation.navigate("FlexOrNotScreen")}/>
 
         <View style={{height: 20}}/>
         <Text style={styles.title}>3rd library demos</Text>
