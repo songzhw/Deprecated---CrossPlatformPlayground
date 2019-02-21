@@ -7,6 +7,7 @@ class FirstScreen extends Component {
       <View style={styles.root}>
         <Text>FirstScreen Screen</Text>
         <Button title="-> 2" onPress={() => this.props.navigation.navigate("SecondScreen")}/>
+        <Button title="-> Context Demo" onPress={() => this.props.navigation.navigate("ContextDemo")}/>
       </View>
     );
   }
