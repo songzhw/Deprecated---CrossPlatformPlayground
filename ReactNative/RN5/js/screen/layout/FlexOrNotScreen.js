@@ -6,7 +6,9 @@ class FlexOrNotScreen extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.redbox}/>
-        <Text style={styles.title}>FlexOrNotScreen Screen</Text>
+        <Text style={styles.outtext}>
+          <Text style={styles.title}>FlexOrNotScreen Screen</Text>
+        </Text>
       </View>
     );
   }
@@ -16,19 +18,23 @@ const styles = StyleSheet.create({
   root: {
     margin: 20,
     backgroundColor: "#e67e22",
-    borderRadius: 10,
+    borderRadius: 10
   },
   redbox: {
     backgroundColor: "#d35700",
     width: 120,
     height: 50,
     borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
+    borderBottomLeftRadius: 10
   },
-  title: {
+  outtext: {
     fontSize: 24,
     position: "absolute",
+    backgroundColor: "transparent"
   },
+  title: {
+    fontWeight: "bold"
+  }
 });
 
 export default FlexOrNotScreen;
