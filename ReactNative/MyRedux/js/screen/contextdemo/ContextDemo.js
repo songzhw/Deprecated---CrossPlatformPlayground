@@ -17,11 +17,13 @@ export class Grandmother extends React.Component {
   }
 }
 
-const Mother = () => {
-  let wrapper = connect(Child)
-  console.log(`szw mother ${JSON.stringify(wrapper)}`)
-  return wrapper;
-};
+class Mother extends React.Component{
+  render(){
+    let OuterComponent = connect(Child)
+    return <OuterComponent/>
+  }
+}
+
 
 class Child extends React.Component {
   render() {
@@ -31,14 +33,13 @@ class Child extends React.Component {
   }
 }
 
-/** @param wrapped : wrapped component */
-function connect(wrapped) {
+function connect(InnerComponent) {
   return class Outer extends React.Component {
     render() {
       let getText = (context) => `${context.firstName}  -  ${context.lastName}`;
       return (
         <FamilyConsumer>
-          {context => <wrapped name={getText(context)}/>}
+          {context => <InnerComponent name={getText(context)}/>}
         </FamilyConsumer>
       );
     }
