@@ -2,16 +2,14 @@ import React from "react";
 import { FamilyProvider } from "./FamilyContext";
 import Child from "./ContextDemoChild";
 
-function provider(value, InnerComponent) {
-  return class Outer extends React.Component {
-    render() {
-      return (
-        <FamilyProvider value={value}>
-          <InnerComponent/>
-        </FamilyProvider>
-      );
-    }
-  };
+class Provider extends React.Component {
+  render() {
+    return (
+      <FamilyProvider value={this.props.value}>
+        {this.props.children}
+      </FamilyProvider>
+    );
+  }
 }
 
 class Grandmother extends React.Component {
@@ -29,6 +27,10 @@ class Mother extends React.Component {
 }
 
 
-export default provider({ lastName: "Bing", firstName: "Chandler" }, Grandmother);
+export default () => (
+  <Provider value={{ lastName: "Bing2", firstName: "Chandler2" }}>
+    <Grandmother/>
+  </Provider>
+)
 
 
