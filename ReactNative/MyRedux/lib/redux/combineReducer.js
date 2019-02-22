@@ -7,7 +7,7 @@ const combineReducers = reducers => {
         (accumulatedState, key) => {
           let currentReducer = reducers[key];
           let stateInThisStage = currentReducer(state, action);
-          return { ...state, ...stateInThisStage };
+          return { ...accumulatedState, ...stateInThisStage };
         },
         state);
   };
