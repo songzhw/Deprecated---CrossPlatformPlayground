@@ -14,6 +14,18 @@ const combineReducers = reducers => {
   };
 };
 
+const r1 = (state, action) => {
+  return { ...state, id: action.id };
+};
+
+const r2 = (state, action) => {
+  return { ...state, name: action.name };
+};
+
+let state = { r1: { id: 100 }, r2: { name: '200' } };
+const reducers = combineReducers({ r1, r2 });
+let newState = reducers(state, { id: 23, name: "szw", age: 25 });
+console.log(newState);
 
 /*
 [Demo 1]
@@ -61,13 +73,3 @@ const combineReducers = reducers => {
     //   r3: { one: 1, two: 2, color: 'red' }
     // }
 */
-
-const foo = (arg) => {
-  Object.keys(arg)
-    .forEach(key => {
-      let result = { [key]: arg[key] };
-      console.log(result);
-    });
-};
-
-foo({ one: 1, two: 2, three: 3 });
