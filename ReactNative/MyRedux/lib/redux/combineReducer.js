@@ -1,4 +1,5 @@
 // 类似组合模式, 仍要返回一个reducers
+
 /* @param reducers : 格式如: {r1, r2}*/
 const combineReducers = reducers => {
   return (state = {}, action) => {
@@ -33,6 +34,7 @@ const combineReducers = reducers => {
   //   }
 */
 
+
 /*
 [Demo 2]
 
@@ -59,3 +61,13 @@ const combineReducers = reducers => {
     //   r3: { one: 1, two: 2, color: 'red' }
     // }
 */
+
+const foo = (arg) => {
+  Object.keys(arg)
+    .forEach(key => {
+      let result = { [key]: arg[key] };
+      console.log(result);
+    });
+};
+
+foo({ one: 1, two: 2, three: 3 });
