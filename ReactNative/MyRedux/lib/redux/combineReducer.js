@@ -4,7 +4,8 @@ const combineReducers = reducers => {
   return (state = {}, action) => {
     return Object.keys(reducers)
       .reduce(
-        (accumulatedState, currentReducer) => {
+        (accumulatedState, key) => {
+          let currentReducer = reducers[key];
           let stateInThisStage = currentReducer(state, action);
           return { ...state, ...stateInThisStage };
         },
