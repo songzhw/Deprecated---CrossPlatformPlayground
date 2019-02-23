@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, Image, Button } from "react-native";
+import { Button, Image, TouchableOpacity } from "react-native";
 import { createStackNavigator } from "react-navigation";
 import HomeScreen from "../screen/HomeScreen";
 import { commonStyles } from "./theme/CommonStyles";
@@ -16,6 +16,7 @@ import F8SessionDetailScreen from "../screen/f8/F8SessionDetailScreen";
 import LoadingListScreen from "../screen/custom_view/LoadingListScreen";
 import KoFirstScreen from "../screen/layout/KoFirstScreen";
 import FlexOrNotScreen from "../screen/layout/FlexOrNotScreen";
+import BridgeScrollViewScreen from "../screen/bridge_view/BridgeScrollViewScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -23,6 +24,7 @@ const HomeStack = createStackNavigator(
     ActionSheetDemo, MyDrawerDemo, LoadingListScreen, KoFirstScreen,
     F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
     FlexOrNotScreen,
+    BridgeScrollViewScreen,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
       navigationOptions: (props) => {
