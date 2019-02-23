@@ -8,21 +8,22 @@ import com.facebook.react.uimanager.ViewGroupManager;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
 public class BgScrollViewBridgeManager extends ViewGroupManager<BgScrollView> {
-    public static final String BG_SCROLL_VIEW = "BgScrollView";
+  public static final String BG_SCROLL_VIEW = "BgScrollView";
 
-    @Override
-    public String getName() {
-        return BG_SCROLL_VIEW;
-    }
+  @Override
+  public String getName() {
+    return BG_SCROLL_VIEW;
+  }
 
-    @Override
-    protected BgScrollView createViewInstance(ThemedReactContext reactContext) {
-        return new BgScrollView(reactContext);
-    }
+  @Override
+  protected BgScrollView createViewInstance(ThemedReactContext reactContext) {
+    return new BgScrollView(reactContext);
+  }
 
-    @ReactProp(name="bgColor", defaultInt = Color.WHITE)
-    public void setBgColor(BgScrollView view, @ColorInt int color){
-        view.setBgColor(color);
-    }
+  @ReactProp(name = "bgColor")
+  public void setBgColor(BgScrollView view, String color) {
+    int colorInt = Color.parseColor(color); // 格式得是: "#2222FF"
+    view.setBgColor(colorInt);
+  }
 
 }
