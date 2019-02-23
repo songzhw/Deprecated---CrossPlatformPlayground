@@ -7,12 +7,7 @@ class BridgeScrollViewScreen extends Component {
   render() {
     return (
       <BgScrollView style={styles.root} bgColor="#e12ca9">
-        <View style={{ flex: 1 }}>
-          <Text style={{ width: 300, heigth: 500 }}>BridgeScrollViewScreen Screen</Text>
-          <Text style={{ width: 300, heigth: 500 }}>BridgeScrollViewScreen Screen222</Text>
-          <Text style={{ width: 300, heigth: 500 }}>BridgeScrollViewScreen Screen333</Text>
-          <Text style={{ width: 300, heigth: 500 }}>BridgeScrollViewScreen Screen444</Text>
-        </View>
+        <Text style={styles.item}>BridgeScrollViewScreen Screen</Text>
       </BgScrollView>
     );
   }
@@ -21,6 +16,11 @@ class BridgeScrollViewScreen extends Component {
 const styles = StyleSheet.create({
   root: {
     flex: 1
+  },
+  item: {
+    width: 344,
+    height: 2500,
+    backgroundColor: "green"
   }
 });
 
