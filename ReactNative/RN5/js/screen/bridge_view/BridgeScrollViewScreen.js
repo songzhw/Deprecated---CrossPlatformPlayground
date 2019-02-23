@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { requireNativeComponent, StyleSheet, Text } from "react-native";
+
+const BgScrollView = requireNativeComponent("BgScrollView");
 
 class BridgeScrollViewScreen extends Component {
   render() {
     return (
-      <View style={styles.root}>
+      <BgScrollView style={styles.root} bgColor="#e12ca9">
         <Text>BridgeScrollViewScreen Screen</Text>
-      </View>
+      </BgScrollView>
     );
   }
 }
