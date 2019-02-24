@@ -6,12 +6,12 @@ const BgScrollView = requireNativeComponent("BgScrollView");
 class BridgeScrollViewScreen extends Component {
   render() {
     return (
-      <View style={styles.root}>
-        <View style={styles.root}>
-          <Text style={[styles.item, { backgroundColor: "green" }]}>BridgeScrollViewScreen Screen</Text>
-          <Text style={[styles.item, { backgroundColor: "red" }]}>BridgeScrollViewScreen Screen222</Text>
+      <BgScrollView style={styles.root} bgColor="#e12ca9">
+        <View style={{ width: 350, height: 900, backgroundColor: "transparent" }}>
+          <Text style={[styles.item, { backgroundColor: "red" }]}>BridgeScrollViewScreen Screen</Text>
+          <Text style={[styles.item, { backgroundColor: "pink" }]}>BridgeScrollViewScreen Screen222</Text>
         </View>
-      </View>
+      </BgScrollView>
     );
   }
 }
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
   },
   item: {
     width: 344,
-    height: 200
+    height: 500,
+    backgroundColor: "green"
   }
 });
 
