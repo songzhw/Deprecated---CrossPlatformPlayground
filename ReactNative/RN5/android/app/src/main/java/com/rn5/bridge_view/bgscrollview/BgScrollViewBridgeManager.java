@@ -1,7 +1,6 @@
 package com.rn5.bridge_view.bgscrollview;
 
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
 
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
