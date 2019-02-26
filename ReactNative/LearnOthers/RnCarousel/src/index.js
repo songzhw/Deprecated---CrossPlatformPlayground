@@ -96,8 +96,8 @@ export default class example extends Component {
           renderItem={this._renderItem}
           sliderWidth={sliderWidth}
           itemWidth={itemWidth}
-          inactiveSlideScale={0.95}
-          inactiveSlideOpacity={1}
+          inactiveSlideScale={0.8}
+          inactiveSlideOpacity={0.6}
           enableMomentum={true}
           activeSlideAlignment={"start"}
           containerCustomStyle={styles.slider}
@@ -190,14 +190,14 @@ export default class example extends Component {
             scrollEventThrottle={200}
             directionalLockEnabled={true}
           >
-            {example1}
+            {/*{example1}*/}
             {example2}
-            {example3}
-            {example4}
-            {example5}
-            {example6}
-            {example7}
-            {example8}
+            {/*{example3}*/}
+            {/*{example4}*/}
+            {/*{example5}*/}
+            {/*{example6}*/}
+            {/*{example7}*/}
+            {/*{example8}*/}
           </ScrollView>
         </View>
       </SafeAreaView>
