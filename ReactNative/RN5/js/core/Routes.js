@@ -17,6 +17,7 @@ import LoadingListScreen from "../screen/custom_view/LoadingListScreen";
 import KoFirstScreen from "../screen/layout/KoFirstScreen";
 import FlexOrNotScreen from "../screen/layout/FlexOrNotScreen";
 import BridgeScrollViewScreen from "../screen/bridge_view/BridgeScrollViewScreen";
+import FindNodeHandlerScreen from "../screen/rn_tutorial/ui/FindNodeHandlerScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -25,6 +26,7 @@ const HomeStack = createStackNavigator(
     F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
     FlexOrNotScreen,
     BridgeScrollViewScreen,
+    FindNodeHandlerScreen,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
       navigationOptions: (props) => {
