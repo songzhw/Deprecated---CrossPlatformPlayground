@@ -31,7 +31,9 @@ class Pulse_Class_Screen extends Component {
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around"
   },
 
 });
