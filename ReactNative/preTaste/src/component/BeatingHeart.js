@@ -11,8 +11,8 @@ const BeatingHeart = ({ scale }) => (
 
 const styles = StyleSheet.create({
   heart: {
-    width: 200,
-    height: 200
+    width: 100,
+    height: 100
   }
 });
 

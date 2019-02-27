@@ -7,7 +7,11 @@ class Pulse_Class_Screen extends Component {
 
   componentDidMount() {
     // 500ms后执行动画
-    setTimeout(() => this.pulse(), 500);
+    this.timeoutRef = setTimeout(() => this.pulse(), 500);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeoutRef);
   }
 
   pulse = () => {
@@ -34,7 +38,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "space-around"
-  },
+  }
 
 });
 
