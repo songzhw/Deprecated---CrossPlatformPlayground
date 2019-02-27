@@ -2,14 +2,13 @@ package com.rn5.bridge_view.bgscrollview;
 
 import android.content.Context;
 import android.support.annotation.ColorInt;
-import android.util.AttributeSet;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 
 /*
 1. ScrollView <- FrameLayout <- ViewGroup
 2.
  */
-public class BgScrollView extends ScrollView {
+public class BgScrollView extends LinearLayout {
     public BgScrollView(Context context) {
         super(context);
     }
