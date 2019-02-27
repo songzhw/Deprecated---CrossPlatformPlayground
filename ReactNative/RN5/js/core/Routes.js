@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Image, TouchableOpacity } from "react-native";
 import { createStackNavigator } from "react-navigation";
-import HomeScreen from "../screen/HomeScreen";
 import { commonStyles } from "./theme/CommonStyles";
+import HomeScreen from "../screen/HomeScreen";
 import AxiosScreen from "../screen/third_party/AxiosScreen";
 import ContextDemo from "../screen/rn_tutorial/context/ContextDemo";
 import GestureAnimScreen from "../screen/rn_tutorial/GestureAnimScreen";
