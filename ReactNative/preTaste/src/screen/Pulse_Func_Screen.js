@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, Animated } from "react-native";
 import BeatingHeart from "../component/BeatingHeart";
 
 const usePulse = () => {
-  const scale = new Animated.Value(1);
+  const scale = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
     const timeout = setTimeout(() => pulse(), 500);
