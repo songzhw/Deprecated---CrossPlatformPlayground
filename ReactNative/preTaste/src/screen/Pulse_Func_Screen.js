@@ -16,7 +16,7 @@ const usePulse = () => {
       Animated.timing(scale, { toValue: 1.2 }),
       Animated.timing(scale, { toValue: 0.8 })
     ])
-      .start(() => this.pulse());
+      .start(() => pulse());
     // 无限执行
   };
 
