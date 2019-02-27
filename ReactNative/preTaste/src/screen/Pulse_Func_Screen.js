@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from "react";
 import { View, StyleSheet, Text, Animated } from "react-native";
 import BeatingHeart from "../component/BeatingHeart";
 
-const usePulse = () => {
+const usePulse = (delay = 500) => {
   const scale = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
-    const timeout = setTimeout(() => pulse(), 500);
+    const timeout = setTimeout(() => pulse(), delay);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -25,10 +25,12 @@ const usePulse = () => {
 
 const Pulse_Func_Screen = () => {
   const scale = usePulse();
+  const scale2 = usePulse(742);
 
   return (
     <View style={styles.root}>
       <BeatingHeart scale={scale}/>
+      <BeatingHeart scale={scale2}/>
     </View>
   );
 };
