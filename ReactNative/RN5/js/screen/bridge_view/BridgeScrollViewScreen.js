@@ -7,10 +7,8 @@ class BridgeScrollViewScreen extends Component {
   render() {
     return (
       <BgScrollView style={styles.root} bgColor="#e12ca9">
-        <View style={{ width: 350, height: 900, backgroundColor: "transparent" }}>
-          <Text style={[styles.item, { backgroundColor: "red" }]}>BridgeScrollViewScreen Screen</Text>
-          <Text style={[styles.item, { backgroundColor: "pink" }]}>BridgeScrollViewScreen Screen222</Text>
-        </View>
+        <Text style={[styles.item, { backgroundColor: "red" }]}>BridgeScrollViewScreen Screen</Text>
+        <Text style={[styles.item, { backgroundColor: "pink" }]}>BridgeScrollViewScreen Screen222</Text>
       </BgScrollView>
     );
   }
