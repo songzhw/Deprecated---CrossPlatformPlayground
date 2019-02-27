@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Image, Animated } from "react-native";
+import BeatingHeart from "../component/BeatingHeart";
 
 class Pulse_Class_Screen extends Component {
   scale = new Animated.Value(1);
@@ -22,11 +23,7 @@ class Pulse_Class_Screen extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <Animated.View style={[styles.animHeart, { transform: [{ scale: this.scale }] }]}>
-          <Image source={require("../../assets/icon_red_heart.png")}
-                 resizeMode="contain"
-                 style={styles.heart}/>
-        </Animated.View>
+        <BeatingHeart scale={this.scale}/>
       </View>
     );
   }
@@ -36,16 +33,7 @@ const styles = StyleSheet.create({
   root: {
     flex: 1
   },
-  animHeart: {
-    width: 200,
-    height: 200,
-    alignSelf: "center",
-    marginTop: 100
-  },
-  heart: {
-    width: 200,
-    height: 200
-  }
+
 });
 
 export default Pulse_Class_Screen;
