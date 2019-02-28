@@ -14,6 +14,7 @@ test("fetch schdules", () => {
     .provide([
       [call(axios.get, API_ID_DAY1), { data: { r1: "r1" } }],
       [call(axios.get, API_ID_DAY2), { data: { r2: "r2" } }]
+      // [matchers.call.fn(axios.get), { data: { r1: "r1" } }],
     ])
     .put({
       type: GOT_SCHEDULE,
