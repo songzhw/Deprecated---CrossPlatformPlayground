@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     borderColor: "#E91e63"
   },
   title: {
-    flexShrink: 1,
     backgroundColor: "#ff9800"
   },
   flags: {
