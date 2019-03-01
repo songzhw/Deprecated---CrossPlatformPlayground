@@ -19,13 +19,14 @@ import FlexOrNotScreen from "../screen/layout/FlexOrNotScreen";
 import BridgeScrollViewScreen from "../screen/bridge_view/BridgeScrollViewScreen";
 import FindNodeHandlerScreen from "../screen/rn_tutorial/ui/FindNodeHandlerScreen";
 import FlexThreePropsScreen from "../screen/layout/FlexThreePropsScreen";
+import TourismPriceScreen from "../screen/layout/TourismPriceScreen";
 
 const HomeStack = createStackNavigator(
   {
     HomeScreen, AxiosScreen, ContextDemo, GestureAnimScreen, SetStatePitfallScreen,
     ActionSheetDemo, MyDrawerDemo, LoadingListScreen,
     F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
-    KoFirstScreen, FlexOrNotScreen, FlexThreePropsScreen,
+    KoFirstScreen, FlexOrNotScreen, FlexThreePropsScreen, TourismPriceScreen,
     BridgeScrollViewScreen,
     FindNodeHandlerScreen,
     DynamicTitleScreen: {

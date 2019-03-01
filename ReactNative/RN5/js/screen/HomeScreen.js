@@ -17,18 +17,18 @@ class HomeScreen extends Component {
         <Text style={styles.title}>Layout</Text>
         <HomeButton title="layout - flex?" onPress={() => navigation.navigate("FlexOrNotScreen")}/>
         <HomeButton title="Flex 3 props" onPress={() => navigation.navigate("FlexThreePropsScreen")}/>
+        <HomeButton title="Flex Demo: Tourism" onPress={() => navigation.navigate("TourismPriceScreen")}/>
+
+
 
         <View style={{ height: 20 }}/>
         <Text style={styles.title}>RN Tutorial</Text>
         <HomeButton title="find Node Hanlder method" onPress={() => navigation.navigate("FindNodeHandlerScreen")}/>
         <HomeButton title="Context" onPress={() => navigation.navigate("ContextDemo")}/>
         <HomeButton title="PanResponder" onPress={() => navigation.navigate("GestureAnimScreen")}/>
-        <HomeButton title="Toolbar - dynamic title"
-                    onPress={() => navigation.navigate("DynamicTitleScreen", { name: "home3" })}/>
+        <HomeButton title="Toolbar - dynamic title" onPress={() => navigation.navigate("DynamicTitleScreen", { name: "home3" })}/>
         <HomeButton title="pitfall - setState()" onPress={() => navigation.navigate("SetStatePitfallScreen")}/>
-
-        <HomeButton title="[error] native view group component"
-                    onPress={() => navigation.navigate("BridgeScrollViewScreen")}/>
+        <HomeButton title="[error] native view group component" onPress={() => navigation.navigate("BridgeScrollViewScreen")}/>
 
 
         <View style={{ height: 20 }}/>
