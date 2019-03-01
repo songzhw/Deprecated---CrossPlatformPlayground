@@ -18,13 +18,14 @@ import KoFirstScreen from "../screen/layout/KoFirstScreen";
 import FlexOrNotScreen from "../screen/layout/FlexOrNotScreen";
 import BridgeScrollViewScreen from "../screen/bridge_view/BridgeScrollViewScreen";
 import FindNodeHandlerScreen from "../screen/rn_tutorial/ui/FindNodeHandlerScreen";
+import FlexThreePropsScreen from "../screen/layout/FlexThreePropsScreen";
 
 const HomeStack = createStackNavigator(
   {
     HomeScreen, AxiosScreen, ContextDemo, GestureAnimScreen, SetStatePitfallScreen,
-    ActionSheetDemo, MyDrawerDemo, LoadingListScreen, KoFirstScreen,
+    ActionSheetDemo, MyDrawerDemo, LoadingListScreen,
     F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
-    FlexOrNotScreen,
+    KoFirstScreen, FlexOrNotScreen, FlexThreePropsScreen,
     BridgeScrollViewScreen,
     FindNodeHandlerScreen,
     DynamicTitleScreen: {
@@ -39,10 +40,10 @@ const HomeStack = createStackNavigator(
               title={params.mode === "edit" ? "save" : "edit"}
               onPress={() => navigation.setParams({ mode: params.mode === "edit" ? "" : "edit" })}
             />
-          ),
+          )
         };
-      },
-    },
+      }
+    }
   },
   {
     headerMode: "screen",
@@ -53,9 +54,9 @@ const HomeStack = createStackNavigator(
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={require("../../assets/icon_back.png")} resizeMode='center' style={commonStyles.imgBack}/>
         </TouchableOpacity>
-      ),
-    }),
-  },
+      )
+    })
+  }
 );
 
 export default HomeStack;
