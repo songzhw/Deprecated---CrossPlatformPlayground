@@ -19,15 +19,15 @@ const styles = StyleSheet.create({
     borderColor: "#E91e63"
   },
   title: {
-    flexGrow: 1,
+    flexShrink: 1,
     backgroundColor: "#ff9800"
   },
   flags: {
-    flexGrow: 1,
+    flexShrink: 1,
     backgroundColor: "#7e57c2"
   },
   price: {
-    flexGrow: 1,
+    flexShrink: 1,
     backgroundColor: "#90caf9"
   }
 });
