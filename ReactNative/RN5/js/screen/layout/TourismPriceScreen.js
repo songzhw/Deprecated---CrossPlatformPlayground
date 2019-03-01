@@ -6,9 +6,9 @@ class TourismPriceScreen extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <Text style={styles.title} numberOfLines={1}>箱根温泉箱根温泉箱根温泉箱根温泉箱根温泉</Text>
+        <Text style={styles.title} numberOfLines={1}>箱根温泉</Text>
         <Text style={styles.flags} numberOfLines={1}>温泉</Text>
-        <Text style={styles.price} numberOfLines={1}>FlexThreePropsScreen Screen</Text>
+        <Text style={styles.price} numberOfLines={1}>￥ 120,000</Text>
       </View>
     );
   }
@@ -23,15 +23,16 @@ const styles = StyleSheet.create({
     borderColor: "#E91e63"
   },
   title: {
+    flexShrink: 1,
     backgroundColor: "#ff9800"
   },
   flags: {
-    flexShrink: 1,
     backgroundColor: "#7e57c2"
   },
   price: {
-    flexShrink: 1,
-    backgroundColor: "#90caf9"
+    backgroundColor: "#90caf9",
+    fontSize: 22,
+    fontWeight: "bold",
   }
 });
 
