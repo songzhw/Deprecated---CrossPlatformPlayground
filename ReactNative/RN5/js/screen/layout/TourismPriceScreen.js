@@ -30,9 +30,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#7e57c2"
   },
   price: {
+    flexGrow: 1,
     backgroundColor: "#90caf9",
     fontSize: 22,
     fontWeight: "bold",
+    textAlign: "right"
   }
 });
 
