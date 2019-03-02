@@ -10,7 +10,6 @@ const initState = {
 }
 
 export default (state = initState, action) => {
-  console.log(`szw reducer : ${JSON.stringify(action)}`)
   switch (action.type) {
     case LOGIN_SUCC:
     case GOT_SCHEDULE:

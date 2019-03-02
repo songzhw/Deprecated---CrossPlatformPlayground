@@ -3,7 +3,7 @@ import {View, StyleSheet, Text, FlatList, Image, ScrollView} from 'react-native'
 import {connect} from 'react-redux'
 import ReadedComponent from "../../component/ReadedComponent";
 import FirstCarousel from "../../component/FirstCarousel";
-import {createRequestAction} from "../../redux/middlewares/HttpMIddlewares";
+import {createRequestAction} from "../../redux/middlewares/HttpMiddlewares";
 import {GOT_FIRST_PAGE_INFO, TRY_FIRST_PAGE_INFO} from "../../redux/F8Reducer";
 import {API_FIRST_PAGE} from "../../core/apiConstants";
 

@@ -7,7 +7,7 @@
 import {axios} from '../../core/HttpEngine'
 
 export const httpMiddleware = store => next => action => {
-  console.log(`szw middleware acton = ${JSON.stringify(action)}`)
+  // console.log(`szw http middleware acton = ${JSON.stringify(action)}`)
   const {apiId, nextType} = action
 
   if(nextType === undefined) {
