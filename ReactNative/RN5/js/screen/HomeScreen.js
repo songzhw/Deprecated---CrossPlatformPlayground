@@ -14,12 +14,14 @@ class HomeScreen extends Component {
         <HomeButton title="Loading List" onPress={() => navigation.navigate("LoadingListScreen")}/>
 
         <View style={{ height: 8 }}/>
+        <Text style={styles.title}>Redux Research</Text>
+        <HomeButton title="mapStateToProps" onPress={() => navigation.navigate("MapStateToPropsScreen")}/>
+
+        <View style={{ height: 8 }}/>
         <Text style={styles.title}>Layout</Text>
         <HomeButton title="layout - flex?" onPress={() => navigation.navigate("FlexOrNotScreen")}/>
         <HomeButton title="Flex 3 props" onPress={() => navigation.navigate("FlexThreePropsScreen")}/>
         <HomeButton title="Flex Demo: Tourism" onPress={() => navigation.navigate("TourismPriceScreen")}/>
-
-
 
         <View style={{ height: 20 }}/>
         <Text style={styles.title}>RN Tutorial</Text>

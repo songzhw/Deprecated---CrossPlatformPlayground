@@ -20,6 +20,7 @@ import BridgeScrollViewScreen from "../screen/bridge_view/BridgeScrollViewScreen
 import FindNodeHandlerScreen from "../screen/rn_tutorial/ui/FindNodeHandlerScreen";
 import FlexThreePropsScreen from "../screen/layout/FlexThreePropsScreen";
 import TourismPriceScreen from "../screen/layout/TourismPriceScreen";
+import MapStateToPropsScreen from "../screen/redux/MapStateToPropsScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -29,6 +30,7 @@ const HomeStack = createStackNavigator(
     KoFirstScreen, FlexOrNotScreen, FlexThreePropsScreen, TourismPriceScreen,
     BridgeScrollViewScreen,
     FindNodeHandlerScreen,
+    MapStateToPropsScreen,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
       navigationOptions: (props) => {
