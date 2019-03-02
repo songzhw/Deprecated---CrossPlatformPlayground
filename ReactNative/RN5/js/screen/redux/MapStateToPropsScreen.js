@@ -3,18 +3,16 @@ import { View, StyleSheet, Text, Button } from "react-native";
 import { connect } from "react-redux";
 import { MAP01 } from "../../redux/ReduxResearchReducer";
 
-class MapStateToPropsScreen extends Component {
-  state = {
-    date: 0
-  };
+
+class SubComponent1 extends Component {
 
   render() {
-    console.log(`szw render : ${JSON.stringify(this.state.date)}`);
+    console.log(`szw SubComponent1 render`);
+    let text = `MapStateToPropsScreen Screen : id = ${this.props.oid}`
     return (
       <View style={styles.root}>
-        <Text>MapStateToPropsScreen Screen</Text>
+        <Text>{text}</Text>
         <Button title="send action" onPress={() => this.props.dispatch({ type: MAP01 })}/>
-        <Button title="setState" onPress={() => this.setState({ date: new Date() })}/>
       </View>
     );
   }
@@ -27,8 +25,27 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  console.log(`szw MapStateToPropsScreen mapStateToProps() state = ${JSON.stringify(state)}`);
-  return {};
+  console.log(`szw SubComponent1 mapStateToProps() state = ${JSON.stringify(state)}`);
+  return { key: "value" };
 };
 
-export default connect(mapStateToProps)(MapStateToPropsScreen);
+const ConnectedSubcomponent = connect(mapStateToProps)(SubComponent1);
+
+// = = = = = = = = = = = = = = = = = = = = = = = =
+
+class MapStateToPropsScreen extends React.Component {
+  state = {
+    id: 0
+  };
+
+  render() {
+    return (
+      <View style={styles.root}>
+        <Button title="parent change props" onPress={() => this.setState({ id: new Date() })}/>
+        <ConnectedSubcomponent oid={this.state.id}/>
+      </View>
+    );
+  }
+}
+
+export default MapStateToPropsScreen;
