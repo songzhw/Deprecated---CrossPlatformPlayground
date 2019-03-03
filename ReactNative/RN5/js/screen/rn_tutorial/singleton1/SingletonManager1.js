@@ -8,4 +8,8 @@ export class SingletonManager1 {
   printSingleton() {
     console.log(`szw Mgr1 singleton = ${JSON.stringify(singleton1)}`);
   }
+
+  getSingleton() {
+    return singleton1;
+  }
 }
