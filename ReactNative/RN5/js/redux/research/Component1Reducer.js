@@ -7,7 +7,7 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
     case COMPONENT_1:
-      return { ...state, counter: state.count * 2 };
+      return { ...state, count: state.count * 2 };
     default:
       return state;
   }

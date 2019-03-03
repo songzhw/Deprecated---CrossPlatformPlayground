@@ -8,7 +8,7 @@ class Component2 extends Component {
     let text = `Component2: ${this.props.count}`
     return (
       <View style={styles.root}>
-        <Text>{text}</Text>
+        <Text style={{fontWeight: 'bold', fontSize: 20}}>{text}</Text>
       </View>
     );
   }
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   root: {
     width: 240,
     height: 150,
-    backgroundColor: "green"
+    backgroundColor: "#66bb6a"
   }
 });
 
@@ -26,7 +26,7 @@ const mapStateToProps = (state) => {
   console.log(`szw 组件2 : mapStateToProps()`);
   let value = state.playgroundReducers.Component2Reducer;
   return {
-    count: value
+    count: value.count
   };
 };
 
