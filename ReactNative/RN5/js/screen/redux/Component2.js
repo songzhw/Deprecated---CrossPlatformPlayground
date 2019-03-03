@@ -3,6 +3,9 @@ import { View, StyleSheet, Text } from "react-native";
 import { connect } from "react-redux";
 
 class Component2 extends Component {
+
+  // shouldComponentUpdate() will help us to avoid unnecessary render
+
   render() {
     console.log(`szw 组件2: render(${this.props.count})`);
     let text = `Component2: ${this.props.count}`
