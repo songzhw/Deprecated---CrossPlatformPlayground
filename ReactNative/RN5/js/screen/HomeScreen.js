@@ -16,6 +16,7 @@ class HomeScreen extends Component {
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Redux Research</Text>
         <HomeButton title="mapStateToProps" onPress={() => navigation.navigate("MapStateToPropsScreen")}/>
+        <HomeButton title="burden of Redux" onPress={() => navigation.navigate("ReduxProblemScreen")}/>
 
 
         <View style={{ height: 8 }}/>

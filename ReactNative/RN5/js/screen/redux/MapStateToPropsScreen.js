@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Text, Button } from "react-native";
 import { connect } from "react-redux";
-import { MAP01 } from "../../redux/ReduxResearchReducer";
+import { MAP01 } from "../../redux/research/ReduxResearchReducer";
 
 
 class SubComponent1 extends Component {
