@@ -5,9 +5,10 @@ import { connect } from "react-redux";
 class Component2 extends Component {
   render() {
     console.log(`szw 组件2: render(${this.props.count})`);
+    let text = `Component2: ${this.props.count}`
     return (
       <View style={styles.root}>
-        <Text>Component2: {this.props.count}</Text>
+        <Text>{text}</Text>
       </View>
     );
   }
@@ -29,4 +30,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Component1);
+export default connect(mapStateToProps)(Component2);

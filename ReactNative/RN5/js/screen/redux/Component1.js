@@ -5,9 +5,10 @@ import { connect } from "react-redux";
 class Component1 extends Component {
   render() {
     console.log(`szw 组件1: render(${this.props.count})`);
+    let text = `Component1: ${this.props.count}`;
     return (
       <View style={styles.root}>
-        <Text>Component1: {this.props.count}</Text>
+        <Text>{text}</Text>
       </View>
     );
   }
