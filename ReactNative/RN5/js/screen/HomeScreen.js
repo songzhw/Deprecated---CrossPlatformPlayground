@@ -17,6 +17,7 @@ class HomeScreen extends Component {
         <Text style={styles.title}>Redux Research</Text>
         <HomeButton title="mapStateToProps" onPress={() => navigation.navigate("MapStateToPropsScreen")}/>
 
+
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Layout</Text>
         <HomeButton title="layout - flex?" onPress={() => navigation.navigate("FlexOrNotScreen")}/>
@@ -25,6 +26,7 @@ class HomeScreen extends Component {
 
         <View style={{ height: 20 }}/>
         <Text style={styles.title}>RN Tutorial</Text>
+        <HomeButton title="singleton?" onPress={() => navigation.navigate("Singleton1Screen")}/>
         <HomeButton title="find Node Hanlder method" onPress={() => navigation.navigate("FindNodeHandlerScreen")}/>
         <HomeButton title="Context" onPress={() => navigation.navigate("ContextDemo")}/>
         <HomeButton title="PanResponder" onPress={() => navigation.navigate("GestureAnimScreen")}/>

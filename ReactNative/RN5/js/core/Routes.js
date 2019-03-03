@@ -21,6 +21,7 @@ import FindNodeHandlerScreen from "../screen/rn_tutorial/ui/FindNodeHandlerScree
 import FlexThreePropsScreen from "../screen/layout/FlexThreePropsScreen";
 import TourismPriceScreen from "../screen/layout/TourismPriceScreen";
 import MapStateToPropsScreen from "../screen/redux/MapStateToPropsScreen";
+import Singleton1Screen from "../screen/rn_tutorial/singleton1/Singleton1Screen";
 
 const HomeStack = createStackNavigator(
   {
@@ -29,7 +30,7 @@ const HomeStack = createStackNavigator(
     F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
     KoFirstScreen, FlexOrNotScreen, FlexThreePropsScreen, TourismPriceScreen,
     BridgeScrollViewScreen,
-    FindNodeHandlerScreen,
+    FindNodeHandlerScreen, Singleton1Screen,
     MapStateToPropsScreen,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
