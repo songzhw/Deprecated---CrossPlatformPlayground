@@ -33,3 +33,19 @@ const configStore = (reducer) => {
   store.dispatch = addHttpToDispatch(store); // 这里的store.dispatch已经是包装过一次的新dispatch了
   return store;
 };
+
+// ============== version 2 ==============
+const configStore2 = (reducer) => {
+  const store = createStore(reducer);
+
+  const middlewares = [];
+  middlewares.push(addLogToDispatch);
+  middlewares.push(addHttpToDispatch);
+  wrapDispatchWithMiddlewares(store, middlewares);
+  return store;
+};
+
+
+const wrapDispatchWithMiddlewares = (store, middlewares) => {
+  middlewares.forEach( middleware => store.dispatch = middleware(store))
+}
