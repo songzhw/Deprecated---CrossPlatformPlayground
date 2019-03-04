@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { connect } from "react-redux";
+import { createSelector } from "reselect";
 
 class Component2 extends Component {
 
@@ -25,11 +26,14 @@ const styles = StyleSheet.create({
   }
 });
 
+const getCount2 = (state) => state.playgroundReducers.Component2Reducer.count;
+const getCountResult2 = (count) => ({ count: count });
+const selector = createSelector([getCount2], getCountResult2);
+
 const mapStateToProps = (state) => {
   console.log(`szw 组件2 : mapStateToProps()`);
-  let value = state.playgroundReducers.Component2Reducer;
   return {
-    count: value.count
+    count: selector(state)
   };
 };
 
