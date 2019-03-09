@@ -1,23 +1,35 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
-import saga from "./saga";
+import saga1 from "./saga/saga";
+import channelDemoSaga from "./saga/channelDemoSaga";
 import F8Reducer from "./F8Reducer";
 import ReduxResearchReducer from "./research/ReduxResearchReducer";
 import Component1Reducer from "./research/Component1Reducer";
 import Component2Reducer from "./research/Component2Reducer";
 import { httpMiddleware } from "./middlewares/HttpMiddlewares";
+import { all, fork } from "redux-saga/effects";
 
+
+// assemble middlewares
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware, httpMiddleware];
 
+// assemble reducers
 const playgroundReducers = combineReducers({
   ReduxResearchReducer, Component1Reducer, Component2Reducer
 });
 const reducers = combineReducers({
   F8Reducer, playgroundReducers
 });
+
+// create store
 const store = createStore(reducers, applyMiddleware(...middleware));
 
-sagaMiddleware.run(saga);
+// assemble sagas
+const sagas = [saga1, channelDemoSaga];
+const combineSaga = function* () {
+  yield all(sagas.map(aSaga => fork(aSaga)));
+};
+sagaMiddleware.run(combineSaga);
 
 export default store;
