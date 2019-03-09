@@ -9,6 +9,7 @@ class SagaChannelScreen extends Component {
       <View style={styles.root}>
         <Text>SagaChannelScreen Screen</Text>
         <Button title="send action" onPress={() => this.props.dispatch(getChannelDemoAction())}/>
+        <Text> {this.props.text2} </Text>
       </View>
     );
   }
@@ -21,7 +22,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  return {};
+  let { text } = state.playgroundReducers.channelDemoReducer;
+  return { text2: text };
 };
 
 export default connect(mapStateToProps)(SagaChannelScreen);
