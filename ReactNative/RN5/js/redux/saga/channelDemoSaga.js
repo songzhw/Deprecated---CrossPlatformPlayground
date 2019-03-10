@@ -14,7 +14,7 @@ const onGotAction = function* (action) {
   try {
     while (true) {
       const evenNum = yield take(channel);
-      put(getChannelResultAction(evenNum));
+      yield put(getChannelResultAction(evenNum));
     }
   } catch (error) {
     console.log(`szw chanel demo saga error = ${JSON.stringify(error)}`);
