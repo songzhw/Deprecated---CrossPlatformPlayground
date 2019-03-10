@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Text, Button } from "react-native";
 import { connect } from "react-redux";
-import { getChannelDemoAction } from "../../redux/research/channelDemoReducer";
+import { CHANNEL_DEMO_RESULT, getChannelDemoAction } from "../../redux/research/channelDemoReducer";
 
 class SagaChannelScreen extends Component {
   render() {
+    console.log(`szw screen CHANNEL_DEMO_RESULT`);
     return (
       <View style={styles.root}>
         <Text>SagaChannelScreen Screen</Text>
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   let { text } = state.playgroundReducers.channelDemoReducer;
+  console.log(`szw screen map : ${text}`);
   return { text2: text };
 };
 

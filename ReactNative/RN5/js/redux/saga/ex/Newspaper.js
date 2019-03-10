@@ -13,9 +13,11 @@ export function unsubscribe() {
 }
 
 export function createNews() {
+  console.log(`szw newspaper createNews()`);
   handler = setInterval(() => {
+    console.log(`szw newspaper: ${id}`);
     listenerFunc(id++);
   }, 1000);
 }
 
-export default {subscribe, unsubscribe, createNews}
+export default { subscribe, unsubscribe, createNews };

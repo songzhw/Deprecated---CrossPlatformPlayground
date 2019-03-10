@@ -16,6 +16,7 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
     case CHANNEL_DEMO_RESULT:
+      console.log(`szw reducer CHANNEL_DEMO_RESULT`)
       return { text: `channel result ${action.num}` };
     default:
       return state;
