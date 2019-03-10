@@ -18,6 +18,13 @@ export function createNews() {
     console.log(`szw newspaper: ${id}`);
     listenerFunc(id++);
   }, 1000);
+
+  /*
+  // 这一段代码就会有问题, saga与reducer就收不到gkwr
+  for (let i = 0; i < 100; i++) {
+    listenerFunc(i);
+  }
+  */
 }
 
 export default { subscribe, unsubscribe, createNews };
