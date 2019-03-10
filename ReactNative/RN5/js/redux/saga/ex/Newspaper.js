@@ -17,3 +17,5 @@ export function createNews() {
     listenerFunc(id++);
   }, 1000);
 }
+
+export default {subscribe, unsubscribe, createNews}

@@ -3,8 +3,9 @@ export const getChannelDemoAction = () => ({
   type: CHANNEL_DEMO
 });
 export const CHANNEL_DEMO_RESULT = "CHANNEL_DEMO_RESULT";
-export const getChannelResultAction = () => ({
-  type: CHANNEL_DEMO_RESULT
+export const getChannelResultAction = (num) => ({
+  type: CHANNEL_DEMO_RESULT,
+  num: num
 });
 
 
@@ -15,7 +16,7 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
     case CHANNEL_DEMO_RESULT:
-      return { text: "channel result (<- reducer)" };
+      return { text: `channel result ${action.num}` };
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import { eventChannel } from "redux-saga";
 
-export default function doulbeChannle(newspaper) {
+export default function doubleChannel(newspaper) {
   return eventChannel(emit => {
     const onReceive = (num) => {
       emit(num * 2);
