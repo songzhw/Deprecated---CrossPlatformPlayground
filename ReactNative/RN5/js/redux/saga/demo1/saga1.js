@@ -1,7 +1,7 @@
 import { takeEvery, call, put, take } from "redux-saga/effects";
-import { CHANNEL_DEMO, getChannelResultAction } from "../research/channelDemoReducer";
-import Newspaper from "./ex/Newspaper";
-import doubleChannel from "./demoChannel";
+import { CHANNEL_DEMO, getChannelResultAction } from "../../research/channelDemoReducer";
+import Newspaper from "../ex/Newspaper";
+import doubleChannel from "./channel1";
 
 
 const sagas = function* () {

@@ -3,8 +3,8 @@ import createSagaMiddleware from "redux-saga";
 import { httpMiddleware } from "./middlewares/HttpMiddlewares";
 import { all, fork } from "redux-saga/effects";
 
-import saga1 from "./saga/saga";
-import channelDemoSaga from "./saga/channelDemoSaga";
+import saga0 from "./saga/saga";
+import sagaChannel1 from "./saga/demo1/saga1";
 
 import F8Reducer from "./F8Reducer";
 import ReduxResearchReducer from "./research/ReduxResearchReducer";
@@ -29,7 +29,7 @@ const reducers = combineReducers({
 const store = createStore(reducers, applyMiddleware(...middleware));
 
 // assemble sagas
-const sagas = [saga1, channelDemoSaga];
+const sagas = [saga0, sagaChannel1];
 const combineSaga = function* () {
   yield all(sagas.map(aSaga => fork(aSaga)));
 };
