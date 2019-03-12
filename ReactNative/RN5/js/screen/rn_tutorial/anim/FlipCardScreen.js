@@ -4,17 +4,35 @@ import { connect } from "react-redux";
 
 class FlipCardScreen extends Component {
   animValue = new Animated.Value(0);
+  abool = true;
 
   render() {
+    let animStyles = [];
+    animStyles.push({
+      rotateY: this.animValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: ["0deg", "180deg"]
+      })
+    });
+
     return (
       <View style={styles.root}>
-        <Button title="do anim" onPress={() => console.log(`szw click`)}/>
-        <Animated.View style={[{ transform: [{ rotateY: this.animValue }] }]}>
+        <Button title="do anim" onPress={() => this.startAnim()}/>
+        <Animated.View style={{ transform: animStyles }}>
           <Text style={styles.card}>Text</Text>
         </Animated.View>
       </View>
     );
   }
+
+  startAnim = () => {
+
+
+    Animated.timing(
+      this.animValue,
+      { toValue: 1, duration: 500 }
+    ).start();
+  };
 }
 
 const styles = StyleSheet.create({
