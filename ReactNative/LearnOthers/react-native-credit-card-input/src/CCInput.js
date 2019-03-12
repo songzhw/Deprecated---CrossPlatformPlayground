@@ -66,6 +66,7 @@ export default class CCInput extends Component {
   _onFocus = () => this.props.onFocus(this.props.field);
   _onChange = value => this.props.onChange(this.props.field, value);
 
+  // 7. szw 为何要给外围加一个TouchableOpacity, 用其点击来focus()? TextInput不会自带此功能吗?
   render() {
     const { label, value, placeholder, status, keyboardType,
             containerStyle, inputStyle, labelStyle,

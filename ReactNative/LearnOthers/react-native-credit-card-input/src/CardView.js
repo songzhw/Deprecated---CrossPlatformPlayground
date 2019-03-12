@@ -124,6 +124,11 @@ export default class CardView extends Component {
       { translateY: ((BASE_SIZE.height * (scale - 1) / 2)) },
     ] };
 
+    // 3. szw 原来动画的核心来自 import FlipCard from "react-native-flip-card";
+    // 4. szw RN官方有ImageBackground, 研究一下
+    // 2. szw root没指明flex, 是不是就不flexbox, 就是类似flay的层叠效果了? (FlipCard中两个ImageBg)
+    // 5. szw 如何给<Text>们定位的?
+    // 6. szw CardView就是背影, 加上每个TextInput的说明Text. (CreditCardInput里则用CCInput来输入信息)
     return (
       <View style={[s.cardContainer, containerSize]}>
         <FlipCard style={{ borderWidth: 0 }}

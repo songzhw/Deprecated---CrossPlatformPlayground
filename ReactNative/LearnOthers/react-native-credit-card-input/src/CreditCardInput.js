@@ -1,19 +1,10 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-import ReactNative, {
-  NativeModules,
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Dimensions,
-  TextInput,
-  ViewPropTypes,
-} from "react-native";
-
+import React, { Component } from "react";
+import ReactNative, { Dimensions, NativeModules, ScrollView, StyleSheet, Text, TextInput, View, ViewPropTypes } from "react-native";
 import CreditCard from "./CardView";
 import CCInput from "./CCInput";
 import { InjectedProps } from "./connectToState";
+
 
 const s = StyleSheet.create({
   container: {
@@ -103,6 +94,7 @@ export default class CreditCardInput extends Component {
   _focus = field => {
     if (!field) return;
 
+    // 1. szw ScrollView有一个scrollResponder, 要研究一下
     const scrollResponder = this.refs.Form.getScrollResponder();
     const nodeHandle = ReactNative.findNodeHandle(this.refs[field]);
 
@@ -148,6 +140,7 @@ export default class CreditCardInput extends Component {
     } = this.props;
 
     return (
+      // 2. szw root没指明flex, 是不是就不flexbox, 就是类似flay的层叠效果了?
       <View style={s.container}>
         <CreditCard focused={focused}
           brand={type}
