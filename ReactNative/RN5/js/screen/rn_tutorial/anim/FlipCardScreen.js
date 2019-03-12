@@ -9,7 +9,7 @@ class FlipCardScreen extends Component {
     return (
       <View style={styles.root}>
         <Button title="do anim" onPress={() => console.log(`szw click`)}/>
-        <Animated.View>
+        <Animated.View style={[{ transform: [{ rotateY: this.animValue }] }]}>
           <Text style={styles.card}>Text</Text>
         </Animated.View>
       </View>
