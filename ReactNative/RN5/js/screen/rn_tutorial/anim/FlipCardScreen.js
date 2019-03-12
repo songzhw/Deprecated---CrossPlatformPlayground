@@ -26,11 +26,21 @@ class FlipCardScreen extends Component {
   }
 
   startAnim = () => {
+    let endValue = 1;
+    if (this.abool) {
+      endValue = 1;
+    } else {
+      endValue = 0;
+    }
+    this.abool = !this.abool;
 
+    this.toggle(endValue);
+  };
 
+  toggle = (endValue) => {
     Animated.timing(
       this.animValue,
-      { toValue: 1, duration: 500 }
+      { toValue: endValue, duration: 500 }
     ).start();
   };
 }
