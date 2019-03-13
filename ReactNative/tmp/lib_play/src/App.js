@@ -25,7 +25,7 @@ export default class App extends Component {
 
   renderLoading = () => (
     <ActivityIndicator size="large"/>
-  );
+  )
 
 
 }

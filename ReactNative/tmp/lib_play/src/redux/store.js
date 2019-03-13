@@ -14,8 +14,8 @@ const persistRuducerConfig = {
   key: "helloworld",
   storage
 };
-const persistReducer = persistReducer(persistRuducerConfig, reducer);
+const persistedReducer = persistReducer(persistRuducerConfig, reducer);
 
-export const store = createStore(persistReducer, applyMiddleware(...middlewares));
+export const store = createStore(persistedReducer, applyMiddleware(...middlewares));
 export const persistore = persistStore(store);
 
