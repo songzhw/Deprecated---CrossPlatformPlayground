@@ -1,4 +1,4 @@
-export const INPUT_ACTION = "";
+export const INPUT_ACTION = "INPUT_ACTION";
 export const createInputAction = (text) => ({
   type: INPUT_ACTION,
   payload: { name: text }

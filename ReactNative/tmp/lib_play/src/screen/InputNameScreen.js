@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Button, TextInput } from "react-native";
+import { Button, StyleSheet, TextInput, View, Text } from "react-native";
 import { connect } from "react-redux";
 import { createInputAction } from "../redux/InputNameReducer";
 
@@ -11,6 +11,7 @@ class InputNameScreen extends Component {
       <View style={styles.root}>
         <TextInput style={{ fontSize: 30 }} onChangeText={this.onTextChanged} placeholder="input a name"/>
         <Button title="Submit" onPress={this.onSubmit}/>
+        <Text>{this.props.myName}</Text>
       </View>
     );
   }
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   console.log(`szw screen state = ${JSON.stringify(state)}`);
-  return {};
+  return { myName: state.InputNameReducer.name };
 };
 
 export default connect(mapStateToProps)(InputNameScreen);
