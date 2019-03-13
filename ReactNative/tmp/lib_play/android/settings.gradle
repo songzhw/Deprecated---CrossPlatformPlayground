@@ -1,0 +1,3 @@
+rootProject.name = 'lib_play'
+
+include ':app'
