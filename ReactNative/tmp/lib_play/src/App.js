@@ -13,19 +13,19 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
+  renderLoading = () => (
+    <ActivityIndicator size="large"/>
+  );
+
   render() {
     return (
       <Provider store={store}>
-        <PersistGate loading={this.renderLoading} persistor={persistore}>
+        <PersistGate loading={this.renderLoading()} persistor={persistore}>
           <InputNameScreen/>
         </PersistGate>
       </Provider>
     );
   }
-
-  renderLoading = () => (
-    <ActivityIndicator size="large"/>
-  )
 
 
 }
