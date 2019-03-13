@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 import InputNameScreen from "./screen/InputNameScreen";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -12,7 +14,9 @@ const instructions = Platform.select({
 export default class App extends Component {
   render() {
     return (
-      <InputNameScreen/>
+      <Provider store={store}>
+        <InputNameScreen/>
+      </Provider>
     );
   }
 }

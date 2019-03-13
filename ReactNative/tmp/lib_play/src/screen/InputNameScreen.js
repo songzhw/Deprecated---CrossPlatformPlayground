@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Button, TextInput } from "react-native";
 import { connect } from "react-redux";
+import { createInputAction } from "../redux/InputNameReducer";
 
 class InputNameScreen extends Component {
   name = "";
@@ -19,6 +20,7 @@ class InputNameScreen extends Component {
   };
 
   onSubmit = () => {
+    this.props.dispatch(createInputAction(this.name));
   };
 
 }
@@ -31,9 +33,9 @@ const styles = StyleSheet.create({
   }
 });
 
-export default InputNameScreen;
-// const mapStateToProps = (state) => {
-//   return {};
-// };
-//
-// export default connect(mapStateToProps)(InputNameScreen);
+const mapStateToProps = (state) => {
+  console.log(`szw screen state = ${JSON.stringify(state)}`);
+  return {};
+};
+
+export default connect(mapStateToProps)(InputNameScreen);
