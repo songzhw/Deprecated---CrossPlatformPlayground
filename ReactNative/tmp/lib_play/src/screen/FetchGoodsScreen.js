@@ -7,7 +7,7 @@ class FetchGoodsScreen extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <Text>{this.props.goods}</Text>
+        <Text style={{fontSize: 22}}>{this.props.goods}</Text>
         <Button title="Fetch Data" onPress={this.onFetch}/>
       </View>
     );

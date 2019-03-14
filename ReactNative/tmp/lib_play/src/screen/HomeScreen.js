@@ -8,9 +8,8 @@ class HomeScreen extends Component {
       <View style={styles.root}>
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Persist Hello World</Text>
-        <Button title="persist 000" onPress={()=> navigation.navigate("InputNameScreen")}/>
-
-
+        <Button title="persist name" onPress={()=> navigation.navigate("InputNameScreen")}/>
+        <Button title="persist Goods" onPress={()=> navigation.navigate("FetchGoodsScreen")}/>
       </View>
     );
   }
