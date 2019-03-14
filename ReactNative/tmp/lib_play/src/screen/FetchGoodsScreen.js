@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  let { goods } = state.GoodsReducers;
+  let { goods } = state.GoodsReducer;
   let desp = JSON.stringify(goods);
   return { goods: desp };
 };

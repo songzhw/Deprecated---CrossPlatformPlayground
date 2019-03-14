@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Button } from "react-native";
+import { View, StyleSheet, Button, Text } from "react-native";
 
 class HomeScreen extends Component {
   render() {
@@ -8,8 +8,8 @@ class HomeScreen extends Component {
       <View style={styles.root}>
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Persist Hello World</Text>
-        <Button title="persist 000" onPress={navigation.navigate("InputNameScreen")}/>
-        
+        <Button title="persist 000" onPress={()=> navigation.navigate("InputNameScreen")}/>
+
 
       </View>
     );

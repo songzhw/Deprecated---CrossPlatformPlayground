@@ -5,12 +5,12 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import InputNameReducer from "./InputNameReducer";
-import FetchGoodsScreen from "../screen/FetchGoodsScreen";
+import GoodsReducer from "./GoodsReducer";
 
 const middlewares = [];
 middlewares.push(createLogger());
 
-const reducer = combineReducers({ InputNameReducer, FetchGoodsScreen });
+const reducer = combineReducers({ InputNameReducer, GoodsReducer });
 
 const persistRuducerConfig = {
   key: "helloworld",
