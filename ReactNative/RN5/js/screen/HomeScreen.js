@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
+import FlipCardScreen from "./rn_tutorial/anim/FlipCardScreen";
 
 class HomeScreen extends Component {
   render() {
@@ -8,10 +9,8 @@ class HomeScreen extends Component {
       <ScrollView style={styles.root}>
 
         <View style={{ height: 8 }}/>
-        <Text style={styles.title}>Custom View</Text>
-        <HomeButton title="Action Sheet" onPress={() => navigation.navigate("ActionSheetDemo")}/>
-        <HomeButton title="Drawer Layout" onPress={() => navigation.navigate("MyDrawerDemo")}/>
-        <HomeButton title="Loading List" onPress={() => navigation.navigate("LoadingListScreen")}/>
+        <Text style={styles.title}>Animation</Text>
+        <HomeButton title="Flip Card" onPress={() => navigation.navigate("FlipCardScreen")}/>
 
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Redux Research</Text>
@@ -19,12 +18,17 @@ class HomeScreen extends Component {
         <HomeButton title="mapStateToProps" onPress={() => navigation.navigate("MapStateToPropsScreen")}/>
         <HomeButton title="burden of Redux" onPress={() => navigation.navigate("ReduxProblemScreen")}/>
 
-
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Layout</Text>
         <HomeButton title="layout - flex?" onPress={() => navigation.navigate("FlexOrNotScreen")}/>
         <HomeButton title="Flex 3 props" onPress={() => navigation.navigate("FlexThreePropsScreen")}/>
         <HomeButton title="Flex Demo: Tourism" onPress={() => navigation.navigate("TourismPriceScreen")}/>
+
+        <View style={{ height: 8 }}/>
+        <Text style={styles.title}>Custom View</Text>
+        <HomeButton title="Action Sheet" onPress={() => navigation.navigate("ActionSheetDemo")}/>
+        <HomeButton title="Drawer Layout" onPress={() => navigation.navigate("MyDrawerDemo")}/>
+        <HomeButton title="Loading List" onPress={() => navigation.navigate("LoadingListScreen")}/>
 
         <View style={{ height: 20 }}/>
         <Text style={styles.title}>RN Tutorial</Text>

@@ -24,6 +24,7 @@ import MapStateToPropsScreen from "../screen/redux/MapStateToPropsScreen";
 import Singleton1Screen from "../screen/rn_tutorial/singleton1/Singleton1Screen";
 import ReduxProblemScreen from "../screen/redux/ReduxProblemScreen";
 import SagaChannelScreen from "../screen/redux/SagaChannelScreen";
+import FlipCardScreen from "../screen/rn_tutorial/anim/FlipCardScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -32,6 +33,7 @@ const HomeStack = createStackNavigator(
     F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
     KoFirstScreen, FlexOrNotScreen, FlexThreePropsScreen, TourismPriceScreen,
     BridgeScrollViewScreen,
+    FlipCardScreen,
     FindNodeHandlerScreen, Singleton1Screen,
     MapStateToPropsScreen, ReduxProblemScreen, SagaChannelScreen,
     DynamicTitleScreen: {
