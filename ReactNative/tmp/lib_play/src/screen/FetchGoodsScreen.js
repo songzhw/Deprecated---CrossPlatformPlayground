@@ -7,28 +7,29 @@ class FetchGoodsScreen extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <Text style={{fontSize: 22}}>{this.props.goods}</Text>
+        <Text style={{ fontSize: 22 }}>{this.props.goods}</Text>
         <Button title="Fetch Data" onPress={this.onFetch}/>
       </View>
     );
   }
 
   onFetch = () => {
-    let items = {
-      timestampe: "001",
-      goods: [
-        {
-          id: 100,
-          name: "book",
-          sku: "v1"
-        },
-        {
-          id: 120,
-          name: "keyboard",
-          sku: "black"
-        }
-      ]
-    };
+    // let items = {
+    //   timestampe: "001",
+    //   goods: [
+    //     {
+    //       id: 100,
+    //       name: "book",
+    //       sku: "v1"
+    //     },
+    //     {
+    //       id: 120,
+    //       name: "keyboard",
+    //       sku: "black"
+    //     }
+    //   ]
+    // };
+    let items = { len: 20 };
     this.props.dispatch(createFetchGoodsAction(items));
   };
 }
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  let { goods } = state.GoodsReducer;
+  let { goods } = state.eshopReducer.GoodsReducer;
   let desp = JSON.stringify(goods);
   return { goods: desp };
 };

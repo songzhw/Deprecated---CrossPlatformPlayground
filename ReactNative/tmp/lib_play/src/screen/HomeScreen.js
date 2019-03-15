@@ -10,6 +10,7 @@ class HomeScreen extends Component {
         <Text style={styles.title}>Persist Hello World</Text>
         <Button title="persist name" onPress={()=> navigation.navigate("InputNameScreen")}/>
         <Button title="persist Goods" onPress={()=> navigation.navigate("FetchGoodsScreen")}/>
+        <Button title="persist books" onPress={()=> navigation.navigate("FetchBooksScreen")}/>
       </View>
     );
   }
