@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  let { books } = state.eshopReducer.BooksReducer;
+  let { books } = state.eshop.BooksReducer;
   return { books };
 };
 

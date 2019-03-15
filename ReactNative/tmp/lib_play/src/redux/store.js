@@ -14,7 +14,14 @@ const middlewares = [];
 middlewares.push(createLogger());
 
 const eshopReducer = combineReducers({ GoodsReducer, BooksReducer });
-const reducer = combineReducers({ InputNameReducer, eshopReducer });
+const eshopPersistConfig = {
+  key: "eshop",
+  storage: storage,
+  blacklist: ["GoodsReducer"]
+};
+const wrappedEshopReducer = persistReducer(eshopPersistConfig, eshopReducer);
+
+const reducer = combineReducers({ InputNameReducer, eshop: wrappedEshopReducer });
 
 const encryptor = createEncryptor({
   secretKey: "my-super-secret-key",
@@ -24,10 +31,10 @@ const encryptor = createEncryptor({
 });
 
 const persistRuducerConfig = {
-  key: "k2",
+  key: "k3",
   storage,
-  whitelist: ["InputNameReducer"],
-  transforms: [encryptor]
+  blacklist: ["eshop"]
+  // transforms: [encryptor]
 };
 const persistedReducer = persistReducer(persistRuducerConfig, reducer);
 

@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  let { goods } = state.eshopReducer.GoodsReducer;
+  let { goods } = state.eshop.GoodsReducer;
   let desp = JSON.stringify(goods);
   return { goods: desp };
 };
