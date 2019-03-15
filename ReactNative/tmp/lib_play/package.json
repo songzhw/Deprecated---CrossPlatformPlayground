@@ -13,7 +13,8 @@
     "react-navigation": "^3.3.2",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
-    "redux-persist": "^5.10.0"
+    "redux-persist": "^5.10.0",
+    "redux-persist-transform-encrypt": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
