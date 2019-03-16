@@ -9,8 +9,8 @@ class PlayController extends React.Component {
   audioUrl = 'https://s0.vocaroo.com/media/download_temp/Vocaroo_s08Sc4aN9zAv.mp3'
 
   state = {
-    isPaused: true,
-    iconPlayPause: this.iconPlay,
+    isPaused: false,
+    iconPlayPause: this.iconPause,
     duration: 0,
     progress: 0
   }
