@@ -1,25 +1,25 @@
-export const FETCH_RECOMMEND_HOME = 'FETCH_RECOMMEND_HOME'
+export const FETCH_RECOMMEND_HOME = "FETCH_RECOMMEND_HOME";
 export const fetchRecomendHome = () => ({
-  type: FETCH_RECOMMEND_HOME,
-})
+  type: FETCH_RECOMMEND_HOME
+});
 
-export const ON_GET_RECOMMEND_HOME = 'ON_FETCH_RECOMMEND_HOME'
+export const ON_GET_RECOMMEND_HOME = "ON_FETCH_RECOMMEND_HOME";
 export const onFetchedRecommendHome = (resp: IRecommendResponse) => ({
   type: ON_GET_RECOMMEND_HOME,
   payload: resp
-})
+});
 
 const initState = {
-  payload: {},
-}
+  payload: {}
+};
 
 export default (state = initState, action: IAction) => {
   switch (action.type) {
     case ON_GET_RECOMMEND_HOME:
-      let {payload} = action
-      return payload
+      let { payload } = action;
+      return payload;
     default:
-      return state
+      return state;
   }
 }
 

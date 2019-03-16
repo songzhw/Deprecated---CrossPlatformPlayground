@@ -1,32 +1,30 @@
-import React, { Component } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
-import {connect} from 'react-redux'
-import {strings} from "../core/i18n/i18n"
+import React, { Component } from "react";
+import { View, StyleSheet, Text } from "react-native";
+import { connect } from "react-redux";
+import { strings } from "../core/i18n/i18n";
 
-class SettingScreen extends Component{
+class SettingScreen extends Component {
 
-  render(){
+  render() {
     return (
       <View style={styles.root}>
         <Text>{strings.hello}</Text>
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
-  },
-})
+    flex: 1
+  }
+});
 
 const mapStateToProps = (state: any) => {
-  return {
+  return {};
+};
 
-  }
-}
-
-export default SettingScreen
+export default SettingScreen;
 // export default connect(mapStateToProps)(SettingScreen)
 
 

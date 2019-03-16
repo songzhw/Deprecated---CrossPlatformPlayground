@@ -1,10 +1,10 @@
-import {IAction} from "./reduxRecommend";
+import { IAction } from "./reduxRecommend";
 
-const initState = {}
+const initState = {};
 
 export default (state = initState, action: IAction) => {
   switch (action.type) {
     default:
-      return state
+      return state;
   }
 }
