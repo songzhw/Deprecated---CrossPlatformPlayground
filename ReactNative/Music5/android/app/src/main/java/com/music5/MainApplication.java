@@ -29,7 +29,6 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new ReactVideoPackage(),
-            new RNGestureHandlerPackage(),
             new ReactNativeLocalizationPackage(),
             new RNGestureHandlerPackage(),
             new ReactVideoPackage()
