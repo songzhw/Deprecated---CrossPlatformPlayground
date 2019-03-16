@@ -1,21 +1,14 @@
-import {createStackNavigator, NavigationScreenProp} from 'react-navigation'
+import { createAppContainer, createStackNavigator } from "react-navigation";
 import HomeScreen from "../screen/HomeScreen";
 import PlayScreen from "../screen/PlayScreen";
 
 const HomeStack = createStackNavigator(
   {
-    HomeScreen: {
-      screen: HomeScreen,
-      navigationOptions: {headerTitle: 'Home'},
-    },
-    PlayScreen: {
-      screen: PlayScreen,
-      navigationOptions: {headerTitle: 'Play Music'},
-    },
+    HomeScreen, PlayScreen
   },
   {
-    headerMode: 'screen'
+    headerMode: "screen"
   }
-)
+);
 
-export default HomeStack
+export default createAppContainer(HomeStack);

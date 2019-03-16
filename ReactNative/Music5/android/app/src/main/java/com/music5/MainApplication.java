@@ -3,9 +3,9 @@ package com.music5;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.brentvatne.react.ReactVideoPackage;
 import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -26,9 +26,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactVideoPackage(),
             new ReactNativeLocalizationPackage(),
-            new RNGestureHandlerPackage(),
-            new ReactVideoPackage()
+            new RNGestureHandlerPackage()
       );
     }
 
@@ -49,4 +49,3 @@ public class MainApplication extends Application implements ReactApplication {
     SoLoader.init(this, /* native exopackage */ false);
   }
 }
-
