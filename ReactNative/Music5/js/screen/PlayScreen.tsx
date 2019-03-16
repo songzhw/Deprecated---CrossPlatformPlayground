@@ -12,8 +12,12 @@ class PlayScreen extends Component<Props> {
   rotateDegree = new Animated.Value(0);
 
   componentDidMount(): void {
-    Animated.timing(this.rotateDegree, { toValue: 1, duration: 3600 })
-      .start();
+    this.startAnimation();
+  }
+
+  startAnimation() {
+    Animated.timing(this.rotateDegree, { toValue: 1, duration: 36000 })
+      .start(() => this.startAnimation());
   }
 
   render() {
@@ -27,7 +31,7 @@ class PlayScreen extends Component<Props> {
         inputRange: [0, 1],
         outputRange: ["0deg", "360deg"]
       })
-    });
+    }); // rotate即是3D旋转中的rotateZ
 
     return (
       <View style={styles.root}>
@@ -49,6 +53,7 @@ const styles = StyleSheet.create({
   cover: {
     width: 202,
     height: 202,
+    borderRadius: 101,
     marginTop: 20
   },
   title: {
