@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text, Image, Slider } from "react-native";
 import PlayButton from "./PlayButton";
-import Video, { OnLoadData } from "react-native-video";
+import Video, { LoadError, OnLoadData } from "react-native-video";
 
 class PlayController extends React.Component {
   iconPause = require("../../assets/icon_pause.png");
@@ -9,8 +9,8 @@ class PlayController extends React.Component {
   audioUrl = "https://s0.vocaroo.com/media/download_temp/Vocaroo_s08Sc4aN9zAv.mp3";
 
   state = {
-    isPaused: true,
-    iconPlayPause: this.iconPlay,
+    isPaused: false,
+    iconPlayPause: this.iconPause,
     duration: 0,
     progress: 0
   };
@@ -40,6 +40,8 @@ class PlayController extends React.Component {
           onLoad={this.onLoaded}
           progressUpdateInterval={1000.0}
           onProgress={this.onProgress}
+          onError={this.onError}
+          onBuffer={this.onBuffer}
         />
       </View>
     );
@@ -50,27 +52,22 @@ class PlayController extends React.Component {
     this.player!.seek(value);
   };
 
-  /*
-  {"canStepForward":true,
-  "duration":62.511,
-  "canPlaySlowReverse":true,
-  "naturalSize":{"orientation":"portrait","height":0,"width":0},
-  "textTracks":[],
-  "canPlayFastForward":true,
-  "canPlaySlowForward":true,
-  "currentTime":0,
-  "audioTracks":[{"language":"","title":"","type":"audio/mpeg","index":0}],
-  "canPlayReverse":true,
-  "canStepBackward":true}
-   */
   onLoaded = (arg: OnLoadData) => {
-    // console.log(`szw onLoaded = ${JSON.stringify(arg)}`)
+    console.log(`szw onLoaded = ${JSON.stringify(arg)}`);
     this.setState({ ...this.state, duration: arg.duration });
+  };
+
+  onBuffer = () => {
+    console.log(`szw onBuffer()`);
+  };
+
+  onError = (err: LoadError) => {
+    console.log(`szw play error = ${JSON.stringify(err)}`);
   };
 
   // arg is {"seekableDuration":62.511,"playableDuration":62.511,"currentTime":0.875}
   onProgress = ({ currentTime }: { currentTime: number }) => {
-    // console.log(`szw onProgress = ${JSON.stringify(currentTime)}`)
+    console.log(`szw onProgress = ${JSON.stringify(currentTime)}`);
     this.setState({ ...this.state, progress: currentTime });
   };
 
