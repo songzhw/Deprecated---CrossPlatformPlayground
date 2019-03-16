@@ -16,6 +16,7 @@ class PlayScreen extends Component<Props> {
   }
 
   startAnimation() {
+    this.rotateDegree.setValue(0);
     Animated.timing(this.rotateDegree, { toValue: 1, duration: 36000 })
       .start(() => this.startAnimation());
   }
