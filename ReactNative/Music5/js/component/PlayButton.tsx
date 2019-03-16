@@ -1,5 +1,5 @@
-import React from 'react'
-import {View, StyleSheet, Image, ImageSourcePropType, TouchableOpacity} from 'react-native'
+import React from "react";
+import { View, StyleSheet, Image, ImageSourcePropType, TouchableOpacity } from "react-native";
 
 // How to handle {...props} in TypeScript
 /*
@@ -15,22 +15,22 @@ interface Props {
 }
 
 class PlayButton extends React.Component<Props> {
-  state = {}
+  state = {};
 
   render() {
-    let {onPress, url, style} = this.props
+    let { onPress, url, style } = this.props;
     return (
-      <TouchableOpacity onPress={onPress} style={[style, {alignItems: 'center'}]}>
+      <TouchableOpacity onPress={onPress} style={[style, { alignItems: "center" }]}>
         <Image source={url} resizeMode='center' style={styles.button}/>
       </TouchableOpacity>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
-  button:{
-    height:40,
+  button: {
+    height: 40
   }
-})
+});
 
-export default PlayButton
+export default PlayButton;
