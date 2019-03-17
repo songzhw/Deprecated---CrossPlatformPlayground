@@ -36,6 +36,7 @@ class PlayScreen extends Component<Props> {
 
     return (
       <View style={styles.root}>
+        <Image style={styles.settings} source={require("../../assets/icon_clock.png")}/>
         <Animated.View style={{ transform: animStyles }}>
           <Image source={{ uri: coverUrl }} style={styles.cover} resizeMode="cover"/>
         </Animated.View>
@@ -52,9 +53,9 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   cover: {
-    width: 202,
-    height: 202,
-    borderRadius: 101,
+    width: 180,
+    height: 180,
+    borderRadius: 90,
     marginTop: 20
   },
   title: {
@@ -62,6 +63,13 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: "center",
     color: "#1e1e1e"
+  },
+  settings: {
+    width: 32,
+    height: 32,
+    position: "absolute",
+    right: 20,
+    top: 20
   }
 });
 
@@ -70,3 +78,5 @@ const mapStateToProps = (state: IReduxState) => {
 };
 
 export default connect(mapStateToProps)(PlayScreen);
+
+// 1. 加<View style={{height: 20}}/>, 而不是在styles.cover里加marginTop, 是因为后者加了之后, 旋转的锚点就不对了, 会出现奇怪的转着转着偏移往上的情况

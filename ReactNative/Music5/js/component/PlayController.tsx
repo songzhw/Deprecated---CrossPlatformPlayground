@@ -50,19 +50,6 @@ class PlayController extends React.Component {
     this.player!.seek(value)
   }
 
-  /*
-  {"canStepForward":true,
-  "duration":62.511,
-  "canPlaySlowReverse":true,
-  "naturalSize":{"orientation":"portrait","height":0,"width":0},
-  "textTracks":[],
-  "canPlayFastForward":true,
-  "canPlaySlowForward":true,
-  "currentTime":0,
-  "audioTracks":[{"language":"","title":"","type":"audio/mpeg","index":0}],
-  "canPlayReverse":true,
-  "canStepBackward":true}
-   */
   onLoaded = (arg: OnLoadData) => {
     // console.log(`szw onLoaded = ${JSON.stringify(arg)}`)
     this.setState({...this.state, duration: arg.duration})
