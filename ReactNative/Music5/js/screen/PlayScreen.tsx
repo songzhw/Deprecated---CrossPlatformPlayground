@@ -10,6 +10,7 @@ interface Props extends IReduxProps, INavigationProps {
 
 class PlayScreen extends Component<Props> {
   rotateDegree = new Animated.Value(0);
+  private playCtrl: PlayController | null = null;
 
   componentDidMount(): void {
     this.startAnimation();
@@ -34,18 +35,38 @@ class PlayScreen extends Component<Props> {
       })
     }); // rotate即是3D旋转中的rotateZ
 
+    let settingView = this.renderSetting();
     return (
       <View style={styles.root}>
-        <Image style={styles.settings} source={require("../../assets/icon_clock.png")}/>
+        {settingView}
         <View style={{ height: 20 }}/>
         <Animated.View style={{ transform: animStyles }}>
           <Image source={{ uri: coverUrl }} style={styles.cover} resizeMode="cover"/>
         </Animated.View>
         <Text style={styles.title}> {title} </Text>
-        <PlayController/>
+        <PlayController ref={ref => this.playCtrl = ref}/>
       </View>
     );
   }
+
+  renderSetting = () => {
+    return (
+      <View style={styles.settings}>
+        <TouchableOpacity onPress={this.pressSetting}>
+          <Image style={styles.settingIcon} source={require("../../assets/icon_clock.png")}/>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  pressSetting = () => {
+    console.log(`szw PlayScreen click setting`);
+    setTimeout(() => {
+      // 不用setState()来传给<PlayControl>的原因, 是因为PlayControl里已经有一个state在控制isPause了. 现在再加一个props控制isPause, 那render()就会混乱
+      // 解决办法就是"归一". 要么PlayControl就没有state.isPause, 交给parent; 要么就是parent经过public方法, 全交给PlayControl
+      this.playCtrl!.pause();
+    }, 5000);
+  };
 }
 
 const styles = StyleSheet.create({
@@ -70,6 +91,10 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 20,
     top: 20
+  },
+  settingIcon: {
+    width: 32,
+    height: 32
   }
 });
 
