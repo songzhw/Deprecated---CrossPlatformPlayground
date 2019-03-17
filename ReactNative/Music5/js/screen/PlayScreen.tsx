@@ -37,6 +37,7 @@ class PlayScreen extends Component<Props> {
     return (
       <View style={styles.root}>
         <Image style={styles.settings} source={require("../../assets/icon_clock.png")}/>
+        <View style={{ height: 20 }}/>
         <Animated.View style={{ transform: animStyles }}>
           <Image source={{ uri: coverUrl }} style={styles.cover} resizeMode="cover"/>
         </Animated.View>
@@ -55,8 +56,7 @@ const styles = StyleSheet.create({
   cover: {
     width: 180,
     height: 180,
-    borderRadius: 90,
-    marginTop: 20
+    borderRadius: 90
   },
   title: {
     marginTop: 45,
