@@ -11,9 +11,16 @@ interface Props extends IReduxProps, INavigationProps {
 class PlayScreen extends Component<Props> {
   rotateDegree = new Animated.Value(0);
   private playCtrl: PlayController | null = null;
+  private sleepHandler: number = 0;
 
   componentDidMount(): void {
     this.startAnimation();
+  }
+
+  componentWillUnmount(): void {
+    if (this.sleepHandler !== 0) {
+      clearTimeout(this.sleepHandler);
+    }
   }
 
   startAnimation() {
@@ -61,7 +68,7 @@ class PlayScreen extends Component<Props> {
 
   pressSetting = () => {
     console.log(`szw PlayScreen click setting`);
-    setTimeout(() => {
+    this.sleepHandler = setTimeout(() => {
       // 不用setState()来传给<PlayControl>的原因, 是因为PlayControl里已经有一个state在控制isPause了. 现在再加一个props控制isPause, 那render()就会混乱
       // 解决办法就是"归一". 要么PlayControl就没有state.isPause, 交给parent; 要么就是parent经过public方法, 全交给PlayControl
       this.playCtrl!.pause();
