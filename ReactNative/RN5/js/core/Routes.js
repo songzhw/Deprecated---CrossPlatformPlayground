@@ -27,6 +27,7 @@ import SagaChannelScreen from "../screen/redux/SagaChannelScreen";
 import FlipCardScreen from "../screen/rn_tutorial/anim/FlipCardScreen";
 import Pulse_Class_Screen from "../screen/hooks/Pulse_Class_Screen";
 import Pulse_Func_Screen from "../screen/hooks/Pulse_Func_Screen";
+import HooksAsyncTrapScreen from "../screen/hooks/HooksAsyncTrapScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -38,7 +39,7 @@ const HomeStack = createStackNavigator(
     FlipCardScreen,
     FindNodeHandlerScreen, Singleton1Screen,
     MapStateToPropsScreen, ReduxProblemScreen, SagaChannelScreen,
-    Pulse_Class_Screen, Pulse_Func_Screen,
+    Pulse_Class_Screen, Pulse_Func_Screen,HooksAsyncTrapScreen,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
       navigationOptions: (props) => {
