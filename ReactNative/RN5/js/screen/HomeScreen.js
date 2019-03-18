@@ -13,6 +13,11 @@ class HomeScreen extends Component {
         <HomeButton title="Flip Card" onPress={() => navigation.navigate("FlipCardScreen")}/>
 
         <View style={{ height: 8 }}/>
+        <Text style={styles.title}>React Hooks(RN0.59+)</Text>
+        <HomeButton title="heart anim(class)" onPress={() => navigation.navigate("Pulse_Class_Screen")}/>
+        <HomeButton title="heart anim(hooks)" onPress={() => navigation.navigate("Pulse_Func_Screen")}/>
+
+        <View style={{ height: 8 }}/>
         <Text style={styles.title}>Redux Research</Text>
         <HomeButton title="saga channel" onPress={()=> navigation.navigate("SagaChannelScreen")}/>
         <HomeButton title="mapStateToProps" onPress={() => navigation.navigate("MapStateToPropsScreen")}/>
