@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Button from "../../component/Button";
 
+// lapse是显示秒表经过的时间. running就是是否在运行中.
 const HooksAsyncTrapScreen = () => {
+  const [lapse, setLapse] = useState(0);
+  const [running, setRunning] = useState(false); //TODO, 可以用[isRunning, setRunning]吗?
+
+  useEffect(() => {
+    if (running) {
+      const startTime = Date.now();
+      const intervalId = setInterval(() => setLapse(Date.now() - startTime), 1);
+      return () => clearInterval(intervalId);
+    }
+  }, [running]);
+
   function onStart() {
-    console.log(`szw start`);
+    setRunning(true);
   };
 
   function onStop() {
-    console.log(`szw stop`);
+    setRunning(false);
+    setLapse(0);
   };
 
   return (
     <View style={styles.root}>
-      <Text style={styles.lable}>HooksAsyncTrapScreen Screen</Text>
-      <Button text="Start" style={styles.btn} onPress={()=> onStart()}/>
+      <Text style={styles.lable}> {lapse} ms </Text>
+      <Button text="Start" style={styles.btn} onPress={() => onStart()}/>
       <Button text="Stop" style={styles.btn} onPress={onStop}/>
     </View>
   );

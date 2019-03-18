@@ -1,9 +1,9 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 
-const Button = ({ text, style, textStyle }) => {
+const Button = ({ text, onPress, style, textStyle }) => {
   return (
-    <TouchableOpacity style={style}>
+    <TouchableOpacity style={style} onPress={onPress}>
       <Text style={[builtInTextStyle, textStyle]}> {text} </Text>
     </TouchableOpacity>
   );
