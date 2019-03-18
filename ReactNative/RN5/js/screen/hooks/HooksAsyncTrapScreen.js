@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Button from "../../component/Button";
 
 // lapse是显示秒表经过的时间. running就是是否在运行中.
+// 解决办法之一: 使用useLayoutEffect() 来代替 useEffect()
 const HooksAsyncTrapScreen = () => {
   const [lapse, setLapse] = useState(0);
   const [isRunning, setRunning] = useState(false);
@@ -10,7 +11,10 @@ const HooksAsyncTrapScreen = () => {
   useEffect(() => {
     if (isRunning) {
       const startTime = Date.now();
-      const intervalId = setInterval(() => setLapse(Date.now() - startTime), 1);
+      const intervalId = setInterval(() => {
+        console.log(`szw interval`);
+        setLapse(Date.now() - startTime);
+      }, 1);
       return () => clearInterval(intervalId);
     }
   }, [isRunning]);
@@ -22,6 +26,7 @@ const HooksAsyncTrapScreen = () => {
   function onStop() {
     setRunning(false);
     setLapse(0);
+    console.log(`szw onStop`)
   }
 
   return (
