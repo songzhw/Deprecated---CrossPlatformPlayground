@@ -11,10 +11,7 @@ const HooksAsyncTrapScreen = () => {
   useEffect(() => {
     if (isRunning) {
       const startTime = Date.now();
-      const intervalId = setInterval(() => {
-        console.log(`szw interval`);
-        setLapse(Date.now() - startTime);
-      }, 1);
+      const intervalId = setInterval(() => setLapse(Date.now() - startTime), 1);
       return () => clearInterval(intervalId);
     }
   }, [isRunning]);
@@ -26,7 +23,6 @@ const HooksAsyncTrapScreen = () => {
   function onStop() {
     setRunning(false);
     setLapse(0);
-    console.log(`szw onStop`)
   }
 
   return (
