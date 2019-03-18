@@ -5,24 +5,24 @@ import Button from "../../component/Button";
 // lapse是显示秒表经过的时间. running就是是否在运行中.
 const HooksAsyncTrapScreen = () => {
   const [lapse, setLapse] = useState(0);
-  const [running, setRunning] = useState(false); //TODO, 可以用[isRunning, setRunning]吗?
+  const [isRunning, setRunning] = useState(false);
 
   useEffect(() => {
-    if (running) {
+    if (isRunning) {
       const startTime = Date.now();
       const intervalId = setInterval(() => setLapse(Date.now() - startTime), 1);
       return () => clearInterval(intervalId);
     }
-  }, [running]);
+  }, [isRunning]);
 
   function onStart() {
     setRunning(true);
-  };
+  }
 
   function onStop() {
     setRunning(false);
     setLapse(0);
-  };
+  }
 
   return (
     <View style={styles.root}>
