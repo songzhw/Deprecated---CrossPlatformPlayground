@@ -31,7 +31,13 @@ const FixHooksAsyncTrapScreen = () => {
   useEffect(() => {
     if (state.isRunning) {
       const startTime = Date.now();
-      const intervalId = setInterval(() => {dispatch({ type: ACTION_INCREASE, lapse: Date.now() - startTime })}, 1);
+      const intervalId = setInterval(() => {
+        console.log(`szw inteval : ${state.isRunning}`)
+        if (state.isRunning) {
+          let lapsedTime = Date.now() - startTime;
+          dispatch({ type: ACTION_INCREASE, lapse: lapsedTime });
+        }
+      }, 1);
       return () => clearInterval(intervalId);
     }
   }, [state.isRunning]);
@@ -42,6 +48,7 @@ const FixHooksAsyncTrapScreen = () => {
 
   function onStop() {
     dispatch({ type: ACTION_STOP });
+    console.log(`szw onStop`)
   }
 
   return (
