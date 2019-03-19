@@ -11,6 +11,7 @@ const FixHooksAsyncTrap2 = () => {
   const [data, setData] = useState({ isRunning: false, lapse: 0 });
 
   useEffect(() => {
+    console.log(`szw useEffect: ${data.isRunning}`);
     if (data.isRunning) {
       const startTime = Date.now();
       const intervalId = setInterval(() => {
