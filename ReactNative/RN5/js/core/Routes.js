@@ -29,6 +29,7 @@ import Pulse_Class_Screen from "../screen/hooks/Pulse_Class_Screen";
 import Pulse_Func_Screen from "../screen/hooks/Pulse_Func_Screen";
 import HooksAsyncTrapScreen from "../screen/hooks/HooksAsyncTrapScreen";
 import FixHooksAsyncTrapScreen from "../screen/hooks/FixHooksAsyncTrapScreen";
+import FixHooksAsyncTrap2 from "../screen/hooks/FixHooksAsyncTrap2";
 
 const HomeStack = createStackNavigator(
   {
@@ -40,7 +41,7 @@ const HomeStack = createStackNavigator(
     FlipCardScreen,
     FindNodeHandlerScreen, Singleton1Screen,
     MapStateToPropsScreen, ReduxProblemScreen, SagaChannelScreen,
-    Pulse_Class_Screen, Pulse_Func_Screen, HooksAsyncTrapScreen, FixHooksAsyncTrapScreen,
+    Pulse_Class_Screen, Pulse_Func_Screen, HooksAsyncTrapScreen, FixHooksAsyncTrapScreen, FixHooksAsyncTrap2,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
       navigationOptions: (props) => {
