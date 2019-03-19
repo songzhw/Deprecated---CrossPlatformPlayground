@@ -5,14 +5,20 @@ import Button from "../../component/Button";
 const ACTION_START = "ACTION_START";
 const ACTION_STOP = "ACTION_STOP";
 const ACTION_INCREASE = "ACTION_INCREASE";
-const initState = { isRunning: false, lapse: 0 };
 
+const initState = { isRunning: false, lapse: 0 };
 const reducerFunc = (state, action) => {
   switch (action.type) {
     case ACTION_START:
       return { ...state, isRunning: true };
     case ACTION_INCREASE:
-      return { ...state, lapse: action.lapse };
+      //若是先dispatch(STOP)了, 那自然这个state(上一次的state)就是isRunning为false, 这时就不会再进入这块了
+      if (state.isRunning) {
+        return { ...state, lapse: action.lapse };
+      } else {
+        console.log(`szw this is the last interval, but should not be executed`)
+      }
+      return state;
     case ACTION_STOP:
       return { ...state, isRunning: false, lapse: 0 };
     default :
@@ -31,13 +37,7 @@ const FixHooksAsyncTrapScreen = () => {
   useEffect(() => {
     if (state.isRunning) {
       const startTime = Date.now();
-      const intervalId = setInterval(() => {
-        console.log(`szw inteval : ${state.isRunning}`)
-        if (state.isRunning) {
-          let lapsedTime = Date.now() - startTime;
-          dispatch({ type: ACTION_INCREASE, lapse: lapsedTime });
-        }
-      }, 1);
+      const intervalId = setInterval(() => {console.log(`szw interval`);dispatch({ type: ACTION_INCREASE, lapse: Date.now() - startTime })}, 1);
       return () => clearInterval(intervalId);
     }
   }, [state.isRunning]);
@@ -48,7 +48,7 @@ const FixHooksAsyncTrapScreen = () => {
 
   function onStop() {
     dispatch({ type: ACTION_STOP });
-    console.log(`szw onStop`)
+    console.log(`szw stop`)
   }
 
   return (
