@@ -2,9 +2,12 @@ import React, { useEffect, useLayoutEffect, useReducer, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Button from "../../component/Button";
 
+// @Failed
+
 // lapse是显示秒表经过的时间. running就是是否在运行中.
 // 解决办法之一: 使用useLayoutEffect() 来代替 useEffect()
-// 解决办法之二: 使用useReducer() ; 或不依次执行两次setState()
+// 解决办法之二: 使用useReducer()
+// 注意, useEffect()也是异步的, setState(大obj)也是异步的, 这就为什么本文件并没有解决问题
 const FixHooksAsyncTrap2 = () => {
   // const [lapse, setLapse] = useState(0);
   // const [isRunning, setRunning] = useState(false);
