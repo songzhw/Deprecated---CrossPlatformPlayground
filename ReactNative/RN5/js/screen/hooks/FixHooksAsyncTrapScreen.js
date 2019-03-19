@@ -15,8 +15,6 @@ const reducerFunc = (state, action) => {
       //若是先dispatch(STOP)了, 那自然这个state(上一次的state)就是isRunning为false, 这时就不会再进入这块了
       if (state.isRunning) {
         return { ...state, lapse: action.lapse };
-      } else {
-        console.log(`szw this is the last interval, but should not be executed`)
       }
       return state;
     case ACTION_STOP:
@@ -37,7 +35,7 @@ const FixHooksAsyncTrapScreen = () => {
   useEffect(() => {
     if (state.isRunning) {
       const startTime = Date.now();
-      const intervalId = setInterval(() => {console.log(`szw interval`);dispatch({ type: ACTION_INCREASE, lapse: Date.now() - startTime })}, 1);
+      const intervalId = setInterval(() => dispatch({ type: ACTION_INCREASE, lapse: Date.now() - startTime }), 1);
       return () => clearInterval(intervalId);
     }
   }, [state.isRunning]);
@@ -48,7 +46,6 @@ const FixHooksAsyncTrapScreen = () => {
 
   function onStop() {
     dispatch({ type: ACTION_STOP });
-    console.log(`szw stop`)
   }
 
   return (
