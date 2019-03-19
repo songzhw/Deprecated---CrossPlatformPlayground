@@ -17,6 +17,7 @@ class HomeScreen extends Component {
         <HomeButton title="heart anim(class)" onPress={() => navigation.navigate("Pulse_Class_Screen")}/>
         <HomeButton title="heart anim(hooks)" onPress={() => navigation.navigate("Pulse_Func_Screen")}/>
         <HomeButton title="state hools trap : async" onPress={() => navigation.navigate("HooksAsyncTrapScreen")}/>
+        <HomeButton title="fix state hools trap : async" onPress={() => navigation.navigate("FixHooksAsyncTrapScreen")}/>
 
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Redux Research</Text>
