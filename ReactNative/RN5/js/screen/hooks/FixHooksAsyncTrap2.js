@@ -2,58 +2,37 @@ import React, { useEffect, useLayoutEffect, useReducer, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Button from "../../component/Button";
 
-const ACTION_START = "ACTION_START";
-const ACTION_STOP = "ACTION_STOP";
-const ACTION_INCREASE = "ACTION_INCREASE";
-
-const initState = { isRunning: false, lapse: 0 };
-const reducerFunc = (state, action) => {
-  switch (action.type) {
-    case ACTION_START:
-      return { ...state, isRunning: true };
-    case ACTION_INCREASE:
-      //若是先dispatch(STOP)了, 那自然这个state(上一次的state)就是isRunning为false, 这时就不会再进入这块了
-      if (state.isRunning) {
-        return { ...state, lapse: action.lapse };
-      } else {
-        console.log(`szw this is the last interval, but should not be executed`)
-      }
-      return state;
-    case ACTION_STOP:
-      return { ...state, isRunning: false, lapse: 0 };
-    default :
-      return state;
-  }
-};
-
 // lapse是显示秒表经过的时间. running就是是否在运行中.
 // 解决办法之一: 使用useLayoutEffect() 来代替 useEffect()
-// 解决办法之二: 使用useReducer()
+// 解决办法之二: 使用useReducer() ; 或不依次执行两次setState()
 const FixHooksAsyncTrap2 = () => {
   // const [lapse, setLapse] = useState(0);
   // const [isRunning, setRunning] = useState(false);
-  const [state, dispatch] = useReducer(reducerFunc, initState);
+  const [data, setData] = useState({ isRunning: false, lapse: 0 });
 
   useEffect(() => {
-    if (state.isRunning) {
+    if (data.isRunning) {
       const startTime = Date.now();
-      const intervalId = setInterval(() => {console.log(`szw interval`);dispatch({ type: ACTION_INCREASE, lapse: Date.now() - startTime })}, 1);
+      const intervalId = setInterval(() => {
+        console.log(`szw interval`);
+        setData({ ...data, lapse: Date.now() - startTime });
+      }, 1);
       return () => clearInterval(intervalId);
     }
-  }, [state.isRunning]);
+  }, [data.isRunning]);
 
   function onStart() {
-    dispatch({ type: ACTION_START });
+    setData({ ...data, isRunning: true });
   }
 
   function onStop() {
-    dispatch({ type: ACTION_STOP });
-    console.log(`szw stop`)
+    setData({ ...data, isRunning: false, lapse: 0 });
+    console.log(`szw stop`);
   }
 
   return (
     <View style={styles.root}>
-      <Text style={styles.lable}> {state.lapse} ms </Text>
+      <Text style={styles.lable}> {data.lapse} ms </Text>
       <Button text="Start" style={styles.btn} onPress={() => onStart()}/>
       <Button text="Stop" style={styles.btn} onPress={onStop}/>
     </View>
