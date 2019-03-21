@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Button } from "react-native";
 import { connect } from "react-redux";
 
 function WhatIsUseCallback({ num, name }) {
@@ -8,8 +8,8 @@ function WhatIsUseCallback({ num, name }) {
       console.log(`szw some calculation`);
       return num.map(x => x + 2);
     },
-    [num]
-  );
+    []
+  ); // 第二参为[num]还好, 要是为[], 那就只会记住每一次的值, 即[3,4,5]
   console.log(`szw original  number = ${num}, ${name}`);
   console.log(`szw memorized number = ${callback()}, ${name}`);
   return (
@@ -45,9 +45,14 @@ class UseCallbackScreen extends Component {
     return (
       <View>
         <WhatIsUseCallback num={number} name={name}/>
+        <Button title="number = num2" onPress={this.onPressButton}/>
       </View>
     );
   }
+
+  onPressButton = () => {
+    this.setState({ name: "second", number: num2 });
+  };
 
 }
 
