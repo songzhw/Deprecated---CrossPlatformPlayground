@@ -19,6 +19,7 @@ class HomeScreen extends Component {
         <HomeButton title="state hools trap : async" onPress={() => navigation.navigate("HooksAsyncTrapScreen")}/>
         <HomeButton title="fix state hools trap : async" onPress={() => navigation.navigate("FixHooksAsyncTrapScreen")}/>
         <HomeButton title="[Failed] fix 02? " onPress={()=>navigation.navigate("FixHooksAsyncTrap2")}/>
+        <HomeButton title="use callback demo" onPress={()=>navigation.navigate("UseCallbackScreen")}/>
 
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Redux Research</Text>

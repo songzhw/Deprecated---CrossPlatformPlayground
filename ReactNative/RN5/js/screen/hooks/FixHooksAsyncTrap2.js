@@ -19,9 +19,7 @@ const FixHooksAsyncTrap2 = () => {
       const startTime = Date.now();
       const intervalId = setInterval(() => {
         console.log(`szw interval`);
-        setData((prevState) => {
-          return { lapse: Date.now() - startTime };
-        });
+        setData({ ...data, lapse: Date.now() - startTime });
       }, 1);
       return () => clearInterval(intervalId);
     }
