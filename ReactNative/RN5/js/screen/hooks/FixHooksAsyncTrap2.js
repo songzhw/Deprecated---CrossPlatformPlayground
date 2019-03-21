@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useReducer, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import Button from "../../component/Button";
 
-// @Failed
+// @Failed to fix it
 
 // lapse是显示秒表经过的时间. running就是是否在运行中.
 // 解决办法之一: 使用useLayoutEffect() 来代替 useEffect()
@@ -19,7 +19,9 @@ const FixHooksAsyncTrap2 = () => {
       const startTime = Date.now();
       const intervalId = setInterval(() => {
         console.log(`szw interval`);
-        setData({ ...data, lapse: Date.now() - startTime });
+        setData((prevState) => {
+          return { lapse: Date.now() - startTime };
+        });
       }, 1);
       return () => clearInterval(intervalId);
     }
