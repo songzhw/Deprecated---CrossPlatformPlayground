@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TextInput } from "react-native";
 import { connect } from "react-redux";
 import { BadRecursive } from "./BadRecursive";
 
-class MemoBadScreen extends Component {
+class NoMemoScreen extends Component {
   state = {
     values: []
   };
@@ -44,4 +44,4 @@ const mapStateToProps = (state) => {
   return {};
 };
 
-export default connect(mapStateToProps)(MemoBadScreen);
+export default connect(mapStateToProps)(NoMemoScreen);

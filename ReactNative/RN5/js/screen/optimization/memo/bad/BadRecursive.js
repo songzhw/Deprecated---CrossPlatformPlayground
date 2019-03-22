@@ -19,7 +19,9 @@ export const BadRecursive = ({ values }) => {
   }
 
   const [first, ...rest] = values;
-  sleep(2);
+  for (let i = 0; i < 3; i++) {
+    sleep(2);
+  }
 
   return (
     <View>

@@ -14,6 +14,7 @@ class HomeScreen extends Component {
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Optimization</Text>
         <HomeButton title="[bad] React.memo()" onPress={()=> navigation.navigate("MemoBadScreen")}/>
+        <HomeButton title="[good] React.memo()" onPress={()=> navigation.navigate("GoodMemoScreen")}/>
 
 
         <View style={{ height: 8 }}/>
