@@ -1,4 +1,5 @@
 import React from "react";
+import { View, Text } from "react-native";
 
 function sleep(milliseconds) {
   let start = new Date();
@@ -22,6 +23,7 @@ export const BadRecursive = ({ values }) => {
 
   return (
     <View>
+      <Text> {first} </Text>
       <BadRecursive values={rest}/>
     </View>
   );
