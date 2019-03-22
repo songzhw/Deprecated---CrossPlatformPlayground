@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
 import FlipCardScreen from "./rn_tutorial/anim/FlipCardScreen";
+import MemoBadScreen from "./optimization/memo/bad/MemoBadScreen";
 
 class HomeScreen extends Component {
   render() {
@@ -11,6 +12,10 @@ class HomeScreen extends Component {
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Animation</Text>
         <HomeButton title="Flip Card" onPress={() => navigation.navigate("FlipCardScreen")}/>
+
+        <View style={{ height: 8 }}/>
+        <Text style={styles.title}>Optimization</Text>
+        <HomeScreen title="[bad] React.memo()" onPress={()=> navigation.navigate("MemoBadScreen")}/>
 
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>React Hooks(RN0.59+)</Text>
