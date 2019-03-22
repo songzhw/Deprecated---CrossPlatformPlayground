@@ -1,38 +1,14 @@
-let one = {};
-let two;
-let three = { id: 23 };
+let ary = [1, 2, 3];
+ary.push(4);
+console.log(ary); //=> 1 2 3 4
+ary[0] = 4;
+console.log(ary); //=> 4 2 3 4
 
-if(one){
-  console.log(`one ✔`)
-} else {
-  console.log(`one X`)
-}
-
-
-if(two){
-  console.log(`two ✔`)
-} else {
-  console.log(`two X`)
-}
-
-if(three){
-  console.log(`three ✔`)
-} else {
-  console.log(`three X`)
-}
-console.log(``)
-// = = = = = = = = = = = =
-let four = null
-let five = undefined
-
-if(four){
-  console.log(`four ✔`)
-} else {
-  console.log(`four X`)
-}
-
-if(five){
-  console.log(`five ✔`)
-} else {
-  console.log(`five X`)
-}
+let a = [1, 2, 3];
+Array.prototype.insert = function(index, item) {
+  this.splice(index, 0, item); // 第二参是说delete 0项, 即只插入
+};
+a.insert(0, 4)
+console.log(a) //=> 4, 1, 2, 3
+a.insert(0, 5)
+console.log(a) //=> 5, 4, 1, 2, 3
