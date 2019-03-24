@@ -11,11 +11,6 @@ class HomeScreen extends Component {
         <Text style={styles.title}>Animation</Text>
         <HomeButton title="Flip Card" onPress={() => navigation.navigate("FlipCardScreen")}/>
 
-        <View style={{ height: 8 }}/>
-        <Text style={styles.title}>Optimization</Text>
-        <HomeButton title="[bad] React.memo()" onPress={()=> navigation.navigate("MemoBadScreen")}/>
-        <HomeButton title="[good] React.memo()" onPress={()=> navigation.navigate("GoodMemoScreen")}/>
-
 
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>React Hooks(RN0.59+)</Text>
@@ -50,11 +45,9 @@ class HomeScreen extends Component {
         <HomeButton title="find Node Hanlder method" onPress={() => navigation.navigate("FindNodeHandlerScreen")}/>
         <HomeButton title="Context" onPress={() => navigation.navigate("ContextDemo")}/>
         <HomeButton title="PanResponder" onPress={() => navigation.navigate("GestureAnimScreen")}/>
-        <HomeButton title="Toolbar - dynamic title"
-                    onPress={() => navigation.navigate("DynamicTitleScreen", { name: "home3" })}/>
+        <HomeButton title="Toolbar - dynamic title" onPress={() => navigation.navigate("DynamicTitleScreen", { name: "home3" })}/>
         <HomeButton title="pitfall - setState()" onPress={() => navigation.navigate("SetStatePitfallScreen")}/>
-        <HomeButton title="[error] native view group component"
-                    onPress={() => navigation.navigate("BridgeScrollViewScreen")}/>
+        <HomeButton title="[error] native view group component" onPress={() => navigation.navigate("BridgeScrollViewScreen")}/>
 
 
         <View style={{ height: 20 }}/>
@@ -65,6 +58,10 @@ class HomeScreen extends Component {
         <Text style={styles.title}>仿制</Text>
         <HomeButton title="F8 App" onPress={() => navigation.navigate("F8LoginScreen")}/>
         <HomeButton title="Ko First" onPress={() => navigation.navigate("KoFirstScreen")}/>
+
+
+        <View style={{ height: 8 }}/>
+        <Text style={styles.title}>Optimization</Text>
 
 
       </ScrollView>
