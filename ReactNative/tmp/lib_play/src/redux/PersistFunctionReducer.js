@@ -13,7 +13,6 @@ const initState = { obj: { number: 1, isEven: ()=>{} } };
 
 export default (state = initState, action) => {
   if (ACTION_OBJ_FUNC === action.type) {
-    console.log(`szw reducer ${JSON.stringify(action)}`)
     let number = action.payload.number * 3;
     let result = createObjectWithFunction(number).payload;
     return { obj: result };

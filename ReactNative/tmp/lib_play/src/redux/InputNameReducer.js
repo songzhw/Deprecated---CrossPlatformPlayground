@@ -8,7 +8,6 @@ const initState = { name: "" };
 
 export default (state = initState, action) => {
   if (INPUT_ACTION === action.type) {
-    console.log(`szw reducer ${JSON.stringify(action)}`);
     return { ...state, name: action.payload.name };
   }
   return state;

@@ -8,7 +8,6 @@ const initState = { goods: "" };
 
 export default (state = initState, action) => {
   if (FETCH_GOODS === action.type) {
-    console.log(`szw reducer2 ${JSON.stringify(action)}`);
     return { ...state, goods: action.payload };
   }
   return state;

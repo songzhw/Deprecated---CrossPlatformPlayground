@@ -14,7 +14,6 @@ class PersistFunctionScreen extends Component {
   }
 
   onClick = () => {
-    console.log(`szw click : ${this.props.number}`);
     let number = this.props.number ? this.props.number : 1;
     this.props.dispatch(createObjectWithFunction(number));
   };
@@ -29,7 +28,6 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   let mine = state.obj;
   // let tmp = mine.isEven();
-  console.log(`szw map mine = ${JSON.stringify(mine)}`);
   return { number: mine.obj.number };
 };
 
