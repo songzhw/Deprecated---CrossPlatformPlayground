@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  let mine = state.obj;
-  // let tmp = mine.isEven();
-  // console.log(`szw isEven? = ${mine.obj.number}, ${tmp}`)
-  return { number: mine.obj.number };
+  let mine = state.obj.obj;
+  let tmp = mine.isEven();
+  console.log(`szw isEven? = ${mine.number}, ${tmp}`)
+  return { number: mine.number };
 };
 
 export default connect(mapStateToProps)(PersistFunctionScreen);

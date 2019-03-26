@@ -2,11 +2,9 @@ import { createTransform } from "redux-persist";
 
 const createObject = (num) => {
   return {
-    obj: {
-      number: num,
-      isEven: () => {
-        return num % 2 === 0;
-      }
+    number: num,
+    isEven: () => {
+      return num % 2 === 0;
     }
   };
 };
@@ -16,9 +14,15 @@ const inbound = (state, key) => {
 };
 
 const outbound = (state, key) => {
-  let { number } = state.obj.obj;
-  let result = createObject(number);
-  return { ...state, obj: result };
+  // console.log(`szw outbound = ${key}, ${JSON.stringify(state)}`);
+  if ("obj" === key) {
+    let { number } = state.obj; // state: {obj: {number: 1} }
+    let result = createObject(number);
+    return { ...state, obj: result };
+  } else {
+    return { ...state };
+  }
+
 };
 
 export const withFuncTransform = createTransform(inbound, outbound);
