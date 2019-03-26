@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   let mine = state.obj;
+  // let tmp = mine.isEven();
   console.log(`szw map mine = ${JSON.stringify(mine)}`);
   return { number: mine.obj.number };
 };
