@@ -8,11 +8,16 @@ class PersistFunctionScreen extends Component {
     return (
       <View style={styles.root}>
         <Text style={{ fontSize: 22 }}>PersistFunctionScreen Screen {this.props.number}</Text>
-        <Button title="triple"
-                onPress={() => this.props.dispatch(createObjectWithFunction(this.props.number))}/>
+        <Button title="triple" onPress={this.onClick}/>
       </View>
     );
   }
+
+  onClick = () => {
+    console.log(`szw click : ${this.props.number}`);
+    let number = this.props.number ? this.props.number : 1;
+    this.props.dispatch(createObjectWithFunction(number));
+  };
 }
 
 const styles = StyleSheet.create({
@@ -24,7 +29,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   let mine = state.obj;
   console.log(`szw map mine = ${JSON.stringify(mine)}`);
-  return { number: mine.number };
+  return { number: mine.obj.number };
 };
 
 export default connect(mapStateToProps)(PersistFunctionScreen);
