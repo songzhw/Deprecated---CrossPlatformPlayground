@@ -9,6 +9,7 @@ import createEncryptor from "redux-persist-transform-encrypt";
 import InputNameReducer from "./InputNameReducer";
 import GoodsReducer from "./GoodsReducer";
 import BooksReducer from "./BooksReducer";
+import WhenToPersistReducer from "./WhenToPersistReducer";
 
 const middlewares = [];
 middlewares.push(createLogger());
@@ -21,7 +22,7 @@ const eshopPersistConfig = {
 };
 const wrappedEshopReducer = persistReducer(eshopPersistConfig, eshopReducer);
 
-const reducer = combineReducers({ InputNameReducer, eshop: wrappedEshopReducer });
+const reducer = combineReducers({ InputNameReducer, eshop: wrappedEshopReducer, number: WhenToPersistReducer });
 
 const encryptor = createEncryptor({
   secretKey: "my-super-secret-key",
