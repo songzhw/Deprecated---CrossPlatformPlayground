@@ -8,8 +8,8 @@ class MySecondContainer extends React.Component {
 
   render() {
     return (
-      <MyButtonContainer>
-        <MyButton title="Inner2" onPress={this.props.onPress}/>
+      <MyButtonContainer onPress={this.props.onPress}>
+        <MyButton title="Inner2" onPress={()=>{}}/>
       </MyButtonContainer>
     );
   }
