@@ -11,7 +11,9 @@ class HomeScreen extends Component {
         <Button title="persist name" onPress={() => navigation.navigate("InputNameScreen")}/>
         <Button title="persist Goods" onPress={() => navigation.navigate("FetchGoodsScreen")}/>
         <Button title="persist books" onPress={() => navigation.navigate("FetchBooksScreen")}/>
-        <HomeButton title="timiing of persist" onPress={() => navigation.navigate("WhenToPersistScreen")}/>
+        <HomeButton title="timing of persist" onPress={() => navigation.navigate("WhenToPersistScreen")}/>
+        <HomeButton title="persist function ?" onPress={() => navigation.navigate("PersistFunctionScreen")}/>
+
       </View>
     );
   }

@@ -9,7 +9,7 @@ export const createObjectWithFunction = (num) => ({
   }
 });
 
-const initState = { obj: {} };
+const initState = { obj: { number: 1, isEven: ()=>{} } };
 
 export default (state = initState, action) => {
   if (ACTION_OBJ_FUNC === action.type) {
