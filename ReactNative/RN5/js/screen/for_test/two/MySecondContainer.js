@@ -9,7 +9,7 @@ class MySecondContainer extends React.Component {
   render() {
     return (
       <MyButtonContainer>
-        <Button title="Inner2" onPress={this.props.onPress}/>
+        <MyButton title="Inner2" onPress={this.props.onPress}/>
       </MyButtonContainer>
     );
   }

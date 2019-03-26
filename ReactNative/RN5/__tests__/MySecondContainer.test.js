@@ -12,11 +12,11 @@ describe("second", () => {
       />
     );
 
-    wrapper.simulate("press");
-    expect(func).toBeCalled();
+    // wrapper.simulate("press");
+    // expect(func).toBeCalled();
 
-    // const target = wrapper.findWhere(item => item.prop("onPress") !== undefined);
-    // expect(target.prop("onPress")).toBe(func);
+    const target = wrapper.findWhere(item => item.prop("onPress") !== undefined);
+    expect(target.prop("onPress")).toBe(func);
 
   });
 });
