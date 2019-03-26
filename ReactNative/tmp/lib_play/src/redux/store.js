@@ -11,6 +11,7 @@ import GoodsReducer from "./GoodsReducer";
 import BooksReducer from "./BooksReducer";
 import WhenToPersistReducer from "./WhenToPersistReducer";
 import PersistFunctionReducer from "./PersistFunctionReducer";
+import { withFuncTransform } from "./persist_transform/RestoreFunctionTransform";
 
 const middlewares = [];
 middlewares.push(createLogger());
@@ -38,7 +39,8 @@ const encryptor = createEncryptor({
 const persistRuducerConfig = {
   key: "k3",
   storage,
-  blacklist: ["eshop"]
+  blacklist: ["eshop"],
+  transforms: [withFuncTransform]
   // transforms: [encryptor]
 };
 const persistedReducer = persistReducer(persistRuducerConfig, reducer);
