@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Button } from "react-native";
 import MyButtonContainer from "./MyButtonContainer";
 import MyButton from "./MyButton";
 
@@ -8,8 +8,8 @@ class MySecondContainer extends React.Component {
 
   render() {
     return (
-      <MyButtonContainer onPress={this.props.onPress}>
-        <MyButton title="Inner2" onPress={()=>{}}/>
+      <MyButtonContainer>
+        <Button title="Inner2" onPress={this.props.onPress}/>
       </MyButtonContainer>
     );
   }
