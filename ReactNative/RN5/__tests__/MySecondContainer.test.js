@@ -2,6 +2,7 @@ import React from "react";
 import { Text, Button, Image } from "react-native";
 import { shallow } from "enzyme";
 import MySecondContainer from "../js/screen/for_test/two/MySecondContainer";
+import MyButton from "../js/screen/for_test/two/MyButton";
 
 describe("second", () => {
   test("simulate click", () => {
@@ -12,13 +13,17 @@ describe("second", () => {
       />
     );
 
-    // wrapper.simulate("press");
-    // expect(func).toBeCalled();
+    // 可行的测试方法1
+    const clickReceiver = wrapper.find(MyButton)
+    clickReceiver.simulate("press");
+    expect(func).toBeCalled();
 
-    const target = wrapper.findWhere(item => item.prop("onPress") !== undefined);
-    expect(target.prop("onPress")).toBe(func);
+    // 可行的测试方法2
+    // const target = wrapper.findWhere(item => item.prop("onPress") !== undefined);
+    // expect(target.prop("onPress")).toBe(func);
 
   });
+
 });
 
 /*
