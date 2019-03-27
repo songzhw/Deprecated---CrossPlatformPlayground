@@ -4,8 +4,8 @@ import { shallow } from "enzyme";
 import MySecondContainer from "../js/screen/for_test/two/MySecondContainer";
 import MyButton from "../js/screen/for_test/two/MyButton";
 
-describe("second", () => {
-  test("simulate click", () => {
+describe("the two feasible test approach when simulating deep-level click event", () => {
+  test("simulate click1", () => {
     const func = jest.fn();
     const wrapper = shallow(
       <MySecondContainer
@@ -17,10 +17,19 @@ describe("second", () => {
     const clickReceiver = wrapper.find(MyButton)
     clickReceiver.simulate("press");
     expect(func).toBeCalled();
+  });
+
+  test("simulate click2", () => {
+    const func = jest.fn();
+    const wrapper = shallow(
+      <MySecondContainer
+        onPress={func}
+      />
+    );
 
     // 可行的测试方法2
-    // const target = wrapper.findWhere(item => item.prop("onPress") !== undefined);
-    // expect(target.prop("onPress")).toBe(func);
+    const target = wrapper.findWhere(item => item.prop("onPress") !== undefined);
+    expect(target.prop("onPress")).toBe(func);
 
   });
 
