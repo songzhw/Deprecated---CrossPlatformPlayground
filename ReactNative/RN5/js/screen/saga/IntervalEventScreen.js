@@ -20,7 +20,7 @@ class IntervalEventScreen extends Component {
   onPlay = () => {
     this.intervalHandler = setInterval(() => {
       this.props.dispatch({ type: "ACTION_TYPE_PLAY" });
-    }, 3000);
+    }, 500);
   };
   onStop = () => {
     clearInterval(this.intervalHandler);
