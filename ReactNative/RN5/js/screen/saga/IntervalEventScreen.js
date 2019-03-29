@@ -19,7 +19,8 @@ class IntervalEventScreen extends Component {
 
   onPlay = () => {
     this.intervalHandler = setInterval(() => {
-      this.props.dispatch({ type: "ACTION_TYPE_PLAY" });
+      let time = new Date().toLocaleTimeString();
+      this.props.dispatch({ type: "ACTION_TYPE_PLAY", payload: { time } });
     }, 500);
   };
   onStop = () => {
