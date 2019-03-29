@@ -8,7 +8,7 @@ class HomeScreen extends Component {
       <ScrollView style={styles.root}>
 
         <View style={{ height: 8 }}/>
-        <Text style={styles.title}>Animation</Text>
+        <Text style={styles.title}>Saga</Text>
         <HomeButton title="setInterval() in saga" onPress={()=> navigation.navigate("IntervalEventScreen")}/>
 
         <View style={{ height: 8 }}/>

@@ -13,6 +13,7 @@ import Component1Reducer from "./research/Component1Reducer";
 import Component2Reducer from "./research/Component2Reducer";
 import channelDemoReducer from "./research/channelDemoReducer";
 import channel2Reducer from "./research/channel2Reducer";
+import { intervalSaga } from "./interval_demo/IntervalSaga";
 
 
 // assemble middlewares
@@ -31,7 +32,7 @@ const reducers = combineReducers({
 const store = createStore(reducers, applyMiddleware(...middleware));
 
 // assemble sagas
-const sagas = [saga0, sagaChannel1, sagaChannel2];
+const sagas = [saga0, sagaChannel1, sagaChannel2, intervalSaga];
 const combineSaga = function* () {
   yield all(sagas.map(aSaga => fork(aSaga)));
 };
