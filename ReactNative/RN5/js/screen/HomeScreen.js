@@ -9,8 +9,11 @@ class HomeScreen extends Component {
 
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Animation</Text>
-        <HomeButton title="Flip Card" onPress={() => navigation.navigate("FlipCardScreen")}/>
+        <HomeButton title="setInterval() in saga" onPress={()=> navigation.navigate("IntervalEventScreen")}/>
 
+        <View style={{ height: 8 }}/>
+        <Text style={styles.title}>Animation</Text>
+        <HomeButton title="Flip Card" onPress={() => navigation.navigate("FlipCardScreen")}/>
 
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>React Hooks(RN0.59+)</Text>

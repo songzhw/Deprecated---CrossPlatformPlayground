@@ -31,6 +31,7 @@ import HooksAsyncTrapScreen from "../screen/hooks/HooksAsyncTrapScreen";
 import FixHooksAsyncTrapScreen from "../screen/hooks/FixHooksAsyncTrapScreen";
 import FixHooksAsyncTrap2 from "../screen/hooks/FixHooksAsyncTrap2";
 import UseCallbackScreen from "../screen/hooks/UseCallbackScreen";
+import IntervalEventScreen from "../screen/saga/IntervalEventScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -44,6 +45,7 @@ const HomeStack = createStackNavigator(
     MapStateToPropsScreen, ReduxProblemScreen, SagaChannelScreen,
     Pulse_Class_Screen, Pulse_Func_Screen, HooksAsyncTrapScreen, FixHooksAsyncTrapScreen, FixHooksAsyncTrap2,
     UseCallbackScreen,
+    IntervalEventScreen,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
       navigationOptions: (props) => {
