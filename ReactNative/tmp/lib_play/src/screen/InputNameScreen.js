@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-  console.log(`szw screen state = ${JSON.stringify(state)}`);
   return { myName: state.InputNameReducer.name };
 };
 

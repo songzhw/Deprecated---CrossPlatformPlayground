@@ -1,7 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { createLogger } from "redux-logger";
 
-import { persistStore, persistReducer } from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import createEncryptor from "redux-persist-transform-encrypt";
@@ -9,6 +9,9 @@ import createEncryptor from "redux-persist-transform-encrypt";
 import InputNameReducer from "./InputNameReducer";
 import GoodsReducer from "./GoodsReducer";
 import BooksReducer from "./BooksReducer";
+import WhenToPersistReducer from "./WhenToPersistReducer";
+import PersistFunctionReducer from "./PersistFunctionReducer";
+import { withFuncTransform } from "./persist_transform/RestoreFunctionTransform";
 
 const middlewares = [];
 middlewares.push(createLogger());
@@ -21,7 +24,10 @@ const eshopPersistConfig = {
 };
 const wrappedEshopReducer = persistReducer(eshopPersistConfig, eshopReducer);
 
-const reducer = combineReducers({ InputNameReducer, eshop: wrappedEshopReducer });
+const reducer = combineReducers({
+  InputNameReducer, eshop: wrappedEshopReducer,
+  number: WhenToPersistReducer, obj: PersistFunctionReducer
+});
 
 const encryptor = createEncryptor({
   secretKey: "my-super-secret-key",
@@ -33,7 +39,8 @@ const encryptor = createEncryptor({
 const persistRuducerConfig = {
   key: "k3",
   storage,
-  blacklist: ["eshop"]
+  blacklist: ["eshop"],
+  transforms: [withFuncTransform]
   // transforms: [encryptor]
 };
 const persistedReducer = persistReducer(persistRuducerConfig, reducer);
