@@ -18,16 +18,6 @@ const onStop = function* (action) {
 
 
 /*
-[throttle]
-szw saga throttle receives onPlay(11:10:01) at 11:10:01
-szw saga throttle receives onPlay(11:10:04) at 11:10:04
-szw saga throttle receives onPlay(11:10:07) at 11:10:07
-
-szw saga throttle receives onPlay(11:10:08) at 11:10:10
-(因为按了stop, 所以后面再也没有数据了)
-
-
-[debounce]
 szw saga throttle receives onPlay(11:16:54) at 11:16:54
 szw saga throttle receives onPlay(11:16:57) at 11:16:57
 szw saga throttle receives onPlay(11:17:00) at 11:17:00
@@ -38,4 +28,9 @@ szw saga debounce receives onStop(11:17:01) at 11:17:04
 (注意1: 它是在01秒后3秒开始的, 所以接收时间是在04秒)
 (注意2: stop播放之后, 只有一次debounce事件, 不会stop后每3秒都来一次debounce)
 
+ */
+
+/*
+throttle, debounce不管play还是pause/stop, 总是在监听onProgress事件的!
+所以你之后几分钟后再resume playing, throttle与debounce也会再次被唤醒的
  */
