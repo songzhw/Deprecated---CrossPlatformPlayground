@@ -8,6 +8,6 @@ export function HelloFunc({ name }) {
 
   // 注意, function不是class, 所以没有"this"关键字, 所以不是onPress={this.onClick}
   return (
-    <Button title="FUNC (xxx)" onPress={onClick}/>
+    <Button title="FUNC" onPress={onClick}/>
   );
 }
