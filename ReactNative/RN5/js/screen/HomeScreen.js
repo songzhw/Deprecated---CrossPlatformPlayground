@@ -7,6 +7,18 @@ class HomeScreen extends Component {
     return (
       <ScrollView style={styles.root}>
 
+        <View style={{ height: 20 }}/>
+        <Text style={styles.title}>RN Tutorial</Text>
+        <HomeButton title="class vs. func" onPress={()=>navigation.navigate("ClassVsFuncScreen")}/>
+        <HomeButton title="singleton?" onPress={() => navigation.navigate("Singleton1Screen")}/>
+        <HomeButton title="find Node Hanlder method" onPress={() => navigation.navigate("FindNodeHandlerScreen")}/>
+        <HomeButton title="Context" onPress={() => navigation.navigate("ContextDemo")}/>
+        <HomeButton title="PanResponder" onPress={() => navigation.navigate("GestureAnimScreen")}/>
+        <HomeButton title="Toolbar - dynamic title" onPress={() => navigation.navigate("DynamicTitleScreen", { name: "home3" })}/>
+        <HomeButton title="pitfall - setState()" onPress={() => navigation.navigate("SetStatePitfallScreen")}/>
+        <HomeButton title="[error] native view group component" onPress={() => navigation.navigate("BridgeScrollViewScreen")}/>
+
+
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Saga</Text>
         <HomeButton title="setInterval() in saga" onPress={()=> navigation.navigate("IntervalEventScreen")}/>
@@ -41,17 +53,6 @@ class HomeScreen extends Component {
         <HomeButton title="Action Sheet" onPress={() => navigation.navigate("ActionSheetDemo")}/>
         <HomeButton title="Drawer Layout" onPress={() => navigation.navigate("MyDrawerDemo")}/>
         <HomeButton title="Loading List" onPress={() => navigation.navigate("LoadingListScreen")}/>
-
-        <View style={{ height: 20 }}/>
-        <Text style={styles.title}>RN Tutorial</Text>
-        <HomeButton title="singleton?" onPress={() => navigation.navigate("Singleton1Screen")}/>
-        <HomeButton title="find Node Hanlder method" onPress={() => navigation.navigate("FindNodeHandlerScreen")}/>
-        <HomeButton title="Context" onPress={() => navigation.navigate("ContextDemo")}/>
-        <HomeButton title="PanResponder" onPress={() => navigation.navigate("GestureAnimScreen")}/>
-        <HomeButton title="Toolbar - dynamic title" onPress={() => navigation.navigate("DynamicTitleScreen", { name: "home3" })}/>
-        <HomeButton title="pitfall - setState()" onPress={() => navigation.navigate("SetStatePitfallScreen")}/>
-        <HomeButton title="[error] native view group component" onPress={() => navigation.navigate("BridgeScrollViewScreen")}/>
-
 
         <View style={{ height: 20 }}/>
         <Text style={styles.title}>3rd library demos</Text>

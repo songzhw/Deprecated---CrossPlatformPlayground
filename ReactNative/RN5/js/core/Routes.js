@@ -32,13 +32,14 @@ import FixHooksAsyncTrapScreen from "../screen/hooks/FixHooksAsyncTrapScreen";
 import FixHooksAsyncTrap2 from "../screen/hooks/FixHooksAsyncTrap2";
 import UseCallbackScreen from "../screen/hooks/UseCallbackScreen";
 import IntervalEventScreen from "../screen/saga/IntervalEventScreen";
+import ClassVsFuncScreen from "../screen/rn_tutorial/class_vs_fn/ClassVsFuncScreen";
 
 const HomeStack = createStackNavigator(
   {
     HomeScreen, AxiosScreen, ContextDemo, GestureAnimScreen, SetStatePitfallScreen,
     ActionSheetDemo, MyDrawerDemo, LoadingListScreen,
     F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
-    KoFirstScreen, FlexOrNotScreen, FlexThreePropsScreen, TourismPriceScreen,
+    KoFirstScreen, FlexOrNotScreen, FlexThreePropsScreen, TourismPriceScreen, ClassVsFuncScreen,
     BridgeScrollViewScreen,
     FlipCardScreen,
     FindNodeHandlerScreen, Singleton1Screen,
