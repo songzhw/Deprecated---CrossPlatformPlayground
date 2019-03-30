@@ -7,6 +7,7 @@ export class HelloClass extends React.Component {
   }; // 给足3秒钟, 让你有时间在Alert之前去做操作,
 
   render() {
+    console.log(`szw class name = ${this.props.name}`);
     return <Button title="Class" onPress={this.onClick}/>;
   }
 }
