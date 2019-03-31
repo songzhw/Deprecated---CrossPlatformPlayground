@@ -3,6 +3,7 @@ import { View, StyleSheet, Button, Text } from "react-native";
 import { connect } from "react-redux";
 import { HelloClass } from "./HelloClass";
 import { HelloFunc } from "./HelloFunc";
+import { HelloClass2 } from "./HelloClass2";
 
 class ClassVsFuncScreen extends Component {
   state = { name: "szw" };
@@ -18,6 +19,7 @@ class ClassVsFuncScreen extends Component {
 
         <HelloClass name={this.state.name}/>
         <HelloFunc name={this.state.name}/>
+        <HelloClass2 name={this.state.name}/>
 
       </View>
     );
