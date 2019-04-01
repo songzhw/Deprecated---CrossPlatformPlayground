@@ -7,6 +7,17 @@ class HomeScreen extends Component {
     return (
       <ScrollView style={styles.root}>
 
+        <View style={{ height: 8 }}/>
+        <Text style={styles.title}>React Hooks(RN0.59+)</Text>
+        <HomeButton title="heart anim(class)" onPress={() => navigation.navigate("Pulse_Class_Screen")}/>
+        <HomeButton title="heart anim(hooks)" onPress={() => navigation.navigate("Pulse_Func_Screen")}/>
+        <HomeButton title="state hools trap : async" onPress={() => navigation.navigate("HooksAsyncTrapScreen")}/>
+        <HomeButton title="fix state hools trap : async" onPress={() => navigation.navigate("FixHooksAsyncTrapScreen")}/>
+        <HomeButton title="[Failed] fix 02? " onPress={()=>navigation.navigate("FixHooksAsyncTrap2")}/>
+        <HomeButton title="use callback demo" onPress={()=>navigation.navigate("UseCallbackScreen")}/>
+        <HomeButton title="variable scope issue" onPress={()=>navigation.navigate("VariableScopeIssue")}/>
+
+
         <View style={{ height: 20 }}/>
         <Text style={styles.title}>RN Tutorial</Text>
         <HomeButton title="class vs. func" onPress={()=>navigation.navigate("ClassVsFuncScreen")}/>
@@ -26,15 +37,6 @@ class HomeScreen extends Component {
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Animation</Text>
         <HomeButton title="Flip Card" onPress={() => navigation.navigate("FlipCardScreen")}/>
-
-        <View style={{ height: 8 }}/>
-        <Text style={styles.title}>React Hooks(RN0.59+)</Text>
-        <HomeButton title="heart anim(class)" onPress={() => navigation.navigate("Pulse_Class_Screen")}/>
-        <HomeButton title="heart anim(hooks)" onPress={() => navigation.navigate("Pulse_Func_Screen")}/>
-        <HomeButton title="state hools trap : async" onPress={() => navigation.navigate("HooksAsyncTrapScreen")}/>
-        <HomeButton title="fix state hools trap : async" onPress={() => navigation.navigate("FixHooksAsyncTrapScreen")}/>
-        <HomeButton title="[Failed] fix 02? " onPress={()=>navigation.navigate("FixHooksAsyncTrap2")}/>
-        <HomeButton title="use callback demo" onPress={()=>navigation.navigate("UseCallbackScreen")}/>
 
         <View style={{ height: 8 }}/>
         <Text style={styles.title}>Redux Research</Text>

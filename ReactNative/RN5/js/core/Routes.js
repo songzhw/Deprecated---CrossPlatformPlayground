@@ -33,6 +33,7 @@ import FixHooksAsyncTrap2 from "../screen/hooks/FixHooksAsyncTrap2";
 import UseCallbackScreen from "../screen/hooks/UseCallbackScreen";
 import IntervalEventScreen from "../screen/saga/IntervalEventScreen";
 import ClassVsFuncScreen from "../screen/rn_tutorial/class_vs_fn/ClassVsFuncScreen";
+import { VariableScopeIssue } from "../screen/hooks/VariableScopeIssue";
 
 const HomeStack = createStackNavigator(
   {
@@ -45,7 +46,7 @@ const HomeStack = createStackNavigator(
     FindNodeHandlerScreen, Singleton1Screen,
     MapStateToPropsScreen, ReduxProblemScreen, SagaChannelScreen,
     Pulse_Class_Screen, Pulse_Func_Screen, HooksAsyncTrapScreen, FixHooksAsyncTrapScreen, FixHooksAsyncTrap2,
-    UseCallbackScreen,
+    UseCallbackScreen, VariableScopeIssue,
     IntervalEventScreen,
     DynamicTitleScreen: {
       screen: DynamicTitleScreen,
