@@ -34,6 +34,7 @@ import UseCallbackScreen from "../screen/hooks/UseCallbackScreen";
 import IntervalEventScreen from "../screen/saga/IntervalEventScreen";
 import ClassVsFuncScreen from "../screen/rn_tutorial/class_vs_fn/ClassVsFuncScreen";
 import { VariableScopeIssue } from "../screen/hooks/VariableScopeIssue";
+import SetStateScreen from "../screen/rn_tutorial/SetStateScreen";
 
 const HomeStack = createStackNavigator(
   {
@@ -41,7 +42,7 @@ const HomeStack = createStackNavigator(
     ActionSheetDemo, MyDrawerDemo, LoadingListScreen,
     F8LoginScreen, F8ScheduleScreen, F8SessionDetailScreen,
     KoFirstScreen, FlexOrNotScreen, FlexThreePropsScreen, TourismPriceScreen, ClassVsFuncScreen,
-    BridgeScrollViewScreen,
+    BridgeScrollViewScreen, SetStateScreen,
     FlipCardScreen,
     FindNodeHandlerScreen, Singleton1Screen,
     MapStateToPropsScreen, ReduxProblemScreen, SagaChannelScreen,

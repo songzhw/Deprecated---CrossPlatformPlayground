@@ -20,6 +20,7 @@ class HomeScreen extends Component {
 
         <View style={{ height: 20 }}/>
         <Text style={styles.title}>RN Tutorial</Text>
+        <HomeButton title="setState (partly)" onPress={()=> navigation.navigate("SetStateScreen")}/>
         <HomeButton title="class vs. func" onPress={()=>navigation.navigate("ClassVsFuncScreen")}/>
         <HomeButton title="singleton?" onPress={() => navigation.navigate("Singleton1Screen")}/>
         <HomeButton title="find Node Hanlder method" onPress={() => navigation.navigate("FindNodeHandlerScreen")}/>
