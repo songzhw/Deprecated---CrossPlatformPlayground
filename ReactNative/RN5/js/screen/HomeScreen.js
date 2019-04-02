@@ -8,6 +8,14 @@ class HomeScreen extends Component {
       <ScrollView style={styles.root}>
 
         <View style={{ height: 8 }}/>
+        <Text style={styles.title}>Custom View</Text>
+        <HomeButton title="Action Sheet" onPress={() => navigation.navigate("ActionSheetDemo")}/>
+        <HomeButton title="Drawer Layout" onPress={() => navigation.navigate("MyDrawerDemo")}/>
+        <HomeButton title="Loading List" onPress={() => navigation.navigate("LoadingListScreen")}/>
+        <HomeButton title="Component Buttons" onPress={() => navigation.navigate("RadioGroupScreen")}/>
+
+
+        <View style={{ height: 8 }}/>
         <Text style={styles.title}>React Hooks(RN0.59+)</Text>
         <HomeButton title="heart anim(class)" onPress={() => navigation.navigate("Pulse_Class_Screen")}/>
         <HomeButton title="heart anim(hooks)" onPress={() => navigation.navigate("Pulse_Func_Screen")}/>
@@ -51,11 +59,7 @@ class HomeScreen extends Component {
         <HomeButton title="Flex 3 props" onPress={() => navigation.navigate("FlexThreePropsScreen")}/>
         <HomeButton title="Flex Demo: Tourism" onPress={() => navigation.navigate("TourismPriceScreen")}/>
 
-        <View style={{ height: 8 }}/>
-        <Text style={styles.title}>Custom View</Text>
-        <HomeButton title="Action Sheet" onPress={() => navigation.navigate("ActionSheetDemo")}/>
-        <HomeButton title="Drawer Layout" onPress={() => navigation.navigate("MyDrawerDemo")}/>
-        <HomeButton title="Loading List" onPress={() => navigation.navigate("LoadingListScreen")}/>
+
 
         <View style={{ height: 20 }}/>
         <Text style={styles.title}>3rd library demos</Text>
