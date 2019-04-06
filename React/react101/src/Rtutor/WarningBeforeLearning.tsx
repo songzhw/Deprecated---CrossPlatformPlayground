@@ -5,6 +5,7 @@ interface IProps {
   title: string;
   content: string;
   okCaption?: string;
+  onOkClick: () => void;
 }
 
 class WarningBeforeLearning extends React.Component<IProps> {
@@ -28,7 +29,7 @@ class WarningBeforeLearning extends React.Component<IProps> {
 
           <div className="confirm-buttons-container">
             <button className="confirm-cancel">No, thanks</button>
-            <button className="confirm-ok">{this.props.okCaption}</button>
+            <button className="confirm-ok" onClick={this.props.onOkClick}>{this.props.okCaption}</button>
           </div>
 
         </div>

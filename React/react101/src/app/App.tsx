@@ -12,9 +12,14 @@ class App extends Component {
           Hello, React (+ TypeScript)
           <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer"> Learn React </a>
         </header>
-        <WarningBeforeLearning title="ready?" content="start to learn React?"/>
+        <WarningBeforeLearning  content="start to learn React?"
+          onOkClick={clickOk}/>
       </div>
     );
+
+    function clickOk() {
+      return console.log(`clicked ok`);
+    }
   }
 }
 
