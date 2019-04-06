@@ -4,11 +4,13 @@ import "./WarningBeforeLearning.css";
 interface IProps {
   title: string;
   content: string;
+  okCaption?: string;
 }
 
 class WarningBeforeLearning extends React.Component<IProps> {
   public static defaultProps = {
-    title: "one"
+    title: "one",
+    okCaption: "yes!"
   };
 
   public render() {
@@ -26,7 +28,7 @@ class WarningBeforeLearning extends React.Component<IProps> {
 
           <div className="confirm-buttons-container">
             <button className="confirm-cancel">No, thanks</button>
-            <button className="confirm-ok">Yes, please</button>
+            <button className="confirm-ok">{this.props.okCaption}</button>
           </div>
 
         </div>
