@@ -1,4 +1,5 @@
 import React from "react";
+import "./WarningBeforeLearning.css"
 
 class WarningBeforeLearning extends React.Component {
   public render() {
