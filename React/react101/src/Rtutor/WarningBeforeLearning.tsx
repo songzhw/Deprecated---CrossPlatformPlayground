@@ -16,8 +16,8 @@ class WarningBeforeLearning extends React.Component {
           </div>
 
           <div className="confirm-buttons-container">
-            <button>No, thanks</button>
-            <button>Yes, please</button>
+            <button className="confirm-cancel">No, thanks</button>
+            <button className="confirm-ok">Yes, please</button>
           </div>
 
         </div>
