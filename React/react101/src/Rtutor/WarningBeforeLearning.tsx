@@ -1,18 +1,23 @@
 import React from "react";
-import "./WarningBeforeLearning.css"
+import "./WarningBeforeLearning.css";
 
-class WarningBeforeLearning extends React.Component {
+interface IProps {
+  title: string;
+  content: string;
+}
+
+class WarningBeforeLearning extends React.Component<IProps> {
   public render() {
     return (
       <div className="confirm-wrapper confirm-visible">
         <div className="confirm-container">
 
           <div className="confirm-title-container">
-            <span>Start to learn React + Typescript</span>
+            <span>{this.props.title}</span>
           </div>
 
           <div className="confirm-content-container">
-            <p>Are you ready?</p>
+            <p>{this.props.content}</p>
           </div>
 
           <div className="confirm-buttons-container">

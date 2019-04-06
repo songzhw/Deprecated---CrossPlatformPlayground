@@ -12,7 +12,7 @@ class App extends Component {
           Hello, React (+ TypeScript)
           <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer"> Learn React </a>
         </header>
-        <WarningBeforeLearning/>
+        <WarningBeforeLearning title="ready?" content="start to learn React?"/>
       </div>
     );
   }
