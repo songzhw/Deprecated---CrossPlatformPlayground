@@ -7,6 +7,10 @@ interface IProps {
 }
 
 class WarningBeforeLearning extends React.Component<IProps> {
+  public static defaultProps = {
+    title: "one"
+  };
+
   public render() {
     return (
       <div className="confirm-wrapper confirm-visible">
