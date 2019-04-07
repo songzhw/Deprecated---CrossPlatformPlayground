@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import WarningBeforeLearning from "../Rtutor/WarningBeforeLearning";
-import { CountConsole } from "../Rtutor/FunctionalComponent";
+import { CountConsole } from "../Rtutor/simple/FunctionalComponent";
 
 interface IState {
   isShowingWarning: boolean;
@@ -14,7 +12,7 @@ class App extends Component<{}, IState> {
   public render() {
     return (
       <div className="App">
-        <CountConsole title="Count++ Example" onClick={()=>console.log('click')}/>
+
       </div>
 
     );
@@ -38,4 +36,8 @@ export default App;
             content="start to learn React?"
             onOkClick={clickOk}/>
           : <p/>}
+ */
+
+/*
+    <CountConsole title="Count++ Example" onClick={()=>console.log('click')}/>
  */
