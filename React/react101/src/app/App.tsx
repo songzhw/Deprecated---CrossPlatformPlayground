@@ -14,7 +14,7 @@ class App extends Component<{}, IState> {
   public render() {
     return (
       <div className="App">
-        <CountConsole text="two" onClick={()=>console.log('click')}/>
+        <CountConsole title="two" onClick={()=>console.log('click')}/>
       </div>
 
     );
