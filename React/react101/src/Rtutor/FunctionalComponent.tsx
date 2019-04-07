@@ -12,7 +12,7 @@ export const CountConsole: React.FunctionComponent<IProps> = ({ title, onClick }
 
   function onClickButton() {
     onClick();
-    setCount(count++);
+    setCount(count + 1);
   }
 
   return (
