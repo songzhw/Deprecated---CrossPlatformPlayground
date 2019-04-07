@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export interface IMovie {
+  id: string;
   cover: string;
   title: string;
   genres: string[];
@@ -11,7 +12,7 @@ interface IState {
 }
 
 export const MovieScreen: React.FunctionComponent = () => {
-  const [movies, setMovies] = useState([{id:0, cover:"", title:""}]);
+  const [movies, setMovies] = useState<IMovie[] | undefined>(undefined);
 
   useEffect(() => {
     fetch("https://www.mocky.io/v2/5caa6095300000440790457c")
@@ -31,9 +32,11 @@ export const MovieScreen: React.FunctionComponent = () => {
     <div>
       <p>Welcome!</p>
       <ul>
-        {movies.map( movie => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
+        {movies ? movies.map(movie => (
+            <li key={movie.id}>{movie.title}</li>
+          ))
+          : null
+        }
       </ul>
     </div>
   );
