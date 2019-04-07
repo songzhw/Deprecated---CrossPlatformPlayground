@@ -14,6 +14,16 @@ class WarningBeforeLearning extends React.Component<IProps> {
     okCaption: "yes!"
   };
 
+
+  public static getDerivedStateFromProps(props: IProps, state: {}) {
+    console.log(`szw getDerivedStateFromProps(${JSON.stringify(props)}, ${state})`);
+    return null;
+  }
+
+  public shouldComponentUpdate(nextProps: Readonly<IProps>, nextState: Readonly<{}>, nextContext: any): boolean {
+    return true;
+  }
+
   public render() {
     return (
       <div className="confirm-wrapper confirm-visible">

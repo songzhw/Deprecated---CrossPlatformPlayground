@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import WarningBeforeLearning from "../Rtutor/WarningBeforeLearning";
+import { CountConsole } from "../Rtutor/FunctionalComponent";
 
 interface IState {
   isShowingWarning: boolean;
@@ -13,6 +14,20 @@ class App extends Component<{}, IState> {
   public render() {
     return (
       <div className="App">
+        <CountConsole text="two" onClick={()=>console.log('click')}/>
+      </div>
+
+    );
+
+    function clickOk() {
+      return console.log(`clicked ok`);
+    }
+  }
+}
+
+export default App;
+
+/*
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
           Hello, React (+ TypeScript)
@@ -23,14 +38,4 @@ class App extends Component<{}, IState> {
             content="start to learn React?"
             onOkClick={clickOk}/>
           : <p/>}
-
-      </div>
-    );
-
-    function clickOk() {
-      return console.log(`clicked ok`);
-    }
-  }
-}
-
-export default App;
+ */
