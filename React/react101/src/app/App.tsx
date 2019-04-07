@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { CountConsole } from "../Rtutor/simple/FunctionalComponent";
+import { MovieScreen } from "../Rtutor/router/MovieScreen";
 
 interface IState {
   isShowingWarning: boolean;
@@ -12,7 +13,7 @@ class App extends Component<{}, IState> {
   public render() {
     return (
       <div className="App">
-
+        <MovieScreen/>
       </div>
 
     );
