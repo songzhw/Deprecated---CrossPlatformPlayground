@@ -8,7 +8,7 @@ interface IState {
 }
 
 class App extends Component<{}, IState> {
-  public state = { isShowingWarning: false };
+  public state = { isShowingWarning: true };
 
   public render() {
     return (
