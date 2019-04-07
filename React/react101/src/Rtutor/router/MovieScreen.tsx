@@ -12,7 +12,7 @@ interface IState {
 }
 
 export const MovieScreen: React.FunctionComponent = () => {
-  const [movies, setMovies] = useState<IMovie[] | undefined>(undefined);
+  const [movies, setMovies] = useState<IMovie[] | undefined>();
 
   useEffect(() => {
     fetch("https://www.mocky.io/v2/5caa6095300000440790457c")
