@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { ChangeEvent, Component } from "react";
 
 interface IState {
   num: string;
@@ -13,20 +13,14 @@ export class AdminScreen extends Component<{}, IState> {
       <div>
         <p> AdminScreen </p>
         <p> num = {num} </p>
-        <button onClick={this.onSave23}>Save 23</button>
-        <button onClick={this.onSave10}>Save 10</button>
-        <button onClick={this.onGet}>Get</button>
+        <input value={num} type="text" onChange={this.onSave}/>
+        <button onClick={this.onGet}>Get number</button>
       </div>
     );
   }
 
-  public onSave23 = () => {
-    localStorage.setItem("hellokey", "23");
-  };
-
-
-  public onSave10 = () => {
-    localStorage.setItem("hellokey", "10");
+  public onSave = (event) => {
+    localStorage.setItem("hellokey", event.target.value);
   };
 
   public onGet = () => {
