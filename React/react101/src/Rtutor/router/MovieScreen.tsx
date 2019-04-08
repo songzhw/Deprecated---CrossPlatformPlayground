@@ -10,7 +10,7 @@ interface IState {
 }
 
 export class MovieScreen extends React.Component<Props, IState> {
-  public state = { isAdded: false };  // movie?是可选, 所以这里不报错
+  public state : IState = { isAdded: false };  // movie?是可选, 所以这里不报错
 
   public componentDidMount(): void {
     const path = this.props.match.params;
@@ -27,13 +27,13 @@ export class MovieScreen extends React.Component<Props, IState> {
   }
 
   public render(): React.ReactNode {
-    const {movie} = this.state
+    const { movie } = this.state;
 
     return (
       <div>
         {movie ?
-          (<p></p>)
-        : (<p> Movie not found</p>)
+          ()
+          : (<p> Movie not found</p>)
         }
       </div>
     );
