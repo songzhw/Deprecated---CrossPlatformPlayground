@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export interface IMovie {
   id: string;
@@ -29,7 +30,9 @@ export const MovieListScreen: React.FunctionComponent = () => {
       <p>Welcome!</p>
       <ul>
         {movies ? movies.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
+            <li key={movie.id}>
+              <Link to={`/movie/${movie.id}`}> {movie.title} </Link>
+            </li>
           ))
           : null
         }

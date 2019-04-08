@@ -50,6 +50,7 @@ export class MovieScreen extends React.Component<Props, IState> {
 
   private onAdd = () => {
     console.log(`szw onAdd`);
+    this.setState({ isAdded: true });
   };
 
 };
