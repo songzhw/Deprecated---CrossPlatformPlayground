@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component } from "react";
+import React, { Component } from "react";
 
 interface IState {
   num: string;
@@ -9,9 +9,10 @@ export class AdminScreen extends Component<{}, IState> {
 
   public render() {
     const { num } = this.state;
+    const isSupportIndexDb = self.indexedDB ? "support" : "no support"; // window.indexedDB也行
     return (
       <div>
-        <p> AdminScreen </p>
+        <p> AdminScreen : indexdb? = {isSupportIndexDb} </p>
         <p> num = {num} </p>
         <input type="text" onChange={this.onSave}/>
         <button onClick={this.onGet}>Get number</button>
