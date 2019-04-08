@@ -10,7 +10,7 @@ interface IState {
 }
 
 export class MovieScreen extends React.Component<Props, IState> {
-  public state : IState = { isAdded: false };  // movie?是可选, 所以这里不报错
+  public state: IState = { isAdded: false };  // movie?是可选, 所以这里不报错
 
   public componentDidMount(): void {
     const path = this.props.match.params;
@@ -27,16 +27,29 @@ export class MovieScreen extends React.Component<Props, IState> {
   }
 
   public render(): React.ReactNode {
-    const { movie } = this.state;
+    const { movie, isAdded } = this.state;
+    const button = isAdded ? null : <button onClick={this.onAdd}>Add to wishlist</button>;
+    const price = new Intl
+      .NumberFormat("en-US", { currency: "USD", style: "currency" })
+      .format(24.99);
 
     return (
       <div>
         {movie ?
-          ()
-          : (<p> Movie not found</p>)
+          (<React.Fragment>
+            <h3>{movie.title}</h3>
+            <p> {price} </p>
+            {button}
+          </React.Fragment>)
+          :
+          (<p> Movie not found</p>)
         }
       </div>
     );
   }
+
+  private onAdd = () => {
+    console.log(`szw onAdd`);
+  };
 
 };
