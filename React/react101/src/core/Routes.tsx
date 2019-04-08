@@ -12,7 +12,7 @@ export const Routes: React.FunctionComponent = () => {
       <div>
         <Header/>
         <Switch>
-          <Redirect  from="/" to="/admin"/>
+          <Redirect exact={true} from="/" to="/admin"/>
           <Route exact={true} path="/movie" component={MovieListScreen}/>
           <Route path="/admin" component={AdminScreen}/>
           <Route path="/movie/:id" component={MovieScreen}/>
