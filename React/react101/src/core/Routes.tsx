@@ -1,15 +1,14 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import { MovieScreen } from "../Rtutor/router/MovieScreen";
 import { AdminScreen } from "../Rtutor/router/AdminScreen";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { Header } from "../Rtutor/router/Header";
 
 export const Routes: React.FunctionComponent = () => {
   return (
     <BrowserRouter>
       <div>
-        <Link to="/movie"> Movies </Link><p></p>
-        <Link to="/admin"> Admin </Link>
-
+        <Header/>
         <Route path="/movie" component={MovieScreen}/>
         <Route path="/admin" component={AdminScreen}/>
       </div>
