@@ -1,39 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { RouteComponentProps } from "react-router";
+import { IMovie } from "./MovieListScreen";
 
-export interface IMovie {
-  id: string;
-  cover: string;
-  title: string;
-  genres: string[];
+type Props = RouteComponentProps<{ id: string }>;
+
+interface IState {
+  movie?: IMovie;
+  isAdded: boolean;
 }
 
-export const MovieScreen: React.FunctionComponent = () => {
-  const [movies, setMovies] = useState<IMovie[] | undefined>();
+export class MovieScreen extends React.Component<Props, IState> {
+  public state = { isAdded: false };  // movie?是可选, 所以这里不报错
 
-  useEffect(() => {
-    fetch("https://www.mocky.io/v2/5caa6095300000440790457c")
-      .then(response => {
-        if (response.status !== 200) {
-          console.error("response error : code = ", response.status);
-          return;
+  public componentDidMount(): void {
+    const path = this.props.match.params;
+    if (path.id) {
+      const id: string = path.id; // path.id是个string
+      const movie = {
+        id,
+        cover: "",
+        title: `item ${id}`,
+        genres: [""]
+      };
+      this.setState({ movie }); // ts也允许setState只set部分state
+    }
+  }
+
+  public render(): React.ReactNode {
+    const {movie} = this.state
+
+    return (
+      <div>
+        {movie ?
+          (<p></p>)
+        : (<p> Movie not found</p>)
         }
+      </div>
+    );
+  }
 
-        response.json()
-          .then(resp => setMovies(resp));
-      })
-      .catch(err => console.error(err));
-  }, []);
-
-  return (
-    <div>
-      <p>Welcome!</p>
-      <ul>
-        {movies ? movies.map(movie => (
-            <li key={movie.id}>{movie.title}</li>
-          ))
-          : null
-        }
-      </ul>
-    </div>
-  );
 };
