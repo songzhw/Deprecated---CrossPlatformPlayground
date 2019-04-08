@@ -8,12 +8,12 @@ export class AdminScreen extends Component<{}, IState> {
   public state = { num: "*" };
 
   public render() {
-    const {num} = this.state;
+    const { num } = this.state;
     return (
       <div>
         <p> AdminScreen </p>
         <p> num = {num} </p>
-        <input value={num} type="text" onChange={this.onSave}/>
+        <input type="text" onChange={this.onSave}/>
         <button onClick={this.onGet}>Get number</button>
       </div>
     );
