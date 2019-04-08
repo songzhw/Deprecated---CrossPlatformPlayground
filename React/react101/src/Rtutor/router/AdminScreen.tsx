@@ -19,7 +19,7 @@ export class AdminScreen extends Component<{}, IState> {
     );
   }
 
-  public onSave = (event) => {
+  public onSave = (event: React.ChangeEvent<HTMLInputElement>) => {
     localStorage.setItem("hellokey", event.target.value);
   };
 
