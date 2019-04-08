@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { Header } from "../Rtutor/router/Header";
-import { AdminScreen } from "../Rtutor/router/AdminScreen";
-import { MovieListScreen } from "../Rtutor/router/MovieListScreen";
-import { MovieScreen } from "../Rtutor/router/MovieScreen";
-import { NotFoundScreen } from "../Rtutor/router/NotFoundScreen";
+import { Header } from "./Header";
+import { AdminScreen } from "./AdminScreen";
+import { MovieListScreen } from "./MovieListScreen";
+import { MovieScreen } from "./MovieScreen";
+import { NotFoundScreen } from "./NotFoundScreen";
+import { LoginScreen } from "./LoginScreen";
 
-export const Routes: React.FunctionComponent = () => {
+export const FirstRoutes: React.FunctionComponent = () => {
+  const [isLoggedIn, setLoggedIn] = useState(false);
+
   return (
     <BrowserRouter>
       <div>
         <Header/>
         <Switch>
           <Redirect exact={true} from="/" to="/admin"/>
+          <Route path="/admin">
+            {isLoggedIn ? <AdminScreen/> : <LoginScreen/>}
+          </Route>
           <Route exact={true} path="/movie" component={MovieListScreen}/>
-          <Route path="/admin" component={AdminScreen}/>
           <Route path="/movie/:id" component={MovieScreen}/>
           <Route component={NotFoundScreen}/>
         </Switch>
