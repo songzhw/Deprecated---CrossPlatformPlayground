@@ -7,10 +7,6 @@ export interface IMovie {
   genres: string[];
 }
 
-interface IState {
-  movies: IMovie[];
-}
-
 export const MovieScreen: React.FunctionComponent = () => {
   const [movies, setMovies] = useState<IMovie[] | undefined>();
 
