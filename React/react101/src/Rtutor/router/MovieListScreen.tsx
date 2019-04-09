@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 
 export interface IMovie {
   id: string;
@@ -8,10 +8,15 @@ export interface IMovie {
   genres: string[];
 }
 
-export const MovieListScreen: React.FunctionComponent = () => {
-  const [movies, setMovies] = useState<IMovie[] | undefined>();
+interface IState {
+  movies: IMovie[];
+  searchKeyword: string;
+}
 
-  useEffect(() => {
+export class MovieListScreen extends React.Component<{}, IState> {
+  public state : IState = { movies: [], searchKeyword: "" }; // 不加这个":IState", 后面使用时就会报错. 试一下就知道了
+
+  public componentDidMount(): void {
     fetch("https://www.mocky.io/v2/5caa6095300000440790457c")
       .then(response => {
         if (response.status !== 200) {
@@ -20,23 +25,26 @@ export const MovieListScreen: React.FunctionComponent = () => {
         }
 
         response.json()
-          .then(resp => setMovies(resp));
+          .then(resp => this.setState({ movies: resp }));
       })
       .catch(err => console.error(err));
-  }, []);
+  }
 
-  return (
-    <div>
-      <p>Welcome!</p>
-      <ul>
-        {movies ? movies.map(movie => (
-            <li key={movie.id}>
-              <Link to={`/movie/${movie.id}`}> {movie.title} </Link>
-            </li>
-          ))
-          : null
-        }
-      </ul>
-    </div>
-  );
-};
+  public render(): React.ReactNode {
+    const { movies } = this.state;
+    return (
+      <div>
+        <p>Welcome!</p>
+        <ul>
+          {movies ? movies.map(movie => (
+              <li key={movie.id}>
+                <Link to={`/movie/${movie.id}`}> {movie.title} </Link>
+              </li>
+            ))
+            : null
+          }
+        </ul>
+      </div>
+    );
+  }
+}
