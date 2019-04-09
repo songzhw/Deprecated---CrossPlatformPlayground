@@ -18,3 +18,8 @@
 .activeHeaderLink {
   border-bottom: #ebebeb solid 2px;
 }
+
+.search-container {
+  text-align: right;
+  margin-right: 10px;
+}
