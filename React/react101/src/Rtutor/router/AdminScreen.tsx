@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Route } from "react-router-dom";
 import "./AdminScreen.css";
+import { AdminUsersComponent } from "./AdminUsersComponent";
 
 export const AdminScreen = () => {
 
@@ -23,9 +24,7 @@ export const AdminScreen = () => {
   );
 };
 
-const AdminUsersComponent = () => {
-  return (<div>Admin users</div>);
-};
+
 
 const AdminMoviesComponent = () => {
   return (<div>Admin movies</div>);

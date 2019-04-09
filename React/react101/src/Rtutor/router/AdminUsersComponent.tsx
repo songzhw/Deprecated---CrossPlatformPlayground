@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route, RouteComponentProps } from "react-router-dom";
 import "./AdminScreen.css";
 
 interface IUser {
@@ -24,7 +24,25 @@ export const AdminUsersComponent: React.FunctionComponent = () => {
           </li>
         ))}
       </ul>
+      <Route path="/admin/users/:id" component={AdminUserDetail}/>
     </div>
   );
 };
 
+const AdminUserDetail: React.FunctionComponent<RouteComponentProps<{ id: string }>> = (props) => {
+  let user: IUser;
+  if (props.match.params.id) {
+    const id: number = parseInt(props.match.params.id, 10);
+    user = userList.filter(u => u.id === id)[0];
+  } else {
+    return null;
+  }
+  console.log(user)
+
+  return (
+    <div>
+      <p> {user.name} </p>
+      <p> isAdmin = {user.isAdmin ? "yes" : "no"}</p>
+    </div>
+  );
+};
