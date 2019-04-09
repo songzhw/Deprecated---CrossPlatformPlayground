@@ -6,6 +6,7 @@ import { MovieScreen } from "./MovieScreen";
 import { CountScreen } from "./CountScreen";
 import { NotFoundScreen } from "./NotFoundScreen";
 import { LoginScreen } from "./LoginScreen";
+import { AdminScreen } from "./AdminScreen";
 
 export const FirstRoutes: React.FunctionComponent = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -19,6 +20,7 @@ export const FirstRoutes: React.FunctionComponent = () => {
           <Route path="/count">
             {isLoggedIn ? <CountScreen/> : <LoginScreen/>}
           </Route>
+          <Route path="/admin" component={AdminScreen}/>
           <Route exact={true} path="/movie" component={MovieListScreen}/>
           <Route path="/movie/:id" component={MovieScreen}/>
           <Route component={NotFoundScreen}/>
