@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import { Header } from "./Header";
-import { AdminScreen } from "./AdminScreen";
 import { MovieListScreen } from "./MovieListScreen";
 import { MovieScreen } from "./MovieScreen";
+import { CountScreen } from "./CountScreen";
 import { NotFoundScreen } from "./NotFoundScreen";
 import { LoginScreen } from "./LoginScreen";
 
@@ -16,8 +16,8 @@ export const FirstRoutes: React.FunctionComponent = () => {
         <Header/>
         <Switch>
           <Redirect exact={true} from="/" to="/admin"/>
-          <Route path="/admin">
-            {isLoggedIn ? <AdminScreen/> : <LoginScreen/>}
+          <Route path="/count">
+            {isLoggedIn ? <CountScreen/> : <LoginScreen/>}
           </Route>
           <Route exact={true} path="/movie" component={MovieListScreen}/>
           <Route path="/movie/:id" component={MovieScreen}/>

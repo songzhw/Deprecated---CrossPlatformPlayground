@@ -4,7 +4,7 @@ interface IState {
   num: string;
 }
 
-export class AdminScreen extends Component<{}, IState> {
+export class CountScreen extends Component<{}, IState> {
   public state = { num: "*" };
 
   public render() {

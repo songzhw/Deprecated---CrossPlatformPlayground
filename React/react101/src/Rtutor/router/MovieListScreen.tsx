@@ -49,5 +49,3 @@ export const MovieListScreen: React.FunctionComponent<RouteComponentProps> = (pr
     </div>
   );
 };
-
-
