@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Redirect, Route, RouteComponentProps, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, RouteComponentProps, Router, Switch } from "react-router-dom";
 import { Header } from "./Header";
 import { MovieListScreen } from "./MovieListScreen";
 import { MovieScreen } from "./MovieScreen";
@@ -14,24 +14,30 @@ export const RoutesForFirst: React.FunctionComponent<RouteComponentProps> = (pro
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   return (
+    <div>
+      <Header/>
+      <TransitionGroup>
+        <CSSTransition timeout={500} key={props.location.key} classNames="animated">
+          <Switch>
+            <Redirect exact={true} from="/" to="/admin"/>
+            <Route path="/count">
+              {isLoggedIn ? <CountScreen/> : <LoginScreen/>}
+            </Route>
+            <Route path="/admin" component={AdminScreen}/>
+            <Route exact={true} path="/movie" component={MovieListScreen}/>
+            <Route path="/movie/:id" component={MovieScreen}/>
+            <Route component={NotFoundScreen}/>
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
+    </div>
+  );
+};
+
+export const RouterWrap: React.FunctionComponent = () => {
+  return (
     <BrowserRouter>
-      <div>
-        <Header/>
-        <TransitionGroup>
-          <CSSTransition timeout={500} key={props.location.key} classNames="animated">
-            <Switch>
-              <Redirect exact={true} from="/" to="/admin"/>
-              <Route path="/count">
-                {isLoggedIn ? <CountScreen/> : <LoginScreen/>}
-              </Route>
-              <Route path="/admin" component={AdminScreen}/>
-              <Route exact={true} path="/movie" component={MovieListScreen}/>
-              <Route path="/movie/:id" component={MovieScreen}/>
-              <Route component={NotFoundScreen}/>
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
-      </div>
+      <Route component={RoutesForFirst}/>
     </BrowserRouter>
   );
 };
