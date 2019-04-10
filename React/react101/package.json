@@ -11,6 +11,7 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "react-transition-group": "^2.9.0",
     "typescript": "3.4.1"
   },
   "scripts": {
@@ -30,6 +31,7 @@
   ],
   "devDependencies": {
     "@types/react-router-dom": "^4.3.1",
+    "@types/react-transition-group": "^2.8.0",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0"

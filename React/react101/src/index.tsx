@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { FirstRoutes } from "./Rtutor/router/FirstRoutes";
+import { RoutesForFirst } from "./Rtutor/router/RoutesForFirst";
 
-ReactDOM.render(<FirstRoutes/>, document.getElementById("root"));
+ReactDOM.render(<RoutesForFirst/>, document.getElementById("root"));
 
