@@ -9,6 +9,7 @@ import { LoginScreen } from "./LoginScreen";
 import { AdminScreen } from "./AdminScreen";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./RouterForFirst.css";
+import { NetworkDemo } from "../network_zip/NetworkDemo";
 
 export const RoutesForFirst: React.FunctionComponent<RouteComponentProps> = (props) => {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -26,6 +27,7 @@ export const RoutesForFirst: React.FunctionComponent<RouteComponentProps> = (pro
             <Route path="/admin" component={AdminScreen}/>
             <Route exact={true} path="/movie" component={MovieListScreen}/>
             <Route path="/movie/:id" component={MovieScreen}/>
+            <Route path="/download/image" component={NetworkDemo}/>
             <Route component={NotFoundScreen}/>
           </Switch>
         </CSSTransition>
