@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const NetworkDemo = () => {
+export const DownloadImage = () => {
   const [image, setImage] = useState("");
 
   function onClick() {
@@ -17,7 +17,7 @@ export const NetworkDemo = () => {
       xhr.onreadystatechange = () => {
         const blob = xhr.response;
         if (blob != null) { // 发现这里会调用"null", "null", "blob(...)"数据几次, 不加这个if就会crash
-          resolve(URL.createObjectURL(blob));
+          resolve(URL.createObjectURL(blob)); //说什么"Failed to execute 'createObjectURL' on 'URL": no function was found. 这是因为这里的blob可能为空. 所以要加这个if
         }
       };
       xhr.open("GET", uri, true);
