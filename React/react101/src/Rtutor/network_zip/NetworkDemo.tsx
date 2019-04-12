@@ -4,7 +4,7 @@ export const NetworkDemo = () => {
   const [image, setImage] = useState("");
 
   function onClick() {
-    loadImage("http://i64.tinypic.com/2nkmiqg.jpg")
+    loadImage("http://192.168.2.64:3000/wlake.jpg")
       .then(src => {
         setImage(src);
       });
@@ -15,7 +15,10 @@ export const NetworkDemo = () => {
       const xhr = new XMLHttpRequest();
       xhr.responseType = "blob";
       xhr.onreadystatechange = () => {
-        resolve(window.URL.createObjectURL(xhr.response));
+        const blob = xhr.response;
+        if (blob != null) { // 发现这里会调用"null", "null", "blob(...)"数据几次, 不加这个if就会crash
+          resolve(URL.createObjectURL(blob));
+        }
       };
       xhr.open("GET", uri, true);
       xhr.send();
