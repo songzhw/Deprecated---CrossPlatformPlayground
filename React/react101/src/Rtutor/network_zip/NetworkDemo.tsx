@@ -4,18 +4,19 @@ export const NetworkDemo = () => {
   const [image, setImage] = useState("");
 
   function onClick() {
-    loadImage("https://lovetogo.tw/201506_euro/nl-dehogeveluwe/photo/20150611-1457-15491.jpg")
-      .then(src => {
-        setImage(src);
-      });
+    loadImage("http://i64.tinypic.com/2nkmiqg.jpg");
+    // .then(src => {
+    //   setImage(src);
+    // });
   }
 
   function loadImage(uri: string): Promise<any> {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.responseType = "blob";
+      xhr.withCredentials = false;
       xhr.onreadystatechange = () => {
-        resolve(window.URL.createObjectURL(xhr.response));
+        console.log(xhr.response);
       };
       xhr.open("GET", uri, true);
       xhr.send();
@@ -32,7 +33,7 @@ export const NetworkDemo = () => {
     <div>
       <button onClick={onClick}>download</button>
       <p> img = {image}  </p>
-      <img src={image} width={690} height={460} alt="loading" onLoad={onLoad}/>
+      <img src={image} width={720} height={1280} alt="loading" onLoad={onLoad}/>
     </div>
   );
 };
