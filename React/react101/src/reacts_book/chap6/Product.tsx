@@ -1,5 +1,6 @@
 import React from "react";
 import { IProduct } from "./ProductsData";
+import "../../index.css";
 
 interface IProps {
   product: IProduct;
@@ -9,19 +10,28 @@ interface IProps {
 
 export const Product: React.FunctionComponent<IProps> = props => {
   const { product, isInBasket, onAddToBasket } = props;
+  const price = new Intl.NumberFormat("en-US", {
+    currency: "USD",
+    style: "currency"
+  }).format(product.price);
+  const addButton = !isInBasket && (
+    <button onClick={onAddToBasket}>Add to basket</button>
+  );
   return (
     <React.Fragment>
       <h1>{product.name}</h1>
       <p>{product.description}</p>
-      <p className="product-price">
-        {new Intl.NumberFormat("en-US", {
-          currency: "USD",
-          style: "currency"
-        }).format(product.price)}
-      </p>
-      {!isInBasket && (
-        <button onClick={onAddToBasket}>Add to basket</button>
-      )}
+      <div>
+        <ul className="product-reviews">
+          {product.reviews.map(review => (
+            <li key={review.reviewer} className="product-reviews-item">
+              <i>"{review.comment}"</i> - {review.reviewer}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p className="product-price"> {price} </p>
+      {addButton}
     </React.Fragment>
   );
 };
