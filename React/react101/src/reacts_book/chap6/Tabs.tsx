@@ -68,3 +68,7 @@ export class Tabs extends React.Component<{}, IState> {
     this.setState({ activeName: name, activeContent: content });
   };
 }
+
+/*
+解决上面Tab中不应该有setState的问题: 就是用context, 把Tabs中的setState()传给Tab. 至于为何要用Context, 是因为Tab是static, 不能直接使用这个Tabs.handleClick()方法
+ */
