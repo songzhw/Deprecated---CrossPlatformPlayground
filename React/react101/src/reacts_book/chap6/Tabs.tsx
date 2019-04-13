@@ -23,7 +23,6 @@ export class Tabs extends React.Component<IProps, IState> {
     function onTabClick(e: React.MouseEvent<HTMLLIElement>) {
       const li = e.target as HTMLLIElement;
       const heading: string = li.textContent ? li.textContent.trim() : "";
-      console.log(`szw heading=${heading}`)
       setActiveTabName(heading);
     };
 
