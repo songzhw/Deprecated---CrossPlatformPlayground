@@ -1,6 +1,7 @@
 import React from "react";
 import { IProduct } from "./ProductsData";
 import "../../index.css";
+import { Tabs } from "./Tabs";
 
 interface IProps {
   product: IProduct;
@@ -20,6 +21,7 @@ export const Product: React.FunctionComponent<IProps> = props => {
   return (
     <React.Fragment>
       <h1>{product.name}</h1>
+      <Tabs tabNames={["Description", "Reviews"]} />
       <p>{product.description}</p>
       <div>
         <ul className="product-reviews">
