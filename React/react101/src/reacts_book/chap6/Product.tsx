@@ -23,20 +23,21 @@ export const Product: React.FunctionComponent<IProps> = props => {
       <h1>{product.name}</h1>
 
       <Tabs>
-        <Tabs.Tab name="Description" isInitActive={true}>Description</Tabs.Tab>
-        <Tabs.Tab name="Review" isInitActive={false}>Review</Tabs.Tab>
+        <Tabs.Tab name="Description" initialActive={true} heading={() => <b>Description</b>}>
+          <p>{product.description}</p>
+        </Tabs.Tab>
+
+        <Tabs.Tab name="Reviews" heading={() => "Reviews"}>
+          <ul className="product-reviews">
+            {product.reviews.map(review => (
+              <li key={review.reviewer}>
+                <i>"{review.comment}"</i> - {review.reviewer}
+              </li>
+            ))}
+          </ul>
+        </Tabs.Tab>
       </Tabs>
 
-      <p>{product.description}</p>
-      <div>
-        <ul className="product-reviews">
-          {product.reviews.map(review => (
-            <li key={review.reviewer} className="product-reviews-item">
-              <i>"{review.comment}"</i> - {review.reviewer}
-            </li>
-          ))}
-        </ul>
-      </div>
       <p className="product-price"> {price} </p>
       {addButton}
     </React.Fragment>
