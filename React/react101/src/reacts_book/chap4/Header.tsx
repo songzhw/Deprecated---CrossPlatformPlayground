@@ -1,6 +1,5 @@
 import * as React from "react";
 import { NavLink, RouteComponentProps, withRouter } from "react-router-dom";
-import "url-search-params-polyfill";
 import logo from "./logo.svg";
 
 const Header: React.FC<RouteComponentProps> = props => {
