@@ -9,6 +9,7 @@
     "object-literal-sort-keys": false,
     "no-debugger": false,
     "no-console": false,
+    "no-empty-interface": false,
     "comment-format": false,
     "member-ordering": [
       false

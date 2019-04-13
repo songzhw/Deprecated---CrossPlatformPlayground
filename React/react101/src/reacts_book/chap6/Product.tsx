@@ -21,7 +21,12 @@ export const Product: React.FunctionComponent<IProps> = props => {
   return (
     <React.Fragment>
       <h1>{product.name}</h1>
-      <Tabs tabNames={["Description", "Reviews"]} />
+
+      <Tabs>
+        <Tabs.Tab name="Description" isInitActive={true}> Description </Tabs.Tab>
+        <Tabs.Tab name="Review" isInitActive={false}> Review </Tabs.Tab>
+      </Tabs>
+
       <p>{product.description}</p>
       <div>
         <ul className="product-reviews">
