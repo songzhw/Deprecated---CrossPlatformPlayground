@@ -23,8 +23,8 @@ export const Product: React.FunctionComponent<IProps> = props => {
       <h1>{product.name}</h1>
 
       <Tabs>
-        <Tabs.Tab name="Description" isInitActive={true}> Description </Tabs.Tab>
-        <Tabs.Tab name="Review" isInitActive={false}> Review </Tabs.Tab>
+        <Tabs.Tab name="Description" isInitActive={true}>Description</Tabs.Tab>
+        <Tabs.Tab name="Review" isInitActive={false}>Review</Tabs.Tab>
       </Tabs>
 
       <p>{product.description}</p>
