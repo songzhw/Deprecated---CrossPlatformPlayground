@@ -8,22 +8,37 @@ interface IState {
   activeTabName: string; //active heading name
 }
 
-interface ITabProps {
+interface IOneTabProps {
   name: string;
   isInitActive?: boolean
 }
 
+
+interface ITabContext {
+  activeName: string;
+  onTabClick?: (e: React.MouseEvent<HTMLLIElement>) => void;
+}
+
+const TabContext = React.createContext<ITabContext>({ activeName: "" });
+
+
 export class Tabs extends React.Component<IProps, IState> {
 
-  public static Tab: React.FunctionComponent<ITabProps> = props => (
+  public static Tab: React.FunctionComponent<IOneTabProps> = props => (
     <li> {props.children} </li>
   );
 
   public render(): React.ReactNode {
+    const contextValue = {
+      activeName: this.state ? this.state.activeTabName : "",
+      onTabClick: this.onTabClick
+    };
     return (
-      <ul className="tabs">
-        {this.props.children}
-      </ul>
+      <TabContext.Provider value={contextValue}>
+        <ul className="tabs">
+          {this.props.children}
+        </ul>
+      </TabContext.Provider>
     );
   }
 
