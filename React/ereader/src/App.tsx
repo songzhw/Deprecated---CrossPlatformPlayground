@@ -1,22 +1,13 @@
 import React, { Component } from "react";
+import { EpubView } from "./epubView/EpubView";
 
 class App extends Component {
-  render() {
+  public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <EpubView
+          url="https://gerhardsletten.github.io/react-reader/files/alice.epub"
+        />
       </div>
     );
   }
