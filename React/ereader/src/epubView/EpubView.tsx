@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Book } from "epubjs";
+import { Book, Rendition } from "epubjs";
 import { NavItem } from "epubjs/types/navigation";
-import Rendition from "epubjs/types/rendition";
 
 interface IProps {
   url: string;
@@ -13,7 +12,7 @@ interface IState {
 }
 
 export class EpubView extends Component<IProps, IState> {
-  public state : IState = { isLoaded: false, tableOfContents: [] };
+  public state: IState = { isLoaded: false, tableOfContents: [] };
   private book!: Book;
   private viewRef!: any;
   private rendition!: Rendition;
@@ -44,10 +43,35 @@ export class EpubView extends Component<IProps, IState> {
 
   public render(): React.ReactNode {
     return (
-      <div ref={c => (this.viewRef = c)}>
+      <div>
+        <div ref={c => (this.viewRef = c)}/>
       </div>
     );
   }
 
-
 }
+
+/*
+the tableOfContents:
+[
+  {
+    "id": "titlepage.xhtml",
+    "href": "titlepage.xhtml",
+    "label": "Title Page",
+    "subitems": []
+  },
+  {
+    "id": "chapter_001.xhtml",
+    "href": "chapter_001.xhtml",
+    "label": "Down The Rabbit-Hole",
+    "subitems": []
+  },
+  ...
+  {
+    "id": "chapter_010.xhtml",
+    "href": "chapter_010.xhtml",
+    "label": "Alice's Evidence",
+    "subitems": []
+  }
+]
+ */
