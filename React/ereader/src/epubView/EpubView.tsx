@@ -13,7 +13,7 @@ interface IState {
 }
 
 export class EpubView extends Component<IProps, IState> {
-  public state = { isLoaded: false, tableOfContents: [] };
+  public state : IState = { isLoaded: false, tableOfContents: [] };
   private book!: Book;
   private viewRef!: any;
   private rendition!: Rendition;
