@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Epub from "epubjs/types/epub";
 import Book from "epubjs/types/book";
 
 interface IProps {
@@ -18,7 +17,7 @@ export class EpubView extends Component<IProps, IState> {
 
   public componentDidMount() {
     const { url } = this.props;
-    this.book = Epub(url, {});
+    this.book = ePub(url, {});
     this.book.loaded.navigation
       .then(({ toc }) => {
         this.setState({ isLoaded: true, tableOfContents: toc }, () => {
