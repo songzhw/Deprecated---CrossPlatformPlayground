@@ -46,16 +46,20 @@ class App extends Component {
 
   onParseXML = () => {
     let xml = `
-    <container xmlns="urn:oasis:names:tc:opendocument:xmlns:container" version="1.0">
-      <rootfiles>
-        <rootfile full-path="OPS/package.opf" media-type="application/oebps-package+xml"/>
-      </rootfiles>
-    </container>
-    `;
+      <?xml version="1.0" encoding="UTF-8"?>
+      <container xmlns="urn:oasis:names:tc:opendocument:xmlns:container" version="1.0">
+        <rootfiles>
+          <rootfile full-path="OPS/package.opf" media-type="application/oebps-package+xml">szw</rootfile>
+        </rootfiles>
+        <rootfile> 200 </rootfile>
+      </container>
+      `;
     const dom = new JSDOM(xml);
-    const node = dom.window.document.querySelector("container > rootfiles > rootfile")
-    console.log(`szw node text = ${node.textContent}`)
-    this.setState({text: node.textContent})
+    const node = dom.window.document.querySelector("rootfile");
+    console.log(`szw node text = ${node.textContent}`); //=> szw
+    console.log(`szw node path = ${node.getAttribute("full-path")}`); //=> OPS/package.opf
+    this.setState({ text: node.textContent });
+
   };
 
   onUnzipToc = () => {
