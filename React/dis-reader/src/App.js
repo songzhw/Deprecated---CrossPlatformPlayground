@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./index.css";
 import { http } from "./utils/download/HttpEngine";
 import * as JSZip from "jszip";
+import { JSDOM } from "jsdom";
 
 class App extends Component {
   state = { text: "unload" };
@@ -12,7 +13,9 @@ class App extends Component {
       <div className="appRootContainer">
         <span>{this.state.text}</span>
         <button className="buttonInHome" onClick={this.onDownload}>download epub</button>
-        <button className="buttonInHome" onClick={this.onUnzip}>unzip epub</button>
+        <button className="buttonInHome" onClick={this.onParseXML}>parse xml</button>
+        <button className="buttonInHome" onClick={this.onUnzipContainer}>unzip epub: META-INF/container.xml</button>
+        <button className="buttonInHome" onClick={this.onUnzipToc}>unzip epub: get ToC</button>
         {/*TODO read xml*/}
         {/*TODO render xhtml*/}
       </div>
@@ -28,7 +31,7 @@ class App extends Component {
       });
   };
 
-  onUnzip = () => {
+  onUnzipContainer = () => {
     const path = "META-INF/container.xml";
     JSZip.loadAsync(this.arraybufferResponse)
       .then(zip => {
@@ -37,7 +40,26 @@ class App extends Component {
       })
       .then(text => {
         console.log("szw content = ", text);
+        this.setState({ text });
       });
+  };
+
+  onParseXML = () => {
+    let xml = `
+    <container xmlns="urn:oasis:names:tc:opendocument:xmlns:container" version="1.0">
+      <rootfiles>
+        <rootfile full-path="OPS/package.opf" media-type="application/oebps-package+xml"/>
+      </rootfiles>
+    </container>
+    `;
+    const dom = new JSDOM(xml);
+    const node = dom.window.document.querySelector("container > rootfiles > rootfile")
+    console.log(`szw node text = ${node.textContent}`)
+    this.setState({text: node.textContent})
+  };
+
+  onUnzipToc = () => {
+
   };
 }
 
