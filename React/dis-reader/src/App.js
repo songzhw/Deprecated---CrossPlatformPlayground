@@ -120,7 +120,7 @@ class App extends Component {
 `;
     const dom2 = new JSDOM(another);
     const package2 = dom2.window.document.querySelector("package");
-    const spine = package2.querySelectorAll('package > spine > itemref[linear="yes"]');
+    const spine = package2.querySelectorAll('itemref[linear="yes"]');
     console.log("szw", spine);
     spine.forEach(item => console.log(`szw spine idref = ${item.getAttribute("idref")}`));
   };
