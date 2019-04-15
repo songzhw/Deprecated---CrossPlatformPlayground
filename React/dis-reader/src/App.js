@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import "./index.css";
 import { http } from "./utils/download/HttpEngine";
+import Archive from "./utils/zip/Archive";
 
 class App extends Component {
+  state = { text: "unload" };
 
   render() {
     return (
       <div className="appRootContainer">
+        <span>{this.state.text}</span>
         <button className="buttonInHome" onClick={this.onDownload}>download epub</button>
-        <button className="buttonInHome">unzip epub</button>
+        <button className="buttonInHome" onClick={this.onUnzip}>unzip epub</button>
         {/*TODO read xml*/}
         {/*TODO render xhtml*/}
       </div>
@@ -18,7 +21,16 @@ class App extends Component {
   onDownload = () => {
     const url = "https://gerhardsletten.github.io/react-reader/files/alice.epub";
     http(url)
-      .then(arraybufferData => this.arraybufferResponse = arraybufferData);
+      .then(arraybufferData => {
+        this.arraybufferResponse = arraybufferData;
+        this.setState({ text: "donwload finished" });
+      });
+  };
+
+  onUnzip = () => {
+    this.archive = new Archive(this.arraybufferResponse);
+    const containerFile = this.archive.getFile("META-INF/container.xml");
+    console.log(`szw ${containerFile}`);
   };
 }
 
