@@ -98,6 +98,7 @@ class App extends Component {
     <item id="chapter_008" href="chapter_008.xhtml" media-type="application/xhtml+xml"/>
     <item id="chapter_009" href="chapter_009.xhtml" media-type="application/xhtml+xml"/>
     <item id="chapter_010" href="chapter_010.xhtml" media-type="application/xhtml+xml"/>
+    <itemref linear="yes" idref="joke"/>
   </manifest>
   <spine>
     <!-- Frontmater -->
@@ -120,9 +121,9 @@ class App extends Component {
 `;
     const dom2 = new JSDOM(another);
     const package2 = dom2.window.document.querySelector("package");
-    const spine = package2.querySelectorAll('itemref[linear="yes"]');
-    console.log("szw", spine);
-    spine.forEach(item => console.log(`szw spine idref = ${item.getAttribute("idref")}`));
+    const spine = package2.querySelector("spine");
+    const chapters = spine.querySelectorAll(`itemref[linear='yes']`);
+    chapters.forEach(item => console.log(`szw spine idref = ${item.getAttribute("idref")}`));
   };
 
   onUnzipToc = () => {
