@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
+import { http } from "./utils/download/HttpEngine";
 
 class App extends Component {
 
@@ -16,18 +17,8 @@ class App extends Component {
 
   onDownload = () => {
     const url = "https://gerhardsletten.github.io/react-reader/files/alice.epub";
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.responseType = "arraybuffer";
-    xhr.onload = () => {
-      if (xhr.status && xhr.status < 400) {
-        console.log(`szw got resposne : ${xhr.status}`);
-        this.arraybufferResponse = xhr.response;
-      } else {
-        console.log(`szw error on downloading : ${xhr.status}`);
-      }
-    };
-    xhr.send();
+    http(url)
+      .then(arraybufferData => this.arraybufferResponse = arraybufferData);
   };
 }
 
