@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./index.css";
 import { http } from "./utils/download/HttpEngine";
-import Archive from "./utils/zip/Archive";
+import * as JSZip from "jszip";
 
 class App extends Component {
   state = { text: "unload" };
+
 
   render() {
     return (
@@ -28,14 +29,15 @@ class App extends Component {
   };
 
   onUnzip = () => {
-    this.archive = new Archive(this.arraybufferResponse);
-    const containerFile = this.archive.getFile("META-INF/container.xml"); //若找不到文件, 返回值为undefined; 找到就返回一个ArchiveEntry
-    containerFile.extract()
-      .then(() => {
-        let document = containerFile.getFileContentAsDOM();
-        console.log(`szw document`, document)
+    const path = "META-INF/container.xml";
+    JSZip.loadAsync(this.arraybufferResponse)
+      .then(zip => {
+        return zip.file(path)
+          .async("string");
+      })
+      .then(text => {
+        console.log("szw content = ", text);
       });
-    console.log("szw", containerFile);
   };
 }
 
