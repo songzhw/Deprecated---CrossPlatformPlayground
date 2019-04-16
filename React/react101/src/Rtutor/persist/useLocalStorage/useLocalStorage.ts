@@ -1,7 +1,8 @@
 // localstorage的k,v都只能为string
 import { useState } from "react";
+import { PetCombination } from "./FavoritePetScreen";
 
-export function useLocalStorage(key: string): [string, (pet: string) => void] {
+export function useLocalStorage(key: string): PetCombination {
   const defaultPet = localStorage.getItem(key) ? localStorage.getItem(key)! : "";
   const [pet, setPet] = useState<string>(defaultPet);
 
