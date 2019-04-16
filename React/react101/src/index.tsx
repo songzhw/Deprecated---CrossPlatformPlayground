@@ -4,6 +4,7 @@ import "./index.css";
 import { RouterWrap } from "./Rtutor/router/RoutesForFirst";
 import { RouterForNetwork } from "./Rtutor/network_zip/RouterForNetwork";
 import RouterChap6 from "./reacts_book/chap6/Routes";
+import { FavoritePetScreen } from "./Rtutor/persist/useLocalStorage/FavoritePetScreen";
 
-ReactDOM.render(<RouterChap6/>, document.getElementById("root"));
+ReactDOM.render(<FavoritePetScreen/>, document.getElementById("root"));
 
