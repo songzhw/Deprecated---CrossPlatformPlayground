@@ -6,6 +6,7 @@ import { JSDOM } from "jsdom";
 
 class App extends Component {
   state = { text: "unload" };
+  chapter = "<div/>";
 
 
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <button className="buttonInHome" onClick={this.onParseXML}>parse xml</button>
         <button className="buttonInHome" onClick={this.onUnzipContainer}>unzip epub: META-INF/container.xml</button>
         <button className="buttonInHome" onClick={this.onLoadOne}>chapter 01</button>
+        <div dangerouslySetInnerHTML={this.renderChapter}/>
         {/*TODO read xml*/}
         {/*TODO render xhtml*/}
       </div>
@@ -135,7 +137,12 @@ class App extends Component {
       })
       .then(text => {
         console.log("szw content = ", text);
+        this.chapter = text;
       });
+  };
+
+  renderChapter = () => {
+    return { __html: this.chapter };
   };
 }
 
