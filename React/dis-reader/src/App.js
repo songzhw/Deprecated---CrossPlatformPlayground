@@ -5,8 +5,7 @@ import * as JSZip from "jszip";
 import { JSDOM } from "jsdom";
 
 class App extends Component {
-  state = { text: "unload" };
-  chapter = "<div/>";
+  state = { text: "unload", chapter: "<div/>" };
 
 
   render() {
@@ -137,12 +136,12 @@ class App extends Component {
       })
       .then(text => {
         console.log("szw content = ", text);
-        this.chapter = text;
+        this.setState({ chapter: text });
       });
   };
 
   renderChapter = () => {
-    return { __html: this.chapter };
+    return { __html: this.state.chapter };
   };
 }
 
