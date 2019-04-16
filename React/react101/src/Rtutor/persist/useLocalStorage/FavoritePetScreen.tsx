@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useLocalStorage } from "./useLocalStorage";
 
 export const FavoritePetScreen = () => {
-  const [pet, setPet] = useState("");
+  const [pet, setPet] = useLocalStorage("key1");
 
   function onClick(event: React.MouseEvent<HTMLButtonElement>) {
     const name = event.currentTarget.dataset.pet!;
