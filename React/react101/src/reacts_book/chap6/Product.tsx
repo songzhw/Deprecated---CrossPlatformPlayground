@@ -1,29 +1,34 @@
-import React from "react";
+import * as React from "react";
 import { IProduct } from "./ProductsData";
-import "../../index.css";
-import { Tabs } from "./Tabs";
+import Tabs from "./Tabs";
+import withLoader from "./withLoader";
 
 interface IProps {
-  product: IProduct;
-  isInBasket: boolean;
+  product?: IProduct;
+  inBasket: boolean;
   onAddToBasket: () => void;
 }
 
-export const Product: React.FunctionComponent<IProps> = props => {
-  const { product, isInBasket, onAddToBasket } = props;
-  const price = new Intl.NumberFormat("en-US", {
-    currency: "USD",
-    style: "currency"
-  }).format(product.price);
-  const addButton = !isInBasket && (
-    <button onClick={onAddToBasket}>Add to basket</button>
-  );
+const Product: React.FC<IProps> = props => {
+  const product = props.product;
+
+  const handleAddClick = () => {
+    props.onAddToBasket();
+  };
+
+  if (!product) {
+    return null;
+  }
+
   return (
     <React.Fragment>
       <h1>{product.name}</h1>
-
       <Tabs>
-        <Tabs.Tab name="Description" initialActive={true} heading={() => <b>Description</b>}>
+        <Tabs.Tab
+          name="Description"
+          initialActive={true}
+          heading={() => <b>Description</b>}
+        >
           <p>{product.description}</p>
         </Tabs.Tab>
 
@@ -37,9 +42,17 @@ export const Product: React.FunctionComponent<IProps> = props => {
           </ul>
         </Tabs.Tab>
       </Tabs>
-
-      <p className="product-price"> {price} </p>
-      {addButton}
+      <p className="product-price">
+        {new Intl.NumberFormat("en-US", {
+          currency: "USD",
+          style: "currency"
+        }).format(product.price)}
+      </p>
+      {!props.inBasket && (
+        <button onClick={handleAddClick}>Add to basket</button>
+      )}
     </React.Fragment>
   );
 };
+
+export default withLoader(Product);
