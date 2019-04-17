@@ -5,7 +5,7 @@ import * as JSZip from "jszip";
 import { JSDOM } from "jsdom";
 
 class App extends Component {
-  state = { text: "unload", chapter: "<div/>" };
+  state = { text: "unload", chapter: "<div/>", imgSrc: "" };
 
 
   render() {
@@ -15,8 +15,12 @@ class App extends Component {
         <button className="buttonInHome" onClick={this.onDownload}>download epub</button>
         <button className="buttonInHome" onClick={this.onParseXML}>parse xml</button>
         <button className="buttonInHome" onClick={this.onUnzipContainer}>unzip epub: META-INF/container.xml</button>
+        <button className="buttonInHome" onClick={this.onUnzipImage}> unzip epub: image</button>
+        <button className="buttonInHome" onClick={this.onLoadOneWu}><s>- chapter 01 (raw) -</s></button>
         <button className="buttonInHome" onClick={this.onLoadOne}>chapter 01</button>
+
         <div dangerouslySetInnerHTML={this.renderChapter()}/>
+        <img src={this.state.imgSrc} width={160} height={193} alt=""/>
         {/*TODO read xml*/}
         {/*TODO render xhtml*/}
       </div>
@@ -127,12 +131,26 @@ class App extends Component {
     chapters.forEach(item => console.log(`szw spine idref = ${item.getAttribute("idref")}`));
   };
 
-  onLoadOne = () => {
+  onUnzipImage = () => {
+    const path = "OPS/images/i001_th.jpg";
+    JSZip.loadAsync(this.arraybufferResponse)
+      .then(zip => {
+        return zip.file(path)
+          .async("blob");
+      })
+      .then(blob => {
+        console.log(`szw blob = ${blob}, blogURL = ${URL.createObjectURL(blob)}`);
+        //=> szw blob = [object Blob], blogURL = blob:http://localhost:3000/1906c6a7-9bec-41d9-bb21-7c13f95e646a
+        this.setState({ imgSrc: URL.createObjectURL(blob) });
+      });
+  };
+
+  onLoadOneWu = () => {
     const path = "OPS/chapter_001.xhtml";
     JSZip.loadAsync(this.arraybufferResponse)
       .then(zip => {
         return zip.file(path)
-          .async("string");
+          .async("string"); //返回个Promise
       })
       .then(text => {
         console.log("szw content = ", text);
@@ -143,6 +161,18 @@ class App extends Component {
   renderChapter = () => {
     return { __html: this.state.chapter };
   };
+
+  onLoadOne = () => {
+    const text = `<div> <img src="image/a.jpg"/> </div> <p>work</p> <img src="image/bean.jpg"/>`;
+    const pattern = /image/g;  //"g"是modifier, 表示是会查找完, 而不是找到第一个就结束
+    const result = text.replace(pattern, "myurl");
+    console.log(`szw regexp replace result = ${result}`);
+  };
 }
 
 export default App;
+
+/*
+JSZip extract image : https://github.com/Stuk/jszip/issues/399
+
+ */
