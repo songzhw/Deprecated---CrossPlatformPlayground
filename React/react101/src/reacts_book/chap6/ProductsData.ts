@@ -1,14 +1,14 @@
+export interface IReview {
+  comment: string;
+  reviewer: string;
+}
+
 export interface IProduct {
   id: number;
   name: string;
   description: string;
   price: number;
   reviews: IReview[];
-}
-
-export interface IReview {
-  comment: string;
-  reviewer: string;
 }
 
 export const products: IProduct[] = [
@@ -23,10 +23,7 @@ export const products: IProduct[] = [
         comment: "Excellent! This does everything I want",
         reviewer: "Billy"
       },
-      {
-        comment: "The best router I've ever worked with", reviewer:
-          "Sally"
-      }
+      { comment: "The best router I've ever worked with", reviewer: "Sally" }
     ]
   },
   {
@@ -62,3 +59,13 @@ export const products: IProduct[] = [
     ]
   }
 ];
+
+export const getProduct = async (id: number): Promise<IProduct | null> => {
+  await wait(1000);
+  const foundProducts = products.filter(customer => customer.id === id);
+  return foundProducts.length === 0 ? null : foundProducts[0];
+};
+
+const wait = (ms: number): Promise<void> => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};

@@ -4,21 +4,18 @@ interface ITabsContext {
   activeName?: string;
   handleTabClick?: (name: string, content: React.ReactNode) => void;
 }
-
 const TabsContext = React.createContext<ITabsContext>({});
 
 interface IState {
   activeName: string;
   activeContent: React.ReactNode;
 }
-
 interface ITabProps {
   name: string;
   initialActive?: boolean;
   heading: () => string | JSX.Element;
 }
-
-export class Tabs extends React.Component<{}, IState> {
+class Tabs extends React.Component<{}, IState> {
   public static Tab: React.FC<ITabProps> = props => (
     <TabsContext.Consumer>
       {(context: ITabsContext) => {
@@ -31,8 +28,8 @@ export class Tabs extends React.Component<{}, IState> {
         const activeName = context.activeName
           ? context.activeName
           : props.initialActive
-            ? props.name
-            : "";
+          ? props.name
+          : "";
         const handleTabClick = (e: React.MouseEvent<HTMLLIElement>) => {
           if (context.handleTabClick) {
             context.handleTabClick(props.name, props.children);
@@ -49,7 +46,6 @@ export class Tabs extends React.Component<{}, IState> {
       }}
     </TabsContext.Consumer>
   );
-
   public render() {
     return (
       <TabsContext.Provider
@@ -69,6 +65,4 @@ export class Tabs extends React.Component<{}, IState> {
   };
 }
 
-/*
-解决上面Tab中不应该有setState的问题: 就是用context, 把Tabs中的setState()传给Tab. 至于为何要用Context, 是因为Tab是static, 不能直接使用这个Tabs.handleClick()方法
- */
+export default Tabs;
