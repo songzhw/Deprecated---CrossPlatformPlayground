@@ -163,16 +163,17 @@ class App extends Component {
   };
 
   onLoadOne = () => {
-    const text = `<div> <img height={40} src ="image/a.jpg"/> </div> <p>work</p> <img src= "image/bean.jpg"/>`;
+    const text = `<div> <img height={40} src ="image/a.jpg"/> </div> <p>work</p> <img src= 'image/bean.jpg'/>`;
     const pattern = /<img[^>]*src *= *["']([^"']*)["']/g;  //"g"是modifier, 表示是会查找完, 而不是找到第一个就结束不找了.
     let result = pattern.exec(text);
-    let tmp = [];
-    while(result){
-      console.log(result[1]);
-      tmp.push(result[1]);
+    let tmp = text;
+    while (result) {
+      let found = result[1];
+      console.log(found);
+      tmp = tmp.replace(found, "xyz");
       result = pattern.exec(text);
     }
-    this.setState({ text: tmp.map(item => `${item}, `) });
+    this.setState({ text: tmp });
   };
 }
 
