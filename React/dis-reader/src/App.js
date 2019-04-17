@@ -164,9 +164,10 @@ class App extends Component {
 
   onLoadOne = () => {
     const text = `<div> <img src="image/a.jpg"/> </div> <p>work</p> <img src="image/bean.jpg"/>`;
-    const pattern = /image/g;  //"g"是modifier, 表示是会查找完, 而不是找到第一个就结束
+    const pattern = /src *= *["']*["']/g;  //"g"是modifier, 表示是会查找完, 而不是找到第一个就结束不找了.
     const result = text.replace(pattern, "myurl");
     console.log(`szw regexp replace result = ${result}`);
+    this.setState({text: result})
   };
 }
 
