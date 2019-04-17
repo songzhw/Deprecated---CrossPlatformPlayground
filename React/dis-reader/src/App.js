@@ -5,7 +5,7 @@ import * as JSZip from "jszip";
 import { JSDOM } from "jsdom";
 
 class App extends Component {
-  state = { text: "unload" };
+  state = { text: "unload", chapter: "<div/>" };
 
 
   render() {
@@ -15,7 +15,8 @@ class App extends Component {
         <button className="buttonInHome" onClick={this.onDownload}>download epub</button>
         <button className="buttonInHome" onClick={this.onParseXML}>parse xml</button>
         <button className="buttonInHome" onClick={this.onUnzipContainer}>unzip epub: META-INF/container.xml</button>
-        <button className="buttonInHome" onClick={this.onUnzipToc}>unzip epub: get ToC</button>
+        <button className="buttonInHome" onClick={this.onLoadOne}>chapter 01</button>
+        <div dangerouslySetInnerHTML={this.renderChapter()}/>
         {/*TODO read xml*/}
         {/*TODO render xhtml*/}
       </div>
@@ -126,8 +127,21 @@ class App extends Component {
     chapters.forEach(item => console.log(`szw spine idref = ${item.getAttribute("idref")}`));
   };
 
-  onUnzipToc = () => {
+  onLoadOne = () => {
+    const path = "OPS/chapter_001.xhtml";
+    JSZip.loadAsync(this.arraybufferResponse)
+      .then(zip => {
+        return zip.file(path)
+          .async("string");
+      })
+      .then(text => {
+        console.log("szw content = ", text);
+        this.setState({ chapter: text });
+      });
+  };
 
+  renderChapter = () => {
+    return { __html: this.state.chapter };
   };
 }
 
