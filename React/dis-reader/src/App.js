@@ -164,7 +164,7 @@ class App extends Component {
 
   onLoadOne = () => {
     const text = `<div> <img height={40} src ="image/a.jpg"/> </div> <p>work</p> <img src= "image/bean.jpg"/>`;
-    const pattern = /<img[^>]*src *= *["']([^"'])*["']/g;  //"g"是modifier, 表示是会查找完, 而不是找到第一个就结束不找了.
+    const pattern = /<img[^>]*src *= *["']([^"']*)["']/;  //"g"是modifier, 表示是会查找完, 而不是找到第一个就结束不找了.
     const result1 = text.match(pattern);
     console.log(result1);
     const result2 = text.replace(pattern, `src="myurl"`);
