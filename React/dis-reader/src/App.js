@@ -16,7 +16,7 @@ class App extends Component {
         <button className="buttonInHome" onClick={this.onParseXML}>parse xml</button>
         <button className="buttonInHome" onClick={this.onUnzipContainer}>unzip epub: META-INF/container.xml</button>
         <button className="buttonInHome" onClick={this.onUnzipImage}> unzip epub: image</button>
-        <button className="buttonInHome" onClick={this.onLoadOneWu}><s>- chapter 01 (raw) -</s></button>
+        <button className="buttonInHome" onClick={this.onLoadOne_Deprecated}><s>- chapter 01 (raw) -</s></button>
         <button className="buttonInHome" onClick={this.onLoadOne}>chapter 01</button>
 
         <div dangerouslySetInnerHTML={this.renderChapter()}/>
@@ -145,7 +145,7 @@ class App extends Component {
       });
   };
 
-  onLoadOneWu = () => {
+  onLoadOne_Deprecated = () => {
     const path = "OPS/chapter_001.xhtml";
     JSZip.loadAsync(this.arraybufferResponse)
       .then(zip => {
@@ -163,6 +163,7 @@ class App extends Component {
   };
 
   onLoadOne = () => {
+    /*
     const text = `<div> <img height={40} src ="image/a.jpg"/> </div> <p>work</p> <img src= 'image/bean.jpg'/>`;
     const pattern = /<img[^>]*src *= *["']([^"']*)["']/g;  //"g"是modifier, 表示是会查找完, 而不是找到第一个就结束不找了.
     let result = pattern.exec(text);
@@ -174,6 +175,46 @@ class App extends Component {
       result = pattern.exec(text);
     }
     this.setState({ text: tmp });
+    */
+
+
+    const path = "OPS/chapter_001.xhtml";
+    JSZip.loadAsync(this.arraybufferResponse)
+      .then(zip => {
+        return zip.file(path)
+          .async("string"); //返回个Promise
+      })
+      .then(text => {
+        console.log("szw content = ", text);
+        this.chapter1 = text;
+        const pattern = /<img[^>]*src *= *["']([^"']*)["']/g;  //"g"是modifier, 表示是会查找完, 而不是找到第一个就结束不找了.
+        let result = pattern.exec(text);
+        let foundImageSrcs = [];
+        while (result) {
+          let found = result[1];
+          foundImageSrcs.push(found);
+          result = pattern.exec(text);
+        }
+        console.log(`szw img = ${foundImageSrcs}`);
+
+        foundImageSrcs.forEach(item => {
+          const path = `OPS/${item}`;
+          JSZip.loadAsync(this.arraybufferResponse)
+            .then(zip => {
+              return zip.file(path)
+                .async("blob");
+            })
+            .then(blob => {
+              const urlInMemory = URL.createObjectURL(blob);
+              this.chapter1 = this.chapter1.replace(item, urlInMemory);
+              this.setState({ chapter: this.chapter1 });
+              console.log(`szw new chapter = `, this.chapter1);
+            });
+        });
+
+
+      });
+
   };
 }
 
