@@ -24,10 +24,10 @@ interface IProps {
 //   )
 // };
 
-const example = (url: string) : number => {
+const example = <T>(url: T) : number => {
   return 20;
 }
 
-export default withLoader;
+// export default withLoader;
 
 
