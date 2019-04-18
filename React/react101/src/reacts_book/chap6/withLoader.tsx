@@ -17,13 +17,13 @@ interface IProps {
 //     <InputComponent {...props} />
 //   );
 
-
-const withLoader = <P extends object>(InputComponent : React.ComponentType<P>): React.ComponentType<P> => {
-  return (props : P) => (
-    <InputComponent {...props}/>
-  )
+const withLoader = <P extends object>(InputComponent: React.ComponentType<P>): React.ComponentType<P & IProps> => {
+  return (props: P & IProps) => (
+    props.loading ?
+      (<div>loading....</div>) :
+      (<InputComponent {...props}/>)
+  );
 };
-
 
 
 export default withLoader;
