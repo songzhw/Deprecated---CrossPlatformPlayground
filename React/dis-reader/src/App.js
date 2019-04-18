@@ -21,11 +21,10 @@ class App extends Component {
 
         {/*<div dangerouslySetInnerHTML={this.renderChapter()}/>*/}
         <img src={this.state.imgSrc} width={160} height={193} alt=""/>
-        <iframe id="inlineFrameExample"
+        <iframe className="iframe-chapter1"
+                height={500}
                 title="Inline Frame Example"
-                width="300"
-                height="200"
-                src={this.state.chapter}>
+                srcDoc={this.state.chapter}>
         </iframe>
         {/*TODO read xml*/}
         {/*TODO render xhtml*/}
