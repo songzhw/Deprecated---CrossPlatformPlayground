@@ -21,6 +21,12 @@ class App extends Component {
 
         <div dangerouslySetInnerHTML={this.renderChapter()}/>
         <img src={this.state.imgSrc} width={160} height={193} alt=""/>
+        <iframe id="inlineFrameExample"
+                title="Inline Frame Example"
+                width="300"
+                height="200"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+        </iframe>
         {/*TODO read xml*/}
         {/*TODO render xhtml*/}
       </div>
@@ -211,7 +217,6 @@ class App extends Component {
               console.log(`szw new chapter = `, this.chapter1);
             });
         });
-
 
       });
 
