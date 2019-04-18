@@ -47,6 +47,7 @@ const Header: React.FC<RouteComponentProps> = props => {
         >
           Admin
         </NavLink>
+        <NavLink to="/contactus" className="header-link" activeClassName="header-link-active"> Contact Us </NavLink>
       </nav>
     </header>
   );

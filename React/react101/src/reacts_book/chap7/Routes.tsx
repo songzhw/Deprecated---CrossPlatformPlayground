@@ -13,16 +13,18 @@ import {
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import Header from "./Header";
+
 const AdminPage = React.lazy(() => import("./AdminPage"));
 import ProductsPage from "./ProductsPage";
 import ProductPage from "./ProductPage";
 import LoginPage from "./LoginPage";
 import NotFoundPage from "./NotFoundPage";
+import { ContactUsPage } from "./ContactUsPage";
 
 const RoutesWrap: React.FC = () => {
   return (
     <Router>
-      <Route component={Routes} />
+      <Route component={Routes}/>
     </Router>
   );
 };
@@ -31,7 +33,7 @@ const Routes: React.FC<RouteComponentProps> = props => {
   const [loggedIn, setLoggedIn] = React.useState(true);
   return (
     <div>
-      <Header />
+      <Header/>
       <TransitionGroup>
         <CSSTransition
           key={props.location.key}
@@ -39,22 +41,23 @@ const Routes: React.FC<RouteComponentProps> = props => {
           classNames="animate"
         >
           <Switch>
-            <Redirect exact={true} from="/" to="/products" />
-            <Route exact={true} path="/products" component={ProductsPage} />
-            <Route path="/products/:id" component={ProductPage} />
+            <Redirect exact={true} from="/" to="/products"/>
+            <Route exact={true} path="/products" component={ProductsPage}/>
+            <Route path="/products/:id" component={ProductPage}/>
+            <Route path="/contactus" component={ContactUsPage}/>
             <Route path="/admin">
               {loggedIn ? (
                 <Suspense
                   fallback={<div className="page-container">Loading...</div>}
                 >
-                  <AdminPage />
+                  <AdminPage/>
                 </Suspense>
               ) : (
-                <Redirect to="/login" />
+                <Redirect to="/login"/>
               )}
             </Route>
-            <Route path="/login" component={LoginPage} />
-            <Route component={NotFoundPage} />
+            <Route path="/login" component={LoginPage}/>
+            <Route component={NotFoundPage}/>
           </Switch>
         </CSSTransition>
       </TransitionGroup>
