@@ -18,13 +18,15 @@ interface IProps {
 //   );
 
 
-const withLoader = <P>(InputComponent : React.ComponentType<P>): React.ComponentType<P> => {
-  return (props : P) => (
-    <InputComponent {...props}/>
-  )
-};
+// const withLoader = <P>(InputComponent : React.ComponentType<P>): React.ComponentType<P> => {
+//   return (props : P) => (
+//     <InputComponent {...props}/>
+//   )
+// };
 
-
+const example = (url: string) : number => {
+  return 20;
+}
 
 export default withLoader;
 
