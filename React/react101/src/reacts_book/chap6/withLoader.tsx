@@ -24,7 +24,7 @@ interface IProps {
 //   )
 // };
 
-const example = <T>(url: T) : number => {
+const example = <T extends object>(url: T) : number => {
   return 20;
 }
 
