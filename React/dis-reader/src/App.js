@@ -20,9 +20,10 @@ class App extends Component {
         <button className="buttonInHome" onClick={this.onLoadOne}>chapter 01</button>
 
         {/*<div dangerouslySetInnerHTML={this.renderChapter()}/>*/}
-        <img src={this.state.imgSrc} width={160} height={193} alt=""/>
+        {/*<img src={this.state.imgSrc} width={160} height={193} alt=""/>*/}
         <iframe className="iframe-chapter1"
-                height={500}
+                height={600}
+                frameBorder="no"
                 title="Inline Frame Example"
                 srcDoc={this.state.chapter}>
         </iframe>
