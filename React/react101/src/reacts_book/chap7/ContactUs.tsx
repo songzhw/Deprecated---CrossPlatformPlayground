@@ -1,5 +1,6 @@
 import React from "react";
 import { FormLabelFiled } from "./FormLabelField";
+import { FormField } from "./FormField";
 
 interface IProps {
   name: string;
@@ -22,19 +23,17 @@ export const ContactUs: React.FC<IProps> = (props: IProps) => {
       <FormLabelFiled text="name" onChange={props.onNameChanged}/>
       <FormLabelFiled text="email" onChange={props.onEmailChanged}/>
 
-      <div className="form-group">
-        <label htmlFor="reason">Reason your need to contact us</label>
+      <FormField id="reason" label="Reason your need to contact us">
         <select id="reason" onChange={onReasonChanged}>
           <option value="Product">Production</option>
           <option value="Marketing">Marketing</option>
           <option value="Others">Others</option>
         </select>
-      </div>
+      </FormField>
 
-      <div className="form-group">
-        <label htmlFor={"notes"}>Additional notes</label>
+      <FormField id="notes" label="Additional notes">
         <textarea id="notes" onChange={onNoteChanged}/>
-      </div>
+      </FormField>
     </form>
   );
 };
