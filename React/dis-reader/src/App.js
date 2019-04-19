@@ -23,7 +23,7 @@ class App extends Component {
         {/*<img src={this.state.imgSrc} width={160} height={193} alt=""/>*/}
         <iframe className="iframe-chapter1"
                 height={600}
-                frameBorder="no"
+                frameBorder={0}
                 title="Inline Frame Example"
                 srcDoc={this.state.chapter}>
         </iframe>
