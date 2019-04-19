@@ -6,16 +6,20 @@ interface IProps {
   name: string;
   email: string;
   note: string;
+  // reason: string;
   onNameChanged: (name: string) => void;
   onEmailChanged: (email: string) => void;
+  // onReasonChanged: (note: string) => void;
   onNoteChanged: (note: string) => void;
 }
 
 export const ContactUs: React.FC<IProps> = (props: IProps) => {
   function onReasonChanged(ev: React.ChangeEvent<HTMLSelectElement>) {
+    console.log(`szw reason = ${ev.currentTarget.value}`)
   }
 
   function onNoteChanged(ev: React.ChangeEvent<HTMLTextAreaElement>) {
+    console.log(`szw note = ${ev.currentTarget.value}`)
   }
 
   return (
