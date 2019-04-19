@@ -17,10 +17,12 @@ export const ContactUsPage: React.FC = () => {
   const [note, setNote] = useState("");
 
   function onNameChanged(value: string) {
+    console.log(`szw name = ${value}`)
     setName(value);
   }
 
   function onEmailChanged(value: string) {
+    console.log(`szw email = ${value}`)
     setEmail(value);
   }
 
