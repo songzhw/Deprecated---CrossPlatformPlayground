@@ -1,4 +1,5 @@
 import React from "react";
+import { FormFiled } from "./FormField";
 
 interface IProps {
   name: string;
@@ -10,16 +11,18 @@ interface IProps {
 }
 
 export const ContactUs: React.FC<IProps> = (props: IProps) => {
-  function onNameChange(e: React.ChangeEvent<HTMLInputElement>) {
-    props.onNameChanged(e.currentTarget.value);
+  function onNameChange(value: string) {
+    props.onNameChanged(value);
+  }
+
+  function onEmailChange(value: string) {
+    props.onEmailChanged(value);
   }
 
   return (
     <form className="form" noValidate={true}>
-      <div className="form-group">
-        <label htmlFor='name'>Your name</label>
-        <input type="text" id="name" value={props.name} onChange={onNameChange}/>
-      </div>
+      <FormFiled text="name" onChange={onNameChange}/>
+      <FormFiled text="email" onChange={onEmailChange}/>
     </form>
   );
 };
