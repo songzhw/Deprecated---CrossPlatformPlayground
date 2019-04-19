@@ -5,7 +5,7 @@ interface IProps {
   onChange: (value: string) => void;
 }
 
-export const FormFiled: React.FC<IProps> = (props: IProps) => {
+export const FormLabelFiled: React.FC<IProps> = (props: IProps) => {
   const { text, onChange } = props;
 
   function onFiledChangee(e: React.ChangeEvent<HTMLInputElement>) {

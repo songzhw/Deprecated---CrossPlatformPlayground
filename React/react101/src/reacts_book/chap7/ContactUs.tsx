@@ -1,5 +1,5 @@
 import React from "react";
-import { FormFiled } from "./FormField";
+import { FormLabelFiled } from "./FormLabelField";
 
 interface IProps {
   name: string;
@@ -19,8 +19,8 @@ export const ContactUs: React.FC<IProps> = (props: IProps) => {
 
   return (
     <form className="form" noValidate={true}>
-      <FormFiled text="name" onChange={props.onNameChanged}/>
-      <FormFiled text="email" onChange={props.onEmailChanged}/>
+      <FormLabelFiled text="name" onChange={props.onNameChanged}/>
+      <FormLabelFiled text="email" onChange={props.onEmailChanged}/>
 
       <div className="form-group">
         <label htmlFor="reason">Reason your need to contact us</label>
