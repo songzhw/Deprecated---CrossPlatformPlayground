@@ -30,7 +30,8 @@ export const ContactUs: React.FC<IProps> = (props: IProps) => {
 
   function onSubmit(ev: React.FormEvent<HTMLFormElement>) {
     ev.preventDefault(); // to stop the browser automatically posting the form
-    Promise.resolve(["reason", "note"])
+    const promise = Promise.resolve(["reason", "note"])
+    props.onSubmit(promise)
   }
 
   return (
