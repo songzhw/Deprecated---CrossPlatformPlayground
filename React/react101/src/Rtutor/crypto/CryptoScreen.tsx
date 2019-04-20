@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Base64 from "crypto-js/enc-base64";
 import Utf8 from "crypto-js/enc-utf8";
+import SHA256 from "crypto-js/sha256";
 
 interface IProps {
 
@@ -17,10 +18,16 @@ export const CryptoScreen: React.FC<IProps> = (props: IProps) => {
     setResult(ret);
   }
 
+  function sha256() {
+    const ret = SHA256(src);
+    setResult(ret);
+  }
+
   return (
     <div>
-      <span>result = {result}</span>
+      <p>result = {result}</p>
       <button onClick={base64}>base64</button>
+      <button onClick={sha256}>SHA256</button>
     </div>
   );
 };
