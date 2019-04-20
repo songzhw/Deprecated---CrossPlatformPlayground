@@ -8,5 +8,5 @@ import RouterChap7 from "./reacts_book/chap7/Routes";
 import { FavoritePetScreen } from "./Rtutor/persist/useLocalStorage/FavoritePetScreen";
 import { CryptoScreen } from "./Rtutor/crypto/CryptoScreen";
 
-ReactDOM.render(<CryptoScreen/>, document.getElementById("root"));
+ReactDOM.render(<RouterChap7/>, document.getElementById("root"));
 

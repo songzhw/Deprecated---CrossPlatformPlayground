@@ -17,13 +17,17 @@ export const ContactUsPage: React.FC = () => {
   const [note, setNote] = useState("");
 
   function onNameChanged(value: string) {
-    console.log(`szw name = ${value}`)
+    console.log(`szw name = ${value}`);
     setName(value);
   }
 
   function onEmailChanged(value: string) {
-    console.log(`szw email = ${value}`)
+    console.log(`szw email = ${value}`);
     setEmail(value);
+  }
+
+  function onSubmit(result: Promise<string[]>) {
+    result.then(value => console.log(value));
   }
 
   function onNoteChanged(value: string) {
@@ -37,7 +41,8 @@ export const ContactUsPage: React.FC = () => {
       <ContactUs name={name} email={email} note={note}
                  onNameChanged={onNameChanged}
                  onEmailChanged={onEmailChanged}
-                 onNoteChanged={onNoteChanged}/>
+                 onNoteChanged={onNoteChanged}
+                 onSubmit={onSubmit}/>
     </div>
   );
 };
