@@ -44,3 +44,8 @@ export const CryptoScreen: React.FC<IProps> = (props: IProps) => {
     </div>
   );
 };
+
+/*
+crypto-js不支持RSA
+要使用RSA, 可以参考 https://github.com/travist/jsencrypt
+ */
