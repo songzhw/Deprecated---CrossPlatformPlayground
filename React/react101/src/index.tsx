@@ -6,6 +6,7 @@ import { RouterForNetwork } from "./Rtutor/network_zip/RouterForNetwork";
 import RouterChap6 from "./reacts_book/chap6/Routes";
 import RouterChap7 from "./reacts_book/chap7/Routes";
 import { FavoritePetScreen } from "./Rtutor/persist/useLocalStorage/FavoritePetScreen";
+import { CryptoScreen } from "./Rtutor/crypto/CryptoScreen";
 
-ReactDOM.render(<RouterChap7/>, document.getElementById("root"));
+ReactDOM.render(<CryptoScreen/>, document.getElementById("root"));
 
