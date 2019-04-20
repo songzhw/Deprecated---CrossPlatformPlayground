@@ -19,8 +19,9 @@ export const CryptoScreen: React.FC<IProps> = (props: IProps) => {
   }
 
   function sha256() {
-    const ret = SHA256(src);
-    setResult(ret);
+    const ary = SHA256(src); //=> 返回一个WordArray对象. WordArray有id, salt, ciphertext, key, toString(). 其中几个成员全是string类型
+    console.log(`szw sha256 salt = ${ary.salt}, key = ${ary.key}, ciphertext = ${ary.ciphertext}`) //=> undefined, undefined, undefined
+    setResult(ary.toString()); //=> bfc161b0d60418f77bca11445755dc8a2a24b77a0ef5678bf87e74d7a7d39206
   }
 
   return (
