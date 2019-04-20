@@ -15,8 +15,10 @@ export const CryptoScreen: React.FC<IProps> = (props: IProps) => {
 
   function base64() {
     const wordArray = Utf8.parse(src); //=> 48656c6c6f2c206a617661736372697074207365637572697479
-    const ret = Base64.stringify(wordArray); //=> SGVsbG8sIGphdmFzY3JpcHQgc2VjdXJpdHk=
-    setResult(ret);
+    const decoded = Base64.stringify(wordArray); //=> SGVsbG8sIGphdmFzY3JpcHQgc2VjdXJpdHk=
+    const back = Base64.parse(decoded);//=> 48656c6c6f2c206a617661736372697074207365637572697479
+    const reverted = Utf8.stringify(back); //=> Hello, javascript security
+    setResult(`decoded = ${decoded}, reverted = ${reverted}`);
   }
 
   function sha256() {
