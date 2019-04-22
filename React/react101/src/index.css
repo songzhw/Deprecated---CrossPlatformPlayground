@@ -204,8 +204,16 @@ code {
   background-color: black;
   color: white;
 }
+
 .form-group button:disabled {
   border: gray solid 1px;
   background-color: gray;
   cursor: not-allowed;
+}
+
+.posts {
+  list-style: none;
+  margin: 0px auto;
+  width: 800px;
+  text-align: left;
 }

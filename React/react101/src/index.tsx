@@ -8,6 +8,7 @@ import RouterChap7 from "./reacts_book/chap7/Routes";
 import { FavoritePetScreen } from "./Rtutor/persist/useLocalStorage/FavoritePetScreen";
 import { CryptoScreen } from "./Rtutor/crypto/CryptoScreen";
 import { UseCallbackDemo } from "./Rtutor/hooks/UseCallbackDemo";
+import { AxiosClass } from "./reacts_book/chap9/AxiosClass";
 
-ReactDOM.render(<UseCallbackDemo/>, document.getElementById("root"));
+ReactDOM.render(<AxiosClass/>, document.getElementById("root"));
 
