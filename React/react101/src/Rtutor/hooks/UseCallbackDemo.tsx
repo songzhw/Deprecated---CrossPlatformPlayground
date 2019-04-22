@@ -36,13 +36,21 @@ export const UseCallbackDemo = () => {
 // should updated only when the isGood changed
 const Child: React.FC<IChildProps> = (props: IChildProps) => {
   console.log(`szw Children get called : `, props);
-  // const memorized = useCallback(() => props.value, [props.value.isGood]);
-  const memorizedValue = props.value;
+  const memorized = useCallback(() => props.value, [props.value.isGood]);
+  const memorizedValue = memorized();
   const boolValue = Boolean(memorizedValue.isGood).toString();
   const text = `Child ${memorizedValue.id} - ${memorizedValue.name} - ${boolValue} `;
   return (
     <div>
+      {console.log(`child render`)}
       <p>{text}</p>
     </div>
   );
 };
+
+// 可见当name变化时, child仍是刷新了(走了"child render"), 只是数据仍是老数据而已
+// 所以这个不是shouldComponentUpdate()的效果, 我要的是Child根本不刷新
+
+// 可见useCallback()只是节省了useCallback(fn, dependencies)中的fn不要再次计算
+// 所以useCallback()适用于fn过于复杂的情况, 这样我们不用频繁地去计算它.
+// 但useCallback并不是shouldComponentUpdate()的优秀替代者
