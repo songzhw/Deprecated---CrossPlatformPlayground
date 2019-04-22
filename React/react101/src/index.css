@@ -217,3 +217,7 @@ code {
   width: 800px;
   text-align: left;
 }
+
+.error {
+  color: red;
+}
