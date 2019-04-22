@@ -14,7 +14,7 @@ const defaultPosts: IPost[] = [];
 export const AxiosFunction: React.FC = () => {
   const [posts, setPosts]: [IPost[], (posts: IPost[]) => void] = React.useState(defaultPosts);
   const [error, setError]: [string, (error: string) => void] = React.useState("");
-  const [loading, setLoading]: [boolean, (loading: boolean) => void] = React.useState(false);
+  const [loading, setLoading]: [boolean, (loading: boolean) => void] = React.useState<boolean>(false);
   const cancelToken = axios.CancelToken;
   const [cancelTokenSource, setCancelTokenSource]: [CancelTokenSource, (cancelSourceToken: CancelTokenSource) => void] = React.useState(cancelToken.source());
 };
