@@ -25,7 +25,7 @@ export const FormScreen = (props: IProps) => {
   }
 
   function onClick3(ev: React.MouseEvent<HTMLButtonElement>) {
-    work("num2");
+    work("num3");
   }
 
   return (

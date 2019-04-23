@@ -2,17 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { FormScreen } from "../FormScreen";
 import { Simulate } from "react-dom/test-utils";
-import { work } from "../Worker";
 import { render, fireEvent } from "react-testing-library";
-
-// describe("FormScreen form tests", () => {
-//   test("01", () => {
-//
-//   });
-// });
+import { work } from "../Worker";
 
 jest.mock("../Worker");
-
 
 describe("FormScreen other tests", () => {
 
@@ -28,6 +21,14 @@ describe("FormScreen other tests", () => {
   });
 
   test("click button3, expect work() starts to work", () => {
+    work.mockReturnThis();
 
+    const fn = jest.fn();
+    const { getAllByText, getByText } = render(<FormScreen onClick={fn}/>);
+
+    const button3 = getByText("Work Num3 (outsider worker)");
+    fireEvent.click(button3);
+
+    expect(work).toBeCalledWith("num3");
   });
 });
