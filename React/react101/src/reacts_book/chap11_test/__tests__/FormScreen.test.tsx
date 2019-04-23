@@ -21,6 +21,7 @@ describe("FormScreen other tests", () => {
   });
 
   test("click button3, expect work() starts to work", () => {
+    // @ts-ignore
     work.mockReturnThis();
 
     const fn = jest.fn();
