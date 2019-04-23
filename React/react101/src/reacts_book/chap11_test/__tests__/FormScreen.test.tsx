@@ -11,18 +11,23 @@ import { render, fireEvent } from "react-testing-library";
 //   });
 // });
 
+jest.mock("../Worker");
+
 
 describe("FormScreen other tests", () => {
+
   test("pass in a onClick props, and click button2, this passed function should be call", () => {
     const fn = jest.fn();
     const { getAllByText, getByText } = render(<FormScreen onClick={fn}/>);
 
-    const button2 = getByText("Work Num2");
+    const button2 = getByText("Work Num2 (props.onClick)");
     fireEvent.click(button2);
 
     // expect(fn).not.toBeCalled();  // failed
     expect(fn).toBeCalled();
+  });
 
+  test("click button3, expect work() starts to work", () => {
 
   });
 });

@@ -42,8 +42,8 @@ export const FormScreen = (props: IProps) => {
         </div>
       </form>
 
-      <button className="button2" onClick={onClick2}>Work Num2</button>
-      <button className="button2" onClick={onClick3}>Work Num2</button>
+      <button className="button2" onClick={onClick2}>Work Num2 (props.onClick)</button>
+      <button className="button2" onClick={onClick3}>Work Num3 (outsider worker)</button>
 
     </div>
   );
