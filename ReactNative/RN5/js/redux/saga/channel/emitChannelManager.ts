@@ -16,4 +16,4 @@ const work = (id: number) => {
   }
 };
 
-export default { registerListener, unregisterLister, work };
+export default { listener, registerListener, unregisterLister, work };
