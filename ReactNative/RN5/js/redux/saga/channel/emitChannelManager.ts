@@ -1,19 +1,19 @@
 type Listener = (id: number) => void;
 
-export class EmitChannelManager {
-  listener: Listener;
+var listener: Listener;
 
-  registerListener(l: Listener) {
-    this.listener = l;
-  }
+const registerListener = (l: Listener) => {
+  listener = l;
+};
 
-  unregisterLister() {
-    this.listener = null;
-  }
+const unregisterLister = () => {
+  listener = null;
+};
 
-  work(id: number) {
-    if (this.listener) {
-      this.listener(id);
-    }
+const work = (id: number) => {
+  if (this.listener) {
+    listener(id);
   }
-}
+};
+
+export default { registerListener, unregisterLister, work };

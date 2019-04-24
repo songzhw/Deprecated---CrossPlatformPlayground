@@ -1,5 +1,5 @@
-import { eventChannel, END } from "redux-saga";
-import { EmitChannelManager } from "./emitChannelManager";
+import { eventChannel } from "redux-saga";
+import EmitChannelManager from "./emitChannelManager";
 
 export function emitChannel2() {
   return eventChannel(emit => {
@@ -8,9 +8,8 @@ export function emitChannel2() {
       emit(num);
     };
 
-    const manager = new EmitChannelManager();
-    manager.registerListener(onObserve);
+    EmitChannelManager.registerListener(onObserve);
 
-    return () => console.log(`emitChannel unregister`);
+    return () => EmitChannelManager.unregisterLister();
   });
 }
