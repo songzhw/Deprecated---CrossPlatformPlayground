@@ -9,7 +9,7 @@ jest.mock("../Worker");
 
 describe("FormScreen other tests", () => {
 
-  afterEach(cleanup)
+  afterEach(cleanup);
 
   test("pass in a onClick props, and click button2, this passed function should be call", () => {
     const fn = jest.fn();

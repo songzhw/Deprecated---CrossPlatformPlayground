@@ -51,6 +51,7 @@ interface IValidation {
   validator: Validator;
   arg?: any;
 }
+
 interface IValidationProp {
   [key: string]: IValidation | IValidation[];
 }
@@ -78,6 +79,7 @@ interface IState {
   submitting: boolean;
   submitted: boolean;
 }
+
 export class Form extends React.Component<IFormProps, IState> {
   public static Field: React.FC<IFieldProps> = props => {
     const { name, label, type, options } = props;
@@ -132,25 +134,29 @@ export class Form extends React.Component<IFormProps, IState> {
                 onBlur={e => handleBlur(e, context)}
               >
                 {options &&
-                  options.map(option => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
+                options.map(option => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
               </select>
             )}
             {context.errors[name] &&
-              context.errors[name].length > 0 &&
-              context.errors[name].map(error => (
-                <span key={error} className="form-error">
+            context.errors[name].length > 0 && (
+              <div data-testid="formErrors">
+                {context.errors[name].map(error => (
+                  <span key={error} className="form-error">
                   {error}
                 </span>
-              ))}
+                ))}
+              </div>)
+            }
           </div>
         )}
       </FormContext.Consumer>
     );
   };
+
   constructor(props: IFormProps) {
     super(props);
     const errors: IErrors = {};
@@ -164,6 +170,7 @@ export class Form extends React.Component<IFormProps, IState> {
       values: props.defaultValues
     };
   }
+
   public render() {
     const context: IFormContext = {
       errors: this.state.errors,
@@ -187,6 +194,7 @@ export class Form extends React.Component<IFormProps, IState> {
       </FormContext.Provider>
     );
   }
+
   private setValue = (fieldName: string, value: any) => {
     const newValues = { ...this.state.values, [fieldName]: value };
     this.setState({ values: newValues });
@@ -213,6 +221,7 @@ export class Form extends React.Component<IFormProps, IState> {
     this.setState({ errors: newErrors });
     return errors;
   };
+
   private validateForm(): boolean {
     const errors: IErrors = {};
     let haveError: boolean = false;
@@ -242,6 +251,7 @@ export class Form extends React.Component<IFormProps, IState> {
     }
   };
 }
+
 Form.Field.defaultProps = {
   type: "Text"
 };
