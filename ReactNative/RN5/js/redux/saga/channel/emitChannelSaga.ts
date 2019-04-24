@@ -1,3 +1,5 @@
+// 100% coverage
+
 import { put, take } from "redux-saga/effects";
 import { emitChannel2 } from "./emitChannel";
 

@@ -1,8 +1,7 @@
 import { actionChannel, race, put, take } from "redux-saga/effects";
 import { actionChannelSaga } from "../actionChannelSaga";
 
-
-describe("Testing channelSaga", () => {
+describe("Testing actionChannelSaga", () => {
   function createMockChannel(name = "channel") {
     return { name, take: jest.fn(), close: jest.fn() };
   }
