@@ -15,7 +15,7 @@ describe("Testing channelSaga", () => {
     const takenItemFromChannel = saga.next(mockChannel); //执行到yield take(channnel)为止
     expect(takenItemFromChannel.value).toEqual(take(mockChannel));
 
-    const putAction = saga.next(200); // 设置src中的id为200
+    const putAction = saga.next({ id: 200 }); // 设置src中的id为200
     expect(putAction.value).toEqual(put({ type: "TYPE_USER_RESPONSE", id: 200 }));
 
   });
