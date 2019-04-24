@@ -2,12 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { FormScreen } from "../FormScreen";
 import { Simulate } from "react-dom/test-utils";
-import { render, fireEvent } from "react-testing-library";
+import { render, fireEvent, cleanup } from "react-testing-library";
 import { work } from "../Worker";
 
 jest.mock("../Worker");
 
 describe("FormScreen other tests", () => {
+
+  afterEach(cleanup)
 
   test("pass in a onClick props, and click button2, this passed function should be call", () => {
     const fn = jest.fn();
@@ -32,4 +34,6 @@ describe("FormScreen other tests", () => {
 
     expect(work).toBeCalledWith("num3");
   });
+
+
 });
