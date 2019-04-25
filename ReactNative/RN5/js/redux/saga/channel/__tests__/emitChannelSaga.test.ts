@@ -18,5 +18,6 @@ describe("Testing emitChannelSaga", () => {
     const putAction = saga.next(333);
     expect(putAction.value).toEqual(put({ type: "EC", id: 333 }));
 
+    mockChannel.close();
   });
 });
