@@ -26,5 +26,3 @@ describe("test exported class", () => {
 });
 
 
-
-
