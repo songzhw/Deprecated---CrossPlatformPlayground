@@ -1,7 +1,8 @@
 import { IAppState } from "../core/store";
-import { Store } from "redux";
+import { AnyAction, Dispatch, MiddlewareAPI, Store } from "redux";
 
-export const sagaletMiddleware = (store: Store<IAppState>) => (next: any) => (action: any) => {
+// MiddlewareAPI的定义:  type MiddlewareAPI = { dispatch: Dispatch, getState: () => State }, 和store很像吧, 只是没有注册方法而已
+export const sagaletMiddleware = (api: MiddlewareAPI) => (next: Dispatch<AnyAction>) => (action: AnyAction) => {
   console.log(`szw sagalet middleware : ${JSON.stringify(action)}`);
   return next(action);
 };
