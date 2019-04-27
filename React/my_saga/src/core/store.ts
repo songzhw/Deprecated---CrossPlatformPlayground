@@ -1,5 +1,6 @@
 import { FirstReducer, IFirstState } from "../screen/first/FirstReducer";
-import { combineReducers, createStore, Store } from "redux";
+import { applyMiddleware, combineReducers, createStore, Store } from "redux";
+import { sagaletMiddleware } from "../sagalet/SagaletMIddleware";
 
 export interface IAppState {
   first: IFirstState
@@ -8,6 +9,7 @@ export interface IAppState {
 const rootReducer = combineReducers<IAppState>({ first: FirstReducer });
 
 export function configureStore(): Store<IAppState> {
-  const store = createStore(rootReducer, undefined, undefined);
-  return store;
+  const middlewares = [sagaletMiddleware];
+  // @ts-ignore
+  return createStore(rootReducer, undefined, applyMiddleware(...middlewares));
 }
