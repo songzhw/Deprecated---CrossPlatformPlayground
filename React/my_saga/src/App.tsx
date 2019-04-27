@@ -2,6 +2,13 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Header } from "./Header";
 import { FirstScreen } from "./screen/first/FirstScreen";
+import { configureStore, IAppState } from "./core/store";
+import { Store } from "redux";
+import { Provider } from "react-redux";
+
+interface IProps {
+  store: Store<IAppState>
+}
 
 const Routers = () => {
   return (
@@ -16,11 +23,14 @@ const Routers = () => {
   );
 };
 
+const store = configureStore();
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Routers/>
+      <Provider store={store}>
+        <Routers/>
+      </Provider>
     </div>
   );
 };
