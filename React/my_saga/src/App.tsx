@@ -1,15 +1,26 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Header } from "./Header";
+import { FirstScreen } from "./screen/first/FirstScreen";
+
+const Routers = () => {
+  return (
+    <BrowserRouter>
+      <div>
+        <Header/>
+        <Switch>
+          <Route path="/first" component={FirstScreen}/>
+        </Switch>
+      </div>
+    </BrowserRouter>
+  );
+};
+
 
 const App: React.FC = () => {
-  function fetchId() {
-
-  }
-
   return (
     <div className="App">
-      <header className="App-header">
-        <button onClick={fetchId}>fetch id</button>
-      </header>
+      <Routers/>
     </div>
   );
 };
