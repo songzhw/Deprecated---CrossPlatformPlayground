@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { IAppState } from "../../core/store";
-import { createFirstAddAction, IFirstAddAction } from "./FirstReducer";
+import { createFirstAddAction, FirstAction, IFirstAddAction } from "./FirstReducer";
 import { Dispatch } from "redux";
 
 interface IProps {
   added: number;
-  add: (n1: number, n2: number)=>void
+  add: (n1: number, n2: number) => void
 }
 
 export const FirstScreen__: React.FC<IProps> = (props: IProps) => {
@@ -29,7 +29,7 @@ const mapStateToProps = (state: IAppState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => {
+const mapDispatchToProps = (dispatch: Dispatch<FirstAction>) => {
   return {
     add: (num1: number, num2: number) => {
       const action = createFirstAddAction(num1, num2);
