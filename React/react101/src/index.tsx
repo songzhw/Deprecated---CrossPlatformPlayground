@@ -9,6 +9,7 @@ import { FavoritePetScreen } from "./Rtutor/persist/useLocalStorage/FavoritePetS
 import { CryptoScreen } from "./Rtutor/crypto/CryptoScreen";
 import { UseCallbackDemo } from "./Rtutor/hooks/UseCallbackDemo";
 import { AtCookieScreen } from "./storage_book/AtCookie";
+import { AtLocalStorageScreen } from "./storage_book/AtLocalStorage";
 
-ReactDOM.render(<AtCookieScreen/>, document.getElementById("root"));
+ReactDOM.render(<AtLocalStorageScreen/>, document.getElementById("root"));
 
