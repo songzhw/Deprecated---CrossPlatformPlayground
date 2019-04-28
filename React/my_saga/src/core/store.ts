@@ -1,6 +1,7 @@
 import { FirstReducer, IFirstState } from "../screen/first/FirstReducer";
-import { AnyAction, applyMiddleware, combineReducers, createStore, Store } from "redux";
+import { applyMiddleware, combineReducers, createStore, Store } from "redux";
 import { createSagaletMiddleware } from "../sagalet/SagaletMIddleware";
+import { firstSaga } from "../screen/first/FirstSagalet";
 
 export interface IAppState {
   first: IFirstState
@@ -8,14 +9,10 @@ export interface IAppState {
 
 const rootReducer = combineReducers<IAppState>({ first: FirstReducer });
 
-function* a() : Iterator<number> {
-  yield 2;
-}
-
 export function configureStore(): Store<IAppState> {
   const sagaletMiddleware = createSagaletMiddleware();
   const middlewares = [sagaletMiddleware];
   const store = createStore(rootReducer, undefined, applyMiddleware(...middlewares));
-  sagaletMiddleware.run(a);
+  sagaletMiddleware.run(firstSaga);
   return store;
 }

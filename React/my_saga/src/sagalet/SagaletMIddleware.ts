@@ -1,4 +1,3 @@
-import { IAppState } from "../core/store";
 import { AnyAction, Dispatch, MiddlewareAPI, Store } from "redux";
 
 export const createSagaletMiddleware = () => {
@@ -9,8 +8,10 @@ export const createSagaletMiddleware = () => {
     return next(action);
   };
 
-  sagaletMiddleware.run = (func: ()=> Iterator<any>) => {
-    func().next()
+  sagaletMiddleware.run = (func: () => Iterator<any>) => {
+    const generator = func();
+    const {done, value} = generator.next();
+    console.log(`szw saga : value = ${value}, isDone = ${done}`)
   };
 
   return sagaletMiddleware;
