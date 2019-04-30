@@ -16,7 +16,6 @@ export class SingleDownload {
     const ARRAY_BUFFER = "arraybuffer";
 
     this.xhr.open(GET, this.url);
-    this.xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     this.xhr.responseType = ARRAY_BUFFER;
 
     this.xhr.send();
