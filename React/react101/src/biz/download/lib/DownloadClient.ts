@@ -18,5 +18,16 @@ const startDownload = (url: string,
 
 const cancelDownload = (url: string) => {
   const downloader = downloaderPool[url];
+  if (downloader) {
+    downloader.cancelDownload();
+  }
 };
 
+const removeDownload = (url: string) => {
+  const downloader = downloaderPool[url];
+  if (downloader) {
+    delete downloaderPool[url];
+  }
+};
+
+export default {startDownload, cancelDownload, removeDownload}
