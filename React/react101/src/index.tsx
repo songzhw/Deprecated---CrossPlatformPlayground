@@ -11,6 +11,7 @@ import { UseCallbackDemo } from "./Rtutor/hooks/UseCallbackDemo";
 import { AtCookieScreen } from "./storage_book/AtCookie";
 import { AtLocalStorageScreen } from "./storage_book/AtLocalStorage";
 import { AtIndexedDB } from "./storage_book/AtIndexedDb";
+import { SingletonScreen } from "./Rtutor/singleton/SingletonScreen";
 
-ReactDOM.render(<AtIndexedDB/>, document.getElementById("root"));
+ReactDOM.render(<SingletonScreen/>, document.getElementById("root"));
 
