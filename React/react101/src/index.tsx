@@ -12,6 +12,7 @@ import { AtCookieScreen } from "./storage_book/AtCookie";
 import { AtLocalStorageScreen } from "./storage_book/AtLocalStorage";
 import { AtIndexedDB } from "./storage_book/AtIndexedDb";
 import { SingletonScreen } from "./Rtutor/singleton/SingletonScreen";
+import { DownloadScreen } from "./biz/download/DownloadScreen";
 
-ReactDOM.render(<SingletonScreen/>, document.getElementById("root"));
+ReactDOM.render(<DownloadScreen/>, document.getElementById("root"));
 

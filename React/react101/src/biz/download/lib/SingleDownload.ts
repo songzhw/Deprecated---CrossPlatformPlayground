@@ -23,16 +23,22 @@ export class SingleDownload {
   }
 
 
-  public register(onProgressListener: (ev: ProgressEvent) => void,
-                  onFailureListener: (result: ICompleteResult) => void,
-                  onSuccessListener: (result: ICompleteResult) => void) {
-    this.xhr.onprogress = onProgressListener;
+  public register(onProgressListener?: (ev: ProgressEvent) => void,
+                  onFailureListener?: (result: ICompleteResult) => void,
+                  onSuccessListener?: (result: ICompleteResult) => void) {
+    if (onProgressListener) {
+      this.xhr.onprogress = onProgressListener;
+    }
 
     this.xhr.onload = () => {
       if (this.xhr.status && this.xhr.status < 400) {
-        onSuccessListener({ url: this.url });
+        if (onSuccessListener) {
+          onSuccessListener({ url: this.url });
+        }
       } else {
-        onFailureListener({ url: this.url });
+        if (onFailureListener) {
+          onFailureListener({ url: this.url });
+        }
       }
     };
   }

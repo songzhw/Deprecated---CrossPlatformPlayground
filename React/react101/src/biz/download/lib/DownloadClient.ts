@@ -7,9 +7,9 @@ interface IDownloadPool {
 const downloaderPool: IDownloadPool = {};
 
 const startDownload = (url: string,
-                       onProgressListener: (ev: ProgressEvent) => void,
-                       onFailureListener: (result: ICompleteResult) => void,
-                       onSuccessListener: (result: ICompleteResult) => void) => {
+                       onProgressListener?: (ev: ProgressEvent) => void,
+                       onFailureListener?: (result: ICompleteResult) => void,
+                       onSuccessListener?: (result: ICompleteResult) => void) => {
   const downloader = new SingleDownload(url);
   downloaderPool[url] = downloader;
   downloader.register(onProgressListener, onFailureListener, onSuccessListener);
