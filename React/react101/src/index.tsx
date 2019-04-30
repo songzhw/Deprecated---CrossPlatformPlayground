@@ -10,6 +10,7 @@ import { CryptoScreen } from "./Rtutor/crypto/CryptoScreen";
 import { UseCallbackDemo } from "./Rtutor/hooks/UseCallbackDemo";
 import { AtCookieScreen } from "./storage_book/AtCookie";
 import { AtLocalStorageScreen } from "./storage_book/AtLocalStorage";
+import { AtIndexedDB } from "./storage_book/AtIndexedDb";
 
-ReactDOM.render(<AtLocalStorageScreen/>, document.getElementById("root"));
+ReactDOM.render(<AtIndexedDB/>, document.getElementById("root"));
 
