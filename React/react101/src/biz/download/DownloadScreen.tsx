@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DownloadClient from "./lib/DownloadClient";
+import { ICompleteResult } from "./lib/SingleDownload";
 
 export const DownloadScreen = () => {
   const [progress, setProgress] = useState<number>(0);
@@ -13,8 +14,9 @@ export const DownloadScreen = () => {
     console.log(`szw onFail`);
   }
 
-  function onSuccess() {
+  function onSuccess(ev: ICompleteResult) {
     console.log(`szw success`);
+    DownloadClient.removeDownload(ev.url);
   }
 
   function downloadAliceEpub() {

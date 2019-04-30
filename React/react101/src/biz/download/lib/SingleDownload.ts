@@ -40,6 +40,7 @@ export class SingleDownload {
         }
       }
     };
+
   }
 
   public unregister() {

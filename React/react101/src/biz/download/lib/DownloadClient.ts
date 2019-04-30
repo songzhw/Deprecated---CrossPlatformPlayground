@@ -12,6 +12,7 @@ const startDownload = (url: string,
                        onSuccessListener?: (result: ICompleteResult) => void) => {
   const downloader = new SingleDownload(url);
   downloaderPool[url] = downloader;
+  console.log(`szw 1 `, downloaderPool);
   downloader.register(onProgressListener, onFailureListener, onSuccessListener);
   downloader.download();
 };
@@ -28,6 +29,7 @@ const removeDownload = (url: string) => {
   if (downloader) {
     delete downloaderPool[url];
   }
+  console.log(`szw 2 `, downloaderPool);
 };
 
-export default {startDownload, cancelDownload, removeDownload}
+export default { startDownload, cancelDownload, removeDownload };
