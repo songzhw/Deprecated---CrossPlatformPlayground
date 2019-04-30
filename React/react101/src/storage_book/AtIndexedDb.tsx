@@ -19,15 +19,10 @@ export const AtIndexedDB = () => {
     };
 
     openRequest.onsuccess = (ev: Event) => {
-      console.log("running onsuccess");
-      db = openRequest.result;
-      console.log(`db1 : `, db)
       db = (ev.target as IDBOpenDBRequest).result;
-      console.log(`db2 : `, db)
     };
 
     openRequest.onerror = (err) => {
-      console.log("onerror!");
       console.dir(err); //console.dir() 在控制台中显示指定JavaScript对象的属性，并通过类似文件树样式的交互列表显示。
     };
 
