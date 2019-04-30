@@ -1,7 +1,7 @@
 import { ICompleteResult, SingleDownload } from "./SingleDownload";
 
 interface IDownloadPool {
-  url?: SingleDownload;
+  [url: string]: SingleDownload;
 }
 
 const downloaderPool: IDownloadPool = {};
