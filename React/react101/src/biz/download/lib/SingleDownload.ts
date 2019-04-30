@@ -41,6 +41,11 @@ export class SingleDownload {
       }
     };
 
+    this.xhr.onerror = ()=>{
+      if (onFailureListener) {
+        onFailureListener({ url: this.url });
+      }
+    }
   }
 
   public unregister() {

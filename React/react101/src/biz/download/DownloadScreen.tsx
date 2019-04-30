@@ -10,12 +10,11 @@ export const DownloadScreen = () => {
     setProgress(offset);
   }
 
-  function onFail() {
-    console.log(`szw onFail`);
+  function onFail(ev: ICompleteResult) {
+    DownloadClient.removeDownload(ev.url);
   }
 
   function onSuccess(ev: ICompleteResult) {
-    console.log(`szw success`);
     DownloadClient.removeDownload(ev.url);
   }
 
