@@ -25,12 +25,12 @@ export class SingleDownload {
 
   public register(onProgressListener: (ev: ProgressEvent) => void,
                   onFailureListener: (result: ICompleteResult) => void,
-                  onFinishListener: (result: ICompleteResult) => void) {
+                  onSuccessListener: (result: ICompleteResult) => void) {
     this.xhr.onprogress = onProgressListener;
 
     this.xhr.onload = () => {
       if (this.xhr.status && this.xhr.status < 400) {
-        onFinishListener({ url: this.url });
+        onSuccessListener({ url: this.url });
       } else {
         onFailureListener({ url: this.url });
       }
