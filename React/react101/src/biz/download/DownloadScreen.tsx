@@ -23,6 +23,8 @@ export const DownloadScreen = () => {
   }
 
   function downloadJazzMp3() {
+    const url = "http://storage.googleapis.com/automotive-media/Jazz_In_Paris.mp3";
+    DownloadClient.startDownload(url, onProgress, onFail, onSuccess);
   }
 
 
