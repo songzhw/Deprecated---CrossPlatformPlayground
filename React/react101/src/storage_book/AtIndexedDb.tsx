@@ -44,7 +44,7 @@ export const AtIndexedDB = () => {
   }
 
   function onAddTicket() {
-    const ticket = { title };
+    const ticket = { jiraID: title, title };
     if (db) {
       const transaction = db.transaction(TICKET, "readwrite");
       const objectStore = transaction.objectStore(TICKET);
