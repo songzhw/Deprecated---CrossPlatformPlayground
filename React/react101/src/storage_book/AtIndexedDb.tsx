@@ -44,7 +44,12 @@ export const AtIndexedDB = () => {
   }
 
   function onAddTicket() {
-
+    const ticket = { title };
+    if (db) {
+      const transaction = db.transaction(TICKET, "readwrite");
+      const objectStore = transaction.objectStore(TICKET);
+      const request = objectStore.add(ticket);
+    }
   }
 
 
@@ -63,7 +68,7 @@ export const AtIndexedDB = () => {
         dev.createIndex("ssn", "ssn", { unique: true });
       }
       if (!_db.objectStoreNames.contains(TICKET)) {
-        const ticket = _db.createObjectStore(TICKET, { keyPath: "jiraID", autoIncrement: true });
+        const ticket = _db.createObjectStore(TICKET, { keyPath: "jiraID" });
         ticket.createIndex("title", "title");
       }
       setDb(_db);
