@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
-const TABLE_NAME = "Dev"
+const DEV = "Dev";
+const PO = "Project Owner";
 
 export const AtIndexedDB = () => {
   function isIdbOK() {
@@ -8,7 +9,7 @@ export const AtIndexedDB = () => {
       !/iPad|iPhone|iPod/.test(navigator.platform);
   }
 
-  let db : IDBDatabase;
+  let db: IDBDatabase;
 
   useEffect(() => {
     if (!isIdbOK()) {
@@ -19,15 +20,18 @@ export const AtIndexedDB = () => {
     openRequest.onupgradeneeded = (ev: Event) => {
       console.log("szw onUpgradeNeeded");
       db = (ev.target as IDBOpenDBRequest).result;
-      if(!db.objectStoreNames.contains(TABLE_NAME)) {
-        db.createObjectStore(TABLE_NAME)
+      if (!db.objectStoreNames.contains(DEV)) {
+        db.createObjectStore(DEV, {keyPath: "devID", autoIncrement: true});
+      }
+      if (!db.objectStoreNames.contains(PO)) {
+        db.createObjectStore(PO, {autoIncrement: true});
       }
     };
 
     openRequest.onsuccess = (ev: Event) => {
       console.log("szw onSuccess");
       db = (ev.target as IDBOpenDBRequest).result;
-      console.dir(db.objectStoreNames)
+      console.dir(db.objectStoreNames);
     };
 
     openRequest.onerror = (err) => {
