@@ -4,6 +4,7 @@ const DEV = "Dev";
 const TICKET = "Ticket";
 
 export const AtIndexedDB = () => {
+  const [db, setDb] = useState<IDBDatabase>();
   const [gender, setGender] = useState("female");
   const [ssn, setSsn] = useState("xxx");
   const [title, setTitle] = useState("(none))");
@@ -27,24 +28,25 @@ export const AtIndexedDB = () => {
 
   function onAddDev() {
     const dev = { ssn, gender, created: new Date().getTime() };
-    const transaction = db.transaction(DEV, "readwrite");
-    const objectStore = transaction.objectStore(DEV);
-    const request = objectStore.add(dev);
-    request.onerror = (ev: any) => {
-      console.log("szw save dev - error ", ev.target.error.name);
-    };
+    console.log("db", db);
+    if (db) {
+      const transaction = db.transaction(DEV, "readwrite");
+      const objectStore = transaction.objectStore(DEV);
+      const request = objectStore.add(dev);
+      request.onerror = (ev: any) => {
+        console.log("szw save dev - error ", ev.target.error.name);
+      };
 
-    request.onsuccess = ev => {
-      console.log("szw save dev successfully");
-    };
-
+      request.onsuccess = ev => {
+        console.log("szw save dev successfully");
+      };
+    }
   }
 
   function onAddTicket() {
 
   }
 
-  let db: IDBDatabase;
 
   useEffect(() => {
     if (!isIdbOK()) {
@@ -53,23 +55,25 @@ export const AtIndexedDB = () => {
 
     const openRequest = indexedDB.open("demo01", 1);
     openRequest.onupgradeneeded = (ev: Event) => {
-      console.log("szw onUpgradeNeeded");
-      db = (ev.target as IDBOpenDBRequest).result;
-      if (!db.objectStoreNames.contains(DEV)) {
-        const dev = db.createObjectStore(DEV, { autoIncrement: true });
+      console.log("szw onUpgradeNeeded ");
+      const _db = (ev.target as IDBOpenDBRequest).result;
+      if (!_db.objectStoreNames.contains(DEV)) {
+        const dev = _db.createObjectStore(DEV, { autoIncrement: true });
         dev.createIndex("gender", "gener");
         dev.createIndex("ssn", "ssn", { unique: true });
       }
-      if (!db.objectStoreNames.contains(TICKET)) {
-        const ticket = db.createObjectStore(TICKET, { keyPath: "jiraID", autoIncrement: true });
+      if (!_db.objectStoreNames.contains(TICKET)) {
+        const ticket = _db.createObjectStore(TICKET, { keyPath: "jiraID", autoIncrement: true });
         ticket.createIndex("title", "title");
       }
+      setDb(_db);
     };
 
     openRequest.onsuccess = (ev: Event) => {
-      console.log("szw onSuccess");
-      db = (ev.target as IDBOpenDBRequest).result;
-      console.dir(db.objectStoreNames);
+      console.log("szw onSuccess ");
+      const _db = (ev.target as IDBOpenDBRequest).result;
+      setDb(_db);
+      console.dir(_db.objectStoreNames);
     };
 
     openRequest.onerror = (err) => {
@@ -83,7 +87,8 @@ export const AtIndexedDB = () => {
       <p>idb</p>
       <input type="text" placeholder="gender" onChange={onGenderChange}/>
       <input type="text" placeholder="ssn" onChange={onSsnChange}/>
-      <button onClick={onAddDev}>Add Dev</button> <p/>
+      <button onClick={onAddDev}>Add Dev</button>
+      <p/>
       <input type="text" placeholder="title" onChange={onTitleChange}/>
       <button onClick={onAddTicket}>Add Dev</button>
     </div>);

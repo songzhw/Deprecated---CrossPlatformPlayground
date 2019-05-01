@@ -12,6 +12,7 @@
     "no-empty": false,
     "no-empty-interface": false,
     "comment-format": false,
+    "variable-name": false,
     "member-ordering": [
       false
     ]

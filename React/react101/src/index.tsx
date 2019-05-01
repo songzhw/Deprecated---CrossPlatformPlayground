@@ -13,6 +13,8 @@ import { AtLocalStorageScreen } from "./storage_book/AtLocalStorage";
 import { AtIndexedDB } from "./storage_book/AtIndexedDb";
 import { SingletonScreen } from "./Rtutor/singleton/SingletonScreen";
 import { DownloadScreen } from "./biz/download/DownloadScreen";
+import { LetConst_Problem } from "./Rtutor/simple/LetConst_Problem";
+import { LetConst_Resolve } from "./Rtutor/simple/LetConst_Resolve";
 
 ReactDOM.render(<AtIndexedDB/>, document.getElementById("root"));
 
