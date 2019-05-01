@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 const DEV = "Dev";
-const PO = "Project Owner";
+const TICKET = "Ticket";
 
 export const AtIndexedDB = () => {
   function isIdbOK() {
@@ -21,10 +21,13 @@ export const AtIndexedDB = () => {
       console.log("szw onUpgradeNeeded");
       db = (ev.target as IDBOpenDBRequest).result;
       if (!db.objectStoreNames.contains(DEV)) {
-        db.createObjectStore(DEV, {keyPath: "devID", autoIncrement: true});
+        const dev = db.createObjectStore(DEV, { autoIncrement: true });
+        dev.createIndex("gender", "gener");
+        dev.createIndex("ssn", "ssn", { unique: true });
       }
-      if (!db.objectStoreNames.contains(PO)) {
-        db.createObjectStore(PO, {autoIncrement: true});
+      if (!db.objectStoreNames.contains(TICKET)) {
+        const ticket = db.createObjectStore(TICKET, { keyPath: "jiraID", autoIncrement: true });
+        ticket.createIndex("title", "title");
       }
     };
 
