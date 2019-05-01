@@ -14,5 +14,5 @@ import { AtIndexedDB } from "./storage_book/AtIndexedDb";
 import { SingletonScreen } from "./Rtutor/singleton/SingletonScreen";
 import { DownloadScreen } from "./biz/download/DownloadScreen";
 
-ReactDOM.render(<DownloadScreen/>, document.getElementById("root"));
+ReactDOM.render(<AtIndexedDB/>, document.getElementById("root"));
 

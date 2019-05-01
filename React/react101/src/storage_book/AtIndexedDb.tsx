@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 
+const TABLE_NAME = "Dev"
+
 export const AtIndexedDB = () => {
   function isIdbOK() {
     return "indexedDB" in window &&
@@ -14,12 +16,18 @@ export const AtIndexedDB = () => {
     }
 
     const openRequest = indexedDB.open("demo01", 1);
-    openRequest.onupgradeneeded = (ev) => {
-      console.log("running onupgradeneeded");
+    openRequest.onupgradeneeded = (ev: Event) => {
+      console.log("szw onUpgradeNeeded");
+      db = (ev.target as IDBOpenDBRequest).result;
+      if(!db.objectStoreNames.contains(TABLE_NAME)) {
+        db.createObjectStore(TABLE_NAME)
+      }
     };
 
     openRequest.onsuccess = (ev: Event) => {
+      console.log("szw onSuccess");
       db = (ev.target as IDBOpenDBRequest).result;
+      console.dir(db.objectStoreNames)
     };
 
     openRequest.onerror = (err) => {
