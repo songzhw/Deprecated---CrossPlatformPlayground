@@ -8,6 +8,12 @@ export class Grandmother extends React.Component {
     firstName: "Ross"
   };
 
+  componentWillMount() {
+    super.componentDidMount();
+    console.log(`szw Grandmother cwm() `)
+  }
+
+
   render() {
     return (
       <FamilyProvider value={this.state}>

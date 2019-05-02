@@ -5,6 +5,7 @@ import {axios} from '../../core/HttpEngine'
 class AxiosScreen extends Component{
 
   componentWillMount() {
+    console.log(`szw AxiosScreen cwm`)
     axios.get("5c03483b3000002b00bb9408")
       .then((resp) => console.log(`\nszw work = ${JSON.stringify(resp.data)}`))
       .then( () => console.log(`szw work done`))
