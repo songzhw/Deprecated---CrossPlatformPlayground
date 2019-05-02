@@ -33,9 +33,8 @@ export const FirstReducer: Reducer<IFirstState, FirstAction> =
 
     switch (action.type) {
       case FirstActionTypes.ADD:
-        const { arg1, arg2 } = action.payload;
-        const result = arg1 + arg2;
-        return { ...state, addedResult: result };
+        console.log(`szw reducer Action_ADD`);
+        return state;
       default:
         return state;
     }
