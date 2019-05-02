@@ -2,6 +2,6 @@ import { AnyAction } from "redux";
 
 export const TAKE = "take";
 
-export function take(actionType: string, handlerFunc: (action: AnyAction) => Iterator<any>) {
+export function take<T extends AnyAction>(actionType: string, handlerFunc: (action: T) => Iterator<any>) {
   return [TAKE, actionType, handlerFunc];
 }
