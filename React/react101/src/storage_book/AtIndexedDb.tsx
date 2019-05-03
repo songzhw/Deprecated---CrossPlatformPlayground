@@ -72,7 +72,18 @@ export const AtIndexedDB = () => {
       const transaction = db.transaction(DEV, "readwrite");
       const objectStore = transaction.objectStore(DEV);
       const person = { ssn, gender, created: 333 };
-      const request = objectStore.put(person, 2);
+      const request = objectStore.put(person, id);
+      request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
+      request.onerror = err => console.dir(err);
+    }
+  }
+
+
+  function onDeleteDev() {
+    if (db) {
+      const transaction = db.transaction(DEV, "readwrite");
+      const objectStore = transaction.objectStore(DEV);
+      const request = objectStore.delete(id);
       request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
       request.onerror = err => console.dir(err);
     }
@@ -124,8 +135,9 @@ export const AtIndexedDB = () => {
       <button onClick={onAddTicket}>Add Dev</button>
       <p/>
       <input type="text" placeholder="id" onChange={onGetKey}/>
-      <button onClick={onGetPerson}>Get Dev</button>
       <p/>
+      <button onClick={onGetPerson}>Get Dev</button>
       <button onClick={onUpdateDev}>update dev</button>
+      <button onClick={onDeleteDev}>delete dev</button>
     </div>);
 };
