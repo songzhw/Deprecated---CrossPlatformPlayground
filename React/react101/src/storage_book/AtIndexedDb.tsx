@@ -83,7 +83,7 @@ export const AtIndexedDB = () => {
     if (db) {
       const transaction = db.transaction(DEV, "readwrite");
       const objectStore = transaction.objectStore(DEV);
-      const request = objectStore.delete(id);
+      const request = objectStore.delete(Number(id));
       request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
       request.onerror = err => console.dir(err);
     }
