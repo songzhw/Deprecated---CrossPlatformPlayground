@@ -67,6 +67,17 @@ export const AtIndexedDB = () => {
     }
   }
 
+  function onUpdateDev() {
+    if (db) {
+      const transaction = db.transaction(DEV, "readwrite");
+      const objectStore = transaction.objectStore(DEV);
+      const person = { ssn, gender, created: 333 };
+      const request = objectStore.put(person);
+      request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
+      request.onerror = err => console.dir(err);
+    }
+  }
+
 
   useEffect(() => {
     if (!isIdbOK()) {
@@ -114,5 +125,7 @@ export const AtIndexedDB = () => {
       <p/>
       <input type="text" placeholder="id" onChange={onGetKey}/>
       <button onClick={onGetPerson}>Get Dev</button>
+      <p/>
+      <button onClick={onUpdateDev}>update dev</button>
     </div>);
 };
