@@ -8,6 +8,7 @@ export const AtIndexedDB = () => {
   const [gender, setGender] = useState("female");
   const [ssn, setSsn] = useState("xxx");
   const [title, setTitle] = useState("(none))");
+  const [id, setId] = useState<string>("");
 
   function isIdbOK() {
     return "indexedDB" in window &&
@@ -24,6 +25,10 @@ export const AtIndexedDB = () => {
 
   function onTitleChange(ev: React.ChangeEvent<HTMLInputElement>) {
     setTitle(ev.target.value);
+  }
+
+  function onGetKey(ev: React.ChangeEvent<HTMLInputElement>) {
+    setId(ev.target.value);
   }
 
   function onAddDev() {
@@ -46,9 +51,19 @@ export const AtIndexedDB = () => {
   function onAddTicket() {
     const ticket = { jiraID: title, title };
     if (db) {
-      const transaction = db.transaction(TICKET, "readwrite");
+      const transaction = db.transaction(TICKET, "readonly");
       const objectStore = transaction.objectStore(TICKET);
       const request = objectStore.add(ticket);
+    }
+  }
+
+  function onGetPerson() {
+    if (db) {
+      const transaction = db.transaction(DEV, "readwrite");
+      const objectStore = transaction.objectStore(DEV);
+      const request = objectStore.get(Number(id));
+      request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
+      request.onerror = err => console.dir(err);
     }
   }
 
@@ -96,5 +111,8 @@ export const AtIndexedDB = () => {
       <p/>
       <input type="text" placeholder="title" onChange={onTitleChange}/>
       <button onClick={onAddTicket}>Add Dev</button>
+      <p/>
+      <input type="text" placeholder="id" onChange={onGetKey}/>
+      <button onClick={onGetPerson}>Get Dev</button>
     </div>);
 };

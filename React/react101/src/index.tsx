@@ -17,5 +17,5 @@ import { LetConst_Problem } from "./Rtutor/simple/LetConst_Problem";
 import { LetConst_Resolve } from "./Rtutor/simple/LetConst_Resolve";
 import { UseStateIssue1 } from "./Rtutor/FC/useStateIssue1";
 
-ReactDOM.render(<UseStateIssue1/>, document.getElementById("root"));
+ReactDOM.render(<AtIndexedDB/>, document.getElementById("root"));
 
