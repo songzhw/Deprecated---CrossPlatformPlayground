@@ -72,7 +72,7 @@ export const AtIndexedDB = () => {
       const transaction = db.transaction(DEV, "readwrite");
       const objectStore = transaction.objectStore(DEV);
       const person = { ssn, gender, created: 333 };
-      const request = objectStore.put(person);
+      const request = objectStore.put(person, 2);
       request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
       request.onerror = err => console.dir(err);
     }
