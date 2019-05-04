@@ -6,8 +6,9 @@ const TICKET = "Ticket";
 export const AtIndexedDB = () => {
   const [db, setDb] = useState<IDBDatabase>();
   const [gender, setGender] = useState("female");
-  const [ssn, setSsn] = useState("xxx");
+  const [ssn, setSsn] = useState(0);
   const [title, setTitle] = useState("(none))");
+  const [id, setId] = useState<string>("");
 
   function isIdbOK() {
     return "indexedDB" in window &&
@@ -19,11 +20,15 @@ export const AtIndexedDB = () => {
   }
 
   function onSsnChange(ev: React.ChangeEvent<HTMLInputElement>) {
-    setSsn(ev.target.value);
+    setSsn(Number(ev.target.value));
   }
 
   function onTitleChange(ev: React.ChangeEvent<HTMLInputElement>) {
     setTitle(ev.target.value);
+  }
+
+  function onGetKey(ev: React.ChangeEvent<HTMLInputElement>) {
+    setId(ev.target.value);
   }
 
   function onAddDev() {
@@ -46,12 +51,104 @@ export const AtIndexedDB = () => {
   function onAddTicket() {
     const ticket = { jiraID: title, title };
     if (db) {
-      const transaction = db.transaction(TICKET, "readwrite");
+      const transaction = db.transaction(TICKET, "readonly");
       const objectStore = transaction.objectStore(TICKET);
       const request = objectStore.add(ticket);
     }
   }
 
+  function onGetPerson() {
+    if (db) {
+      const transaction = db.transaction(DEV, "readwrite");
+      const objectStore = transaction.objectStore(DEV);
+      const request = objectStore.get(Number(id));
+      request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
+      request.onerror = err => console.dir(err);
+    }
+  }
+
+  function onUpdateDev() {
+    if (db) {
+      const transaction = db.transaction(DEV, "readwrite");
+      const objectStore = transaction.objectStore(DEV);
+      const person = { ssn, gender, created: 333 };
+      const request = objectStore.put(person, id);
+      request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
+      request.onerror = err => console.dir(err);
+    }
+  }
+
+
+  function onDeleteDev() {
+    if (db) {
+      const transaction = db.transaction(DEV, "readwrite");
+      const objectStore = transaction.objectStore(DEV);
+      const request = objectStore.delete(Number(id));
+      request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
+      request.onerror = err => console.dir(err);
+    }
+  } // 删除一行后再add, 那key仍是在原来最大的key上自增. 如1,2,3三行数据, 删除了key=3的那行, 再新加一个, 其key是4, 不是3
+
+
+  function onQueryAllDev() {
+    if (db) {
+      const transaction = db.transaction(DEV, "readwrite");
+      const objectStore = transaction.objectStore(DEV);
+      const request: IDBRequest = objectStore.openCursor();
+      request.onsuccess = (ev: Event) => { // 类似while循环
+        console.log(`start`);
+        const cursor = (ev.target as IDBRequest).result;
+        if (cursor) {
+          let buf = cursor.key;
+          console.log(`key = `, cursor.key);
+          for (let field in cursor.value) {
+            buf += " " + cursor.value[field];
+          }
+          cursor.continue();
+          console.log(buf);
+        } else {
+          console.log(`else`);
+        }
+      };
+
+      transaction.oncomplete = () => {
+        console.log(`query all done!`);
+      };
+
+    }
+  }
+
+  function onQueryRange() {
+    if (!db) {
+      return;
+    }
+    const transaction = db.transaction(DEV, "readwrite");
+    const objectStore = transaction.objectStore(DEV);
+
+    const range = IDBKeyRange.bound(100, 600);
+    const index = objectStore.index("ssn");
+    const request: IDBRequest = index.openCursor(range); //注意, 这里是index做主语, index.openCursor()!
+    request.onsuccess = (ev: Event) => { // 类似while循环
+      console.log(`start`);
+      const cursor = (ev.target as IDBRequest).result;
+      if (cursor) {
+        let buf = cursor.key;
+        console.log(`key = `, cursor.key);
+        for (let field in cursor.value) {
+          buf += " " + cursor.value[field];
+        }
+        cursor.continue();
+        console.log(buf);
+      } else {
+        console.log(`else`);
+      }
+    };
+
+    transaction.oncomplete = () => {
+      console.log(`query all done!`);
+    };
+
+  }
 
   useEffect(() => {
     if (!isIdbOK()) {
@@ -96,5 +193,13 @@ export const AtIndexedDB = () => {
       <p/>
       <input type="text" placeholder="title" onChange={onTitleChange}/>
       <button onClick={onAddTicket}>Add Dev</button>
+      <p/>
+      <input type="text" placeholder="id" onChange={onGetKey}/>
+      <p/>
+      <button onClick={onGetPerson}>Get Dev</button>
+      <button onClick={onUpdateDev}>update dev</button>
+      <button onClick={onDeleteDev}>delete dev</button>
+      <button onClick={onQueryAllDev}> query all dev</button>
+      <button onClick={onQueryRange}> query dev (range)</button>
     </div>);
 };
