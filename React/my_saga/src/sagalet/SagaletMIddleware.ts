@@ -8,11 +8,20 @@ export const createSagaletMiddleware = () => {
   const sagaletMiddleware = (api: MiddlewareAPI) => (next: Dispatch<AnyAction>) => (action: AnyAction) => {
     console.log(`szw sagalet middleware : ${JSON.stringify(action)}`);
 
-    const generator = sagaGenerator();
-    const { done, value } = generator.next();
-    console.log(`szw saga : value = ${value}, isDone = ${done}`);
 
-    if (!done) {
+    function __next(gen: Iterator<any>, args: any, isError: boolean) {
+      if (isError) {
+        // @ts-ignore
+        gen.throw(args);
+        return;
+      }
+
+      const iteratorResult = gen.next(args);
+      const { done, value } = iteratorResult;
+      if (done) {
+        return;
+      }
+
       const effect = value[0];
 
       if (effect === TAKE) {
@@ -20,12 +29,14 @@ export const createSagaletMiddleware = () => {
         if (typeInterested === action.type) {
           const handlerFunc = value[2];
           const secondGenerator = handlerFunc(action);
-          const secondGen = secondGenerator.next();
-          console.log(`szw gen2 : `, secondGen.done, secondGen.value);
+          __next(secondGenerator, undefined, false);
         }
       }
+
     }
 
+    const generator: Iterator<any> = sagaGenerator();
+    __next(generator, undefined, false);
 
     return next(action);
   };
