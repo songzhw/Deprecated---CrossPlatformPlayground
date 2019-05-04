@@ -108,6 +108,10 @@ export const AtIndexedDB = () => {
         }
       };
 
+      transaction.oncomplete = ()=>{
+        console.log(`query all done!`)
+      }
+
     }
   }
 
