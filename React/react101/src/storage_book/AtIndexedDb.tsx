@@ -87,6 +87,28 @@ export const AtIndexedDB = () => {
       request.onsuccess = (ev: Event) => console.dir((ev.target as IDBOpenDBRequest).result);
       request.onerror = err => console.dir(err);
     }
+  } // 删除一行后再add, 那key仍是在原来最大的key上自增. 如1,2,3三行数据, 删除了key=3的那行, 再新加一个, 其key是4, 不是3
+
+
+  function onQueryAllDev() {
+    if (db) {
+      const transaction = db.transaction(DEV, "readwrite");
+      const objectStore = transaction.objectStore(DEV);
+      const request: IDBRequest = objectStore.openCursor();
+      request.onsuccess = (ev: Event) => {
+        const cursor = (ev.target as IDBRequest).result;
+        if (cursor) {
+          let buf = cursor.key;
+          console.log(`key = `, cursor.key)
+          for (let field in cursor.value) {
+            buf += " " + cursor.value[field];
+          }
+          cursor.continue();
+          console.log(buf);
+        }
+      };
+
+    }
   }
 
 
@@ -139,5 +161,6 @@ export const AtIndexedDB = () => {
       <button onClick={onGetPerson}>Get Dev</button>
       <button onClick={onUpdateDev}>update dev</button>
       <button onClick={onDeleteDev}>delete dev</button>
+      <button onClick={onQueryAllDev}> query all dev</button>
     </div>);
 };
