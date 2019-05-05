@@ -1,7 +1,8 @@
 import { Reducer } from "redux";
 
 export enum FirstActionTypes {
-  ADD = "ADD"
+  ADD = "ADD",
+  ON_ADDED = "ADDED"
 }
 
 export interface IFirstAddAction {
@@ -19,7 +20,20 @@ export const createFirstAddAction = (num1: number, num2: number) => {
   };
 };
 
-export type FirstAction = IFirstAddAction //TOOD may have "|" later
+
+export interface IFirstOnAddedAction {
+  type: FirstActionTypes.ON_ADDED,
+  payload: { result: number }
+}
+
+export const createFirstOnAddedAction = (result: number) => {
+  return {
+    type: FirstActionTypes.ON_ADDED,
+    payload: { result }
+  };
+};
+
+export type FirstAction = IFirstAddAction | IFirstOnAddedAction
 
 export interface IFirstState {
   addedResult: number
@@ -33,8 +47,11 @@ export const FirstReducer: Reducer<IFirstState, FirstAction> =
 
     switch (action.type) {
       case FirstActionTypes.ADD:
-        console.log(`szw reducer Action_ADD`);
+        console.log(`szw reducer1 Action_ADD`);
         return state;
+      case FirstActionTypes.ON_ADDED:
+        console.log(`szw reducer2 : `, action.payload.result);
+        return { ...state, addedResult: action.payload.result };
       default:
         return state;
     }
