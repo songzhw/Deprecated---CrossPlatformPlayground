@@ -1,5 +1,5 @@
-import { AnyAction, Dispatch, MiddlewareAPI, Store } from "redux";
-import { TAKE } from "./SagaletEffects";
+import { AnyAction, Dispatch, MiddlewareAPI } from "redux";
+import { PUT, TAKE } from "./SagaletEffects";
 
 export const createSagaletMiddleware = () => {
   let sagaGenerator: () => Iterator<any>;
@@ -31,6 +31,8 @@ export const createSagaletMiddleware = () => {
           const secondGenerator = handlerFunc(action);
           __next(secondGenerator, undefined, false);
         }
+      } else if (effect === PUT) {
+        console.log(`szw PUT`)
       }
 
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { IAppState } from "../../core/store";
-import { createFirstAddAction, FirstAction, IFirstAddAction } from "./FirstReducer";
+import { createFirstAddAction } from "./FirstReducer";
 import { AnyAction, Dispatch } from "redux";
 
 interface IProps {
