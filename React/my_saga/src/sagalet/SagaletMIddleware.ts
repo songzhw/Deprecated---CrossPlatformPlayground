@@ -32,7 +32,9 @@ export const createSagaletMiddleware = () => {
           __next(secondGenerator, undefined, false);
         }
       } else if (effect === PUT) {
-        console.log(`szw PUT`)
+        console.log(`szw PUT`);
+        const newAction = value[1];
+        next(newAction);
       }
 
     }
