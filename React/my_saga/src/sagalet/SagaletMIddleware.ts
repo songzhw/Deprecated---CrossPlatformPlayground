@@ -27,11 +27,13 @@ export const createSagaletMiddleware = () => {
       const effect = value[0];
 
       if (effect === TAKE) {
+        console.log(`szw TAKE`);
         const typeInterested = value[1];
         if (typeInterested === action.type) {
           const handlerFunc = value[2];
           const secondGenerator = handlerFunc(action);
           __next(secondGenerator, undefined, false);
+          // TODO how to resume to the main generator after this is done?
         }
       } else if (effect === PUT) {
         console.log(`szw PUT`);
