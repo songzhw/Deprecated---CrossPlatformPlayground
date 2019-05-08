@@ -39,7 +39,7 @@ export const createSagaletMiddleware = () => {
         console.log(`szw PUT`);
         const newAction = value[1];
         outAction = next(newAction);
-        // TODO resume the generator
+        __next(gen, undefined, false);
       } else if (effect === CALL) {
         console.log("szw CALL");
         console.log("szw value = ", value);
@@ -47,7 +47,6 @@ export const createSagaletMiddleware = () => {
         const funcArgs = value[2];
         const funcResult = func.apply(null, funcArgs);
         __next(gen, funcResult, false);
-        // TODO resume the generator
       }
 
     }
