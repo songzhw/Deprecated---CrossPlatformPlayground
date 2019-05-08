@@ -18,9 +18,9 @@ export function put(action: AnyAction) {
   2. 这里说是function, 但我试过, 传入function行, 传入arraow function也是行的!
   3. 用Function也行, 用(...params: any[])=> any也行!
  */
-// tslint:disable-next-line:ban-types
-export function call(func: Function, ...args: any) {
+export function call(func: (...params: any[])=> any, ...args: any) {
   return [CALL, func, args];
+  // 以call(add, 1, 2)为例, 那这里的call()返回一个长度为3的数组. 其中的args其实就是另一个array, 值为[1,2].
 }
 
 

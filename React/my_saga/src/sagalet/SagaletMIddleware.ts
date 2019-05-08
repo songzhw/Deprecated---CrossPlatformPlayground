@@ -45,8 +45,8 @@ export const createSagaletMiddleware = () => {
         console.log("szw value = ", value);
         const func = value[1];
         const funcArgs = value[2];
-        const funcResult = func.call(null, funcArgs);
-        console.log(`szw ${funcResult}`)
+        const funcResult = func.apply(null, funcArgs);
+        __next(gen, funcResult, false);
         // TODO resume the generator
       }
 
