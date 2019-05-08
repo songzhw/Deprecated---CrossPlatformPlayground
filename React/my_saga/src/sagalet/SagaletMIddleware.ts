@@ -1,5 +1,6 @@
 import { AnyAction, Dispatch, MiddlewareAPI } from "redux";
 import { CALL, PUT, TAKE } from "./SagaletEffects";
+import { isPromise } from "./Is";
 
 export const createSagaletMiddleware = () => {
   let sagaGenerator: () => Iterator<any>;
@@ -24,6 +25,14 @@ export const createSagaletMiddleware = () => {
         return;
       }
 
+      // = = = = = = = = 1. yield Promise = = = = = = = =
+      if (isPromise(value)) {
+        value.then((valueInPromise: any) => __next(gen, valueInPromise, false));
+        return;
+      }
+
+
+      // = = = = = = = = 2. yield saga effect = = = = = = = =
       const effect = value[0];
 
       if (effect === TAKE) {
