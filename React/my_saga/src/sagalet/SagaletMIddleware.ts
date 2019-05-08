@@ -1,5 +1,5 @@
 import { AnyAction, Dispatch, MiddlewareAPI } from "redux";
-import { PUT, TAKE } from "./SagaletEffects";
+import { CALL, PUT, TAKE } from "./SagaletEffects";
 
 export const createSagaletMiddleware = () => {
   let sagaGenerator: () => Iterator<any>;
@@ -39,6 +39,15 @@ export const createSagaletMiddleware = () => {
         console.log(`szw PUT`);
         const newAction = value[1];
         outAction = next(newAction);
+        // TODO resume the generator
+      } else if (effect === CALL) {
+        console.log("szw CALL");
+        console.log("szw value = ", value);
+        const func = value[1];
+        const funcArgs = value[2];
+        const funcResult = func.call(null, funcArgs);
+        console.log(`szw ${funcResult}`)
+        // TODO resume the generator
       }
 
     }
