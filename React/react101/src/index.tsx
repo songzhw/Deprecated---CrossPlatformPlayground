@@ -16,6 +16,7 @@ import { DownloadScreen } from "./biz/download/DownloadScreen";
 import { LetConst_Problem } from "./Rtutor/simple/LetConst_Problem";
 import { LetConst_Resolve } from "./Rtutor/simple/LetConst_Resolve";
 import { UseStateIssue1 } from "./Rtutor/FC/useStateIssue1";
+import { ReduxPersistScreen } from "./three_party/redux_persist/ReduxPersistScreen";
 
-ReactDOM.render(<AtIndexedDB/>, document.getElementById("root"));
+ReactDOM.render(<ReduxPersistScreen/>, document.getElementById("root"));
 
