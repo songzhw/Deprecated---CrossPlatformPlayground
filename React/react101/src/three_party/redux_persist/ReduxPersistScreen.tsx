@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { IBookState } from "./rpBookReducer";
 
 interface IProps {
   dispatch: any
@@ -17,8 +18,11 @@ export const ReduxPersistRawScreen = (props: IProps) => {
     </div>
   );
 
+};
 
+const mapStateToProps = (state: IBookState) => {
+  console.log("book screen ", state);
 };
 
 
-export const ReduxPersistScreen = connect()(ReduxPersistRawScreen);
+export const ReduxPersistScreen = connect(mapStateToProps)(ReduxPersistRawScreen);

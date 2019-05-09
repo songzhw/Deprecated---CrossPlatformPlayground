@@ -8,7 +8,8 @@ import { PersistPartial } from "redux-persist/es/persistReducer";
 
 const persistBookConfig = {
   key: "root",
-  storage
+  storage,
+  blacklist: ["status"]
 };
 const persistBookReducer = persistReducer(persistBookConfig, bookReducer);
 
