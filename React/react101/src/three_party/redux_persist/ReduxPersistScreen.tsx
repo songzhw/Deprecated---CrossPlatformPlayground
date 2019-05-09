@@ -5,7 +5,7 @@ interface IProps {
   dispatch: any
 }
 
-export const ReduxPersistScreen = (props: IProps) => {
+export const ReduxPersistRawScreen = (props: IProps) => {
 
   function save1() {
     props.dispatch({ type: "BOOK_ADD", id: 22, name: "harry", status: "unread" });
@@ -21,4 +21,4 @@ export const ReduxPersistScreen = (props: IProps) => {
 };
 
 
-export default connect()(ReduxPersistScreen);
+export const ReduxPersistScreen = connect()(ReduxPersistRawScreen);

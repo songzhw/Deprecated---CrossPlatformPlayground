@@ -13,7 +13,7 @@ const persistBookConfig = {
 const persistBookReducer = persistReducer(persistBookConfig, bookReducer);
 
 export interface IAppState {
-  book: IBookState ;
+  book: IBookState & PersistPartial;
 }
 
 const rootReducer = combineReducers<IAppState>({
