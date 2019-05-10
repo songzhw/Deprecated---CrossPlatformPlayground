@@ -1,5 +1,5 @@
 import { AnyAction, Dispatch, MiddlewareAPI } from "redux";
-import { CALL, PUT, TAKE } from "./SagaletEffects";
+import { CALL, FORK, PUT, TAKE } from "./SagaletEffects";
 import { isPromise } from "./Is";
 
 export const createSagaletMiddleware = () => {
@@ -51,11 +51,16 @@ export const createSagaletMiddleware = () => {
         __next(gen, undefined, false);
       } else if (effect === CALL) {
         console.log("szw CALL");
-        console.log("szw value = ", value);
         const func = value[1];
         const funcArgs = value[2];
         const funcResult = func.apply(null, funcArgs);
         __next(gen, funcResult, false);
+      } else if (effect === FORK) {
+        console.log("szw FORK");
+        const func = value[1];
+        const funcArgs = value[2];
+        func.apply(null, funcArgs);
+        __next(gen, undefined, false);
       }
 
     }
