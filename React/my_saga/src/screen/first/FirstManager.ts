@@ -7,5 +7,6 @@ export const add = (one: number, two: number): number => {
 };
 
 export const print = (result: any) => {
-  console.log("szw ", result);
+  setTimeout(() =>
+    console.log("szw ", result), 4000);
 };
