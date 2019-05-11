@@ -1,28 +1,28 @@
-import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware, { call, takeEvery, put } from './tiny-redux-saga';
-import { mock } from './api';
+import { createStore, applyMiddleware } from "redux";
+import createSagaMiddleware, { call, takeEvery, put } from "./tiny-redux-saga";
+import { mock } from "./api";
 
 const initState = {
   list: [
-    {desc: '手机'},
-    {desc: '电脑'}
+    { desc: "手机" },
+    { desc: "电脑" }
   ]
-}
+};
 
 function reducer(state = initState, action) {
   switch (action.type) {
-    case 'UPDATE':
+    case "UPDATE":
       return {
         ...state,
         list: action.payload.list
-      }
-    case 'CLEAR': 
+      };
+    case "CLEAR":
       return {
         ...state,
         list: []
-      }
+      };
     default:
-      return state  
+      return state;
   }
 }
 
@@ -32,23 +32,24 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 );
 
-function *saga() {
-  yield takeEvery('FEATCH_LIST', function *() {
+function* saga() {
+  yield takeEvery("FEATCH_LIST", function* () {
     try {
       const list = yield call(mock);
       yield put({
-        type: 'UPDATE',
+        type: "UPDATE",
         payload: {
           list
         }
-      })
-    } catch(err) {
+      });
+    } catch (err) {
       yield put({
-        type: 'CLEAR'
-      })
+        type: "CLEAR"
+      });
     }
-  })
+  });
 }
+
 sagaMiddleware.run(saga);
 
 export default store;

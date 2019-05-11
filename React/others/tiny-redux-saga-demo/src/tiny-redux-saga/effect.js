@@ -1,41 +1,41 @@
 export function take(pattern) {
   return {
     isEffect: true,
-    type: 'take',
+    type: "take",
     pattern: pattern
-  }
+  };
 }
 
 export function call(fn, ...args) {
   return {
     isEffect: true,
-    type: 'call',
+    type: "call",
     fn,
     args
-  }
+  };
 }
 
 export function put(action) {
   return {
     isEffect: true,
-    type: 'put',
+    type: "put",
     action
-  }
+  };
 }
 
 export function fork(saga) {
   return {
     isEffect: true,
-    type: 'fork',
+    type: "fork",
     saga
-  }
+  };
 }
 
 export function takeEvery(pattern, saga) {
   return {
     isEffect: true,
-    type: 'takeEvery',
+    type: "takeEvery",
     pattern,
     saga
-  }
+  };
 }

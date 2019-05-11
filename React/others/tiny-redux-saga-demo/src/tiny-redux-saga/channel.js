@@ -12,14 +12,14 @@ function channel() {
   }
 
   function put(pattern, args) {
-    if(!_task) return;
-    if(pattern == _task.pattern) _task.cb.call(null, args);
+    if (!_task) return;
+    if (pattern == _task.pattern) _task.cb.call(null, args);
   }
 
   return {
     take,
     put
-  }
+  };
 }
 
 export default channel();
