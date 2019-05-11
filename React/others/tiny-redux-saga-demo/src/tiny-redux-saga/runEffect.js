@@ -1,34 +1,34 @@
 import channel from './channel.js';
-import producer from './producer.js';
+import processor from './Processor.js';
 import { take, fork } from './effect.js';
 
-function runTakeEffect({ pattern }, next) {
+function runTakeEffect({ pattern }, genNext) {
   channel.take({
     pattern,
-    cb: args => next(null, args)
+    cb: args => genNext(null, args)
   })
 }
 
-function runCallEffect({ fn, args }, next) {
+function runCallEffect({ fn, args }, genNext) {
   /* 通常情况fn返回promise */
   fn.call(null, args)
-    .then(success => next(null, success))
-    .catch(error => next(error))
+    .then(success => genNext(null, success))
+    .catch(error => genNext(error))
 }
 
-function runPutEffect({ action }, next, store) {
+function runPutEffect({ action }, genNext, store) {
   const { dispatch } = store;
   dispatch(action);
-  next();
+  genNext();
 }
 
-function runForkEffect({ saga }, next, store) {
+function runForkEffect({ saga }, genNext, store) {
   const child = saga();
-  producer.call(store, child);
-  next(null);
+  processor.call(store, child);
+  genNext(null);
 }
 
-function runTakeEveryEffect({ pattern, saga }, next, store) {
+function runTakeEveryEffect({ pattern, saga }, genNext, store) {
   function *takeEvery() {
     while(true) {
       yield take(pattern);
@@ -36,7 +36,7 @@ function runTakeEveryEffect({ pattern, saga }, next, store) {
     }
   }
 
-  runForkEffect({ saga: takeEvery }, next, store);
+  runForkEffect({ saga: takeEvery }, genNext, store);
 }
 
 export default {

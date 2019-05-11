@@ -1,5 +1,5 @@
 import channel from './channel.js';
-import producer from './producer.js';
+import processor from './Processor.js';
 
 function createSagaMiddleware() {
   let _store = null;
@@ -16,7 +16,7 @@ function createSagaMiddleware() {
 
   sagaMiddleware.run = saga => {
     const iterator = saga();
-    producer.call(_store, iterator);
+    processor.call(_store, iterator);
   }
 
   return sagaMiddleware;
