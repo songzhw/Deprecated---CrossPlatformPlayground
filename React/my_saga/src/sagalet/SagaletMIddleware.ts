@@ -36,7 +36,7 @@ export const createSagaletMiddleware = () => {
       const effect = value[0];
 
       if (effect === TAKE) {
-        console.log(`szw TAKE`);
+        console.log(`szw TAKE`); // this implementation is actually `takeEvery`
         const typeInterested = value[1];
         if (typeInterested === action.type) {
           const handlerFunc = value[2];
