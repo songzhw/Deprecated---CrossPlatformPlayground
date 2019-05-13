@@ -16,7 +16,7 @@ export const QuickScreen = (props: IQuickProps) => {
   );
 };
 
-const initValue = {
+const initValue : Partial<IQuickProps> = {
   id: "20sdadsdfkajsdklasda",
   center: [0, 0],
   radius: 100
