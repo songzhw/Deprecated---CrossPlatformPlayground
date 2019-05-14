@@ -47,8 +47,8 @@ export const createSagaletMiddleware = () => {
       } else if (effect === PUT) {
         console.log(`szw PUT`);
         const newAction = value[1];
-        // next(newAction);
-        api.dispatch(newAction);
+        next(newAction);
+        // api.dispatch(newAction);
         __next(gen, undefined, false);
       } else if (effect === CALL) {
         console.log("szw CALL");
