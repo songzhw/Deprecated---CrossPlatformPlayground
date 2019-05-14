@@ -3,7 +3,7 @@ import { CALL, FORK, PUT, TAKE } from "./SagaletEffects";
 import { isPromise } from "./Is";
 
 export const createSagaletMiddleware = () => {
-  let sagaGenerator: () => Iterator<any>;
+  let generator: Iterator<any>;
 
   // MiddlewareAPI的定义:  type MiddlewareAPI = { dispatch: Dispatch, getState: () => State }, 和store很像吧, 只是没有注册方法而已
   const sagaletMiddleware = (api: MiddlewareAPI) => (next: Dispatch<AnyAction>) => (action: AnyAction) => {
@@ -66,13 +66,12 @@ export const createSagaletMiddleware = () => {
 
     }
 
-    const generator: Iterator<any> = sagaGenerator();
     __next(generator, undefined, false);
 
   };
 
   sagaletMiddleware.run = (func: () => Iterator<any>) => {
-    sagaGenerator = func;
+    generator = func();
   };
 
   return sagaletMiddleware;
