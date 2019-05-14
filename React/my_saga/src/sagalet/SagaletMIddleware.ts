@@ -9,7 +9,7 @@ export const createSagaletMiddleware = () => {
   const sagaletMiddleware = (api: MiddlewareAPI) => (next: Dispatch<AnyAction>) => (action: AnyAction) => {
     console.log(`szw sagalet middleware : ${JSON.stringify(action)}`);
 
-    let outAction = next(action);
+    next(action);
 
 
     function __next(gen: Iterator<any>, args: any, isError: boolean) {
@@ -47,7 +47,7 @@ export const createSagaletMiddleware = () => {
       } else if (effect === PUT) {
         console.log(`szw PUT`);
         const newAction = value[1];
-        outAction = next(newAction);
+        next(newAction);
         __next(gen, undefined, false);
       } else if (effect === CALL) {
         console.log("szw CALL");
@@ -68,7 +68,6 @@ export const createSagaletMiddleware = () => {
     const generator: Iterator<any> = sagaGenerator();
     __next(generator, undefined, false);
 
-    return outAction;
   };
 
   sagaletMiddleware.run = (func: () => Iterator<any>) => {
