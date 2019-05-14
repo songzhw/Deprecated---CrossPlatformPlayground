@@ -1,6 +1,4 @@
 import { AnyAction, Dispatch, MiddlewareAPI } from "redux";
-import { CALL, FORK, PUT, TAKE } from "./SagaletEffects";
-import { isPromise } from "./Is";
 import { proc } from "./Processor";
 
 export const createSagaletMiddleware = () => {
@@ -10,7 +8,7 @@ export const createSagaletMiddleware = () => {
   const sagaletMiddleware = (api: MiddlewareAPI) => (next: Dispatch<AnyAction>) => (action: AnyAction) => {
     console.log(`szw sagalet middleware : ${JSON.stringify(action)}`);
     next(action);
-    proc(api, generator, action);
+    proc(api, generator, action); //要是不想take()有takeEvery的效果, proc()的执行不应该在这. 应该在run()中
   };
 
   sagaletMiddleware.run = (func: () => Iterator<any>) => {

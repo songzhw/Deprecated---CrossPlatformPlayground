@@ -5,6 +5,7 @@ import { CALL, FORK, PUT, TAKE } from "./SagaletEffects";
 
 export function proc(reduxStore: MiddlewareAPI, iterator: Iterator<any>, action?: AnyAction) {
 
+  __next(iterator, undefined, false);
 
   function __next(gen: Iterator<any>, args: any, isError: boolean) {
     if (isError) {
@@ -31,7 +32,9 @@ export function proc(reduxStore: MiddlewareAPI, iterator: Iterator<any>, action?
 
     if (effect === TAKE) {
       console.log(`szw TAKE`); // this implementation is actually `takeEvery`
-      if(!action){return}
+      if (!action) {
+        return;
+      }
       const typeInterested = value[1];
       if (typeInterested === action.type) {
         const handlerFunc = value[2];
@@ -60,7 +63,5 @@ export function proc(reduxStore: MiddlewareAPI, iterator: Iterator<any>, action?
     }
 
   }
-
-  __next(iterator, undefined, false);
 
 }
