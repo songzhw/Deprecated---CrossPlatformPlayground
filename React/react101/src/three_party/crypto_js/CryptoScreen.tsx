@@ -5,7 +5,6 @@ import SHA256 from "crypto-js/sha256";
 import AES from "crypto-js/aes";
 
 interface IProps {
-
 }
 
 export const CryptoScreen: React.FC<IProps> = (props: IProps) => {
