@@ -1,18 +1,15 @@
-
 .header {
   background-color: #2e7d32;
-  height: 50px;
+  height: 25px;
   padding-left: 10px;
-}
-
-.imgBack {
-  height: 30px;
-  width: 30px;
+  display: flex;
 }
 
 .headerLink {
   color: #ffffff;
   text-decoration: none;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .activeHeaderLink {
