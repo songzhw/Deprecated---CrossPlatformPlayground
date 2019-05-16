@@ -19,7 +19,7 @@ export const AesScreen = (props: IProps) => {
   const iv = Utf8.parse("abcdef9876543210");
 
   const src = `<html><h1>I'm happy</h1></html>`;
-  let encrypted: WordArray;
+  let encrypted = "";
   let decrypted = "";
 
   function onClickEcbNoPadding1() {
@@ -40,11 +40,12 @@ export const AesScreen = (props: IProps) => {
 
   function onClickCbcPKCS71() {
     const utfIn = Utf8.parse(src);
-    encrypted = AES.encrypt(utfIn, key, { iv, mode: CryptoJS.mode.CBC, padding: Pkcs7 });
+    const rawEncrypted = AES.encrypt(utfIn, key, { iv, mode: CryptoJS.mode.CBC, padding: Pkcs7 });
 
-    // encrypted是WordArray类型, 不适合阅读, 所以转一下
+    // encrypted是WordArray类型, 不适合阅读与传递给他人, 所以转一下
     // astring = Base64.stringify(encrypted);// 但不能直接用base64转, 会有问题 - TypeError: wordArray.clamp is not a function
-    setResult(encrypted.ciphertext.toString());
+    encrypted = rawEncrypted.ciphertext.toString();
+    setResult(encrypted);
   }
 
   function onClickCbcPKCS72() {
