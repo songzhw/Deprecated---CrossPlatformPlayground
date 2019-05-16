@@ -36,4 +36,6 @@ const HeaderComponent: React.FunctionComponent<RouteComponentProps> = (props) =>
   );
 };
 
+// 从url中取出数据, 如"/books?id=23", 就得用props.location.search, 即得用RouteComponentProps
+// 但在RoutesForFirst中, <Header>并没有被<Route>给包裹, 所以要加这个withRouter()来有上面的props
 export const Header = withRouter(HeaderComponent);
