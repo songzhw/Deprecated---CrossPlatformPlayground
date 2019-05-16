@@ -3,11 +3,13 @@ import { BrowserRouter, NavLink, Redirect, Route, RouteComponentProps, Switch } 
 import "./Crypto.css";
 import { Base64Screen } from "./Base64Screen";
 import { CryptoScreen } from "./CryptoScreen";
+import { JwtScreen } from "./JwtScreen";
 
 const Header = () => {
   return (
     <div className={"header"}>
       <NavLink to="/base64" className="headerLink" activeClassName="activeHeaderLink"> Base64 </NavLink>
+      <NavLink to="/jwt" className="headerLink" activeClassName="activeHeaderLink"> jwt </NavLink>
       <NavLink to="/sha256" className="headerLink" activeClassName="activeHeaderLink"> sha256 </NavLink>
       <NavLink to="/AES_no" className="headerLink" activeClassName="activeHeaderLink"> AES_No </NavLink>
       <NavLink to="/AES_pkcs7" className="headerLink" activeClassName="activeHeaderLink"> AES_PKCS7 </NavLink>
@@ -25,6 +27,7 @@ export const CryptoRouter = () => {
         <Redirect exact={true} from="/" to="/all"/>
         <Route path="/all" component={CryptoScreen}/>
         <Route path="/base64" component={Base64Screen}/>
+        <Route path="/jwt" component={JwtScreen}/>
       </Switch>
     </BrowserRouter>
   );
