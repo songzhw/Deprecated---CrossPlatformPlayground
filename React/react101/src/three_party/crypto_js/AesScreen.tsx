@@ -6,6 +6,7 @@ import SHA256 from "crypto-js/sha256";
 import AES from "crypto-js/aes";
 import Pkcs7 from "crypto-js/pad-pkcs7";
 import Hex from "crypto-js/enc-hex";
+import ECB from 'crypto-js/mode-ecb'
 
 
 interface IProps {
@@ -23,43 +24,36 @@ export const AesScreen = (props: IProps) => {
   let decrypted = "";
 
   function onClickEcbNoPadding1() {
-
+    const rawEncrypted = AES.encrypt(src, key, { iv, mode: ECB });
+    const tmp = rawEncrypted.ciphertext.toString();
+    setEncrypted(tmp);
+    setResult(tmp);
   }
 
   function onClickEcbNoPadding2() {
-
+    const encryptedHexStr = Hex.parse(encrypted);
+    const encryptedBase64Str = Base64.stringify(encryptedHexStr);
+    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { iv, mode: ECB });
+    decrypted = rawDecrypted.toString(Utf8);
+    setResult(decrypted);
   }
 
   function onClickEcbPKCS71() {
-
+    const rawEncrypted = AES.encrypt(src, key, { iv, mode: ECB, padding: Pkcs7 });
+    const tmp = rawEncrypted.ciphertext.toString();
+    setEncrypted(tmp);
+    setResult(tmp);
   }
 
   function onClickEcbPKCS72() {
-
-  }
-
-  function onClickCbcPKCS71() {
-    const rawEncrypted = AES.encrypt(src, key, { iv, mode: CryptoJS.mode.CBC, padding: Pkcs7 });
-
-    // encrypted是WordArray类型, 不适合阅读与传递给他人, 所以转一下
-    // astring = Base64.stringify(encrypted);// 但不能直接用base64转, 会有问题 - TypeError: wordArray.clamp is not a function
-    const tmp = rawEncrypted.ciphertext.toString();
-    setEncrypted(tmp);
-    console.log(`en1 = `, tmp);
-    setResult(tmp);
-    // onClickCbcPKCS72();
-  }
-
-  function onClickCbcPKCS72() {
-    console.log(`en2 = `, encrypted);
     const encryptedHexStr = Hex.parse(encrypted);
-    // 将密文转为Base64的字符串, 只有Base64类型的字符串密文才能对其进行解密
     const encryptedBase64Str = Base64.stringify(encryptedHexStr);
-    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { iv, mode: CryptoJS.mode.CBC, padding: Pkcs7 });
+    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { iv, mode: ECB, padding: Pkcs7 });
     decrypted = rawDecrypted.toString(Utf8);
-    console.log(`de = `, decrypted);
     setResult(decrypted);
   }
+
+
 
 
   /**
