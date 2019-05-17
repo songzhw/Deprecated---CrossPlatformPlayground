@@ -6,7 +6,7 @@ import SHA256 from "crypto-js/sha256";
 import AES from "crypto-js/aes";
 import Pkcs7 from "crypto-js/pad-pkcs7";
 import Hex from "crypto-js/enc-hex";
-import ECB from 'crypto-js/mode-ecb'
+import ECB from "crypto-js/mode-ecb";
 
 
 interface IProps {
@@ -20,7 +20,8 @@ export const AesScreen = (props: IProps) => {
   const key = Utf8.parse("0123456789abcdef");
   const iv = Utf8.parse("abcdef9876543210");
 
-  const src = `<html><h1>I'm happy</h1></html>`;
+  // const src = `<html><h1>I'm happy</h1></html>`;
+  const src = "0123456789abcdef";
   let decrypted = "";
 
   function onClickEcbNoPadding1() {
@@ -43,6 +44,7 @@ export const AesScreen = (props: IProps) => {
     decrypted = rawDecrypted.toString(Utf8);
     setResult(decrypted);
   }
+
   function onClickEcbZeroPadding1() {
     const rawEncrypted = AES.encrypt(src, key, { mode: ECB, padding: CryptoJS.pad.ZeroPadding });
     const tmp = rawEncrypted.ciphertext.toString();
@@ -59,7 +61,7 @@ export const AesScreen = (props: IProps) => {
   }
 
   function onClickEcbPKCS71() {
-    const rawEncrypted = AES.encrypt(src, key, {  mode: ECB, padding: Pkcs7 });
+    const rawEncrypted = AES.encrypt(src, key, { mode: ECB, padding: Pkcs7 });
     const tmp = rawEncrypted.ciphertext.toString();
     setEncrypted(tmp);
     setResult(tmp);
@@ -68,7 +70,7 @@ export const AesScreen = (props: IProps) => {
   function onClickEcbPKCS72() {
     const encryptedHexStr = Hex.parse(encrypted);
     const encryptedBase64Str = Base64.stringify(encryptedHexStr);
-    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, {  mode: ECB, padding: Pkcs7 });
+    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { mode: ECB, padding: Pkcs7 });
     decrypted = rawDecrypted.toString(Utf8);
     setResult(decrypted);
   }
