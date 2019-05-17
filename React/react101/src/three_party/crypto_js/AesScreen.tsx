@@ -13,13 +13,13 @@ interface IProps {
 
 export const AesScreen = (props: IProps) => {
   const [result, setResult] = useState("...");
+  const [encrypted, setEncrypted] = useState("");
 
   // AES-128 : key需要得是128位, 换成16进制, 就是128 = 16 * 8, 即得有16个string在这里
   const key = Utf8.parse("0123456789abcdef");
   const iv = Utf8.parse("abcdef9876543210");
 
   const src = `<html><h1>I'm happy</h1></html>`;
-  let encrypted = "";
   let decrypted = "";
 
   function onClickEcbNoPadding1() {
@@ -43,9 +43,10 @@ export const AesScreen = (props: IProps) => {
 
     // encrypted是WordArray类型, 不适合阅读与传递给他人, 所以转一下
     // astring = Base64.stringify(encrypted);// 但不能直接用base64转, 会有问题 - TypeError: wordArray.clamp is not a function
-    encrypted = rawEncrypted.ciphertext.toString();
-    console.log(`en1 = `, encrypted);
-    setResult(encrypted);
+    const tmp = rawEncrypted.ciphertext.toString();
+    setEncrypted(tmp);
+    console.log(`en1 = `, tmp);
+    setResult(tmp);
     // onClickCbcPKCS72();
   }
 
