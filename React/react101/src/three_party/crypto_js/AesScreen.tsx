@@ -48,13 +48,12 @@ export const AesScreen = (props: IProps) => {
   }
 
   function onClickCbcPKCS72() {
-    // // 对wordArray.ciphertext.toString(), 要还原为utf格式, 得先用hex, 再用base64
-    const encryptedHexStr = CryptoJS.enc.Hex.parse(encrypted);
-// 将密文转为Base64的字符串
-// 只有Base64类型的字符串密文才能对其进行解密
-    const encryptedBase64Str = CryptoJS.enc.Base64.stringify(encryptedHexStr);
-    const rawDecrpted = AES.decrypt(encryptedBase64Str, key, { iv, mode: CryptoJS.mode.CBC, padding: Pkcs7 });
-    decrypted = rawDecrpted.toString(Utf8);
+    // 对wordArray.ciphertext.toString(), 要还原为utf格式, 得先用hex, 再用base64
+    const encryptedHexStr = Hex.parse(encrypted);
+    // 将密文转为Base64的字符串, 只有Base64类型的字符串密文才能对其进行解密
+    const encryptedBase64Str = Base64.stringify(encryptedHexStr);
+    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { iv, mode: CryptoJS.mode.CBC, padding: Pkcs7 });
+    decrypted = rawDecrypted.toString(Utf8);
     console.log(`de = `, decrypted);
     setResult(decrypted);
   }
