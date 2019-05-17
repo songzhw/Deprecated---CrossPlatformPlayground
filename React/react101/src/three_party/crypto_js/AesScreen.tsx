@@ -24,7 +24,7 @@ export const AesScreen = (props: IProps) => {
   let decrypted = "";
 
   function onClickEcbNoPadding1() {
-    const rawEncrypted = AES.encrypt(src, key, { iv, mode: ECB });
+    const rawEncrypted = AES.encrypt(src, key, { iv, mode: ECB, padding: CryptoJS.pad.NoPadding });
     const tmp = rawEncrypted.ciphertext.toString();
     setEncrypted(tmp);
     setResult(tmp);
@@ -33,7 +33,7 @@ export const AesScreen = (props: IProps) => {
   function onClickEcbNoPadding2() {
     const encryptedHexStr = Hex.parse(encrypted);
     const encryptedBase64Str = Base64.stringify(encryptedHexStr);
-    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { iv, mode: ECB });
+    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { iv, mode: ECB, padding: CryptoJS.pad.NoPadding });
     decrypted = rawDecrypted.toString(Utf8);
     setResult(decrypted);
   }
