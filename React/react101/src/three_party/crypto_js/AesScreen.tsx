@@ -44,12 +44,13 @@ export const AesScreen = (props: IProps) => {
     // encrypted是WordArray类型, 不适合阅读与传递给他人, 所以转一下
     // astring = Base64.stringify(encrypted);// 但不能直接用base64转, 会有问题 - TypeError: wordArray.clamp is not a function
     encrypted = rawEncrypted.ciphertext.toString();
-    console.log(`en = `, encrypted);
-    // setResult(encrypted);
-    onClickCbcPKCS72();
+    console.log(`en1 = `, encrypted);
+    setResult(encrypted);
+    // onClickCbcPKCS72();
   }
 
   function onClickCbcPKCS72() {
+    console.log(`en2 = `, encrypted);
     const encryptedHexStr = Hex.parse(encrypted);
     // 将密文转为Base64的字符串, 只有Base64类型的字符串密文才能对其进行解密
     const encryptedBase64Str = Base64.stringify(encryptedHexStr);
