@@ -53,7 +53,20 @@ export const AesScreen = (props: IProps) => {
     setResult(decrypted);
   }
 
+  function onClickCbcPKCS71() {
+    const rawEncrypted = AES.encrypt(src, key, { iv, mode: CryptoJS.mode.CBC, padding: Pkcs7 });
+    const tmp = rawEncrypted.ciphertext.toString();
+    setEncrypted(tmp);
+    setResult(tmp);
+  }
 
+  function onClickCbcPKCS72() {
+    const encryptedHexStr = Hex.parse(encrypted);
+    const encryptedBase64Str = Base64.stringify(encryptedHexStr);
+    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { iv, mode: CryptoJS.mode.CBC, padding: Pkcs7 });
+    decrypted = rawDecrypted.toString(Utf8);
+    setResult(decrypted);
+  }
 
 
   /**
