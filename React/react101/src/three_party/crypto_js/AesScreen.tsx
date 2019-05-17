@@ -21,7 +21,7 @@ export const AesScreen = (props: IProps) => {
   const iv = Utf8.parse("abcdef9876543210");
 
   // const src = `<html><h1>I'm happy</h1></html>`;
-  const src = "0123456789abcdef";
+  const src = "0123456789abcdefgs";
   let decrypted = "";
 
   function onClickEcbNoPadding1() {
@@ -36,6 +36,13 @@ export const AesScreen = (props: IProps) => {
   no   padding: encrypted = 80b0be5f93faf23e425d09459696151a572a1b65fabb73714c34bf01f77270
   zero padding: encrypted = 80b0be5f93faf23e425d09459696151a572a1b65fabb73714c34bf01f77270c5
   可见二者密码类似, 但分块解密时no padding就会错
+
+  当src = "0123456789abcdef"时, noPadding解密正常 (正确)
+  当src = "0123456789abcdefg"时, noPadding解密成了: 0123456789abcdef8 (错误)
+  当src = "0123456789abcdefgh"时, noPadding解密后转utf-8失败: Error: Malformed UTF-8 data, 出错在"decrypted = rawDecrypted.toString(Utf8);"行
+  但长度好像又不是问题, 因为当src = "0123456789abcdefgs"时, noPadding解密成了: 0123456789abcdefj (错误)
+
+  而且, NoPadding时的密文少了很多, 有时少一半长度, 安全性上应该有差
    */
   function onClickEcbNoPadding2() {
     const encryptedHexStr = Hex.parse(encrypted);
