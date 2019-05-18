@@ -1,6 +1,5 @@
 export const http = (url) => {
   return new Promise((resolve, reject) => {
-    const url = "https://gerhardsletten.github.io/react-reader/files/alice.epub";
     const xhr = new XMLHttpRequest();
     xhr.responseType = "arraybuffer";
     xhr.onload = () => {
@@ -17,7 +16,6 @@ export const http = (url) => {
       console.log(`szw onerror`, ev);
     };
     xhr.open("GET", url, true);
-    xhr.setRequestHeader("If-Modified-Since", "0");
     xhr.send(null);
   });
 };
