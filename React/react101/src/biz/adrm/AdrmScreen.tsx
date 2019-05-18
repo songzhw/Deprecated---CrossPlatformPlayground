@@ -1,29 +1,52 @@
-import React, { useState } from "react";
-import DownloadClient from "../download/lib/DownloadClient";
-import { ICompleteResult } from "../download/lib/SingleDownload";
+import React, { useEffect, useState } from "react";
+import { http } from "../download2/HttpEngine";
 
+const BOOK = "book";
 export const AdrmScreen: React.FC = () => {
   const [info, setInfo] = useState("-----");
+  const [db, setDb] = useState<IDBDatabase>();
 
-  function onProgress(ev: ProgressEvent) {
-    const offset = ev.loaded / ev.total * 100;
-    console.log(`szw progress: `, offset);
-  }
+  useEffect(() => {
+    const openRequest = indexedDB.open("demo01", 1);
+    openRequest.onupgradeneeded = (ev: Event) => {
+      const _db = (ev.target as IDBOpenDBRequest).result;
+      console.log(`szw upgrade `, _db);
 
-  function onFail(ev: ICompleteResult) {
-    DownloadClient.removeDownload(ev.url);
-    console.log(`szw download error`)
-  }
+      setDb(_db);
+    };
 
-  function onSuccess(ev: ICompleteResult) {
-    DownloadClient.removeDownload(ev.url);
-    console.log(`szw download success`)
-    setInfo("download finished!")
-  }
+    openRequest.onsuccess = (ev: Event) => {
+      const _db = (ev.target as IDBOpenDBRequest).result;
+      console.log(`szw upgrade `, _db);
+      setDb(_db);
+      console.dir(_db.objectStoreNames);
+    };
+
+    openRequest.onerror = (err) => {
+      console.log(`szw error `, err);
+      console.dir(err); //console.dir() 在控制台中显示指定JavaScript对象的属性，并通过类似文件树样式的交互列表显示。
+    };
+  }, []);
 
   function onClickDownload() {
-    const url = "https://songzhw.github.io/repo/sj.epub";
-    DownloadClient.startDownload(url, onProgress, onFail, onSuccess);
+    // const url = "https://songzhw.github.io/repo/sj.epub";
+    const url = "https://gerhardsletten.github.io/react-reader/files/alice.epub";
+    http(url)
+      .then(arraybufferData => {
+        if (db) {
+          const transaction = db.transaction(BOOK, "readwrite");
+          const objectStore = transaction.objectStore(BOOK);
+          const request = objectStore.add(arraybufferData);
+          request.onerror = (ev: any) => {
+            console.log("szw save book - error ", ev.target.error.name);
+          };
+
+          request.onsuccess = ev => {
+            console.log("szw save book successfully");
+          };
+        }
+        setInfo("donwload finished");
+      });
   }
 
   return (
