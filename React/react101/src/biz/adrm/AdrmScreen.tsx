@@ -11,13 +11,15 @@ export const AdrmScreen: React.FC = () => {
     openRequest.onupgradeneeded = (ev: Event) => {
       const _db = (ev.target as IDBOpenDBRequest).result;
       console.log(`szw upgrade `, _db);
-
+      if (!_db.objectStoreNames.contains(BOOK)) {
+        _db.createObjectStore(BOOK, { autoIncrement: true });
+      }
       setDb(_db);
     };
 
     openRequest.onsuccess = (ev: Event) => {
       const _db = (ev.target as IDBOpenDBRequest).result;
-      console.log(`szw upgrade `, _db);
+      console.log(`szw success `, _db);
       setDb(_db);
       console.dir(_db.objectStoreNames);
     };
