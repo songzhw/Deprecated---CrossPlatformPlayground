@@ -32,7 +32,7 @@ export const AdrmsScreen: React.FC = () => {
     }, []);
 
     function onClickDownload() {
-      const url2 = "https://songzhw.github.io/repo/sj.epub";
+      const url2 = `https://songzhw.github.io/repo/sj.epub?${Math.random()}`;
       // const url = "https://gerhardsletten.github.io/react-reader/files/alice.epub";
       console.log(`szw url: `, url2);
       http(url2)
@@ -57,7 +57,7 @@ export const AdrmsScreen: React.FC = () => {
       if (db) {
         const transaction = db.transaction(BOOK, "readwrite");
         const objectStore = transaction.objectStore(BOOK);
-        const request = objectStore.get(6);
+        const request = objectStore.get(1);
         request.onerror = err => console.dir(err);
         request.onsuccess = (ev: Event) => {
           const ebook = (ev.target as IDBRequest).result;

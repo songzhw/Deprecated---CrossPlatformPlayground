@@ -17,6 +17,7 @@ export const http = (url) => {
       console.log(`szw onerror`, ev);
     };
     xhr.open("GET", url, true);
-    xhr.send();
+    xhr.setRequestHeader("If-Modified-Since", "0");
+    xhr.send(null);
   });
 };
