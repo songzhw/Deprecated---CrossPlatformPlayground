@@ -18,7 +18,7 @@ import { LetConst_Resolve } from "./Rtutor/simple/LetConst_Resolve";
 import { UseStateIssue1 } from "./Rtutor/FC/useStateIssue1";
 import { RpApp } from "./three_party/redux_persist/rpApp";
 import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
-import { AdrmScreen } from "./biz/adrm/AdrmScreen";
+import { AdrmsScreen } from "./biz/adrm/AdrmsScreen";
 
-ReactDOM.render(<AdrmScreen/>, document.getElementById("root"));
+ReactDOM.render(<AdrmsScreen/>, document.getElementById("root"));
 
