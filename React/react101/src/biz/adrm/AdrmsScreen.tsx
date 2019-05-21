@@ -57,7 +57,7 @@ export const AdrmsScreen: React.FC = () => {
       if (db) {
         const transaction = db.transaction(BOOK, "readwrite");
         const objectStore = transaction.objectStore(BOOK);
-        const request = objectStore.get(10);
+        const request = objectStore.get(1);
         request.onerror = err => console.dir(err);
         request.onsuccess = (ev: Event) => {
           const ebook = (ev.target as IDBRequest).result;

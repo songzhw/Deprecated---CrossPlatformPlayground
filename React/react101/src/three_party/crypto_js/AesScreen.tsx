@@ -21,7 +21,7 @@ export const AesScreen = (props: IProps) => {
   const iv = Utf8.parse("abcdef9876543210");
 
   // const src = `<html><h1>I'm happy</h1></html>`;
-  const src = "0123456789abcdefgs";
+  const src = "0123456789abcdef"; //has to be 16位的倍数长, 不然noPadding会有问题
   let decrypted = "";
 
   function onClickEcbNoPadding1() {
