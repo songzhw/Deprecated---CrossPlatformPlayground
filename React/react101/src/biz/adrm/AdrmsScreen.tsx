@@ -3,7 +3,7 @@ import { http } from "../download2/HttpEngine";
 import { did, uid, kid } from "./ids";
 import * as JSZip from "jszip";
 
-import CryptoJS, { WordArray } from "crypto-js";
+import CryptoJS, { LibWordArray, WordArray } from "crypto-js";
 import Base64 from "crypto-js/enc-base64";
 import Utf8 from "crypto-js/enc-utf8";
 import SHA256 from "crypto-js/sha256";
@@ -11,6 +11,7 @@ import AES from "crypto-js/aes";
 import Pkcs7 from "crypto-js/pad-pkcs7";
 import Hex from "crypto-js/enc-hex";
 import ECB from "crypto-js/mode-ecb";
+import { wordArrayToByteArray } from "./CryptoUtils";
 
 
 const BOOK = "book";
@@ -91,8 +92,15 @@ export const AdrmsScreen: React.FC = () => {
     function onClickIndex() {
       const t1 = did + uid;
       console.log(`szw 01 : `, t1);
-      const sha256 = SHA256(did + uid);
-      console.log(`szw 02 : `, sha256.ciphertext.toString());
+      // @ts-ignore
+      const sha256 = SHA256(did + uid) as LibWordArray;
+      console.log(`szw 02 : `, sha256.toString());
+      console.log(`szw 03 : `, sha256.sigBytes);
+      console.log(`szw 04 : `, sha256);
+
+      const bytes = wordArrayToByteArray(sha256);
+      console.log("szw 05 : ", bytes);
+
     }
 
     return (
