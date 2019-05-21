@@ -20,5 +20,5 @@ import { RpApp } from "./three_party/redux_persist/rpApp";
 import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
 import { AdrmsScreen } from "./biz/adrm/AdrmsScreen";
 
-ReactDOM.render(<AdrmsScreen/>, document.getElementById("root"));
+ReactDOM.render(<CryptoRouter/>, document.getElementById("root"));
 
