@@ -35,14 +35,13 @@ function wordToByteArray(word: number, length: number) {
   return ba;
 }
 
-/*
-function byteArrayToWordArray(ba) {
-	var wa = [],
-		i;
-	for (i = 0; i < ba.length; i++) {
+// TODO may have error about "WordArray.create()"
+export function byteArrayToWordArray(ba: number[]) {
+	const wa: number[] = [];
+	for (let i = 0; i < ba.length; i++) {
 		wa[(i / 4) | 0] |= ba[i] << (24 - 8 * i);
 	}
 
-	return CryptoJS.lib.WordArray.create(wa, ba.length);
+	return CryptoJS.lib.WordArray.create(wa);
 }
- */
+

@@ -11,7 +11,8 @@ import AES from "crypto-js/aes";
 import Pkcs7 from "crypto-js/pad-pkcs7";
 import Hex from "crypto-js/enc-hex";
 import ECB from "crypto-js/mode-ecb";
-import { wordArrayToByteArray } from "./CryptoUtils";
+import { byteArrayToWordArray, wordArrayToByteArray } from "./CryptoUtils";
+import { ShapeOutsideProperty } from "csstype";
 
 
 const BOOK = "book";
@@ -92,15 +93,29 @@ export const AdrmsScreen: React.FC = () => {
     function onClickIndex() {
       // @ts-ignore
       const sha256 = SHA256(did + uid) as LibWordArray;
-      console.log(`szw 02 : `, sha256.toString());
+      console.log(`szw 01, `, sha256.toString());
+      const length = sha256.toString().length;
 
-      const bytes = wordArrayToByteArray(sha256);
-      const start = bytes.length - 16;
-      const k1 = [];
-      for (let x = start; x < bytes.length; x++) {
-        k1[x - start] = bytes[x];
-      }
-      console.log(`szw 03`, k1);
+      const k1 = sha256.toString().substr(length - 32);
+      console.log(`szw 02, `, k1);
+
+      // const bytes1 = wordArrayToByteArray(sha256);
+      // const start = bytes1.length - 16;
+      // const k1_ = [];
+      // for (let x = start; x < bytes1.length; x++) {
+      //   k1_[x - start] = bytes1[x];
+      // }
+      // const k1 = byteArrayToWordArray(k1_);
+      // // const k1 = Hex.stringify(k1_);
+      // console.log(`szw 02, `, k1);
+
+      // =======================
+      const rawD1 = Base64.parse(kid);
+      console.log(`szw 03, `, Base64.stringify(rawD1));
+      // =======================
+      const mykey = AES.decrypt(rawD1, k1, { mode: ECB, padding: CryptoJS.pad.NoPadding });
+      console.log(`szw 04, `, mykey);
+      // =======================
 
     }
 
