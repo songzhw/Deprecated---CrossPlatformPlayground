@@ -90,16 +90,17 @@ export const AdrmsScreen: React.FC = () => {
     }
 
     function onClickIndex() {
-      const t1 = did + uid;
-      console.log(`szw 01 : `, t1);
       // @ts-ignore
       const sha256 = SHA256(did + uid) as LibWordArray;
       console.log(`szw 02 : `, sha256.toString());
-      console.log(`szw 03 : `, sha256.sigBytes);
-      console.log(`szw 04 : `, sha256);
 
       const bytes = wordArrayToByteArray(sha256);
-      console.log("szw 05 : ", bytes);
+      const start = bytes.length - 16;
+      const k1 = [];
+      for (let x = start; x < bytes.length; x++) {
+        k1[x - start] = bytes[x];
+      }
+      console.log(`szw 03`, k1);
 
     }
 
