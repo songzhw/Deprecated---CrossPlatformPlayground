@@ -22,17 +22,18 @@ export const CrossScreen = (props: IProps) => {
   const [result, setResult] = useState("...");
 
   function onClickDecryptoJava() {
-    // const encrypted = "nSA0RU/u2r9dyd5mopht0g==";
-    // const key = "0123456789abcdef";
-    // const key_ = Utf8.parse(key);
-    //
-    // const encryptedBase64Str = Base64.stringify(encrypted);
-    // const rawDecrypted = AES.decrypt(encryptedBase64Str, key_, { mode: ECB, padding: CryptoJS.pad.ZeroPadding });
-    // const decrypted = rawDecrypted.toString(Utf8);
-    // setResult(decrypted);
+    const encrypted = "nSA0RU/u2r9dyd5mopht0g==";
+    const key = "0123456789abcdef";
+
+    const encryptedHexStr = Hex.parse(encrypted);
+    const encryptedBase64Str = Base64.stringify(encryptedHexStr);
+    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { mode: ECB, padding: CryptoJS.pad.ZeroPadding });
+    const decrypted = rawDecrypted.toString(Utf8);
+    setResult(decrypted);
 
 
     // 重要点: Hex.parse( ) which creates a WordArray (32bits Words) from a String
+    console.log(`szw ===============================`);
     let src = "whatisthis?";
     console.log(`szw 01`, Base64.parse(src));
     src = Hex.parse("nSA0RU/u2r9dyd5mopht0g==");
