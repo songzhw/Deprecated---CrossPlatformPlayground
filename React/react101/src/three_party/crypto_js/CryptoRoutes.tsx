@@ -6,6 +6,7 @@ import { CryptoScreen } from "./CryptoScreen";
 import { JwtScreen } from "./JwtScreen";
 import { AesScreen } from "./AesScreen";
 import { CrossScreen } from "./CrossScreen";
+import { AdrmsScreen } from "../../biz/adrm/AdrmsScreen";
 
 const Header = () => {
   return (
@@ -15,7 +16,7 @@ const Header = () => {
       <NavLink to="/aes" className="headerLink" activeClassName="activeHeaderLink"> AES </NavLink>
       <NavLink to="/cross" className="headerLink" activeClassName="activeHeaderLink"> 跨平台解密 </NavLink>
       <NavLink to="/file" className="headerLink" activeClassName="activeHeaderLink"> read_file </NavLink>
-      <NavLink to="/decryptf" className="headerLink" activeClassName="activeHeaderLink"> decrypt_file </NavLink>
+      <NavLink to="/decryptf" className="headerLink" activeClassName="activeHeaderLink"> 结果 </NavLink>
     </div>
   );
 };
@@ -31,6 +32,7 @@ export const CryptoRouter = () => {
         <Route path="/jwt" component={JwtScreen}/>
         <Route path="/aes" component={AesScreen}/>
         <Route path="/cross" component={CrossScreen}/>
+        <Route path="/decryptf" component={AdrmsScreen}/>
       </Switch>
     </BrowserRouter>
   );

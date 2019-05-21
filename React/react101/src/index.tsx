@@ -18,7 +18,6 @@ import { LetConst_Resolve } from "./Rtutor/simple/LetConst_Resolve";
 import { UseStateIssue1 } from "./Rtutor/FC/useStateIssue1";
 import { RpApp } from "./three_party/redux_persist/rpApp";
 import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
-import { AdrmsScreen } from "./biz/adrm/AdrmsScreen";
 
 ReactDOM.render(<CryptoRouter/>, document.getElementById("root"));
 
