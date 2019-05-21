@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { http } from "../download2/HttpEngine";
+import { did, uid, kid } from "./ids";
 import * as JSZip from "jszip";
+
+import CryptoJS, { WordArray } from "crypto-js";
+import Base64 from "crypto-js/enc-base64";
+import Utf8 from "crypto-js/enc-utf8";
+import SHA256 from "crypto-js/sha256";
+import AES from "crypto-js/aes";
+import Pkcs7 from "crypto-js/pad-pkcs7";
+import Hex from "crypto-js/enc-hex";
+import ECB from "crypto-js/mode-ecb";
+
 
 const BOOK = "book";
 export const AdrmsScreen: React.FC = () => {
@@ -77,11 +88,19 @@ export const AdrmsScreen: React.FC = () => {
       }
     }
 
+    function onClickIndex() {
+      const t1 = did + uid;
+      console.log(`szw 01 : `, t1);
+      const sha256 = SHA256(did + uid);
+      console.log(`szw 02 : `, sha256.ciphertext.toString());
+    }
+
     return (
       <div>
         <p>{info}</p>
         <button onClick={onClickDownload}> download book</button>
         <button onClick={onClickReadPackage}>read zip</button>
+        <button onClick={onClickIndex}>index</button>
       </div>
     );
   }
