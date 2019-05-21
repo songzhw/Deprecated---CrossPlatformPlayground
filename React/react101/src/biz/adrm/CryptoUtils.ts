@@ -13,7 +13,7 @@ export function wordArrayToByteArray(libWordArray: CryptoJS.LibWordArray) {
     result.push(bytes);
     i++;
   }
-  return [...result];
+  return Array.prototype.concat.apply([], result);
 }
 
 function wordToByteArray(word: number, length: number) {
