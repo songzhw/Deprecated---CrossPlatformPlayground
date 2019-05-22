@@ -112,7 +112,7 @@ export const AdrmsScreen: React.FC = () => {
       console.log(`szw 02, `, k1);
 
       // =======================
-      const rawD1 = Base64.stringify(Hex.parse(kid));
+      const rawD1 = Base64.parse(kid);
       console.log(`szw 03, `, Base64.stringify(rawD1));
       // =======================
       // @ts-ignore
