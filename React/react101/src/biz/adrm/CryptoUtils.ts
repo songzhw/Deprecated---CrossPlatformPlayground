@@ -35,13 +35,23 @@ function wordToByteArray(word: number, length: number) {
   return ba;
 }
 
-// TODO may have error about "WordArray.create()"
-export function byteArrayToWordArray(ba: number[]) {
-	const wa: number[] = [];
-	for (let i = 0; i < ba.length; i++) {
-		wa[(i / 4) | 0] |= ba[i] << (24 - 8 * i);
-	}
+export function byteArrayToWordArray(u8Array: number[]) {
+  const words = [];
+  let i = 0;
+  const len = u8Array.length;
 
-	return CryptoJS.lib.WordArray.create(wa);
+  while (i < len) {
+    words.push(
+      (u8Array[i++] << 24) |
+      (u8Array[i++] << 16) |
+      (u8Array[i++] << 8) |
+      (u8Array[i++])
+    );
+  }
+
+  return {
+    sigBytes: words.length * 4,
+    words
+  };
 }
 
