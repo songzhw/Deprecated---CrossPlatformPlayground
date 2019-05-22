@@ -8,8 +8,12 @@ interface IProps {
 
 }
 
+/*
+Base64.parse() == decode()
+Base64.stringify() == encode()
+ */
 export const Base64Screen = (props: IProps) => {
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState("...");
   const data = "eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ";
 
   function onClickDecode() {
@@ -34,11 +38,18 @@ export const Base64Screen = (props: IProps) => {
     return encodedSource;
   }
 
+  function encode() {
+    const src = Utf8.parse("01234567");
+    const ret : string = Base64.stringify(src);
+    setResult(ret);
+  }
+
   return (
     <div>
       <p>{result}</p>
       <button onClick={onClickDecode}>decode</button>
       <button onClick={onClickBase64Url}>Base64Url</button>
+      <button onClick={encode}>encode</button>
     </div>
   );
 };

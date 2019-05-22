@@ -32,13 +32,6 @@ export const CrossScreen = (props: IProps) => {
     setResult(decrypted);
 
 
-    // 重要点: Hex.parse( ) which creates a WordArray (32bits Words) from a String
-    console.log(`szw ===============================`);
-    let src = "whatisthis?";
-    console.log(`szw 01`, Base64.parse(src));
-    src = Hex.parse("nSA0RU/u2r9dyd5mopht0g==");
-    console.log(`szw `, src.toString());
-    console.log(`szw 02`, Base64.stringify(src));
   }
 
   return (
