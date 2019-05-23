@@ -25,11 +25,9 @@ export const CrossScreen = (props: IProps) => {
 
   function onClickDecryptoJava() {
     const encrypted = "nSA0RU/u2r9dyd5mopht0g==";
-    const key = "0123456789abcdef";
+    const key = Utf8.parse("0123456789abcdef");
 
-    const encryptedHexStr = Hex.parse(encrypted);
-    const encryptedBase64Str = Base64.stringify(encryptedHexStr);
-    const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { mode: ECB, padding: CryptoJS.pad.ZeroPadding });
+    const rawDecrypted = AES.decrypt(encrypted, key, { mode: ECB, padding: CryptoJS.pad.ZeroPadding });
     const decrypted = rawDecrypted.toString(Utf8);
     setResult(decrypted);
   }
