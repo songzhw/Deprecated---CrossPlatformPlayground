@@ -17,7 +17,9 @@ export const AesOutputScreen = (props: IProps) => {
   const [result, setResult] = useState("...");
 
   function onClickEncryption() {
+    console.log(`key = `, key)
     const rawEncrypted = AES.encrypt(src, key, { mode: ECB, padding: Pkcs7 });
+    console.log(`encrypted = `, rawEncrypted);
     const cs = rawEncrypted.ciphertext.toString();
     setResult(cs);
 
@@ -34,12 +36,12 @@ export const AesOutputScreen = (props: IProps) => {
     const nonHex = Hex.parse(result); // 先脱离Hex格式
     const base64 = Base64.stringify(nonHex);
     const de = AES.decrypt(base64, key, { mode: ECB, padding: Pkcs7 });
-    console.log(`rawDe1 = `, de);  //=> a WordArray
+    console.log(`rawDe1 = `, de);  //=> {sigBytes, words}
     console.log(`rawDe2 = ${de.toString()}`);     //=> e68da8e381a6e3828be5898de381ab
     console.log(`rawDe3 = ${de.toString(Utf8)}`); //=> 捨てる前に
 
-    let ret = de.toString();
-    ret = Hex.parse(ret);
+    let ret = de.toString();  //=> e68da8e381a6e3828be5898de381ab
+    ret = Hex.parse(ret);     //=> {sigBytes, words}
     ret = Utf8.stringify(ret);
     console.log(`rawDe4 = ${ret}`); //=> 捨てる前に
   }
