@@ -91,14 +91,17 @@ export const AdrmsScreen: React.FC = () => {
     }
 
     function onClickDesp() {
-      // @ts-ignore
-      const sha256 = SHA256(did + uid) as LibWordArray;
+      const sha256 = SHA256(did + uid);
       console.log(`szw 01, `, sha256.toString());
       const length = sha256.toString().length;
-      const k1 = Utf8.parse(sha256.toString().substr(length - 32));
+      let rawKey = sha256.toString().substr(length - 32);
+      rawKey = Hex.parse(rawKey);
+      rawKey = Utf8.parse(rawKey);
+      console.log(`szw 0x `, rawKey);
       // =======================
       // @ts-ignore
-      const mykey = AES.decrypt(kid, k1, { mode: ECB, padding: CryptoJS.pad.NoPadding });
+      const mykey = AES.decrypt(kid, rawKey, { mode: ECB, padding: CryptoJS.pad.NoPadding });
+      console.log(`szw 02, mykey = `, mykey.toString(Hex));
       // =======================
 
       if (db) {
@@ -108,8 +111,6 @@ export const AdrmsScreen: React.FC = () => {
         request.onerror = err => console.dir(err);
         request.onsuccess = (ev: Event) => {
           const ebook = (ev.target as IDBRequest).result;
-          console.log(`szw book = `);
-          console.dir(ebook);
           const path = "ops/xhtml/des.html";
           JSZip.loadAsync(ebook)
             .then(zip => {
@@ -117,7 +118,14 @@ export const AdrmsScreen: React.FC = () => {
                 .async("text");
             })
             .then(text => {
-              console.log("szw content = ", text);
+              // console.log("szw content = ", text);
+              // const src = Base64.stringify(Utf8.parse(text));  // error: Malformed UTF-8 data
+              // const src = Base64.stringify(text);   // error: TypeError: wordArray.clamp is not a function
+              const src = text;
+              // @ts-ignore
+              const mytext = AES.decrypt(src, mykey, { mode: ECB, padding: Pkcs7 });
+              console.log(`szre result = `, mytext.toString(Utf8));
+
             });
 
         };
