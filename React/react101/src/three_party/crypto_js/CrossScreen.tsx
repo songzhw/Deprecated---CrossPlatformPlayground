@@ -8,6 +8,7 @@ import Pkcs7 from "crypto-js/pad-pkcs7";
 import Hex from "crypto-js/enc-hex";
 import ECB from "crypto-js/mode-ecb";
 import { did, kid, uid } from "../../biz/adrm/ids";
+import { byteArrayToWordArray, wordArrayToByteArray } from "../../biz/adrm/CryptoUtils";
 
 /*
 java平台: AES/ECB/NoPadding
@@ -42,6 +43,12 @@ export const CrossScreen = (props: IProps) => {
     const rawD1 = Base64.parse(kid);
     console.log(`szw 02, `, rawD1.toString())
 
+    const mykey = AES.decrypt(rawD1, Utf8.parse(k1), {mode: ECB, padding:CryptoJS.pad.NoPadding });
+    console.log(`szw 03, `, mykey)
+
+    const mysrc = "xx";
+    const myDest = AES.encrypt(mysrc, Utf8.parse(k1), {mode: ECB, padding:CryptoJS.pad.NoPadding });
+    console.log(`szw 04, `, myDest.toString())
   }
 
   return (
