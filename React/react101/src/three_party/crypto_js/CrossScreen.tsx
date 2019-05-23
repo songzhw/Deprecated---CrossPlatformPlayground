@@ -34,21 +34,17 @@ export const CrossScreen = (props: IProps) => {
     setResult(decrypted);
   }
 
-  function onClickDes(){
+  function onClickDes() {
     // @ts-ignore
     const sha256 = SHA256(did + uid) as LibWordArray;
     const k1 = sha256.toString().substr(length - 32);
     console.log(`szw 01, `, k1);
 
     const rawD1 = Base64.parse(kid);
-    console.log(`szw 02, `, rawD1.toString())
+    console.log(`szw 02, `, rawD1.toString());
 
-    const mykey = AES.decrypt(kid, Utf8.parse(k1), {mode: ECB, padding:CryptoJS.pad.NoPadding });
-    console.log(`szw 03, `, mykey.toString())
-
-    const mysrc = "";
-    const myDest = AES.encrypt(mysrc, Utf8.parse(k1), {mode: ECB, padding:CryptoJS.pad.NoPadding });
-    console.log(`szw 04, `, myDest.toString())
+    const mykey = AES.decrypt(kid, Utf8.parse(k1), { mode: ECB, padding: CryptoJS.pad.NoPadding });
+    console.log(`szw 03, `, mykey);
   }
 
   return (

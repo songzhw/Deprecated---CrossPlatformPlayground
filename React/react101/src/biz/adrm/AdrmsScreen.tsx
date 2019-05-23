@@ -90,35 +90,38 @@ export const AdrmsScreen: React.FC = () => {
       }
     }
 
-    function onClickIndex() {
+    function onClickDesp() {
       // @ts-ignore
       const sha256 = SHA256(did + uid) as LibWordArray;
-      console.log(`szw 00, `, sha256);
       console.log(`szw 01, `, sha256.toString());
       const length = sha256.toString().length;
-
-      // const k1 = sha256.toString().substr(length - 32);
-      // console.log(`szw 02, `, k1);
-
-
-      const bytes1 = wordArrayToByteArray(sha256);
-      const start = bytes1.length - 16;
-      const k1_ = [];
-      for (let x = start; x < bytes1.length; x++) {
-        k1_[x - start] = bytes1[x];
-      }
-      const k1 = byteArrayToWordArray(k1_);
-      // const k1 = Hex.stringify(k1_);
-      console.log(`szw 02, `, k1);
-
-      // =======================
-      const rawD1 = Base64.parse(kid);
-      console.log(`szw 03, `, Base64.stringify(rawD1));
+      const k1 = Utf8.parse(sha256.toString().substr(length - 32));
       // =======================
       // @ts-ignore
-      const mykey = AES.decrypt(rawD1, k1, { mode: ECB, padding: CryptoJS.pad.NoPadding });
-      console.log(`szw 04, `, mykey);
+      const mykey = AES.decrypt(kid, k1, { mode: ECB, padding: CryptoJS.pad.NoPadding });
       // =======================
+
+      if (db) {
+        const transaction = db.transaction(BOOK, "readwrite");
+        const objectStore = transaction.objectStore(BOOK);
+        const request = objectStore.get(1);
+        request.onerror = err => console.dir(err);
+        request.onsuccess = (ev: Event) => {
+          const ebook = (ev.target as IDBRequest).result;
+          console.log(`szw book = `);
+          console.dir(ebook);
+          const path = "ops/xhtml/des.html";
+          JSZip.loadAsync(ebook)
+            .then(zip => {
+              return zip.file(path)
+                .async("text");
+            })
+            .then(text => {
+              console.log("szw content = ", text);
+            });
+
+        };
+      }
 
     }
 
@@ -127,7 +130,7 @@ export const AdrmsScreen: React.FC = () => {
         <p>{info}</p>
         <button onClick={onClickDownload}> download book</button>
         <button onClick={onClickReadPackage}>read zip</button>
-        <button onClick={onClickIndex}>index</button>
+        <button onClick={onClickDesp}>description</button>
       </div>
     );
   }

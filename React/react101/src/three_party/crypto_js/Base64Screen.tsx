@@ -39,7 +39,7 @@ export const Base64Screen = (props: IProps) => {
   }
 
   function encode() {
-    const src = "01234567";
+    const src = Utf8.parse("01234567");
     const ret : string = Base64.stringify(src);
     setResult(ret);
   }
