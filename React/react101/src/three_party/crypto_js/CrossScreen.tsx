@@ -43,10 +43,10 @@ export const CrossScreen = (props: IProps) => {
     const rawD1 = Base64.parse(kid);
     console.log(`szw 02, `, rawD1.toString())
 
-    const mykey = AES.decrypt(rawD1, Utf8.parse(k1), {mode: ECB, padding:CryptoJS.pad.NoPadding });
-    console.log(`szw 03, `, mykey)
+    const mykey = AES.decrypt(kid, Utf8.parse(k1), {mode: ECB, padding:CryptoJS.pad.NoPadding });
+    console.log(`szw 03, `, mykey.toString())
 
-    const mysrc = "xx";
+    const mysrc = "";
     const myDest = AES.encrypt(mysrc, Utf8.parse(k1), {mode: ECB, padding:CryptoJS.pad.NoPadding });
     console.log(`szw 04, `, myDest.toString())
   }

@@ -61,7 +61,7 @@ export const AesScreen = (props: IProps) => {
 
   function onClickEcbZeroPadding2() {
     const encryptedHexStr = Hex.parse(encrypted);
-    const encryptedBase64Str = Base64.stringify(encryptedHexStr);
+    const encryptedBase64Str = Base64.stringify(encryptedHexStr); // Base64.encode
     const rawDecrypted = AES.decrypt(encryptedBase64Str, key, { mode: ECB, padding: CryptoJS.pad.ZeroPadding });
     decrypted = rawDecrypted.toString(Utf8);
     setResult(decrypted);
