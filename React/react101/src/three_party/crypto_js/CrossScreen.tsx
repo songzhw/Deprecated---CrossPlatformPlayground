@@ -27,6 +27,8 @@ export const CrossScreen = (props: IProps) => {
     const encrypted = "nSA0RU/u2r9dyd5mopht0g==";
     const key = Utf8.parse("0123456789abcdef");
 
+    // 关键1: decrypt()第一参得是个base64
+    // 关键2: decrypt()第二参得是个Utf8.parse()
     const rawDecrypted = AES.decrypt(encrypted, key, { mode: ECB, padding: CryptoJS.pad.ZeroPadding });
     const decrypted = rawDecrypted.toString(Utf8);
     setResult(decrypted);
