@@ -3,6 +3,7 @@ import { http } from "../download2/HttpEngine";
 import { did, kid, uid } from "./ids";
 import * as JSZip from "jszip";
 
+import Base64js from 'base64-js'
 import CryptoJS from "crypto-js";
 import Utf8 from "crypto-js/enc-utf8";
 import SHA256 from "crypto-js/sha256";
@@ -172,10 +173,11 @@ export const BdrmsScreen: React.FC = () => {
             })
             .then(arraybuffer => {
               const imageBytes = new Uint8Array(arraybuffer);
-              const imageUtf8 = u8aryToWordArray(imageBytes);
-              // @ts-ignore
-              const tmp = Hex.parse(imageUtf8);
-              const imageBase64 = Base64.stringify(tmp); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
+              const imageBase64 = Base64js.fromByteArray(imageBytes);
+
+              // const imageUtf8 = u8aryToWordArray(imageBytes);
+              // // @ts-ignore
+              // const imageBase64 = Base64.stringify(imageUtf8); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
 
               // const imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
               // console.log(`szw encryptedImg `, imageBase64);
