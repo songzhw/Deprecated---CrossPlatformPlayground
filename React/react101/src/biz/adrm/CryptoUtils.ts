@@ -110,3 +110,15 @@ export function arrayBufferToBase64(arrayBuffer: ArrayBuffer) {
   return base64;
 }
 
+export const u8aryToWordArray = (u8arr: Uint8Array) => {
+  const len = u8arr.length;
+  const words: number[] = [];
+  for (let i = 0; i < len; i++) {
+    words[i >>> 2] |= (u8arr[i] & 0xff) << (24 - (i % 4) * 8);
+  }
+
+  return {
+    sigBytes: words.length * 4,
+    words
+  };
+};

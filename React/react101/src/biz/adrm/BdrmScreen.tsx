@@ -10,7 +10,8 @@ import AES from "crypto-js/aes";
 import Pkcs7 from "crypto-js/pad-pkcs7";
 import Hex from "crypto-js/enc-hex";
 import ECB from "crypto-js/mode-ecb";
-import { arrayBufferToBase64, byteArrayToWordArray, wordArrayToByteArray } from "./CryptoUtils";
+import Base64 from "crypto-js/enc-base64";
+import { arrayBufferToBase64, byteArrayToWordArray, u8aryToWordArray, wordArrayToByteArray } from "./CryptoUtils";
 
 const BOOK = "book";
 export const BdrmsScreen: React.FC = () => {
@@ -170,10 +171,11 @@ export const BdrmsScreen: React.FC = () => {
                 .async("arraybuffer");
             })
             .then(arraybuffer => {
-              const encrypted = arrayBufferToBase64(arraybuffer); //像是base64格式
-              console.log(`szw enImg `, encrypted)
+              const imageBytes = new Uint8Array(arraybuffer);
+              const imageUtf8 = u8aryToWordArray(imageBytes);
+              const imageBase64 = Base64.stringify(imageUtf8);
               // @ts-ignore
-              const myimage = AES.decrypt(encrypted, mykey, { mode: ECB, padding: Pkcs7 });
+              const myimage = AES.decrypt(imageBase64, mykey, { mode: ECB, padding: Pkcs7 });
               // console.log(`szre result2 = `, myimage);
               const urlInMemory = URL.createObjectURL(myimage);
               setImage(urlInMemory);
