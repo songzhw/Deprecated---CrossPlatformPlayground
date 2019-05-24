@@ -171,13 +171,22 @@ export const BdrmsScreen: React.FC = () => {
                 .async("arraybuffer");
             })
             .then(arraybuffer => {
-              const imageBytes = new Uint8Array(arraybuffer);
-              const imageUtf8 = u8aryToWordArray(imageBytes);
-              const imageBase64 = Base64.stringify(imageUtf8);
+              // const imageBytes = new Uint8Array(arraybuffer);
+              // const imageUtf8 = u8aryToWordArray(imageBytes);
+              // const imageBase64 = Base64.stringify(imageUtf8); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
+
+              const encrypted = arrayBufferToBase64(arraybuffer); //像是base64格式
+              console.log(`szw enImg `, encrypted);
+
               // @ts-ignore
-              const myimage = AES.decrypt(imageBase64, mykey, { mode: ECB, padding: Pkcs7 });
+              const myimage = AES.decrypt(encrypted, mykey, { mode: ECB, padding: Pkcs7 });
               // console.log(`szre result2 = `, myimage);
-              const urlInMemory = URL.createObjectURL(myimage);
+
+              // const urlInMemory = URL.createObjectURL(myimage);
+
+              const resultBase64 = myimage.toString(Base64);
+              const urlInMemory = "data:image/jpeg;base64, " + resultBase64;
+
               setImage(urlInMemory);
             });
 
