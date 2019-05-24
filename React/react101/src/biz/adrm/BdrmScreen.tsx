@@ -16,6 +16,7 @@ const BOOK = "book";
 export const BdrmsScreen: React.FC = () => {
     const [info, setInfo] = useState("-----");
     const [db, setDb] = useState<IDBDatabase>();
+    const [image, setImage] = useState();
 
     useEffect(() => {
       const openRequest = indexedDB.open("demo01", 1);
@@ -89,7 +90,7 @@ export const BdrmsScreen: React.FC = () => {
 
     function onClickDesp() {
       const sha256 = SHA256(did + uid);
-      console.log(`szw 01, `, sha256)
+      console.log(`szw 01, `, sha256);
       console.log(`szw 01, `, sha256.toString());
       const length = sha256.toString().length;
 
@@ -169,20 +170,19 @@ export const BdrmsScreen: React.FC = () => {
                 .async("arraybuffer");
             })
             .then(arraybuffer => {
-              // console.log("szw content = ", text);
-              // const src = Base64.stringify(Utf8.parse(text));  // error: Malformed UTF-8 data
-              // const src = Base64.stringify(text);   // error: TypeError: wordArray.clamp is not a function
-
-              const encrypted = arrayBufferToBase64(arraybuffer);
+              const encrypted = arrayBufferToBase64(arraybuffer); //像是base64格式
+              console.log(`szw enImg `, encrypted)
               // @ts-ignore
-              const mytext = AES.decrypt(encrypted, mykey, { mode: ECB, padding: Pkcs7 });
-              console.log(`szre result = `, mytext.toString(Utf8));
-
+              const myimage = AES.decrypt(encrypted, mykey, { mode: ECB, padding: Pkcs7 });
+              // console.log(`szre result2 = `, myimage);
+              const urlInMemory = URL.createObjectURL(myimage);
+              setImage(urlInMemory);
             });
 
         };
       }
     }
+
     return (
       <div>
         <p>{info}</p>
@@ -190,6 +190,8 @@ export const BdrmsScreen: React.FC = () => {
         <button onClick={onClickReadPackage}>read zip</button>
         <button onClick={onClickDesp}>description</button>
         <button onClick={onClickImage}>image</button>
+        <p/>
+        <img height={600} width={600} src={image} alt=""/>
       </div>
     );
   }
