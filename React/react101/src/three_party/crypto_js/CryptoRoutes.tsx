@@ -9,6 +9,7 @@ import { CrossScreen } from "./CrossScreen";
 import { AdrmsScreen } from "../../biz/adrm/AdrmsScreen";
 import { AesOutputScreen } from "./AesOutputScreen";
 import { EncryptFileScreen } from "./EncryptFileScreen";
+import { BdrmsScreen } from "../../biz/adrm/BdrmScreen";
 
 const Header = () => {
   return (
@@ -19,7 +20,8 @@ const Header = () => {
       <NavLink to="/aes2" className="headerLink" activeClassName="activeHeaderLink"> AES Output</NavLink>
       <NavLink to="/cross" className="headerLink" activeClassName="activeHeaderLink"> Cross-Platform </NavLink>
       <NavLink to="/file" className="headerLink" activeClassName="activeHeaderLink"> en/de_file </NavLink>
-      <NavLink to="/decryptf" className="headerLink" activeClassName="activeHeaderLink"> 结果 </NavLink>
+      <NavLink to="/decryptf" className="headerLink" activeClassName="activeHeaderLink"> ADRMS </NavLink>
+      <NavLink to="/decrypt2" className="headerLink" activeClassName="activeHeaderLink"> BDRMB </NavLink>
     </div>
   );
 };
@@ -38,6 +40,7 @@ export const CryptoRouter = () => {
         <Route path="/file" component={EncryptFileScreen}/>
         <Route path="/cross" component={CrossScreen}/>
         <Route path="/decryptf" component={AdrmsScreen}/>
+        <Route path="/decrypt2" component={BdrmsScreen}/>
       </Switch>
     </BrowserRouter>
   );
