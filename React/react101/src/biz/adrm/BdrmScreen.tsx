@@ -93,7 +93,16 @@ export const BdrmsScreen: React.FC = () => {
       console.log(`szw 01, `, sha256.toString());
       const length = sha256.toString().length;
 
-
+      // @ts-ignore
+      const bytes = wordArrayToByteArray(sha256);
+      // console.log("szw 05 : ", bytes);
+      const start = bytes.length - 16;
+      const k1 = [];
+      for (let x = start; x < bytes.length; x++) {
+        k1[x - start] = bytes[x];
+      }
+      // console.log(`szw 03`, k1);
+      const rawKey = byteArrayToWordArray(k1);
       console.log(`szw 0x `, rawKey);
       // =======================
       // @ts-ignore
