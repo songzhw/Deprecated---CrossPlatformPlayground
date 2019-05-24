@@ -140,12 +140,56 @@ export const BdrmsScreen: React.FC = () => {
 
     }
 
+    function onClickImage() {
+      const sha256 = SHA256(did + uid);
+      // @ts-ignore
+      const bytes = wordArrayToByteArray(sha256);
+      const start = bytes.length - 16;
+      const k1 = [];
+      for (let x = start; x < bytes.length; x++) {
+        k1[x - start] = bytes[x];
+      }
+      const rawKey = byteArrayToWordArray(k1);
+      // @ts-ignore
+      const mykey = AES.decrypt(kid, rawKey, { mode: ECB, padding: CryptoJS.pad.NoPadding });
+      console.log(`szw 02, mykey = `, mykey.toString(Hex));
+      // =======================
+
+      if (db) {
+        const transaction = db.transaction(BOOK, "readwrite");
+        const objectStore = transaction.objectStore(BOOK);
+        const request = objectStore.get(1);
+        request.onerror = err => console.dir(err);
+        request.onsuccess = (ev: Event) => {
+          const ebook = (ev.target as IDBRequest).result;
+          const path = "ops/images/description.jpg";
+          JSZip.loadAsync(ebook)
+            .then(zip => {
+              return zip.file(path)
+                .async("arraybuffer");
+            })
+            .then(arraybuffer => {
+              // console.log("szw content = ", text);
+              // const src = Base64.stringify(Utf8.parse(text));  // error: Malformed UTF-8 data
+              // const src = Base64.stringify(text);   // error: TypeError: wordArray.clamp is not a function
+
+              const encrypted = arrayBufferToBase64(arraybuffer);
+              // @ts-ignore
+              const mytext = AES.decrypt(encrypted, mykey, { mode: ECB, padding: Pkcs7 });
+              console.log(`szre result = `, mytext.toString(Utf8));
+
+            });
+
+        };
+      }
+    }
     return (
       <div>
         <p>{info}</p>
         <button onClick={onClickDownload}> download book</button>
         <button onClick={onClickReadPackage}>read zip</button>
         <button onClick={onClickDesp}>description</button>
+        <button onClick={onClickImage}>image</button>
       </div>
     );
   }
