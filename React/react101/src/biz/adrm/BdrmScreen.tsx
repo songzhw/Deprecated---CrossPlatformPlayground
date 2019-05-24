@@ -10,7 +10,7 @@ import AES from "crypto-js/aes";
 import Pkcs7 from "crypto-js/pad-pkcs7";
 import Hex from "crypto-js/enc-hex";
 import ECB from "crypto-js/mode-ecb";
-import { byteArrayToWordArray, wordArrayToByteArray } from "./CryptoUtils";
+import { arrayBufferToBase64, byteArrayToWordArray, wordArrayToByteArray } from "./CryptoUtils";
 
 const BOOK = "book";
 export const BdrmsScreen: React.FC = () => {
@@ -121,15 +121,16 @@ export const BdrmsScreen: React.FC = () => {
           JSZip.loadAsync(ebook)
             .then(zip => {
               return zip.file(path)
-                .async("text");
+                .async("arraybuffer");
             })
-            .then(text => {
+            .then(arraybuffer => {
               // console.log("szw content = ", text);
               // const src = Base64.stringify(Utf8.parse(text));  // error: Malformed UTF-8 data
               // const src = Base64.stringify(text);   // error: TypeError: wordArray.clamp is not a function
-              const src = text;
+
+              const encrypted = arrayBufferToBase64(arraybuffer);
               // @ts-ignore
-              const mytext = AES.decrypt(src, mykey, { mode: ECB, padding: Pkcs7 });
+              const mytext = AES.decrypt(encrypted, mykey, { mode: ECB, padding: Pkcs7 });
               console.log(`szre result = `, mytext.toString(Utf8));
 
             });
