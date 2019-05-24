@@ -174,7 +174,8 @@ export const BdrmsScreen: React.FC = () => {
               const imageBytes = new Uint8Array(arraybuffer);
               const imageUtf8 = u8aryToWordArray(imageBytes);
               // @ts-ignore
-              const imageBase64 = imageUtf8.toString(Base64); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
+              const tmp = Hex.parse(imageUtf8);
+              const imageBase64 = Base64.stringify(tmp); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
 
               // const imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
               // console.log(`szw encryptedImg `, imageBase64);
