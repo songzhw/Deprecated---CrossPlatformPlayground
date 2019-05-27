@@ -3,7 +3,6 @@ import { http } from "../download2/HttpEngine";
 import { did, kid, uid } from "./ids";
 import * as JSZip from "jszip";
 
-import Base64js from "base64-js";
 import CryptoJS from "crypto-js";
 import Utf8 from "crypto-js/enc-utf8";
 import SHA256 from "crypto-js/sha256";
