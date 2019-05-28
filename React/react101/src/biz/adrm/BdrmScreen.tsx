@@ -13,9 +13,7 @@ import ECB from "crypto-js/mode-ecb";
 import Base64 from "crypto-js/enc-base64";
 import {
   arrayBufferToBase64,
-  byteArrayToWordArray,
-  u8aryToWordArray,
-  Uint8ToBase64,
+  byteArrayToWordArray, u8aryToWordArray,
   wordArrayToByteArray
 } from "./CryptoUtils";
 
@@ -174,27 +172,28 @@ export const BdrmsScreen: React.FC = () => {
         JSZip.loadAsync(ebook)
           .then(zip => {
             return zip.file(path)
-              .async("uint8array");
+              .async("arraybuffer");
           })
           .then(arraybuffer => {
-            // console.log(`szw in = `, arraybuffer);
+            console.log(`szw in = `, arraybuffer);
 
             // const view = new TextDecoder('utf-8').decode(arraybuffer);
             // const imageBase64 = Base64.stringify(view.toString()); //=> Unhandled Rejection (TypeError): wordArray.clamp is not a function
 
-            // const imageBytes = new Uint8Array(arraybuffer);
-            // const imageBase64 = Base64js.fromByteArray(imageBytes);
-
-            // const imageUtf8 = u8aryToWordArray(imageBytes);
+            // const imageUtf8 = u8aryToWordArray(arraybuffer);
             // // @ts-ignore
             // const imageBase64 = Base64.stringify(imageUtf8); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
 
-            // const imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
-            // console.log(`szw encryptedImg `, imageBase64);
-
             // const imageBase64 = Base64.stringify(arraybuffer); //=> uint8array : TypeError: wordArray.clamp is not a function
 
-            const imageBase64 = Uint8ToBase64(arraybuffer);
+            // const imageBase64 = Uint8ToBase64(arraybuffer);
+
+            // const wa = CryptoJS.lib.WordArray.create(arraybuffer);
+            // const imageBase64 = Base64.stringify(wa);
+
+            // let imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
+            // imageBase64 = imageBase64.split(/\s/).join("");
+            // console.log(`szw encryptedImg `, imageBase64);
 
             // @ts-ignore
             const myimage = AES.decrypt(imageBase64, mykey, { mode: ECB, padding: Pkcs7 });
