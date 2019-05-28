@@ -176,34 +176,10 @@ export const BdrmsScreen: React.FC = () => {
             // .async("uint8array");
           })
           .then(arraybuffer => {
-            console.log(`szw in = `, arraybuffer);
-
-            // const view = new TextDecoder('utf-8').decode(arraybuffer);
-            // const imageBase64 = Base64.stringify(view.toString()); //=> Unhandled Rejection (TypeError): wordArray.clamp is not a function
-
-            // const imageBase64 = u8aryToWordArray(arraybuffer);
-            // // @ts-ignore
-            // const imageBase64 = Base64.stringify(imageBase64); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
-
-            // const imageBase64 = Base64.stringify(arraybuffer); //=> uint8array : TypeError: wordArray.clamp is not a function
-
-            // const imageBase64 = Uint8ToBase64(arraybuffer);
-
-            // const wa = CryptoJS.lib.WordArray.create(arraybuffer);
-            // const imageBase64 = Base64.stringify(wa);
-
-            const imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
-            // imageBase64 = imageBase64.split(/\s/).join("");
-            // console.log(`szw encryptedImg `, imageBase64);
-
+            const imageBase64 = arrayBufferToBase64(arraybuffer);
             // @ts-ignore
             const myimage = AES.decrypt(imageBase64, mykey, { mode: ECB, padding: Pkcs7 });
-            console.log(`szre result2 = `, myimage);
-
-            // const urlInMemory = URL.createObjectURL(myimage);
-
             const resultBase64 = myimage.toString(Base64);
-            console.log(`szw result 22 = `, resultBase64);
             const imageSrc = "data:image/jpeg;base64," + resultBase64;
 
             setImage(imageSrc);
