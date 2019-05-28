@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { http } from "../download2/HttpEngine";
-import { did, kid, uid } from "./ids";
+import { did, kid, uid, iid } from "./ids";
 import * as JSZip from "jszip";
 
 import CryptoJS from "crypto-js";
@@ -157,7 +157,7 @@ export const BdrmsScreen: React.FC = () => {
     }
     const rawKey = byteArrayToWordArray(k1);
     // @ts-ignore
-    const mykey = AES.decrypt(kid, rawKey, { mode: ECB, padding: CryptoJS.pad.NoPadding });
+    const mykey = AES.decrypt(iid, rawKey, { mode: ECB, padding: CryptoJS.pad.NoPadding });
     console.log(`szw 02, mykey = `, mykey.toString(Hex));
     // =======================
 
