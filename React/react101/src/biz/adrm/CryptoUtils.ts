@@ -129,3 +129,18 @@ export const u8aryToWordArray = (u8arr: Uint8Array) => {
 
   return CryptoJS.lib.WordArray.create(words);
 };
+
+export function Uint8ToBase64(u8Arr: Uint8Array) {
+  const CHUNK_SIZE = 0x8000; //arbitrary number
+  let index = 0;
+  const length = u8Arr.length;
+  let result = "";
+  let slice;
+  while (index < length) {
+    slice = u8Arr.subarray(index, Math.min(index + CHUNK_SIZE, length));
+    // @ts-ignore
+    result += String.fromCharCode.apply(null, slice);
+    index += CHUNK_SIZE;
+  }
+  return btoa(result);
+}
