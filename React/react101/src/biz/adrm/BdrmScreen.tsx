@@ -173,6 +173,7 @@ export const BdrmsScreen: React.FC = () => {
           .then(zip => {
             return zip.file(path)
               .async("arraybuffer");
+            // .async("uint8array");
           })
           .then(arraybuffer => {
             console.log(`szw in = `, arraybuffer);
@@ -180,9 +181,9 @@ export const BdrmsScreen: React.FC = () => {
             // const view = new TextDecoder('utf-8').decode(arraybuffer);
             // const imageBase64 = Base64.stringify(view.toString()); //=> Unhandled Rejection (TypeError): wordArray.clamp is not a function
 
-            // const imageUtf8 = u8aryToWordArray(arraybuffer);
+            // const imageBase64 = u8aryToWordArray(arraybuffer);
             // // @ts-ignore
-            // const imageBase64 = Base64.stringify(imageUtf8); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
+            // const imageBase64 = Base64.stringify(imageBase64); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
 
             // const imageBase64 = Base64.stringify(arraybuffer); //=> uint8array : TypeError: wordArray.clamp is not a function
 
@@ -191,7 +192,7 @@ export const BdrmsScreen: React.FC = () => {
             // const wa = CryptoJS.lib.WordArray.create(arraybuffer);
             // const imageBase64 = Base64.stringify(wa);
 
-            // let imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
+            let imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
             // imageBase64 = imageBase64.split(/\s/).join("");
             // console.log(`szw encryptedImg `, imageBase64);
 
@@ -201,7 +202,8 @@ export const BdrmsScreen: React.FC = () => {
 
             // const urlInMemory = URL.createObjectURL(myimage);
 
-            const resultBase64 = myimage.toString(Base64);
+            let resultBase64 = myimage.toString(Utf8);
+            resultBase64 = Base64.stringify(resultBase64);
             console.log(`szw result 22 = `, resultBase64);
             const imageSrc = "data:image/jpeg;base64," + resultBase64;
 

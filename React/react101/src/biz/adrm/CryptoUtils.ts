@@ -127,6 +127,9 @@ export const u8aryToWordArray = (u8arr: Uint8Array) => {
     words[i >>> 2] |= (u8arr[i] & 0xff) << (24 - (i % 4) * 8);
   }
 
-  return CryptoJS.lib.WordArray.create(words);
+  return {
+    sigBytes: words.length * 4,
+    words
+  };
 };
 
