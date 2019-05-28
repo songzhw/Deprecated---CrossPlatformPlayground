@@ -17,7 +17,7 @@ const BOOK = "book";
 export const BdrmsScreen: React.FC = () => {
   const [info, setInfo] = useState("-----");
   const [db, setDb] = useState<IDBDatabase>();
-  const [image, setImage] = useState();
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     const openRequest = indexedDB.open("demo01", 1);
@@ -168,7 +168,7 @@ export const BdrmsScreen: React.FC = () => {
         JSZip.loadAsync(ebook)
           .then(zip => {
             return zip.file(path)
-              .async("base64");
+              .async("arraybuffer");
           })
           .then(arraybuffer => {
             console.log(`szw in = `, arraybuffer);
@@ -183,20 +183,20 @@ export const BdrmsScreen: React.FC = () => {
             // // @ts-ignore
             // const imageBase64 = Base64.stringify(imageUtf8); // ERROR: Unhandled Rejection (TypeError): wordArray.clamp is not a function
 
-            // const imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
-            // console.log(`szw encryptedImg `, imageBase64);
+            const imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
+            console.log(`szw encryptedImg `, imageBase64);
 
             // @ts-ignore
-            const myimage = AES.decrypt(arraybuffer, mykey, { mode: ECB, padding: Pkcs7 });
+            const myimage = AES.decrypt(imageBase64, mykey, { mode: ECB, padding: Pkcs7 });
             console.log(`szre result2 = `, myimage);
 
             // const urlInMemory = URL.createObjectURL(myimage);
 
             const resultBase64 = myimage.toString(Base64);
             console.log(`szw result 22 = `, resultBase64);
-            const urlInMemory = "data:image/jpeg;base64, " + resultBase64;
+            const imageSrc = "data:image/jpeg;base64, " + resultBase64;
 
-            setImage(urlInMemory);
+            setImage(imageSrc);
           });
 
       };
@@ -211,7 +211,7 @@ export const BdrmsScreen: React.FC = () => {
       <button onClick={onClickDesp}>description</button>
       <button onClick={onClickImage}>image</button>
       <p/>
-      <img height={600} width={600} src={image} alt=""/>
+      <img height={600} width={600} src={image} alt="desp.jpg"/>
     </div>
   );
 };
