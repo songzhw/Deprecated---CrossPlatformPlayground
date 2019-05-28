@@ -192,7 +192,7 @@ export const BdrmsScreen: React.FC = () => {
             // const wa = CryptoJS.lib.WordArray.create(arraybuffer);
             // const imageBase64 = Base64.stringify(wa);
 
-            let imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
+            const imageBase64 = arrayBufferToBase64(arraybuffer); //像是base64格式
             // imageBase64 = imageBase64.split(/\s/).join("");
             // console.log(`szw encryptedImg `, imageBase64);
 
@@ -202,8 +202,7 @@ export const BdrmsScreen: React.FC = () => {
 
             // const urlInMemory = URL.createObjectURL(myimage);
 
-            let resultBase64 = myimage.toString(Utf8);
-            resultBase64 = Base64.stringify(resultBase64);
+            const resultBase64 = myimage.toString(Base64);
             console.log(`szw result 22 = `, resultBase64);
             const imageSrc = "data:image/jpeg;base64," + resultBase64;
 
