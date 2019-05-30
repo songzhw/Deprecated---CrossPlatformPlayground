@@ -4,10 +4,14 @@ import { PassB1Screen } from "../biz/navigators/start_activity_for_result/PassB1
 import { PassA1Screen } from "../biz/navigators/start_activity_for_result/PassA1Screen";
 import { Image, TouchableOpacity } from "react-native";
 import { commonStyles } from "./theme/CommonStyle";
+import { HomeScreen } from "../HomeScreen";
 
 
 export const Routes = createStackNavigator(
-  { PassA1Screen, PassB1Screen },
+  {
+    HomeScreen,
+    PassA1Screen, PassB1Screen
+  },
   {
     headerMode: "screen",
     // react-navigation 2.x中是用navigationOptions; 3.x中要用defaultNavigationOptions
