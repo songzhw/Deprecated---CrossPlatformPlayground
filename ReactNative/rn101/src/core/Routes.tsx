@@ -10,8 +10,8 @@ export const Routes = createStackNavigator(
   { PassA1Screen, PassB1Screen },
   {
     headerMode: "screen",
+    // react-navigation 2.x中是用navigationOptions; 3.x中要用defaultNavigationOptions
     defaultNavigationOptions: ({ navigation }) => ({
-      title: "navigation",
       headerTitleStyle: { color: "white" },
       headerStyle: { backgroundColor: "#1b5e20" },
       headerLeft: (

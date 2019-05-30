@@ -23,3 +23,10 @@ export const PassA1Screen = (props: NavigationScreenProps) => {
     </View>
   );
 };
+
+
+PassA1Screen.navigationOptions = {
+  title: "StartActivityForResult A1"
+};
+
+
