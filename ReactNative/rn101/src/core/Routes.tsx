@@ -10,7 +10,8 @@ export const Routes = createStackNavigator(
   { PassA1Screen, PassB1Screen },
   {
     headerMode: "screen",
-    navigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
+      title: "navigation",
       headerTitleStyle: { color: "white" },
       headerStyle: { backgroundColor: "#1b5e20" },
       headerLeft: (
