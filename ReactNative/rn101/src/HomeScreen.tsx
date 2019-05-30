@@ -13,6 +13,14 @@ export const HomeScreen = (props: NavigationScreenProps) => {
       <Text style={styles.title}>Router/Navigation</Text>
       <HomeButton title="startActivityForResult" onPress={() => navigation.navigate("PassA1Screen")}/>
 
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>Custom View</Text>
+      <HomeButton title="Action Sheet" onPress={() => navigation.navigate("ActionSheetDemo")}/>
+      <HomeButton title="Drawer Layout" onPress={() => navigation.navigate("MyDrawerDemo")}/>
+      <HomeButton title="Loading List" onPress={() => navigation.navigate("LoadingListScreen")}/>
+      <HomeButton title="Component Buttons" onPress={() => navigation.navigate("RadioGroupScreen")}/>
+
+
     </ScrollView>
   );
 };
