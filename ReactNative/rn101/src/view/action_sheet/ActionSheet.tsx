@@ -45,19 +45,9 @@ export const ActionSheet = (props: IProps) => {
     }
   };
 
-  function dismiss() {
-    Animated.timing(y, { toValue: contentHeight, duration: animDuration }
-    ).start(isFinished => {
-      if (isFinished) {
-        setIsShowing(false);
-      }
-    });
-
-  }
-
   const renderContent = () => {
     const { data } = props;
-    const thisChildren : JSX.Element[] = [];
+    const thisChildren: JSX.Element[] = [];
     data.forEach((item, index) => {
       const thisKey = `as_option_${index}`;
       const func = props.actions[index];
@@ -90,6 +80,30 @@ export const ActionSheet = (props: IProps) => {
     action();
     dismiss();
   };
+
+  function dismiss() {
+    Animated.timing(y, { toValue: contentHeight, duration: animDuration }
+    ).start(isFinished => {
+      if (isFinished) {
+        setIsShowing(false);
+      }
+    });
+  }
+
+  function show() {
+    if (isShowing) {
+      return;
+    }
+    Keyboard.dismiss();
+    this.setState({ ...this.state, isShowing: true }, this._showInternal);
+  }
+
+  function _showInternal() {
+    Animated.timing(
+      y,
+      { toValue: 0, duration: animDuration }
+    ).start();
+  }
 
 
   if (!isShowing) {
