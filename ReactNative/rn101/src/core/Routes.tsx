@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
-import { PassB1Screen } from "../biz/navigators/pass_value/PassB1Screen";
-import { PassA1Screen } from "../biz/navigators/pass_value/PassA1Screen";
+import { PassB1Screen } from "../biz/navigators/start_activity_for_result/PassB1Screen";
+import { PassA1Screen } from "../biz/navigators/start_activity_for_result/PassA1Screen";
 import { Image, TouchableOpacity } from "react-native";
 import { commonStyles } from "./theme/CommonStyle";
 
