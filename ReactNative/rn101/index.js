@@ -7,7 +7,6 @@ import { name as appName } from "./app.json";
 const TextRender = Text.render;
 Text.render = function(...args) {
   const originalText = TextRender.apply(this, args);
-  const {style} = originalText.props;
   return React.cloneElement(originalText, {allowFontScaling: false})
 };
 

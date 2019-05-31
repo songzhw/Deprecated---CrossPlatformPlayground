@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ScrollView, StyleSheet, View, Text } from "react-native";
+import { Button, ScrollView, StyleSheet, View, Text, TextInput } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 
 export const HomeScreen = (props: NavigationScreenProps) => {
@@ -8,6 +8,7 @@ export const HomeScreen = (props: NavigationScreenProps) => {
 
   return (
     <ScrollView style={styles.root}>
+      <TextInput placeholder="the placeholder of EditText/TextInput"/>
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Router/Navigation</Text>
