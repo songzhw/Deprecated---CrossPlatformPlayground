@@ -8,6 +8,9 @@ export const HooksPitfall01 = () => {
   const [banana, setBanana] = useState();
 
   useEffect(() => {
+    if (apple === undefined) {
+      return;
+    }
     console.log(`useEffect(apple) : `, apple);
   }, [apple]);
 
