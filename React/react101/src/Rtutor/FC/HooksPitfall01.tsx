@@ -1,5 +1,5 @@
-// 能否有两个useEffect()
-// setState(value, callback) => ?
+// 能否有两个useEffect() : 可以
+// setState(value, callback) : 要用useEffect()来实现. 若不想componentDidMount()时被调用, 就加个if-else判断就好.
 
 import React, { useEffect, useState } from "react";
 
@@ -30,7 +30,6 @@ export const HooksPitfall01 = () => {
     <div>
       <button onClick={onApple}> set apple</button>
       <button onClick={onBanana}> set banana</button>
-      <p></p>
     </div>
   );
 };
