@@ -8,7 +8,6 @@ import { PassB1Screen } from "../biz/navigators/start_activity_for_result/PassB1
 import { PassA1Screen } from "../biz/navigators/start_activity_for_result/PassA1Screen";
 import { ActionSheetDemo } from "../view/action_sheet/ActionSheetDemo";
 
-
 export const Routes = createStackNavigator(
   {
     HomeScreen,
