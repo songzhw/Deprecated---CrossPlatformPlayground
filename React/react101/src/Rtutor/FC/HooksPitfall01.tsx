@@ -27,6 +27,7 @@ export const HooksPitfall01 = () => {
     <div>
       <button onClick={onApple}> set apple</button>
       <button onClick={onBanana}> set banana</button>
+      <p></p>
     </div>
   );
 };
