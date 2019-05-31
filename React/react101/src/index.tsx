@@ -18,6 +18,7 @@ import { LetConst_Resolve } from "./Rtutor/simple/LetConst_Resolve";
 import { UseStateIssue1 } from "./Rtutor/FC/useStateIssue1";
 import { RpApp } from "./three_party/redux_persist/rpApp";
 import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
+import { HooksPitfall01 } from "./Rtutor/FC/HooksPitfall01";
 
-ReactDOM.render(<CryptoRouter/>, document.getElementById("root"));
+ReactDOM.render(<HooksPitfall01/>, document.getElementById("root"));
 
