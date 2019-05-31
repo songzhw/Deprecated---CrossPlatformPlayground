@@ -4,8 +4,8 @@
 import React, { useEffect, useState } from "react";
 
 export const HooksPitfall01 = () => {
-  const [apple, setApple] = useState("a");
-  const [banana, setBanana] = useState("b");
+  const [apple, setApple] = useState();
+  const [banana, setBanana] = useState();
 
   useEffect(() => {
     console.log(`useEffect(apple) : `, apple);
