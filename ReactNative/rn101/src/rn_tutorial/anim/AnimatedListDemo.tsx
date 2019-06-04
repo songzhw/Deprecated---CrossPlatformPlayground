@@ -9,13 +9,7 @@ export const AnimatedListDemo = (props: IProps) => {
   const [offset, setOffset] = useState(new Animated.Value(0));
 
   function startAnim() {
-    Animated.timing(offset,
-      { duration: 7000,
-      toValue: offset.interpolate({
-        inputRange: [0, 1000],
-        output: [{x:0, y:0}, {x:0, y: 1000}]
-      })}
-      ).start();
+    Animated.timing(offset, { toValue: 1000, duration: 7000 }).start();
   }
 
   const color = (item: any) => {
@@ -26,15 +20,25 @@ export const AnimatedListDemo = (props: IProps) => {
     }
   };
 
+  const offsetFunc = ()=>{
+    return {
+      x: 0,
+      y: offset.interpolate({
+        inputRange: [0, 1000],
+        outputRange: [0, 1000]
+      })
+    }
+  }
+
   // @ts-ignore
   return (
     <View>
       <Button title="start" onPress={startAnim}/>
       <AnimatedFlatList
         data={[{ key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }]}
-        renderItem={value => <Text style={{ width: 200, height: 200, fontSize: 35, backgroundColor: color(value.item) }}>{value.index}. {value.item.key}</Text>}
+        renderItem={value => <Text style={{ width: 300, height: 200, fontSize: 35, backgroundColor: color(value.item) }}>{value.index}. {value.item.key}</Text>}
         keyExtractor={(item, index) => index + ""}
-        contentOffset={ {x: 0, y : offset}}
+        contentOffset={offsetFunc}
       />
     </View>
   );

@@ -28,7 +28,7 @@ export const AnimatedComponentDemo = () => {
 
 class Child extends Component<IProps> {
   render() {
-    const { width, height } = this.props;
+    const { width, height } = this.props; //值全为number
     return (
       <View style={{ width, height, backgroundColor: "powderblue" }}/>
     );
