@@ -1,10 +1,16 @@
-import React from "react";
-import { FlatList, View, Text } from "react-native";
+import React, { useState } from "react";
+import { FlatList, View, Text, Animated, Button } from "react-native";
 
 interface IProps {
 }
 
 export const AnimatedListDemo = (props: IProps) => {
+  const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+  const [offset, setOffset] = useState(new Animated.Value(0));
+
+  function startAnim() {
+    Animated.timing(offset, { toValue: 1000, duration: 7000 }).start();
+  }
 
   const color = (item: any) => {
     if (item.key === "a") {
@@ -13,13 +19,16 @@ export const AnimatedListDemo = (props: IProps) => {
       return "powderblue";
     }
   };
+
+  // @ts-ignore
   return (
     <View>
-      <FlatList
+      <Button title="start" onPress={startAnim}/>
+      <AnimatedFlatList
         data={[{ key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }]}
-        renderItem={({ item, index }) => <Text style={{ width: 200, height: 200, fontSize: 35, backgroundColor: color(item) }}>{index}. {item.key}</Text>}
+        renderItem={value => <Text style={{ width: 200, height: 200, fontSize: 35, backgroundColor: color(value.item) }}>{value.index}. {value.item.key}</Text>}
         keyExtractor={(item, index) => index + ""}
-        contentOffset={ {x: 0, y : 100}}
+        contentOffset={ {x: 0, y : offset}}
       />
     </View>
   );
