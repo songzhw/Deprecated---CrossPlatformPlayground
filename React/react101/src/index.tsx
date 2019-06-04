@@ -20,5 +20,5 @@ import { RpApp } from "./three_party/redux_persist/rpApp";
 import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
 import { HooksPitfall01 } from "./Rtutor/FC/HooksPitfall01";
 
-ReactDOM.render(<HooksPitfall01/>, document.getElementById("root"));
+ReactDOM.render(<CryptoRouter/>, document.getElementById("root"));
 

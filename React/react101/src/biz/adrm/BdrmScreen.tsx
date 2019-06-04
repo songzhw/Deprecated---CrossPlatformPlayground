@@ -168,7 +168,7 @@ export const BdrmsScreen: React.FC = () => {
       request.onerror = err => console.dir(err);
       request.onsuccess = (ev: Event) => {
         const ebook = (ev.target as IDBRequest).result;
-        const path = "ops/images/description.jpg";
+        const path = "ops/images/ch19.jpg";
         JSZip.loadAsync(ebook)
           .then(zip => {
             return zip.file(path)
@@ -182,6 +182,7 @@ export const BdrmsScreen: React.FC = () => {
             const resultBase64 = myimage.toString(Base64);
             const imageSrc = "data:image/jpeg;base64," + resultBase64;
             const blob = base64toBlob(resultBase64, "image/jpeg");
+            console.log(`szw blob = ${blob}`)
             const url = URL.createObjectURL(blob);
             console.log(`szw urlInMemory = `, url);
             setImage(url);
