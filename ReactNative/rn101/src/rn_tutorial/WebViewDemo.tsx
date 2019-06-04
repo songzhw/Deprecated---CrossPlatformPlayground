@@ -5,6 +5,7 @@ import WebView from "react-native-webview";
 interface IProps {
 }
 
+// TODO layout 还有问题
 export const WebViewDemo = (props: IProps) => {
   const html = `
       <html lang="en">
@@ -24,15 +25,15 @@ export const WebViewDemo = (props: IProps) => {
     `;
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flexDirection: 'column', width: 300, height: 600 }}>
       <WebView
-        style={{ width: 100, height: 100, backgroundColor: "purple" }}
+        style={{flex: 1 }}
         source={{ html }}
         onMessage={event => Alert.alert("2秒到了: " + event.nativeEvent.data)}
       />
 
       <WebView
-        style={{ flex: 1 }}
+        style={{ flex: 3 }}
         source={{ uri: "https://github.com/react-native-community/react-native-webview" }}
         injectedJavaScript={runFirst}
       />

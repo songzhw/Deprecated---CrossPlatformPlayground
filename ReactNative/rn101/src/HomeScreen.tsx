@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, ScrollView, StyleSheet, View, Text, TextInput } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
+import { FlexLayoutDemo1 } from "./rn_tutorial/layout/FlexLayoutDemo1";
 
 export const HomeScreen = (props: NavigationScreenProps) => {
 
@@ -25,6 +26,7 @@ export const HomeScreen = (props: NavigationScreenProps) => {
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>
       <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
+      <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
 
 
     </ScrollView>
