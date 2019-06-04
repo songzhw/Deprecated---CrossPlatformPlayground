@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import { FlatList, View, Text, Animated, Button } from "react-native";
 
 interface IProps {
 }
 
-export const AnimatedListDemo = (props: IProps) => {
-  const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-  const [offset, setOffset] = useState(new Animated.Value(0));
-
-  function startAnim() {
-    Animated.timing(offset, { toValue: 1000, duration: 7000 }).start();
+export class AnimatedListDemo extends Component {
+  state = {
+    offset: new Animated.Value(0)
   }
 
-  const color = (item: any) => {
+   startAnim() {
+    Animated.timing(this.state.offset, { toValue: 1000, duration: 7000 }).start();
+  }
+
+  color = (item: any) => {
     if (item.key === "a") {
       return "gray";
     } else {
@@ -20,10 +21,10 @@ export const AnimatedListDemo = (props: IProps) => {
     }
   };
 
-  const offsetFunc = ()=>{
+  offsetFunc = ()=>{
     return {
       x: 0,
-      y: offset.interpolate({
+      y: this.state.offset.interpolate({
         inputRange: [0, 1000],
         outputRange: [0, 1000]
       })
@@ -31,15 +32,17 @@ export const AnimatedListDemo = (props: IProps) => {
   }
 
   // @ts-ignore
-  return (
-    <View>
-      <Button title="start" onPress={startAnim}/>
-      <AnimatedFlatList
-        data={[{ key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }]}
-        renderItem={value => <Text style={{ width: 300, height: 200, fontSize: 35, backgroundColor: color(value.item) }}>{value.index}. {value.item.key}</Text>}
-        keyExtractor={(item, index) => index + ""}
-        contentOffset={offsetFunc}
-      />
-    </View>
-  );
+  render(){
+    const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+    return (
+      <View>
+        <Button title="start" onPress={this.startAnim}/>
+        <AnimatedFlatList
+          data={[{ key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }]}
+          renderItem={value => <Text style={{ width: 300, height: 200, fontSize: 35, backgroundColor: this.color(value.item) }}>{value.index}. {value.item.key}</Text>}
+          keyExtractor={(item, index) => index + ""}
+          contentOffset={this.offsetFunc}
+        />
+      </View>
+  );}
 };
