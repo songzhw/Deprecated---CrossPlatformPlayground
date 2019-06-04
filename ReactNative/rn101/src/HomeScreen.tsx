@@ -28,6 +28,10 @@ export const HomeScreen = (props: NavigationScreenProps) => {
       <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
       <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
 
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>Animation</Text>
+      <HomeButton title="AnimatedComponent" onPress={() => navigation.navigate("AnimatedComponentDemo")}/>
+
 
     </ScrollView>
   );
