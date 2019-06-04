@@ -25,9 +25,9 @@ export const WebViewDemo = (props: IProps) => {
     `;
 
   return (
-    <View style={{ flexDirection: 'column', width: 300, height: 600 }}>
+    <View style={{ flex: 1 }}>
       <WebView
-        style={{flex: 1 }}
+        style={{flex: 1, backgroundColor: 'pink' }}
         source={{ html }}
         onMessage={event => Alert.alert("2秒到了: " + event.nativeEvent.data)}
       />
