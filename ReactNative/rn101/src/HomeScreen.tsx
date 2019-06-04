@@ -31,6 +31,8 @@ export const HomeScreen = (props: NavigationScreenProps) => {
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Animation</Text>
       <HomeButton title="AnimatedComponent" onPress={() => navigation.navigate("AnimatedComponentDemo")}/>
+      <HomeButton title="Animated List" onPress={() => navigation.navigate("AnimatedListDemo")}/>
+
 
 
     </ScrollView>
