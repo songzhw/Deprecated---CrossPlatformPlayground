@@ -17,8 +17,9 @@ export const AnimatedListDemo = (props: IProps) => {
     <View>
       <FlatList
         data={[{ key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }]}
-        renderItem={({ item }) => <Text style={{ width: 200, height: 200, fontSize: 35, backgroundColor: color(item) }}>{item.key}</Text>}
+        renderItem={({ item, index }) => <Text style={{ width: 200, height: 200, fontSize: 35, backgroundColor: color(item) }}>{index}. {item.key}</Text>}
         keyExtractor={(item, index) => index + ""}
+        contentOffset={ {x: 0, y : 100}}
       />
     </View>
   );
