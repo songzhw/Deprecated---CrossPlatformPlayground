@@ -7,12 +7,14 @@ import { HomeScreen } from "../HomeScreen";
 import { PassB1Screen } from "../biz/navigators/start_activity_for_result/PassB1Screen";
 import { PassA1Screen } from "../biz/navigators/start_activity_for_result/PassA1Screen";
 import { ActionSheetDemo } from "../view/action_sheet/ActionSheetDemo";
+import { WebViewDemo } from "../rn_tutorial/WebViewDemo";
 
 export const Routes = createStackNavigator(
   {
     HomeScreen,
     PassA1Screen, PassB1Screen,
-    ActionSheetDemo
+    ActionSheetDemo,
+    WebViewDemo
   },
   {
     headerMode: "screen",

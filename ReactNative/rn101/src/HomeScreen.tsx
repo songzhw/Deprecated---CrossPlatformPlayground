@@ -22,6 +22,11 @@ export const HomeScreen = (props: NavigationScreenProps) => {
       <HomeButton title="Component Buttons" onPress={() => navigation.navigate("RadioGroupScreen")}/>
 
 
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>React Native Tutorial</Text>
+      <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
+
+
     </ScrollView>
   );
 };
