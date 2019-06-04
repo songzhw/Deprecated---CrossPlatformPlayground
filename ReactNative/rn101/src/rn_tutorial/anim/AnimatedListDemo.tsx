@@ -6,7 +6,7 @@ interface IProps {
 
 export const AnimatedListDemo = (props: IProps) => {
   const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-  const [offset, setOffset] = useState(new Animated.Value(0));
+  const [offset, setOffset] = useState(new Animated.Value({x:0, y: 0}));
 
   function startAnim() {
     Animated.timing(offset, { toValue: 1000, duration: 7000 }).start();
