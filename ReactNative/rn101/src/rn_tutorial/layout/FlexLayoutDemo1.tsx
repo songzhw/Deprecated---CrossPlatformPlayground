@@ -7,10 +7,11 @@ interface IProps {
 export class FlexLayoutDemo1 extends Component {
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: "pink" }}>
-        <View style={{ width: 60, height: 60, backgroundColor: "powderblue" }}/>
-        <View style={{ width: 60, height: 60, backgroundColor: "skyblue" }}/>
-        <View style={{ width: 60, height: 60, backgroundColor: "dodgerblue" }}/>
+      <View>
+        <View style={{ width: 60, flex: 1 }}>
+          <View style={{ flex: 2, backgroundColor: "pink" }}/>
+          <View style={{ flex: 1, backgroundColor: "blue" }}/>
+        </View>
       </View>
     );
   }
