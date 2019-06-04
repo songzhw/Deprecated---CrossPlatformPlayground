@@ -6,10 +6,16 @@ interface IProps {
 
 export const AnimatedListDemo = (props: IProps) => {
   const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-  const [offset, setOffset] = useState(new Animated.Value({x:0, y: 0}));
+  const [offset, setOffset] = useState(new Animated.Value(0));
 
   function startAnim() {
-    Animated.timing(offset, { toValue: 1000, duration: 7000 }).start();
+    Animated.timing(offset,
+      { duration: 7000,
+      toValue: offset.interpolate({
+        inputRange: [0, 1000],
+        output: [{x:0, y:0}, {x:0, y: 1000}]
+      })}
+      ).start();
   }
 
   const color = (item: any) => {
