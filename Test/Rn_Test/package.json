@@ -18,12 +18,32 @@
     "@types/react-native": "^0.57.60",
     "@types/react-test-renderer": "^16.8.1",
     "babel-jest": "^24.8.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.54.1",
+    "react-dom": "^16.8.6",
     "react-test-renderer": "16.8.3",
     "typescript": "^3.5.1"
   },
   "jest": {
-    "preset": "react-native"
+    "transform": {
+      "^.+\\.m?jsx?$": "babel-jest"
+    },
+    "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/setup"
+    ],
+    "unmockedModulePathPatterns": [
+      "node_modules/react/",
+      "node_modules/enzyme/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/setup.js"
+    ]
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
   }
 }
