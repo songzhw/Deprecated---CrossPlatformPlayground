@@ -4,10 +4,6 @@ import { FlatList, View, Text, Animated, Button } from "react-native";
 
 //TODO ERROR! (运行在android上没动画; 运行在ios上直接crash)
 
-
-interface IProps {
-}
-
 export class AnimatedListDemo extends Component {
   state = {
     offset: new Animated.Value(0)
@@ -25,27 +21,17 @@ export class AnimatedListDemo extends Component {
     }
   };
 
-  offsetFunc = ()=>{
-    return {
-      x: 0,
-      y: this.state.offset.interpolate({
-        inputRange: [0, 1000],
-        outputRange: [0, 1000]
-      })
-    }
-  }
-
-  // @ts-ignore
   render(){
     const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+    // @ts-ignore
     return (
       <View>
         <Button title="start" onPress={this.startAnim}/>
         <AnimatedFlatList
           data={[{ key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }]}
-          renderItem={value => <Text style={{ width: 300, height: 200, fontSize: 35, backgroundColor: this.color(value.item) }}>{value.index}. {value.item.key}</Text>}
+          renderItem={({item, index}) => <Text style={{ width: 300, height: 200, fontSize: 35, backgroundColor: this.color(item) }}>{index}. {item.key}</Text>}
           keyExtractor={(item, index) => index + ""}
-          contentOffset={this.offsetFunc}
+          contentOffset={{y: this.state.offset}}
         />
       </View>
   );}
