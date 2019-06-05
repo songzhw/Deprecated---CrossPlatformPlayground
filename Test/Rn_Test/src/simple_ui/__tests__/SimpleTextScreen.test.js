@@ -8,7 +8,6 @@ configure({ adapter: new Adapter() });
 
 test("simple text test", () => {
   const tree = shallow(<SimpleTextScreen/>);
-  const text = tree.find(Text).text();
-  console.log(tree.debug());
-  expect(text).toEqual("simple001");
+  const text = tree.find(Text).render().text();
+  expect(text).toBe("simple001");
 });
