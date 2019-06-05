@@ -32,7 +32,7 @@
     },
     "preset": "react-native",
     "setupFiles": [
-      "<rootDir>/setup"
+      "<rootDir>/src/setup.js"
     ],
     "unmockedModulePathPatterns": [
       "node_modules/react/",
@@ -40,7 +40,7 @@
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "<rootDir>/setup.js"
+      "<rootDir>/src/setup.js"
     ]
   },
   "resolutions": {
