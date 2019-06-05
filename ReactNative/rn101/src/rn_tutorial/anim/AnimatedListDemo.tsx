@@ -1,6 +1,10 @@
 import React, { Component, useState } from "react";
 import { FlatList, View, Text, Animated, Button } from "react-native";
 
+
+//TODO ERROR! (运行在android上没动画; 运行在ios上直接crash)
+
+
 interface IProps {
 }
 
