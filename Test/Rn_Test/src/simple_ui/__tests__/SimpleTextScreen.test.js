@@ -1,10 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import { SimpleTextScreen } from "../SimpleTextScreen";
-import { shallow, configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-
-configure({ adapter: new Adapter() });
+import { shallow } from "enzyme";
 
 test("simple text test", () => {
   const tree = shallow(<SimpleTextScreen/>);
