@@ -7,9 +7,14 @@ import variables from "beeshell/dist/common/styles/variables";
 interface IProps {
 }
 
-export default class Anim1 extends Component<IProps, any> {
-  private fade: any;
-  private slide: any;
+interface IState {
+  fadeTag: boolean;
+  slideTag: boolean;
+}
+
+export default class Anim1 extends Component<IProps, IState> {
+  private fade: FadeAnimated;
+  private slide: SlideAnimated;
 
   constructor(props: IProps) {
     super(props);
@@ -25,10 +30,9 @@ export default class Anim1 extends Component<IProps, any> {
     });
   }
 
-  componentDidMount() {
-  }
-
   render() {
+    const MyText = Animated.createAnimatedComponent(Text);
+
     return (
       <ScrollView
         style={styles.body}>
@@ -57,7 +61,7 @@ export default class Anim1 extends Component<IProps, any> {
             Toggle
           </Button>
 
-          <Animated.View
+          <MyText
             style={[
               { width: 100, height: 100, backgroundColor: variables.mtdBrandPrimaryDark },
               {
@@ -66,8 +70,8 @@ export default class Anim1 extends Component<IProps, any> {
                 ],
                 opacity: this.fade.getState().opacity
               }
-            ]}>
-          </Animated.View>
+            ]}> 这是个TextView
+          </MyText>
         </View>
 
         <Text style={styles.header}>滑动动画</Text>
