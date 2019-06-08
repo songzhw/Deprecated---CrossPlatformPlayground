@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { Animated, Button, View, Text } from "react-native";
+import { Animated, Button, View, ViewProps } from "react-native";
 import { ScreenProps } from "react-navigation";
 
 interface IProps {
