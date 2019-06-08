@@ -10,13 +10,12 @@ const instructions = Platform.select({
     "Shake or press menu button for dev menu"
 });
 
-interface IProps {
-}
 
-const App = (props: IProps) => {
+const App = () => {
   const RouterContainer = createAppContainer(Routes);
+  const theme = { bg: "green", textColor: "white" };
   return (
-    <RouterContainer/>
+    <RouterContainer screenProps={theme}/>
   );
 };
 

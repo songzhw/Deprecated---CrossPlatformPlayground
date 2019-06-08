@@ -1,15 +1,17 @@
 import React, { Component, useState } from "react";
 import { Animated, Button, View, Text } from "react-native";
+import { ScreenProps } from "react-navigation";
 
 interface IProps {
   width: number;
   height: number
 }
 
-export const AnimatedComponentDemo = () => {
+export const AnimatedComponentDemo = (props: ScreenProps) => {
   const AnimatedChild = Animated.createAnimatedComponent(Child);
   const [width, setWidth] = useState(new Animated.Value(0));
   const [height, setHeight] = useState(new Animated.Value(0));
+  console.log(`szw AnimatedComponentDemo `, props.screenProps); //=> 'szw AnimatedComponentDemo ', { bg: 'green', textColor: 'white' }
 
   function startAnim() {
     const anim1 = Animated.timing(width, { toValue: 200, duration: 2500 });

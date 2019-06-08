@@ -1,11 +1,13 @@
 import React from "react";
 import { Button, ScrollView, StyleSheet, View, Text, TextInput } from "react-native";
-import { NavigationScreenProps } from "react-navigation";
+import { NavigationScreenProps, ScreenProps } from "react-navigation";
 import { FlexLayoutDemo1 } from "./rn_tutorial/layout/FlexLayoutDemo1";
 
-export const HomeScreen = (props: NavigationScreenProps) => {
+export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
-  const { navigation } = props;
+  const { navigation, screenProps } = props;
+  console.log(`szw HomeScreeen `, screenProps);//=> 'szw HomeScreeen ', { bg: 'green', textColor: 'white' }
+
 
   return (
     <ScrollView style={styles.root}>
