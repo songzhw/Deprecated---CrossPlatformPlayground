@@ -80,15 +80,14 @@ interface IFadeViewProps {
 const FadeView = (props: IFadeViewProps) => {
   const MyView = Animated.createAnimatedComponent(props.component);
   return (
-    <View style={props.style}>
       <MyView
         style={[
           {
             transform: [{ scale: props.fader.getState().scale }],
             opacity: props.fader.getState().opacity
-          }
+          },
+          props.style
         ]}/>
-    </View>
   );
 };
 
