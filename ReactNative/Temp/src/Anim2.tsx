@@ -54,17 +54,8 @@ export default class Anim2 extends Component<IProps, IState> {
         <Text style={styles.header}>淡入淡出动画 FadeAnimated</Text>
         <View style={[styles.panel]}>
           <Button size='sm' onPress={this.toggle}> Toggle</Button>
-          <MyText
-            style={[
-              { width: 100, height: 100, backgroundColor: "powderblue" },
-              {
-                transform: [{ scale: this.fade.getState().scale }],
-                opacity: this.fade.getState().opacity
-              }
-            ]}> 这是个TextView
-          </MyText>
           <FadeView style={{ width: 100, height: 100, backgroundColor: "powderblue" }}
-                    component={Text} fader={this.fade}/>
+                    component={Text} fader={this.fade}> TextView 002 </FadeView>
         </View>
       </ScrollView>
     );
@@ -74,7 +65,8 @@ export default class Anim2 extends Component<IProps, IState> {
 interface IFadeViewProps {
   component: any;
   fader: FadeAnimated;
-  style?: ViewStyle | ViewStyle[]
+  style?: ViewStyle | ViewStyle[];
+  children: any
 }
 
 const FadeView = (props: IFadeViewProps) => {
@@ -87,7 +79,9 @@ const FadeView = (props: IFadeViewProps) => {
             opacity: props.fader.getState().opacity
           },
           props.style
-        ]}/>
+        ]}>
+        {props.children}
+      </MyView>
   );
 };
 
