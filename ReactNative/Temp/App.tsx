@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Platform, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { Button } from "beeshell";
-import Anim1 from "./src/Anim1";
+import Anim2 from "./src/Anim2";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -17,7 +17,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Anim1/>
+        <Anim2/>
       </SafeAreaView>
     );
   }
