@@ -11,6 +11,8 @@ import { WebViewDemo } from "../rn_tutorial/WebViewDemo";
 import { FlexLayoutDemo1 } from "../rn_tutorial/layout/FlexLayoutDemo1";
 import { AnimatedComponentDemo } from "../rn_tutorial/anim/AnimatedComponentDemo";
 import { AnimatedListDemo } from "../rn_tutorial/anim/AnimatedListDemo";
+import { StaticServerDemo } from "../lib3rd/StaticServerDemo";
+import { FetchBlobDemo } from "../lib3rd/FetchBlobDemo";
 
 export const Routes = createStackNavigator(
   {
@@ -18,7 +20,8 @@ export const Routes = createStackNavigator(
     PassA1Screen, PassB1Screen,
     ActionSheetDemo,
     WebViewDemo, FlexLayoutDemo1,
-    AnimatedComponentDemo, AnimatedListDemo
+    AnimatedComponentDemo, AnimatedListDemo,
+    StaticServerDemo, FetchBlobDemo
   },
   {
     headerMode: "screen",
