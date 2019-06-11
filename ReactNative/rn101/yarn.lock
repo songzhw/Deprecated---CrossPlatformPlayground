@@ -935,6 +935,13 @@
   resolved "https://registry.yarnpkg.com/@types/react-native-fetch-blob/-/react-native-fetch-blob-0.10.5.tgz#31fd03950f81256c63896514399723be10b6c85e"
   integrity sha512-FdNaKMvQ3QMzpJll5pAATNZaS9dKAl7PebO6pX0f5QAUfQQYsV9Tgtv1Rho4xuoeZ3sztpJfYuM4CfMKJFiR4w==
 
+"@types/react-native-fs@^2.8.3":
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/@types/react-native-fs/-/react-native-fs-2.8.3.tgz#885aa97e7892970d5df06df158d01a5f83256d06"
+  integrity sha512-Me6jPDxPiyRO3myXQOkV0EZ2qsqSfA73T4/jspwZAIzaLePSIhdOxEbIIFHgEDFkYvYjsjmzuyqcgylt3ko90A==
+  dependencies:
+    "@types/react-native" "*"
+
 "@types/react-native@*", "@types/react-native@^0.57.60":
   version "0.57.60"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.60.tgz#61e97a84e2f64ed971e7d238bb30cec188898235"
@@ -1344,7 +1351,7 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-base-64@0.1.0:
+base-64@0.1.0, base-64@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/base-64/-/base-64-0.1.0.tgz#780a99c84e7d600260361511c4877613bf24f6bb"
   integrity sha1-eAqZyE59YAJgNhURxId2E78k9rs=
@@ -4993,6 +5000,14 @@ react-native-fetch-blob@^0.10.8:
     base-64 "0.1.0"
     glob "7.0.6"
 
+react-native-fs@^2.13.3:
+  version "2.13.3"
+  resolved "https://registry.yarnpkg.com/react-native-fs/-/react-native-fs-2.13.3.tgz#a422f0ecd8a093a7e99d8d51ff51440e090a18a8"
+  integrity sha512-B62LSSAEYQGItg7KVTzTVVCxezOYFBYp4DMVFbdoZUd1mZVFdqR2sy1HY1mye1VI/Lf3IbxSyZEQ0GmrrdwLjg==
+  dependencies:
+    base-64 "^0.1.0"
+    utf8 "^2.1.1"
+
 react-native-gesture-handler@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.2.2.tgz#570f7d8d3906fe9561f22360a3ab3462d06c3dc6"
@@ -6158,6 +6173,11 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
+
+utf8@^2.1.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/utf8/-/utf8-2.1.2.tgz#1fa0d9270e9be850d9b05027f63519bf46457d96"
+  integrity sha1-H6DZJw6b6FDZsFAn9jUZv0ZFfZY=
 
 util-deprecate@~1.0.1:
   version "1.0.2"
