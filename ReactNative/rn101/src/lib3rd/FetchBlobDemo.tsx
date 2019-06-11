@@ -72,7 +72,12 @@ export const FetchBlobDemo = () => {
   }
 
   function readTxtFile(){
-
+    const targetPath = RNFetchBlob.fs.dirs.DocumentDir+"/work.txt";
+    RNFetchBlob.fs
+      .readFile(targetPath, "utf8", 1024)
+      .then(data => {
+        setJson(data)
+      })
   }
 
 
