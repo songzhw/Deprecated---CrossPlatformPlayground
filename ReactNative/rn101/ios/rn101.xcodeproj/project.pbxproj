@@ -42,6 +42,7 @@
 		543E479F978C4FAC98A84BF6 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F356C522E244167846ECEFD /* libRNGestureHandler.a */; };
 		EE4700CA4E6C4593A72F7054 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB6F0870F4F4200B2F98175 /* libRNGestureHandler-tvOS.a */; };
 		602548BB0A674E1C85558A2A /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A54D4F20324B86BC596133 /* libRNCWebView.a */; };
+		4F5B661ECE9848C8A48ECB5B /* libFPStaticServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD090AA20E748EDB1B6276C /* libFPStaticServer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +355,8 @@
 		4EB6F0870F4F4200B2F98175 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		72E6B87A0ABC4C158CBDA5D1 /* RNCWebView.xcodeproj */ = {isa = PBXFileReference; name = "RNCWebView.xcodeproj"; path = "../node_modules/react-native-webview/ios/RNCWebView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		C6A54D4F20324B86BC596133 /* libRNCWebView.a */ = {isa = PBXFileReference; name = "libRNCWebView.a"; path = "libRNCWebView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		4F0A0CD786624DB4A926957E /* FPStaticServer.xcodeproj */ = {isa = PBXFileReference; name = "FPStaticServer.xcodeproj"; path = "../node_modules/react-native-static-server/ios/FPStaticServer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		0BD090AA20E748EDB1B6276C /* libFPStaticServer.a */ = {isa = PBXFileReference; name = "libFPStaticServer.a"; path = "libFPStaticServer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +387,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				543E479F978C4FAC98A84BF6 /* libRNGestureHandler.a in Frameworks */,
 				602548BB0A674E1C85558A2A /* libRNCWebView.a in Frameworks */,
+				4F5B661ECE9848C8A48ECB5B /* libFPStaticServer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +580,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				371FBB5E11EB48B4984285C6 /* RNGestureHandler.xcodeproj */,
 				72E6B87A0ABC4C158CBDA5D1 /* RNCWebView.xcodeproj */,
+				4F0A0CD786624DB4A926957E /* FPStaticServer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1206,11 +1211,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",
 				);
 			};
 			name = Debug;
@@ -1235,11 +1242,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",
 				);
 			};
 			name = Release;
@@ -1264,6 +1273,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",
 				);
 			};
 			name = Debug;
@@ -1287,6 +1297,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",
 				);
 			};
 			name = Release;
@@ -1319,11 +1330,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",
 				);
 			};
 			name = Debug;
@@ -1356,11 +1369,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",
 				);
 			};
 			name = Release;
@@ -1392,11 +1407,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",
 				);
 			};
 			name = Debug;
@@ -1428,11 +1445,13 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-webview/ios",
+					"$(SRCROOT)/../node_modules/react-native-static-server/ios/**",
 				);
 			};
 			name = Release;

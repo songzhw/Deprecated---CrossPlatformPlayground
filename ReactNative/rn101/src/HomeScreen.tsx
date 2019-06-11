@@ -12,6 +12,12 @@ export const HomeScreen = (props: NavigationScreenProps) => {
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
 
       <View style={{ height: 8 }}/>
+      <Text style={styles.title}>3rd Library</Text>
+      <HomeButton title="static server" onPress={() => navigation.navigate("StaticServerDemo")}/>
+
+
+
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>Router/Navigation</Text>
       <HomeButton title="startActivityForResult" onPress={() => navigation.navigate("PassA1Screen")}/>
 
