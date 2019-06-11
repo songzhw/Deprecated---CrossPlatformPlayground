@@ -6,10 +6,12 @@ export const FetchBlobDemo = () => {
   const [json, setJson] = useState("");
 
   function downloadJson() {
-    const url = "http://www.mocky.io/v2/5caa5b8e3000001607904577";
-    RNFetchBlob.fetch("GET", url)
+    const url = "https://www.mocky.io/v2/5caa5b8e3000001607904577";
+    RNFetchBlob.config({trusty: true})
+      .fetch("GET", url)
       .then(resp => {
-        setJson(resp.text());
+        const text = resp.text();
+        setJson(text as string);
         console.log("szw json = ", resp.json());
       })
       .catch((error: any) => console.log(`szw error = `, error));
