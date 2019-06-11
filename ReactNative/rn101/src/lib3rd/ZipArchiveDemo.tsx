@@ -12,7 +12,7 @@ export const ZipArchiveDemo = () => {
 
     unzip(sourcePath, targetPath)
       .then((path) => {
-        console.log(`unzip completed at ${path}`);
+        console.log(`szw unzip completed at ${path}`);
       })
       .catch((error) => {
         console.log(error);
