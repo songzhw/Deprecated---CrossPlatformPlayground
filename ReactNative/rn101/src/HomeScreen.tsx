@@ -15,6 +15,7 @@ export const HomeScreen = (props: NavigationScreenProps) => {
       <Text style={styles.title}>3rd Library</Text>
       <HomeButton title="static server" onPress={() => navigation.navigate("StaticServerDemo")}/>
       <HomeButton title="fetch blob" onPress={() => navigation.navigate("FetchBlobDemo")}/>
+      <HomeButton title={"unzip zip"} onPress={()=>navigation.navigate("ZipArchiveDemo")}/>
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Router/Navigation</Text>

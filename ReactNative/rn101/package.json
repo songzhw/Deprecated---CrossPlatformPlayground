@@ -13,6 +13,7 @@
     "react-native-gesture-handler": "^1.2.2",
     "react-native-static-server": "^0.4.1",
     "react-native-webview": "^5.11.0",
+    "react-native-zip-archive": "^4.0.3",
     "react-navigation": "^3.11.0"
   },
   "devDependencies": {

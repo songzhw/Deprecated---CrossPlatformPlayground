@@ -3,6 +3,7 @@ package com.rn101;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.rnziparchive.RNZipArchivePackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.futurepress.staticserver.FPStaticServerPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNZipArchivePackage(),
             new RNFetchBlobPackage(),
             new FPStaticServerPackage(),
             new RNCWebViewPackage(),
