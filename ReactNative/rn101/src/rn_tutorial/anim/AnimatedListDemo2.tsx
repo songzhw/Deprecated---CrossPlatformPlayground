@@ -40,7 +40,7 @@ export class AnimatedListDemo2 extends Component {
           renderItem={({ item, index }) => <Text
             style={[styles.text, { backgroundColor: this.color(item) }]}>{index}. {item.key}</Text>}
           keyExtractor={(item, index) => index + ""}
-          contentContainerStyle={{paddingTop:-100}}
+          contentContainerStyle={{position:'absolute', top:100, left:0}}
         />
       </View>
     );
