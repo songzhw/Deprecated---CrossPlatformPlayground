@@ -1,0 +1,3 @@
+rootProject.name = 'sha3'
+
+include ':app'
