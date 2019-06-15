@@ -19,6 +19,6 @@ export const screenFade = () => ({
       outputRange: [0.5, 1],
       extrapolate: "clamp"
     });
-    return { opacity, transform: [translateY, translateX] };
+    return { opacity, transform: [{translateY: translateY}, {translateX: translateX}] };
   }
 });
