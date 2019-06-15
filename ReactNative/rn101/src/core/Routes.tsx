@@ -14,6 +14,7 @@ import { AnimatedListDemo } from "../rn_tutorial/anim/AnimatedListDemo";
 import { StaticServerDemo } from "../lib3rd/StaticServerDemo";
 import { FetchBlobDemo } from "../lib3rd/FetchBlobDemo";
 import { ZipArchiveDemo } from "../lib3rd/ZipArchiveDemo";
+import { AnimatedListDemo2 } from "../rn_tutorial/anim/AnimatedListDemo2";
 
 export const Routes = createStackNavigator(
   {
@@ -21,7 +22,7 @@ export const Routes = createStackNavigator(
     PassA1Screen, PassB1Screen,
     ActionSheetDemo,
     WebViewDemo, FlexLayoutDemo1,
-    AnimatedComponentDemo, AnimatedListDemo,
+    AnimatedComponentDemo, AnimatedListDemo,AnimatedListDemo2,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo
   },
   {

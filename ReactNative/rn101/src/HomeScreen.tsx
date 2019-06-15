@@ -13,6 +13,15 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
 
+
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>Animation</Text>
+      <HomeButton title="AnimatedComponent" onPress={() => navigation.navigate("AnimatedComponentDemo")}/>
+      <HomeButton title="Animated List" onPress={() => navigation.navigate("AnimatedListDemo")}/>
+      <HomeButton title="Animated List2" onPress={() => navigation.navigate("AnimatedListDemo2")}/>
+
+
+
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>3rd Library</Text>
       <HomeButton title="static server" onPress={() => navigation.navigate("StaticServerDemo")}/>
@@ -36,10 +45,6 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
       <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
 
-      <View style={{ height: 8 }}/>
-      <Text style={styles.title}>Animation</Text>
-      <HomeButton title="AnimatedComponent" onPress={() => navigation.navigate("AnimatedComponentDemo")}/>
-      <HomeButton title="Animated List" onPress={() => navigation.navigate("AnimatedListDemo")}/>
 
 
 
