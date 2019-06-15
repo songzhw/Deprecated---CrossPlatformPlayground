@@ -1,8 +1,8 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, ViewProps } from "react-native";
 import { DECK_HEIGHT } from "../data/Const";
 
-interface IProps {
+interface IProps extends ViewProps {
 }
 
 export const PlayerView = (props: IProps) => {
