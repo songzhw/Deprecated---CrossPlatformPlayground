@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { DECK_HEIGHT } from "../data/Const";
+import { PLAYER_HEIGHT } from "../data/Const";
 import { PlayerView } from "./PlayerView";
 
 interface IProps {
@@ -17,7 +17,7 @@ export const MyDeck = (props: IProps) => {
 
 const styles = StyleSheet.create({
   parent: {
-    height: DECK_HEIGHT,
+    height: PLAYER_HEIGHT,
     backgroundColor: "gray"
   }
 });

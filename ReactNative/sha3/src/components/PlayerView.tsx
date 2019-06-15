@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, ViewProps } from "react-native";
-import { DECK_HEIGHT } from "../data/Const";
+import { PLAYER_HEIGHT, PLAYER_WIDTH } from "../data/Const";
 
 interface IProps extends ViewProps {
 }
@@ -31,8 +31,8 @@ export const PlayerView = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 124,
-    height: DECK_HEIGHT,
+    width: PLAYER_WIDTH,
+    height: PLAYER_HEIGHT,
     borderWidth: 2,
     borderColor: "black"
   },
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textAlignVertical: "center",
     color: "black",
-    fontSize: 16
+    fontSize: 15
   }
 
 });
