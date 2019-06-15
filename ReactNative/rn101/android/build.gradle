@@ -31,3 +31,15 @@ allprojects {
         }
     }
 }
+
+subprojects {
+    afterEvaluate {project ->
+        // force libs to use recent buildtools
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion = 28  
+                buildToolsVersion = "28.0.3"
+            }
+        }
+    }
+}
