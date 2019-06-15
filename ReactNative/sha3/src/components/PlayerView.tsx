@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+import { DECK_HEIGHT } from "../data/Const";
 
 interface IProps {
 }
@@ -20,7 +21,7 @@ export const PlayerView = (props: IProps) => {
         </View>
         <View style={styles.bottomRow}>
           <Text style={styles.bottomCell}>静心香</Text>
-          <Text style={styles.bottomCell}>狂暴粉</Text>
+          <Text style={styles.bottomCell}>木牛流马</Text>
         </View>
       </View>
     </View>
@@ -30,9 +31,8 @@ export const PlayerView = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 114,
-    height: 140,
-    backgroundColor: "#F5FCFF",
+    width: 124,
+    height: DECK_HEIGHT,
     borderWidth: 2,
     borderColor: "black"
   },
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textAlignVertical: "center",
     color: "black",
-    fontSize: 18
+    fontSize: 16
   }
 
 });
