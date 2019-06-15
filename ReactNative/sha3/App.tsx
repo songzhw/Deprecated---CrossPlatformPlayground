@@ -9,20 +9,25 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+
         <View style={styles.row}>
           <PlayerView/>
           <PlayerView/>
           <PlayerView/>
         </View>
+
         <View style={styles.row}>
           <PlayerView/>
           <PlayerView/>
         </View>
+
         <View style={styles.row}>
           <PlayerView/>
           <PlayerView/>
         </View>
+
         <MyDeck/>
+
       </View>
     );
   }
@@ -30,8 +35,10 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    backgroundColor: "#F5FCFF"
+    flex:1,
+    backgroundColor: "#F5FCFF",
+    flexDirection: "column",
+    justifyContent: "space-between"
   },
   row: {
     flexDirection: "row",
