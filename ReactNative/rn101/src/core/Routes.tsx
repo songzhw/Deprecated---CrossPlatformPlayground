@@ -37,7 +37,7 @@ export const Routes = createStackNavigator(
           <Image source={require("../../res/images/icon_back.png")} resizeMode='center' style={commonStyles.imgBack}/>
         </TouchableOpacity>
       )
-    }),
-    transitionConfig: screenFade
+    })
+    // ,transitionConfig: screenFade
   }
 );
