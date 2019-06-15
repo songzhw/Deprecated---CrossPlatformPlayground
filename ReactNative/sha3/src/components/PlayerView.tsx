@@ -6,9 +6,9 @@ interface IProps extends ViewProps {
 }
 
 export const PlayerView = (props: IProps) => {
-
+  const passedInStyles = props.style;
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, passedInStyles]}>
       <View style={styles.emptyPlaceHolder}/>
       <View style={styles.bottomContainer}>
         <View style={styles.bottomRow}>
