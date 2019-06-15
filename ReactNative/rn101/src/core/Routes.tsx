@@ -15,6 +15,7 @@ import { StaticServerDemo } from "../lib3rd/StaticServerDemo";
 import { FetchBlobDemo } from "../lib3rd/FetchBlobDemo";
 import { ZipArchiveDemo } from "../lib3rd/ZipArchiveDemo";
 import { AnimatedListDemo2 } from "../rn_tutorial/anim/AnimatedListDemo2";
+import { screenFade } from "./screenFade";
 
 export const Routes = createStackNavigator(
   {
@@ -36,6 +37,7 @@ export const Routes = createStackNavigator(
           <Image source={require("../../res/images/icon_back.png")} resizeMode='center' style={commonStyles.imgBack}/>
         </TouchableOpacity>
       )
-    })
+    }),
+    transitionConfig: screenFade
   }
 );
