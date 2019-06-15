@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
 interface IProps {
 }
@@ -8,9 +8,20 @@ export const PlayerView = (props: IProps) => {
 
   return (
     <View style={styles.container}>
-      <View style={{flex:1}}/>
+      <View style={styles.emptyPlaceHolder}/>
       <View style={styles.bottomContainer}>
-
+        <View style={styles.bottomRow}>
+          <Text style={styles.bottomCell}>倚天剑</Text>
+          <Text style={styles.bottomCell}>护心镜</Text>
+        </View>
+        <View style={styles.bottomRow}>
+          <Text style={styles.bottomCell}>+1马</Text>
+          <Text style={styles.bottomCell}>-1马</Text>
+        </View>
+        <View style={styles.bottomRow}>
+          <Text style={styles.bottomCell}>静心香</Text>
+          <Text style={styles.bottomCell}>狂暴粉</Text>
+        </View>
       </View>
     </View>
   );
@@ -19,17 +30,28 @@ export const PlayerView = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 94,
-    height: 120,
+    width: 114,
+    height: 140,
     backgroundColor: "#F5FCFF",
     borderWidth: 2,
     borderColor: "black"
   },
+  emptyPlaceHolder: {
+    flex: 1
+  },
   bottomContainer: {
-    // flex:1, //用了flex就会全占满. 要想width撑起父view, 不写width就行了
-    // height: 60,
-    flex:1,
-    backgroundColor: 'red'
+    flex: 1
+  },
+  bottomRow: {
+    flex: 1,
+    flexDirection: "row"
+  },
+  bottomCell: {
+    flex: 1,
+    textAlign: "center",
+    textAlignVertical: "center",
+    color: "black",
+    fontSize: 18
   }
 
 });
