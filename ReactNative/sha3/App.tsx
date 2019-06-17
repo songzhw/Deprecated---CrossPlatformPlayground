@@ -1,47 +1,12 @@
-import React, { Component } from "react";
-import { Platform, ScrollView, StyleSheet, Text, View } from "react-native";
-import { PlayerView } from "./src/components/PlayerView";
-import { MyDeck } from "./src/components/MyDeck";
-import { PLAYER_HEIGHT, PLAYER_WIDTH } from "./src/data/Const";
+import React from "react";
+import { Routes } from "./src/core/Routes";
 
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
+const App = () => {
+  return (
+    <Routes/>
+  );
+};
 
-        <View style={styles.row}>
-          <PlayerView/>
-          <PlayerView/>
-          <PlayerView/>
-        </View>
 
-        <View style={styles.row}>
-          <PlayerView/>
-          <PlayerView/>
-        </View>
-
-        <View style={styles.row}>
-          <PlayerView/>
-          <PlayerView/>
-        </View>
-
-        <MyDeck/>
-
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor: "#F5FCFF",
-    flexDirection: "column",
-    justifyContent: "space-between"
-  },
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between"
-  }
-});
+export default App;

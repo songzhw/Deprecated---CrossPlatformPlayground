@@ -18,6 +18,6 @@ export const MyDeck = (props: IProps) => {
 const styles = StyleSheet.create({
   parent: {
     height: PLAYER_HEIGHT,
-    backgroundColor: "gray"
+    backgroundColor: "powderblue"
   }
 });
