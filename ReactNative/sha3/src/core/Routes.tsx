@@ -1,19 +1,25 @@
 import React from "react";
-import { Text } from "react-native";
+import { Platform, Text } from "react-native";
 import { createAppContainer, createStackNavigator } from "react-navigation";
 import { NavigationBar } from "beeshell";
 import { GameScreen } from "../ui/GameScreen";
 import { HomeScreen } from "../ui/HomeScreen";
 
+const TITLE_OFFSET = Platform.OS === 'ios' ? 70 : 56;
 const RouteList = createStackNavigator({
   HomeScreen, GameScreen
 }, {
   defaultNavigationOptions: {
-    headerTitle: (
-      <NavigationBar
-        title="Sha3"
-      />
-    )
+    headerStyle: {
+      backgroundColor: "#1b5e20"
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle:{
+      alignSelf:'center',
+      textAlign: 'center',
+      flex:1,
+    },
+    headerTitle: "Sha3"
   }
 });
 
