@@ -1,5 +1,6 @@
 import React from "react";
-import { View, ViewProps, Text, Button, StyleSheet } from "react-native";
+import { View, ViewProps, Text, StyleSheet } from "react-native";
+import { Button } from "beeshell";
 import { NavigationScreenProps } from "react-navigation";
 
 interface IProps extends ViewProps, NavigationScreenProps {
@@ -13,7 +14,7 @@ export const HomeScreen = (props: IProps) => {
 
   return (
     <View>
-      <Button title="Start" onPress={onStart}/>
+      <Button type="primary" size="md" onPress={onStart}> Start </Button>
     </View>
   );
 };
