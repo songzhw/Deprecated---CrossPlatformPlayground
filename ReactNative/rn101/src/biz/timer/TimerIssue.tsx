@@ -1,30 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Button } from "react-native";
 
-// export const TimerIssue = () => {
-//   const [time, setTime] = useState(-1);
-//   let timerHandler: number | null = null;
-//
-//   function work() {
-//     console.log(`szw interval : ${time}`);
-//     const result = time + 1;
-//     setTime(result);
-//   }
-//
-//   function start() {
-//     timerHandler = setInterval(work, 1000);
-//   }
-//
-//   useEffect(() => {
-//     console.log(`szw useEffect start`);
-//     return () => {
-//       console.log(`szw useEffect cancel`);
-//       if (timerHandler) {
-//         clearInterval(timerHandler);
-//       }
-//     };
-//   }, []);
-//
 export class TimerIssue extends React.Component {
   timerHandler: number | null = null;
   state = {
@@ -32,6 +8,7 @@ export class TimerIssue extends React.Component {
   };
 
   componentWillUnmount() {
+    console.log(`szw umount = ${this.timerHandler}`);
     if (this.timerHandler) {
       clearInterval(this.timerHandler);
     }
