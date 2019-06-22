@@ -8,23 +8,11 @@ export class AnimatedListDemo2 extends Component {
   state = {
     offset: new Animated.ValueXY({ x: 0, y: 0 })
   };
-  private interval: number | null = null;
 
   startAnim() {
     Animated.timing(this.state.offset, { toValue: { x: 0, y: 500 }, duration: 7000 }).start();
-    // this.interval = setInterval(() => {
-    //   this.setState({ offset: this.state.offset + 50 });
-    // }, 500);
-
-    // this.setState({ offset: 200 });
-
   }
 
-  componentWillUnmount(): void {
-    if (this.interval !== null) {
-      clearInterval(this.interval);
-    }
-  }
 
   color = (item: any) => {
     if (item.key === "a") {
@@ -45,7 +33,7 @@ export class AnimatedListDemo2 extends Component {
           renderItem={({ item, index }) => <Text
             style={[styles.text, { backgroundColor: this.color(item) }]}>{index}. {item.key}</Text>}
           keyExtractor={(item, index) => index + ""}
-          contentOffset={ this.state.offset.getLayout()}
+          // contentOffset={ this.state.offset }
         />
       </View>
     );
