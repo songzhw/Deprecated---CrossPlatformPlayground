@@ -45,7 +45,7 @@ export class AnimatedListDemo2 extends Component {
           renderItem={({ item, index }) => <Text
             style={[styles.text, { backgroundColor: this.color(item) }]}>{index}. {item.key}</Text>}
           keyExtractor={(item, index) => index + ""}
-          contentOffset={{ x: this.state.offset.x, y: this.state.offset.y }}
+          contentOffset={ this.state.offset.getLayout()}
         />
       </View>
     );
