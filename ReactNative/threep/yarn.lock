@@ -4908,6 +4908,11 @@ react-is@^16.8.1, react-is@^16.8.3, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
+react-native-motion-event-manager@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-motion-event-manager/-/react-native-motion-event-manager-0.0.4.tgz#a0ccbe9ed3ee6d0c797c7905dcfd4c6eda2c25e0"
+  integrity sha512-HExn2MTZynCgNtSDTcqPtBCmbrRASVm4E3MIILQLabqxcQEsrg1r4h5biNKIySReVP70ntwgBS4/Bxkg9eb/EQ==
+
 react-native@0.59.9:
   version "0.59.9"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.59.9.tgz#c94ee4fa35121720c05235a2dd6cdd2784bf5177"
