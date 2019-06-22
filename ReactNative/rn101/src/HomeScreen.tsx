@@ -2,6 +2,7 @@ import React from "react";
 import { Button, ScrollView, StyleSheet, View, Text, TextInput } from "react-native";
 import { NavigationScreenProps, ScreenProps } from "react-navigation";
 import { FlexLayoutDemo1 } from "./rn_tutorial/layout/FlexLayoutDemo1";
+import { TimerIssue } from "./biz/timer/TimerIssue";
 
 export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
@@ -20,8 +21,6 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="Animated List" onPress={() => navigation.navigate("AnimatedListDemo")}/>
       <HomeButton title="Animated List2" onPress={() => navigation.navigate("AnimatedListDemo2")}/>
 
-
-
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>3rd Library</Text>
       <HomeButton title="static server" onPress={() => navigation.navigate("StaticServerDemo")}/>
@@ -29,8 +28,10 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title={"unzip zip"} onPress={()=>navigation.navigate("ZipArchiveDemo")}/>
 
       <View style={{ height: 8 }}/>
-      <Text style={styles.title}>Router/Navigation</Text>
+      <Text style={styles.title}>Business</Text>
       <HomeButton title="startActivityForResult" onPress={() => navigation.navigate("PassA1Screen")}/>
+      <HomeButton title="timer in the background" onPress={() => navigation.navigate("TimerIssue")}/>
+
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Custom View</Text>

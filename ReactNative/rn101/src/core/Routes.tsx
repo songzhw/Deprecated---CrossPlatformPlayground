@@ -16,11 +16,12 @@ import { FetchBlobDemo } from "../lib3rd/FetchBlobDemo";
 import { ZipArchiveDemo } from "../lib3rd/ZipArchiveDemo";
 import { AnimatedListDemo2 } from "../rn_tutorial/anim/AnimatedListDemo2";
 import { screenFade } from "./screenFade";
+import { TimerIssue } from "../biz/timer/TimerIssue";
 
 export const Routes = createStackNavigator(
   {
     HomeScreen,
-    PassA1Screen, PassB1Screen,
+    PassA1Screen, PassB1Screen, TimerIssue,
     ActionSheetDemo,
     WebViewDemo, FlexLayoutDemo1,
     AnimatedComponentDemo, AnimatedListDemo,AnimatedListDemo2,
