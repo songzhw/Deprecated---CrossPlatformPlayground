@@ -10,7 +10,7 @@ export class AnimatedListDemo2 extends Component {
   };
 
   startAnim() {
-    Animated.timing(this.state.offset, { toValue: { x: 0, y: 500 }, duration: 7000 }).start();
+    Animated.timing(this.state.offset, { toValue: { x: 0, y: 500 }, duration: 3000 }).start();
   }
 
 
@@ -24,16 +24,15 @@ export class AnimatedListDemo2 extends Component {
 
   render() {
     const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-    // @ts-ignore
     return (
       <View>
         <Button title="start" onPress={() => this.startAnim()}/>
-        <FlatList
+        <AnimatedFlatList
           data={[{ key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }]}
-          renderItem={({ item, index }) => <Text
-            style={[styles.text, { backgroundColor: this.color(item) }]}>{index}. {item.key}</Text>}
-          keyExtractor={(item, index) => index + ""}
-          // contentOffset={ this.state.offset }
+          renderItem={(v: any) => <Text
+            style={[styles.text, { backgroundColor: this.color(v.item) }]}>{v.index}. {v.item.key}</Text>}
+          keyExtractor={(v: any) => v.index + ""}
+          contentOffset={this.state.offset}
         />
       </View>
     );
