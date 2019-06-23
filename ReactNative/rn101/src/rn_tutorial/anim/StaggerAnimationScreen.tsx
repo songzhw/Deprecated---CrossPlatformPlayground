@@ -34,18 +34,11 @@ export const StaggerAnimationScreen = (props: IProps) => {
     return (
       <Animated.View
         key={index}
-        style={{
-          opacity: animValues[num],
-          height: 20,
-          width: 20,
-          backgroundColor: "red",
-          marginLeft: 3,
-          marginTop: 3
-        }}/>
+        style={[{ opacity: animValues[num] }, styles.item]}/>
     );
   });
   return (
-    <View>
+    <View style={styles.container}>
       <Button title="start anim" onPress={startAnim}/>
       {animViews}
     </View>
@@ -54,5 +47,16 @@ export const StaggerAnimationScreen = (props: IProps) => {
 
 
 const styles = StyleSheet.create({
-  container: {}
+  container: {
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap"
+  },
+  item: {
+    height: 20,
+    width: 20,
+    backgroundColor: "red",
+    marginLeft: 3,
+    marginTop: 3
+  }
 });
