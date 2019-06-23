@@ -17,6 +17,7 @@ import { ZipArchiveDemo } from "../lib3rd/ZipArchiveDemo";
 import { AnimatedListDemo2 } from "../rn_tutorial/anim/AnimatedListDemo2";
 import { screenFade } from "./screenFade";
 import { TimerIssue } from "../biz/timer/TimerIssue";
+import { StaggerAnimationScreen } from "../rn_tutorial/anim/StaggerAnimationScreen";
 
 export const Routes = createStackNavigator(
   {
@@ -24,7 +25,7 @@ export const Routes = createStackNavigator(
     PassA1Screen, PassB1Screen, TimerIssue,
     ActionSheetDemo,
     WebViewDemo, FlexLayoutDemo1,
-    AnimatedComponentDemo, AnimatedListDemo,AnimatedListDemo2,
+    AnimatedComponentDemo, AnimatedListDemo,AnimatedListDemo2,StaggerAnimationScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo
   },
   {

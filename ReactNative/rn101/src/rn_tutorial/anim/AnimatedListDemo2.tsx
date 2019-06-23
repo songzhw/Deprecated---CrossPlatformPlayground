@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList, View, Text, Animated, Button, StyleSheet } from "react-native";
+import { FlatList, View, Text, Animated, Button, StyleSheet, Easing } from "react-native";
 
 
 // 因为contentOffset只在ios上有效, 所以运行在android上没动画; 运行在ios上有动画
@@ -20,6 +20,7 @@ export class AnimatedListDemo2 extends Component {
     } else {
       return "powderblue";
     }
+
   };
 
   render() {
@@ -27,7 +28,7 @@ export class AnimatedListDemo2 extends Component {
     return (
       <View>
         <Button title="start" onPress={() => this.startAnim()}/>
-        <AnimatedFlatList
+        <Animated.FlatList
           data={[{ key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }]}
           renderItem={(v: any) => <Text
             style={[styles.text, { backgroundColor: this.color(v.item) }]}>{v.index}. {v.item.key}</Text>}
