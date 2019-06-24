@@ -11,9 +11,14 @@ console.log(__dirname);     //=> /Users/zsong/code/mine/CrossPlatformPlayground/
 console.log(process.cwd()); //=> /Users/zsong/code/mine/CrossPlatformPlayground/ReactNative/rn101
 
 
-// path得是绝对路径
 fs.readdir(`${__dirname}/templates`, (error, files) => {
-  console.log(files);
+  console.log(files); //=> ['reducer.ts']
+  files.forEach(file => {
+    const filePath = `${__dirname}/templates/${file}`;
+    fs.readFile(filePath, "utf8", (err, str)=>{
+      console.log(str)
+    })
+  });
 });
 
 /*
