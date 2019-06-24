@@ -1,13 +1,20 @@
+var fs = require("fs");
 const changeCase = require("change-case");
 const replacer = require("maxstache");
+var argv = require("minimist")(process.argv.slice(2)); // 格式是: {_:[a,b,c], action: one, id: 20}
 
-const argv = process.argv.slice(2);
-console.log("process.argv[2...] = ", argv);
+const actionFromCmd = argv.action;
+const actions = actionFromCmd.split(",");
+const action = actions[1].trim();
+
+console.log(__dirname);     //=> /Users/zsong/code/mine/CrossPlatformPlayground/ReactNative/rn101/scripts
+console.log(process.cwd()); //=> /Users/zsong/code/mine/CrossPlatformPlayground/ReactNative/rn101
 
 
-
-
-
+// path得是绝对路径
+fs.readdir(`${__dirname}/templates`, (error, files) => {
+  console.log(files);
+});
 
 /*
 const changeCase = require("change-case");
