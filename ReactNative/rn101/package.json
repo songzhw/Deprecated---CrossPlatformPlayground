@@ -34,6 +34,7 @@
     "babel-jest": "^24.8.0",
     "change-case": "^3.1.0",
     "jest": "^24.8.0",
+    "maxstache": "^1.0.7",
     "metro-react-native-babel-preset": "^0.54.1",
     "minimist": "^1.2.0",
     "react-test-renderer": "16.8.3",
