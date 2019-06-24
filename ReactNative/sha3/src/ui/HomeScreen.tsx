@@ -6,6 +6,9 @@ import { NavigationScreenProps } from "react-navigation";
 interface IProps extends ViewProps, NavigationScreenProps {
 }
 
+// BeeShell/Stepper , BeeShell/Scrollpicker : 增加人数
+// BeeShell/TopviewGetInstance : 选将
+
 export const HomeScreen = (props: IProps) => {
 
   function onStart() {
