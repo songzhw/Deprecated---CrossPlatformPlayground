@@ -2,6 +2,7 @@ var fs = require("fs");
 const changeCase = require("change-case");
 const replacer = require("maxstache");
 var argv = require("yargs").argv; // 格式是: {_:[a,b,c], action: one, id: 20}
+const mkdirp = require("mkdirp");
 
 const actionFromCmd = argv.action;
 const actions = actionFromCmd.split(",");
@@ -12,15 +13,25 @@ console.log(process.cwd()); //=> /Users/zsong/code/mine/CrossPlatformPlayground/
 
 
 // TODO : odd, I will get an "unexpected token :" error every time I try to add types to "error" or "files"
-fs.readdir(`${__dirname}/templates`, (error, files) => {
-  console.log(files); //=> ['reducer.ts']
-  files.forEach(file => {
-    const filePath = `${__dirname}/templates/${file}`;
-    fs.readFile(filePath, "utf8", (err, str) => {
-      // console.log(str);
+const placeHolder = {
+  constants: changeCase.constant(action),
+  pascal: changeCase.pascal(action)
+};
+
+mkdirp("./apple/book/country", error => {
+  fs.readdir(`${__dirname}/templates`, (error, files) => {
+    console.log(files); //=> ['reducer.ts']
+    files.forEach(file => {
+      const filePath = `${__dirname}/templates/${file}`;
+      fs.readFile(filePath, "utf8", (err, str) => {
+        const after = replacer(str, placeHolder);
+
+        });
+      });
     });
   });
 });
+
 
 /*
 const changeCase = require("change-case");
