@@ -1,7 +1,7 @@
 var fs = require("fs");
 const changeCase = require("change-case");
 const replacer = require("maxstache");
-var argv = require("minimist")(process.argv.slice(2)); // 格式是: {_:[a,b,c], action: one, id: 20}
+var argv = require("yargs").argv; // 格式是: {_:[a,b,c], action: one, id: 20}
 
 const actionFromCmd = argv.action;
 const actions = actionFromCmd.split(",");
@@ -17,7 +17,7 @@ fs.readdir(`${__dirname}/templates`, (error, files) => {
   files.forEach(file => {
     const filePath = `${__dirname}/templates/${file}`;
     fs.readFile(filePath, "utf8", (err, str) => {
-      console.log(str);
+      // console.log(str);
     });
   });
 });
