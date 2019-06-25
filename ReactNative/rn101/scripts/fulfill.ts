@@ -11,13 +11,14 @@ console.log(__dirname);     //=> /Users/zsong/code/mine/CrossPlatformPlayground/
 console.log(process.cwd()); //=> /Users/zsong/code/mine/CrossPlatformPlayground/ReactNative/rn101
 
 
+// TODO : odd, I will get an "unexpected token :" error every time I try to add types to "error" or "files"
 fs.readdir(`${__dirname}/templates`, (error, files) => {
   console.log(files); //=> ['reducer.ts']
   files.forEach(file => {
     const filePath = `${__dirname}/templates/${file}`;
-    fs.readFile(filePath, "utf8", (err, str)=>{
-      console.log(str)
-    })
+    fs.readFile(filePath, "utf8", (err, str) => {
+      console.log(str);
+    });
   });
 });
 
