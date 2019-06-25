@@ -18,14 +18,15 @@ const placeHolder = {
   pascal: changeCase.pascal(action)
 };
 
-mkdirp("./apple/book/country", error => {
+mkdirp("./apple/book/country", error0 => {
   fs.readdir(`${__dirname}/templates`, (error, files) => {
     console.log(files); //=> ['reducer.ts']
     files.forEach(file => {
       const filePath = `${__dirname}/templates/${file}`;
       fs.readFile(filePath, "utf8", (err, str) => {
         const after = replacer(str, placeHolder);
-
+        fs.writeFile(`./apple/book/country/${file}`, after, err3 => {
+          console.log(err3);
         });
       });
     });
