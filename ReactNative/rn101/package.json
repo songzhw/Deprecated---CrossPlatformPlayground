@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
+    "delete": "rm -rfv c.txt & rm -rfv ./scripts/b.txt & rm -rfv ./res/a",
     "fulfill": "node scripts/fulfill.ts"
   },
   "dependencies": {
