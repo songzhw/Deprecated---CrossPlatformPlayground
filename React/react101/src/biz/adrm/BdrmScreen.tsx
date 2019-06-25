@@ -12,7 +12,7 @@ import Hex from "crypto-js/enc-hex";
 import ECB from "crypto-js/mode-ecb";
 import Base64 from "crypto-js/enc-base64";
 import {
-  arrayBufferToBase64, base64toBlob,
+  arrayBufferToBase64, base64ToArrayBuffer, base64toBlob,
   byteArrayToWordArray, u8aryToWordArray,
   wordArrayToByteArray
 } from "./CryptoUtils";
@@ -179,10 +179,13 @@ export const BdrmsScreen: React.FC = () => {
             const imageBase64 = arrayBufferToBase64(arraybuffer);
             // @ts-ignore
             const myimage = AES.decrypt(imageBase64, mykey, { mode: ECB, padding: Pkcs7 });
+            console.log(`szw myimage = `, myimage);
             const resultBase64 = myimage.toString(Base64);
+            const ab = base64ToArrayBuffer(resultBase64);
+            console.log(`szw myimage2 = `, ab);
             const imageSrc = "data:image/jpeg;base64," + resultBase64;
             const blob = base64toBlob(resultBase64, "image/jpeg");
-            console.log(`szw blob = ${blob}`)
+            console.log(`szw blob = ${blob}`);
             const url = URL.createObjectURL(blob);
             console.log(`szw urlInMemory = `, url);
             setImage(url);
