@@ -48,7 +48,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <Text style={styles.title}>React Native Tutorial</Text>
       <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
       <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
-
+      <HomeButton title="Modal Example" onPress={() => navigation.navigate("ModalExample")}/>
 
 
 
