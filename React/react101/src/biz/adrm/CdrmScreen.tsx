@@ -17,19 +17,20 @@ import {
   wordArrayToByteArray
 } from "./CryptoUtils";
 
-const BOOK = "book";
+const BOOK2 = "book2";
 export const CdrmsScreen: React.FC = () => {
   const [info, setInfo] = useState("-----");
   const [db, setDb] = useState<IDBDatabase>();
   const [image, setImage] = useState("");
 
   useEffect(() => {
-    const openRequest = indexedDB.open("demo01", 1);
+    const openRequest = indexedDB.open("demo01", 2);
     openRequest.onupgradeneeded = (ev: Event) => {
       const _db = (ev.target as IDBOpenDBRequest).result;
       console.log(`szw upgrade `, _db);
-      if (!_db.objectStoreNames.contains(BOOK)) {
-        _db.createObjectStore(BOOK, { autoIncrement: true });
+      if (!_db.objectStoreNames.contains(BOOK2)) {
+        console.log(`szw create book2 table`);
+        _db.createObjectStore(BOOK2, { autoIncrement: true });
       }
       setDb(_db);
     };
@@ -48,31 +49,31 @@ export const CdrmsScreen: React.FC = () => {
   }, []);
 
   function onClickDownload() {
-    const url2 = `https://songzhw.github.io/repo/sj.epub`;
+    const url2 = `https://songzhw.github.io/repo/rtm.epub`;
     // const url = "https://gerhardsletten.github.io/react-reader/files/alice.epub";
     console.log(`szw url: `, url2);
-    http(url2)
-      .then(arraybufferData => {
-        if (db) {
-          const transaction = db.transaction(BOOK, "readwrite");
-          const objectStore = transaction.objectStore(BOOK);
-          const request = objectStore.add(arraybufferData);
-          request.onerror = (ev: any) => {
-            console.log("szw save book - error ", ev.target.error.name);
-          };
-
-          request.onsuccess = ev => {
-            console.log("szw save book successfully");
-          };
-        }
-        setInfo("donwload finished");
-      });
+    // http(url2)
+    //   .then(arraybufferData => {
+    //     if (db) {
+    //       const transaction = db.transaction(BOOK, "readwrite");
+    //       const objectStore = transaction.objectStore(BOOK);
+    //       const request = objectStore.add(arraybufferData);
+    //       request.onerror = (ev: any) => {
+    //         console.log("szw save book - error ", ev.target.error.name);
+    //       };
+    //
+    //       request.onsuccess = ev => {
+    //         console.log("szw save book successfully");
+    //       };
+    //     }
+    //     setInfo("donwload finished");
+    //   });
   }
 
   function onClickReadPackage() {
     if (db) {
-      const transaction = db.transaction(BOOK, "readwrite");
-      const objectStore = transaction.objectStore(BOOK);
+      const transaction = db.transaction(BOOK2, "readwrite");
+      const objectStore = transaction.objectStore(BOOK2);
       const request = objectStore.get(1);
       request.onerror = err => console.dir(err);
       request.onsuccess = (ev: Event) => {
@@ -117,8 +118,8 @@ export const CdrmsScreen: React.FC = () => {
     // =======================
 
     if (db) {
-      const transaction = db.transaction(BOOK, "readwrite");
-      const objectStore = transaction.objectStore(BOOK);
+      const transaction = db.transaction(BOOK2, "readwrite");
+      const objectStore = transaction.objectStore(BOOK2);
       const request = objectStore.get(1);
       request.onerror = err => console.dir(err);
       request.onsuccess = (ev: Event) => {
@@ -162,8 +163,8 @@ export const CdrmsScreen: React.FC = () => {
     // =======================
 
     if (db) {
-      const transaction = db.transaction(BOOK, "readwrite");
-      const objectStore = transaction.objectStore(BOOK);
+      const transaction = db.transaction(BOOK2, "readwrite");
+      const objectStore = transaction.objectStore(BOOK2);
       const request = objectStore.get(1);
       request.onerror = err => console.dir(err);
       request.onsuccess = (ev: Event) => {
