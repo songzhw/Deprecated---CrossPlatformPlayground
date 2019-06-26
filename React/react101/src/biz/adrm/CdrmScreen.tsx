@@ -15,7 +15,7 @@ import {
   byteArrayToWordArray, u8aryToWordArray,
   wordArrayToByteArray
 } from "./CryptoUtils";
-import { d2id, i2id, u2id } from "./id_rtm";
+import { d2id, i2id, i2name, u2id } from "./id_rtm";
 
 const BOOK2 = "book2";
 export const CdrmsScreen: React.FC = () => {
@@ -88,10 +88,9 @@ export const CdrmsScreen: React.FC = () => {
       request.onerror = err => console.dir(err);
       request.onsuccess = (ev: Event) => {
         const ebook = (ev.target as IDBRequest).result;
-        const path = "cover.jpeg";
         JSZip.loadAsync(ebook)
           .then(zip => {
-            return zip.file(path)
+            return zip.file(i2name)
               .async("arraybuffer");
             // .async("uint8array");
           })
@@ -99,13 +98,9 @@ export const CdrmsScreen: React.FC = () => {
             const imageBase64 = arrayBufferToBase64(arraybuffer);
             // @ts-ignore
             const myimage = AES.decrypt(imageBase64, mykey, { mode: ECB, padding: Pkcs7 });
-            console.log(`szw myimage = `, myimage);
             const resultBase64 = myimage.toString(Base64);
-            const ab = base64ToArrayBuffer(resultBase64);
-            console.log(`szw myimage2 = `, ab);
-            const imageSrc = "data:image/jpeg;base64," + resultBase64;
+            console.log(`szw myimage2 = `, resultBase64);
             const blob = base64toBlob(resultBase64, "image/jpeg");
-            console.log(`szw blob = ${blob}`);
             const url = URL.createObjectURL(blob);
             console.log(`szw urlInMemory = `, url);
             setImage(url);
@@ -121,7 +116,7 @@ export const CdrmsScreen: React.FC = () => {
       <button onClick={onClickDownload} style={{ fontSize: 18, marginLeft: 5 }}> download book</button>
       <button onClick={onClickImage} style={{ fontSize: 18, marginLeft: 20 }}>image</button>
       <p/>
-      <img src={image} alt="desp.jpg"/>
+      <img src={image} alt="desp.jpg" style={{width: 340, height: 380}}/>
       <p/>
     </div>
   );
