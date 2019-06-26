@@ -19,7 +19,7 @@ export class ModalExample extends Component {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
-          onRequestClose={() => { console.log(`what's up`)}}
+          onRequestClose={() => { this.setModalVisible(false)}}
         >
           <View style={{ marginTop: 22 }}>
             <View>
