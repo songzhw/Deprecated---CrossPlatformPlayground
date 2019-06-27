@@ -19,6 +19,7 @@ import { UseStateIssue1 } from "./Rtutor/FC/useStateIssue1";
 import { RpApp } from "./three_party/redux_persist/rpApp";
 import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
 import { HooksPitfall01 } from "./Rtutor/FC/HooksPitfall01";
+import { OneScreen } from "./Rtutor/module/OneScreen";
 
-ReactDOM.render(<CryptoRouter/>, document.getElementById("root"));
+ReactDOM.render(<OneScreen/>, document.getElementById("root"));
 
