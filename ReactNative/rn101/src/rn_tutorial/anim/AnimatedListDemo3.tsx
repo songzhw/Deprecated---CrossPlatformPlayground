@@ -10,15 +10,13 @@ export class AnimatedListDemo3 extends Component {
   private list: FlatList<any> | null = null;
 
   startAnim() {
-    // Animated.timing(this.state.offset, { toValue: 1000, duration: 7000 }).start();
     // @ts-ignore
     this.interval = setInterval(() => {
       const value = this.state.offset + 50;
       this.setState({ offset: value });
-      this.list!.scrollToOffset({ offset: value });
+      this.list!.scrollToOffset({ animated: false, offset: value });
 
     }, 500);
-    // this.setState({ offset: 200 });
   }
 
   componentWillUnmount(): void {
@@ -36,8 +34,6 @@ export class AnimatedListDemo3 extends Component {
   };
 
   render() {
-    const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-    // @ts-ignore
     return (
       <View>
         <Button title="start" onPress={() => this.startAnim()}/>
