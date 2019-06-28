@@ -2,19 +2,21 @@ import React, { Component } from "react";
 import { FlatList, View, Text, Animated, Button, StyleSheet } from "react-native";
 
 
-// 因为contentOffset只在ios上有效, 所以运行在android上没动画; 运行在ios上有动画
-
-export class AnimatedListDemo extends Component {
+export class AnimatedListDemo3 extends Component {
   state = {
     offset: 0
   };
   private interval: number | null = null;
+  private list: FlatList<any> | null = null;
 
   startAnim() {
     // Animated.timing(this.state.offset, { toValue: 1000, duration: 7000 }).start();
     // @ts-ignore
     this.interval = setInterval(() => {
-      this.setState({ offset: this.state.offset + 50 });
+      const value = this.state.offset + 50;
+      this.setState({ offset: value });
+      this.list!.scrollToOffset({ offset: value });
+
     }, 500);
     // this.setState({ offset: 200 });
   }
@@ -38,13 +40,13 @@ export class AnimatedListDemo extends Component {
     // @ts-ignore
     return (
       <View>
-        <Button title="start" onPress={()=> this.startAnim()}/>
+        <Button title="start" onPress={() => this.startAnim()}/>
         <FlatList
+          ref={c => this.list = c}
           data={[{ key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }, { key: "a" }, { key: "b" }]}
           renderItem={({ item, index }) => <Text
             style={[styles.text, { backgroundColor: this.color(item) }]}>{index}. {item.key}</Text>}
           keyExtractor={(item, index) => index + ""}
-          contentOffset={{ x: 0, y: this.state.offset }}
         />
       </View>
     );

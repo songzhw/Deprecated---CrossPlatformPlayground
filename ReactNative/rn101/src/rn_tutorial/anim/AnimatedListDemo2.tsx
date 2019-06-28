@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { FlatList, View, Text, Animated, Button, StyleSheet, Easing } from "react-native";
 
 
-// 因为contentOffset只在ios上有效, 所以运行在android上没动画; 运行在ios上有动画
+/** @deprecated 没成功, 甚至在ios上都没有动画**/
 
 export class AnimatedListDemo2 extends Component {
   state = {
