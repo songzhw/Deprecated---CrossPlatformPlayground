@@ -20,6 +20,7 @@ import { TimerIssue } from "../biz/timer/TimerIssue";
 import { StaggerAnimationScreen } from "../rn_tutorial/anim/StaggerAnimationScreen";
 import { GestureAnimScreen } from "../rn_tutorial/anim/GestureAnimScreen";
 import { ModalExample } from "../rn_tutorial/views/ModalExample";
+import { AnimatedListDemo3 } from "../rn_tutorial/anim/AnimatedListDemo3";
 
 export const Routes = createStackNavigator(
   {
@@ -27,7 +28,8 @@ export const Routes = createStackNavigator(
     PassA1Screen, PassB1Screen, TimerIssue,
     ActionSheetDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample,
-    AnimatedComponentDemo, AnimatedListDemo,AnimatedListDemo2,StaggerAnimationScreen,GestureAnimScreen,
+    AnimatedComponentDemo, AnimatedListDemo,AnimatedListDemo2,AnimatedListDemo3,
+    StaggerAnimationScreen,GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo
   },
   {

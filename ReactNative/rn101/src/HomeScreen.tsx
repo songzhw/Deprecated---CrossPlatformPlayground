@@ -18,8 +18,9 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Animation</Text>
       <HomeButton title="AnimatedComponent" onPress={() => navigation.navigate("AnimatedComponentDemo")}/>
-      <HomeButton title="Animated List" onPress={() => navigation.navigate("AnimatedListDemo")}/>
-      <HomeButton title="Animated List2" onPress={() => navigation.navigate("AnimatedListDemo2")}/>
+      <HomeButton title="(only for iOS) 自动滚动List" onPress={() => navigation.navigate("AnimatedListDemo")}/>
+      <HomeButton title="(failed) 自动滚动List2" onPress={() => navigation.navigate("AnimatedListDemo2")}/>
+      <HomeButton title="(for android + ios) 自动滚动List3" onPress={() => navigation.navigate("AnimatedListDemo3")}/>
       <HomeButton title="Stagger Anim" onPress={() => navigation.navigate("StaggerAnimationScreen")}/>
       <HomeButton title="Gesture Anim" onPress={() => navigation.navigate("GestureAnimScreen")}/>
 
