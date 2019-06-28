@@ -3,18 +3,15 @@ import { FlatList, View, Text, Animated, Button, StyleSheet } from "react-native
 
 
 export class AnimatedListDemo3 extends Component {
-  state = {
-    offset: 0
-  };
   private interval: number | null = null;
   private list: FlatList<any> | null = null;
+  private offset: number = 0;
 
   startAnim() {
     // @ts-ignore
     this.interval = setInterval(() => {
-      const value = this.state.offset + 50;
-      this.setState({ offset: value });
-      this.list!.scrollToOffset({ animated: false, offset: value });
+      this.offset = this.offset + 50;
+      this.list!.scrollToOffset({ animated: false, offset: this.offset });
 
     }, 500);
   }
