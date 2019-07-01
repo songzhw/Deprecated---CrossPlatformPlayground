@@ -16,6 +16,15 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
 
       <View style={{ height: 8 }}/>
+      <Text style={styles.title}>Custom View</Text>
+      <HomeButton title="Action Sheet" onPress={() => navigation.navigate("ActionSheetDemo")}/>
+      <HomeButton title="Drawer Layout" onPress={() => navigation.navigate("MyDrawerDemo")}/>
+      <HomeButton title="Loading List" onPress={() => navigation.navigate("LoadingListScreen")}/>
+      <HomeButton title="Component Buttons" onPress={() => navigation.navigate("RadioGroupScreen")}/>
+      <HomeButton title="Scrubber" onPress={() => navigation.navigate("ScrubberDemo")}/>
+
+
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>Animation</Text>
       <HomeButton title="Animated.createComponent()" onPress={() => navigation.navigate("AnimatedComponentDemo")}/>
       <HomeButton title="(only for iOS) 自动滚动List" onPress={() => navigation.navigate("AnimatedListDemo")}/>
@@ -29,7 +38,8 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <Text style={styles.title}>3rd Library</Text>
       <HomeButton title="static server" onPress={() => navigation.navigate("StaticServerDemo")}/>
       <HomeButton title="fetch blob" onPress={() => navigation.navigate("FetchBlobDemo")}/>
-      <HomeButton title={"unzip zip"} onPress={()=>navigation.navigate("ZipArchiveDemo")}/>
+      <HomeButton title={"unzip zip"} onPress={() => navigation.navigate("ZipArchiveDemo")}/>
+
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Business</Text>
@@ -38,20 +48,10 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
 
       <View style={{ height: 8 }}/>
-      <Text style={styles.title}>Custom View</Text>
-      <HomeButton title="Action Sheet" onPress={() => navigation.navigate("ActionSheetDemo")}/>
-      <HomeButton title="Drawer Layout" onPress={() => navigation.navigate("MyDrawerDemo")}/>
-      <HomeButton title="Loading List" onPress={() => navigation.navigate("LoadingListScreen")}/>
-      <HomeButton title="Component Buttons" onPress={() => navigation.navigate("RadioGroupScreen")}/>
-
-
-      <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>
       <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
       <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
       <HomeButton title="Modal Example" onPress={() => navigation.navigate("ModalExample")}/>
-
-
 
     </ScrollView>
   );
