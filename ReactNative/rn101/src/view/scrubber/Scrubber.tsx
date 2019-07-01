@@ -29,6 +29,7 @@ export const Scrubber = (props: IProps) => {
       keyExtractor={(item, index) => index + ""}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{ justifyContent: "center" }}
     />
   );
 };
@@ -41,11 +42,11 @@ const styles = StyleSheet.create({
   },
   itemLong: {
     height: 150,
-    backgroundColor: 'red'
+    backgroundColor: "red"
   },
   itemShort: {
     height: 50,
-    backgroundColor: 'blue'
+    backgroundColor: "blue"
   }
 });
 
