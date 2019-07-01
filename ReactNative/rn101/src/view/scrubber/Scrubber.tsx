@@ -24,12 +24,12 @@ export const Scrubber = (props: IProps) => {
 
   return (
     <FlatList
-      style={{justifyContent: 'center'}}
       data={data}
       renderItem={renderItem}
       keyExtractor={(item, index) => index + ""}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{ justifyContent: "center" }}
     />
   );
 };
@@ -38,7 +38,8 @@ export const Scrubber = (props: IProps) => {
 const styles = StyleSheet.create({
   container: {},
   itemCommon: {
-    width: 50
+    width: 50,
+    textAlign: 'center'
   },
   itemLong: {
     height: 150,
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   },
   itemShort: {
     height: 50,
-    backgroundColor: "blue"
+    backgroundColor: "grey"
   }
 });
 
