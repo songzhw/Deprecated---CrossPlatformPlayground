@@ -24,12 +24,12 @@ export const Scrubber = (props: IProps) => {
 
   return (
     <FlatList
+      style={{justifyContent: 'center'}}
       data={data}
       renderItem={renderItem}
       keyExtractor={(item, index) => index + ""}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{ justifyContent: "center" }}
     />
   );
 };
