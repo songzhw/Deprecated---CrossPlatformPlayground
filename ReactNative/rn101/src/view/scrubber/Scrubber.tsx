@@ -16,10 +16,10 @@ export const Scrubber = (props: IProps) => {
   const renderItem = (info: ListRenderItemInfo<number>) => {
     const text = "|";
     const index = info.index;
-    const style = index % 5 === 0 ? [styles.itemCommon, styles.itemLong] : [styles.itemCommon, styles.itemShort];
+    const style = index % 5 === 0 ? styles.textLong : styles.textShort;
     return (
-      <View style={{ justifyContent: "center" }}>
-        <Text style={style}>  {text} </Text>
+      <View style={[styles.itemContainer]}>
+        <View style={[styles.textCommon, style]}/>
       </View>
     );
   };
@@ -39,17 +39,21 @@ export const Scrubber = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {},
-  itemCommon: {
+  itemContainer: {
     width: 50,
-    textAlign: "center"
-  },
-  itemLong: {
     height: 150,
-    backgroundColor: "red"
+    justifyContent: "center",
+    alignItems: "center"
   },
-  itemShort: {
-    height: 50,
-    backgroundColor: "grey"
+  textLong: {
+    height: 150
+  },
+  textShort: {
+    height: 88
+  },
+  textCommon: {
+    width: 10,
+    backgroundColor: "black"
   }
 });
 
