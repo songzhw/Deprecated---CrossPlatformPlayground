@@ -14,9 +14,11 @@ export const Scrubber = (props: IProps) => {
   }
 
   const renderItem = (info: ListRenderItemInfo<number>) => {
-
+    const text = "|";
+    const index = info.index;
+    const style = index % 5 === 0 ? [styles.itemCommon, styles.itemLong] : [styles.itemCommon, styles.itemShort];
     return (
-      <Text style={styles.item}>  {info.index} - {info.item} </Text>
+      <Text style={style}>  {text} </Text>
     );
   };
 
@@ -34,8 +36,16 @@ export const Scrubber = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {},
-  item: {
+  itemCommon: {
     width: 50
+  },
+  itemLong: {
+    height: 150,
+    backgroundColor: 'red'
+  },
+  itemShort: {
+    height: 50,
+    backgroundColor: 'blue'
   }
 });
 
