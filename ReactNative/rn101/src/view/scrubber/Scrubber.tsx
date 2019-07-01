@@ -1,24 +1,25 @@
-import React from "react";
-import { View, ViewProps, Text, StyleSheet, FlatList, VirtualizedListProps, ListRenderItemInfo } from "react-native";
+import React, { Component } from "react";
+import { Text, StyleSheet, FlatList, ListRenderItemInfo, ViewProps } from "react-native";
 
-interface IProps<ItemT> extends VirtualizedListProps<ItemT> {
+interface IProps<ItemT> extends ViewProps {
   data: ReadonlyArray<ItemT>
 
 }
 
-export const Scrubber = <T extends {}>(props: IProps<T>) => {
+export class Scrubber<T> extends Component<IProps<T>> {
+  render() {
 
-  const renderItem = (info: ListRenderItemInfo<T>) => {
+    const renderItem = (info: ListRenderItemInfo<T>) => {
+      return (<Text>  {info.index} - {info.item} </Text>);
+    };
 
-    return null;
-  };
-
-  return (
-    <FlatList
-      data={props.data}
-      renderItem={renderItem}/>
-  );
-};
+    return (
+      <FlatList
+        data={this.props.data}
+        renderItem={renderItem}/>
+    );
+  }
+}
 
 
 const styles = StyleSheet.create({
