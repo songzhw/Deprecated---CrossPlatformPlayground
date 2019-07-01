@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, FlatList, ListRenderItemInfo, ViewProps } from "react-native";
+import { Text, StyleSheet, FlatList, ListRenderItemInfo, ViewProps, View } from "react-native";
 
 interface IProps extends ViewProps {
   dataSize: number
@@ -18,7 +18,9 @@ export const Scrubber = (props: IProps) => {
     const index = info.index;
     const style = index % 5 === 0 ? [styles.itemCommon, styles.itemLong] : [styles.itemCommon, styles.itemShort];
     return (
-      <Text style={style}>  {text} </Text>
+      <View style={{ justifyContent: "center" }}>
+        <Text style={style}>  {text} </Text>
+      </View>
     );
   };
 
@@ -39,7 +41,7 @@ const styles = StyleSheet.create({
   container: {},
   itemCommon: {
     width: 50,
-    textAlign: 'center'
+    textAlign: "center"
   },
   itemLong: {
     height: 150,
