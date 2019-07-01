@@ -1,27 +1,41 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, FlatList, ListRenderItemInfo, ViewProps } from "react-native";
 
-interface IProps<ItemT> extends ViewProps {
-  data: ReadonlyArray<ItemT>
+interface IProps extends ViewProps {
+  dataSize: number
 
 }
 
-export class Scrubber<T> extends Component<IProps<T>> {
-  render() {
+export const Scrubber = (props: IProps) => {
 
-    const renderItem = (info: ListRenderItemInfo<T>) => {
-      return (<Text>  {info.index} - {info.item} </Text>);
-    };
+  const data = [];
+  for (let i = 0; i < props.dataSize; i++) {
+    data.push(i);
+  }
+
+  const renderItem = (info: ListRenderItemInfo<number>) => {
 
     return (
-      <FlatList
-        data={this.props.data}
-        renderItem={renderItem}/>
+      <Text style={styles.item}>  {info.index} - {info.item} </Text>
     );
-  }
-}
+  };
+
+  return (
+    <FlatList
+      data={data}
+      renderItem={renderItem}
+      keyExtractor={(item, index) => index + ""}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+    />
+  );
+};
 
 
 const styles = StyleSheet.create({
-  container: {}
+  container: {},
+  item: {
+    width: 50
+  }
 });
+

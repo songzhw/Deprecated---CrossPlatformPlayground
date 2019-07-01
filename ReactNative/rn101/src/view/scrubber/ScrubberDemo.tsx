@@ -1,16 +1,16 @@
 import React from "react";
-import { View, ViewProps, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Scrubber } from "./Scrubber";
 
-interface IProps extends ViewProps {
-}
+export const ScrubberDemo = () => {
 
-export const ScrubberDemo = (props: IProps) => {
-
-  const data = ["a", "b", "c", "d", "e", "f", "g"];
+  const data = [];
+  for (let i = 0; i < 20; i++) {
+    data.push(i);
+  }
   return (
     <View>
-      <Scrubber data={data}/>
+      <Scrubber dataSize={30}/>
     </View>
   );
 };
