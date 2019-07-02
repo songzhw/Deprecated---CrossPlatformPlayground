@@ -1,20 +1,27 @@
 import React, { Component, RefObject } from "react";
-import { Text, StyleSheet, FlatList, ListRenderItemInfo, ViewProps, View } from "react-native";
+import { StyleSheet, FlatList, ListRenderItemInfo, ViewProps, View } from "react-native";
 
 interface IProps extends ViewProps {
   dataSize: number;
-  ref: RefObject<View>;
+  ref: RefObject<Scrubber>;
 }
 
-export const Scrubber = (props: IProps) => {
+// to have a "ref", Scrubber must to be a class component!
+export class Scrubber extends Component<IProps> {
+  private data: number[] = [];
 
-  const data = [];
-  for (let i = 0; i < props.dataSize; i++) {
-    data.push(i);
+  constructor(props: IProps) {
+    super(props);
+    for (let i = 0; i < props.dataSize; i++) {
+      this.data.push(i);
+    }
   }
 
-  const renderItem = (info: ListRenderItemInfo<number>) => {
-    const text = "|";
+  scrollAutomatically(){
+
+  }
+
+  renderItem = (info: ListRenderItemInfo<number>) => {
     const index = info.index;
     const style = index % 5 === 0 ? styles.textLong : styles.textShort;
     return (
@@ -24,17 +31,19 @@ export const Scrubber = (props: IProps) => {
     );
   };
 
-  return (
-    <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={(item, index) => index + ""}
-      horizontal={true}
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{ justifyContent: "center" }}
-    />
-  );
-};
+  render() {
+    return (
+      <FlatList
+        data={this.data}
+        renderItem={this.renderItem}
+        keyExtractor={(item, index) => index + ""}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ justifyContent: "center" }}
+      />
+    );
+  }
+}
 
 
 const styles = StyleSheet.create({

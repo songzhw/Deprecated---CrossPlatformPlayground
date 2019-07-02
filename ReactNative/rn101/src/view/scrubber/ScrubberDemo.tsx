@@ -3,9 +3,10 @@ import { View, Text, StyleSheet, Button } from "react-native";
 import { Scrubber } from "./Scrubber";
 
 export const ScrubberDemo = () => {
-  const scrubber = createRef<View>();
+  const SIZE = 13;
+  const scrubber = createRef<Scrubber>();
   const data = [];
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < SIZE; i++) {
     data.push(i);
   }
 
@@ -16,7 +17,7 @@ export const ScrubberDemo = () => {
   return (
     <View>
       <Button title="start animation" onPress={onStart}/>
-      <Scrubber ref={scrubber} dataSize={30}/>
+      <Scrubber ref={scrubber} dataSize={SIZE}/>
     </View>
   );
 };
