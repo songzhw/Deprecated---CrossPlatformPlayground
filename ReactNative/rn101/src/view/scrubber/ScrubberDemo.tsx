@@ -1,5 +1,5 @@
 import React, { createRef } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, StyleSheet, Button } from "react-native";
 import { Scrubber } from "./Scrubber";
 
 export const ScrubberDemo = () => {

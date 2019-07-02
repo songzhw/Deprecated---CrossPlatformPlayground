@@ -1,9 +1,8 @@
 import React, { Component, RefObject } from "react";
 import { StyleSheet, FlatList, ListRenderItemInfo, ViewProps, View } from "react-native";
-import { ShapeOutsideProperty } from "csstype";
 
 const ITEM_WIDTH = 50;
-const INTERVAL_TIME = 500;
+const INTERVAL_TIME = 1000;
 
 interface IProps extends ViewProps {
   dataSize: number;
@@ -38,7 +37,7 @@ export class Scrubber extends Component<IProps> {
     // @ts-ignore
     this.intervalHandler = setInterval(() => {
       this.offset += ITEM_WIDTH;
-      this.list!.scrollToOffset({ animated: false, offset: this.offset });
+      this.list!.scrollToOffset({ animated: true, offset: this.offset });
     }, INTERVAL_TIME);
   }
 
