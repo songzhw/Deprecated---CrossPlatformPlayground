@@ -26,11 +26,13 @@ export class Scrubber extends Component<IProps> {
     const endTime = props.dataSize * INTERVAL_TIME;
 
     setTimeout(() => {
-      console.log(`szw clear Interval`);
       clearInterval(this.intervalHandler);
     }, endTime);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.intervalHandler);
+  }
 
   scrollAutomatically() {
     // @ts-ignore
