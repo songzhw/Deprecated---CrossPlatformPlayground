@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
+// 问题: 切到后台后, timer/interval就自动停止了
 export class TimerIssue extends React.Component {
   timerHandler: number | null = null;
   state = {

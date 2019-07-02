@@ -22,11 +22,13 @@ import { GestureAnimScreen } from "../rn_tutorial/anim/GestureAnimScreen";
 import { ModalExample } from "../rn_tutorial/views/ModalExample";
 import { AnimatedListDemo3 } from "../rn_tutorial/anim/AnimatedListDemo3";
 import { ScrubberDemo } from "../view/scrubber/ScrubberDemo";
+import { Skin1 } from "../biz/switch_skin/Skin1";
+import { Skin2 } from "../biz/switch_skin/Skin2";
 
 export const Routes = createStackNavigator(
   {
     HomeScreen,
-    PassA1Screen, PassB1Screen, TimerIssue,
+    PassA1Screen, PassB1Screen, TimerIssue,Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample,
     AnimatedComponentDemo, AnimatedListDemo,AnimatedListDemo2,AnimatedListDemo3,
