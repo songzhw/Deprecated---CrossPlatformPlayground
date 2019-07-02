@@ -1,12 +1,10 @@
 import React, { Dispatch } from "react";
 import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
-import { connect } from "react-redux";
+import { connect, MapStateToProps } from "react-redux";
 import { AnyAction } from "redux";
 import { createSetThemeAction } from "../../core/redux/ThemeReducer";
 
-interface IProps extends ViewProps {
-  setTheme: (theme: string) => void
-}
+type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps> & ViewProps
 
 const Skin2_ = (props: IProps) => {
 
@@ -19,7 +17,7 @@ const Skin2_ = (props: IProps) => {
   }
 
   return (
-    <View>
+    <View style={{ backgroundColor: props.bg }}>
       <View style={{ height: 20 }}/>
       <Button title={"=> red"} onPress={onRed}/>
       <View style={{ height: 20 }}/>
@@ -30,7 +28,9 @@ const Skin2_ = (props: IProps) => {
 
 const mapStateToProps = (state: any) => {
   console.log(`szw Skin2_ mapStateToProps() : ${JSON.stringify(state)} `);
-  return {};
+  return {
+    bg: state.theme.backgroundColor
+  };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => {

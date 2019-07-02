@@ -12,7 +12,12 @@ export const createSetThemeAction = (theme: string) => {
 export const themeReducer = (state = {}, action: AnyAction) => {
   switch (action.type) {
     case SET_THEME:
-      console.log(`szw reducer, `, action);
+      const themeName = action.payload.theme;
+      if (themeName === "red") {
+        return { backgroundColor: "red" };
+      } else if (themeName === "green") {
+        return { backgroundColor: "green" };
+      }
       return state;
     default:
       return state;
