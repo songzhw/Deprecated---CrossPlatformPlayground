@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, RefObject } from "react";
 import { Text, StyleSheet, FlatList, ListRenderItemInfo, ViewProps, View } from "react-native";
 
 interface IProps extends ViewProps {
-  dataSize: number
-
+  dataSize: number;
+  ref: RefObject<View>;
 }
 
 export const Scrubber = (props: IProps) => {
