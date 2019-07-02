@@ -3,8 +3,9 @@ import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
 import { connect } from "react-redux";
 import { AnyAction } from "redux";
 import { createSetThemeAction } from "../../core/redux/ThemeReducer";
+import { NavigationScreenProps } from "react-navigation";
 
-interface IProps extends ViewProps {
+interface IProps extends ViewProps, NavigationScreenProps {
   setTheme: (theme: string) => void
 }
 
@@ -18,12 +19,14 @@ const Skin1_ = (props: IProps) => {
     props.setTheme("green");
   }
 
+  function go2() {
+    props.navigation.navigate("Skin2");
+  }
+
   return (
     <View>
       <View style={{ height: 20 }}/>
-      <Button title={"=> red"} onPress={onRed}/>
-      <View style={{ height: 20 }}/>
-      <Button title={"=> green"} onPress={onGreen}/>
+      <Button title={"go to Skin2"} onPress={go2}/>
     </View>
   );
 };
