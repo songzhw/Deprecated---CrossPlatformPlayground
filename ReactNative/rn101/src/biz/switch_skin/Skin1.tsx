@@ -2,7 +2,6 @@ import React, { Dispatch } from "react";
 import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
 import { connect } from "react-redux";
 import { AnyAction } from "redux";
-import { createSetThemeAction } from "../../core/redux/ThemeReducer";
 import { NavigationScreenProps } from "react-navigation";
 
 type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps> & ViewProps & NavigationScreenProps
