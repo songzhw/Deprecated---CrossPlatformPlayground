@@ -1,5 +1,9 @@
 import React, { Component, RefObject } from "react";
 import { StyleSheet, FlatList, ListRenderItemInfo, ViewProps, View } from "react-native";
+import { ShapeOutsideProperty } from "csstype";
+
+const ITEM_WIDTH = 50;
+const INTERVAL_TIME = 500;
 
 interface IProps extends ViewProps {
   dataSize: number;
@@ -9,16 +13,31 @@ interface IProps extends ViewProps {
 // to have a "ref", Scrubber must to be a class component!
 export class Scrubber extends Component<IProps> {
   private data: number[] = [];
+  private intervalHandler: number = 0;
+  private offset: number = 0;
+  private list: FlatList<any> | null = null;
 
   constructor(props: IProps) {
     super(props);
     for (let i = 0; i < props.dataSize; i++) {
       this.data.push(i);
     }
+
+    const endTime = props.dataSize * INTERVAL_TIME;
+
+    setTimeout(() => {
+      console.log(`szw clear Interval`);
+      clearInterval(this.intervalHandler);
+    }, endTime);
   }
 
-  scrollAutomatically(){
 
+  scrollAutomatically() {
+    // @ts-ignore
+    this.intervalHandler = setInterval(() => {
+      this.offset += ITEM_WIDTH;
+      this.list!.scrollToOffset({ animated: false, offset: this.offset });
+    }, INTERVAL_TIME);
   }
 
   renderItem = (info: ListRenderItemInfo<number>) => {
@@ -34,6 +53,7 @@ export class Scrubber extends Component<IProps> {
   render() {
     return (
       <FlatList
+        ref={c => this.list = c}
         data={this.data}
         renderItem={this.renderItem}
         keyExtractor={(item, index) => index + ""}
@@ -49,7 +69,7 @@ export class Scrubber extends Component<IProps> {
 const styles = StyleSheet.create({
   container: {},
   itemContainer: {
-    width: 50,
+    width: ITEM_WIDTH,
     height: 150,
     justifyContent: "center",
     alignItems: "center"

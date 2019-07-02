@@ -11,7 +11,7 @@ export const ScrubberDemo = () => {
   }
 
   function onStart() {
-
+    scrubber.current!.scrollAutomatically();
   }
 
   return (
