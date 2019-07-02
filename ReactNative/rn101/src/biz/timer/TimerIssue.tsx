@@ -17,7 +17,7 @@ export class TimerIssue extends React.Component {
 
 
   start = () => {
-    this.timerHandler = setInterval(() => {
+    this.timerHandler = window.setInterval(() => {
       console.log(`szw interval : ${this.state.time}`);
       const result = this.state.time + 1;
       this.setState({ time: result });
