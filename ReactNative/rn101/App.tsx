@@ -12,14 +12,11 @@ const instructions = Platform.select({
     "Shake or press menu button for dev menu"
 });
 
-
-const App = () => {
+const Navigator_ = () => {
   const RouterContainer = createAppContainer(Routes);
-  const theme = { bg: "green", textColor: "white" };
+  const theme = { bg: "green", textColor: "white" }; //TODO delete
   return (
-    <ReduxProvider store={store}>
-      <RouterContainer screenProps={theme}/>
-    </ReduxProvider>
+    <RouterContainer screenProps={theme}/>
   );
 };
 
@@ -29,4 +26,15 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+const Navigator = connect(mapStateToProps)(Navigator_);
+
+const App = () => {
+  return (
+    <ReduxProvider store={store}>
+      <Navigator/>
+    </ReduxProvider>
+  );
+};
+
+
+export default App;
