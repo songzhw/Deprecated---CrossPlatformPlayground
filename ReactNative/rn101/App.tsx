@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
-import { Routes } from "./src/core/Routes";
+import { Router } from "./src/core/Routes";
 import { createAppContainer } from "react-navigation";
 import { connect, Provider as ReduxProvider } from "react-redux";
 import { store } from "./src/core/redux/Store";
@@ -13,12 +13,11 @@ const instructions = Platform.select({
 });
 
 const App = () => {
-  const RouterContainer = createAppContainer(Routes);
   const theme = { bg: "green", textColor: "white" }; //TODO delete
 
   return (
     <ReduxProvider store={store}>
-      <RouterContainer screenProps={theme}/>
+      <Router screenProps={theme}/>
     </ReduxProvider>
   );
 };

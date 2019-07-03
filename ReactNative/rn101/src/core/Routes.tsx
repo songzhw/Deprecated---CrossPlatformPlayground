@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";
-import { createStackNavigator } from "react-navigation";
+import { createAppContainer, createStackNavigator, createSwitchNavigator } from "react-navigation";
 import { commonStyles } from "./theme/CommonStyle";
 import { HomeScreen } from "../HomeScreen";
 
@@ -24,15 +24,16 @@ import { AnimatedListDemo3 } from "../rn_tutorial/anim/AnimatedListDemo3";
 import { ScrubberDemo } from "../view/scrubber/ScrubberDemo";
 import { Skin1 } from "../biz/switch_skin/Skin1";
 import { Skin2 } from "../biz/switch_skin/Skin2";
+import { SplashScreen } from "../biz/splash/SplashScreen";
 
-export const Routes = createStackNavigator(
+const AppNavigator = createStackNavigator(
   {
     HomeScreen,
-    PassA1Screen, PassB1Screen, TimerIssue,Skin1, Skin2,
+    PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample,
-    AnimatedComponentDemo, AnimatedListDemo,AnimatedListDemo2,AnimatedListDemo3,
-    StaggerAnimationScreen,GestureAnimScreen,
+    AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3,
+    StaggerAnimationScreen, GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo
   },
   {
@@ -50,3 +51,10 @@ export const Routes = createStackNavigator(
     // ,transitionConfig: screenFade
   }
 );
+
+const WithSplashNavigator = createSwitchNavigator({
+  splash: SplashScreen,
+  app: AppNavigator
+});
+
+export const Router = createAppContainer(WithSplashNavigator);
