@@ -117,3 +117,7 @@ tsbuild/
 
 # jest
 coverage/
+
+# ios
+Pods/
+Podfile.lock
