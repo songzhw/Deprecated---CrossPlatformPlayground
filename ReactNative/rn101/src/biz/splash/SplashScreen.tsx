@@ -8,7 +8,7 @@ export class SplashScreen extends Component<IProps> {
 
   componentDidMount() {
     setTimeout(
-      () => this.props.navigation.navigate("app"),
+      () => this.props.navigation.navigate("HomeScreen"),
       10);
   }
 
