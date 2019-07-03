@@ -28,7 +28,6 @@ import { SplashScreen } from "../biz/splash/SplashScreen";
 
 const AppNavigator = createStackNavigator(
   {
-    SplashScreen,
     HomeScreen,
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo,
@@ -58,4 +57,4 @@ const WithSplashNavigator = createSwitchNavigator({
   app: AppNavigator
 });
 
-export const Router = createAppContainer(AppNavigator);
+export const Router = createAppContainer(WithSplashNavigator);
