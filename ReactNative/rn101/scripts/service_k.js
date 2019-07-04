@@ -17,7 +17,7 @@ let actionTypesResult = "";
 actionArray.forEach((action) => {
   const actionConstant = changeCase.constant(action); //=> "LOAD_API"
   const actionSuffix = changeCase.path(action).toUpperCase();
-  actionTypesResult += `${actionConstant} = "@@_${serviceConstant}/${actionSuffix}",\n`;
+  actionTypesResult += `  ${actionConstant} = "@@_${serviceConstant}/${actionSuffix}",\n`;
 });
 actionTypesResult = actionTypesResult.substring(0, actionTypesResult.length - 2); //去除最后一个逗号与'\n'
 
@@ -42,5 +42,6 @@ const actionPlaceHolder = {
 
 mkdirp("./scripts/result", () => {
   const fileContent = fs.readFileSync(`${__dirname}/templatesK/actions/index.ts`, {encoding: 'utf8'});
-  console.log(fileContent)
+  const newFileContent = replacer(fileContent, actionPlaceHolder);
+
 });
