@@ -4,12 +4,12 @@ const replacer = require("maxstache");
 var argv = require("yargs").argv; // 格式是: {_:[a,b,c], action: one, id: 20}
 const mkdirp = require("mkdirp");
 
-const actionFromCmd = argv.action;
-const actions = actionFromCmd.split(",");
-const action = actions[1].trim();
+const actionFromCmd = argv.action; //=> "one"
+const actions = actionFromCmd.split(","); //=> ["one"]
+const action = actions[0].trim();
 
-console.log(__dirname);     //=> /Users/zsong/code/mine/CrossPlatformPlayground/ReactNative/rn101/scripts
-console.log(process.cwd()); //=> /Users/zsong/code/mine/CrossPlatformPlayground/ReactNative/rn101
+// __dirname;     //=> /Users/zsong/code/mine/CrossPlatformPlayground/ReactNative/rn101/scripts
+// process.cwd(); //=> /Users/zsong/code/mine/CrossPlatformPlayground/ReactNative/rn101
 
 
 // TODO : odd, I will get an "unexpected token :" error every time I try to add types to "error" or "files"
@@ -18,14 +18,15 @@ const placeHolder = {
   pascal: changeCase.pascal(action)
 };
 
-mkdirp("./apple/book/country", error0 => {
-  fs.readdir(`${__dirname}/templates`, (error, files) => {
+mkdirp("./scripts/result", error0 => {
+  fs.readdir(`${__dirname}/templates1`, (error, files) => {
     console.log(files); //=> ['reducer.ts']
     files.forEach(file => {
-      const filePath = `${__dirname}/templates/${file}`;
+      const filePath = `${__dirname}/templates1/${file}`;
       fs.readFile(filePath, "utf8", (err, str) => {
         const after = replacer(str, placeHolder);
-        fs.writeFile(`./apple/book/country/${file}`, after, err3 => {
+        // "."是工程的根目录. 即最终会是rn101/scripts/result
+        fs.writeFile(`./scripts/result/${file}`, after, err3 => {
           console.log(err3);
         });
       });
