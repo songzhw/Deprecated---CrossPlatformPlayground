@@ -1,3 +1,9 @@
+/*
+$ yarn run fulfill --action "one"
+$ yarn run fulfill --action "one, two"
+ */
+
+/*
 var fs = require("fs");
 const changeCase = require("change-case");
 const replacer = require("maxstache");
@@ -18,14 +24,18 @@ const placeHolder = {
   pascal: changeCase.pascal(action)
 };
 
-mkdirp("./scripts/result", error0 => {
+mkdirp("./scripts/result", () => {
+  // @ts-ignore
   fs.readdir(`${__dirname}/templates1`, (error, files) => {
     console.log(files); //=> ['reducer.ts']
+    // @ts-ignore
     files.forEach(file => {
       const filePath = `${__dirname}/templates1/${file}`;
+      // @ts-ignore
       fs.readFile(filePath, "utf8", (err, str) => {
         const after = replacer(str, placeHolder);
         // "."是工程的根目录. 即最终会是rn101/scripts/result
+        // @ts-ignore
         fs.writeFile(`./scripts/result/${file}`, after, err3 => {
           console.log(err3);
         });
@@ -33,7 +43,7 @@ mkdirp("./scripts/result", error0 => {
     });
   });
 });
-
+*/
 
 /*
 const changeCase = require("change-case");
