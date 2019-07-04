@@ -7,7 +7,7 @@
     "test": "jest",
     "delete": "rm -rfv c.txt & rm -rfv ./scripts/b.txt & rm -rfv ./res/a*",
     "fulfill": "node scripts/fulfill.ts",
-    "servicek": "node scripts/service_k.ts"
+    "servicek": "node scripts/service_k.js"
   },
   "dependencies": {
     "react": "16.8.3",
