@@ -13,6 +13,7 @@ const actionArray = tmp.map((item) => item.trim());
 const serviceFromCmd = argv.service;
 const serviceConstant = changeCase.constant(serviceFromCmd);
 
+// ================== 1. generate actions ==================
 let actionTypesResult = "";
 actionArray.forEach((action) => {
   const actionConstant = changeCase.constant(action); //=> "LOAD_API"
@@ -45,3 +46,9 @@ mkdirp("./scripts/result/actions", () => {
   const newFileContent = replacer(fileContent, actionPlaceHolder);
   fs.writeFileSync("./scripts/result/actions/index.ts", newFileContent);
 });
+
+// ================== 2. generate reducer ==================
+mkdirp("./scripts/result/reducers", () => {
+  const fileContent = fs.readFileSync(`${__dirname}/templatesK/reducers/ServiceState.ts`, { encoding: "utf8" });
+  fs.writeFileSync("./scripts/result/reducers/ServiceState.ts", fileContent);
+})
