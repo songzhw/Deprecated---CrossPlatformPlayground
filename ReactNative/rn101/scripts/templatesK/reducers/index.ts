@@ -7,8 +7,7 @@ export default function {{serviceCamel}}(
   action: AnyAction
 ): ServiceState {
   switch(action.type) {
-    {{reducerCases}}
-    default:
+  {{reducerCases}}default:
       return state;
   }
 }

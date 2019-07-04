@@ -48,7 +48,31 @@ mkdirp("./scripts/result/actions", () => {
 });
 
 // ================== 2. generate reducer ==================
+let reducerCode = "";
+const reduceTemplate = `case ActionTypes.{{actionType}}: {
+    const newState: ServiceState = { ...state};
+    return newState;
+  }
+  
+  `;
+actionArray.forEach((action) => {
+  const placeHolder = { actionType: changeCase.constant(action) };
+  reducerCode += replacer(reduceTemplate, placeHolder);
+});
+// reducerCode = reducerCode.substring(0, reducerCode.length - 2);
+
 mkdirp("./scripts/result/reducers", () => {
-  const fileContent = fs.readFileSync(`${__dirname}/templatesK/reducers/ServiceState.ts`, { encoding: "utf8" });
-  fs.writeFileSync("./scripts/result/reducers/ServiceState.ts", fileContent);
-})
+  const fileContent1 = fs.readFileSync(`${__dirname}/templatesK/reducers/ServiceState.ts`, { encoding: "utf8" });
+  fs.writeFileSync("./scripts/result/reducers/ServiceState.ts", fileContent1);
+
+  const fileContent2 = fs.readFileSync(`${__dirname}/templatesK/reducers/index.ts`, { encoding: "utf8" });
+  const serviceCamel = changeCase.constant(serviceFromCmd);
+  const placeHolder2 = {
+    serviceCamel: serviceCamel,
+    reducerCases: reducerCode
+  };
+  const newFileContent2 = replacer(fileContent2, placeHolder2);
+  fs.writeFileSync("./scripts/result/reducers/index.ts", newFileContent2);
+});
+
+
