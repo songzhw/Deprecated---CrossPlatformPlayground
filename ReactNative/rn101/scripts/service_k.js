@@ -31,7 +31,7 @@ actionArray.forEach((action) => {
     CONSTANTS: changeCase.constant(action)
   };
   actionCreatorResult += replacer(actionCreatorTemplate, placeHolder);
-  actionCreatorResult += "\n";
+  actionCreatorResult += "\n\n";
 });
 
 
@@ -40,7 +40,7 @@ const actionPlaceHolder = {
   actionCreators: actionCreatorResult
 };
 
-mkdirp("./scripts/result", () => {
+mkdirp("./scripts/result/actions", () => {
   const fileContent = fs.readFileSync(`${__dirname}/templatesK/actions/index.ts`, { encoding: "utf8" });
   const newFileContent = replacer(fileContent, actionPlaceHolder);
   fs.writeFileSync("./scripts/result/actions/index.ts", newFileContent);
