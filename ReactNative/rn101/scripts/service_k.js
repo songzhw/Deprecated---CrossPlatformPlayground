@@ -41,7 +41,7 @@ const actionPlaceHolder = {
 };
 
 mkdirp("./scripts/result", () => {
-  const fileContent = fs.readFileSync(`${__dirname}/templatesK/actions/index.ts`, {encoding: 'utf8'});
+  const fileContent = fs.readFileSync(`${__dirname}/templatesK/actions/index.ts`, { encoding: "utf8" });
   const newFileContent = replacer(fileContent, actionPlaceHolder);
-
+  fs.writeFileSync("./scripts/result/actions/index.ts", newFileContent);
 });
