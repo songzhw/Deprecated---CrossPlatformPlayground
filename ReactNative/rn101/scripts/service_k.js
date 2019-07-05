@@ -76,3 +76,24 @@ mkdirp("./scripts/result/reducers", () => {
 });
 
 
+// ================== utils ==================
+function copy(targetPath, targetFile){
+  mkdirp(targetPath, ()=>{
+    const templateFileContent = fs.readFileSync(`${__dirname}/templatesK/${targetPath}/${targetFile}`, { encoding: "utf8" });
+    fs.writeFileSync(`./scripts/result/${targetPath}/${targetFile}`, templateFileContent);
+
+  })
+}
+
+function generate(targetPath, targetFile, placeHolder){
+  mkdirp(targetPath, ()=>{
+    const templateFileContent = fs.readFileSync(`${__dirname}/templatesK/reducers/${targetFile}`, { encoding: "utf8" });
+    const newFileContent = replacer(templateFileContent, placeHolder);
+    fs.writeFileSync(`./scripts/result/${targetPath}/${targetFile}`, newFileContent);
+
+  })
+}
+
+
+// ================== main ==================
+generate("actions", "index.ts", actionPlaceHolder);
