@@ -73,6 +73,12 @@ const allActionCreatorPlaceHolder = {
 };
 
 
+// ================== package.json ==================
+const packagePlaceHolder = {
+  service: changeCase.param(serviceFromCmd)
+};
+
+
 // ================== utils ==================
 function copy(targetPath, targetFile) {
   mkdirp(`./scripts/result/${targetPath}`, () => {
@@ -99,3 +105,4 @@ generate("reducers", "index.ts", reducerPlaceHolder);
 copy("configuration", "index.ts");
 copy("selectors", "index.ts");
 generate("", "index.ts", allActionCreatorPlaceHolder);
+generate("", "package.json", packagePlaceHolder);
