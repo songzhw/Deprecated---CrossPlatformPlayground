@@ -41,11 +41,6 @@ const actionPlaceHolder = {
   actionCreators: actionCreatorResult
 };
 
-mkdirp("./scripts/result/actions", () => {
-  const fileContent = fs.readFileSync(`${__dirname}/templatesK/actions/index.ts`, { encoding: "utf8" });
-  const newFileContent = replacer(fileContent, actionPlaceHolder);
-  fs.writeFileSync("./scripts/result/actions/index.ts", newFileContent);
-});
 
 // ================== 2. generate reducer ==================
 let reducerCode = "";
@@ -59,26 +54,19 @@ actionArray.forEach((action) => {
   const placeHolder = { actionType: changeCase.constant(action) };
   reducerCode += replacer(reduceTemplate, placeHolder);
 });
-// reducerCode = reducerCode.substring(0, reducerCode.length - 2);
 
-mkdirp("./scripts/result/reducers", () => {
-  const fileContent1 = fs.readFileSync(`${__dirname}/templatesK/reducers/ServiceState.ts`, { encoding: "utf8" });
-  fs.writeFileSync("./scripts/result/reducers/ServiceState.ts", fileContent1);
+const serviceCamel = changeCase.constant(serviceFromCmd);
+const reducerPlaceHolder = {
+  serviceCamel: serviceCamel,
+  reducerCases: reducerCode
+};
 
-  const fileContent2 = fs.readFileSync(`${__dirname}/templatesK/reducers/index.ts`, { encoding: "utf8" });
-  const serviceCamel = changeCase.constant(serviceFromCmd);
-  const placeHolder2 = {
-    serviceCamel: serviceCamel,
-    reducerCases: reducerCode
-  };
-  const newFileContent2 = replacer(fileContent2, placeHolder2);
-  fs.writeFileSync("./scripts/result/reducers/index.ts", newFileContent2);
-});
+
 
 
 // ================== utils ==================
 function copy(targetPath, targetFile){
-  mkdirp(targetPath, ()=>{
+  mkdirp(`./scripts/result/${targetPath}`, ()=>{
     const templateFileContent = fs.readFileSync(`${__dirname}/templatesK/${targetPath}/${targetFile}`, { encoding: "utf8" });
     fs.writeFileSync(`./scripts/result/${targetPath}/${targetFile}`, templateFileContent);
 
@@ -86,8 +74,8 @@ function copy(targetPath, targetFile){
 }
 
 function generate(targetPath, targetFile, placeHolder){
-  mkdirp(targetPath, ()=>{
-    const templateFileContent = fs.readFileSync(`${__dirname}/templatesK/reducers/${targetFile}`, { encoding: "utf8" });
+  mkdirp(`./scripts/result/${targetPath}`, ()=>{
+    const templateFileContent = fs.readFileSync(`${__dirname}/templatesK/${targetPath}/${targetFile}`, { encoding: "utf8" });
     const newFileContent = replacer(templateFileContent, placeHolder);
     fs.writeFileSync(`./scripts/result/${targetPath}/${targetFile}`, newFileContent);
 
@@ -97,3 +85,7 @@ function generate(targetPath, targetFile, placeHolder){
 
 // ================== main ==================
 generate("actions", "index.ts", actionPlaceHolder);
+copy("reducers",'ServiceState.ts');
+generate("reducers", "index.ts", reducerPlaceHolder);
+copy("configuration",'index.ts');
+copy("selectors",'index.ts');
