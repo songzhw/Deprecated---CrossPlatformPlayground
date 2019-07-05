@@ -61,31 +61,41 @@ const reducerPlaceHolder = {
   reducerCases: reducerCode
 };
 
-
+// ================== index.ts ==================
+let allActionCreatorNames = "";
+actionArray.forEach((action) => {
+  allActionCreatorNames += `  ${changeCase.camel(action)},\n`;
+});
+allActionCreatorNames = allActionCreatorNames.substring(0, allActionCreatorNames.length - 2);
+const allActionCreatorPlaceHolder = {
+  service: `${changeCase.pascal(serviceFromCmd)}`,
+  actions: allActionCreatorNames
+};
 
 
 // ================== utils ==================
-function copy(targetPath, targetFile){
-  mkdirp(`./scripts/result/${targetPath}`, ()=>{
+function copy(targetPath, targetFile) {
+  mkdirp(`./scripts/result/${targetPath}`, () => {
     const templateFileContent = fs.readFileSync(`${__dirname}/templatesK/${targetPath}/${targetFile}`, { encoding: "utf8" });
     fs.writeFileSync(`./scripts/result/${targetPath}/${targetFile}`, templateFileContent);
 
-  })
+  });
 }
 
-function generate(targetPath, targetFile, placeHolder){
-  mkdirp(`./scripts/result/${targetPath}`, ()=>{
+function generate(targetPath, targetFile, placeHolder) {
+  mkdirp(`./scripts/result/${targetPath}`, () => {
     const templateFileContent = fs.readFileSync(`${__dirname}/templatesK/${targetPath}/${targetFile}`, { encoding: "utf8" });
     const newFileContent = replacer(templateFileContent, placeHolder);
     fs.writeFileSync(`./scripts/result/${targetPath}/${targetFile}`, newFileContent);
 
-  })
+  });
 }
 
 
 // ================== main ==================
 generate("actions", "index.ts", actionPlaceHolder);
-copy("reducers",'ServiceState.ts');
+copy("reducers", "ServiceState.ts");
 generate("reducers", "index.ts", reducerPlaceHolder);
-copy("configuration",'index.ts');
-copy("selectors",'index.ts');
+copy("configuration", "index.ts");
+copy("selectors", "index.ts");
+generate("", "index.ts", allActionCreatorPlaceHolder);
