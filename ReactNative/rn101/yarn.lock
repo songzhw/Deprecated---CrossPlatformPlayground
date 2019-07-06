@@ -801,6 +801,17 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
+"@react-native-community/art@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/art/-/art-1.0.0.tgz#097d5b2205bc12cf4c05dc1f81c7b7134fc74032"
+  integrity sha512-W0PTMCihl+45h/4SZJ9gK+Bw9X2W3EEPtdNSbAs6gl/QsBCDbLSvXtLEOfF5/vukFA8qs3TqGM9Puh0+A0N4Dw==
+  dependencies:
+    art "^0.10.3"
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
+    react "16.8.3"
+    react-native "0.59.9"
+
 "@react-native-community/cli@^1.2.1":
   version "1.9.7"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli/-/cli-1.9.7.tgz#1d0aad150a83f8ee06410c216b1b37e8861aa59f"
@@ -859,6 +870,16 @@
     hoist-non-react-statics "^3.0.1"
     react-native-safe-area-view "^0.14.1"
     react-native-screens "^1.0.0 || ^1.0.0-alpha"
+
+"@types/@react-native-community/art":
+  version "1.0.0"
+  resolved "https://codeload.github.com/react-native-community/art/tar.gz/b73287854835b723c97e7ae0533521666562fac9"
+  dependencies:
+    art "^0.10.3"
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
+    react "16.8.3"
+    react-native "0.59.9"
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
@@ -1249,7 +1270,7 @@ array-unique@^0.3.2:
   resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
   integrity sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
 
-art@^0.10.0:
+art@^0.10.0, art@^0.10.3:
   version "0.10.3"
   resolved "https://registry.yarnpkg.com/art/-/art-0.10.3.tgz#b01d84a968ccce6208df55a733838c96caeeaea2"
   integrity sha512-HXwbdofRTiJT6qZX/FnchtldzJjS3vkLJxQilc3Xj+ma2MXjY4UAyQ0ls1XZYVnDvVIBiFZbC6QsvtW86TD6tQ==
