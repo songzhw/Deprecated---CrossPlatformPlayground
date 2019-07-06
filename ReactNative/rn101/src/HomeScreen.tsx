@@ -17,6 +17,15 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
 
       <View style={{ height: 8 }}/>
+      <Text style={styles.title}>React Native Tutorial</Text>
+      <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
+      <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
+      <HomeButton title="Modal Example" onPress={() => navigation.navigate("ModalExample")}/>
+      <HomeButton title="R-N Art library" onPress={() => navigation.navigate("ArtDemo")}/>
+
+
+
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>Business</Text>
       <HomeButton title="startActivityForResult" onPress={() => navigation.navigate("PassA1Screen")}/>
       <HomeButton title="timer in the background" onPress={() => navigation.navigate("TimerIssue")}/>
@@ -48,13 +57,6 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="fetch blob" onPress={() => navigation.navigate("FetchBlobDemo")}/>
       <HomeButton title={"unzip zip"} onPress={() => navigation.navigate("ZipArchiveDemo")}/>
 
-
-      <View style={{ height: 8 }}/>
-      <Text style={styles.title}>React Native Tutorial</Text>
-      <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
-      <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
-      <HomeButton title="Modal Example" onPress={() => navigation.navigate("ModalExample")}/>
-      <HomeButton title="R-N Art library" onPress={() => navigation.navigate("ArtDemo")}/>
 
     </ScrollView>
   );
