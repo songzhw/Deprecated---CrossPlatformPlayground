@@ -22,6 +22,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
       <HomeButton title="Modal Example" onPress={() => navigation.navigate("ModalExample")}/>
       <HomeButton title="R-N Art library" onPress={() => navigation.navigate("ArtDemo")}/>
+      <HomeButton title="R-N Art 2" onPress={() => navigation.navigate("ArtAnimView")}/>
 
 
 
