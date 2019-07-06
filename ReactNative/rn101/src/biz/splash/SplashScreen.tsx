@@ -16,7 +16,7 @@ export class SplashScreen extends Component<IProps> {
   componentDidMount() {
     setTimeout(
       () => this.props.navigation.navigate("app"),
-      10000);
+      10);
   }
 
   render() {

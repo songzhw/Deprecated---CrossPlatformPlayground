@@ -3,6 +3,7 @@ package com.rn101;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.art.ARTPackage;
 import com.rnfs.RNFSPackage;
 import com.rnziparchive.RNZipArchivePackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ARTPackage(),
             new RNFSPackage(),
             new RNZipArchivePackage(),
             new RNFetchBlobPackage(),
