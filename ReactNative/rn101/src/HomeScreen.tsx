@@ -3,6 +3,7 @@ import { Button, ScrollView, StyleSheet, View, Text, TextInput } from "react-nat
 import { NavigationScreenProps, ScreenProps } from "react-navigation";
 import { FlexLayoutDemo1 } from "./rn_tutorial/layout/FlexLayoutDemo1";
 import { TimerIssue } from "./biz/timer/TimerIssue";
+import { ArtDemo } from "./rn_tutorial/art/ArtDemo";
 
 export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
@@ -53,6 +54,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
       <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
       <HomeButton title="Modal Example" onPress={() => navigation.navigate("ModalExample")}/>
+      <HomeButton title="R-N Art library" onPress={() => navigation.navigate("ArtDemo")}/>
 
     </ScrollView>
   );

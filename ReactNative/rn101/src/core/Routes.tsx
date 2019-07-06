@@ -25,13 +25,14 @@ import { ScrubberDemo } from "../view/scrubber/ScrubberDemo";
 import { Skin1 } from "../biz/switch_skin/Skin1";
 import { Skin2 } from "../biz/switch_skin/Skin2";
 import { SplashScreen } from "../biz/splash/SplashScreen";
+import { ArtDemo } from "../rn_tutorial/art/ArtDemo";
 
 const AppNavigator = createStackNavigator(
   {
     HomeScreen,
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo,
-    WebViewDemo, FlexLayoutDemo1, ModalExample,
+    WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3,
     StaggerAnimationScreen, GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo

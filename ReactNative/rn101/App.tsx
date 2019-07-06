@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
 import { Router } from "./src/core/Routes";
 import { createAppContainer } from "react-navigation";
@@ -24,3 +24,6 @@ const App = () => {
 
 
 export default App;
+
+
+
