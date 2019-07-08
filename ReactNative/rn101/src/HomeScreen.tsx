@@ -4,6 +4,7 @@ import { NavigationScreenProps, ScreenProps } from "react-navigation";
 import { FlexLayoutDemo1 } from "./rn_tutorial/layout/FlexLayoutDemo1";
 import { TimerIssue } from "./biz/timer/TimerIssue";
 import { ArtDemo } from "./rn_tutorial/art/ArtDemo";
+import { DebounceDemo } from "./performance/DebounceDemo";
 
 export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
@@ -14,6 +15,11 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
   return (
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
+
+
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>React Native Tutorial</Text>
+      <HomeButton title="Debounce + Button" onPress={() => navigation.navigate("DebounceDemo")}/>
 
 
       <View style={{ height: 8 }}/>

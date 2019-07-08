@@ -1,24 +1,16 @@
-function debounce(func: Function, wait: number, immediate = false) {
-  let timeout: number | undefined;
-  return function() {
-    // @ts-ignore
-    var context = this, args = arguments;
-    var later = function() {
-      timeout = undefined;
-      if (!immediate) func.apply(context, args);
-    };
-    var callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    // @ts-ignore
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+import React from "react";
+import { Button, View } from "react-native";
+
+// 你一直按吧, 只有最后一次点击2秒后我才响应你
+export const DebounceDemo = () => {
+
+  const save = () => {
+    console.log(`save: `, new Date());
   };
-}
 
-function work() {
-  console.log(`work `, new Date());
-}
-
-console.log(`start `, new Date());
-setTimeout(() => debounce(work, 1000)(), 500);
-console.log(`end`, new Date());
+  return (
+    <View>
+      <Button title="save until it's pause for 2s" onPress={save}/>
+    </View>
+  );
+};
