@@ -1,4 +1,4 @@
-// $ yarn run servicek --action "one work, two cats" --service "hello service"
+// $ yarn run servicek --action "one work, two cats" --service "hello world"
 
 const changeCase = require("change-case");
 const replacer = require("maxstache");
@@ -12,6 +12,7 @@ const actionArray = tmp.map((item) => item.trim());
 
 const serviceFromCmd = argv.service;
 const serviceConstant = changeCase.constant(serviceFromCmd);
+
 
 // ================== 1. generate actions ==================
 let actionTypesResult = "";
@@ -96,7 +97,6 @@ function generate(targetPath, targetFile, placeHolder) {
 
   });
 }
-
 
 // ================== main ==================
 generate("actions", "index.ts", actionPlaceHolder);

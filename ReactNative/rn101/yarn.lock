@@ -871,16 +871,6 @@
     react-native-safe-area-view "^0.14.1"
     react-native-screens "^1.0.0 || ^1.0.0-alpha"
 
-"@types/@react-native-community/art":
-  version "1.0.0"
-  resolved "https://codeload.github.com/react-native-community/art/tar.gz/b73287854835b723c97e7ae0533521666562fac9"
-  dependencies:
-    art "^0.10.3"
-    invariant "^2.2.4"
-    prop-types "^15.7.2"
-    react "16.8.3"
-    react-native "0.59.9"
-
 "@types/babel__core@^7.1.0":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.2.tgz#608c74f55928033fce18b99b213c16be4b3d114f"
