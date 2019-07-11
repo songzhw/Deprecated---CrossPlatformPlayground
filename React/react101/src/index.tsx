@@ -21,6 +21,7 @@ import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
 import { HooksPitfall01 } from "./Rtutor/FC/HooksPitfall01";
 import { OneScreen } from "./Rtutor/module/OneScreen";
 import { CounterClass } from "./Rtutor/hooks/useeffect/CounterClass";
+import { CounterFunc } from "./Rtutor/hooks/useeffect/CounterFunc";
 
-ReactDOM.render(<CounterClass/>, document.getElementById("root"));
+ReactDOM.render(<CounterFunc/>, document.getElementById("root"));
 
