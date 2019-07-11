@@ -23,6 +23,7 @@ import { OneScreen } from "./Rtutor/module/OneScreen";
 import { CounterClass } from "./Rtutor/hooks/useeffect/CounterClass";
 import { CounterClass2 } from "./Rtutor/hooks/useeffect/CounterClass2";
 import { CounterFunc } from "./Rtutor/hooks/useeffect/CounterFunc";
+import { CounterFunc2 } from "./Rtutor/hooks/useref/CounterFunc2";
 
-ReactDOM.render(<CounterClass2/>, document.getElementById("root"));
+ReactDOM.render(<CounterFunc2/>, document.getElementById("root"));
 
