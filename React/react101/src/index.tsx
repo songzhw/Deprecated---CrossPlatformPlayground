@@ -20,6 +20,7 @@ import { RpApp } from "./three_party/redux_persist/rpApp";
 import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
 import { HooksPitfall01 } from "./Rtutor/FC/HooksPitfall01";
 import { OneScreen } from "./Rtutor/module/OneScreen";
+import { CounterClass } from "./Rtutor/hooks/useeffect/CounterClass";
 
-ReactDOM.render(<OneScreen/>, document.getElementById("root"));
+ReactDOM.render(<CounterClass/>, document.getElementById("root"));
 
