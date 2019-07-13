@@ -1,8 +1,9 @@
-// $ yarn run servicek --action "one work, two cats" --service "hello world"
+// $ yarn run servicek --action "set progress, post progress, clear progress" --service "play music"
+// $ yarn run servicek --action "set progress, post progress, clear progress" --service "play music" --network
 
 const changeCase = require("change-case");
 const replacer = require("maxstache");
-var argv = require("yargs").argv; // 格式是: {_:[a,b,c], action: one, id: 20}
+const argv = require("yargs").argv; // 格式是: {_:[a,b,c], action: one, id: 20}
 const mkdirp = require("mkdirp");
 const fs = require("fs");
 
@@ -62,6 +63,23 @@ const reducerPlaceHolder = {
   reducerCases: reducerCode
 };
 
+// ================== 3. generate sagas ==================
+let sagaRegister = "";
+let sagaMethods = "";
+actionArray.forEach((action) => {
+  const actionConstant = changeCase.constant(action); //=> "LOAD_API"
+  const sagaMethod = changeCase.camel(action);
+  sagaRegister += `  yield takeEvery(ActionTypes.${actionConstant}, ${sagaMethod});\n`;
+  sagaMethods += `const ${sagaMethod} = function*(action: AnyAction) {\n\n};\n`;
+});
+sagaRegister = sagaRegister.substring(0, sagaRegister.length - 1);
+
+const sagaPlaceHolder = {
+  actionSagas: sagaMethods,
+  actioRegister: sagaRegister
+};
+
+
 // ================== index.ts ==================
 let allActionCreatorNames = "";
 actionArray.forEach((action) => {
@@ -102,7 +120,16 @@ function generate(targetPath, targetFile, placeHolder) {
 generate("actions", "index.ts", actionPlaceHolder);
 copy("reducers", "ServiceState.ts");
 generate("reducers", "index.ts", reducerPlaceHolder);
+generate("sagas", "index.ts", sagaPlaceHolder);
 copy("configuration", "index.ts");
 copy("selectors", "index.ts");
 generate("", "index.ts", allActionCreatorPlaceHolder);
 generate("", "package.json", packagePlaceHolder);
+
+
+/*
+TODO
+1. network required?
+2. selector?
+3.
+ */
