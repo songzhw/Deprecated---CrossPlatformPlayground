@@ -1,5 +1,6 @@
 // $ yarn run servicek --action "set progress, post progress, clear progress" --service "play music"
 // $ yarn run servicek --action "set progress, post progress, clear progress" --service "play music" --network
+// $ yarn run servicek --action "set progress, post progress, clear progress" --selector getMusic --service "play music" --network
 
 const changeCase = require("change-case");
 const replacer = require("maxstache");
@@ -13,6 +14,7 @@ const actionArray = tmp.map((item) => item.trim());
 
 const serviceFromCmd = argv.service;
 const serviceConstant = changeCase.constant(serviceFromCmd);
+const isRequiredNetwork = argv.network;
 
 
 // ================== 1. generate actions ==================
@@ -80,21 +82,34 @@ const sagaPlaceHolder = {
 };
 
 
+// ================== 4. generate selectors ==================
+const selectorFromCmd = argv.selector;
+const selector = selectorFromCmd ? selectorFromCmd : "getBook";
+const selectorPlaceHolder = {
+  selectorName: selector
+};
+
 // ================== index.ts ==================
 let allActionCreatorNames = "";
 actionArray.forEach((action) => {
   allActionCreatorNames += `  ${changeCase.camel(action)},\n`;
 });
 allActionCreatorNames = allActionCreatorNames.substring(0, allActionCreatorNames.length - 2);
+const selectorPart = selectorFromCmd ? `export { ${selectorFromCmd} } from "./selectors"` : "";
 const allActionCreatorPlaceHolder = {
-  service: `${changeCase.pascal(serviceFromCmd)}`,
-  actions: allActionCreatorNames
+  service: `${changeCase.pascal(selectorFromCmd)}`,
+  actions: allActionCreatorNames,
+  sagaName: `${changeCase.pascal(serviceFromCmd)}Saga`,
+  selectorName: selectorPart
 };
 
 
 // ================== package.json ==================
+console.log(`is? = `, isRequiredNetwork);
+const networkCode = isRequiredNetwork ? `    "@kobo/api-onestore-kobo": "0.1.1",\n` : "";
 const packagePlaceHolder = {
-  service: changeCase.param(serviceFromCmd)
+  service: changeCase.param(serviceFromCmd),
+  network: networkCode
 };
 
 
@@ -122,14 +137,8 @@ copy("reducers", "ServiceState.ts");
 generate("reducers", "index.ts", reducerPlaceHolder);
 generate("sagas", "index.ts", sagaPlaceHolder);
 copy("configuration", "index.ts");
-copy("selectors", "index.ts");
+generate("selectors", "index.ts", selectorPlaceHolder);
 generate("", "index.ts", allActionCreatorPlaceHolder);
 generate("", "package.json", packagePlaceHolder);
 
 
-/*
-TODO
-1. network required?
-2. selector?
-3.
- */

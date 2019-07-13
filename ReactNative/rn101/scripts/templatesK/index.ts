@@ -4,4 +4,5 @@ export {
 } from "./actions";
 export { Configuration } from "./configuration";
 export { default as reducer } from "./reducers";
-// TODO export selectors
+export { default as {{sagaName}} } from "./sagas"
+{{selectorName}}
