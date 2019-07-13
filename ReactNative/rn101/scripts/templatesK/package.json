@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@kobo/_utils": "^0.0.4"
+{{network}}    "@kobo/_utils": "^0.0.4"
   },
   "peerDependencies": {
     "redux-saga": "^1.0.1"
