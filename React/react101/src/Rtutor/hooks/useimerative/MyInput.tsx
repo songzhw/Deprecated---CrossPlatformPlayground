@@ -5,7 +5,7 @@ const MyInput = ({}, ref: any) => {
   const inRef = useRef(null);
   useImperativeHandle(ref, () => ({
     focus: () => {
-      // @ts-ignore
+      // @ts-ignore  //TODO 没办法, 这里的possible null错误就是去除不了, 尝试了各种if/else了
       inRef.current.focus();
     }
   }));
@@ -16,6 +16,7 @@ const MyInput = ({}, ref: any) => {
   );
 };
 const MyInput_ = forwardRef(MyInput);
+
 
 export const InputParent = () => {
   const ref = useRef(null);
