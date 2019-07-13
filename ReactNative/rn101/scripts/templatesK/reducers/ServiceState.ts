@@ -1,4 +1,5 @@
 export class ServiceState {
+  //TODO changed based your requirement
   id: string | null;
   offset: number;
 
