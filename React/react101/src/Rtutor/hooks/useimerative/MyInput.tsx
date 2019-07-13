@@ -1,7 +1,10 @@
-import React, { Attributes, MutableRefObject, useRef } from "react";
+import React, { useRef } from "react";
 
+interface IMyInputProps {
+  ref: any;
+}
 
-export const MyInput = (props: MutableRefObject<null>) => {
+export const MyInput = (props: IMyInputProps) => {
   return (
     <input/>
   );
@@ -15,7 +18,6 @@ export const InputParent = () => {
     ref.current.focus();
   }
 
-  // @ts-ignore
   return (
     <div>
       <button onClick={focusInput}> focus</button>
@@ -24,4 +26,5 @@ export const InputParent = () => {
     </div>
   );
 };
+
 
