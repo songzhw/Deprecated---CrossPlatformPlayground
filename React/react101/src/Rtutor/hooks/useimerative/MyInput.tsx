@@ -1,14 +1,18 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 
-interface IMyInputProps {
-  // TODO 真是暂时找不到ref对应哪个属性了, 只好先用any来了
-  ref: any;
-}
+// TODO 真是暂时找不到ref对应哪个属性了, 只好先用any来了
+const MyInput = ({}, ref: any) => {
+  const inRef = useRef();
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      // @ts-ignore
+      inRef.current.focus();
+    }
+  }));
 
-const MyInput = (props: IMyInputProps) => {
-
+  // @ts-ignore
   return (
-    <input/>
+    <input ref={inRef}/>
   );
 };
 const MyInput_ = forwardRef(MyInput);
