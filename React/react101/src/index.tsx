@@ -28,6 +28,7 @@ import { Useref2 } from "./Rtutor/hooks/useref/useref2";
 import { WithoutUseRef } from "./Rtutor/hooks/useref/WithoutUseRef";
 import { WithUseRef } from "./Rtutor/hooks/useref/WithUseRef";
 import { InputParent } from "./Rtutor/hooks/useimerative/MyInput";
+import { MediaDemo } from "./Rtutor/hooks/MediaDemo";
 
-ReactDOM.render(<InputParent/>, document.getElementById("root"));
+ReactDOM.render(<MediaDemo/>, document.getElementById("root"));
 
