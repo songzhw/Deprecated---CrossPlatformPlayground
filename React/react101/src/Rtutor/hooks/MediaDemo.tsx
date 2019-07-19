@@ -6,6 +6,13 @@ interface IProps {
 
 export const MediaDemo = (props: IProps) => {
 
+  const media = window.matchMedia("(max-width:600px)");
+  console.log(`szw ? = `, media);
+  // @ts-ignore
+  media.addListener((list, ev) => {
+    console.log(`szw 2 = `, list , ev);
+  });
+
   return (
     <div>
       <Media query="(max-width:600px)">
