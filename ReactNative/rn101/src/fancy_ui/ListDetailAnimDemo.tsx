@@ -25,7 +25,7 @@ interface IProps extends ViewProps {
 }
 
 export const ListDetailAnimDemo = (props: IProps) => {
-  const [isDetail, setIsDetail] = useState(false);
+  const [detail, setDetail] = useState(-1);
 
   const imageViews = images.map((image, index) => {
     return (
@@ -40,11 +40,11 @@ export const ListDetailAnimDemo = (props: IProps) => {
 
   const openDetail = (index: number) => {
     console.log(`szw openDetail, ${index}`);
-    setIsDetail(true);
+    setDetail(index);
   };
 
   const closeDetail = () => {
-    setIsDetail(false);
+    setDetail(-1);
   };
 
   return (
@@ -56,13 +56,15 @@ export const ListDetailAnimDemo = (props: IProps) => {
       </ScrollView>
 
       {/*Detail*/}
-      <View style={StyleSheet.absoluteFill} pointerEvents={isDetail ? "auto" : "none"}>
-        <View style={{ flex: 2, opacity: isDetail ? 1 : 0 }}>
-          <Image source={require("../../res/images/beauty.jpg")} style={{flex:1}} resizeMode={"cover"}/>
+      <View style={StyleSheet.absoluteFill} pointerEvents={detail !== -1 ? "auto" : "none"}>
+
+        <View style={{ flex: 2, opacity: detail !== -1 ? 1 : 0 }}>
+          <Image source={images[detail]} style={{flex:1}} resizeMode={"cover"}/>
         </View>
-        <View style={{ opacity: isDetail ? 1 : 0, backgroundColor: "green", flex: 1 }}
-              pointerEvents={isDetail ? "auto" : "none"}>
-          <Text style={{ fontSize: 44, color: "#f00" }} onPress={closeDetail}>This is the Detail popup</Text>
+
+        <View style={{ opacity: detail !== -1 ? 1 : 0, backgroundColor: "green", flex: 1 }}
+              pointerEvents={detail !== -1 ? "auto" : "none"}>
+          <Text style={{ fontSize: 44, color: "#f00" }} onPress={closeDetail}>This is the Detail popup : index = {detail}</Text>
         </View>
       </View>
 
