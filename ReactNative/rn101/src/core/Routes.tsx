@@ -28,6 +28,7 @@ import { SplashScreen } from "../biz/splash/SplashScreen";
 import { ArtDemo } from "../rn_tutorial/art/ArtDemo";
 import ArtAnimView from "../rn_tutorial/art/ArtAnimView";
 import { DebounceDemo } from "../performance/DebounceDemo";
+import { LambdaInJsx } from "../rn_tutorial/performance/LambdaInJsx";
 
 const AppNavigator = createStackNavigator(
   {
@@ -35,7 +36,7 @@ const AppNavigator = createStackNavigator(
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
-    DebounceDemo,
+    DebounceDemo, LambdaInJsx,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3,
     StaggerAnimationScreen, GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo
