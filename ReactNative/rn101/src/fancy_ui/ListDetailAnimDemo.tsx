@@ -41,9 +41,18 @@ export const ListDetailAnimDemo = (props: IProps) => {
 
   return (
     <View style={styles.container}>
+
+      {/*List*/}
       <ScrollView style={{ flex: 1, padding: 20 }}>
         {imageViews}
       </ScrollView>
+
+      {/*Detail*/}
+      <View style={StyleSheet.absoluteFill}>
+        <Text style={{fontSize: 44, color: "#f00", opacity: 0}}>This is the Detail popup</Text>
+      </View>
+
+
     </View>
   );
 };
