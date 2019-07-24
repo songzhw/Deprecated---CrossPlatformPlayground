@@ -5,11 +5,10 @@ export const LambdaInJsx = () => {
   const [pet, setPet] = useState("");
 
   function onClick(event: NativeSyntheticEvent<NativeTouchEvent>) {
-    // // @ts-ignore
-    // const name = event.currentTarget.dataset.pet!;
-    // // @ts-ignore
-    // const color = event.currentTarget.dataset.color!;
-    const name = "name", color = "color";
+    // @ts-ignore
+    const name = event.currentTarget.dataset.pet!;
+    // @ts-ignore
+    const color = event.currentTarget.dataset.color!;
     console.log(`szw button click ${name} - ${color}`);
     setPet(name);
   }

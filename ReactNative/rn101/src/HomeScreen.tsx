@@ -20,6 +20,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>
       <HomeButton title="Debounce + Button" onPress={() => navigation.navigate("DebounceDemo")}/>
+      <HomeButton title="dataset properties" onPress={() => navigation.navigate("LambdaInJsx")}/>
 
 
       <View style={{ height: 8 }}/>
