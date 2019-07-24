@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { Button, View, Text, NativeSyntheticEvent, NativeTouchEvent } from "react-native";
 
+/*
+1. https://ozmoroz.com/2018/07/pass-value-to-onclick-react/ data-* properties only works for React
+2. I tried, dataset does not work on React Native, since the event.currentTarget does not have a dataset property
+ */
 export const LambdaInJsx = () => {
   const [pet, setPet] = useState("");
 
   function onClick(event: NativeSyntheticEvent<NativeTouchEvent>) {
-    // @ts-ignore
-    const name = event.currentTarget.dataset.pet!;
-    // @ts-ignore
-    const color = event.currentTarget.dataset.color!;
-    console.log(`szw button click ${name} - ${color}`);
-    setPet(name);
+    // const name = event.currentTarget.dataset.pet!;
+    // const color = event.currentTarget.dataset.color!;
+    // console.log(`szw button click ${name} - ${color}`);
+    // setPet(name);
   }
 
   return (
