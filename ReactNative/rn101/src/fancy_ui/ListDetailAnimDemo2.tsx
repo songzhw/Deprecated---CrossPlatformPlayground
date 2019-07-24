@@ -21,10 +21,7 @@ const images = [
   require("../../res/images/wallpaper04.jpg")
 ];
 
-interface IProps extends ViewProps {
-}
-
-export const ListDetailAnimDemo = (props: IProps) => {
+export const ListDetailAnimDemo2 = () => {
   const [detail, setDetail] = useState(-1);
 
   const imageViews = images.map((image, index) => {

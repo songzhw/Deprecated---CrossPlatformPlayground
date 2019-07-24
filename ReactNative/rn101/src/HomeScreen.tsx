@@ -18,7 +18,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Fancy UI</Text>
-      <HomeButton title="list <-> Detail Anim" onPress={() => navigation.navigate("ListDetailAnimDemo")}/>
+      <HomeButton title="list <-> Detail Anim 2" onPress={() => navigation.navigate("ListDetailAnimDemo2")}/>
 
 
       <View style={{ height: 8 }}/>

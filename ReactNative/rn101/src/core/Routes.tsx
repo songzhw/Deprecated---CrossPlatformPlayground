@@ -30,6 +30,7 @@ import ArtAnimView from "../rn_tutorial/art/ArtAnimView";
 import { DebounceDemo } from "../performance/DebounceDemo";
 import { LambdaInJsx } from "../rn_tutorial/performance/LambdaInJsx";
 import { ListDetailAnimDemo } from "../fancy_ui/ListDetailAnimDemo";
+import { ListDetailAnimDemo2 } from "../fancy_ui/ListDetailAnimDemo2";
 
 const AppNavigator = createStackNavigator(
   {
@@ -38,7 +39,7 @@ const AppNavigator = createStackNavigator(
     ActionSheetDemo, ScrubberDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
     DebounceDemo, LambdaInJsx,
-    ListDetailAnimDemo,
+    ListDetailAnimDemo2,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3,
     StaggerAnimationScreen, GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo
