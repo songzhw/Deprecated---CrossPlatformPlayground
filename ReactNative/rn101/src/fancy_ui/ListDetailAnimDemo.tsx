@@ -27,9 +27,10 @@ export const ListDetailAnimDemo = (props: IProps) => {
   const imageViews = images.map((image, index) => {
     return (
       <TouchableWithoutFeedback
-        onPress={() => openDetail(index)} key={index + ""}
-        style={{ width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 150, paddingBottom: 15 }}>
-        <Image source={image} style={{ flex: 1, resizeMode: "cover" }}/>
+        onPress={() => openDetail(index)} key={index + ""}>
+        <View style={{ width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 150, paddingBottom: 15 }}>
+          <Image source={image} style={{ flex: 1, resizeMode: "cover" }}/>
+        </View>
       </TouchableWithoutFeedback>
     );
   });
