@@ -48,7 +48,10 @@ export const ListDetailAnimDemo = (props: IProps) => {
       </ScrollView>
 
       {/*Detail*/}
-      <View style={StyleSheet.absoluteFill}>
+      <View style={StyleSheet.absoluteFill} pointerEvents="none">
+        <View style={{ opacity: 1, backgroundColor: 'green' }}  pointerEvents="none">
+          <Image source={require("../../res/images/splash.png")}/>
+        </View>
       </View>
 
 
