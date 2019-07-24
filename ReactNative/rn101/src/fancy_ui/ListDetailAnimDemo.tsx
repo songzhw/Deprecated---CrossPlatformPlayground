@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Image,
   View,
@@ -9,6 +9,7 @@ import {
   ScrollView,
   TouchableWithoutFeedback
 } from "react-native";
+import { useSelector } from "react-redux";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
@@ -24,6 +25,8 @@ interface IProps extends ViewProps {
 }
 
 export const ListDetailAnimDemo = (props: IProps) => {
+  const [isDetail, setIsDetail] = useState(false);
+
   const imageViews = images.map((image, index) => {
     return (
       <TouchableWithoutFeedback
@@ -37,6 +40,11 @@ export const ListDetailAnimDemo = (props: IProps) => {
 
   const openDetail = (index: number) => {
     console.log(`szw openDetail, ${index}`);
+    setIsDetail(true);
+  };
+
+  const closeDetail = () => {
+    setIsDetail(false);
   };
 
   return (
@@ -48,9 +56,10 @@ export const ListDetailAnimDemo = (props: IProps) => {
       </ScrollView>
 
       {/*Detail*/}
-      <View style={StyleSheet.absoluteFill} pointerEvents="none">
-        <View style={{ opacity: 0, backgroundColor: "green" }} pointerEvents="none">
-          <Text style={{ fontSize: 44, color: "#f00" }}>This is the Detail popup</Text>
+      <View style={StyleSheet.absoluteFill} pointerEvents={isDetail ? "auto" : "none"}>
+        <View style={{ opacity: isDetail ? 1 : 0, backgroundColor: "green" }}
+              pointerEvents={isDetail ? "auto" : "none"}>
+          <Text style={{ fontSize: 44, color: "#f00" }} onPress={closeDetail}>This is the Detail popup</Text>
         </View>
       </View>
 
