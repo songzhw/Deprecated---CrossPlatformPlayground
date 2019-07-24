@@ -16,6 +16,10 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
 
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>Fancy UI</Text>
+      <HomeButton title="list <-> Detail Anim" onPress={() => navigation.navigate("ListDetailAnimDemo")}/>
+
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>
