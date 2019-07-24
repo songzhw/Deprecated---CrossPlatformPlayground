@@ -49,8 +49,8 @@ export const ListDetailAnimDemo = (props: IProps) => {
 
       {/*Detail*/}
       <View style={StyleSheet.absoluteFill} pointerEvents="none">
-        <View style={{ opacity: 1, backgroundColor: 'green' }}  pointerEvents="none">
-          <Image source={require("../../res/images/splash.png")}/>
+        <View style={{ opacity: 0, backgroundColor: "green" }} pointerEvents="none">
+          <Text style={{ fontSize: 44, color: "#f00" }}>This is the Detail popup</Text>
         </View>
       </View>
 
