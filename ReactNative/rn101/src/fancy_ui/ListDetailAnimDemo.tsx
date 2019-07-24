@@ -58,7 +58,7 @@ export const ListDetailAnimDemo = (props: IProps) => {
       {/*Detail*/}
       <View style={StyleSheet.absoluteFill} pointerEvents={isDetail ? "auto" : "none"}>
         <View style={{ flex: 2, opacity: isDetail ? 1 : 0 }}>
-          <Image source={require("../../res/images/beauty.jpg")}/>
+          <Image source={require("../../res/images/beauty.jpg")} style={{flex:1}} resizeMode={"cover"}/>
         </View>
         <View style={{ opacity: isDetail ? 1 : 0, backgroundColor: "green", flex: 1 }}
               pointerEvents={isDetail ? "auto" : "none"}>
