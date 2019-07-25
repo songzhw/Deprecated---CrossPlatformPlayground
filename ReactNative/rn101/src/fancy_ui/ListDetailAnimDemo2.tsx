@@ -1,16 +1,13 @@
-import React, { MutableRefObject, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Image,
   View,
-  ViewProps,
   Text,
   StyleSheet,
   Dimensions,
   ScrollView,
-  TouchableWithoutFeedback, Animated
+  TouchableWithoutFeedback, Animated, Easing
 } from "react-native";
-import { useSelector } from "react-redux";
-import { JSXElement } from "@babel/types";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
@@ -26,6 +23,7 @@ export const ListDetailAnimDemo2 = () => {
   const [detail, setDetail] = useState(-1);
 
   const imageViewRef: (Image | null)[] = [];
+  let imageContainerRef: View | null;
   const animPosition = new Animated.ValueXY();
   const animSize = new Animated.ValueXY();
 
@@ -40,6 +38,17 @@ export const ListDetailAnimDemo2 = () => {
     );
   });
 
+  useEffect(() => {
+    imageContainerRef!.measure((x, y, width, height, pageX, pageY) => {
+      Animated.parallel([
+        Animated.timing(animPosition.x, { toValue: pageX, duration: 500, easing: Easing.back(1) }),
+        Animated.timing(animPosition.y, { toValue: pageY, duration: 500, easing: Easing.back(1) }),
+        Animated.timing(animSize.x, { toValue: width, duration: 500, easing: Easing.back(1) }),
+        Animated.timing(animSize.y, { toValue: height, duration: 500, easing: Easing.back(1) })
+      ]).start();
+    });
+  }, [detail]);
+
   const openDetail = (index: number) => {
     console.log(`szw openDetail, ${index}`);
 
@@ -49,9 +58,7 @@ export const ListDetailAnimDemo2 = () => {
     imageViewRef[index]!.measure((x, y, width, height, pageX, pageY) => {
       animPosition.setValue({ x: pageX, y: pageY });
       animSize.setValue({ x: width, y: height });
-      setDetail(index, () => {
-
-      });
+      setDetail(index);
     });
   };
 
@@ -61,6 +68,13 @@ export const ListDetailAnimDemo2 = () => {
 
   const opacityStyle = {
     opacity: detail !== -1 ? 1 : 0
+  };
+
+  const imageAnimStyle = {
+    left: animPosition.x,
+    right: animPosition.y,
+    width: animSize.x,
+    height: animSize.y
   };
 
   return (
@@ -74,8 +88,8 @@ export const ListDetailAnimDemo2 = () => {
       {/*Detail*/}
       <View style={StyleSheet.absoluteFill} pointerEvents={detail !== -1 ? "auto" : "none"}>
 
-        <View style={[{ flex: 2 }, opacityStyle]}>
-          <Image source={images[detail]} style={{ flex: 1 }} resizeMode={"cover"}/>
+        <View style={[{ flex: 2 }, opacityStyle]} ref={view => imageContainerRef = view}>
+          <Animated.Image source={images[detail]} style={[{ flex: 1 }, imageAnimStyle]} resizeMode={"cover"}/>
         </View>
 
         <View style={[{ backgroundColor: "green", flex: 1 }, opacityStyle]}
