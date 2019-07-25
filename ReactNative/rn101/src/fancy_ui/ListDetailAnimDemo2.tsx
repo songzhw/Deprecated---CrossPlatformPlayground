@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Dimensions,
   ScrollView,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback, Animated
 } from "react-native";
 import { useSelector } from "react-redux";
 import { JSXElement } from "@babel/types";
@@ -24,7 +24,10 @@ const images = [
 
 export const ListDetailAnimDemo2 = () => {
   const [detail, setDetail] = useState(-1);
-  const imageViewRef : (Image|null)[] = [];
+
+  const imageViewRef: (Image | null)[] = [];
+  const animPosition = new Animated.ValueXY();
+  const animSize = new Animated.ValueXY();
 
   const imageViews = images.map((image, index) => {
     return (
@@ -39,10 +42,16 @@ export const ListDetailAnimDemo2 = () => {
 
   const openDetail = (index: number) => {
     console.log(`szw openDetail, ${index}`);
-    setDetail(index);
 
+    // * @param pageX, pageY : 图片在屏幕中的位置
+    // * @parm width, height: 图片的宽高
+    // * @param x, y: 总是为(0, 0), 这里暂不用
     imageViewRef[index]!.measure((x, y, width, height, pageX, pageY) => {
+      animPosition.setValue({ x: pageX, y: pageY });
+      animSize.setValue({ x: width, y: height });
+      setDetail(index, () => {
 
+      });
     });
   };
 
