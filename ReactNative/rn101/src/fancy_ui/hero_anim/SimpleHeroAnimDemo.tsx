@@ -1,24 +1,22 @@
 import React, { useState } from "react";
-import { View, ViewProps, Text, StyleSheet, Image, TouchableWithoutFeedback } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableHighlight } from "react-native";
 
 const picture = require("../../../res/images/icon_red_heart.png");
 
-interface IProps extends ViewProps {
-}
-
-export const SimpleHeroAnimDemo = (props: IProps) => {
+export const SimpleHeroAnimDemo = () => {
   const [isDetail, setIsDetail] = useState(false);
   const imageDetail = isDetail ? picture : null;
 
   function openDetail() {
+    console.log(`szw open`);
     setIsDetail(true);
   }
 
   return (
     <View style={styles.container}>
-      <TouchableWithoutFeedback onPress={openDetail}>
-        <Image style={styles.iv1} source={picture}/>
-      </TouchableWithoutFeedback>
+
+      <Image style={styles.iv1} source={picture}/>
+      <Text onPress={openDetail}> List Screen </Text>
 
       <View style={StyleSheet.absoluteFill}>
         <Image style={styles.iv2} source={imageDetail}/>
@@ -30,11 +28,11 @@ export const SimpleHeroAnimDemo = (props: IProps) => {
 
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { flex: 1 },
   iv1: {
     width: 134,
     height: 125,
-    margin: 20
+    margin: 20,
   },
   iv2: {
     width: 320,
