@@ -9,7 +9,7 @@ import { DebounceDemo } from "./performance/DebounceDemo";
 export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
   const { navigation, screenProps } = props;
-  console.log(`szw HomeScreeen `, screenProps);//=> 'szw HomeScreeen ', { bg: 'green', textColor: 'white' }
+  // console.log(`szw HomeScreeen `, screenProps);//=> 'szw HomeScreeen ', { bg: 'green', textColor: 'white' }
 
 
   return (

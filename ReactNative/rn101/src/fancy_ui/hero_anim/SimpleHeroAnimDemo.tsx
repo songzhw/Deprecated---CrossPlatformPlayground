@@ -6,10 +6,15 @@ const picture = require("../../../res/images/icon_red_heart.png");
 export const SimpleHeroAnimDemo = () => {
   const [isDetail, setIsDetail] = useState(false);
   const imageDetail = isDetail ? picture : null;
+  const modalClickable = isDetail ? "auto" : "none";
+
 
   function openDetail() {
-    console.log(`szw open`);
     setIsDetail(true);
+  }
+
+  function closeDetail() {
+    setIsDetail(false);
   }
 
   return (
@@ -18,8 +23,9 @@ export const SimpleHeroAnimDemo = () => {
       <Image style={styles.iv1} source={picture}/>
       <Text onPress={openDetail}> List Screen </Text>
 
-      <View style={StyleSheet.absoluteFill}>
+      <View style={StyleSheet.absoluteFill} pointerEvents={modalClickable}>
         <Image style={styles.iv2} source={imageDetail}/>
+        <Text onPress={closeDetail}> DetailScreen </Text>
       </View>
 
     </View>
@@ -32,7 +38,7 @@ const styles = StyleSheet.create({
   iv1: {
     width: 134,
     height: 125,
-    margin: 20,
+    margin: 20
   },
   iv2: {
     width: 320,
