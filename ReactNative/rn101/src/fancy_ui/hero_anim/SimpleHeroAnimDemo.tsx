@@ -9,8 +9,8 @@ export const SimpleHeroAnimDemo = () => {
   const modalClickable = isDetail ? "auto" : "none";
   const detailText = isDetail ? "DetailText" : null;
   const bg = isDetail ? "#ccc" : "#0000";
-  const [width, setWidth] = useState(new Animated.Value(0));
-  const [height, setHeight] = useState(new Animated.Value(0));
+  const [width, setWidth] = useState(new Animated.Value(134));
+  const [height, setHeight] = useState(new Animated.Value(125));
 
   function openDetail() {
     setIsDetail(true);
@@ -22,18 +22,18 @@ export const SimpleHeroAnimDemo = () => {
 
   function closeDetail() {
     setIsDetail(false);
-    width.setValue(0);
-    height.setValue(0);
+    width.setValue(134);
+    height.setValue(125);
   }
 
   return (
     <View style={styles.container}>
-
+      <View style={styles.empty}/>
       <Image style={styles.iv1} source={picture}/>
       <Text onPress={openDetail}> List Screen </Text>
 
-      <View style={[StyleSheet.absoluteFill, {backgroundColor: bg}]} pointerEvents={modalClickable}>
-        <Animated.Image style={[styles.iv2, { x: width, y: height, width: 134, height: 125 }]} source={imageDetail}/>
+      <View style={[StyleSheet.absoluteFill, { backgroundColor: bg }]} pointerEvents={modalClickable}>
+        <Animated.Image style={[styles.iv2, { width: width, height: height }]} source={imageDetail}/>
         <Text onPress={closeDetail}> {detailText} </Text>
       </View>
 
@@ -44,6 +44,9 @@ export const SimpleHeroAnimDemo = () => {
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
+  empty: {
+    height: 200
+  },
   iv1: {
     width: 134,
     height: 125,
