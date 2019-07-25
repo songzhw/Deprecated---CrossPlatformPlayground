@@ -33,7 +33,7 @@ export const SimpleHeroAnimDemo = () => {
       <Text onPress={openDetail}> List Screen </Text>
 
       <View style={[StyleSheet.absoluteFill, {backgroundColor: bg}]} pointerEvents={modalClickable}>
-        <Animated.Image style={[styles.iv2, { left: width, top: height, width: 134, height: 125 }]} source={imageDetail}/>
+        <Animated.Image style={[styles.iv2, { x: width, y: height, width: 134, height: 125 }]} source={imageDetail}/>
         <Text onPress={closeDetail}> {detailText} </Text>
       </View>
 
