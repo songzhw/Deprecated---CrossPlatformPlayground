@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableHighlight } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableHighlight, Animated } from "react-native";
 
 const picture = require("../../../res/images/icon_red_heart.png");
 
@@ -8,9 +8,15 @@ export const SimpleHeroAnimDemo = () => {
   const imageDetail = isDetail ? picture : null;
   const modalClickable = isDetail ? "auto" : "none";
   const detailText = isDetail ? "DetailText" : null;
+  const [width, setWidth] = useState(new Animated.Value(134));
+  const [height, setHeight] = useState(new Animated.Value(125));
 
   function openDetail() {
     setIsDetail(true);
+    Animated.parallel([
+      Animated.timing(width, { toValue: 320, duration: 1000 }),
+      Animated.timing(height, { toValue: 300, duration: 1000 })
+    ]).start();
   }
 
   function closeDetail() {
@@ -24,7 +30,7 @@ export const SimpleHeroAnimDemo = () => {
       <Text onPress={openDetail}> List Screen </Text>
 
       <View style={StyleSheet.absoluteFill} pointerEvents={modalClickable}>
-        <Image style={styles.iv2} source={imageDetail}/>
+        <Animated.Image style={[styles.iv2, { width: width, height: height }]} source={imageDetail}/>
         <Text onPress={closeDetail}> {detailText} </Text>
       </View>
 
@@ -41,8 +47,6 @@ const styles = StyleSheet.create({
     margin: 20
   },
   iv2: {
-    width: 320,
-    height: 300,
     margin: 20
   }
 });
