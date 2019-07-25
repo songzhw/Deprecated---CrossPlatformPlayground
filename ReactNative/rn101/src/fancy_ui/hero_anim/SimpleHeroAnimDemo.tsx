@@ -31,7 +31,7 @@ export const SimpleHeroAnimDemo = () => {
       <Image style={styles.iv1} source={picture}/>
       <Text onPress={openDetail}> List Screen </Text>
 
-      <View style={StyleSheet.absoluteFill} pointerEvents={modalClickable}>
+      <View style={[StyleSheet.absoluteFill, styles.modal]} pointerEvents={modalClickable}>
         <Animated.Image style={[styles.iv2, { width: width, height: height }]} source={imageDetail}/>
         <Text onPress={closeDetail}> {detailText} </Text>
       </View>
@@ -50,5 +50,8 @@ const styles = StyleSheet.create({
   },
   iv2: {
     margin: 20
+  },
+  modal:{
+    backgroundColor: '#ccc'
   }
 });
