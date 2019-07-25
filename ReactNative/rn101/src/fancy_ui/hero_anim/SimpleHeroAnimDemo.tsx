@@ -8,6 +8,7 @@ export const SimpleHeroAnimDemo = () => {
   const imageDetail = isDetail ? picture : null;
   const modalClickable = isDetail ? "auto" : "none";
   const detailText = isDetail ? "DetailText" : null;
+  const bg = isDetail ? "#ccc" : "#0000";
   const [width, setWidth] = useState(new Animated.Value(134));
   const [height, setHeight] = useState(new Animated.Value(125));
 
@@ -31,7 +32,7 @@ export const SimpleHeroAnimDemo = () => {
       <Image style={styles.iv1} source={picture}/>
       <Text onPress={openDetail}> List Screen </Text>
 
-      <View style={[StyleSheet.absoluteFill, styles.modal]} pointerEvents={modalClickable}>
+      <View style={[StyleSheet.absoluteFill, {backgroundColor: bg}]} pointerEvents={modalClickable}>
         <Animated.Image style={[styles.iv2, { width: width, height: height }]} source={imageDetail}/>
         <Text onPress={closeDetail}> {detailText} </Text>
       </View>
@@ -50,8 +51,5 @@ const styles = StyleSheet.create({
   },
   iv2: {
     margin: 20
-  },
-  modal:{
-    backgroundColor: '#ccc'
   }
 });
