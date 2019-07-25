@@ -21,6 +21,8 @@ export const SimpleHeroAnimDemo = () => {
 
   function closeDetail() {
     setIsDetail(false);
+    width.setValue(134);
+    height.setValue(125);
   }
 
   return (
