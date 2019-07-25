@@ -7,7 +7,7 @@ export const SimpleHeroAnimDemo = () => {
   const [isDetail, setIsDetail] = useState(false);
   const imageDetail = isDetail ? picture : null;
   const modalClickable = isDetail ? "auto" : "none";
-
+  const detailText = isDetail ? "DetailText" : null;
 
   function openDetail() {
     setIsDetail(true);
@@ -25,7 +25,7 @@ export const SimpleHeroAnimDemo = () => {
 
       <View style={StyleSheet.absoluteFill} pointerEvents={modalClickable}>
         <Image style={styles.iv2} source={imageDetail}/>
-        <Text onPress={closeDetail}> DetailScreen </Text>
+        <Text onPress={closeDetail}> {detailText} </Text>
       </View>
 
     </View>
