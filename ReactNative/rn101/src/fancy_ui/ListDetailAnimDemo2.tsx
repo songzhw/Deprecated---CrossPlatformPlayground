@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { MutableRefObject, useRef, useState } from "react";
 import {
   Image,
   View,
@@ -23,13 +23,17 @@ const images = [
 
 export const ListDetailAnimDemo2 = () => {
   const [detail, setDetail] = useState(-1);
+  const imageViewRef : MutableRefObject<any>[]= [];
+  for (let i in images) {
+    imageViewRef[i] = useRef(null);
+  }
 
   const imageViews = images.map((image, index) => {
     return (
       <TouchableWithoutFeedback
         onPress={() => openDetail(index)} key={index + ""}>
         <View style={{ width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 150, paddingBottom: 15 }}>
-          <Image source={image} style={{ flex: 1, resizeMode: "cover" }}/>
+          <Image source={image} style={{ flex: 1, resizeMode: "cover" }} ref={imageViewRef[index]}/>
         </View>
       </TouchableWithoutFeedback>
     );
@@ -38,32 +42,41 @@ export const ListDetailAnimDemo2 = () => {
   const openDetail = (index: number) => {
     console.log(`szw openDetail, ${index}`);
     setDetail(index);
+
+    imageViewRef[index].measure((x, y, width, height, pageX, pageY) => {
+
+    });
   };
 
   const closeDetail = () => {
     setDetail(-1);
   };
 
+  const opacityStyle = {
+    opacity: detail !== -1 ? 1 : 0
+  };
+
   return (
     <View style={styles.container}>
 
       {/*List*/}
-      <ScrollView style={{ flex: 1, padding: 20 }}>
+      <ScrollView style={styles.listContainer}>
         {imageViews}
       </ScrollView>
 
       {/*Detail*/}
       <View style={StyleSheet.absoluteFill} pointerEvents={detail !== -1 ? "auto" : "none"}>
 
-        <View style={{ flex: 2, opacity: detail !== -1 ? 1 : 0 }}>
+        <View style={[{ flex: 2 }, opacityStyle]}>
           <Image source={images[detail]} style={{ flex: 1 }} resizeMode={"cover"}/>
         </View>
 
-        <View style={{ opacity: detail !== -1 ? 1 : 0, backgroundColor: "green", flex: 1 }}
+        <View style={[{ backgroundColor: "green", flex: 1 }, opacityStyle]}
               pointerEvents={detail !== -1 ? "auto" : "none"}>
           <Text style={{ fontSize: 44, color: "#f00" }} onPress={closeDetail}>This is the Detail popup : index
             = {detail}</Text>
         </View>
+
       </View>
 
 
@@ -73,5 +86,8 @@ export const ListDetailAnimDemo2 = () => {
 
 
 const styles = StyleSheet.create({
-  container: { flex: 1 }
+  container: { flex: 1 },
+  listContainer: {
+    flex: 1, padding: 20
+  }
 });
