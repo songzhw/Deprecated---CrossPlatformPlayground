@@ -10,6 +10,7 @@ import {
   TouchableWithoutFeedback
 } from "react-native";
 import { useSelector } from "react-redux";
+import { JSXElement } from "@babel/types";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
@@ -23,17 +24,14 @@ const images = [
 
 export const ListDetailAnimDemo2 = () => {
   const [detail, setDetail] = useState(-1);
-  const imageViewRef : MutableRefObject<any>[]= [];
-  for (let i in images) {
-    imageViewRef[i] = useRef(null);
-  }
+  const imageViewRef : (Image|null)[] = [];
 
   const imageViews = images.map((image, index) => {
     return (
       <TouchableWithoutFeedback
         onPress={() => openDetail(index)} key={index + ""}>
         <View style={{ width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 150, paddingBottom: 15 }}>
-          <Image source={image} style={{ flex: 1, resizeMode: "cover" }} ref={imageViewRef[index]}/>
+          <Image source={image} style={{ flex: 1, resizeMode: "cover" }} ref={iv => imageViewRef[index] = iv}/>
         </View>
       </TouchableWithoutFeedback>
     );
@@ -43,7 +41,7 @@ export const ListDetailAnimDemo2 = () => {
     console.log(`szw openDetail, ${index}`);
     setDetail(index);
 
-    imageViewRef[index].measure((x, y, width, height, pageX, pageY) => {
+    imageViewRef[index]!.measure((x, y, width, height, pageX, pageY) => {
 
     });
   };
