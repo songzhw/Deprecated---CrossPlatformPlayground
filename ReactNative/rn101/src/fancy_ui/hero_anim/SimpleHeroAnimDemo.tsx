@@ -9,21 +9,21 @@ export const SimpleHeroAnimDemo = () => {
   const modalClickable = isDetail ? "auto" : "none";
   const detailText = isDetail ? "DetailText" : null;
   const bg = isDetail ? "#ccc" : "#0000";
-  const [width, setWidth] = useState(new Animated.Value(134));
-  const [height, setHeight] = useState(new Animated.Value(125));
+  const [width, setWidth] = useState(new Animated.Value(0));
+  const [height, setHeight] = useState(new Animated.Value(0));
 
   function openDetail() {
     setIsDetail(true);
     Animated.parallel([
-      Animated.timing(width, { toValue: 320, duration: 1000 }),
-      Animated.timing(height, { toValue: 300, duration: 1000 })
+      Animated.timing(width, { toValue: 320, duration: 3000 }),
+      Animated.timing(height, { toValue: 300, duration: 3000 })
     ]).start();
   }
 
   function closeDetail() {
     setIsDetail(false);
-    width.setValue(134);
-    height.setValue(125);
+    width.setValue(0);
+    height.setValue(0);
   }
 
   return (
@@ -33,7 +33,7 @@ export const SimpleHeroAnimDemo = () => {
       <Text onPress={openDetail}> List Screen </Text>
 
       <View style={[StyleSheet.absoluteFill, {backgroundColor: bg}]} pointerEvents={modalClickable}>
-        <Animated.Image style={[styles.iv2, { width: width, height: height }]} source={imageDetail}/>
+        <Animated.Image style={[styles.iv2, { left: width, top: height, width: 134, height: 125 }]} source={imageDetail}/>
         <Text onPress={closeDetail}> {detailText} </Text>
       </View>
 
