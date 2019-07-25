@@ -15,10 +15,10 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 
 const images = [
-  require("../../res/images/wallpaper01.jpg"),
-  require("../../res/images/wallpaper02.jpg"),
-  require("../../res/images/wallpaper03.jpg"),
-  require("../../res/images/wallpaper04.jpg")
+  require("../../../res/images/wallpaper01.jpg"),
+  require("../../../res/images/wallpaper02.jpg"),
+  require("../../../res/images/wallpaper03.jpg"),
+  require("../../../res/images/wallpaper04.jpg")
 ];
 
 
