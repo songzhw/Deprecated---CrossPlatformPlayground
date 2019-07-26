@@ -12,6 +12,7 @@ export const SimpleHeroAnimDemo = () => {
   const [width, setWidth] = useState(new Animated.Value(134));
   const [height, setHeight] = useState(new Animated.Value(125));
 
+
   function openDetail() {
     setIsDetail(true);
     Animated.parallel([
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
   iv1: {
     width: 134,
     height: 125,
-    margin: 20
+    left: 100
   },
   iv2: {
     margin: 20
