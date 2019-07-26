@@ -11,14 +11,15 @@ export const SimpleHeroAnimDemo = () => {
   const bg = isDetail ? "#ccc" : "#0000";
   const [width, setWidth] = useState(new Animated.Value(134));
   const [height, setHeight] = useState(new Animated.Value(125));
-  const [left, setLeft] = useState();
-  const [top, setTop] = useState();
+  const [left, setLeft] = useState(new Animated.Value(0));
+  const [top, setTop] = useState(new Animated.Value(0));
   let iv1: Image | null;
 
   useEffect(() => {
     if (isDetail) {
       return;
     }
+
 
     Animated.parallel([
       Animated.timing(width, { toValue: 320, duration: 3000 }),
@@ -27,16 +28,15 @@ export const SimpleHeroAnimDemo = () => {
       Animated.timing(top, { toValue: 0, duration: 3000 })
     ]).start();
 
-  }, [left]);
+  }, [isDetail]);
 
   function openDetail() {
-    setIsDetail(true);
-
     iv1!.measure((x, y, width, height, pageX, pageY) => {
       // 见下面, 可见x, y无用 ;  pageX, pageY是(x,y)位置 ;  width, heigth就是宽高了
       console.log("szw ", x, y, width, height, pageX, pageY); //=>  0, 0, 134, 125, 100, 256
       setLeft(new Animated.Value(pageX));
       setTop(new Animated.Value(pageY));
+      setIsDetail(true);
     });
   }
 
