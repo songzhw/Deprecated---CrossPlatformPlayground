@@ -11,6 +11,8 @@ export const SimpleHeroAnimDemo = () => {
   const bg = isDetail ? "#ccc" : "#0000";
   const [width, setWidth] = useState(new Animated.Value(134));
   const [height, setHeight] = useState(new Animated.Value(125));
+  const [left, setLeft] = useState(new Animated.Value(100))
+  const [top, setTop] = useState(new Animated.Value(0))
 
 
   function openDetail() {
