@@ -1,13 +1,24 @@
 import React, { Component, useEffect, useState } from "react";
-import { View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableHighlight, Animated } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableWithoutFeedback,
+  TouchableHighlight,
+  Animated,
+  Dimensions
+} from "react-native";
 
-const picture = require("../../../res/images/icon_red_heart.png");
+const picture = require("../../../res/images/wlake.jpg");
+const screenWidth = Dimensions.get("window").width;
+const height2 = screenWidth * 322 / 509;
 
 export class SimpleHeroAnimDemo extends Component {
   state = {
     isDetail: false,
-    width: new Animated.Value(134),
-    height: new Animated.Value(134),
+    width: new Animated.Value(170),
+    height: new Animated.Value(107),
     left: new Animated.Value(0),
     top: new Animated.Value(0)
   };
@@ -23,8 +34,8 @@ export class SimpleHeroAnimDemo extends Component {
         this.state.left.setValue(pageX);
         this.state.top.setValue(pageY);
         Animated.parallel([
-          Animated.timing(this.state.width, { toValue: 320, duration: 3000 }),
-          Animated.timing(this.state.height, { toValue: 300, duration: 3000 }),
+          Animated.timing(this.state.width, { toValue: screenWidth, duration: 3000 }),
+          Animated.timing(this.state.height, { toValue: height2, duration: 3000 }),
           Animated.timing(this.state.left, { toValue: 0, duration: 3000 }),
           Animated.timing(this.state.top, { toValue: 0, duration: 3000 })
         ]).start();
@@ -34,8 +45,8 @@ export class SimpleHeroAnimDemo extends Component {
 
   closeDetail = () => {
     this.setState({ isDetail: false });
-    this.state.width.setValue(134);
-    this.state.height.setValue(125);
+    this.state.width.setValue(170);
+    this.state.height.setValue(107);
     this.state.left.setValue(100);
     // TODO this is temporary
     this.state.top.setValue(256);
@@ -75,11 +86,9 @@ const styles = StyleSheet.create({
     height: 200
   },
   iv1: {
-    width: 134,
-    height: 125,
+    width: 170,
+    height: 107,
     left: 100
   },
-  iv2: {
-    margin: 20
-  }
+  iv2: {}
 });
