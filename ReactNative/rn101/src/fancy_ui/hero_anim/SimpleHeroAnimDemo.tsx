@@ -11,10 +11,6 @@ export class SimpleHeroAnimDemo extends Component {
     left: new Animated.Value(0),
     top: new Animated.Value(0)
   };
-  imageDetail = this.state.isDetail ? picture : null;
-  modalClickable: "auto" | "none" = this.state.isDetail ? "auto" : "none";
-  detailText = this.state.isDetail ? "DetailText" : null;
-  bg = this.state.isDetail ? "#ccc" : "#0000";
   iv1: Image | null = null;
 
 
@@ -46,20 +42,25 @@ export class SimpleHeroAnimDemo extends Component {
   };
 
   render() {
+    const imageDetail = this.state.isDetail ? picture : null;
+    const modalClickable: "auto" | "none" = this.state.isDetail ? "auto" : "none";
+    const detailText = this.state.isDetail ? "DetailText" : null;
+    const bg = this.state.isDetail ? "#ccc" : "#0000";
+
     return (
       <View style={styles.container}>
         <View style={styles.empty}/>
         <Image ref={view => this.iv1 = view} style={styles.iv1} source={picture}/>
         <Text onPress={this.openDetail}> List Screen </Text>
 
-        <View style={[StyleSheet.absoluteFill, { backgroundColor: this.bg }]} pointerEvents={this.modalClickable}>
-          <Animated.Image source={this.imageDetail} style={[styles.iv2, {
+        <View style={[StyleSheet.absoluteFill]} pointerEvents={modalClickable}>
+          <Animated.Image source={imageDetail} style={[styles.iv2, {
             left: this.state.left,
             top: this.state.top,
             width: this.state.width,
             height: this.state.height
           }]}/>
-          <Text onPress={this.closeDetail}> {this.detailText} </Text>
+          <Text onPress={this.closeDetail}> {detailText} </Text>
         </View>
 
       </View>
