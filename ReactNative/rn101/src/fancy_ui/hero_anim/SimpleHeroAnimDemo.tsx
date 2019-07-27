@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Image,
   Animated,
-  Dimensions
+  Dimensions, Easing
 } from "react-native";
 import { Header, NavigationScreenProps, ScreenProps } from "react-navigation";
 
@@ -39,10 +39,10 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
         this.state.left.setValue(pageX);
         this.state.top.setValue(realY);
         Animated.parallel([
-          Animated.timing(this.state.width, { toValue: screenWidth, duration: ANIM_DURATION }),
-          Animated.timing(this.state.height, { toValue: height2, duration: ANIM_DURATION }),
-          Animated.timing(this.state.left, { toValue: 0, duration: ANIM_DURATION }),
-          Animated.timing(this.state.top, { toValue: 0, duration: ANIM_DURATION })
+          Animated.timing(this.state.width, { toValue: screenWidth, duration: ANIM_DURATION, easing: Easing.back(1) }),
+          Animated.timing(this.state.height, { toValue: height2, duration: ANIM_DURATION, easing: Easing.back(1) }),
+          Animated.timing(this.state.left, { toValue: 0, duration: ANIM_DURATION, easing: Easing.back(1) }),
+          Animated.timing(this.state.top, { toValue: 0, duration: ANIM_DURATION, easing: Easing.back(1) })
         ]).start();
       });
     });
@@ -63,6 +63,14 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
     const detailText = this.state.isDetail ? "DetailText" : null;
     const bg = this.state.isDetail ? "#ccc" : "#0000";
 
+    const yAnimStyle = this.state.width.interpolate({
+      inputRange: [170, screenWidth],
+      outputRange: [330, 0]
+    });
+    const tv2AnimStyle = { transform: [{ translateY: yAnimStyle }] };
+
+
+
     return (
       <View style={styles.container}>
         <View style={styles.empty}/>
@@ -76,7 +84,9 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
             width: this.state.width,
             height: this.state.height
           }]}/>
-          <Text style={[styles.tv2, { backgroundColor: bg }]} onPress={this.closeDetail}> {detailText} </Text>
+          <Animated.View style={[{ flex: 1 }, tv2AnimStyle]}>
+            <Text style={styles.tv2} onPress={this.closeDetail}> {detailText} </Text>
+          </Animated.View>
         </View>
 
       </View>
@@ -98,7 +108,6 @@ const styles = StyleSheet.create({
     left: 100
   },
   tv2: {
-    flex: 1,
     fontSize: 40
   }
 });
