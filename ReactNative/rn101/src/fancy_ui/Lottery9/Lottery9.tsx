@@ -1,23 +1,24 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, ViewProps } from "react-native";
+import { ILotteryModal } from "./LotteryData";
 
 // 690 * 586 =>
 
 interface IProps extends ViewProps {
+  data: ILotteryModal[]
 }
 
 class Lottery9 extends React.Component<IProps> {
   state = {};
 
   render() {
+    const children = this.props.data.map((item, index) => {
+      return <Image source={{ uri: item.url }} style={styles.item}/>;
+    });
+
     return (
       <View style={[this.props.style, styles.container]}>
-        <Text style={styles.item}>001</Text>
-        <Text style={styles.item}>002</Text>
-        <Text style={styles.item}>003</Text>
-        <Text style={styles.item}>004</Text>
-        <Text style={styles.item}>005</Text>
-        <Text style={styles.item}>006</Text>
+        {children}
       </View>
     );
   }
