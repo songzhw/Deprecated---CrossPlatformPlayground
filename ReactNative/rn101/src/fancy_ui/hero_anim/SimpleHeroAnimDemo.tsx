@@ -67,9 +67,14 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
       inputRange: [170, screenWidth],
       outputRange: [330, 0]
     });
-    const tv2AnimStyle = { transform: [{ translateY: yAnimStyle }] };
-
-
+    const opacityAnimSylte = this.state.width.interpolate({
+      inputRange: [170, screenWidth],
+      outputRange: [0, 1]
+    });
+    const tv2AnimStyle = {
+      opacity: opacityAnimSylte,
+      transform: [{ translateY: yAnimStyle }]
+    };
 
     return (
       <View style={styles.container}>
@@ -84,7 +89,7 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
             width: this.state.width,
             height: this.state.height
           }]}/>
-          <Animated.View style={[{ flex: 1 }, tv2AnimStyle]}>
+          <Animated.View style={[{ flex: 1, backgroundColor: "grey" }, tv2AnimStyle]}>
             <Text style={styles.tv2} onPress={this.closeDetail}> {detailText} </Text>
           </Animated.View>
         </View>
