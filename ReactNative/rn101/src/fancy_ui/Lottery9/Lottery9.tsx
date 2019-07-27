@@ -13,7 +13,7 @@ class Lottery9 extends React.Component<IProps> {
 
   render() {
     const children = this.props.data.map((item, index) => {
-      return <Image source={{ uri: item.url }} style={styles.item}/>;
+      return <Image source={{ uri: item.url }} style={styles.item} key={`item${index}`}/>;
     });
 
     return (
