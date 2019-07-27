@@ -17,9 +17,6 @@ const ANIM_DURATION = 1000;
 type IProps = NavigationScreenProps & ScreenProps;
 
 export class SimpleHeroAnimDemo extends Component<IProps> {
-  static navigationOptions = {
-    header: null
-  };
 
   state = {
     isDetail: false,
