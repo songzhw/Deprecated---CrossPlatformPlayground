@@ -9,7 +9,7 @@ export const Lottery9Demo = (props: IProps) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.center}/>
+      <Lottery9 style={styles.center}/>
     </View>
   );
 };
@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
   center: {
     width: 345,
     height: 293,
-
     backgroundColor: "red"
   }
 });

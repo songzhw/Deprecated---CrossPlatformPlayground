@@ -11,7 +11,7 @@ class Lottery9 extends React.Component<IProps> {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[this.props.style, styles.container]}>
       </View>
     );
   }
