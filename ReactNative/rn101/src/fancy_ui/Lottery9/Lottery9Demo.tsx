@@ -18,13 +18,14 @@ export const Lottery9Demo = (props: IProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "grey"
   },
   center: {
     width: 345,
     height: 293,
-    justifyContent: "center",
-    alignItems: "center",
+
     backgroundColor: "red"
   }
 });
