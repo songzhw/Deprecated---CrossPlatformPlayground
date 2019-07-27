@@ -70,13 +70,13 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
         <Text onPress={this.openDetail}> List Screen </Text>
 
         <View style={[StyleSheet.absoluteFill]} pointerEvents={modalClickable}>
-          <Animated.Image source={imageDetail} style={[ {
+          <Animated.Image source={imageDetail} style={[{
             left: this.state.left,
             top: this.state.top,
             width: this.state.width,
             height: this.state.height
           }]}/>
-          <Text onPress={this.closeDetail}> {detailText} </Text>
+          <Text style={styles.tv2} onPress={this.closeDetail}> {detailText} </Text>
         </View>
 
       </View>
@@ -96,5 +96,9 @@ const styles = StyleSheet.create({
     width: 170,
     height: 107,
     left: 100
+  },
+  tv2: {
+    flex: 1,
+    backgroundColor: "grey"
   }
 });
