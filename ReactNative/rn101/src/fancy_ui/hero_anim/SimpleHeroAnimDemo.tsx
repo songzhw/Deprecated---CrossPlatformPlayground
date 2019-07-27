@@ -17,7 +17,7 @@ type IProps = NavigationScreenProps & ScreenProps;
 
 export class SimpleHeroAnimDemo extends Component<IProps> {
   static navigationOptions = {
-    headerLeft: null
+    header: null
   };
 
   state = {
