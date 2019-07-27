@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import {
   View,
   Text,
@@ -12,6 +12,7 @@ import { NavigationScreenProps, ScreenProps } from "react-navigation";
 const picture = require("../../../res/images/wlake.jpg");
 const screenWidth = Dimensions.get("window").width;
 const height2 = screenWidth * 322 / 509;
+const ANIM_DURATION = 1000;
 
 type IProps = NavigationScreenProps & ScreenProps;
 
@@ -39,10 +40,10 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
         this.state.left.setValue(pageX);
         this.state.top.setValue(pageY);
         Animated.parallel([
-          Animated.timing(this.state.width, { toValue: screenWidth, duration: 3000 }),
-          Animated.timing(this.state.height, { toValue: height2, duration: 3000 }),
-          Animated.timing(this.state.left, { toValue: 0, duration: 3000 }),
-          Animated.timing(this.state.top, { toValue: 0, duration: 3000 })
+          Animated.timing(this.state.width, { toValue: screenWidth, duration: ANIM_DURATION }),
+          Animated.timing(this.state.height, { toValue: height2, duration: ANIM_DURATION }),
+          Animated.timing(this.state.left, { toValue: 0, duration: ANIM_DURATION }),
+          Animated.timing(this.state.top, { toValue: 0, duration: ANIM_DURATION })
         ]).start();
       });
     });
@@ -70,7 +71,7 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
         <Text onPress={this.openDetail}> List Screen </Text>
 
         <View style={[StyleSheet.absoluteFill]} pointerEvents={modalClickable}>
-          <Animated.Image source={imageDetail} style={[styles.iv2, {
+          <Animated.Image source={imageDetail} style={[ {
             left: this.state.left,
             top: this.state.top,
             width: this.state.width,
@@ -86,7 +87,9 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
 
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: {
+    flex: 1
+  },
   empty: {
     height: 200
   },
@@ -94,6 +97,5 @@ const styles = StyleSheet.create({
     width: 170,
     height: 107,
     left: 100
-  },
-  iv2: {}
+  }
 });
