@@ -1,20 +1,25 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component} from "react";
 import {
   View,
   Text,
   StyleSheet,
   Image,
-  TouchableWithoutFeedback,
-  TouchableHighlight,
   Animated,
   Dimensions
 } from "react-native";
+import { NavigationScreenProps, ScreenProps } from "react-navigation";
 
 const picture = require("../../../res/images/wlake.jpg");
 const screenWidth = Dimensions.get("window").width;
 const height2 = screenWidth * 322 / 509;
 
-export class SimpleHeroAnimDemo extends Component {
+type IProps = NavigationScreenProps & ScreenProps;
+
+export class SimpleHeroAnimDemo extends Component<IProps> {
+  static navigationOptions = {
+    headerLeft: null
+  };
+
   state = {
     isDetail: false,
     width: new Animated.Value(170),
