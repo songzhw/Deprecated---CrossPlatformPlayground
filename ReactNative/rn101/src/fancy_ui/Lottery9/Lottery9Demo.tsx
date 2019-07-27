@@ -9,17 +9,22 @@ export const Lottery9Demo = (props: IProps) => {
 
   return (
     <View style={styles.container}>
-      <Lottery9 style={styles.center}/>
+      <View style={styles.center}/>
     </View>
   );
 };
 
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    backgroundColor: "grey"
+  },
   center: {
-    width: 690,
-    height: 586,
+    width: 345,
+    height: 293,
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "red"
   }
 });
