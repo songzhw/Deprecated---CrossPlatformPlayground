@@ -7,12 +7,13 @@ import {
   Animated,
   Dimensions
 } from "react-native";
-import { NavigationScreenProps, ScreenProps } from "react-navigation";
+import { Header, NavigationScreenProps, ScreenProps } from "react-navigation";
 
 const picture = require("../../../res/images/wlake.jpg");
 const screenWidth = Dimensions.get("window").width;
 const height2 = screenWidth * 322 / 509;
 const ANIM_DURATION = 1000;
+const headerHeight = Header.HEIGHT;
 
 type IProps = NavigationScreenProps & ScreenProps;
 
@@ -34,8 +35,9 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
       console.log("szw ", x, y, width, height, pageX, pageY); //=>  0, 0, 134, 125, 100, 256
 
       this.setState({ isDetail: true }, () => {
+        const realY = pageY - headerHeight;
         this.state.left.setValue(pageX);
-        this.state.top.setValue(pageY);
+        this.state.top.setValue(realY);
         Animated.parallel([
           Animated.timing(this.state.width, { toValue: screenWidth, duration: ANIM_DURATION }),
           Animated.timing(this.state.height, { toValue: height2, duration: ANIM_DURATION }),
