@@ -12,6 +12,12 @@ class Lottery9 extends React.Component<IProps> {
   render() {
     return (
       <View style={[this.props.style, styles.container]}>
+        <Text style={styles.item}>001</Text>
+        <Text style={styles.item}>002</Text>
+        <Text style={styles.item}>003</Text>
+        <Text style={styles.item}>004</Text>
+        <Text style={styles.item}>005</Text>
+        <Text style={styles.item}>006</Text>
       </View>
     );
   }
@@ -19,6 +25,11 @@ class Lottery9 extends React.Component<IProps> {
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center"
+  },
+  item: {
     flex: 1
   }
 });
