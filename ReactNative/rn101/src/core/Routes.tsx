@@ -32,6 +32,7 @@ import { LambdaInJsx } from "../rn_tutorial/performance/LambdaInJsx";
 import { ListDetailAnimDemo } from "../fancy_ui/hero_anim/ListDetailAnimDemo";
 import { ListDetailAnimDemo2 } from "../fancy_ui/hero_anim/ListDetailAnimDemo2";
 import { SimpleHeroAnimDemo } from "../fancy_ui/hero_anim/SimpleHeroAnimDemo";
+import { Lottery9Demo } from "../fancy_ui/Lottery9/Lottery9Demo";
 
 const AppNavigator = createStackNavigator(
   {
@@ -40,7 +41,7 @@ const AppNavigator = createStackNavigator(
     ActionSheetDemo, ScrubberDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
     DebounceDemo, LambdaInJsx,
-    SimpleHeroAnimDemo,
+    SimpleHeroAnimDemo, Lottery9Demo,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3,
     StaggerAnimationScreen, GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo
