@@ -76,7 +76,7 @@ export class SimpleHeroAnimDemo extends Component<IProps> {
             width: this.state.width,
             height: this.state.height
           }]}/>
-          <Text style={styles.tv2} onPress={this.closeDetail}> {detailText} </Text>
+          <Text style={[styles.tv2, { backgroundColor: bg }]} onPress={this.closeDetail}> {detailText} </Text>
         </View>
 
       </View>
@@ -99,6 +99,6 @@ const styles = StyleSheet.create({
   },
   tv2: {
     flex: 1,
-    backgroundColor: "grey"
+    fontSize: 40
   }
 });
