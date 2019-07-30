@@ -29,6 +29,7 @@ import { WithoutUseRef } from "./Rtutor/hooks/useref/WithoutUseRef";
 import { WithUseRef } from "./Rtutor/hooks/useref/WithUseRef";
 import { InputParent } from "./Rtutor/hooks/useimerative/MyInput";
 import { MediaDemo } from "./Rtutor/hooks/MediaDemo";
+import { HeavyFuncDemo } from "./Rtutor/hooks/useCallback/before/HeavyFuncDemo";
 
-ReactDOM.render(<MediaDemo/>, document.getElementById("root"));
+ReactDOM.render(<HeavyFuncDemo/>, document.getElementById("root"));
 
