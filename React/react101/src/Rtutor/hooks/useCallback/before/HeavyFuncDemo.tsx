@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useMemo } from "react";
 import { delay } from "../../../../utils/utils";
 
 
@@ -10,10 +10,10 @@ export const HeavyFuncDemo = () => {
     work(id);
   }
 
-  async function work(id: string) {
+  const work = useMemo(async (id: string) => {
     await delay(3000);
     console.log(`work: ${id} : `, new Date());
-  }
+  });
 
   return (
     <div>
