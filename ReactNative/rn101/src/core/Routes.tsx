@@ -28,6 +28,11 @@ import { SplashScreen } from "../biz/splash/SplashScreen";
 import { ArtDemo } from "../rn_tutorial/art/ArtDemo";
 import ArtAnimView from "../rn_tutorial/art/ArtAnimView";
 import { DebounceDemo } from "../performance/DebounceDemo";
+import { LambdaInJsx } from "../rn_tutorial/performance/LambdaInJsx";
+import { ListDetailAnimDemo } from "../fancy_ui/hero_anim/ListDetailAnimDemo";
+import { ListDetailAnimDemo2 } from "../fancy_ui/hero_anim/ListDetailAnimDemo2";
+import { SimpleHeroAnimDemo } from "../fancy_ui/hero_anim/SimpleHeroAnimDemo";
+import { Lottery9Demo } from "../fancy_ui/Lottery9/Lottery9Demo";
 
 const AppNavigator = createStackNavigator(
   {
@@ -35,7 +40,8 @@ const AppNavigator = createStackNavigator(
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
-    DebounceDemo,
+    DebounceDemo, LambdaInJsx,
+    SimpleHeroAnimDemo, Lottery9Demo,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3,
     StaggerAnimationScreen, GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo

@@ -5,21 +5,29 @@ import { FlexLayoutDemo1 } from "./rn_tutorial/layout/FlexLayoutDemo1";
 import { TimerIssue } from "./biz/timer/TimerIssue";
 import { ArtDemo } from "./rn_tutorial/art/ArtDemo";
 import { DebounceDemo } from "./performance/DebounceDemo";
+import { Lottery9Demo } from "./fancy_ui/Lottery9/Lottery9Demo";
 
 export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
   const { navigation, screenProps } = props;
-  console.log(`szw HomeScreeen `, screenProps);//=> 'szw HomeScreeen ', { bg: 'green', textColor: 'white' }
+  // console.log(`szw HomeScreeen `, screenProps);//=> 'szw HomeScreeen ', { bg: 'green', textColor: 'white' }
 
 
   return (
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
 
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>Fancy UI</Text>
+      <HomeButton title="(X) list <-> Detail Anim 2" onPress={() => navigation.navigate("ListDetailAnimDemo2")}/>
+      <HomeButton title="(✔) simple hero anim" onPress={() => navigation.navigate("SimpleHeroAnimDemo")}/>
+      <HomeButton title="九宫格抽奖" onPress={() => navigation.navigate("Lottery9Demo")}/>
+
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>
       <HomeButton title="Debounce + Button" onPress={() => navigation.navigate("DebounceDemo")}/>
+      <HomeButton title="dataset properties" onPress={() => navigation.navigate("LambdaInJsx")}/>
 
 
       <View style={{ height: 8 }}/>
