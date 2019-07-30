@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, ViewProps } from "react-native";
 import { ILotteryModal } from "./LotteryData";
+import { JSXElement } from "@babel/types";
 
 // 690 * 586 =>
 
@@ -12,7 +13,7 @@ class Lottery9 extends React.Component<IProps> {
   state = {};
 
   render() {
-    const children = this.props.data.map((item, index) => {
+    const children: JSX.Element[] = this.props.data.map((item, index) => {
       return <Image source={{ uri: item.url }} style={styles.item} key={`item${index}`}/>;
     });
 
@@ -31,8 +32,9 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   item: {
-    width: 90,
-    height: 100
+    width: 100,
+    height: 90,
+    margin: 5
   }
 });
 

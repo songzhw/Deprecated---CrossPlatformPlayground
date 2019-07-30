@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ViewProps, Text, StyleSheet } from "react-native";
+import { View, ViewProps, Text, StyleSheet, ImageBackground } from "react-native";
 import Lottery9 from "./Lottery9";
 import { LotteryData } from "./LotteryData";
 
@@ -10,6 +10,7 @@ export const Lottery9Demo = (props: IProps) => {
 
   return (
     <View style={styles.container}>
+      <ImageBackground source={require("../../../res/images/lottery_console.png")}/>
       <Lottery9 style={styles.center} data={LotteryData}/>
     </View>
   );
@@ -26,6 +27,5 @@ const styles = StyleSheet.create({
   center: {
     width: 345,
     height: 293,
-    backgroundColor: "red"
   }
 });
