@@ -10,7 +10,7 @@ export const Lottery9Demo = (props: IProps) => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require("../../../res/images/lottery_console.png")}/>
+      <ImageBackground source={require("../../../res/images/lottery_console.png")} style={styles.center}/>
       <Lottery9 style={styles.center} data={LotteryData}/>
     </View>
   );
