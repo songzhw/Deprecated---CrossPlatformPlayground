@@ -10,8 +10,9 @@ export const Lottery9Demo = (props: IProps) => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require("../../../res/images/lottery_console.png")} style={styles.center}/>
-      <Lottery9 style={styles.center} data={LotteryData}/>
+      <ImageBackground source={require("../../../res/images/lottery_console.png")} style={styles.center}>
+        <Lottery9 data={LotteryData}/>
+      </ImageBackground>
     </View>
   );
 };
@@ -27,5 +28,7 @@ const styles = StyleSheet.create({
   center: {
     width: 345,
     height: 293,
+    justifyContent: "center",
+    alignItems: "center",
   }
 });
