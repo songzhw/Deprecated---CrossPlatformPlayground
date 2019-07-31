@@ -27,7 +27,7 @@
 }
 
 .switch-checkbox:checked + .switch-label .switch-span {
-  left: -30px;
+  left: calc(100% - 3px);
 }
 
 .switch-label:active .switch-span {
