@@ -17,7 +17,7 @@ export const Switch = (props: IProps) => {
     <>
       <input className={"switch-checkbox"} id={"switch-new"} type={"checkbox"}/>
       <label className={"switch-label"} htmlFor={"switch-new"} style={bgColor}>
-        <span className={"switch-button"}/>
+        <span className={"switch-span"}/>
       </label>
     </>
   );

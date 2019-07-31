@@ -4,6 +4,7 @@
   visibility: hidden
 }
 
+/*parent*/
 .switch-label {
   display: flex;
   cursor: pointer;
@@ -11,23 +12,26 @@
   height: 50px;
   background: grey;
   border-radius: 26px;
+  position: relative;
 }
 
-.switch-button {
+/*child*/
+.switch-span {
   width: 45px;
   height: 45px;
   border-radius: 45px;
   background: #fff;
-  position: relative;
+  position: absolute;
   top: 3px;
   left: 3px;
   box-shadow: 0 0 3px 0 rgba(10, 10, 10, 0.29);
 }
 
-.switch-check-box:checked + .switch-button {
+.switch-check-box:checked + .switch-label .switch-span {
   left: calc(100% - 2px);
+  transform: translateX(-100%);
 }
 
-.switch-label:active .switch-button {
+.switch-label:active .switch-span {
   width: 60px;
 }
