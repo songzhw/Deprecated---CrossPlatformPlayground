@@ -9,7 +9,7 @@ const defaultProps = {
   isOn: false as boolean
 };
 
-type IProps = IViewProps & Readonly<typeof defaultProps>;
+type IProps = IViewProps & Partial<Readonly<typeof defaultProps>>;
 
 export const Switch = (props: IProps) => {
   return (
