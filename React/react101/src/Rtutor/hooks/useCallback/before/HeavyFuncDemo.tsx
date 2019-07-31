@@ -12,18 +12,19 @@ export const HeavyFuncDemo = () => {
 
   const work = async () => {
     await delay(3000);
-    return count * 20;
+    console.log(`work: result = `, count * 10);
+    return count * 10;
   };
 
 
   const calculator = useMemo(() => {
     return work();
   }, [count]);
-
+  console.log(`caluclator = `, calculator);
 
   return (
     <div>
-      <p>heavy func: {calculator} </p>
+      <p>heavy func: </p>
       {/* tslint:disable-next-line:jsx-no-lambda */}
       <input type={"text"} onChange={e => runFunc(e)}
              placeholder={"set count"}/>
