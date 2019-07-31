@@ -5,7 +5,8 @@ export const SwitchDemo = () => {
 
   return (
     <div style={{display: "flex", margin: "20px"}}>
-      <Switch/>
+      {/* tslint:disable-next-line:jsx-no-lambda */}
+      <Switch onToggle={()=>{}}/>
     </div>
   );
 };

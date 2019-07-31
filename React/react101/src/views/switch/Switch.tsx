@@ -1,8 +1,15 @@
 import React from "react";
 import "./Swtich.css";
 
-interface IProps {
+interface IViewProps {
+  onToggle: () => void
 }
+
+const defaultProps = {
+  isOn: false as boolean
+};
+
+type IProps = IViewProps & Readonly<typeof defaultProps>;
 
 export const Switch = (props: IProps) => {
   return (
