@@ -1,4 +1,4 @@
-import React, { ChangeEvent, memo, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { delay } from "../../../../utils/utils";
 
 
@@ -10,14 +10,16 @@ export const HeavyFuncDemo = () => {
     setCount(value);
   }
 
+  const work = async () => {
+    await delay(3000);
+    return count * 20;
+  };
+
+
   const calculator = useMemo(() => {
     return work();
   }, [count]);
 
-  const work = () => {
-    delay(3000);
-    return count * 20;
-  };
 
   return (
     <div>
