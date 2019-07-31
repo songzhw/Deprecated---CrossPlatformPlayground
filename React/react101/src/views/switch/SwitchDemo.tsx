@@ -4,7 +4,7 @@ import { Switch } from "./Switch";
 export const SwitchDemo = () => {
 
   return (
-    <div>
+    <div style={{display: "flex", margin: "20px"}}>
       <Switch/>
     </div>
   );
