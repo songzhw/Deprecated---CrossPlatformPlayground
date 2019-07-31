@@ -12,7 +12,6 @@
   height: 50px;
   background: grey;
   border-radius: 26px;
-  position: relative;
 }
 
 /*child*/
@@ -21,15 +20,14 @@
   height: 45px;
   border-radius: 45px;
   background: #fff;
-  position: absolute;
+  position: relative;
   top: 3px;
   left: 3px;
   box-shadow: 0 0 3px 0 rgba(10, 10, 10, 0.29);
 }
 
-.switch-check-box:checked + .switch-label .switch-span {
-  left: calc(100% - 2px);
-  transform: translateX(-100%);
+.switch-checkbox:checked + .switch-label .switch-span {
+  left: -30px;
 }
 
 .switch-label:active .switch-span {
