@@ -13,7 +13,7 @@ export const HeavyFuncDemo = () => {
   const work = useMemo(async (id: string) => {
     await delay(3000);
     console.log(`work: ${id} : `, new Date());
-  });
+  }, [id]);
 
   return (
     <div>
