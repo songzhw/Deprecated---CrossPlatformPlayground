@@ -5,6 +5,7 @@ export const SwitchDemo = () => {
   const [isOn, setIsOn] = useState(false);
 
   function toggle() {
+    console.log(`demo: toggle: `, isOn)
     setIsOn(!isOn);
   }
 

@@ -12,6 +12,7 @@ type IProps = IViewProps & Partial<Readonly<typeof defaultProps>>;
 
 export const Switch = (props: IProps) => {
   const bgColor = { background: props.isOn ? "#06d6a0" : "grey" };
+  console.log(`szw bg = `, bgColor, props.isOn);
 
   return (
     <>
