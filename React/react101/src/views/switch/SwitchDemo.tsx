@@ -11,7 +11,6 @@ export const SwitchDemo = () => {
 
   return (
     <div style={{ display: "flex", margin: "20px" }}>
-      {/* tslint:disable-next-line:jsx-no-lambda */}
       <Switch onToggle={toggle} isOn={isOn}/>
     </div>
   );

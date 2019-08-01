@@ -4,7 +4,6 @@ import "./Swtich.css";
 interface IViewProps {
   onToggle: () => void
 }
-
 const defaultProps = {
   isOn: false as boolean
 };
@@ -16,7 +15,7 @@ export const Switch = (props: IProps) => {
 
   return (
     <>
-      <input className={"switch-checkbox"} id={"switch-new"} type={"checkbox"}/>
+      <input className={"switch-checkbox"} id={"switch-new"} type={"checkbox"} onChange={props.onToggle}/>
       <label className={"switch-label"} htmlFor={"switch-new"} style={bgColor}>
         <span className={"switch-span"}/>
       </label>
