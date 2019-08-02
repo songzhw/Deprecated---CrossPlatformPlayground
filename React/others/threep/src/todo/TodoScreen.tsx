@@ -2,6 +2,7 @@ import React, { ChangeEvent } from "react";
 import { connect } from "react-redux";
 import { IAppState, ITodoItem } from "./TodoReducer";
 import { Dispatch } from "redux";
+import { createSelector } from "reselect";
 
 interface _IProps {
 }
@@ -36,6 +37,7 @@ export const _TodoScreen = (props: IProps) => {
     );
   });
 
+
   console.log(`   [render]`);
   return (
     <div>
@@ -54,6 +56,9 @@ export const _TodoScreen = (props: IProps) => {
   );
 };
 
+const dependencyTodos = (state: IAppState) => state.items;
+const dependencyFilter = (state: IAppState) => state.filter;
+
 function getVisibleTodos(todos: ITodoItem[], filter: string) {
   console.log(`   called getVisibleTodos()`);
   switch (filter) {
@@ -66,9 +71,14 @@ function getVisibleTodos(todos: ITodoItem[], filter: string) {
   }
 }
 
+const reselect = createSelector(
+  [dependencyTodos, dependencyFilter],
+  getVisibleTodos
+);
+
 function mapStateToProps(state: IAppState) {
   console.log(`mapStateToProps `, state);
-  const data = getVisibleTodos(state.items, state.filter);
+  const data = reselect(state);
   return { data };
 }
 
