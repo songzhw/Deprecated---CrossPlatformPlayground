@@ -30,6 +30,12 @@ export const _TodoScreen = (props: IProps) => {
 
   return (
     <div>
+      <select>
+        <option value={"all"} selected>All</option>
+        <option value={"active"}>Active</option>
+        <option value={"done"}>Done</option>
+      </select>
+      <p/>
       <button onClick={add}>add item</button>
       <input placeholder={"add one item to do"} type={"text"} onChange={onTextChange}/>
       <ul>{listView}</ul>
