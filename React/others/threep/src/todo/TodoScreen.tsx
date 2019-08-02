@@ -21,19 +21,23 @@ export const _TodoScreen = (props: IProps) => {
     props.actions.add(inputString);
   }
 
+  function filter(e: ChangeEvent<HTMLSelectElement>) {
+    props.actions.filter(e.currentTarget.value);
+  }
+
   const listView = props.data.map((item, index) => {
-    const isCompltedText = item.isComplete ? "✔" : "x";
+    const isCompletedText = item.isComplete ? "✔" : "x";
     return (
-      <li key={`${index}`}> {isCompltedText} {item.description} </li>
+      <li key={`${index}`}> {isCompletedText} {item.description} </li>
     );
   });
 
   return (
     <div>
-      <select>
-        <option value={"all"} selected>All</option>
+      <select defaultValue={"all"} onChange={filter}>
+        <option value={"all"}>All</option>
         <option value={"active"}>Active</option>
-        <option value={"done"}>Done</option>
+        <option value={"completed"}>Completed</option>
       </select>
       <p/>
       <button onClick={add}>add item</button>
@@ -51,7 +55,8 @@ function mapStateToProps(state: IAppState) {
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
     actions: {
-      add: (text: string) => dispatch({ type: "ADD", payload: text })
+      add: (text: string) => dispatch({ type: "ADD", payload: text }),
+      filter: (type: string) => dispatch({ type: "FILTER", payload: type })
     }
   };
 }
