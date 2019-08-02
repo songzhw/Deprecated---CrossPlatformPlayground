@@ -25,6 +25,10 @@ export const _TodoScreen = (props: IProps) => {
     props.actions.filter(e.currentTarget.value);
   }
 
+  function comment() {
+    props.actions.comment(inputString);
+  }
+
   const listView = props.data.map((item, index) => {
     const isCompletedText = item.isComplete ? "✔" : "x";
     return (
@@ -32,6 +36,7 @@ export const _TodoScreen = (props: IProps) => {
     );
   });
 
+  console.log(`   [render]`);
   return (
     <div>
       <select defaultValue={"all"} onChange={filter}>
@@ -39,7 +44,9 @@ export const _TodoScreen = (props: IProps) => {
         <option value={"active"}>Active</option>
         <option value={"completed"}>Completed</option>
       </select>
+      <button onClick={comment}>Comment</button>
       <p/>
+
       <button onClick={add}>add item</button>
       <input placeholder={"add one item to do"} type={"text"} onChange={onTextChange}/>
       <ul>{listView}</ul>
@@ -47,10 +54,9 @@ export const _TodoScreen = (props: IProps) => {
   );
 };
 
-function getVisibleTodos(todos: ITodoItem[], filter: string)  {
+function getVisibleTodos(todos: ITodoItem[], filter: string) {
+  console.log(`   called getVisibleTodos()`);
   switch (filter) {
-    case "all":
-      return todos;
     case "active":
       return todos.filter(x => !x.isComplete);
     case "completed":
@@ -70,7 +76,8 @@ function mapDispatchToProps(dispatch: Dispatch) {
   return {
     actions: {
       add: (text: string) => dispatch({ type: "ADD", payload: text }),
-      filter: (type: string) => dispatch({ type: "FILTER", payload: type })
+      filter: (type: string) => dispatch({ type: "FILTER", payload: type }),
+      comment: (type: string) => dispatch({ type: "COMMENT", payload: type })
     }
   };
 }
