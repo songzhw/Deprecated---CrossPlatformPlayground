@@ -1,9 +1,16 @@
 import React, { ChangeEvent } from "react";
+import { connect, MapStateToProps } from "react-redux";
+import { IAppState } from "./TodoReducer";
+import { Dispatch } from "redux";
 
-interface IProps {
+interface _IProps {
 }
 
-export const TodoScreen = (props: IProps) => {
+type IProps = _IProps
+  & ReturnType<typeof mapDispatchToProps>
+  & ReturnType<typeof mapStateToProps>;
+
+export const _TodoScreen = (props: IProps) => {
   let inputString = "";
 
   function onTextChange(e: ChangeEvent<HTMLInputElement>) {
@@ -11,7 +18,7 @@ export const TodoScreen = (props: IProps) => {
   }
 
   function add() {
-    console.log(`add : `, inputString);
+    props.actions.add(inputString);
   }
 
   return (
@@ -21,4 +28,19 @@ export const TodoScreen = (props: IProps) => {
     </div>
   );
 };
+
+function mapStateToProps(state: IAppState) {
+  console.log(`mapStateToProps `, state);
+  return { data: state.items };
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
+  return {
+    actions: {
+      add: (text: string) => dispatch({ type: "ADD", payload: text })
+    }
+  };
+}
+
+export const TodoScreen = connect(mapStateToProps, mapDispatchToProps)(_TodoScreen);
 

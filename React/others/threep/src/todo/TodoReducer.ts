@@ -1,17 +1,18 @@
 import { AnyAction } from "redux";
 
-interface ITodoItem {
+// TODO should use Constants for Actions
+// TODO model should be in the model.file
+export interface ITodoItem {
   isComplete: boolean;
   description: string;
 }
 
-interface IAppState {
+export interface IAppState {
   items: ITodoItem[]
 }
 
 
 export const TodoReducer = (state: IAppState = { items: [] }, action: AnyAction) => {
-  // TODO should use Constants for Actions
   switch (action.type) {
     case "ADD":
 
