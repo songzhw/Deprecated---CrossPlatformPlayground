@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { connect } from "react-redux";
-import { IAppState } from "./TodoReducer";
+import { IAppState, ITodoItem } from "./TodoReducer";
 import { Dispatch } from "redux";
 
 interface _IProps {
@@ -47,9 +47,21 @@ export const _TodoScreen = (props: IProps) => {
   );
 };
 
+function getVisibleTodos(todos: ITodoItem[], filter: string)  {
+  switch (filter) {
+    case "all":
+      return todos;
+    case "active":
+      return todos.filter(x => !x.isComplete);
+    case "completed":
+      return todos.filter(x => x.isComplete);
+  }
+}
+
 function mapStateToProps(state: IAppState) {
   console.log(`mapStateToProps `, state);
-  return { data: state.items };
+  const data = getVisibleTodos(state.items, state.filter);
+  return { data };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {

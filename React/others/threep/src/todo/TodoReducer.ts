@@ -23,8 +23,7 @@ export const TodoReducer = (state: IAppState = defaultState, action: AnyAction) 
       console.log("reducer add ", value);
       return value;
     case "FILTER":
-      console.log(`reducer filter: `, action);
-      return state;
+      return { ...state, filter: action.payload };
     default:
       return state;
   }
