@@ -8,11 +8,13 @@ export interface ITodoItem {
 }
 
 export interface IAppState {
-  items: ITodoItem[]
+  items: ITodoItem[];
+  filter: string;
 }
 
+const defaultState = { items: [], filter: "all" } as IAppState;
 
-export const TodoReducer = (state: IAppState = { items: [] }, action: AnyAction) => {
+export const TodoReducer = (state: IAppState = defaultState, action: AnyAction) => {
   switch (action.type) {
     case "ADD":
       const size = state.items.length;
