@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import { connect, MapStateToProps } from "react-redux";
+import { connect } from "react-redux";
 import { IAppState } from "./TodoReducer";
 import { Dispatch } from "redux";
 
@@ -21,10 +21,18 @@ export const _TodoScreen = (props: IProps) => {
     props.actions.add(inputString);
   }
 
+  const listView = props.data.map(item => {
+    const isCompltedText = item.isComplete ? "✔" : "x";
+    return (
+      <li> {isCompltedText} {item.description} </li>
+    );
+  });
+
   return (
     <div>
       <button onClick={add}>add item</button>
       <input placeholder={"add one item to do"} type={"text"} onChange={onTextChange}/>
+      <ul>{listView}</ul>
     </div>
   );
 };
