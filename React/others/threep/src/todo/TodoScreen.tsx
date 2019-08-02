@@ -55,6 +55,8 @@ function getVisibleTodos(todos: ITodoItem[], filter: string)  {
       return todos.filter(x => !x.isComplete);
     case "completed":
       return todos.filter(x => x.isComplete);
+    default:
+      return todos;
   }
 }
 
