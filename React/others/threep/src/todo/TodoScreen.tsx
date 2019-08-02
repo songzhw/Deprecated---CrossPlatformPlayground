@@ -1,17 +1,17 @@
-import React, {ChangeEvent} from "react";
-import {ShapeOutsideProperty} from "csstype";
+import React, { ChangeEvent } from "react";
 
 interface IProps {
 }
 
 export const TodoScreen = (props: IProps) => {
+  let inputString = "";
 
   function onTextChange(e: ChangeEvent<HTMLInputElement>) {
-    console.log(e.currentTarget.value)
+    inputString = e.currentTarget.value;
   }
 
   function add() {
-
+    console.log(`add : `, inputString);
   }
 
   return (
@@ -19,6 +19,6 @@ export const TodoScreen = (props: IProps) => {
       <button onClick={add}>add item</button>
       <input placeholder={"add one item to do"} type={"text"} onChange={onTextChange}/>
     </div>
-  )
-}
+  );
+};
 
