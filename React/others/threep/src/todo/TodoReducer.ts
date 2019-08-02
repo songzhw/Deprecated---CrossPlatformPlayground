@@ -19,7 +19,7 @@ export const TodoReducer = (state: IAppState = defaultState, action: AnyAction) 
     case "ADD":
       const size = state.items.length;
       const todo = { isComplete: size % 2 === 0, description: action.payload };
-      const value = { items: [...state.items, todo] };
+      const value = { filter: state.filter, items: [...state.items, todo] };
       console.log("reducer add ", value);
       return value;
     case "FILTER":
