@@ -21,10 +21,10 @@ export const _TodoScreen = (props: IProps) => {
     props.actions.add(inputString);
   }
 
-  const listView = props.data.map(item => {
+  const listView = props.data.map((item, index) => {
     const isCompltedText = item.isComplete ? "✔" : "x";
     return (
-      <li> {isCompltedText} {item.description} </li>
+      <li key={`${index}`}> {isCompltedText} {item.description} </li>
     );
   });
 

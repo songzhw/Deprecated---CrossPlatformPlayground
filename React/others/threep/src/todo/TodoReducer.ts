@@ -15,7 +15,8 @@ export interface IAppState {
 export const TodoReducer = (state: IAppState = { items: [] }, action: AnyAction) => {
   switch (action.type) {
     case "ADD":
-      const todo = { isComplete: false, description: action.payload };
+      const size = state.items.length;
+      const todo = { isComplete: size % 2 === 0, description: action.payload };
       const value = { items: [...state.items, todo] };
       console.log("reducer add ", value);
       return value;
