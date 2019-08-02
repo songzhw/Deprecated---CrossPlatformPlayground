@@ -10,14 +10,14 @@ interface IAppState {
 }
 
 
-export const TodoReducer = (state: IAppState, action: AnyAction) => {
+export const TodoReducer = (state: IAppState = { items: [] }, action: AnyAction) => {
   // TODO should use Constants for Actions
   switch (action.type) {
     case "ADD":
 
       return state;
     case "FILTER":
-      
+
       return state;
     default:
       return state;
