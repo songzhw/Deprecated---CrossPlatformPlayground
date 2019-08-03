@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { IAppState, ITodoItem } from "../todo/TodoReducer";
 import { Dispatch } from "redux";
 
-
-
+const whyRender = require("@welldone-software/why-did-you-render");
+whyRender(React);
 
 interface _IProps {
 }
@@ -14,6 +14,8 @@ type IProps = _IProps
   & ReturnType<typeof mapStateToProps>;
 
 class _TodoWhyRender extends React.PureComponent<IProps> {
+  static whyDidYouRender = true;
+
   state = {};
   inputString = "";
 
