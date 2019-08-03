@@ -4,9 +4,10 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import App from "./App";
 import { TodoScreen } from "./todo/TodoScreen";
+import { pure } from "recompose";
 
 const whyRender = require("@welldone-software/why-did-you-render");
-whyRender(React, {include: [TodoScreen]});
+whyRender(React, { include: [pure(TodoScreen)] });
 
 ReactDOM.render(<App/>, document.getElementById("root"));
 
