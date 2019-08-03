@@ -4,6 +4,9 @@ import { IAppState, ITodoItem } from "./TodoReducer";
 import { Dispatch } from "redux";
 import { createSelector } from "reselect";
 
+const whyRender = require("@welldone-software/why-did-you-render");
+whyRender(React);
+
 interface _IProps {
 }
 
@@ -55,6 +58,8 @@ export const _TodoScreen = (props: IProps) => {
     </div>
   );
 };
+_TodoScreen.whyDidYouRender = true;
+
 
 const dependencyTodos = (state: IAppState) => state.items;
 const dependencyFilter = (state: IAppState) => state.filter;
@@ -92,5 +97,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
   };
 }
 
-export const TodoScreen = connect(mapStateToProps, mapDispatchToProps)(_TodoScreen);
+const TodoScreen2 = connect(mapStateToProps, mapDispatchToProps)(_TodoScreen);
+TodoScreen2.whyDidYouRender = true;
+export const TodoScreen = TodoScreen2;
 
