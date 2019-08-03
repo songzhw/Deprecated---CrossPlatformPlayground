@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import App from "./App";
+import { TodoScreen } from "./todo/TodoScreen";
+
+const whyRender = require("@welldone-software/why-did-you-render");
+whyRender(React, {include: [TodoScreen]});
 
 ReactDOM.render(<App/>, document.getElementById("root"));
 
