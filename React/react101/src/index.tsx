@@ -31,6 +31,7 @@ import { InputParent } from "./Rtutor/hooks/useimerative/MyInput";
 import { MediaDemo } from "./Rtutor/hooks/MediaDemo";
 import { HeavyFuncDemo } from "./Rtutor/hooks/useCallback/before/HeavyFuncDemo";
 import { SwitchDemo } from "./views/switch/SwitchDemo";
+import { DefaultPropsDemo } from "./typescript/DefaultPropsDemo";
 
-ReactDOM.render(<SwitchDemo/>, document.getElementById("root"));
+ReactDOM.render(<DefaultPropsDemo/>, document.getElementById("root"));
 
