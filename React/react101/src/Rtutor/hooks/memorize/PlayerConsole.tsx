@@ -1,16 +1,17 @@
 import React from "react";
+import iconPause from "../../../../res/images/icons/icon_pause.png"
+import iconPlay from "../../../../res/images/icons/icon_pplay.png"
 
 interface IProps {
   isPause: boolean
 }
 
 export const PlayerConsole = (props: IProps) => {
-  const imageName = props.isPause ? "icon_pause" : "icon_play";
-  const image = `../../../images/icons/${imageName}.png`;
+  const imageName = props.isPause ? iconPause : iconPlay;
   return (
     <div>
       <label>Harry Potter 4</label>
-      <button><img src={"./icon_pause.png"}/></button>
+      <button><img src={imageName}/></button>
     </div>
   );
 };
