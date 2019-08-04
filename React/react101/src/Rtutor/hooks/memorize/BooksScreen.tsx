@@ -2,6 +2,7 @@ import React, { ChangeEvent } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { ACTION_PAUSE, ACTION_PLAY, ACTION_PROGRESS, IAppState } from "./BooksReducer";
+import { PlayerConsole } from "./PlayerConsole";
 
 interface IBasicProps {
 }
@@ -28,7 +29,7 @@ export const _BookScreen = (props: IProps) => {
 
 
   const listView = props.chapters.map((chapter, index) => {
-    const text = `${chapter.id}. ${chapter.name}  (${chapter.progress / chapter.duration})`;
+    const text = `${chapter.id}. ${chapter.name}  (${chapter.progress} / ${chapter.duration})`;
     return (
       <li key={`${index}`}> {text} </li>
     );
@@ -39,6 +40,7 @@ export const _BookScreen = (props: IProps) => {
   return (
     <div>
       <ul>{listView}</ul>
+      <PlayerConsole isPause={false}/>
     </div>
   );
 };
