@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { ACTION_PROGRESS, ACTION_TOGGLE, IAppState, IChapter } from "./BooksReducer";
 import { PlayerConsole } from "./PlayerConsole";
+import { Player } from "./Player";
 
 interface IBasicProps {
 }
@@ -17,6 +18,9 @@ export const _BookScreen = (props: IProps) => {
   };
   const [current, setCurrent] = useState(-1);
 
+  const player = new Player(onProgress);
+
+
   function clickAt(chapter: IChapter) {
     setCurrent(chapter.id);
   }
@@ -29,6 +33,13 @@ export const _BookScreen = (props: IProps) => {
     const thisChapter = props.chapters.find(x => x.id === current);
     const isPlaying = thisChapter!.isPlaying;
     props.actions.toggle(thisChapter!.id, !isPlaying);
+
+    player.play();
+
+  }
+
+  function onProgress() {
+    console.log(`onProgress`);
   }
 
   const listView = props.chapters.map((chapter, index) => {
