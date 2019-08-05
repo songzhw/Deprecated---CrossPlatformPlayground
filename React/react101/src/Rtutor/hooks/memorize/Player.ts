@@ -13,11 +13,13 @@ export class Player {
       this.id++;
       this.callback(this.id);
     }, 1000);
+    console.log(`szw play: handler = `, this.handler);
 
   }
 
   public pause() {
-    console.log(`clear itnerval`)
+    console.log(`szw pause : handler = `, this.handler);
+    console.log(`clear interval`);
     clearInterval(this.handler);
   }
 
