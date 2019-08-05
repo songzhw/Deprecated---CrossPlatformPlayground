@@ -27,7 +27,7 @@ class Player {
     }
     // console.log(`szw pause : handler = `, this.handler);
     // console.log(`clear interval`);
-    this.callback = null;
+    // this.callback = null;
     clearInterval(this.handler);
   }
 

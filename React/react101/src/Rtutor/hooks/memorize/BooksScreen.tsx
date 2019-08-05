@@ -34,6 +34,7 @@ export const _BookScreen = (props: IProps) => {
       return;
     }
 
+    console.log(`toggle current = `, current)
     const thisChapter = props.chapters.find(x => x.id === current);
     const isPlaying = thisChapter!.isPlaying;
     props.actions.toggle(thisChapter!.id, !isPlaying);
@@ -47,7 +48,7 @@ export const _BookScreen = (props: IProps) => {
   }
 
   function onProgress(progress: number) {
-    console.log(`000 current =`, current); //=> 总是-1?
+    console.log(`onProgress current = `, current)
     if (current === -1) {
       return;
     }
