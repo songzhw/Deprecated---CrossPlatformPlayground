@@ -15,19 +15,20 @@ export const _BookScreen = (props: IProps) => {
   const defaultChapter: IChapter = {
     id: -1, name: "", isPlaying: false, progress: 0, duration: 0
   };
-  const [currentChapter, setCurrentChapter] = useState<IChapter>(defaultChapter);
+  const [current, setCurrent] = useState(-1);
 
   function clickAt(chapter: IChapter) {
-    setCurrentChapter(chapter);
+    setCurrent(chapter.id);
   }
 
   function toggle() {
-    if (currentChapter.id === -1) {
+    if (current === -1) {
       return;
     }
 
-    const isPlaying = currentChapter.isPlaying;
-    props.actions.toggle(currentChapter.id, !isPlaying);
+    const thisChapter = props.chapters.find(x => x.id === current);
+    const isPlaying = thisChapter!.isPlaying;
+    props.actions.toggle(thisChapter!.id, !isPlaying);
   }
 
   const listView = props.chapters.map((chapter, index) => {
@@ -38,6 +39,9 @@ export const _BookScreen = (props: IProps) => {
     );
   });
 
+
+  const targetChapter = props.chapters.find(x => x.id === current);
+  const currentChapter = targetChapter ? targetChapter : defaultChapter;
   return (
     <div>
       <ul>{listView}</ul>
