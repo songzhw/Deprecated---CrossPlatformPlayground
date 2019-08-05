@@ -38,15 +38,11 @@ export const BooksReducer = (state: IAppState = defaultState, action: AnyAction)
       return updateBooks(state, action.payload.chapterId, { id: action.payload.chapterId, isPlaying });
 
     case ACTION_PROGRESS:
-      console.log(`111`);
       for (const chap of books) {
         chap.progress = 0;
       }
-      console.log(`2`);
       const { progress } = action.payload;
-      console.log(`333`);
       const news = updateBooks(state, action.payload.chapterId, { id: action.payload.chapterId, progress });
-      console.log("reducer progress = ", news);
       return news;
     default:
       return state;
