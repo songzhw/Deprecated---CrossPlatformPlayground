@@ -34,12 +34,18 @@ export const _BookScreen = (props: IProps) => {
     const isPlaying = thisChapter!.isPlaying;
     props.actions.toggle(thisChapter!.id, !isPlaying);
 
-    player.play();
+    if (!isPlaying) {
+      player.play();
+    } else {
+      player.pause();
+    }
 
   }
 
-  function onProgress() {
-    console.log(`onProgress`);
+  function onProgress(progress: number) {
+    console.log(`onProgress `, progress);
+    const thisChapter = props.chapters.find(x => x.id === current);
+
   }
 
   const listView = props.chapters.map((chapter, index) => {

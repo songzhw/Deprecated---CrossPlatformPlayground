@@ -1,17 +1,23 @@
 export class Player {
+  private id: number = 0;
   private handler: number = -1;
-  private callback: () => void;
+  private callback: (progress: number) => void;
 
-  constructor(callback: () => void) {
+  constructor(callback: (progress: number) => void) {
     this.callback = callback;
   }
 
   public play() {
     // @ts-ignore
-    this.handler = setInterval(this.callback, 1000);
+    this.handler = setInterval(() => {
+      this.id++;
+      this.callback(this.id);
+    }, 1000);
+
   }
 
   public pause() {
+    console.log(`clear itnerval`)
     clearInterval(this.handler);
   }
 
