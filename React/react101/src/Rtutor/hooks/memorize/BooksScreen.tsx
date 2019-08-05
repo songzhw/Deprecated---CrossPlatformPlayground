@@ -22,7 +22,7 @@ export const _BookScreen = (props: IProps) => {
   useEffect(() => {
     player.callback = onProgress;
     return () => player.pause();
-  }, []);
+  }, [current]);
 
 
   function clickAt(chapter: IChapter) {
@@ -34,7 +34,7 @@ export const _BookScreen = (props: IProps) => {
       return;
     }
 
-    console.log(`toggle current = `, current)
+    console.log(`toggle current = `, current);
     const thisChapter = props.chapters.find(x => x.id === current);
     const isPlaying = thisChapter!.isPlaying;
     props.actions.toggle(thisChapter!.id, !isPlaying);
@@ -48,7 +48,7 @@ export const _BookScreen = (props: IProps) => {
   }
 
   function onProgress(progress: number) {
-    console.log(`onProgress current = `, current)
+    console.log(`onProgress current = `, current);
     if (current === -1) {
       return;
     }
