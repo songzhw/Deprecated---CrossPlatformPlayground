@@ -8,7 +8,7 @@ interface IProps {
   toggle: () => void;
 }
 
-export const PlayerConsole = (props: IProps) => {
+const _PlayerConsole = (props: IProps) => {
   const imageName = props.isPause ? iconPause : iconPlay;
 
   // useEffect(() => console.log(`name change`), [props.name]);
@@ -23,4 +23,6 @@ export const PlayerConsole = (props: IProps) => {
     </div>
   );
 };
+
+export const PlayerConsole = React.memo((props: IProps) => <_PlayerConsole name={props.name} isPause={props.isPause} toggle={props.toggle}/>)
 
