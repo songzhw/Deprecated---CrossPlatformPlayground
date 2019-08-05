@@ -47,10 +47,12 @@ export const _BookScreen = (props: IProps) => {
   }
 
   function onProgress(progress: number) {
+    console.log(`000 current =`, current); //=> 总是-1?
     if (current === -1) {
       return;
     }
     const thisChapter = props.chapters.find(x => x.id === current);
+    console.log(`000 dispatch: `, thisChapter);
     props.actions.progress(thisChapter!.id, progress);
   }
 
