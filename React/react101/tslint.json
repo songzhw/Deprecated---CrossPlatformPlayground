@@ -16,7 +16,8 @@
     "variable-name": false,
     "member-ordering": [
       false
-    ]
+    ],
+    "class-name": false
   },
   "linterOptions": {
     "exclude": [
