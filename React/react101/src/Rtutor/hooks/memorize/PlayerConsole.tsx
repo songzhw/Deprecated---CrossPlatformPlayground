@@ -9,7 +9,6 @@ interface IProps {
 }
 
 export const PlayerConsole = (props: IProps) => {
-  console.log(`console : `, props)
   const imageName = props.isPause ? iconPause : iconPlay;
 
   return (

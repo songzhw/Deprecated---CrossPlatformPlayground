@@ -27,25 +27,36 @@ const defaultState = {
 };
 
 export const BooksReducer = (state: IAppState = defaultState, action: AnyAction) => {
+  const books = state.book;
   switch (action.type) {
     case ACTION_TOGGLE:
-      const books = state.book;
       // make sure only one chapter is playing
       for (const chap of books) {
         chap.isPlaying = false;
       }
-      const { chapterId, isPlaying } = action.payload;
-      const targetChapter = books.find(x => x.id === chapterId);
-      const newChapter = { ...targetChapter, id: chapterId, isPlaying };
-      const targetIndex = books.indexOf(targetChapter!);
-      const newBooks = [...books.slice(0, targetIndex), newChapter, ...books.slice(targetIndex + 1)] as IChapter[];
-      const newState: IAppState = { book: newBooks };
-      return newState;
+      const { isPlaying } = action.payload;
+      return updateBooks(state, action.payload.chapterId, { id: action.payload.chapterId, isPlaying });
     case ACTION_PROGRESS:
+      for (const chap of books) {
+        chap.progress = 0;
+      }
+      const { progress } = action.payload;
+      return updateBooks(state, action.payload.chapterId, { id: action.payload.chapterId, progress });
     default:
       return state;
   }
 };
+
+function updateBooks(state: IAppState, chapterId: number, news: any) {
+  const books = state.book;
+  const targetChapter = books.find(x => x.id === chapterId);
+  const newChapter = { ...targetChapter, ...news };
+  const targetIndex = books.indexOf(targetChapter!);
+  const newBooks = [...books.slice(0, targetIndex), newChapter, ...books.slice(targetIndex + 1)] as IChapter[];
+  const newState: IAppState = { book: newBooks };
+  return newState;
+}
+
 /*
 let ary = [1, 2, 3, 4, 5]
 let r2 = [...ary.slice(0,1), 10, ...ary.slice(2)]
