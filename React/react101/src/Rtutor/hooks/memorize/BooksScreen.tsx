@@ -5,6 +5,7 @@ import { ACTION_PROGRESS, ACTION_TOGGLE, IAppState, IChapter } from "./BooksRedu
 import { PlayerConsole } from "./PlayerConsole";
 import { player } from "./Player";
 
+// @deprecated
 interface IBasicProps {
 }
 
