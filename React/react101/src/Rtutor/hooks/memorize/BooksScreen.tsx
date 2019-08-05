@@ -1,9 +1,9 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { ACTION_PROGRESS, ACTION_TOGGLE, IAppState, IChapter } from "./BooksReducer";
 import { PlayerConsole } from "./PlayerConsole";
-import { Player } from "./Player";
+import { player } from "./Player";
 
 interface IBasicProps {
 }
@@ -12,11 +12,6 @@ type IProps = IBasicProps
   & ReturnType<typeof mapDispatchToProps>
   & ReturnType<typeof mapStateToProps>;
 
-const player = new Player(onProgress);
-
-function onProgress(progress: number) {
-  console.log(`onProgress `, progress);
-}
 
 export const _BookScreen = (props: IProps) => {
   const defaultChapter: IChapter = {
@@ -24,7 +19,10 @@ export const _BookScreen = (props: IProps) => {
   };
   const [current, setCurrent] = useState(-1);
 
-
+  useEffect(() => {
+    player.callback = onProgress;
+    return () => player.pause();
+  }, []);
 
 
   function clickAt(chapter: IChapter) {
@@ -48,7 +46,9 @@ export const _BookScreen = (props: IProps) => {
 
   }
 
-
+  function onProgress(progress: number) {
+    console.log(`onProgress `, progress);
+  }
 
   const listView = props.chapters.map((chapter, index) => {
     const text = `${chapter.id}. ${chapter.name}  (${chapter.progress} / ${chapter.duration})`;
