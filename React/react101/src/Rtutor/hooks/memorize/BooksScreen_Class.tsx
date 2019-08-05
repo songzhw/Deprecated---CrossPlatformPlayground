@@ -4,6 +4,7 @@ import { Dispatch } from "redux";
 import { ACTION_PROGRESS, ACTION_TOGGLE, IAppState, IChapter } from "./BooksReducer";
 import { PlayerConsole } from "./PlayerConsole";
 import { player } from "./Player";
+import { PlayerConsole_Class } from "./PlayerConsole_Class";
 
 interface IBasicProps {
 }
@@ -80,7 +81,7 @@ class _BookScreen_Class extends React.Component<IProps, IState> {
     return (
       <div>
         <ul>{listView}</ul>
-        <PlayerConsole toggle={this.toggle} name={currentChapter!.name} isPause={currentChapter!.isPlaying}/>
+        <PlayerConsole_Class toggle={this.toggle} name={currentChapter!.name} isPause={currentChapter!.isPlaying}/>
       </div>
     );
   }

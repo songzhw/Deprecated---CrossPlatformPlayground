@@ -11,10 +11,10 @@ interface IProps {
 export const PlayerConsole = (props: IProps) => {
   const imageName = props.isPause ? iconPause : iconPlay;
 
-  // useEffect(() => console.log(`name change`), [props.name]);
-  // useEffect(() => console.log(`isPause change`), [props.isPause]);
-  // useEffect(() => console.log(`toggle change`), [props.toggle]);
-  // console.log(`Console render()`);
+  useEffect(() => console.log(`name change`), [props.name]);
+  useEffect(() => console.log(`isPause change`), [props.isPause]);
+  useEffect(() => console.log(`toggle change`), [props.toggle]);
+  console.log(`Console render()`);
 
   return (
     <div>
