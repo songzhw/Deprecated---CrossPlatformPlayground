@@ -65,7 +65,7 @@ export const _BookScreen = (props: IProps) => {
 
   const targetChapter = props.chapters.find(x => x.id === current);
   const currentChapter = targetChapter ? targetChapter : defaultChapter;
-  const Console = useMemo(()=> PlayerConsole, [currentChapter]);
+  const Console = useMemo(() => PlayerConsole, [currentChapter.name, currentChapter.isPlaying, toggle]);
   return (
     <div>
       <ul>{listView}</ul>
