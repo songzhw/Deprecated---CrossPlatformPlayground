@@ -47,7 +47,11 @@ export const _BookScreen = (props: IProps) => {
   }
 
   function onProgress(progress: number) {
-    console.log(`onProgress `, progress);
+    if (current === -1) {
+      return;
+    }
+    const thisChapter = props.chapters.find(x => x.id === current);
+    props.actions.progress(thisChapter!.id, progress);
   }
 
   const listView = props.chapters.map((chapter, index) => {
