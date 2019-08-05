@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { ACTION_PAUSE, ACTION_PLAY, ACTION_PROGRESS, IAppState, IChapter } from "./BooksReducer";
+import { ACTION_PROGRESS, ACTION_TOGGLE, IAppState, IChapter } from "./BooksReducer";
 import { PlayerConsole } from "./PlayerConsole";
 
 interface IBasicProps {
@@ -18,12 +18,16 @@ export const _BookScreen = (props: IProps) => {
   const [currentChapter, setCurrentChapter] = useState<IChapter>(defaultChapter);
 
   function clickAt(chapter: IChapter) {
-    console.log(`szw click at :`, chapter);
     setCurrentChapter(chapter);
   }
 
-  function toggle(){
-    console.log(`toggle`)
+  function toggle() {
+    if (currentChapter.id === -1) {
+      return;
+    }
+
+    const isPlaying = currentChapter.isPlaying;
+    props.actions.toggle(currentChapter.id, !isPlaying);
   }
 
   const listView = props.chapters.map((chapter, index) => {
@@ -52,8 +56,10 @@ function mapStateToProps(state: IAppState) {
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
     actions: {
-      pause: (chapterId: number) => dispatch({ type: ACTION_PAUSE, payload: { chapterId } }),
-      play: (chapterId: number) => dispatch({ type: ACTION_PLAY, payload: { chapterId } }),
+      toggle: (chapterId: number, isPlaying: boolean) => dispatch({
+        type: ACTION_TOGGLE,
+        payload: { chapterId, isPlaying }
+      }),
       progress: (chapterId: number, progress: number) => dispatch({
         type: ACTION_PROGRESS,
         payload: { chapterId, progress }

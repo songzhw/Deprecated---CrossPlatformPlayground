@@ -12,8 +12,7 @@ export interface IAppState {
   book: IChapter[]
 }
 
-export const ACTION_PLAY = "PLAY";
-export const ACTION_PAUSE = "PAUSE";
+export const ACTION_TOGGLE = "TOGGLE";
 export const ACTION_PROGRESS = "PROGRESS";
 
 const defaultState = {
@@ -28,8 +27,9 @@ const defaultState = {
 
 export const BooksReducer = (state: IAppState = defaultState, action: AnyAction) => {
   switch (action.type) {
-    case ACTION_PLAY:
-    case ACTION_PAUSE:
+    case ACTION_TOGGLE:
+      console.log(`szw reducer action =`, action);
+      return state;
     case ACTION_PROGRESS:
     default:
       return state;
