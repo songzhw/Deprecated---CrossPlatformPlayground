@@ -8,10 +8,15 @@ interface IProps {
 
 export const PlayerConsole = (props: IProps) => {
   const imageName = props.isPause ? iconPause : iconPlay;
+
+  function togglePlay(){
+
+  }
+
   return (
     <div>
       <label>Harry Potter 4</label>
-      <button><img src={imageName}/></button>
+      <button><img src={imageName} onClick={togglePlay}/></button>
     </div>
   );
 };
