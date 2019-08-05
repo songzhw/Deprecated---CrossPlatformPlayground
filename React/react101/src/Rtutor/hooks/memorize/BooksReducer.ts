@@ -1,4 +1,5 @@
 import { AnyAction } from "redux";
+import { updateState } from "../../../utils/utils";
 
 export interface IChapter {
   id: number;
@@ -28,10 +29,21 @@ const defaultState = {
 export const BooksReducer = (state: IAppState = defaultState, action: AnyAction) => {
   switch (action.type) {
     case ACTION_TOGGLE:
-      console.log(`szw reducer action =`, action);
+      const books = state.book;
+      const { chapterId, isPlaying } = action.payload;
+      const targetChapter = books.find(x => x.id === chapterId);
+      const newChapter = { ...targetChapter, id: chapterId, isPlaying };
+      const targetIndex = books.indexOf(targetChapter!);
+      const newBooks = [...books.slice(0, targetIndex), newChapter, ...books.slice(targetIndex + 1)];
+      const newState : IAppState = {book: newBooks};
       return state;
     case ACTION_PROGRESS:
     default:
       return state;
   }
 };
+/*
+let ary = [1, 2, 3, 4, 5]
+let r2 = [...ary.slice(0,1), 10, ...ary.slice(2)]
+console.log(r2) //=> [ 1, 10, 3, 4, 5 ]
+ */
