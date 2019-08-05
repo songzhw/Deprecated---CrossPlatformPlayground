@@ -36,14 +36,14 @@ import { BooksReducer, IAppState } from "./Rtutor/hooks/memorize/BooksReducer";
 import { createStore, Store } from "redux";
 import { Provider } from "react-redux";
 import { BooksScreen } from "./Rtutor/hooks/memorize/BooksScreen";
-import  BookScreen_Class from "./Rtutor/hooks/memorize/BooksScreen_Class";
+import BookScreen_Class from "./Rtutor/hooks/memorize/BooksScreen_Class";
 
 const store: Store<IAppState> = createStore(BooksReducer);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <BookScreen_Class/>
+      <BooksScreen/>
     </Provider>
   );
 };
