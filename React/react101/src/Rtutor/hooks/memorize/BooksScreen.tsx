@@ -1,7 +1,7 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { ACTION_PAUSE, ACTION_PLAY, ACTION_PROGRESS, IAppState } from "./BooksReducer";
+import { ACTION_PAUSE, ACTION_PLAY, ACTION_PROGRESS, IAppState, IChapter } from "./BooksReducer";
 import { PlayerConsole } from "./PlayerConsole";
 
 interface IBasicProps {
@@ -12,35 +12,32 @@ type IProps = IBasicProps
   & ReturnType<typeof mapStateToProps>;
 
 export const _BookScreen = (props: IProps) => {
+  const defaultChapter: IChapter = {
+    id: -1, name: "", isPlaying: false, progress: 0, duration: 0
+  };
+  const [currentChapter, setCurrentChapter] = useState<IChapter>(defaultChapter);
 
+  function clickAt(chapter: IChapter) {
+    console.log(`szw click at :`, chapter);
+    setCurrentChapter(chapter);
+  }
 
-  // function play() {
-  //   props.actions.add(inputString);
-  // }
-  //
-  // function pause() {
-  //   props.actions.comment(inputString);
-  // }
-  //
-  //
-  // function progress(e: ChangeEvent<HTMLSelectElement>) {
-  //   props.actions.filter(e.currentTarget.value);
-  // }
-
+  function toggle(){
+    console.log(`toggle`)
+  }
 
   const listView = props.chapters.map((chapter, index) => {
     const text = `${chapter.id}. ${chapter.name}  (${chapter.progress} / ${chapter.duration})`;
     return (
-      <li key={`${index}`}> {text} </li>
+      // tslint:disable-next-line:jsx-no-lambda
+      <li key={`${index}`} onClick={() => clickAt(chapter)}> {text} </li>
     );
   });
 
-
-  console.log(`   [render]`);
   return (
     <div>
       <ul>{listView}</ul>
-      <PlayerConsole isPause={false}/>
+      <PlayerConsole toggle={toggle} name={currentChapter!.name} isPause={currentChapter!.isPlaying}/>
     </div>
   );
 };
