@@ -75,7 +75,6 @@ export const _BookScreen = (props: IProps) => {
 
 
 function mapStateToProps(state: IAppState) {
-  console.log(`mapStateToProps `, state);
   const chapters = state.book;
   return { chapters };
 }
