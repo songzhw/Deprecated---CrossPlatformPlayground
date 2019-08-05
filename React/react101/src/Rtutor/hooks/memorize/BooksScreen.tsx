@@ -12,13 +12,19 @@ type IProps = IBasicProps
   & ReturnType<typeof mapDispatchToProps>
   & ReturnType<typeof mapStateToProps>;
 
+const player = new Player(onProgress);
+
+function onProgress(progress: number) {
+  console.log(`onProgress `, progress);
+}
+
 export const _BookScreen = (props: IProps) => {
   const defaultChapter: IChapter = {
     id: -1, name: "", isPlaying: false, progress: 0, duration: 0
   };
   const [current, setCurrent] = useState(-1);
 
-  const player = new Player(onProgress);
+
 
 
   function clickAt(chapter: IChapter) {
@@ -42,11 +48,7 @@ export const _BookScreen = (props: IProps) => {
 
   }
 
-  function onProgress(progress: number) {
-    console.log(`onProgress `, progress);
-    const thisChapter = props.chapters.find(x => x.id === current);
 
-  }
 
   const listView = props.chapters.map((chapter, index) => {
     const text = `${chapter.id}. ${chapter.name}  (${chapter.progress} / ${chapter.duration})`;
