@@ -17,7 +17,10 @@
     "member-ordering": [
       false
     ],
-    "class-name": false
+    // class name一定得是Pascal的, 有_也不行
+    "class-name": false,
+    // 给filed, function都要加public/private...
+    "member-access": false
   },
   "linterOptions": {
     "exclude": [
