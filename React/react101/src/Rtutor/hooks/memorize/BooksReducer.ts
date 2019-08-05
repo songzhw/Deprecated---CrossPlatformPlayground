@@ -30,13 +30,17 @@ export const BooksReducer = (state: IAppState = defaultState, action: AnyAction)
   switch (action.type) {
     case ACTION_TOGGLE:
       const books = state.book;
+      // make sure only one chapter is playing
+      for (const chap of books) {
+        chap.isPlaying = false;
+      }
       const { chapterId, isPlaying } = action.payload;
       const targetChapter = books.find(x => x.id === chapterId);
       const newChapter = { ...targetChapter, id: chapterId, isPlaying };
       const targetIndex = books.indexOf(targetChapter!);
-      const newBooks = [...books.slice(0, targetIndex), newChapter, ...books.slice(targetIndex + 1)];
-      const newState : IAppState = {book: newBooks};
-      return state;
+      const newBooks = [...books.slice(0, targetIndex), newChapter, ...books.slice(targetIndex + 1)] as IChapter[];
+      const newState: IAppState = { book: newBooks };
+      return newState;
     case ACTION_PROGRESS:
     default:
       return state;
