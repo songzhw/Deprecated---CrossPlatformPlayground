@@ -12,9 +12,6 @@ interface IProps {
 export class PlayerConsole_Class extends React.Component<IProps> {
 
   shouldComponentUpdate(nextProps: Readonly<IProps>, nextState: Readonly<{}>, nextContext: any): boolean {
-    console.log(`name: `, this.props.name === nextProps.name);
-    console.log(`isPause: `, this.props.isPause === nextProps.isPause);
-    console.log(`toggle: `, this.props.toggle === nextProps.toggle);
     return this.props.name !== nextProps.name || this.props.isPause !== nextProps.isPause ||
       this.props.toggle !== nextProps.toggle
   }
