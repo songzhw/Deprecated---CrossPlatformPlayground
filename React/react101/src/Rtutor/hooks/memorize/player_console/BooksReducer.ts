@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { updateState } from "../../../utils/utils";
+import { updateState } from "../../../../utils/utils";
 
 export interface IChapter {
   id: number;

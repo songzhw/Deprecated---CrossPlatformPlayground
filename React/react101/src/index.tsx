@@ -32,19 +32,20 @@ import { MediaDemo } from "./Rtutor/hooks/MediaDemo";
 import { HeavyFuncDemo } from "./Rtutor/hooks/useCallback/before/HeavyFuncDemo";
 import { SwitchDemo } from "./views/switch/SwitchDemo";
 import { DefaultPropsDemo2 } from "./typescript/DefaultPropsDemo2";
-import { BooksReducer, IAppState } from "./Rtutor/hooks/memorize/BooksReducer";
+import { BooksReducer, IAppState } from "./Rtutor/hooks/memorize/player_console/BooksReducer";
 import { createStore, Store } from "redux";
 import { Provider } from "react-redux";
-import { BooksScreen } from "./Rtutor/hooks/memorize/BooksScreen";
-import BookScreen_Class from "./Rtutor/hooks/memorize/BooksScreen_Class";
+import { BooksScreen } from "./Rtutor/hooks/memorize/player_console/BooksScreen";
+import BookScreen_Class from "./Rtutor/hooks/memorize/player_console/BooksScreen_Class";
 import { HookParent } from "./Rtutor/hooks/parentCallback/HookParent";
+import { MemoUsersScreen } from "./Rtutor/hooks/memorize/users/MemoUsersScreen";
 
 const store: Store<IAppState> = createStore(BooksReducer);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <BooksScreen/>
+      <MemoUsersScreen/>
     </Provider>
   );
 };

@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import React, { useEffect } from "react";
-import iconPause from "../../../res/images/icons/icon_pause.png";
-import iconPlay from "../../../res/images/icons/icon_play.png";
+import iconPause from "../../../../res/images/icons/icon_pause.png";
+import iconPlay from "../../../../res/images/icons/icon_play.png";
 
 interface IProps {
   name: string;

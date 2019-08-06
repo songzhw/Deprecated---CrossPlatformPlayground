@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import iconPause from "../../../res/images/icons/icon_pause.png";
-import iconPlay from "../../../res/images/icons/icon_play.png";
+import iconPause from "../../../../res/images/icons/icon_pause.png";
+import iconPlay from "../../../../res/images/icons/icon_play.png";
 
 // @deprecated
 interface IProps {
