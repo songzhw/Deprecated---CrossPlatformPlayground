@@ -1,48 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
-// export const HookParent = () => {
-//   const [id, setId] = useState(-1);
-//
-//   function childCalls() {
-//     console.log(`child click button`);
-//   }
-//
-//   function updateMe() {
-//     setId(new Date().getTime());
-//   }
-//
-//   return (
-//     <div>
-//       <HookChild callback={childCalls}/>
-//       <p/>
-//       <button onClick={updateMe}> Update Parent : {id}</button>
-//     </div>
-//   );
-// };
+export const HookParent = () => {
+  const [id, setId] = useState(-1);
 
-export class HookParent extends React.Component {
-  state = {
-    id: -1
-  };
-
-  childCalls = () => {
-    console.log(`child click button: ${this.state.id}`);
-  };
-
-  updateMe = () => {
-    this.setState({ id: new Date().getTime() });
-  };
-
-  render() {
-    return (
-      <div>
-        <Child callback={this.childCalls}/>
-        <p/>
-        <button onClick={this.updateMe}> Update Parent : {this.state.id}</button>
-      </div>
-    );
+  // parent中更新id, 但这并不涉及child. 所以理想状态就是点击这后, child并不re-render
+  function updateMe() {
+    setId(new Date().getTime());
   }
-}
+
+  function childCalls() {
+    console.log(`child click button`);
+  }
+
+  const callbackRef = useRef(childCalls);
+  const callbackMemorized = useCallback(() => callbackRef.current, []);
+
+  return (
+    <div>
+      <HookChild callback={callbackMemorized}/>
+      <p/>
+      <button onClick={updateMe}> Update Parent : {id}</button>
+    </div>
+  );
+};
 
 
 interface IProps {
@@ -61,8 +41,9 @@ interface IProps {
 // }
 
 const HookChild = (props: IProps) => {
-  useEffect(() => console.log(`callback changes`), [props.callback]);
-  console.log(`child re-render (child is FC)`);
+
+  useEffect(() => console.log(`child callback changes`), [props.callback]);
+  console.log(`child re-render`);
 
   return (
     <div>
