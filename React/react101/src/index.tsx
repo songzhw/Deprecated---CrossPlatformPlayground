@@ -44,7 +44,7 @@ const store: Store<IAppState> = createStore(BooksReducer);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <HookParent/>
+      <BooksScreen/>
     </Provider>
   );
 };

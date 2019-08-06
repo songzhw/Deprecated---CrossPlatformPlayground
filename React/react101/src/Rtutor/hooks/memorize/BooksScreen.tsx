@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useMemo, useState } from "react";
+import React, { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { ACTION_PROGRESS, ACTION_TOGGLE, IAppState, IChapter } from "./BooksReducer";
@@ -63,13 +63,15 @@ export const _BookScreen = (props: IProps) => {
     );
   });
 
+  const toggleRef = useRef(toggle);
+  const toggleMemorized = useCallback(() => toggleRef.current, []);
 
   const targetChapter = props.chapters.find(x => x.id === current);
   const currentChapter = targetChapter ? targetChapter : defaultChapter;
   return (
     <div>
       <ul>{listView}</ul>
-      <PlayerConsole toggle={toggle} name={currentChapter!.name} isPause={currentChapter!.isPlaying}/>
+      <PlayerConsole toggle={toggleMemorized} name={currentChapter!.name} isPause={currentChapter!.isPlaying}/>
     </div>
   );
 };
