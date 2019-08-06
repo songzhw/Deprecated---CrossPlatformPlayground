@@ -67,7 +67,7 @@ export const _BookScreen = (props: IProps) => {
     );
   });
 
-  const toggleMemorized = useCallback(toggle, []);
+  const toggleMemorized = useCallback(toggle, [current]);
 
   const targetChapter = props.chapters.find(x => x.id === current);
   const currentChapter = targetChapter ? targetChapter : defaultChapter;
