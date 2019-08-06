@@ -12,8 +12,7 @@ export const HookParent = () => {
     console.log(`child click button`);
   }
 
-  const callbackRef = useRef(childCalls);
-  const callbackMemorized = useCallback(() => callbackRef.current, []);
+  const callbackMemorized = useCallback(childCalls, []);
 
   return (
     <div>

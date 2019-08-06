@@ -38,14 +38,13 @@ import { Provider } from "react-redux";
 import { BooksScreen } from "./Rtutor/hooks/memorize/player_console/BooksScreen";
 import BookScreen_Class from "./Rtutor/hooks/memorize/player_console/BooksScreen_Class";
 import { HookParent } from "./Rtutor/hooks/parentCallback/HookParent";
-import { MemoUsersScreen } from "./Rtutor/hooks/memorize/users/MemoUsersScreen";
 
 const store: Store<IAppState> = createStore(BooksReducer);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <MemoUsersScreen/>
+      <HookParent/>
     </Provider>
   );
 };
