@@ -8,8 +8,8 @@ export const HookParent = () => {
     setId(new Date().getTime());
   }
 
-  function childCalls() {
-    console.log(`child click button`);
+  function childCalls(num: number) {
+    console.log(`child click button:`, num);
   }
 
   const callbackMemorized = useCallback(childCalls, []);
@@ -25,7 +25,7 @@ export const HookParent = () => {
 
 
 interface IProps {
-  callback: () => void;
+  callback: (num: number) => void;
 }
 
 // class HookChild extends React.PureComponent<IProps> {
@@ -44,9 +44,14 @@ const HookChild = (props: IProps) => {
   useEffect(() => console.log(`child callback changes`), [props.callback]);
   console.log(`child re-render`);
 
+  const clickChild = () => {
+    const random = Math.floor(Math.random() * 100);
+    props.callback(random);
+  };
+
   return (
     <div>
-      <button onClick={props.callback}> child</button>
+      <button onClick={clickChild}> child</button>
     </div>
   );
 };
