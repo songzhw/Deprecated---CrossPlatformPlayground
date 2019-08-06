@@ -19,6 +19,7 @@ export const _BookScreen = (props: IProps) => {
     id: -1, name: "", isPlaying: false, progress: 0, duration: 0
   };
   const [current, setCurrent] = useState(-1);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     player.callback = onProgress;
@@ -38,9 +39,8 @@ export const _BookScreen = (props: IProps) => {
     }
 
     const thisChapter = props.chapters.find(x => x.id === current);
-    // console.log(`before toggle: thisChapter = `, thisChapter);
-    const isPlaying = thisChapter!.isPlaying;
     props.actions.toggle(thisChapter!.id, !isPlaying);
+    setIsPlaying(!isPlaying);
 
     // console.log(`toggle: isPlaying =`, isPlaying);
     if (!isPlaying) {
@@ -68,7 +68,7 @@ export const _BookScreen = (props: IProps) => {
     );
   });
 
-  const toggleMemorized = useCallback(toggle, [current, props.chapters]);
+  const toggleMemorized = useCallback(toggle, [current, isPlaying]);
 
   const targetChapter = props.chapters.find(x => x.id === current);
   const currentChapter = targetChapter ? targetChapter : defaultChapter;
