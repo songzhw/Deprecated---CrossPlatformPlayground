@@ -36,7 +36,7 @@ export class HookParent extends React.Component {
   render() {
     return (
       <div>
-        <HookChild callback={this.childCalls}/>
+        <Child callback={this.childCalls}/>
         <p/>
         <button onClick={this.updateMe}> Update Parent : {this.state.id}</button>
       </div>
@@ -70,3 +70,4 @@ const HookChild = (props: IProps) => {
     </div>
   );
 };
+const Child = React.memo(HookChild);
