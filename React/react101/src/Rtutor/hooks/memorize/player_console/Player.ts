@@ -17,7 +17,7 @@ class Player {
       this.progresss++;
       this.callback!(this.progresss);
     }, 1000);
-    console.log(`szw play: handler = `, this.handler);
+    // console.log(`szw play: handler = `, this.handler);
 
   }
 
@@ -25,7 +25,7 @@ class Player {
     if (this.callback === null) {
       return;
     }
-    console.log(`szw pause : handler = `, this.handler);
+    // console.log(`szw pause : handler = `, this.handler);
     // console.log(`clear interval`);
     // this.callback = null;
     this.progresss = 0;

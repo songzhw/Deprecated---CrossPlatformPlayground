@@ -32,16 +32,17 @@ export const _BookScreen = (props: IProps) => {
   }
 
   function toggle() {
-    console.log(`toggle : current = `, current);
+    // console.log(`toggle : current = `, current);
     if (current === -1) {
       return;
     }
 
     const thisChapter = props.chapters.find(x => x.id === current);
+    // console.log(`before toggle: thisChapter = `, thisChapter);
     const isPlaying = thisChapter!.isPlaying;
     props.actions.toggle(thisChapter!.id, !isPlaying);
 
-    console.log(`toggle: isPlaying =`, isPlaying);
+    // console.log(`toggle: isPlaying =`, isPlaying);
     if (!isPlaying) {
       player.play();
     } else {
@@ -51,7 +52,7 @@ export const _BookScreen = (props: IProps) => {
   }
 
   function onProgress(progress: number) {
-    console.log(`screen onProgress: `, progress);
+    // console.log(`screen onProgress: `, progress);
     if (current === -1) {
       return;
     }
@@ -67,7 +68,7 @@ export const _BookScreen = (props: IProps) => {
     );
   });
 
-  const toggleMemorized = useCallback(toggle, [current]);
+  const toggleMemorized = useCallback(toggle, [current, props.chapters]);
 
   const targetChapter = props.chapters.find(x => x.id === current);
   const currentChapter = targetChapter ? targetChapter : defaultChapter;
@@ -81,6 +82,7 @@ export const _BookScreen = (props: IProps) => {
 
 
 function mapStateToProps(state: IAppState) {
+  // console.log(`szw mapStateToProps `, state);
   const chapters = state.book;
   return { chapters };
 }
