@@ -17,7 +17,7 @@ export const HookParent = () => {
 
   return (
     <div>
-      <HookChild callback={callbackMemorized}/>
+      <Child callback={callbackMemorized}/>
       <p/>
       <button onClick={updateMe}> Update Parent : {id}</button>
     </div>
