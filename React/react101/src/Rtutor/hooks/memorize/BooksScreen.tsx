@@ -24,13 +24,14 @@ export const _BookScreen = (props: IProps) => {
     player.callback = onProgress;
     return () => player.pause();
   }, [current]);
-
+  // player.callback = onProgress;
 
   function clickAt(chapter: IChapter) {
     setCurrent(chapter.id);
   }
 
   function toggle() {
+    console.log(`toggle : current = `, current)
     if (current === -1) {
       return;
     }
@@ -48,6 +49,7 @@ export const _BookScreen = (props: IProps) => {
   }
 
   function onProgress(progress: number) {
+    console.log(`screen onProgress: `, progress);
     if (current === -1) {
       return;
     }
@@ -64,7 +66,7 @@ export const _BookScreen = (props: IProps) => {
   });
 
   const toggleRef = useRef(toggle);
-  const toggleMemorized = useCallback(() => toggleRef.current, []);
+  const toggleMemorized = useCallback(() => toggleRef.current, [current]);
 
   const targetChapter = props.chapters.find(x => x.id === current);
   const currentChapter = targetChapter ? targetChapter : defaultChapter;

@@ -1,5 +1,5 @@
 class Player {
-  private id: number = 0;
+  private progresss: number = 0;
   private handler: number = -1;
   public callback: ((progress: number) => void) | null;
 
@@ -14,8 +14,8 @@ class Player {
 
     // @ts-ignore
     this.handler = setInterval(() => {
-      this.id++;
-      this.callback!(this.id);
+      this.progresss++;
+      this.callback!(this.progresss);
     }, 1000);
     // console.log(`szw play: handler = `, this.handler);
 
@@ -28,6 +28,7 @@ class Player {
     // console.log(`szw pause : handler = `, this.handler);
     // console.log(`clear interval`);
     // this.callback = null;
+    this.progresss = 0;
     clearInterval(this.handler);
   }
 
