@@ -40,6 +40,7 @@ export const _BookScreen = (props: IProps) => {
     const isPlaying = thisChapter!.isPlaying;
     props.actions.toggle(thisChapter!.id, !isPlaying);
 
+    console.log(`toggle: isPlaying =`, isPlaying);
     if (!isPlaying) {
       player.play();
     } else {
@@ -65,7 +66,7 @@ export const _BookScreen = (props: IProps) => {
     );
   });
 
-  const toggleMemorized = useCallback(toggle, []);
+  const toggleMemorized = useCallback(toggle, [current]);
 
   const targetChapter = props.chapters.find(x => x.id === current);
   const currentChapter = targetChapter ? targetChapter : defaultChapter;
