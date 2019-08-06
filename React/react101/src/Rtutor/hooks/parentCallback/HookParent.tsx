@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const HookParent = () => {
   const [id, setId] = useState(-1);
@@ -24,11 +24,25 @@ export const HookParent = () => {
 interface IProps {
   callback: () => void;
 }
-const HookChild = (props: IProps) => {
-  console.log(`re-render`);
-  return (
-    <div>
-      <button onClick={props.callback}> child</button>
-    </div>
-  );
-};
+
+class HookChild extends React.PureComponent<IProps> {
+  render() {
+    console.log(`child re-render (child is class)`);
+    return (
+      <div>
+        <button onClick={this.props.callback}> child</button>
+      </div>
+    );
+  }
+}
+
+// const HookChild = (props: IProps) => {
+//   useEffect(() => console.log(`callback changes`), [props.callback]);
+//   console.log(`child re-render`);
+//
+//   return (
+//     <div>
+//       <button onClick={props.callback}> child</button>
+//     </div>
+//   );
+// };
