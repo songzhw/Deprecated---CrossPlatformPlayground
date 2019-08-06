@@ -24,7 +24,6 @@ export const HookParent = () => {
 interface IProps {
   callback: () => void;
 }
-
 const HookChild = (props: IProps) => {
   console.log(`re-render`);
   return (
