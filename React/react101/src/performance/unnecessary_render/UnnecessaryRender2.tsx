@@ -12,13 +12,16 @@ interface IState {
   }
 }
 
-const UnnecessaryRender2 = () => {
-  const target = {
-    book: {
+/*
+book: {
       id: 1,
       name: { main: "harry", sub: "potter4" },
       isRead: false
     }
+ */
+const UnnecessaryRender2 = () => {
+  const target = {
+    count: 1
   };
   const [value, setValue] = useState();
 
@@ -36,4 +39,4 @@ const UnnecessaryRender2 = () => {
 };
 
 
-export default UnnecessaryRender2;
+export default React.memo(UnnecessaryRender2);
