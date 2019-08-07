@@ -4,16 +4,16 @@ const UnnecessaryRender3 = () => {
   const target = {
     count: 1
   };
-  const [value, setValue] = useState();
+  const [value, setValue] = useState({ count: 0 });
 
   function clicks() {
     setValue(target);
   }
 
-  console.log(`parent re-render`);
+  console.log(`parent re-render: value = `, value);
   return (
     <div>
-      <Child3Memorized count={value}/>
+      <Child3Memorized count={value.count}/>
       <button onClick={clicks}>Click Me</button>
     </div>
   );
