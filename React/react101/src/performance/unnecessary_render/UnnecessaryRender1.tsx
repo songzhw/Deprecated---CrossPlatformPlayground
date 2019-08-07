@@ -2,7 +2,7 @@ import React from "react";
 
 // [预期] 点击button三次, 但后两次不刷新组件, 因为count仍是为1, 没有变化啊
 // [分析] 结果当然不如我们所想, 我们赋值的this.setState({count: 1}), 括号里的可是每次都是一个新对象
-
+// [优化] 解决了上面的问题后, 仍会有无谓的刷新. 这时的解决办法就是PureComponent或shouldComponentUpdate()
 interface IProps {
 }
 

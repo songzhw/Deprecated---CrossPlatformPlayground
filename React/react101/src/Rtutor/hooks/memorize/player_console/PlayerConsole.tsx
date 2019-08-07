@@ -25,5 +25,5 @@ const _PlayerConsole = (props: IProps) => {
   );
 };
 
-export const PlayerConsole = React.memo(_PlayerConsole)
+export const PlayerConsole = React.memo(_PlayerConsole);
 
