@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-
+// 实锤: React.memo()只浅比较props哦!
 interface IState {
   book: {
     id: number;
