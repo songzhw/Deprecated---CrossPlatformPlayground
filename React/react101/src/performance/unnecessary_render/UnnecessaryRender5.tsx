@@ -53,6 +53,12 @@ const Child5 = (props: IProps) => {
     </>
   );
 };
-const Child5Memorized = React.memo(Child5);
+const Child5Memorized = React.memo(Child5, (prevProps, nextProps) => {
+  // 第二参返回true, 就不会更新Child5
+  return prevProps.item.book.id === nextProps.item.book.id &&
+    prevProps.item.book.isRead === nextProps.item.book.isRead &&
+    prevProps.item.book.name.main === nextProps.item.book.name.main &&
+    prevProps.item.book.name.sub === nextProps.item.book.name.sub;
+});
 
 export default UnnecessaryRender5;
