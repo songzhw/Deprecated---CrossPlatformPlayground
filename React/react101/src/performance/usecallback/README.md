@@ -1,0 +1,1 @@
+plase see `Rtutor/hooks/memorize`. There are two examples about using `useCallback` to avoid unnecessary children re-render.
