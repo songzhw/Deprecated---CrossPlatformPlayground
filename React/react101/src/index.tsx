@@ -49,7 +49,7 @@ const store: Store<IAppState> = createStore(BooksReducer);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      {UnnecessaryRender4}
+      <UnnecessaryRender5/>
     </Provider>
   );
 };
