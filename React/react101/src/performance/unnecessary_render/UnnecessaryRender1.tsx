@@ -15,6 +15,7 @@ class UnnecessaryRender1 extends React.Component<IProps, IState> {
 
   getSnapshotBeforeUpdate(prevProps: Readonly<IProps>, prevState: Readonly<IState>): any | null {
     console.log(`getSnapshotBeforeUpdate`);
+    return null;
   }
 
   componentDidUpdate(prevProps: IProps, prevState: IState) {
