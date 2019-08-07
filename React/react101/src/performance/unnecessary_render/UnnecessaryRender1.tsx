@@ -13,6 +13,10 @@ interface IState {
 class UnnecessaryRender1 extends React.Component<IProps, IState> {
   state = { count: 0 };
 
+  shouldComponentUpdate(nextProps: Readonly<IProps>, nextState: Readonly<IState>, nextContext: any): boolean {
+    return this.state.count !== nextState.count;
+  }
+
   getSnapshotBeforeUpdate(prevProps: Readonly<IProps>, prevState: Readonly<IState>): any | null {
     console.log(`getSnapshotBeforeUpdate`);
     return null;
