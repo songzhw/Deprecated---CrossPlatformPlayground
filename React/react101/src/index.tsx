@@ -42,13 +42,14 @@ import UnnecessaryRender1 from "./performance/unnecessary_render/UnnecessaryRend
 import UnnecessaryRender2 from "./performance/unnecessary_render/UnnecessaryRender2";
 import UnnecessaryRender3 from "./performance/unnecessary_render/UnnecessaryRender3";
 import UnnecessaryRender4 from "./performance/unnecessary_render/UnnecessaryRender4";
+import UnnecessaryRender5 from "./performance/unnecessary_render/UnnecessaryRender5";
 
 const store: Store<IAppState> = createStore(BooksReducer);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <UnnecessaryRender3/>
+      {UnnecessaryRender4}
     </Provider>
   );
 };
