@@ -40,13 +40,15 @@ import BookScreen_Class from "./Rtutor/hooks/memorize/player_console/BooksScreen
 import { HookParent } from "./Rtutor/hooks/parentCallback/HookParent";
 import UnnecessaryRender1 from "./performance/unnecessary_render/UnnecessaryRender1";
 import UnnecessaryRender2 from "./performance/unnecessary_render/UnnecessaryRender2";
+import UnnecessaryRender3 from "./performance/unnecessary_render/UnnecessaryRender3";
+import UnnecessaryRender4 from "./performance/unnecessary_render/UnnecessaryRender4";
 
 const store: Store<IAppState> = createStore(BooksReducer);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <UnnecessaryRender2/>
+      <UnnecessaryRender3/>
     </Provider>
   );
 };
