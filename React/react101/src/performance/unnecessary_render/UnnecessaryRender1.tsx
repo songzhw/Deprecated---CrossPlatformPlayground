@@ -22,11 +22,16 @@ class UnnecessaryRender1 extends React.Component<IProps, IState> {
     console.log("componentDidUpdate");
   }
 
+  count1 = {count: 1};
+  setCountAs1 = ()=>{
+    this.setState(this.count1);
+  }
+
   render() {
     return (
       <div>
         {this.state.count}
-        <button onClick={() => this.setState({ count: 1 })}>Click Me</button>
+        <button onClick={() => this.setState(this.count1)}>Click Me</button>
       </div>
     );
   }
