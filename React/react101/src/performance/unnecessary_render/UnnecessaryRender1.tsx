@@ -12,6 +12,7 @@ interface IState {
 
 class UnnecessaryRender1 extends React.PureComponent<IProps, IState> {
   state = { count: 0 };
+  count1 = { count: 1 };
 
   // shouldComponentUpdate(nextProps: Readonly<IProps>, nextState: Readonly<IState>, nextContext: any): boolean {
   //   return this.state.count !== nextState.count;
@@ -26,16 +27,15 @@ class UnnecessaryRender1 extends React.PureComponent<IProps, IState> {
     console.log("componentDidUpdate");
   }
 
-  count1 = {count: 1};
-  setCountAs1 = ()=>{
+  setCountAs1 = () => {
     this.setState(this.count1);
-  }
+  };
 
   render() {
     return (
       <div>
         {this.state.count}
-        <button onClick={() => this.setState(this.count1)}>Click Me</button>
+        <button onClick={this.setCountAs1}>Click Me</button>
       </div>
     );
   }
