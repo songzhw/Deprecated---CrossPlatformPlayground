@@ -39,7 +39,7 @@ interface ISexProps {
 
 const SexView = (props: ISexProps) => {
   return (
-    <p> isMale = {props.isMale}</p>
+    <p> isMale = {""+props.isMale}</p>
   );
 };
 
