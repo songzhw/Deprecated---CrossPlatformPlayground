@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import { WhoWillRenderDemo } from "./performance/who_will_reder/WhoWillRender";
+import { WhoWillRenderReducer } from "./performance/who_will_reder/WhoWillRenderReducer";
 import { RouterWrap } from "./Rtutor/router/RoutesForFirst";
 import { RouterForNetwork } from "./Rtutor/network_zip/RouterForNetwork";
 import RouterChap6 from "./reacts_book/chap6/Routes";
@@ -32,7 +34,7 @@ import { MediaDemo } from "./Rtutor/hooks/MediaDemo";
 import { HeavyFuncDemo } from "./Rtutor/hooks/useCallback/before/HeavyFuncDemo";
 import { SwitchDemo } from "./views/switch/SwitchDemo";
 import { DefaultPropsDemo2 } from "./typescript/DefaultPropsDemo2";
-import { BooksReducer, IAppState } from "./Rtutor/hooks/memorize/player_console/BooksReducer";
+import { BooksReducer, IAppState as BookAppState } from "./Rtutor/hooks/memorize/player_console/BooksReducer";
 import { createStore, Store } from "redux";
 import { Provider } from "react-redux";
 import { BooksScreen } from "./Rtutor/hooks/memorize/player_console/BooksScreen";
@@ -44,12 +46,12 @@ import UnnecessaryRender3 from "./performance/unnecessary_render/UnnecessaryRend
 import UnnecessaryRender4 from "./performance/unnecessary_render/UnnecessaryRender4";
 import UnnecessaryRender5 from "./performance/unnecessary_render/UnnecessaryRender5";
 
-const store: Store<IAppState> = createStore(BooksReducer);
+const store: Store = createStore(WhoWillRenderReducer);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <UnnecessaryRender5/>
+      <WhoWillRenderDemo/>
     </Provider>
   );
 };
