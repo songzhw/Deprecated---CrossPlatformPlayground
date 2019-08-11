@@ -51,7 +51,7 @@ const AgeSexView = (props: IAgeSexProps) => {
   console.log(`szw AgeSexView reder()`);
   return (
     <div>
-      <GrandChild0/>
+      <GrandChild1/>
       <AgeView age={props.age}/>
       <SexView2 isMale={props.isMale}/>
     </div>
@@ -93,7 +93,7 @@ const GrandChild0 = () => {
     </>
   );
 };
-
+const GrandChild1 = React.memo(GrandChild0);
 // ================================================
 
 function mapStateToProps(state: IWhoWillRenderState) {
