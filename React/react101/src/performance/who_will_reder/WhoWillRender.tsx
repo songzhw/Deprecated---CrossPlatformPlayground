@@ -51,8 +51,9 @@ const AgeSexView = (props: IAgeSexProps) => {
   console.log(`szw AgeSexView reder()`);
   return (
     <div>
+      <GrandChild0/>
       <AgeView age={props.age}/>
-      <SexView isMale={props.isMale}/>
+      <SexView2 isMale={props.isMale}/>
     </div>
   );
 };
@@ -67,6 +68,7 @@ const SexView = (props: ISexProps) => {
     <p> isMale = {"" + props.isMale}</p>
   );
 };
+const SexView2 = React.memo(SexView);
 
 interface IAgeProps {
   age: number
@@ -76,6 +78,19 @@ const AgeView = (props: IAgeProps) => {
   console.log(`szw AgeView reder()`);
   return (
     <p> age = {"" + props.age}</p>
+  );
+};
+
+const GrandChild0 = () => {
+  function clickGrandChild() {
+  }
+
+  console.log(`szw GradChild0 reder()`);
+  return (
+    <>
+      <p> ========= ========= ========= </p>
+      <button onClick={clickGrandChild}>click grandchild</button>
+    </>
   );
 };
 
