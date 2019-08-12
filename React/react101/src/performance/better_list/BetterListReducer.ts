@@ -5,13 +5,13 @@ export interface IBetterListState {
 }
 
 export interface IBetterListItem {
-  id: number,
+  id: string,
   isMarked: boolean
 }
 
 const initState: IBetterListState = {};
 for (let i = 1; i <= 10000; i++) {
-  initState[i] = { id: i, isMarked: false };
+  initState[i] = { id: `${i}`, isMarked: false };
 }
 
 export const BetterListReducer = (state = initState, action: AnyAction) => {
