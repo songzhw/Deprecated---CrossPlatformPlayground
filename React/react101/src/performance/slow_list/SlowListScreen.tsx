@@ -5,7 +5,6 @@ import { ISlowListState } from "./SlowListReducer";
 
 type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-// TODO We have several issues here. Let's do the class component first
 const _SlowListScreen = (props: IProps) => {
 
   const markItem = (id: number) => {
@@ -55,4 +54,6 @@ const _SlowListItem = (props: IItemProps) => {
     <p style={style} onClick={props.onClick}>{props.id} - {props.isMarked ? "✔" : "x"}</p>
   );
 };
-const SlowListItem = React.memo(_SlowListItem);
+const SlowListItem = React.memo(_SlowListItem, (prevProps, nextProps) => {
+  return prevProps.isMarked === nextProps.isMarked;
+});
