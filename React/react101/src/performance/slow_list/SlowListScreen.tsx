@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { ISlowListState } from "./SlowListReducer";
@@ -8,17 +8,17 @@ type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatch
 const _SlowListScreen = (props: IProps) => {
 
   const markItem = (id: number) => {
+    console.log(`szw click : id = `, id);
     props.mark(id);
   };
 
   const { data } = props;
-  console.log(`data = `, data);
-  const style = { overflow: "scroll", height: "600px" };
+  const clickFunc = useCallback(markItem, []);
   return (
     <div>
       {
         data.map(item =>
-          <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} onClick={() => markItem(item.id)}/>
+          <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} onClick={() => clickFunc(item.id)}/>
         )
       }
     </div>
@@ -47,9 +47,11 @@ interface IItemProps {
   onClick: () => void;
 }
 
-const SlowListItem = (props: IItemProps) => {
+const _SlowListItem = (props: IItemProps) => {
   const style = { fontSize: "30px" };
+  console.log(`szw re-render item`);
   return (
     <p style={style} onClick={props.onClick}>{props.id} - {props.isMarked ? "✔" : "x"}</p>
   );
 };
+const SlowListItem = React.memo(_SlowListItem);
