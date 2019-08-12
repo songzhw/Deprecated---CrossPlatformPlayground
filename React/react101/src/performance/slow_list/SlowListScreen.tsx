@@ -17,7 +17,7 @@ const _SlowListScreen = (props: IProps) => {
     <div>
       {
         data.map(item =>
-          <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} onClick={markItem}/>
+          <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} onClick={clickFunc}/>
         )
       }
     </div>
