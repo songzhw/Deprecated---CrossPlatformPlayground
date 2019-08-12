@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { ISlowListState } from "./SlowListReducer";
@@ -7,9 +7,10 @@ type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatch
 
 class _SlowListClass extends React.Component<IProps> {
 
-  markItem = (id: number) => {
+  markItem = (ev: React.MouseEvent<HTMLParagraphElement>) => {
+    const id = ev.currentTarget.dataset.id!;
     console.log(`szw click : id = `, id);
-    this.props.mark(id);
+    this.props.mark(parseInt(id, 10));
   };
 
   render() {
@@ -18,7 +19,7 @@ class _SlowListClass extends React.Component<IProps> {
       <div>
         {
           data.map(item =>
-            <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} onClick={() => this.markItem(item.id)}/>
+            <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} data-id={""+item.id} onClick={this.markItem}/>
           )
         }
       </div>
@@ -45,7 +46,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(_SlowListClass);
 interface IItemProps {
   id: number;
   isMarked: boolean;
-  onClick: () => void;
+  onClick: (ev: React.MouseEvent<HTMLParagraphElement>) => void;
 }
 
 const _SlowListItem = (props: IItemProps) => {
