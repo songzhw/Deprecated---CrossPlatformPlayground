@@ -9,7 +9,12 @@ export interface ISlowListItem {
   isMarked: boolean
 }
 
-const initState = { items: [] };
+const initState: ISlowListState = { items: [] };
+for (let i = 1; i <= 30; i++) {
+  initState.items.push({ id: i, isMarked: false });
+}
+
+
 export const SlowListReducer = (state: ISlowListState = initState, action: AnyAction) => {
   if (action.type === "SlowList.mark") {
     return state.items.map(item =>
