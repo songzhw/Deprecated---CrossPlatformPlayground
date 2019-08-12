@@ -5,25 +5,25 @@ import { ISlowListState } from "./SlowListReducer";
 
 type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-// TODO We have several issues here. Let's do the class component first
-const _SlowListScreen = (props: IProps) => {
+class _SlowListClass extends React.Component<IProps> {
 
-  const markItem = (id: number) => {
+  markItem = (id: number) => {
     console.log(`szw click : id = `, id);
-    props.mark(id);
+    this.props.mark(id);
   };
 
-  const { data } = props;
-  const clickFunc = useCallback(markItem, []);
-  return (
-    <div>
-      {
-        data.map(item =>
-          <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} onClick={() => clickFunc(item.id)}/>
-        )
-      }
-    </div>
-  );
+  render() {
+    const { data } = this.props;
+    return (
+      <div>
+        {
+          data.map(item =>
+            <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} onClick={() => this.markItem(item.id)}/>
+          )
+        }
+      </div>
+    );
+  }
 };
 
 function mapStateToProps(state: ISlowListState) {
@@ -38,7 +38,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(_SlowListScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(_SlowListClass);
 
 // ================= ================= =================
 
@@ -50,7 +50,7 @@ interface IItemProps {
 
 const _SlowListItem = (props: IItemProps) => {
   const style = { fontSize: "30px" };
-  console.log(`szw re-render item`);
+  console.log(`szw item re-render`);
   return (
     <p style={style} onClick={props.onClick}>{props.id} - {props.isMarked ? "✔" : "x"}</p>
   );
