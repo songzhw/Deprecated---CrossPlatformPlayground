@@ -17,9 +17,10 @@ for (let i = 1; i <= 30; i++) {
 
 export const SlowListReducer = (state: ISlowListState = initState, action: AnyAction) => {
   if (action.type === "SlowList.mark") {
-    return state.items.map(item =>
+    const newItems = state.items.map(item =>
       action.payload.id === item.id ? { ...item, isMarked: !item.isMarked } : item
     );
+    return { items: newItems };
   }
   return state;
 };

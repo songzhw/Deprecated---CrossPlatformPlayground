@@ -12,6 +12,7 @@ const _SlowListScreen = (props: IProps) => {
   };
 
   const { data } = props;
+  console.log(`data = `, data);
   const style = { overflow: "scroll", height: "600px" };
   return (
     <div>
