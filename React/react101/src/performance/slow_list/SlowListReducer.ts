@@ -10,7 +10,7 @@ export interface ISlowListItem {
 }
 
 const initState: ISlowListState = { items: [] };
-for (let i = 1; i <= 30; i++) {
+for (let i = 1; i <= 10000; i++) {
   initState.items.push({ id: i, isMarked: false });
 }
 
