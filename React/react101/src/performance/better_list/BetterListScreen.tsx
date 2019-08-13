@@ -13,6 +13,10 @@ class _BetterListScreen extends React.Component<IProps> {
     super(props);
   }
 
+  shouldComponentUpdate(nextProps: Readonly<IProps>, nextState: Readonly<{}>, nextContext: any): boolean {
+    return false;
+  }
+
   render() {
     console.log(`parent render`);
     const data = [];
