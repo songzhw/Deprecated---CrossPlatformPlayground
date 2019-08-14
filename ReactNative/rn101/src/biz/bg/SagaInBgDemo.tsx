@@ -1,30 +1,46 @@
 import React from "react";
-import { View, ViewProps, Text, StyleSheet } from "react-native";
+import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
 interface IInnerProps extends ViewProps {
 }
+
 type IProps = IInnerProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-const _SagaInBgDemo = (props: IProps) => {
+class _SagaInBgDemo extends React.Component<IProps> {
+  state = {
+    time: "(empty)"
+  };
 
-  return (
-    <View>
-    </View>
-  );
+  setTime = () => {
+    const time = new Date().toTimeString();
+    this.setState({ time });
+  };
+
+  render() {
+    return (
+      <View>
+        <Text style={styles.clock}> {this.state.time} </Text>
+        <Button title={"set time"} onPress={this.setTime}/>
+      </View>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  clock: {
+    alignSelf: "center",
+    marginTop: 100,
+    fontSize: 30
   }
-})
+});
 
 function mapStateToProps(state: any) {
-  return {
-
-  };
+  return {};
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
