@@ -1,5 +1,13 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, createStore, Store } from "redux";
 import { themeReducer } from "./ThemeReducer";
 
-const reducers = combineReducers({ theme: themeReducer });
-export const store = createStore(reducers);  // createStore(reducers, applyMiddleware(...middlewareArray);
+interface IApplicationState {
+  theme: {
+    backgroundColor: string
+  }
+}
+
+const reducers = combineReducers({
+  theme: themeReducer
+});
+export const store : Store<IApplicationState> = createStore(reducers);  // createStore(reducers, applyMiddleware(...middlewareArray);
