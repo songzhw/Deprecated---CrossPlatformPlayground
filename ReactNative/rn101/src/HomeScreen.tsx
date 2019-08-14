@@ -10,6 +10,8 @@ import AppStateDemo from "./biz/bg/AppStateDemo";
 import SagaInBgDemo from "./biz/bg/SagaInBgDemo";
 import NativeBridgeInBgDemo from "./biz/bg/NativeBridgeInBgDemo";
 
+console.disableYellowBox = true;
+
 export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
   const { navigation, screenProps } = props;
@@ -48,7 +50,6 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="Modal Example" onPress={() => navigation.navigate("ModalExample")}/>
       <HomeButton title="R-N Art library" onPress={() => navigation.navigate("ArtDemo")}/>
       <HomeButton title="R-N Art 2" onPress={() => navigation.navigate("ArtAnimView")}/>
-
 
 
       <View style={{ height: 8 }}/>
