@@ -1,7 +1,14 @@
 import React, { Component } from "react";
-import { AppState, AppStateStatus, Text } from "react-native";
+import { AppState, AppStateStatus, Text, ViewProps } from "react-native";
+import { connect } from "react-redux";
+import { BG_SAGA_INCREASE } from "../../core/redux/BgJobReducer";
+import { Dispatch } from "redux";
 
-class AppStateExample extends Component {
+interface IProps extends ViewProps {
+  dispatch: Dispatch
+}
+
+class AppStateExample extends Component<IProps> {
   intervalHandler = 0;
   num = 0;
   state = {
@@ -20,6 +27,13 @@ class AppStateExample extends Component {
 
   _handleAppStateChange = (nextAppState: AppStateStatus) => {
     console.log(`AppState changes: `, nextAppState);
+
+    if (nextAppState === "background") {
+      this.props.dispatch({ type: BG_SAGA_INCREASE, payload: { id: 100 } });
+    }
+
+    /*
+    // change listener, state="background"时的setInterval()是不会执行哦!
     if (nextAppState === "background") {
       console.log(`background`);
       // @ts-ignore
@@ -32,6 +46,7 @@ class AppStateExample extends Component {
       clearInterval(this.intervalHandler);
       console.log(`active clear interval`);
     }
+     */
   };
 
   render() {
@@ -40,4 +55,4 @@ class AppStateExample extends Component {
   }
 }
 
-export default AppStateExample;
+export default connect()(AppStateExample);
