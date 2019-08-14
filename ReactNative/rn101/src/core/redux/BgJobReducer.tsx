@@ -9,9 +9,9 @@ export interface IBgJobState {
 const initState: IBgJobState = { saga: 0 };
 
 export const BgJobReducer = (state = initState, action: AnyAction) => {
-  console.log(`szw reducer: `, action);
   switch (action.type) {
     case BG_SAGA_INCREASE:
+      console.log(`szw reducer: `, action);
       return { saga: action.payload.id };
     default:
       return state;
