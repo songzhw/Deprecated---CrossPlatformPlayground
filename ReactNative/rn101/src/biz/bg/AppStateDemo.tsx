@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 import { BG_SAGA_INCREASE } from "../../core/redux/BgJobReducer";
 import { Dispatch } from "redux";
 
-interface IProps extends ViewProps {
-  dispatch: Dispatch
+interface IInnerProps extends ViewProps {
 }
+
+type IProps = IInnerProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class AppStateExample extends Component<IProps> {
   intervalHandler = 0;
@@ -29,7 +30,7 @@ class AppStateExample extends Component<IProps> {
     console.log(`AppState changes: `, nextAppState);
 
     if (nextAppState === "background") {
-      this.props.dispatch({ type: BG_SAGA_INCREASE, payload: { id: 100 } });
+      this.props.send(200);
     }
 
     /*
@@ -55,4 +56,15 @@ class AppStateExample extends Component<IProps> {
   }
 }
 
-export default connect()(AppStateExample);
+function mapStateToProps(state: any) {
+  return { num: state.bg.saga };
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
+  return {
+    send: (id: number) => dispatch({ type: BG_SAGA_INCREASE, payload: { id } })
+  };
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppStateExample);

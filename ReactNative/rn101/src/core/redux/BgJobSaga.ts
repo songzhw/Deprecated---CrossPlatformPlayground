@@ -4,9 +4,15 @@ import { AnyAction } from "redux";
 
 // @ts-ignore
 const onSagaIncrease = function* (action: AnyAction) {
-  console.log(`szw saga got it`, action);
+  console.log(`szw saga debounce 5s`, action);
+};
+
+// @ts-ignore
+const onSagaIncreaseTaken = function* (action: AnyAction) {
+  console.log(`szw saga takeEvery`, action);
 };
 
 export const BgJobSaga = function* () {
   yield debounce(5000, BG_SAGA_INCREASE, onSagaIncrease);
+  yield takeEvery( BG_SAGA_INCREASE, onSagaIncreaseTaken);
 };
