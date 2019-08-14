@@ -1,27 +1,27 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
+import React, { Component } from "react";
+import { AppState, Text } from "react-native";
 
-type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+class AppStateExample extends Component {
+  state = {
+    appState: AppState.currentState
+  };
 
-class _AppStateDemo extends React.Component<IProps> {
-  state = {};
+  componentDidMount() {
+    AppState.addEventListener("change", this._handleAppStateChange);
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener("change", this._handleAppStateChange);
+  }
+
+  _handleAppStateChange = (nextAppState: any) => {
+    console.log(`AppState changes: `, nextAppState);
+    this.setState({ appState: nextAppState });
+  };
 
   render() {
-    return (
-      <div></div>
-    );
+    return <Text>Current state is: {this.state.appState}</Text>;
   }
-};
-
-function mapStateToProps(state: any) {
-  return {};
 }
 
-function mapDispatchToProps(dispatch: Dispatch) {
-  return {
-    // mark: (id: number) => dispatch({ type: "", payload: { id } })
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(_AppStateDemo);
+export default AppStateExample;
