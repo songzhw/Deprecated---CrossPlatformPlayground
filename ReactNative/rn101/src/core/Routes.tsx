@@ -33,10 +33,14 @@ import { ListDetailAnimDemo } from "../fancy_ui/hero_anim/ListDetailAnimDemo";
 import { ListDetailAnimDemo2 } from "../fancy_ui/hero_anim/ListDetailAnimDemo2";
 import { SimpleHeroAnimDemo } from "../fancy_ui/hero_anim/SimpleHeroAnimDemo";
 import { Lottery9Demo } from "../fancy_ui/Lottery9/Lottery9Demo";
+import AppStateDemo from "../biz/bg/AppStateDemo";
+import SagaInBgDemo from "../biz/bg/SagaInBgDemo";
+import NativeBridgeInBgDemo from "../biz/bg/NativeBridgeInBgDemo";
 
 const AppNavigator = createStackNavigator(
   {
     HomeScreen,
+    AppStateDemo,SagaInBgDemo, NativeBridgeInBgDemo,
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
