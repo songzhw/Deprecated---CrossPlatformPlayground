@@ -1,13 +1,9 @@
 import { combineReducers, createStore, Store } from "redux";
 import { themeReducer } from "./ThemeReducer";
-
-interface IApplicationState {
-  theme: {
-    backgroundColor: string
-  }
-}
+import { BgJobReducer, IBgJobState } from "./BgJobReducer";
 
 const reducers = combineReducers({
-  theme: themeReducer
+  theme: themeReducer,
+  bg: BgJobReducer
 });
-export const store : Store<IApplicationState> = createStore(reducers);  // createStore(reducers, applyMiddleware(...middlewareArray);
+export const store: Store = createStore(reducers);  // createStore(reducers, applyMiddleware(...middlewareArray);

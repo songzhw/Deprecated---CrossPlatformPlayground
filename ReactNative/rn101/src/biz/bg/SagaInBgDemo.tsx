@@ -2,6 +2,7 @@ import React from "react";
 import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
+import { BG_SAGA_INCREASE } from "../../core/redux/BgJobReducer";
 
 interface IInnerProps extends ViewProps {
 }
@@ -9,19 +10,16 @@ interface IInnerProps extends ViewProps {
 type IProps = IInnerProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class _SagaInBgDemo extends React.Component<IProps> {
-  state = {
-    time: "(empty)"
-  };
 
   setTime = () => {
-    const time = new Date().toTimeString();
-    this.setState({ time });
+    const num = this.props.num + 1;
+    this.props.increase(num);
   };
 
   render() {
     return (
       <View>
-        <Text style={styles.clock}> {this.state.time} </Text>
+        <Text style={styles.clock}> {this.props.num} </Text>
         <Button title={"set time"} onPress={this.setTime}/>
       </View>
     );
@@ -40,12 +38,12 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state: any) {
-  return {};
+  return { num: state.bg.saga };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
-    // mark: (id: number) => dispatch({ type: "", payload: { id } })
+    increase: (id: number) => dispatch({ type: BG_SAGA_INCREASE, payload: { id } })
   };
 }
 
