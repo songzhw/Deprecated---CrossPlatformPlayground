@@ -17,6 +17,10 @@ class _SetIntervalInBgDemo extends React.Component<IProps> {
   };
   intervalHandler = 0;
 
+  componentWillUnmount(): void {
+    clearInterval(this.intervalHandler);
+  }
+
   countDown = () => {
     if (this.intervalHandler !== 0) {
       clearInterval(this.intervalHandler);
