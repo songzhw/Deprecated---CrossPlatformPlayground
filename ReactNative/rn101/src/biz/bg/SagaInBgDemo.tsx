@@ -17,6 +17,7 @@ class _SagaInBgDemo extends React.Component<IProps> {
   };
 
   render() {
+    console.log(`szw render(): `, this.props.num);
     return (
       <View>
         <Text style={styles.clock}> {this.props.num} </Text>
