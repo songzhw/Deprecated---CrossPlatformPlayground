@@ -20,6 +20,7 @@ class AppStateExample extends Component {
   };
 
   render() {
+    console.log(`Screen render: `, this.state.appState);
     return <Text>Current state is: {this.state.appState}</Text>;
   }
 }
