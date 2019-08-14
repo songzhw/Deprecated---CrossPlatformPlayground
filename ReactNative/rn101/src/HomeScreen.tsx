@@ -6,6 +6,9 @@ import { TimerIssue } from "./biz/timer/TimerIssue";
 import { ArtDemo } from "./rn_tutorial/art/ArtDemo";
 import { DebounceDemo } from "./performance/DebounceDemo";
 import { Lottery9Demo } from "./fancy_ui/Lottery9/Lottery9Demo";
+import AppStateDemo from "./biz/bg/AppStateDemo";
+import SagaInBgDemo from "./biz/bg/SagaInBgDemo";
+import NativeBridgeInBgDemo from "./biz/bg/NativeBridgeInBgDemo";
 
 export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
@@ -16,6 +19,11 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
   return (
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
+
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>In Background Issue</Text>
+      <HomeButton title="AppState Demo" onPress={() => navigation.navigate("AppStateDemo")}/>
+      <HomeButton title="Saga In Bg Demo" onPress={() => navigation.navigate("SagaInBgDemo")}/>
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Fancy UI</Text>
