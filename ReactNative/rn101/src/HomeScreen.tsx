@@ -22,9 +22,11 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>In Background Issue</Text>
+      <HomeButton title="setInterval In Bg Demo" onPress={() => navigation.navigate("SetIntervalInBgDemo")}/>
       <HomeButton title="AppState Demo" onPress={() => navigation.navigate("AppStateDemo")}/>
       <HomeButton title="Saga In Bg Demo" onPress={() => navigation.navigate("SagaInBgDemo")}/>
       <HomeButton title="Native Bridge In Bg Demo" onPress={() => navigation.navigate("NativeBridgeInBgDemo")}/>
+
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Fancy UI</Text>

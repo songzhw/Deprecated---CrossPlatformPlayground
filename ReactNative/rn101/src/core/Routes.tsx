@@ -36,11 +36,12 @@ import { Lottery9Demo } from "../fancy_ui/Lottery9/Lottery9Demo";
 import AppStateDemo from "../biz/bg/AppStateDemo";
 import SagaInBgDemo from "../biz/bg/SagaInBgDemo";
 import NativeBridgeInBgDemo from "../biz/bg/NativeBridgeInBgDemo";
+import SetIntervalInBgDemo from "../biz/bg/SetIntervalInBgDemo";
 
 const AppNavigator = createStackNavigator(
   {
     HomeScreen,
-    AppStateDemo,SagaInBgDemo, NativeBridgeInBgDemo,
+    SetIntervalInBgDemo, AppStateDemo,SagaInBgDemo, NativeBridgeInBgDemo,
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
