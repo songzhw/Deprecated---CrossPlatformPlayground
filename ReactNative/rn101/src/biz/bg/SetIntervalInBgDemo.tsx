@@ -8,11 +8,17 @@ interface IInnerProps extends ViewProps {
 
 type IProps = IInnerProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
+let intervalHandler = 0;
+
 const _SetIntervalInBgDemo = (props: IProps) => {
   const [time, setTime] = useState(60);
 
   function countDown() {
-
+    if (intervalHandler !== 0) {
+      clearInterval(intervalHandler);
+    } else {
+      setInterval(() => setTime(time - 1), 1000);
+    }
   }
 
   return (
