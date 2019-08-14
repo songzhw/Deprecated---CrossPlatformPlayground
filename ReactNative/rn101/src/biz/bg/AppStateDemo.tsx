@@ -1,30 +1,21 @@
 import React from "react";
-import { View, ViewProps, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
-interface IInnerProps extends ViewProps {
-}
-type IProps = IInnerProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-const _AppStateDemo = (props: IProps) => {
+class _AppStateDemo extends React.Component<IProps> {
+  state = {};
 
-  return (
-    <View>
-    </View>
-  );
+  render() {
+    return (
+      <div></div>
+    );
+  }
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-})
-
 function mapStateToProps(state: any) {
-  return {
-
-  };
+  return {};
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
