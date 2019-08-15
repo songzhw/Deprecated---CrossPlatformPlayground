@@ -27,33 +27,33 @@ class AppStateExample extends Component<IProps> {
   }
 
   _handleAppStateChange = (nextAppState: AppStateStatus) => {
-    console.log(`AppState changes: `, nextAppState);
+    console.log(`szw AppState changes: `, nextAppState);
 
     if (nextAppState === "background") {
 
       this.props.send(200); // 有saga.delay()之关的话, 这种delay就不会执行. 但只是普通打打日志, redux和saga都调用了
 
-      fetch("https://facebook.github.io/react-native/movies.json")
+      fetch("http://www.mocky.io/v2/5caa5b8e3000001607904577")
         .then((response) => response.json())
-        .then(resp => console.log("in bg : resp = ", resp))
+        .then(resp => console.log("szw in bg : resp = ", resp))
         .catch((error) => {
-          console.error(`in bg, error = `, error);
+          console.error(`szw in bg, error = `, error);
         });
     }
 
     /*
     // change listener, state="background"时的setInterval()是不会执行哦!
     if (nextAppState === "background") {
-      console.log(`background`);
+      console.log(`szw background`);
       // @ts-ignore
       this.intervalHandler = setInterval(() => {
         this.num++;
         this.setState({ appState: nextAppState + this.num });
-        console.log(`background: num++ : `, this.num);
+        console.log(`szw background: num++ : `, this.num);
       }, 1000);
     } else if (nextAppState === "active") {
       clearInterval(this.intervalHandler);
-      console.log(`active clear interval`);
+      console.log(`szw active clear interval`);
     }
      */
   };
