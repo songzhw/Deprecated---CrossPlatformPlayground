@@ -8,7 +8,6 @@ type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatch
 const _SlowListScreen = (props: IProps) => {
 
   const markItem = (id: number) => {
-    console.log(`szw click : id = `, id);
     props.mark(id);
   };
 
@@ -18,7 +17,7 @@ const _SlowListScreen = (props: IProps) => {
     <div>
       {
         data.map(item =>
-          <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} onClick={() => clickFunc(item.id)}/>
+          <SlowListItem key={item.id} id={item.id} isMarked={item.isMarked} onClick={clickFunc}/>
         )
       }
     </div>
@@ -44,14 +43,20 @@ export default connect(mapStateToProps, mapDispatchToProps)(_SlowListScreen);
 interface IItemProps {
   id: number;
   isMarked: boolean;
-  onClick: () => void;
+  onClick: (id: number) => void;
 }
 
 const _SlowListItem = (props: IItemProps) => {
+
+  function clickMe() {
+    const { id } = props;
+    props.onClick(id);
+  }
+
   const style = { fontSize: "30px" };
   console.log(`szw re-render item`);
   return (
-    <p style={style} onClick={props.onClick}>{props.id} - {props.isMarked ? "✔" : "x"}</p>
+    <p style={style} onClick={clickMe}>{props.id} - {props.isMarked ? "✔" : "x"}</p>
   );
 };
 const SlowListItem = React.memo(_SlowListItem);
