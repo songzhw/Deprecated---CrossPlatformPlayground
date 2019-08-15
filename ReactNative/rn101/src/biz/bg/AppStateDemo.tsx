@@ -30,7 +30,15 @@ class AppStateExample extends Component<IProps> {
     console.log(`AppState changes: `, nextAppState);
 
     if (nextAppState === "background") {
-      this.props.send(200);
+
+      this.props.send(200); // 有saga.delay()之关的话, 这种delay就不会执行. 但只是普通打打日志, redux和saga都调用了
+
+      fetch("https://facebook.github.io/react-native/movies.json")
+        .then((response) => response.json())
+        .then(resp => console.log("in bg : resp = ", resp))
+        .catch((error) => {
+          console.error(`in bg, error = `, error);
+        });
     }
 
     /*
