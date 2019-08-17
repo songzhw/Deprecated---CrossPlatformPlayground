@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, ViewProps, Text, StyleSheet, Button, NativeModules } from "react-native";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
+import { BG_SAGA_INCREASE } from "../../core/redux/BgJobReducer";
 
 const NativeDelayWorker = NativeModules.NativeDelayFiveSeconds;
 
@@ -14,10 +15,12 @@ const _NativeBridgeInBgDemo = (props: IProps) => {
   const [text, setText] = useState("(init)");
 
   function callNative() {
-    NativeDelayWorker.start(3000, (msg: string) => {
+    NativeDelayWorker.start(4000, (msg: string) => {
       console.log(`szw received msg from Native:`, msg);
       const value = new Date().toTimeString();
       setText(value);
+
+      props.increase(new Date().getTime());
     });
   }
 
@@ -40,12 +43,12 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state: any) {
-  return {};
+  return { num: state.bg.saga };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
-    // mark: (id: number) => dispatch({ type: "", payload: { id } })
+    increase: (id: number) => dispatch({ type: BG_SAGA_INCREASE, payload: { id } })
   };
 }
 
