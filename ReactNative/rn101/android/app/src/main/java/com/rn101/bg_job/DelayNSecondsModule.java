@@ -29,7 +29,7 @@ public class DelayNSecondsModule extends ReactContextBaseJavaModule {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                timeout.invoke("time out -- from Native");
+                timeout.invoke(milliSeconds + "ms time out -- from Native");
             }
         }, milliSeconds);
     }
