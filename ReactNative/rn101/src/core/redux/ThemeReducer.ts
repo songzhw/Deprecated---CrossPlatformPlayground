@@ -9,7 +9,7 @@ export const createSetThemeAction = (theme: string) => {
 };
 
 
-export const themeReducer = (state = {}, action: AnyAction) => {
+export const themeReducer = (state = {backgroundColor: ""}, action: AnyAction) => {
   switch (action.type) {
     case SET_THEME:
       const themeName = action.payload.theme;
