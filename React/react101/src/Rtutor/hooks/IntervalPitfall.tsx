@@ -12,7 +12,7 @@ export const IntervalPitfall = () => {
     } else {
       // @ts-ignore
       intervalHandler = setInterval(() => {
-        console.log(`szw time =`, time, "; interval = ", intervalHandler);
+        console.log(`szw time =`, time, "; interval = ", intervalHandler); //=> always : "time = 60"
         setTime(sec => sec - 1);
       }, 1000);
     }
