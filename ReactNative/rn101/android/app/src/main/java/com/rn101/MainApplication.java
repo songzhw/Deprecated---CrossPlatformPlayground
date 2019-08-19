@@ -3,7 +3,9 @@ package com.rn101;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.netinfo.NetInfoPackage;
 import com.reactnativecommunity.art.ARTPackage;
+import com.rn101.bg_job.DelayNSecondsPackage;
 import com.rnfs.RNFSPackage;
 import com.rnziparchive.RNZipArchivePackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
@@ -30,6 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new NetInfoPackage(),
+            new DelayNSecondsPackage(),
             new ARTPackage(),
             new RNFSPackage(),
             new RNZipArchivePackage(),

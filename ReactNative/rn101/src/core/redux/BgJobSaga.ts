@@ -7,9 +7,12 @@ const onSagaIncrease = function* (action: AnyAction) {
   console.log(`szw saga debounce 5s`, action);
 };
 
-// @ts-ignore
 const onSagaIncreaseTaken = function* (action: AnyAction) {
   console.log(`szw saga takeEvery`, action);
+  yield 20;
+  console.log(`szw saga step 2: after yield 20`);
+  yield "test";
+  console.log(`szw saga step 3: after yield test`);
   yield delay(3000);
   console.log(`szw saga takeEvery after delay(3s)`);
 };
