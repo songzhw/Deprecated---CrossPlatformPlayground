@@ -9,13 +9,14 @@ import SlowListClass from "./performance/slow_list/SlowListClass";
 import { BetterListReducer } from "./performance/better_list/BetterListReducer";
 import BetterListScreen from "./performance/better_list/BetterListScreen";
 import { IntervalPitfallFix2 } from "./Rtutor/hooks/useState/IntervalPitfallFix2";
+import { CountPitfall } from "./Rtutor/hooks/useeffect/CountPitfall";
 
 const store: Store = createStore(BetterListReducer);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <IntervalPitfallFix2/>
+      <CountPitfall/>
     </Provider>
   );
 };
