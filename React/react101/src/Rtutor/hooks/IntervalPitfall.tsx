@@ -1,21 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
+let intervalHandler = 0;
 
 export const IntervalPitfall = () => {
-  const [seconds, setSeconds] = useState(0);
+  const [time, setTime] = useState(60);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds((second : number) => second + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const countDown = () => {
+    if (intervalHandler !== 0) {
+      clearInterval(intervalHandler);
+      intervalHandler = 0;
+    } else {
+      // @ts-ignore
+      intervalHandler = setInterval(() => {
+        console.log(`szw time =`, time, "; interval = ", intervalHandler);
+        setTime(sec => sec - 1);
+      }, 1000);
+    }
+  };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {seconds} seconds have elapsed since mounting.
-      </header>
+    <div>
+      <p> 15: {time}</p>
+      <button onClick={countDown}> start</button>
     </div>
   );
 };
