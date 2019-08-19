@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 let intervalHandler = 0;
 
-export const IntervalPitfall = () => {
+export const IntervalPitfallFix1 = () => {
   const [time, setTime] = useState(60);
 
   useEffect(() => {
