@@ -1,3 +1,5 @@
-export const palindromes = () => {
+const palindromes = () => {
 
 };
+
+module.exports = {palindromes}
