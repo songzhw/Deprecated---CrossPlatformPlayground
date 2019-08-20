@@ -4,6 +4,7 @@ module.exports = {
     ecmaVersion: 6
   },
   env: {
-    node: true
+    node: true,
+    jest: true
   }
 };
