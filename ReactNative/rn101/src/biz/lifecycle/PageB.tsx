@@ -8,27 +8,33 @@ interface IProps extends NavigationScreenProps {
 }
 
 class PageB extends BaseScreenComponent<IProps, {}> {
+  componentWillMount() {
+    console.log(`szw B.onCreate()`);
+  }
+
+  componentWillUnmount(): void {
+    console.log(`szw B.onDestroy()`);
+  }
 
   onStart() {
     super.onStart();
-    console.log(`szw PageB onStart()`);
+    console.log(`szw B.onStart()`);
   }
 
   onResume() {
     super.onResume();
-    console.log(`szw PageB onResume()`);
+    console.log(`szw B.onResume()`);
   }
 
   onPause() {
     super.onPause();
-    console.log(`szw PageB onPause()`);
+    console.log(`szw B.onPause()`);
   }
 
   onStop() {
     super.onStop();
-    console.log(`szw PageB onStop()`);
+    console.log(`szw B.onStop()`);
   }
-
 
   render() {
     return (

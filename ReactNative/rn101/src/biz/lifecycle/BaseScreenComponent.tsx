@@ -16,22 +16,22 @@ export class BaseScreenComponent<Props extends NavigationScreenProps, State> ext
     this.onStop = this.onStop.bind(this);
 
     this.startListener = this.props.navigation.addListener("willFocus", () => {
-      console.log(`szw BaseScreenComponent willFocus (onStart)`);
+      // console.log(`szw BaseScreenComponent willFocus (onStart)`);
       this.onStart();
     });
 
     this.resumeListener = this.props.navigation.addListener("didFocus", () => {
-      console.log(`szw BaseScreenComponent didFocus (onResume)`);
+      // console.log(`szw BaseScreenComponent didFocus (onResume)`);
       this.onResume();
     });
 
     this.pauseListener = this.props.navigation.addListener("willBlur", () => {
-      console.log(`szw BaseScreenComponent willBlur (onPause)`);
+      // console.log(`szw BaseScreenComponent willBlur (onPause)`);
       this.onPause();
     });
 
     this.stopListener = this.props.navigation.addListener("didBlur", () => {
-      console.log(`szw BaseScreenComponent didBlur (onStop)`);
+      // console.log(`szw BaseScreenComponent didBlur (onStop)`);
       this.onStop();
     });
 
