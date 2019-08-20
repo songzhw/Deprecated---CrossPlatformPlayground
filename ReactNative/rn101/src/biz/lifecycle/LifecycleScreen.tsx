@@ -35,7 +35,7 @@ class LifecycleScreen extends BaseScreenComponent<IProps, {}> {
   render() {
     return (
       <View>
-        <Text>Lifecycle</Text>1
+        <Text>Lifecycle</Text>
         <Button title={"go to Page B"} onPress={this.go2B}/>
       </View>
     );
@@ -45,3 +45,7 @@ class LifecycleScreen extends BaseScreenComponent<IProps, {}> {
 const styles = StyleSheet.create({});
 
 export default LifecycleScreen;
+
+/*
+
+ */
