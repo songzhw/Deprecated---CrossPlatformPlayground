@@ -23,6 +23,12 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
 
       <View style={{ height: 8 }}/>
+      <Text style={styles.title}>React Native Tutorial</Text>
+      <HomeButton title="Debounce + Button" onPress={() => navigation.navigate("DebounceDemo")}/>
+      <HomeButton title="dataset properties" onPress={() => navigation.navigate("LambdaInJsx")}/>
+      <HomeButton title="lifecycle demo" onPress={() => navigation.navigate("LifecycleScreen")}/>
+
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>In Background Issue</Text>
       <HomeButton title="setInterval In Bg Demo" onPress={() => navigation.navigate("SetIntervalInBgDemo")}/>
       <HomeButton title="Saga In Bg Demo" onPress={() => navigation.navigate("SagaInBgDemo")}/>
@@ -35,12 +41,6 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="(X) list <-> Detail Anim 2" onPress={() => navigation.navigate("ListDetailAnimDemo2")}/>
       <HomeButton title="(✔) simple hero anim" onPress={() => navigation.navigate("SimpleHeroAnimDemo")}/>
       <HomeButton title="九宫格抽奖" onPress={() => navigation.navigate("Lottery9Demo")}/>
-
-
-      <View style={{ height: 8 }}/>
-      <Text style={styles.title}>React Native Tutorial</Text>
-      <HomeButton title="Debounce + Button" onPress={() => navigation.navigate("DebounceDemo")}/>
-      <HomeButton title="dataset properties" onPress={() => navigation.navigate("LambdaInJsx")}/>
 
 
       <View style={{ height: 8 }}/>

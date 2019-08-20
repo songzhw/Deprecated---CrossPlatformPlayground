@@ -37,11 +37,14 @@ import AppStateDemo from "../biz/bg/AppStateDemo";
 import SagaInBgDemo from "../biz/bg/SagaInBgDemo";
 import NativeBridgeInBgDemo from "../biz/bg/NativeBridgeInBgDemo";
 import SetIntervalInBgDemo from "../biz/bg/SetIntervalInBgDemo";
+import PageB from "../biz/lifecycle/PageB";
+import LifecycleScreen from "../biz/lifecycle/LifecycleScreen";
 
 const AppNavigator = createStackNavigator(
   {
     HomeScreen,
     SetIntervalInBgDemo, AppStateDemo,SagaInBgDemo, NativeBridgeInBgDemo,
+    LifecycleScreen, PageB,
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
