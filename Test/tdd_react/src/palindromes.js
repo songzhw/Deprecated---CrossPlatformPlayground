@@ -1,5 +1,4 @@
 const palindromes = () => {
-
 };
 
-module.exports = {palindromes}
+module.exports = { palindromes };
