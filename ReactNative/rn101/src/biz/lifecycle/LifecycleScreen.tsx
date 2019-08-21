@@ -69,4 +69,14 @@ B. onStart
 A. onStop
 B. onResume
 
+3. 再按back回到了A
+A.onStart
+B.onPause
+B.onDestroy
+A.onResume
+B.onStop
+(这里有一点点小意外, 就是先执行了componentWillUnmount, 再执行的didBlur的生命周期.)
+(但想想也不是不能理解, 毕竟前者发生在页面中, 而后者发生在全局组件didBlur上)
+(但这个didBlur可能就不能叫onStop了, 可能要叫onStopAndDestroy可能比较合适!)
+
  */
