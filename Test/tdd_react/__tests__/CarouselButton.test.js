@@ -24,7 +24,7 @@ describe("CaraouselButton", () => {
     const wrapper = shallow(<CarouselButton>{text}</CarouselButton>);
     wrapper.setProps({ onClick, "data-action": dataAction });
 
-    expect(wrapper.prop("onClick")).toBe(onClick());
+    expect(wrapper.prop("onClick")).toBe(onClick);
     expect(wrapper.prop("data-action")).toBe(dataAction);
 
   });
