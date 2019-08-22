@@ -25,6 +25,7 @@ describe("CaraouselButton", () => {
     wrapper.setProps({ onClick, "data-action": dataAction });
 
     expect(wrapper.prop("onClick")).toBe(onClick());
+    expect(wrapper.prop("data-action")).toBe(dataAction);
 
   });
 });
