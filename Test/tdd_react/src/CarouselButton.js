@@ -1,3 +1,3 @@
 import React from "react";
 
-export const CarouselButton = () => <div/>;
+export const CarouselButton = () => <button/>;
