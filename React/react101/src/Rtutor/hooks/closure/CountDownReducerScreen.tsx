@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 
 interface IState {
-  num: number;
+  time: number;
 }
 
 interface IAction {
   type: string;
-  payload: number;
 }
 
 const ACTION_COUNT_DOWN = "ACTION_COUNT_DOWN";
 
-function intervalReducer(state = { num: 60 }, action: IAction) {
+function intervalReducer(state: IState, action: IAction) {
   if (action.type === ACTION_COUNT_DOWN) {
-    const value = action.payload - 1;
-    return { num: value };
+    const value = state.time - 1;
+    return { time: value };
   }
   return state;
 }
@@ -22,7 +21,8 @@ function intervalReducer(state = { num: 60 }, action: IAction) {
 
 let intervalHandler = 0;
 export const CountDownReducerScreen = () => {
-  const [time, setTime] = useState(60);
+  // const [time, setTime] = useState(60);
+  const [state, dispatch] = useReducer(intervalReducer, { time: 60 });
 
   const countDown = () => {
     if (intervalHandler !== 0) {
@@ -30,15 +30,15 @@ export const CountDownReducerScreen = () => {
     } else {
       // @ts-ignore
       intervalHandler = setInterval(() => {
-        console.log(`szw time =`, time); //time每隔一秒, 打印出来的都是60
-        setTime(time - 1);
+        console.log(`szw state =`, state); //=> 值仍总是 {time: 60}
+        dispatch({ type: ACTION_COUNT_DOWN });
       }, 1000);
     }
   };
 
   return (
     <div>
-      <p> 15: {time}</p>
+      <p> 15: {state.time}</p>
       <button onClick={countDown}> start</button>
     </div>
   );
