@@ -2,6 +2,7 @@ import React from "react";
 
 function parent() {
   let _val: any;
+  let _dependencies: any;
 
   return {
     myState(initState: any) {
@@ -12,6 +13,18 @@ function parent() {
       }
 
       return [_val, setValue];
+    },
+
+    myEffect(fn: () => (() => void), dependencyList: any[]) {
+      const ifUpdate = !dependencyList; // dependencyList为空就会ifUpdate为true
+      const ifDependenciesChange = _dependencies ?
+        !_dependencies.every((r: any, index: number): boolean => r === dependencyList[index])
+        : true;
+
+      if (ifUpdate || ifDependenciesChange) {
+        fn();
+        _dependencies = dependencyList || [];
+      }
     }
   };
 }
