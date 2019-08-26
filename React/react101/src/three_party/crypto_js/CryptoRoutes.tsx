@@ -29,6 +29,7 @@ const Header = () => {
 };
 
 export const CryptoRouter = () => {
+  // "<Redirect exact={true}" , exact让我们在from时只match"/", 而不是"/movies", "/admin"也被匹配到了
   return (
     <BrowserRouter>
       <Header/>
@@ -49,3 +50,9 @@ export const CryptoRouter = () => {
   );
 };
 
+/*
+Conditional Router
+  <Route path="/admin">
+    {isLoggedIn ? <AdminScreen/> : <LoginScreen/>}
+  </Route>
+ */
