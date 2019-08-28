@@ -1,11 +1,15 @@
-export function useMyState(initValue: any) {
-  let value = initValue;
+export function MyReact() {
+  let value: any;
 
-  function setValue(newValue: any) {
-    value = newValue;
+  function useMyState(initValue: any) {
+    function setValue(newValue: any) {
+      value = newValue;
+    }
+
+    return [value, setValue];
   }
 
-  return [value, setValue];
+  return useMyState;
 }
 
 

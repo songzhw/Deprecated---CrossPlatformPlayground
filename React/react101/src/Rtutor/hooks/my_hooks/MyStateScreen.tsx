@@ -1,8 +1,8 @@
 import React from "react";
-import { useMyState } from "./MyState";
+import { MyReact } from "./MyState";
 
 export const MyStateScreen = () => {
-  const [count, setCount] = useMyState(10);
+  const [count, setCount] = MyReact()(10);
   const [timeToRefresh, setTimeToRefresh] = React.useState(false); //辅助用, 主要让页面来更新
 
   function click() {
