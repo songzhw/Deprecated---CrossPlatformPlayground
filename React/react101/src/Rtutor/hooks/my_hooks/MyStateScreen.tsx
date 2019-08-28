@@ -1,8 +1,7 @@
 import React from "react";
-import { MyReact } from "./MyState";
+import { useMyState } from "./MyState";
 
 export const MyStateScreen = () => {
-  const useMyState = MyReact();
   const [count, setCount] = useMyState(10);
   const [timeToRefresh, setTimeToRefresh] = React.useState(false); //辅助用, 主要让页面来更新
 
