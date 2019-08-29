@@ -1022,6 +1022,13 @@
   dependencies:
     "@types/react-native" "*"
 
+"@types/react-native-linear-gradient@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-linear-gradient/-/react-native-linear-gradient-2.4.0.tgz#9c223f8aef2b17f18902518dabf1faeccfe4f7d4"
+  integrity sha512-4fLf0oo4zEbfGPo7rprezBdyy490eyTpl4cogWR8i9CDJzlsAEpmfkjVx8BpgOOF/RNfpa1XgFiSABDqtIi5/Q==
+  dependencies:
+    react-native-linear-gradient "*"
+
 "@types/react-native@*", "@types/react-native@^0.57.60":
   version "0.57.60"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.60.tgz#61e97a84e2f64ed971e7d238bb30cec188898235"
@@ -5259,6 +5266,11 @@ react-native-gesture-handler@^1.2.2:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.2"
     prop-types "^15.5.10"
+
+react-native-linear-gradient@*, react-native-linear-gradient@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+  integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
 
 react-native-safe-area-view@^0.14.1:
   version "0.14.4"

@@ -3,6 +3,7 @@ package com.rn101;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 import com.reactnativecommunity.art.ARTPackage;
 import com.rn101.bg_job.DelayNSecondsPackage;
@@ -32,6 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LinearGradientPackage(),
             new NetInfoPackage(),
             new DelayNSecondsPackage(),
             new ARTPackage(),

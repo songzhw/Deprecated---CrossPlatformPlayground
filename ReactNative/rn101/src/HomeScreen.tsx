@@ -22,6 +22,14 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
 
+
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>3rd Library</Text>
+      <HomeButton title="static server" onPress={() => navigation.navigate("StaticServerDemo")}/>
+      <HomeButton title="fetch blob" onPress={() => navigation.navigate("FetchBlobDemo")}/>
+      <HomeButton title={"unzip zip"} onPress={() => navigation.navigate("ZipArchiveDemo")}/>
+      <HomeButton title={"(UI) Linear Gradient"} onPress={() => navigation.navigate("LinearGradientScreen")}/>
+
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>
       <HomeButton title="Debounce + Button" onPress={() => navigation.navigate("DebounceDemo")}/>
@@ -76,14 +84,6 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="(for android + ios) 自动滚动List3" onPress={() => navigation.navigate("AnimatedListDemo3")}/>
       <HomeButton title="Stagger Anim" onPress={() => navigation.navigate("StaggerAnimationScreen")}/>
       <HomeButton title="Gesture Anim" onPress={() => navigation.navigate("GestureAnimScreen")}/>
-
-
-      <View style={{ height: 8 }}/>
-      <Text style={styles.title}>3rd Library</Text>
-      <HomeButton title="static server" onPress={() => navigation.navigate("StaticServerDemo")}/>
-      <HomeButton title="fetch blob" onPress={() => navigation.navigate("FetchBlobDemo")}/>
-      <HomeButton title={"unzip zip"} onPress={() => navigation.navigate("ZipArchiveDemo")}/>
-
 
     </ScrollView>
   );
