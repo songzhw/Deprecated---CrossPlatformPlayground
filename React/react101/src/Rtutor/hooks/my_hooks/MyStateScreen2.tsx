@@ -1,6 +1,7 @@
 import React from "react";
 import { useMyState2 } from "./MyState2";
 
+// 本例不能直接用(会有问题), 但MyState2中的pseudo-code解决为了什么
 export const MyStateScreen2 = () => {
   const [count, setCount] = useMyState2(10);
   const [id, setId] = useMyState2(1);
