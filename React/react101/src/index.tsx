@@ -11,14 +11,14 @@ import BetterListScreen from "./performance/better_list/BetterListScreen";
 import { CountDownReducerScreen } from "./Rtutor/hooks/closure/CountDownReducerScreen";
 import { IntervalPitfallFix2 } from "./Rtutor/hooks/useState/IntervalPitfallFix2";
 import { CountPitfall } from "./Rtutor/hooks/useeffect/CountPitfall";
-import { MyStateScreen } from "./Rtutor/hooks/my_hooks/MyStateScreen";
+import { MyStateScreen2 } from "./Rtutor/hooks/my_hooks/MyStateScreen2";
 
 const store: Store = createStore(BetterListReducer);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <MyStateScreen/>
+      <MyStateScreen2/>
     </Provider>
   );
 };
