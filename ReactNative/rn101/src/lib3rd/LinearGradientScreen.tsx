@@ -10,8 +10,8 @@ export const LinearGradientScreen = (props: IProps) => {
 
   return (
     <View style={styles.container}>
-      <LinearGradientView colors={["#91004B", "#C60C30"]} style={styles.gradientParent}>
-        <Text style={styles.text}> Thank You </Text>
+      <LinearGradientView colors={["#91004B", "#C60C30"]} locations={[0, 0.8859]} style={styles.gradientParent}>
+        <Text style={styles.text}> Yes, that's what I need </Text>
       </LinearGradientView>
     </View>
   );
@@ -25,13 +25,14 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   gradientParent: {
-    width: 150,
-    height: 60,
+    width: 205,
+    height: 48,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    borderRadius: 4
   },
   text: {
-    fontSize: 22,
+    fontSize: 14,
     color: "#fff"
   }
 });
