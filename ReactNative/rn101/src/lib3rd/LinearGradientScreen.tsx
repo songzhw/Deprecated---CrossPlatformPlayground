@@ -10,7 +10,7 @@ export const LinearGradientScreen = (props: IProps) => {
     console.log(`szw click me : `, new Date());
   };
 
-  // TouchableOpacity.activeOpacity默认0.7.  当值为0.2时, 按下去就是一片白了, 看不见字了. 0.7还能看见字.
+  // TouchableOpacity.activeOpacity默认0.2.  当值为0.2时, 按下去就是一片白了, 看不见字了. 0.7还能看见字.
   return (
     <View style={styles.container}>
       <TouchableHighlight onPress={click} activeOpacity={0.8}>
