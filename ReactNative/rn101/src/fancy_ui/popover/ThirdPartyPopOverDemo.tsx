@@ -25,7 +25,7 @@ export const ThirdPartyPopOverDemo = (props: IProps) => {
 
       <Popover
         isVisible={isVisible}
-        fromView={iv}
+        fromView={iv.current}
         onRequestClose={closePopOver}
       >
         <Text>Here is Context Menu</Text>
