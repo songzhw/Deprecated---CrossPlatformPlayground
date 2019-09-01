@@ -1,5 +1,7 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, ViewProps } from "react-native";
+import { View, StyleSheet, TouchableOpacity, ViewProps, Dimensions } from "react-native";
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 interface IProps {
   isVisible: boolean;
@@ -20,9 +22,9 @@ export class MyPopupView extends React.Component<IProps> {
 
 const styles = StyleSheet.create({
   translucentBg: {
-    left: 0,
-    top: 0,
     position: "absolute",
-    backgroundColor: "#000000aa"
+    width: screenWidth,
+    height: screenHeight,
+    backgroundColor: "#0000007e"
   }
 });
