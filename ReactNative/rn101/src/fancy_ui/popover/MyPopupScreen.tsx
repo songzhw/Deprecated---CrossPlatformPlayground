@@ -4,13 +4,18 @@ import { MyPopupView } from "./MyPopupView";
 
 export const MyPopupScreen = () => {
   const iv = useRef(null);
-  const [rect, setRect] = useState();
+  const [rect, setRect] = useState(null);
 
   useEffect(() => {
     // @ts-ignore
     // x = 0, y = 0, width = 100, height = 100, pageX = 130, pageY = 156
     iv.current!.measure((x, y, width, height, pageX, pageY) => {
       console.log("szw measure: ", x, y, width, height, pageX, pageY);
+    });
+
+    // @ts-ignore
+    iv.current!.onLayout((x, y, width, height) => {
+      console.log(`szw onLayout: `, x, y, width, height);
     });
   }, []);
 
