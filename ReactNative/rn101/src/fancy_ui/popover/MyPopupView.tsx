@@ -13,9 +13,7 @@ export class MyPopupView extends React.Component<IProps> {
 
   render() {
     return (
-      <TouchableOpacity onPress={this.props.onClose}>
         <View style={styles.translucentBg}/>
-      </TouchableOpacity>
     );
   }
 }
