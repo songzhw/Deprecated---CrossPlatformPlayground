@@ -1,10 +1,11 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, ViewProps, Dimensions } from "react-native";
+import { View, StyleSheet, TouchableOpacity, ViewProps, Dimensions, LayoutRectangle } from "react-native";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 interface IProps {
   isVisible: boolean;
+  fromReact: LayoutRectangle;
   onClose: () => void;
 }
 
