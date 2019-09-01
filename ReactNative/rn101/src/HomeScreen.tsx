@@ -23,6 +23,13 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
 
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>Fancy UI</Text>
+      <HomeButton title="(X) list <-> Detail Anim 2" onPress={() => navigation.navigate("ListDetailAnimDemo2")}/>
+      <HomeButton title="(✔) simple hero anim" onPress={() => navigation.navigate("SimpleHeroAnimDemo")}/>
+      <HomeButton title="九宫格抽奖" onPress={() => navigation.navigate("Lottery9Demo")}/>
+      <HomeButton title="Pop Over" onPress={() => navigation.navigate("MyPopupScreen")}/>
+
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>3rd Library</Text>
@@ -45,14 +52,6 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="Saga In Bg Demo" onPress={() => navigation.navigate("SagaInBgDemo")}/>
       <HomeButton title="AppState Demo" onPress={() => navigation.navigate("AppStateDemo")}/>
       <HomeButton title="Native Bridge In Bg Demo" onPress={() => navigation.navigate("NativeBridgeInBgDemo")}/>
-
-
-      <View style={{ height: 8 }}/>
-      <Text style={styles.title}>Fancy UI</Text>
-      <HomeButton title="(X) list <-> Detail Anim 2" onPress={() => navigation.navigate("ListDetailAnimDemo2")}/>
-      <HomeButton title="(✔) simple hero anim" onPress={() => navigation.navigate("SimpleHeroAnimDemo")}/>
-      <HomeButton title="九宫格抽奖" onPress={() => navigation.navigate("Lottery9Demo")}/>
-
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>

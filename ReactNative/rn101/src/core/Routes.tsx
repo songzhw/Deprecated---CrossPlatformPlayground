@@ -41,14 +41,15 @@ import PageB from "../biz/lifecycle/PageB";
 import LifecycleScreen from "../biz/lifecycle/LifecycleScreen";
 import { LinearGradientScreen } from "../lib3rd/LinearGradientScreen";
 import { ThirdPartyPopOverDemo } from "../fancy_ui/popover/ThirdPartyPopOverDemo";
+import { MyPopupScreen } from "../fancy_ui/popover/MyPopupScreen";
 
 const AppNavigator = createStackNavigator(
   {
     HomeScreen,
-    SetIntervalInBgDemo, AppStateDemo,SagaInBgDemo, NativeBridgeInBgDemo,
+    SetIntervalInBgDemo, AppStateDemo, SagaInBgDemo, NativeBridgeInBgDemo,
     LifecycleScreen, PageB,
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
-    ActionSheetDemo, ScrubberDemo,
+    ActionSheetDemo, ScrubberDemo, MyPopupScreen,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
     DebounceDemo, LambdaInJsx,
     SimpleHeroAnimDemo, Lottery9Demo,
