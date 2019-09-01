@@ -40,6 +40,7 @@ import SetIntervalInBgDemo from "../biz/bg/SetIntervalInBgDemo";
 import PageB from "../biz/lifecycle/PageB";
 import LifecycleScreen from "../biz/lifecycle/LifecycleScreen";
 import { LinearGradientScreen } from "../lib3rd/LinearGradientScreen";
+import { ThirdPartyPopOverDemo } from "../fancy_ui/popover/ThirdPartyPopOverDemo";
 
 const AppNavigator = createStackNavigator(
   {
@@ -53,7 +54,7 @@ const AppNavigator = createStackNavigator(
     SimpleHeroAnimDemo, Lottery9Demo,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3,
     StaggerAnimationScreen, GestureAnimScreen,
-    StaticServerDemo, FetchBlobDemo, ZipArchiveDemo, LinearGradientScreen
+    StaticServerDemo, FetchBlobDemo, ZipArchiveDemo, LinearGradientScreen, ThirdPartyPopOverDemo
   },
   {
     headerMode: "screen",

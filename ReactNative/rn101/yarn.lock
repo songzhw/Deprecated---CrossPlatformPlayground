@@ -5272,10 +5272,24 @@ react-native-linear-gradient@*, react-native-linear-gradient@^2.5.6:
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
   integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
 
+react-native-popover-view@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-popover-view/-/react-native-popover-view-2.0.4.tgz#760f62f32c6d99eb18059773e493ccf0f614d193"
+  integrity sha512-wsZ7NAYji1whjA+uTvv9r2pI9p+WePfR9uUBdb1pcBa20cnIp2BnuBtwdXxifDf/bOJg5FnBQ9Miv0WeGyeUGA==
+  dependencies:
+    react-native-safe-area-view "^0.14.6"
+
 react-native-safe-area-view@^0.14.1:
   version "0.14.4"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.14.4.tgz#1647fa74fd452cb8cee4f47bd08de3829451bf5d"
   integrity sha512-ypDQVoAyNHBhMR1IGfadm8kskNzPg5czrDAzQEu5MXG9Ahoi5f1cL/rT2KO+R9f6xRjf6b1IjY53m0B0xHRd0A==
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+
+react-native-safe-area-view@^0.14.6:
+  version "0.14.7"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.14.7.tgz#e1dd1c4d25a90677df2c15347fdddb2306ba5971"
+  integrity sha512-fmuBYpvKDJK33bimo4JXrK2BN2CGw7nof1y1LDRgzqv+FZ3eADSDGshprN8WeQqSZjQ20hJx1CiWk28Edg/v4Q==
   dependencies:
     hoist-non-react-statics "^2.3.1"
 

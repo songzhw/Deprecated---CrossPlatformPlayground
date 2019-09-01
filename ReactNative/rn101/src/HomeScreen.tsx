@@ -9,6 +9,7 @@ import { Lottery9Demo } from "./fancy_ui/Lottery9/Lottery9Demo";
 import AppStateDemo from "./biz/bg/AppStateDemo";
 import SagaInBgDemo from "./biz/bg/SagaInBgDemo";
 import NativeBridgeInBgDemo from "./biz/bg/NativeBridgeInBgDemo";
+import { ThirdPartyPopOverDemo } from "./fancy_ui/popover/ThirdPartyPopOverDemo";
 
 console.disableYellowBox = true;
 
@@ -29,6 +30,8 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="fetch blob" onPress={() => navigation.navigate("FetchBlobDemo")}/>
       <HomeButton title={"unzip zip"} onPress={() => navigation.navigate("ZipArchiveDemo")}/>
       <HomeButton title={"(UI) Linear Gradient"} onPress={() => navigation.navigate("LinearGradientScreen")}/>
+      <HomeButton title={"(UI) popover"} onPress={() => navigation.navigate("ThirdPartyPopOverDemo")}/>
+
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>
