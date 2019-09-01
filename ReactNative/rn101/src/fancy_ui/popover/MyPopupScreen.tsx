@@ -7,7 +7,9 @@ export const MyPopupScreen = () => {
   return (
     <View style={styles.container}>
       <Text> Hello Popup View</Text>
-      <MyPopupView isVisible={true} onClose={() => console.log("szw close")}/>
+      <MyPopupView isVisible={true} onClose={() => console.log("szw close")}>
+        <Text> I'm context menu~ </Text>
+      </MyPopupView>
     </View>
   );
 };
