@@ -13,9 +13,11 @@ export class MyPopupView extends React.Component<IProps> {
 
   render() {
     return (
-      <TouchableOpacity style={styles.translucentBg} onPress={this.props.onClose}>
-        <View />
-      </TouchableOpacity>
+      <View style={styles.translucentBg}>
+        <TouchableOpacity onPress={this.props.onClose}>
+          <View/>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
@@ -25,6 +27,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: screenWidth,
     height: screenHeight,
-    top:0, left:0, right:0, bottom:0,
+    backgroundColor: "#0000007e"
   }
 });
