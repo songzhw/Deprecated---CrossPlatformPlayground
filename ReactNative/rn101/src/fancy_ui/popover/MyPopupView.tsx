@@ -1,7 +1,7 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TouchableOpacity, ViewProps } from "react-native";
 
-interface IProps {
+interface IProps extends ViewProps{
   isVisible: boolean;
   onClose: () => void;
 }

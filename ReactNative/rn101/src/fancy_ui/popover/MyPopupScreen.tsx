@@ -10,7 +10,7 @@ export const MyPopupScreen = (props: IProps) => {
   return (
     <View style={styles.container}>
       <Text> Hello Popup View</Text>
-      <MyPopupView isVisible={true} onClose={() => console.log("szw close")}/>
+      <MyPopupView style={{ flex: 1 }} isVisible={true} onClose={() => console.log("szw close")}/>
     </View>
   );
 };
