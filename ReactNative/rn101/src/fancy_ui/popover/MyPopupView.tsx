@@ -29,11 +29,11 @@ export class MyPopupView extends React.Component<IProps> {
 
   render() {
     const { fromRect } = this.props;
-    const { x, y, width, height } = this.state;
+    const { width, height } = this.state;
     const fromCenterX = fromRect.x + fromRect.width / 2;
     const fromCenterY = fromRect.y + fromRect.height / 2;
-    const left = fromCenterX + width / 2;
-    const top = fromCenterY + height / 2;
+    const left = fromCenterX - width / 2;
+    const top = fromCenterY - height / 2;
 
     return (
       <View style={styles.translucentBg}>
