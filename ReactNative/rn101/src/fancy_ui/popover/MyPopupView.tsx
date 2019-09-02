@@ -13,10 +13,12 @@ export class MyPopupView extends React.Component<IProps> {
   state = {};
 
   render() {
+    const { fromReact } = this.props;
+    console.log(`szw View : rect = `, fromReact);
     return (
       <View style={styles.translucentBg}>
         <TouchableOpacity onPress={this.props.onClose}>
-          <View>
+          <View style={{ position: "absolute", left: fromReact.x, top: fromReact.y }}>
             {this.props.children}
           </View>
         </TouchableOpacity>
