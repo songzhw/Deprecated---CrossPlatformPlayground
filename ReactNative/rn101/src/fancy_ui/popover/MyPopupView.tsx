@@ -38,7 +38,7 @@ export class MyPopupView extends React.Component<IProps> {
     return (
       <View style={styles.translucentBg}>
         <TouchableOpacity onPress={this.props.onClose}>
-          <View style={{ position: "absolute", left, top }}
+          <View style={[styles.childrenContainer, { left, top }]}
                 onLayout={this.onLayoutSelf}>
             {this.props.children}
           </View>
@@ -54,5 +54,9 @@ const styles = StyleSheet.create({
     width: screenWidth,
     height: screenHeight,
     backgroundColor: "#0000007e"
+  },
+  childrenContainer: {
+    position: "absolute",
+    backgroundColor: "white"
   }
 });
