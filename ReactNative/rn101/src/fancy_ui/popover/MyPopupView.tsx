@@ -26,6 +26,7 @@ export class MyPopupView extends React.Component<IProps> {
   onLayoutSelf = (ev: LayoutChangeEvent) => {
     const { fromRect } = this.props;
     const { width, height } = ev.nativeEvent.layout;
+    console.log(`szw onLayout, `, ev.nativeEvent.layout);
     const fromCenterX = fromRect.x + fromRect.width / 2;
     const fromCenterY = fromRect.y + fromRect.height / 2;
     const right = fromCenterX + width / 2;
