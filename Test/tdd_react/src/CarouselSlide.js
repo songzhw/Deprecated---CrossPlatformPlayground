@@ -10,7 +10,10 @@ export const CarouselSlide = (props) => {
   return (
     <figure>
       <img src={props.imageUrl}/>
-      <figcaption><strong>{props.description}</strong></figcaption>
+      <figcaption>
+        <strong>{props.description}</strong>
+        {props.author}
+      </figcaption>
     </figure>
   );
 };

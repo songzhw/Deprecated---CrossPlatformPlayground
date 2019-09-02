@@ -18,12 +18,15 @@ describe("CaraouselSlide", () => {
     const imageUrl = "http://a.png";
     const wrapper = shallow(<CarouselSlide/>);
     wrapper.setProps({ imageUrl });
-    wrapper.setProps({ description: "hello" });
+    wrapper.setProps({ description: "hello", author: "szw" });
 
     const img = wrapper.find("img");
     expect(img.prop("src")).toBe(imageUrl);
 
     const fig = wrapper.find("figcaption strong");
     expect(fig.text()).toBe("hello");
+
+    const figAuthor = wrapper.find("figcaption");
+    expect(figAuthor.text()).toBe("szw");
   });
 });
