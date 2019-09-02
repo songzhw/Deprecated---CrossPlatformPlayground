@@ -20,17 +20,12 @@ interface IProps {
 
 export class MyPopupView extends React.Component<IProps> {
   state = {
-    x: 0, y: 0, width: 0, height: 0
+    left: 0, top: 0
   };
 
   onLayoutSelf = (ev: LayoutChangeEvent) => {
-    const { x, y, width, height } = ev.nativeEvent.layout;
-    this.setState({ x, y, width, height });
-  };
-
-  render() {
     const { fromRect } = this.props;
-    const { width, height } = this.state;
+    const { width, height } = ev.nativeEvent.layout;
     const fromCenterX = fromRect.x + fromRect.width / 2;
     const fromCenterY = fromRect.y + fromRect.height / 2;
     const right = fromCenterX + width / 2;
@@ -41,6 +36,12 @@ export class MyPopupView extends React.Component<IProps> {
       left = screenWidth - width - LEAST_MARGIN;
     }
     const top = fromCenterY - height / 2;
+
+    this.setState({ left, top });
+  };
+
+  render() {
+    const { left, top } = this.state;
 
     return (
       <View style={styles.translucentBg}>

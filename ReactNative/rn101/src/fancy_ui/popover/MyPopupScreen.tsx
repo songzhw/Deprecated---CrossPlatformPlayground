@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { View, ViewProps, Text, StyleSheet, Button, Image, LayoutChangeEvent, LayoutRectangle } from "react-native";
+import React, { useRef, useState } from "react";
+import { View, Text, StyleSheet, Button, Image, LayoutChangeEvent, LayoutRectangle } from "react-native";
 import { MyPopupView } from "./MyPopupView";
 
 export const MyPopupScreen = () => {
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    alignSelf:"flex-end"
+    marginTop: 20,
+    alignSelf: "center"
   },
   menuText: {
     fontSize: 25,
