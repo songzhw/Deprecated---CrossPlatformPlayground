@@ -27,6 +27,6 @@ describe("CaraouselSlide", () => {
     expect(fig.text()).toBe("hello");
 
     const figAuthor = wrapper.find("figcaption");
-    expect(figAuthor.text()).toBe("szw");
+    expect(figAuthor.text()).toBe("helloszw");
   });
 });
