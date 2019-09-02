@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
+    alignSelf:"flex-end"
   },
   menuText: {
     fontSize: 25,

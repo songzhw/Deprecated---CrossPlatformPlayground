@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
+const LEAST_MARGIN = 10; // 加个最小margin, 让更美观些
 
 interface IProps {
   isVisible: boolean;
@@ -34,10 +35,10 @@ export class MyPopupView extends React.Component<IProps> {
     const fromCenterY = fromRect.y + fromRect.height / 2;
     const right = fromCenterX + width / 2;
     let left = fromCenterX - width / 2;
-    if (left < 10) {
-      left = 10;
+    if (left < 0) {
+      left = LEAST_MARGIN;
     } else if (right > screenWidth) {
-      left = screenHeight - width;
+      left = screenWidth - width - LEAST_MARGIN;
     }
     const top = fromCenterY - height / 2;
 
