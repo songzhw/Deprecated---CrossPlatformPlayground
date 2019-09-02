@@ -32,7 +32,13 @@ export class MyPopupView extends React.Component<IProps> {
     const { width, height } = this.state;
     const fromCenterX = fromRect.x + fromRect.width / 2;
     const fromCenterY = fromRect.y + fromRect.height / 2;
-    const left = fromCenterX - width / 2;
+    const right = fromCenterX + width / 2;
+    let left = fromCenterX - width / 2;
+    if (left < 10) {
+      left = 10;
+    } else if (right > screenWidth) {
+      left = screenHeight - width;
+    }
     const top = fromCenterY - height / 2;
 
     return (
