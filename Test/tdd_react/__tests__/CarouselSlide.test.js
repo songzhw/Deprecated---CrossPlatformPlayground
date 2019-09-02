@@ -14,12 +14,16 @@ describe("CaraouselSlide", () => {
     expect(wrapper.childAt(1).type()).toBe("figcaption");
   });
 
-  test("test props from image", () => {
+  test("test props from image, text", () => {
     const imageUrl = "http://a.png";
     const wrapper = shallow(<CarouselSlide/>);
     wrapper.setProps({ imageUrl });
+    wrapper.setProps({ description: "hello" });
 
     const img = wrapper.find("img");
     expect(img.prop("src")).toBe(imageUrl);
+
+    const fig = wrapper.find("figcaption strong");
+    expect(fig.text()).toBe("hello");
   });
 });
