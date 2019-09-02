@@ -7,4 +7,10 @@ describe("CaraouselSlide", () => {
     const wrapper = shallow(<CarouselSlide/>);
     expect(wrapper.type()).toBe("figure");
   });
+
+  test("render a <image/> child", () => {
+    const wrapper = shallow(<CarouselSlide/>);
+    expect(wrapper.childAt(0).type()).toBe("img");
+    expect(wrapper.childAt(1).type()).toBe("figcaption");
+  });
 });
