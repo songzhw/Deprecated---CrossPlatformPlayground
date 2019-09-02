@@ -1,10 +1,16 @@
 import React from "react";
 
-export const CarouselSlide = () => {
+// interface IProps{
+//   imageUrl: string;
+//   description: string;
+//   author: string;
+// }
+
+export const CarouselSlide = (props) => {
   return (
     <figure>
-      <img/>
-      <figcaption/>
+      <img src={props.imageUrl}/>
+      <figcaption><strong>{props.description}</strong></figcaption>
     </figure>
   );
 };
