@@ -29,4 +29,14 @@ describe("CaraouselSlide", () => {
     const figAuthor = wrapper.find("figcaption");
     expect(figAuthor.text()).toBe("helloszw");
   });
+
+  test("passes other props through to the <figure>", ()=>{
+    const className="myCarouselSlide";
+    const onClick = ()=>{};
+    const wrapper = shallow(<CarouselSlide/>);
+    wrapper.setProps({className, onClick})
+
+    expect(wrapper.prop('className')).toBe(className);
+    expect(wrapper.prop('onClick')).toBe(onClick);
+  })
 });

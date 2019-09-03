@@ -7,12 +7,13 @@ import React from "react";
 // }
 
 export const CarouselSlide = (props) => {
+  const { imageUrl, description, author, ...rest } = props;
   return (
-    <figure>
-      <img src={props.imageUrl}/>
+    <figure {...rest}>
+      <img src={imageUrl}/>
       <figcaption>
-        <strong>{props.description}</strong>
-        {props.author}
+        <strong>{description}</strong>
+        {author}
       </figcaption>
     </figure>
   );
