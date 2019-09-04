@@ -5,12 +5,16 @@ import { CarouselButton } from "./CarouselButton";
 export class Carousel extends React.Component {
   state = { index: 0 };
 
+  onNext = () => {
+    this.setState({ index: this.state.index + 1 });
+  };
+
   render() {
     return (
       <div>
         <CarouselSlide/>
         <CarouselButton>Prev</CarouselButton>
-        <CarouselButton>Next</CarouselButton>
+        <CarouselButton onClick={this.onNext}>Next</CarouselButton>
       </div>
     );
   }

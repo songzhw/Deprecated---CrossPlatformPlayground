@@ -25,4 +25,6 @@ describe("Carousel", () => {
     nextButton.simulate("click");
     expect(wrapper.state("index")).toBe(1);
   });
+
+
 });
