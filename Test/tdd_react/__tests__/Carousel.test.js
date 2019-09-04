@@ -16,6 +16,6 @@ describe("Carousel", () => {
     expect(wrapper.state("index")).toBe(0);
 
     const buttonArray = wrapper.find(CarouselButton);
-    expect(buttonArray.at(0).text()).toBe("Prev");
+    expect(buttonArray.at(0).prop('children')).toBe("Prev");
   });
 });
