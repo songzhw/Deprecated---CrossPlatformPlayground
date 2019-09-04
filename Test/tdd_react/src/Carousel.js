@@ -9,7 +9,8 @@ export class Carousel extends React.Component {
     return (
       <div>
         <CarouselSlide/>
-        <CarouselButton/>
+        <CarouselButton>Prev</CarouselButton>
+        <CarouselButton>Next</CarouselButton>
       </div>
     );
   }
