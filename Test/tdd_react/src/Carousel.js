@@ -6,7 +6,11 @@ export class Carousel extends React.Component {
   state = { index: 0 };
 
   onNext = () => {
-    this.setState({ index: this.state.index + 1 });
+    // this.setState({ index: this.state.index + 1 });
+    this.setState(({ index }) => ({
+      index: index + 1
+    }))
+    ;
   };
 
   render() {
