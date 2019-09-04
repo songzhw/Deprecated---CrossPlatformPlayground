@@ -16,6 +16,13 @@ describe("Carousel", () => {
     expect(wrapper.state("index")).toBe(0);
 
     const buttonArray = wrapper.find(CarouselButton);
-    expect(buttonArray.at(0).prop('children')).toBe("Prev");
+    expect(buttonArray.at(0).prop("children")).toBe("Prev");
+  });
+
+  test("increments `index` when Next is clicked", () => {
+    const wrapper = shallow(<Carousel/>);
+    const nextButton = wrapper.find(CarouselButton).at(1);
+    nextButton.simulate("click");
+    expect(wrapper.state("index")).toBe(1);
   });
 });
