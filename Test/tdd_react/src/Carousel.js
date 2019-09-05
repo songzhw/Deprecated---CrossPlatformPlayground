@@ -14,9 +14,10 @@ export class Carousel extends React.Component {
   };
 
   render() {
+    const currentSlideData = this.props.slides[this.state.index];
     return (
       <div>
-        <CarouselSlide/>
+        <CarouselSlide {...currentSlideData}/>
         <CarouselButton>Prev</CarouselButton>
         <CarouselButton onClick={this.onNext}>Next</CarouselButton>
       </div>
