@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   View,
   StyleSheet,
@@ -12,11 +12,20 @@ import {
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 const LEAST_MARGIN = 10; // 加个最小margin, 让更美观些
 
-interface IProps {
+interface IBaseProps {
   isVisible: boolean;
-  fromRect: LayoutRectangle;
   onClose: () => void;
 }
+
+interface IFromReactProps extends IBaseProps {
+  fromRect: LayoutRectangle;
+}
+
+interface IFromViewProps extends IBaseProps {
+  fromView: Component
+}
+
+type IProps = IFromReactProps | IFromViewProps
 
 export class MyPopupView extends React.Component<IProps> {
   state = {
@@ -24,7 +33,11 @@ export class MyPopupView extends React.Component<IProps> {
   };
 
   onLayoutSelf = (ev: LayoutChangeEvent) => {
-    const { fromRect } = this.props;
+    // @ts-ignore
+    let fromRect = this.props.fromRect;
+    if (!fromRect) {
+      fromRect = { x: 0, y: 0, width: 100, height: 100 };
+    }
     const { width, height } = ev.nativeEvent.layout;
     console.log(`szw onLayout, `, ev.nativeEvent.layout);
     const fromCenterX = fromRect.x + fromRect.width / 2;

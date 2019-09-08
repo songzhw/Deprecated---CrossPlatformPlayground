@@ -41,5 +41,8 @@ describe("Carousel", () => {
     expect(slideProps).toEqual(slides[0]);
   });
 
+  test("render the correct slide when Next is clicked", ()=>{
+
+  })
 
 });

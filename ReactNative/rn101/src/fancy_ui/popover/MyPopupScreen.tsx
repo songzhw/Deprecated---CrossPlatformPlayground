@@ -24,7 +24,7 @@ export const MyPopupScreen = () => {
         style={styles.image}
         onLayout={ev => onImageLayout(ev)}/>
 
-      <MyPopupView isVisible={true} onClose={() => console.log("szw close")} fromRect={rect}>
+      <MyPopupView isVisible={true} onClose={() => console.log("szw close")} fromView={iv.current!}>
         <Text style={styles.menuText}> I'm context menu~ </Text>
       </MyPopupView>
     </View>
