@@ -11,7 +11,7 @@ export const MyPopupScreen = () => {
 
   const onImageLayout = (ev: LayoutChangeEvent) => {
     const { x, y, width, height } = ev.nativeEvent.layout;
-    console.log(`szw Screen onLayout: `, x, y, width, height); //=> 130, 55, 100, 100
+    console.log(`szw Screen iv.onLayout: `, x, y, width, height); //=> 130, 55, 100, 100
     setRect(ev.nativeEvent.layout);
   };
 

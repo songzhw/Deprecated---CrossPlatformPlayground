@@ -1,31 +1,18 @@
 import React, { Component } from "react";
 import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  ViewProps,
-  Dimensions,
-  LayoutRectangle,
-  LayoutChangeEvent
+  View, StyleSheet, TouchableOpacity, ViewProps, Dimensions, LayoutRectangle,
+  LayoutChangeEvent, NativeModules, UIManager, findNodeHandle
 } from "react-native";
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 const LEAST_MARGIN = 10; // 加个最小margin, 让更美观些
 
-interface IBaseProps {
+interface IProps {
   isVisible: boolean;
   onClose: () => void;
+  fromView?: Component
+  fromRect?: LayoutRectangle;
 }
-
-interface IFromReactProps extends IBaseProps {
-  fromRect: LayoutRectangle;
-}
-
-interface IFromViewProps extends IBaseProps {
-  fromView: Component
-}
-
-type IProps = IFromReactProps | IFromViewProps
 
 export class MyPopupView extends React.Component<IProps> {
   state = {
@@ -33,13 +20,27 @@ export class MyPopupView extends React.Component<IProps> {
   };
 
   onLayoutSelf = (ev: LayoutChangeEvent) => {
-    // @ts-ignore
     let fromRect = this.props.fromRect;
+    const fromView = this.props.fromView;
     if (!fromRect) {
       fromRect = { x: 0, y: 0, width: 100, height: 100 };
+      // @ts-ignore
+      UIManager.measure(findNodeHandle(fromView), (x, y, width, height, pageX, pageY) => {
+        fromRect = { x: pageX, y: pageY, width, height };
+        console.log(`szw View.fromView = `, fromRect);
+        this.measureFromViewAndSelf(ev, fromRect);
+      });
+    } else {
+      this.measureFromViewAndSelf(ev, fromRect);
+    }
+
+  };
+
+  measureFromViewAndSelf = (ev: LayoutChangeEvent, fromRect: LayoutRectangle) => {
+    if (!ev || !ev.nativeEvent) {
+      return;
     }
     const { width, height } = ev.nativeEvent.layout;
-    console.log(`szw onLayout, `, ev.nativeEvent.layout);
     const fromCenterX = fromRect.x + fromRect.width / 2;
     const fromCenterY = fromRect.y + fromRect.height / 2;
     const right = fromCenterX + width / 2;
