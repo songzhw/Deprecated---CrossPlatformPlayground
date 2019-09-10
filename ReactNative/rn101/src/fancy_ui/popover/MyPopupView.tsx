@@ -20,6 +20,7 @@ export class MyPopupView extends React.Component<IProps> {
   };
 
   onLayoutSelf = (ev: LayoutChangeEvent) => {
+    console.log(`szw ev1 : `, ev.nativeEvent);
     let fromRect = this.props.fromRect;
     const fromView = this.props.fromView;
     if (!fromRect) {
@@ -37,7 +38,9 @@ export class MyPopupView extends React.Component<IProps> {
   };
 
   measureFromViewAndSelf = (ev: LayoutChangeEvent, fromRect: LayoutRectangle) => {
+    console.log(`szw ev2 : `, ev.nativeEvent);
     if (!ev || !ev.nativeEvent) {
+
       return;
     }
     const { width, height } = ev.nativeEvent.layout;
@@ -51,6 +54,7 @@ export class MyPopupView extends React.Component<IProps> {
       left = screenWidth - width - LEAST_MARGIN;
     }
     const top = fromCenterY - height / 2;
+    console.log(`szw afterMeasure: left, top = `, left, top);
 
     this.setState({ left, top });
   };
