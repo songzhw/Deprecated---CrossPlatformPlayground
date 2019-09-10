@@ -20,30 +20,23 @@ export class MyPopupView extends React.Component<IProps> {
   };
 
   onLayoutSelf = (ev: LayoutChangeEvent) => {
-    console.log(`szw ev1 : `, ev.nativeEvent);
+    const { width, height } = ev.nativeEvent.layout;
     let fromRect = this.props.fromRect;
     const fromView = this.props.fromView;
     if (!fromRect) {
       fromRect = { x: 0, y: 0, width: 100, height: 100 };
       // @ts-ignore
-      UIManager.measure(findNodeHandle(fromView), (x, y, width, height, pageX, pageY) => {
-        fromRect = { x: pageX, y: pageY, width, height };
-        console.log(`szw View.fromView = `, fromRect);
-        this.measureFromViewAndSelf(ev, fromRect);
+      UIManager.measure(findNodeHandle(fromView), (x, y, widthFromView, heightFromView, pageX, pageY) => {
+        fromRect = { x: pageX, y: pageY, width: widthFromView, height: heightFromView };
+        this.measureFromViewAndSelf(width, height, fromRect);
       });
     } else {
-      this.measureFromViewAndSelf(ev, fromRect);
+      this.measureFromViewAndSelf(width, height, fromRect);
     }
 
   };
 
-  measureFromViewAndSelf = (ev: LayoutChangeEvent, fromRect: LayoutRectangle) => {
-    console.log(`szw ev2 : `, ev.nativeEvent);
-    if (!ev || !ev.nativeEvent) {
-
-      return;
-    }
-    const { width, height } = ev.nativeEvent.layout;
+  measureFromViewAndSelf = (width: number, height:number, fromRect: LayoutRectangle) => {
     const fromCenterX = fromRect.x + fromRect.width / 2;
     const fromCenterY = fromRect.y + fromRect.height / 2;
     const right = fromCenterX + width / 2;
