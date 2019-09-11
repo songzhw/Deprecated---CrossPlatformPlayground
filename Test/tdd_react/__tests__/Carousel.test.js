@@ -37,13 +37,14 @@ describe("Carousel", () => {
   test("increments `index` when Next is clicked", () => {
     const wrapper = shallow(<Carousel slides={slides}/>);
     // wrapper.find(CarouselButton).at(1)用来找第二个btn, 不太稳定. 故不用
-    const nextButton = wrapper.find('[data-testId="btnNext"]');
+    // const nextButton = wrapper.find('[data-testId="btnNext"]');
+    const nextButton = wrapper.findWhere(node => node.prop("data-testId") === "btnNext");
     nextButton.simulate("click");
     expect(wrapper.state("index")).toBe(1);
   });
 
-  test("render the correct slide when Next is clicked", ()=>{
+  test("render the correct slide when Next is clicked", () => {
 
-  })
+  });
 
 });
