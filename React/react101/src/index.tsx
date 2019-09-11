@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { createStore, Store } from "redux";
+import { createStore, Store, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
+import createSagaMiddleware from "redux-saga";
+
+import { waitAnotherActionSaga } from "./three_party/saga/SagaWait";
+
 import { SlowListReducer } from "./performance/slow_list/SlowListReducer";
 import SlowListScreen from "./performance/slow_list/SlowListScreen";
 import SlowListClass from "./performance/slow_list/SlowListClass";
@@ -12,13 +16,18 @@ import { CountDownReducerScreen } from "./Rtutor/hooks/closure/CountDownReducerS
 import { IntervalPitfallFix2 } from "./Rtutor/hooks/useState/IntervalPitfallFix2";
 import { CountPitfall } from "./Rtutor/hooks/useeffect/CountPitfall";
 import { MyStateScreen2 } from "./Rtutor/hooks/my_hooks/MyStateScreen2";
+import SagaWaitScreen from "./three_party/saga/SagaWaitScreen";
+import { SagaWaitReducer } from "./three_party/saga/SagaWaitReducer";
 
-const store: Store = createStore(BetterListReducer);
+
+const sagaMiddleware = createSagaMiddleware();
+const store: Store = createStore(SagaWaitReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(waitAnotherActionSaga);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <MyStateScreen2/>
+      <SagaWaitScreen/>
     </Provider>
   );
 };
