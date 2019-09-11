@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
+import { SHOW_USER } from "./SagaWait";
 
 interface IInnerProps {
 }
@@ -9,8 +10,13 @@ type IProps = IInnerProps & ReturnType<typeof mapStateToProps> & ReturnType<type
 
 const _SagaWaitScreen = (props: IProps) => {
 
+  function onClick() {
+    props.fetch(3);
+  }
+
   return (
     <div>
+      <button onClick={onClick}> fetch + show user</button>
     </div>
   );
 };
@@ -22,7 +28,7 @@ function mapStateToProps(state: any) {
 
 function mapDispatchToProps(dispatch: Dispatch) {
   return {
-    // mark: (id: number) => dispatch({ type: "", payload: { id } })
+    fetch: (id: number) => dispatch({ type: SHOW_USER, payload: { id } })
   };
 }
 
