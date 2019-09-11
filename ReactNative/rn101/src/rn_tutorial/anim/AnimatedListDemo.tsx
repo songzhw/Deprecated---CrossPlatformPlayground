@@ -35,7 +35,6 @@ export class AnimatedListDemo extends Component {
 
   render() {
     const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-    // @ts-ignore
     return (
       <View>
         <Button title="start" onPress={()=> this.startAnim()}/>

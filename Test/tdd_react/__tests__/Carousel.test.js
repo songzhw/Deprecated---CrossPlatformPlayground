@@ -30,7 +30,7 @@ describe("Carousel", () => {
 
   test("increments `index` when Next is clicked", () => {
     const wrapper = shallow(<Carousel slides={slides}/>);
-    const nextButton = wrapper.find(CarouselButton).at(1);
+    const nextButton = wrapper.find(CarouselButton).at(0);
     nextButton.simulate("click");
     expect(wrapper.state("index")).toBe(1);
   });

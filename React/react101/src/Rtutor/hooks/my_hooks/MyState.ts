@@ -1,7 +1,7 @@
 function Parent() {
   let value: any;
 
-  function child(initValue: any) {
+  function useMyState(initValue: any) {
     value = value || initValue;
 
     function setValue(newValue: any) {
@@ -11,9 +11,7 @@ function Parent() {
     return [value, setValue];
   }
 
-  return child;
+  return { useMyState };
 }
 
-export const useMyState = Parent();
-
-
+export const MyReact = Parent();
