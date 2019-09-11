@@ -14,16 +14,25 @@ const _SagaWaitScreen = (props: IProps) => {
     props.fetch(3);
   }
 
+  console.log(`szw screen: props = `, props);
+  const { user } = props;
+  let text = "";
+  if (user) {
+    text = user.id + " / " + user.name + " / " + user.sex;
+  } else {
+    text = "(empty)";
+  }
   return (
     <div>
       <button onClick={onClick}> fetch + show user</button>
+      <p> {text} </p>
     </div>
   );
 };
 
 
 function mapStateToProps(state: any) {
-  return {};
+  return { user: state.user };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {

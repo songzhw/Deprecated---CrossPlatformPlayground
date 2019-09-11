@@ -8,6 +8,8 @@ const initState = {
 export const SagaWaitReducer = (state = initState, action: AnyAction) => {
   if (action.type === FETCH_USER_DONE) {
     console.log(`szw reducer FETCH_USER_DONE`);
+    const { user } = action.payload;
+    return { user };
   }
   return state;
 };
