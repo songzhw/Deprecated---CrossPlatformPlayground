@@ -28,12 +28,6 @@ describe("Carousel", () => {
     expect(buttonArray.at(0).prop("children")).toBe("Prev");
   });
 
-  test("renders the current slide as a CarouselSlide", () => {
-    const wrapper = shallow(<Carousel slides={slides}/>);
-    let slideProps = wrapper.find(CarouselSlide).props();
-    expect(slideProps).toEqual(slides[0]);
-  });
-
   test("increments `index` when Next is clicked", () => {
     const wrapper = shallow(<Carousel slides={slides}/>);
     // wrapper.find(CarouselButton).at(1)用来找第二个btn, 不太稳定. 故不用
@@ -42,6 +36,13 @@ describe("Carousel", () => {
     nextButton.simulate("click");
     expect(wrapper.state("index")).toBe(1);
   });
+
+  test("renders the current slide as a CarouselSlide", () => {
+    const wrapper = shallow(<Carousel slides={slides}/>);
+    let slideProps = wrapper.find(CarouselSlide).props();
+    expect(slideProps).toEqual(slides[0]);
+  });
+
 
   test("render the correct slide when Next is clicked", () => {
 
