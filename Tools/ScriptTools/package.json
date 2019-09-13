@@ -8,7 +8,8 @@
     "android": "yarn run start & react-native run-android",
     "test": "jest",
     "lint": "eslint .",
-    "create-service": "node ./scripts/create-service.js"
+    "create-service": "node ./scripts/create-service.js",
+    "add-service-actions": "node ./scripts/add-service-actions.js"
   },
   "dependencies": {
     "react": "16.8.6",
