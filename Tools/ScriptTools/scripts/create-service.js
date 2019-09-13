@@ -1,6 +1,6 @@
-// $ yarn run servicek --action "set progress, post progress, clear progress" --service "play music"
-// $ yarn run servicek --action "set progress, post progress, clear progress" --service "play music" --network
-// $ yarn run servicek --action "set progress, post progress, clear progress" --selector getMusic --service "play music" --network
+// $ yarn run create-service --action "set progress, post progress, clear progress" --service "play music"
+// $ yarn run create-service --action "set progress, post progress, clear progress" --service "play music" --network
+// $ yarn run create-service --action "set progress, post progress, clear progress" --selector getMusic --service "play music" --network
 
 const changeCase = require("change-case");
 const replacer = require("maxstache");
@@ -114,9 +114,11 @@ const packagePlaceHolder = {
 
 
 // ================== utils ==================
+const templatesFolderHost = `${__dirname}/templates/service`;
+
 function copy(targetPath, targetFile) {
   mkdirp(`./scripts/result/${targetPath}`, () => {
-    const templateFileContent = fs.readFileSync(`${__dirname}/templatesK/${targetPath}/${targetFile}`, { encoding: "utf8" });
+    const templateFileContent = fs.readFileSync(`${templatesFolderHost}/${targetPath}/${targetFile}`, { encoding: "utf8" });
     fs.writeFileSync(`./scripts/result/${targetPath}/${targetFile}`, templateFileContent);
 
   });
@@ -124,7 +126,7 @@ function copy(targetPath, targetFile) {
 
 function generate(targetPath, targetFile, placeHolder) {
   mkdirp(`./scripts/result/${targetPath}`, () => {
-    const templateFileContent = fs.readFileSync(`${__dirname}/templatesK/${targetPath}/${targetFile}`, { encoding: "utf8" });
+    const templateFileContent = fs.readFileSync(`${templatesFolderHost}/${targetPath}/${targetFile}`, { encoding: "utf8" });
     const newFileContent = replacer(templateFileContent, placeHolder);
     fs.writeFileSync(`./scripts/result/${targetPath}/${targetFile}`, newFileContent);
 
