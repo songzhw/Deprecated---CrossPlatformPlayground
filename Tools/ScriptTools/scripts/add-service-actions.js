@@ -10,3 +10,9 @@ const argv = require("yargs").argv; // 格式是: {_:[a,b,c], action: one, id: 2
 const argDestination = argv.dest;  //=> "./result"
 const argAddedActon = argv.add;    //=> "play music, pause music"
 const actionArrayFromArg = argAddedActon.split(",").map(item => item.trim());
+
+
+// ================== 1. add actions ==================
+fs.readFile(`${argDestination}/actions/index.ts`, (error, data) => {
+  console.log(`async `, data.toString());
+});
