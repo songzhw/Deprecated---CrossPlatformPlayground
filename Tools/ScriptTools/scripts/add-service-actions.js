@@ -13,6 +13,6 @@ const actionArrayFromArg = argAddedActon.split(",").map(item => item.trim());
 
 
 // ================== 1. add actions ==================
-fs.readFile(`${argDestination}/actions/index.ts`, (error, data) => {
+fs.readFile(`scripts/result/actions/index.ts`, (error, data) => {
   console.log(`async `, data.toString());
 });
