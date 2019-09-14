@@ -15,7 +15,8 @@ const serviceFromCmd = argv.service;
 const serviceConstant = changeCase.constant(serviceFromCmd);
 
 // ================== 1. add actions ==================
-const data = fs.readFileSync(`${argDestination}/actions/index.ts`);
+const actionFileDestination = `${argDestination}/actions/index.ts`;
+const data = fs.readFileSync(actionFileDestination);
 const OrigActionFileContent = data.toString();
 
 let stringBuffer = "";
@@ -41,6 +42,11 @@ actionArrayFromArg.forEach((action) => {
 });
 updatedActionsFileContent += stringBuffer;
 console.log(updatedActionsFileContent);
+
+fs.writeFileSync(actionFileDestination, updatedActionsFileContent);
+
+// ================== *. utils ==================
+
 
 
 //1. fs.readFile(), 路径是project root为base dir
