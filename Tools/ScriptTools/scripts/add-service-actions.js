@@ -59,6 +59,7 @@ actionArrayFromArg.forEach((action) => {
   const placeHolder = { actionType: changeCase.constant(action) };
   stringBuffer += replacer(reduceTemplate, placeHolder);
 });
+stringBuffer = stringBuffer.slice(0, -3);
 
 const updatedReducersFileContent = origReducerFileContent.replace(/(switch \(action.type\) {)/, `$1\n  ${stringBuffer}`);
 fs.writeFileSync(reducerFileDestination, updatedReducersFileContent);
