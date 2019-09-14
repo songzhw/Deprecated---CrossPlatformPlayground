@@ -4,14 +4,13 @@ import { Carousel } from "../src/Carousel";
 import { CarouselButton } from "../src/CarouselButton";
 import { CarouselSlide } from "../src/CarouselSlide";
 
+const slides = [
+  { imageUrl: "https://a.com/1.png", description: "hello", author: "zzz" },
+  { imageUrl: "https://a.com/2.png", description: "world", author: "xxx" },
+  { imageUrl: "https://a.com/3.png", description: "js", author: "yyy" }
+];
+
 describe("Carousel", () => {
-  const slides = [
-    { imageUrl: "https://a.com/1.png", description: "hello", author: "zzz" },
-    { imageUrl: "https://a.com/2.png", description: "world", author: "xxx" },
-    { imageUrl: "https://a.com/3.png", description: "js", author: "yyy" }
-  ];
-
-
   test.skip("has slide and button children", () => {
     const wrapper = shallow(<Carousel slides={slides}/>);
     console.log(`szw ,`, wrapper.debug());
@@ -30,7 +29,9 @@ describe("Carousel", () => {
 
   test("increments `index` when Next is clicked", () => {
     const wrapper = shallow(<Carousel slides={slides}/>);
-    const nextButton = wrapper.find(CarouselButton).at(1);
+    // wrapper.find(CarouselButton).at(1)用来找第二个btn, 不太稳定. 故不用
+    // const nextButton = wrapper.find('[data-testId="btnNext"]');
+    const nextButton = wrapper.findWhere(node => node.prop("data-testId") === "btnNext");
     nextButton.simulate("click");
     expect(wrapper.state("index")).toBe(1);
   });
@@ -41,8 +42,8 @@ describe("Carousel", () => {
     expect(slideProps).toEqual(slides[0]);
   });
 
-  test("render the correct slide when Next is clicked", ()=>{
+});
 
-  })
-
+describe("with the first/last slide selected (edge case)", () => {
+  test("wraps `index` to the max value when Prev is clicked")
 });
