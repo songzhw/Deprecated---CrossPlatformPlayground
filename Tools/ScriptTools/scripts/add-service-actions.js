@@ -24,8 +24,7 @@ actionArrayFromArg.forEach((action) => {
 });
 stringBuffer = stringBuffer.slice(0, -1); //remove the last "\n"
 let updatedActionsFileContent = OrigActionFileContent.replace(/(export enum ActionTypes {)/, `$1\n${stringBuffer}`);
-const length = updatedActionsFileContent.length;
-updatedActionsFileContent = updatedActionsFileContent.replace(/(.{length-1}/, "$1\nHELLO");
+updatedActionsFileContent += "\nHELLO\nworld";
 console.log(updatedActionsFileContent);
 
 
