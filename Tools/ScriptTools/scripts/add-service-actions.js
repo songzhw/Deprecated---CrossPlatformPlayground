@@ -15,9 +15,9 @@ const serviceFromCmd = argv.service;
 const serviceConstant = changeCase.constant(serviceFromCmd);
 
 // ================== 1. add actions ==================
+/*
 const actionFileDestination = `${argDestination}/actions/index.ts`;
-const data = fs.readFileSync(actionFileDestination);
-const OrigActionFileContent = data.toString();
+const origActionFileContent = fs.readFileSync(actionFileDestination).toString();
 
 let stringBuffer = "";
 actionArrayFromArg.forEach((action) => {
@@ -26,7 +26,7 @@ actionArrayFromArg.forEach((action) => {
   stringBuffer += `  ${actionConstant} = "@@_${serviceConstant}/${actionSuffix}",\n`;
 });
 stringBuffer = stringBuffer.slice(0, -1); //remove the last "\n"
-let updatedActionsFileContent = OrigActionFileContent.replace(/(export enum ActionTypes {)/, `$1\n${stringBuffer}`);
+let updatedActionsFileContent = origActionFileContent.replace(/(export enum ActionTypes {)/, `$1\n${stringBuffer}`);
 
 stringBuffer = "";
 let actionCreatorTemplate = `export const {{CAMEL}} = () => ({
@@ -41,11 +41,31 @@ actionArrayFromArg.forEach((action) => {
   stringBuffer += "\n\n";
 });
 updatedActionsFileContent += stringBuffer;
-console.log(updatedActionsFileContent);
 
 fs.writeFileSync(actionFileDestination, updatedActionsFileContent);
 
-// ================== *. utils ==================
+
+// ================== 2. modify reducers ==================
+const reducerFileDestination = `${argDestination}/reducers/index.ts`;
+const origReducerFileContent = fs.readFileSync(reducerFileDestination).toString();
+
+stringBuffer = "";
+const reduceTemplate = `  case ActionTypes.{{actionType}}: {
+      const newState: ServiceState = { ...state};
+      return newState;
+    }
+
+  `;
+actionArrayFromArg.forEach((action) => {
+  const placeHolder = { actionType: changeCase.constant(action) };
+  stringBuffer += replacer(reduceTemplate, placeHolder);
+});
+
+const updatedReducersFileContent = origReducerFileContent.replace(/(switch \(action.type\) {)/, `$1\n  ${stringBuffer}`);
+fs.writeFileSync(reducerFileDestination, updatedReducersFileContent);
+*/
+
+// ================== 3. modify sagas ==================
 
 
 
