@@ -4,6 +4,7 @@ yarn run add-service-actions --dest "scripts/result" --add "play music, pause mu
  */
 
 const fs = require("fs");
+const replacer = require("maxstache");
 const changeCase = require("change-case");
 const argv = require("yargs").argv; // 格式是: {_:[a,b,c], action: one, id: 20}
 
@@ -16,6 +17,7 @@ const serviceConstant = changeCase.constant(serviceFromCmd);
 // ================== 1. add actions ==================
 const data = fs.readFileSync(`${argDestination}/actions/index.ts`);
 const OrigActionFileContent = data.toString();
+
 let stringBuffer = "";
 actionArrayFromArg.forEach((action) => {
   const actionConstant = changeCase.constant(action); //=> "LOAD_API"
@@ -24,7 +26,20 @@ actionArrayFromArg.forEach((action) => {
 });
 stringBuffer = stringBuffer.slice(0, -1); //remove the last "\n"
 let updatedActionsFileContent = OrigActionFileContent.replace(/(export enum ActionTypes {)/, `$1\n${stringBuffer}`);
-updatedActionsFileContent += "\nHELLO\nworld";
+
+stringBuffer = "";
+let actionCreatorTemplate = `export const {{CAMEL}} = () => ({
+  type: ActionTypes.{{CONSTANTS}}
+ });`;
+actionArrayFromArg.forEach((action) => {
+  const placeHolder = {
+    CAMEL: changeCase.camel(action),
+    CONSTANTS: changeCase.constant(action)
+  };
+  stringBuffer += replacer(actionCreatorTemplate, placeHolder);
+  stringBuffer += "\n\n";
+});
+updatedActionsFileContent += stringBuffer;
 console.log(updatedActionsFileContent);
 
 
