@@ -15,7 +15,6 @@ const serviceFromCmd = argv.service;
 const serviceConstant = changeCase.constant(serviceFromCmd);
 
 // ================== 1. add actions ==================
-/*
 const actionFileDestination = `${argDestination}/actions/index.ts`;
 const origActionFileContent = fs.readFileSync(actionFileDestination).toString();
 
@@ -63,28 +62,29 @@ actionArrayFromArg.forEach((action) => {
 
 const updatedReducersFileContent = origReducerFileContent.replace(/(switch \(action.type\) {)/, `$1\n  ${stringBuffer}`);
 fs.writeFileSync(reducerFileDestination, updatedReducersFileContent);
-*/
+
 
 // ================== 3. modify sagas ==================
 const sagaFileDestination = `${argDestination}/sagas/index.ts`;
 const origSagaFileContent = fs.readFileSync(sagaFileDestination).toString();
 
-console.log(origSagaFileContent.replace(/(\n)(const saga = function\* \(\) {)/, "$1hello\n$2\nworld"))
+let sagaRegister = "";
+let sagaMethods = "";
+actionArrayFromArg.forEach((action) => {
+  const actionConstant = changeCase.constant(action);
+  const sagaMethod = changeCase.camel(action);
+  sagaRegister += `  yield takeEvery(ActionTypes.${actionConstant}, ${sagaMethod});\n`;
+  sagaMethods += `const ${sagaMethod} = function* (action: AnyAction) {\n\n};\n`;
+});
+sagaRegister = sagaRegister.slice(0, -1);
 
+const addedSagaCode = `${sagaMethods}\n$2\n${sagaRegister}`;
+let updatedSagaFileContent = origSagaFileContent.replace(/(\n)(const saga = function\* \(\) {)/, addedSagaCode);
 
-//1. fs.readFile(), 路径是project root为base dir
+fs.writeFileSync(sagaFileDestination, updatedSagaFileContent);
 
 /*
-let str = "abcdefg";
-str = str.replace(/[a-c]{3}/, "XYZ");
-console.log(str);  //=> XYZdefg
-
-str = "abcdefg";
-str = str.replace(/[a-c]{3}/, "$1XYZ");
-console.log(str);  //=> $1XYZdefg
-
-str = "abcdefg";
-str = str.replace(/([a-c]{3})/, "$1XYZ");
-console.log(str);  //=> abcXYZdefg
-
+[经验]
+1. fs.readFile(), 路径是project root为base dir
  */
+
