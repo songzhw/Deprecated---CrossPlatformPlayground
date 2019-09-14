@@ -66,7 +66,10 @@ fs.writeFileSync(reducerFileDestination, updatedReducersFileContent);
 */
 
 // ================== 3. modify sagas ==================
+const sagaFileDestination = `${argDestination}/sagas/index.ts`;
+const origSagaFileContent = fs.readFileSync(sagaFileDestination).toString();
 
+console.log(origSagaFileContent.replace(/(\n)(const saga = function\* \(\) {)/, "$1hello\n$2\nworld"))
 
 
 //1. fs.readFile(), 路径是project root为base dir
