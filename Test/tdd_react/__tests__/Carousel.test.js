@@ -11,13 +11,13 @@ const slides = [
 ];
 
 describe("Carousel", () => {
-  test.skip("has slide and button children", () => {
-    const wrapper = shallow(<Carousel slides={slides}/>);
-    console.log(`szw ,`, wrapper.debug());
-    expect(wrapper.childAt(0).type()).toBe("CarouselSlide");
-    expect(wrapper.childAt(1).type()).toBe("CarouselButton");
-    // 其实可以用 wrapper.find(CarouselSlide).toBeNotNull()来测试!
-  });
+  // test.skip("has slide and button children", () => {
+  //   const wrapper = shallow(<Carousel slides={slides}/>);
+  //   console.log(`szw ,`, wrapper.debug());
+  //   expect(wrapper.childAt(0).type()).toBe("CarouselSlide");
+  //   expect(wrapper.childAt(1).type()).toBe("CarouselButton");
+  //   // 其实可以用 wrapper.find(CarouselSlide).toBeNotNull()来测试!
+  // });
 
   test("initial state", () => {
     const wrapper = shallow(<Carousel slides={slides}/>);

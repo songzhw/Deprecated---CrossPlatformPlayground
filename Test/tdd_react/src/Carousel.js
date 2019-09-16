@@ -6,16 +6,18 @@ export class Carousel extends React.Component {
   state = { index: 0 };
 
   onNext = () => {
+    const length = this.props.slides.length;
     // this.setState({ index: this.state.index + 1 });
     this.setState(({ index }) => ({
-      index: index + 1
+      index: (index + 1) % length
     }))
     ;
   };
 
   onPrev = () => {
+    const length = this.props.slides.length;
     this.setState(({ index }) => ({
-      index: index - 1
+      index: (index - 1 + length) % length
     }))
     ;
   };
