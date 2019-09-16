@@ -45,5 +45,14 @@ describe("Carousel", () => {
 });
 
 describe("with the first/last slide selected (edge case)", () => {
-  test("wraps `index` to the max value when Prev is clicked")
+  test("wraps `index` to the max value when Prev is clicked", () => {
+    const wrapper = shallow(<Carousel slides={slides}/>);
+    wrapper.setState({ index: 0 });
+
+    const prevButton = wrapper.find("[data-testId=\"btnPrev\"]");
+    prevButton.simulate("click");
+
+    const lastIndex = slides.length - 1;
+    expect(wrapper.state("index")).toBe(lastIndex);
+  });
 });
