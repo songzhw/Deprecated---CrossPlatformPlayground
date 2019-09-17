@@ -7,7 +7,7 @@ export class CheckBoxDemo extends React.Component {
   };
 
   onChange() {
-    this.setState({ isOn: !this.state.isOn });
+    this.setState(({ isOn }) => ({ isOn: !isOn }));
   }
 
   render() {
