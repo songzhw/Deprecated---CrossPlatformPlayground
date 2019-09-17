@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 
 
-export const CheckBoxDemo = () => {
-  const [isOn, setIsOn] = useState(false);
+export class CheckBoxDemo extends React.Component {
+  state = {
+    isOn: false
+  };
 
-  function onChange() {
-    setIsOn(prev => !prev);
+  onChange() {
+    this.setState({ isOn: !this.state.isOn });
   }
 
-  return (
-    <div>
-      <input type="checkbox" onChange={onChange}/>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <input type="checkbox" onChange={this.onChange}/>
+      </div>
+    );
+  }
 };
