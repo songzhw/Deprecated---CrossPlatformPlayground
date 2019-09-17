@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
-interface IProps {
-}
 
-export const CheckBoxDemo = (props: IProps) => {
+export const CheckBoxDemo = () => {
   const [isOn, setIsOn] = useState(false);
 
   function onChange() {
