@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 
 export class CheckBoxDemo extends React.Component {
@@ -6,9 +6,12 @@ export class CheckBoxDemo extends React.Component {
     isOn: false
   };
 
-  onChange() {
-    this.setState(({ isOn }) => ({ isOn: !isOn }));
-  }
+  onChange = () => {
+    this.setState(({ isOn }) => {
+      console.log(`isOn = `, isOn);
+      return { isOn: !isOn };
+    });
+  };
 
   render() {
     return (
@@ -17,4 +20,4 @@ export class CheckBoxDemo extends React.Component {
       </div>
     );
   }
-};
+}
