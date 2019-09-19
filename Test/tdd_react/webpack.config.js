@@ -1,7 +1,8 @@
 module.exports = {
   mode: "development",
   entry: {
-    carousel: "./src/Carousel.js"
+    carousel: "./src/Carousel.js",
+    example: "./src/webpack_demo.js"
   },
   module: {
     rules: [
