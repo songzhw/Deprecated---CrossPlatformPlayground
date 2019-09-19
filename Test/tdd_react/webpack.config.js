@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   mode: "development",
   entry: {
@@ -11,5 +13,8 @@ module.exports = {
         loader: require.resolve("babel-loader")
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ title: "webpack demo", chunks: ["example"] })
+  ]
 };
