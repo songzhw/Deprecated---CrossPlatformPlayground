@@ -122,3 +122,6 @@ coverage/
 # ios
 Pods/
 Podfile.lock
+
+# webpack
+dist/
