@@ -19,14 +19,16 @@
     "jest": "^24.9.0",
     "react-test-renderer": "^16.9.0",
     "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",
-    "web-build": "webpack --config webpack.config.js"
+    "web-build": "webpack --config webpack.config.js",
+    "dev": "webpack-dev-server --open"
   },
   "eslintConfig": {
     "extends": "react-app"

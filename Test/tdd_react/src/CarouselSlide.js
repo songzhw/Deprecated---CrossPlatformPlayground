@@ -15,6 +15,7 @@ export const CarouselSlide = (props) => {
         <strong>{description}</strong>
         {author}
       </figcaption>
+      <text>on Unsplash</text>
     </figure>
   );
 };
