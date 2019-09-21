@@ -1,0 +1,9 @@
+/* A.css */
+button.white {
+    color: black;
+}
+
+/* B.css */
+button:disabled {
+    color: darkgray;
+}
