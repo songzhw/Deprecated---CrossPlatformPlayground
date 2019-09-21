@@ -17,10 +17,11 @@ describe("CaraouselSlide", () => {
   test("test props from image, text", () => {
     const imageUrl = "http://a.png";
     const wrapper = shallow(<CarouselSlide/>);
+    console.log(wrapper.debug())
     wrapper.setProps({ imageUrl });
     wrapper.setProps({ description: "hello", author: "szw" });
 
-    const img = wrapper.find("SImage");
+    const img = wrapper.find("styled.img");
     expect(img.prop("src")).toBe(imageUrl);
 
     const fig = wrapper.find("figcaption strong");
