@@ -13,10 +13,10 @@ const SImage = styled.img`
 
 
 export const CarouselSlide = (props) => {
-  const { imageUrl, description, author, ...rest } = props;
+  const { imageUrl, description, author, imgHeight, ...rest } = props;
   return (
     <figure {...rest}>
-      <SImage src={imageUrl} imgHeight={props.imgHeight}/>
+      <SImage src={imageUrl} imgHeight={imgHeight}/>
       <figcaption>
         <strong>{description}</strong>
         {author}

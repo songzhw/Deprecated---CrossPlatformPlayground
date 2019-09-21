@@ -3,6 +3,10 @@ import { CarouselSlide } from "./CarouselSlide";
 import { CarouselButton } from "./CarouselButton";
 
 export class Carousel extends React.Component {
+  static defaultProps = {
+    defaultImageHeight: 500
+  };
+
   state = { index: 0 };
 
   onNext = () => {
@@ -23,11 +27,11 @@ export class Carousel extends React.Component {
   };
 
   render() {
-    const { slides, ...rest } = this.props;
+    const { slides, defaultImageHeight, ...rest } = this.props;
     const currentSlideData = slides[this.state.index];
     return (
       <div {...rest}>
-        <CarouselSlide {...currentSlideData} imgHeight={500}/>
+        <CarouselSlide {...currentSlideData} imgHeight={defaultImageHeight}/>
         <CarouselButton data-testId="btnPrev" onClick={this.onPrev}>Prev</CarouselButton>
         <CarouselButton data-testId="btnNext" onClick={this.onNext}>Next</CarouselButton>
       </div>
