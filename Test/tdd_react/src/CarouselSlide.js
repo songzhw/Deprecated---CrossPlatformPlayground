@@ -1,16 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 
-// interface IProps{
-//   imageUrl: string;
-//   description: string;
-//   author: string;
-// }
+const SImage = styled.img`
+  object-fit: cover;
+  width: 60%;
+  height: 500px;
+`;
+
 
 export const CarouselSlide = (props) => {
   const { imageUrl, description, author, ...rest } = props;
   return (
     <figure {...rest}>
-      <img src={imageUrl}/>
+      <SImage src={imageUrl}/>
       <figcaption>
         <strong>{description}</strong>
         {author}
