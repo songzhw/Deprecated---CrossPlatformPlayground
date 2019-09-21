@@ -4,7 +4,11 @@ import styled from "styled-components";
 const SImage = styled.img`
   object-fit: cover;
   width: 60%;
-  height: 500px;
+  height: ${props =>
+    typeof props.imgHeight === "number"
+      ? `${props.imgHeight}px`
+      : props.imgHeight
+  };
 `;
 
 
