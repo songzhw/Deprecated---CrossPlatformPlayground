@@ -68,6 +68,29 @@ describe("Styled Image (SImage)", () => {
     expect(img.prop("src")).toBe("http://a.png");
   });
 
+  describe("mounted SImage", () => {
+    let mounted;
+    const imgUrl = "http://b.jpg";
 
+    beforeEach(() => {
+      mounted = mount(<SImage src={imgUrl} imgHeight={222}/>);
+      /*
+      mounted.debug()的结果是:
+          <styled.img src="http://b.jpg" imgHeight={222}>
+            <StyledComponent src="http://b.jpg" imgHeight={222} forwardedComponent={{...}} forwardedRef={{...}}>
+              <img src="http://b.jpg" className="sc-bdVaJa jFqGzu" />
+            </StyledComponent>
+          </styled.img>
+      可见, mount()的会将HoC包裹的原组件也给渲染出来.
+
+      备注: 另外也看到了styled.img是怎么回事, 其实就是新生成一个style, 放到<img>的className里去
+       */
+    });
+
+    test("renders an <img> with the given src(mount)", () => {
+      const isContainingImg = mounted.containsMatchingElement(<img src={imgUrl}/>);
+      expect(isContainingImg).toBeTruthy();
+    });
+  });
 
 });
