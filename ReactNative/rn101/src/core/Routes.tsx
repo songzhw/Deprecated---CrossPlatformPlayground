@@ -42,6 +42,7 @@ import LifecycleScreen from "../biz/lifecycle/LifecycleScreen";
 import { LinearGradientScreen } from "../lib3rd/LinearGradientScreen";
 import { ThirdPartyPopOverDemo } from "../fancy_ui/popover/ThirdPartyPopOverDemo";
 import { MyPopupScreen } from "../fancy_ui/popover/MyPopupScreen";
+import { LayoutAnimationDemo } from "../rn_tutorial/anim/LayoutAnimationDemo";
 
 const AppNavigator = createStackNavigator(
   {
@@ -53,7 +54,7 @@ const AppNavigator = createStackNavigator(
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
     DebounceDemo, LambdaInJsx,
     SimpleHeroAnimDemo, Lottery9Demo,
-    AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3,
+    AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3, LayoutAnimationDemo,
     StaggerAnimationScreen, GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo, LinearGradientScreen, ThirdPartyPopOverDemo
   },

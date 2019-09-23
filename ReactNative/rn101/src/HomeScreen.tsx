@@ -10,6 +10,7 @@ import AppStateDemo from "./biz/bg/AppStateDemo";
 import SagaInBgDemo from "./biz/bg/SagaInBgDemo";
 import NativeBridgeInBgDemo from "./biz/bg/NativeBridgeInBgDemo";
 import { ThirdPartyPopOverDemo } from "./fancy_ui/popover/ThirdPartyPopOverDemo";
+import { LayoutAnimationDemo } from "./rn_tutorial/anim/LayoutAnimationDemo";
 
 console.disableYellowBox = true;
 
@@ -17,7 +18,6 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
   const { navigation, screenProps } = props;
   // console.log(`szw HomeScreeen `, screenProps);//=> 'szw HomeScreeen ', { bg: 'green', textColor: 'white' }
-
 
   return (
     <ScrollView style={styles.root}>
@@ -45,6 +45,8 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="Debounce + Button" onPress={() => navigation.navigate("DebounceDemo")}/>
       <HomeButton title="dataset properties" onPress={() => navigation.navigate("LambdaInJsx")}/>
       <HomeButton title="lifecycle demo" onPress={() => navigation.navigate("LifecycleScreen")}/>
+      <HomeButton title="layout animation" onPress={() => navigation.navigate("LayoutAnimationDemo")}/>
+
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>In Background Issue</Text>
