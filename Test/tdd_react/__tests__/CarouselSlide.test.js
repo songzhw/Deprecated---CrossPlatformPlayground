@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { CarouselSlide, SImage } from "../src/CarouselSlide";
 
 describe("CaraouselSlide", () => {
@@ -55,9 +55,19 @@ describe("Styled Image (SImage)", () => {
   test("2", () => {
     const wrapper = shallow(<SImage imgHeight={"150vh"}/>);
     /* wrapper.debug()的结果是: <StyledComponent imgHeight="150vh" forwardedComponent={{...}} forwardedRef={{...}} />     */
-    console.log(wrapper.debug());
     expect(wrapper.prop("imgHeight")).toBe("150vh");
   });
+
+  test("renders an <img> with the given src", () => {
+    const imageUrl = "http://a.png";
+    const wrapper = shallow(<CarouselSlide/>);
+    wrapper.setProps({ imageUrl });
+    wrapper.setProps({ description: "hello", author: "szw" });
+
+    const img = wrapper.find(SImage); // img.debug()是  <styled.img src="http://a.png" imgHeight={[undefined]} />
+    expect(img.prop("src")).toBe("http://a.png");
+  });
+
 
 
 });

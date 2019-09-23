@@ -8,7 +8,6 @@ export class CheckBoxDemo extends React.Component {
 
   onChange = () => {
     this.setState(({ isOn }) => {
-      console.log(`isOn = `, isOn);
       return { isOn: !isOn };
     });
   };
