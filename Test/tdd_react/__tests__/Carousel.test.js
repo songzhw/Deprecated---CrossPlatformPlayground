@@ -38,8 +38,8 @@ describe("Carousel", () => {
 
   test("renders the current slide as a CarouselSlide", () => {
     const wrapper = shallow(<Carousel slides={slides}/>);
-    let slideProps = wrapper.find(CarouselSlide).props();
-    expect(slideProps).toEqual(slides[0]);
+    let slideImgProps = wrapper.find(CarouselSlide).prop("imageUrl");
+    expect(slideImgProps).toEqual("https://a.com/1.png");
   });
 
 });
