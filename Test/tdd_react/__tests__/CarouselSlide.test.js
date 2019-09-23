@@ -17,7 +17,6 @@ describe("CaraouselSlide", () => {
   test("test props from image, text", () => {
     const imageUrl = "http://a.png";
     const wrapper = shallow(<CarouselSlide/>);
-    console.log(wrapper.debug());
     wrapper.setProps({ imageUrl });
     wrapper.setProps({ description: "hello", author: "szw" });
 
@@ -40,5 +39,16 @@ describe("CaraouselSlide", () => {
 
     expect(wrapper.prop("className")).toBe(className);
     expect(wrapper.prop("onClick")).toBe(onClick);
+  });
+});
+
+describe("Styled Image (SImage)", () => {
+  test("1", () => {
+    const wrapper = shallow(<SImage imgHeight={200}/>);
+    /* wrapper.debug()的结果是:
+     <StyledComponent imgHeight={200} forwardedComponent={{...}} forwardedRef={{...}} />
+    可见这个imgHeight被直接传了下来
+     */
+    expect(wrapper.prop("imgHeight")).toBe(200);
   });
 });
