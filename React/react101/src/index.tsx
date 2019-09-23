@@ -18,16 +18,18 @@ import { CountPitfall } from "./Rtutor/hooks/useeffect/CountPitfall";
 import { MyStateScreen2 } from "./Rtutor/hooks/my_hooks/MyStateScreen2";
 import SagaWaitScreen from "./three_party/saga/SagaWaitScreen";
 import { SagaWaitReducer } from "./three_party/saga/SagaWaitReducer";
+import { SagaCallDemo } from "./three_party/saga/call/SagaCallDemo";
+import { sagaCallReturnValue } from "./three_party/saga/call/SagaCallReturnValue";
 
 
 const sagaMiddleware = createSagaMiddleware();
 const store: Store = createStore(SagaWaitReducer, applyMiddleware(sagaMiddleware));
-sagaMiddleware.run(waitAnotherActionSaga);
+sagaMiddleware.run(sagaCallReturnValue);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <SagaWaitScreen/>
+      <SagaCallDemo/>
     </Provider>
   );
 };
