@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const SImage = styled.img`
+export const SImage = styled.img`
   object-fit: cover;
   width: 60%;
   height: ${props =>

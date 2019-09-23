@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { CarouselSlide } from "../src/CarouselSlide";
+import { CarouselSlide, SImage } from "../src/CarouselSlide";
 
 describe("CaraouselSlide", () => {
   test("renders a <figure>", () => {
@@ -17,11 +17,11 @@ describe("CaraouselSlide", () => {
   test("test props from image, text", () => {
     const imageUrl = "http://a.png";
     const wrapper = shallow(<CarouselSlide/>);
-    console.log(wrapper.debug())
+    console.log(wrapper.debug());
     wrapper.setProps({ imageUrl });
     wrapper.setProps({ description: "hello", author: "szw" });
 
-    const img = wrapper.find("styled.img");
+    const img = wrapper.find(SImage);
     expect(img.prop("src")).toBe(imageUrl);
 
     const fig = wrapper.find("figcaption strong");
@@ -33,7 +33,8 @@ describe("CaraouselSlide", () => {
 
   test("passes other props through to the <figure>", () => {
     const className = "myCarouselSlide";
-    const onClick = () => {};
+    const onClick = () => {
+    };
     const wrapper = shallow(<CarouselSlide/>);
     wrapper.setProps({ className, onClick });
 
