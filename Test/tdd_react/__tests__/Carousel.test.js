@@ -38,8 +38,11 @@ describe("Carousel", () => {
 
   test("renders the current slide as a CarouselSlide", () => {
     const wrapper = shallow(<Carousel slides={slides}/>);
-    let slideImgProps = wrapper.find(CarouselSlide).prop("imageUrl");
-    expect(slideImgProps).toEqual("https://a.com/1.png");
+    let slideImgProps = wrapper.find(CarouselSlide).props();
+    expect(slideImgProps).toEqual({
+      ...slides[0],
+      imgHeight: Carousel.defaultProps.defaultImageHeight
+    });
   });
 
 });
