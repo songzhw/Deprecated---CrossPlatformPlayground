@@ -51,4 +51,13 @@ describe("Styled Image (SImage)", () => {
      */
     expect(wrapper.prop("imgHeight")).toBe(200);
   });
+
+  test("2", () => {
+    const wrapper = shallow(<SImage imgHeight={"150vh"}/>);
+    /* wrapper.debug()的结果是: <StyledComponent imgHeight="150vh" forwardedComponent={{...}} forwardedRef={{...}} />     */
+    console.log(wrapper.debug());
+    expect(wrapper.prop("imgHeight")).toBe("150vh");
+  });
+
+
 });
