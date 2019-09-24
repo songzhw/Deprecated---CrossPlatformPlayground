@@ -1,7 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import { CarouselSlide, SImage } from "../src/CarouselSlide";
-​import​ 'jest-styled-components'​;
 
 describe("CaraouselSlide", () => {
   test("renders a <figure>", () => {
