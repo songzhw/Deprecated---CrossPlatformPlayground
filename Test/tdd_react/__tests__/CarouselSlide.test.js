@@ -44,13 +44,6 @@ describe("CaraouselSlide", () => {
 
 describe("Styled Image (SImage)", () => {
 
-  test("has the expected static styles", () => {
-    const wrapper = shallow(<SImage imgHeight={200}/>);
-    console.log(wrapper.debug());
-    expect(wrapper).toHaveStyleRule("width", "60%");
-  });
-
-
   test("1", () => {
     const wrapper = shallow(<SImage imgHeight={200}/>);
     /* wrapper.debug()的结果是:
@@ -98,6 +91,11 @@ describe("Styled Image (SImage)", () => {
     test("renders an <img> with the given src(mount)", () => {
       const isContainingImg = mounted.containsMatchingElement(<img src={imgUrl}/>);
       expect(isContainingImg).toBeTruthy();
+    });
+
+    test("has the expected static styles", () => {
+      console.log(mounted.debug());
+      expect(mounted).toHaveStyleRule("width", "60%");
     });
   });
 
