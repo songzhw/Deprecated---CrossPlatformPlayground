@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import { CarouselSlide, SImage } from "../src/CarouselSlide";
+​import​ 'jest-styled-components'​;
 
 describe("CaraouselSlide", () => {
   test("renders a <figure>", () => {
@@ -43,6 +44,13 @@ describe("CaraouselSlide", () => {
 });
 
 describe("Styled Image (SImage)", () => {
+
+  test("has the expected static styles", () => {
+    const wrapper = shallow(<SImage imgHeight={200}/>);
+    expect(wrapper).toHaveStyleRule("width", "60%");
+  });
+
+
   test("1", () => {
     const wrapper = shallow(<SImage imgHeight={200}/>);
     /* wrapper.debug()的结果是:
