@@ -46,6 +46,7 @@ describe("Styled Image (SImage)", () => {
 
   test("has the expected static styles", () => {
     const wrapper = shallow(<SImage imgHeight={200}/>);
+    console.log(wrapper.debug());
     expect(wrapper).toHaveStyleRule("width", "60%");
   });
 
