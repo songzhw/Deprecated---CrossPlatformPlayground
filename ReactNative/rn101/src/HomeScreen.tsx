@@ -24,6 +24,12 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
 
       <View style={{ height: 8 }}/>
+      <Text style={styles.title}>Fancy Tools</Text>
+      <HomeButton title="Dynamic Style Rule" onPress={() => navigation.navigate("DynamicStyleRulesDemo")}/>
+      <HomeButton title="Dynamic App Theme" onPress={() => navigation.navigate("DynamicAppThemeDemo")}/>
+
+
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>Fancy UI</Text>
       <HomeButton title="(X) list <-> Detail Anim 2" onPress={() => navigation.navigate("ListDetailAnimDemo2")}/>
       <HomeButton title="(✔) simple hero anim" onPress={() => navigation.navigate("SimpleHeroAnimDemo")}/>

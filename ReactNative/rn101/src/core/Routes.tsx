@@ -43,6 +43,8 @@ import { LinearGradientScreen } from "../lib3rd/LinearGradientScreen";
 import { ThirdPartyPopOverDemo } from "../fancy_ui/popover/ThirdPartyPopOverDemo";
 import { MyPopupScreen } from "../fancy_ui/popover/MyPopupScreen";
 import { LayoutAnimationDemo } from "../rn_tutorial/anim/LayoutAnimationDemo";
+import { DynamicStyleRulesDemo } from "../rn_tutorial/theme/DynamicStyleRulsDemo";
+import { DynamicAppThemeDemo } from "../rn_tutorial/theme/apptheme/DynamicAppThemeDemo";
 
 const AppNavigator = createStackNavigator(
   {
@@ -52,6 +54,7 @@ const AppNavigator = createStackNavigator(
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo, MyPopupScreen,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
+    DynamicStyleRulesDemo, DynamicAppThemeDemo,
     DebounceDemo, LambdaInJsx,
     SimpleHeroAnimDemo, Lottery9Demo,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3, LayoutAnimationDemo,
