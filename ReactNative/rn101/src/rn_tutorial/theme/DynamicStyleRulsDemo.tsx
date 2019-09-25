@@ -1,35 +1,35 @@
 import React from "react";
-import { View, ViewProps, Text, StyleSheet } from "react-native";
+import { View, ViewProps, Text, StyleSheet, Image } from "react-native";
 
 interface IProps extends ViewProps {
-  fontSize?: number
+  fontSize?: number,
+  imgSize?: number
 }
 
 export const DynamicStyleRulesDemo = (props: IProps) => {
 
-  const textStyle = (props: any) => ({
-    fontSize: props.fontSize * 2,
-    color: "blue"
+  const rawStyles = (props: any) => ({
+    text: {
+      fontSize: props.fontSize * 2,
+      color: "green"
+    }
   });
-  const styles = parseStyle(textStyle, props);
+  const styles = parseStyle(rawStyles, props);
 
   return (
     <View>
-      <Text style={{ fontSize: 20, color: "blue" }}> 动态样式 </Text>
+      <Text style={styles.text}> 动态样式 </Text>
     </View>
   );
 };
 
 DynamicStyleRulesDemo.defaultProps = {
-  fontSize: 10
+  fontSize: 10,
+  imgSize: 99
 };
 
 
-// const styles = StyleSheet.create({
-//   container: {}
-// });
-
 function parseStyle(fn: (...args: any[]) => any, props: any) {
-  const result = fn(props);  //=>  { fontSize: 20, color: 'blue' }
+  const result = fn(props);  //=>  { text: { fontSize: 20, color: 'blue' } }
   return StyleSheet.create(result);
 }
