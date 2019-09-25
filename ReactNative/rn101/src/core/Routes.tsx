@@ -1,7 +1,6 @@
 import React from "react";
-import { Image, TouchableOpacity } from "react-native";
-import { createAppContainer, createStackNavigator, createSwitchNavigator } from "react-navigation";
-import { commonStyles } from "./theme/CommonStyle";
+import { Image, StyleSheet, TouchableOpacity } from "react-native";
+import { createAppContainer, createStackNavigator, createSwitchNavigator, Header } from "react-navigation";
 import { HomeScreen } from "../HomeScreen";
 
 import { PassB1Screen } from "../biz/navigators/start_activity_for_result/PassB1Screen";
@@ -76,6 +75,13 @@ const AppNavigator = createStackNavigator(
     // ,transitionConfig: screenFade
   }
 );
+const commonStyles = StyleSheet.create({
+  //because I find the size of "headerLeft" is a little more than header bar's heightZ
+  imgBack: {
+    width: Header.HEIGHT,
+    height: Header.HEIGHT
+  }
+});
 
 const WithSplashNavigator = createSwitchNavigator({
   splash: SplashScreen,
