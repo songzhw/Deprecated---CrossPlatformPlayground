@@ -7,18 +7,20 @@ interface IProps extends ViewProps {
 }
 
 export const DynamicStyleRulesDemo = (props: IProps) => {
+  const normalTheme = { text: { title: { color: "blue" } } };
+  const darkTheme = { text: { title: { color: "red" } } };
 
-  const rawStyles = (props: any) => ({
+  const rawStyles = (props: any, theme: any) => ({
     text: {
       fontSize: props.fontSize * 2,
-      color: "green"
+      color: theme.text.title.color
     },
     image: {
       width: props.imgSize,
       height: props.imgSize
     }
   });
-  const styles = parseStyle(rawStyles, props);
+  const styles = parseStyle(rawStyles, props, darkTheme);
 
   return (
     <View>
@@ -34,7 +36,7 @@ DynamicStyleRulesDemo.defaultProps = {
 };
 
 
-function parseStyle(fn: (...args: any[]) => any, props: any) {
-  const result = fn(props);  //=>  { text: { fontSize: 20, color: 'blue' } }
+function parseStyle(fn: (...args: any[]) => any, props: any, theme: any) {
+  const result = fn(props, theme);  //=>  { text: { fontSize: 20, color: 'blue' } }
   return StyleSheet.create(result);
 }
