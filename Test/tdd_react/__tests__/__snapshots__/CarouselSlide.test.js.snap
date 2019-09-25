@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CaraouselSlide renders correctly 1`] = `
+<figure>
+  <styled.img
+    src="http://a.png"
+  />
+  <figcaption>
+    <strong>
+      hello
+    </strong>
+    szw
+  </figcaption>
+  <text>
+    on Unsplash
+  </text>
+</figure>
+`;

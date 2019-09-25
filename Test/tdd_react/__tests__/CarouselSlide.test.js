@@ -3,6 +3,16 @@ import { shallow, mount } from "enzyme";
 import { CarouselSlide, SImage } from "../src/CarouselSlide";
 
 describe("CaraouselSlide", () => {
+
+  test("renders correctly", () => {
+    const imageUrl = "http://a.png";
+    const wrapper = shallow(<CarouselSlide/>);
+    wrapper.setProps({ imageUrl });
+    wrapper.setProps({ description: "hello", author: "szw" });
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   test("renders a <figure>", () => {
     const wrapper = shallow(<CarouselSlide/>);
     expect(wrapper.type()).toBe("figure");
@@ -94,7 +104,6 @@ describe("Styled Image (SImage)", () => {
     });
 
     test("has the expected static styles", () => {
-      console.log(mounted.debug());
       expect(mounted).toHaveStyleRule("width", "60%");
     });
   });
