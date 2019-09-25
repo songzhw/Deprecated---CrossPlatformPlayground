@@ -16,3 +16,16 @@ exports[`CaraouselSlide renders correctly 1`] = `
   </text>
 </figure>
 `;
+
+exports[`Styled Image (SImage) mounted SImage renders correctly 1`] = `
+.c0 {
+  object-fit: cover;
+  width: 60%;
+  height: 222px;
+}
+
+<img
+  className="c0"
+  src="http://b.jpg"
+/>
+`;

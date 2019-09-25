@@ -106,6 +106,10 @@ describe("Styled Image (SImage)", () => {
     test("has the expected static styles", () => {
       expect(mounted).toHaveStyleRule("width", "60%");
     });
+
+    test("renders correctly", () => {
+      expect(mounted.find("img")).toMatchSnapshot();
+    });
   });
 
 });
