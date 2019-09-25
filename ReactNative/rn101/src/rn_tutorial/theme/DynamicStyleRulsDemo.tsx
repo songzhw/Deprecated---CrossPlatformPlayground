@@ -1,5 +1,8 @@
 import React from "react";
 import { View, ViewProps, Text, StyleSheet, Image } from "react-native";
+import { parseStyle } from "../../core/theme/DynamicThemeUtils";
+import { DarkTheme } from "../../core/theme/data/DarkTheme";
+import { NormalTheme } from "../../core/theme/data/NormalTheme";
 
 interface IProps extends ViewProps {
   fontSize?: number,
@@ -7,20 +10,17 @@ interface IProps extends ViewProps {
 }
 
 export const DynamicStyleRulesDemo = (props: IProps) => {
-  const normalTheme = { text: { title: { color: "blue" } } };
-  const darkTheme = { text: { title: { color: "red" } } };
-
-  const rawStyles = (props: any, theme: any) => ({
+  const rawStyles = (params: any, theme: any) => ({
     text: {
-      fontSize: props.fontSize * 2,
+      fontSize: params.fontSize * 2,
       color: theme.text.title.color
     },
     image: {
-      width: props.imgSize,
-      height: props.imgSize
+      width: params.imgSize,
+      height: params.imgSize
     }
   });
-  const styles = parseStyle(rawStyles, props, darkTheme);
+  const styles = parseStyle(rawStyles, props, NormalTheme);
 
   return (
     <View>
@@ -36,7 +36,4 @@ DynamicStyleRulesDemo.defaultProps = {
 };
 
 
-function parseStyle(fn: (...args: any[]) => any, props: any, theme: any) {
-  const result = fn(props, theme);  //=>  { text: { fontSize: 20, color: 'blue' } }
-  return StyleSheet.create(result);
-}
+
