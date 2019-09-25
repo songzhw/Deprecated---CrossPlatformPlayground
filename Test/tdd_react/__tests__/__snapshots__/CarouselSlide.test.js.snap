@@ -1,31 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CaraouselSlide renders correctly 1`] = `
-<figure>
-  <styled.img
-    src="http://a.png"
-  />
-  <figcaption>
-    <strong>
-      hello
-    </strong>
-    szw
-  </figcaption>
-  <text>
-    on Unsplash
-  </text>
-</figure>
-`;
+exports[`CaraouselSlide renders correctly 1`] = `ShallowWrapper {}`;
 
-exports[`Styled Image (SImage) mounted SImage renders correctly 1`] = `
-.c0 {
-  object-fit: cover;
-  width: 60%;
-  height: 222px;
-}
-
-<img
-  className="c0"
-  src="http://b.jpg"
-/>
-`;
+exports[`Styled Image (SImage) mounted SImage renders correctly 1`] = `ReactWrapper {}`;
