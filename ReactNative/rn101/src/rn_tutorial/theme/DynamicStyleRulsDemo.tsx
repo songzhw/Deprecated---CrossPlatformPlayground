@@ -12,6 +12,10 @@ export const DynamicStyleRulesDemo = (props: IProps) => {
     text: {
       fontSize: props.fontSize * 2,
       color: "green"
+    },
+    image: {
+      width: props.imgSize,
+      height: props.imgSize
     }
   });
   const styles = parseStyle(rawStyles, props);
@@ -19,6 +23,7 @@ export const DynamicStyleRulesDemo = (props: IProps) => {
   return (
     <View>
       <Text style={styles.text}> 动态样式 </Text>
+      <Image style={styles.image} source={require("../../../res/images/category_app.png")}/>
     </View>
   );
 };
