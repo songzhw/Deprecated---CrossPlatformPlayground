@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
   },
   selected: {
     width: 96,
-    height: 80
+    height: 80,
+    marginLeft: 3
   },
   size: {
     width: 96,
