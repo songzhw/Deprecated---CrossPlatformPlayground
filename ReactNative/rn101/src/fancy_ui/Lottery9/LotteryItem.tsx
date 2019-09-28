@@ -19,8 +19,8 @@ export class LotteryItem extends React.Component<IProps> {
       child = <Image source={{ uri: source }} style={styles.selected} key={`item${index}`}/>;
     } else {
       child = (
-        <ImageBackground source={{ uri: source }} style={styles.unselected}>
-          <View style={[styles.unselected, styles.size]}/>
+        <ImageBackground source={{ uri: source }} style={[styles.size, styles.unselectedImage]}>
+          <View style={[styles.unselectedGray, styles.size]}/>
         </ImageBackground>
       );
     }
@@ -36,13 +36,16 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center"
   },
-  unselected: {
-    backgroundColor: "rgba(0,0,0,0.5)"
+  unselectedGray: {
+    backgroundColor: "rgba(0,0,0,0.5)",
+    borderRadius: 10
+  },
+  unselectedImage: {
+    marginLeft: 3
   },
   selected: {
     width: 96,
-    height: 80,
-    marginLeft: 3
+    height: 80
   },
   size: {
     width: 96,

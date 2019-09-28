@@ -15,7 +15,7 @@ class Lottery9 extends React.Component<IProps> {
 
   render() {
     const children: JSX.Element[] = this.props.data.map((item, index) => {
-      return <LotteryItem index={index} source={item.url} isSelected={false}/>;
+      return <LotteryItem index={index} source={item.url} isSelected={index % 2 === 0}/>;
     });
 
     return (
