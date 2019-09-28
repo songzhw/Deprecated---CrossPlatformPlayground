@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ViewProps, Text, StyleSheet, ImageBackground, Button } from "react-native";
+import { View, ViewProps, StyleSheet, ImageBackground, Button } from "react-native";
 import Lottery9 from "./Lottery9";
 import { LotteryData } from "./LotteryData";
 

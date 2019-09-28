@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, ViewProps } from "react-native";
+import { View, StyleSheet, ViewProps } from "react-native";
 import { ILotteryModal } from "./LotteryData";
-import { JSXElement } from "@babel/types";
 import { LotteryItem } from "./LotteryItem";
 
 // 690 * 586 =>
@@ -31,6 +30,7 @@ class Lottery9 extends React.Component<IProps, IState> {
   }
 
   private calculateTime() {
+    // given a `duration`, we could calculate the timeRepo out
     this.timeRepo = [
       200, 200, 200, 200, 150, 100, 50, 50,
       50, 50, 50, 50, 50, 50, 50, 50,
@@ -67,7 +67,6 @@ class Lottery9 extends React.Component<IProps, IState> {
 
       // 只做一次动画. 为0就表示做完了.
       // 没做完, 就接着setTimeout(), 达到一种变速interval()的效果
-      console.log(`szw timeIndex = `, this.state.timeIndex);
       if (this.state.timeIndex !== 0) {
         this.start();
       }
