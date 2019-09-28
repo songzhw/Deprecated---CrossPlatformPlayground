@@ -10,12 +10,16 @@ interface IProps extends ViewProps {
   data: ILotteryModal[]
 }
 
-class Lottery9 extends React.Component<IProps> {
-  state = {};
+interface IState {
+  selectedIndex: number
+}
+
+class Lottery9 extends React.Component<IProps, IState> {
+  state = { selectedIndex: 0 };
 
   render() {
     const children: JSX.Element[] = this.props.data.map((item, index) => {
-      return <LotteryItem index={index} source={item.url} isSelected={index % 2 === 0}/>;
+      return <LotteryItem index={index} source={item.url} isSelected={index === this.state.selectedIndex}/>;
     });
 
     return (
@@ -24,6 +28,14 @@ class Lottery9 extends React.Component<IProps> {
       </View>
     );
   }
+
+  start = () => {
+    setInterval(() => {
+      this.setState((prevState: IState) => {
+        return { selectedIndex: (prevState.selectedIndex + 1) % this.props.data.length };
+      });
+    }, 500);
+  };
 }
 
 const styles = StyleSheet.create({

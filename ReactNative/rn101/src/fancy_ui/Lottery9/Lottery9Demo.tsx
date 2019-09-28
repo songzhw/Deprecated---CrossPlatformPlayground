@@ -7,9 +7,10 @@ interface IProps extends ViewProps {
 }
 
 export const Lottery9Demo = (props: IProps) => {
+  const lotteryRef = React.createRef<Lottery9>();
 
   const start = () => {
-    console.log(`szw start`);
+    lotteryRef.current!.start();
   };
 
   return (
@@ -17,7 +18,7 @@ export const Lottery9Demo = (props: IProps) => {
       <Button title={"start"} onPress={start}/>
       <View style={{ height: 50 }}/>
       <ImageBackground source={require("../../../res/images/lottery_console.png")} style={styles.center}>
-        <Lottery9 data={LotteryData}/>
+        <Lottery9 ref={lotteryRef} data={LotteryData}/>
       </ImageBackground>
     </View>
   );
