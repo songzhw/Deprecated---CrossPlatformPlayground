@@ -19,10 +19,15 @@ class Lottery9 extends React.Component<IProps, IState> {
   state = { selectedIndex: 0, timeIndex: 0 };
   indexRepo = [0, 1, 2, 5, 8, 7, 6, 3];
   timeRepo = [] as number[];
+  timeoutHandler: number = 0;
 
   constructor(props: IProps) {
     super(props);
     this.calculateTime();
+  }
+
+  componentWillUnmount(): void {
+    clearTimeout(this.timeoutHandler);
   }
 
   private calculateTime() {
@@ -52,7 +57,8 @@ class Lottery9 extends React.Component<IProps, IState> {
   }
 
   start = () => {
-    setTimeout(() => {
+    // @ts-ignore
+    this.timeoutHandler = setTimeout(() => {
       this.setState((prevState: IState) => {
         const next = (prevState.selectedIndex + 1) % this.indexRepo.length;
         const nextTime = (prevState.timeIndex + 1) % this.timeRepo.length;
@@ -61,6 +67,7 @@ class Lottery9 extends React.Component<IProps, IState> {
 
       // 只做一次动画. 为0就表示做完了.
       // 没做完, 就接着setTimeout(), 达到一种变速interval()的效果
+      console.log(`szw timeIndex = `, this.state.timeIndex);
       if (this.state.timeIndex !== 0) {
         this.start();
       }
