@@ -11,12 +11,31 @@ interface IProps extends ViewProps {
 }
 
 interface IState {
-  selectedIndex: number
+  selectedIndex: number;
+  timeIndex: number;
 }
 
 class Lottery9 extends React.Component<IProps, IState> {
-  state = { selectedIndex: 0 };
+  state = { selectedIndex: 0, timeIndex: 0 };
   indexRepo = [0, 1, 2, 5, 8, 7, 6, 3];
+  timeRepo = [] as number[];
+
+  constructor(props: IProps) {
+    super(props);
+    this.calculateTime();
+  }
+
+  private calculateTime() {
+    this.timeRepo = [
+      200, 200, 200, 200, 150, 100, 50, 50,
+      50, 50, 50, 50, 50, 50, 50, 50,
+      50, 50, 50, 50, 50, 50, 50, 50,
+      50, 50, 50, 50, 50, 50, 50, 50,
+      50, 50, 50, 50, 50, 50, 50, 50,
+      50, 50, 50, 50, 50, 50, 50, 50,
+      150, 100, 200, 250, 300, 400, 500, 550];
+  }
+
 
   render() {
     const children: JSX.Element[] = this.props.data.map((item, index) => {
@@ -33,12 +52,20 @@ class Lottery9 extends React.Component<IProps, IState> {
   }
 
   start = () => {
-    setInterval(() => {
+    setTimeout(() => {
       this.setState((prevState: IState) => {
         const next = (prevState.selectedIndex + 1) % this.indexRepo.length;
-        return { selectedIndex: next };
+        const nextTime = (prevState.timeIndex + 1) % this.timeRepo.length;
+        return { selectedIndex: next, timeIndex: nextTime };
       });
-    }, 200);
+
+      // 只做一次动画. 为0就表示做完了.
+      // 没做完, 就接着setTimeout(), 达到一种变速interval()的效果
+      if (this.state.timeIndex !== 0) {
+        this.start();
+      }
+
+    }, this.timeRepo[this.state.timeIndex]);
   };
 }
 
