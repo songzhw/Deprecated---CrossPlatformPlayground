@@ -16,10 +16,11 @@ interface IState {
 
 class Lottery9 extends React.Component<IProps, IState> {
   state = { selectedIndex: 0 };
+  indexRepo = [0, 1, 2, 5, 8, 7, 6, 3];
 
   render() {
     const children: JSX.Element[] = this.props.data.map((item, index) => {
-      return <LotteryItem index={index} source={item.url} isSelected={index === this.state.selectedIndex}/>;
+      return <LotteryItem index={index} source={item.url} isSelected={index === this.indexRepo[this.state.selectedIndex]}/>;
     });
 
     return (
@@ -32,9 +33,10 @@ class Lottery9 extends React.Component<IProps, IState> {
   start = () => {
     setInterval(() => {
       this.setState((prevState: IState) => {
-        return { selectedIndex: (prevState.selectedIndex + 1) % this.props.data.length };
+        const next = (prevState.selectedIndex + 1) % this.indexRepo.length;
+        return { selectedIndex: next };
       });
-    }, 500);
+    }, 200);
   };
 }
 
