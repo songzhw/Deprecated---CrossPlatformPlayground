@@ -29,7 +29,7 @@ export class DraggableCircleDemo extends React.Component<IProps, IState> {
     return (
       <View style={{ flex: 1 }}>
         <View
-          style={[styles.ball, this.state.position.getLayout()]}
+          style={[styles.ball]}
           {...this.state.panResponder.panHandlers}
         />
       </View>
@@ -39,6 +39,7 @@ export class DraggableCircleDemo extends React.Component<IProps, IState> {
 
 const styles = StyleSheet.create({
   ball: {
+    backgroundColor: "green",
     width: 100,
     height: 100,
     borderRadius: 50
