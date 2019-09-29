@@ -6,7 +6,8 @@ interface IProps {
 
 interface IState {
   position: Animated.ValueXY;
-  panResponder: PanResponderInstance
+  panResponder: PanResponderInstance,
+  bg: string;
 }
 
 export class DraggableCircleDemo extends React.Component<IProps, IState> {
@@ -17,6 +18,9 @@ export class DraggableCircleDemo extends React.Component<IProps, IState> {
     const position = new Animated.ValueXY();
     const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
+      onPanResponderGrant: () => {
+        this.setState({ bg: "red" });
+      },
       onPanResponderMove: (event, gesture) => {
         position.setValue({ x: gesture.dx, y: gesture.dy });
       },
@@ -24,17 +28,18 @@ export class DraggableCircleDemo extends React.Component<IProps, IState> {
         Animated.spring(this.state.position,
           { toValue: { x: 30, y: 30 }, friction: 5 }
         ).start();
+
       }
     });
 
-    this.state = { position, panResponder };
+    this.state = { position, panResponder, bg: "green" };
   }
 
   render() {
     return (
       <View style={{ flex: 1 }}>
         <Animated.View
-          style={[styles.ball, this.state.position.getLayout()]}
+          style={[styles.ball, this.state.position.getLayout(), { backgroundColor: this.state.bg }]}
           {...this.state.panResponder.panHandlers}
         />
       </View>
@@ -44,7 +49,6 @@ export class DraggableCircleDemo extends React.Component<IProps, IState> {
 
 const styles = StyleSheet.create({
   ball: {
-    backgroundColor: "green",
     width: 100,
     height: 100,
     borderRadius: 50
