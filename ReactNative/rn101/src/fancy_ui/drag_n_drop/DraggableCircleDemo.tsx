@@ -27,7 +27,9 @@ export class DraggableCircleDemo extends React.Component<IProps, IState> {
       onPanResponderRelease: (event, gesture) => {
         Animated.spring(this.state.position,
           { toValue: { x: 30, y: 30 }, friction: 5 }
-        ).start();
+        ).start(() => {
+          this.setState({ bg: "green" });
+        });
 
       }
     });
