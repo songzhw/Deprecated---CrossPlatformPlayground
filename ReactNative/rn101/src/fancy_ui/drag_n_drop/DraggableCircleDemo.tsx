@@ -1,42 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { View, ViewProps, Text, StyleSheet, Animated, PanResponder, PanResponderInstance } from "react-native";
+import React from "react";
+import { View, StyleSheet, Text, Animated, PanResponder, PanResponderInstance } from "react-native";
 
-interface IProps extends ViewProps {
+interface IProps {
 }
 
-export const DraggableCircleDemo = (props: IProps) => {
-  const [pan, setPan] = useState(new Animated.ValueXY({ x: 0, y: 0 }));
-  let panResponder: PanResponderInstance;
+interface IState {
+  position: Animated.ValueXY;
+  panResponder: PanResponderInstance
+}
 
-  useEffect(() => {
-    panResponder = PanResponder.create({
+export class DraggableCircleDemo extends React.Component<IProps, IState> {
+
+  constructor(props: IProps) {
+    super(props);
+
+    const position = new Animated.ValueXY();
+    const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
-      },
-      onPanResponderMove: () => {
-        Animated.event([null, { dx: pan.x, dy: pan.y }]);
+      onPanResponderMove: (event, gesture) => {
+        position.setValue({ x: gesture.dx, y: gesture.dy });
       }
     });
-  }, []);
 
-  const panStyle = {
-    transform: pan.getTranslateTransform()
-  };
-  // @ts-ignore
-  const animProps = panResponder ? panResponder.panHandlers : null;
-  return (
-    <Animated.View
-      style={[styles.circle, panStyle]}
-      {...animProps}
-    />
-  );
-};
+    this.state = { position, panResponder };
+  }
 
+  render() {
+    return (
+      <View style={{ flex: 1 }}>
+        <Animated.View
+          style={[styles.ball, this.state.position.getLayout()]}
+          {...this.state.panResponder.panHandlers}
+        />
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
-  circle: {
-    backgroundColor: "green",
+  ball: {
     width: 100,
     height: 100,
     borderRadius: 50
