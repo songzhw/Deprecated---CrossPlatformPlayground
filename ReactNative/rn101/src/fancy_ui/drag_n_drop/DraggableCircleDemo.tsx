@@ -5,7 +5,7 @@ interface IProps extends ViewProps {
 }
 
 export const DraggableCircleDemo = (props: IProps) => {
-  const [pan, setPan] = useState(new Animated.ValueXY());
+  const [pan, setPan] = useState(new Animated.ValueXY({ x: 0, y: 0 }));
   let panResponder: PanResponderInstance;
 
   useEffect(() => {
@@ -14,7 +14,6 @@ export const DraggableCircleDemo = (props: IProps) => {
       onStartShouldSetPanResponder: () => true,
       onPanResponderMove: () => {
         Animated.event([null, { dx: pan.x, dy: pan.y }]);
-        pan.setValue(({ x: 0, y: 0 }));
       }
     });
   }, []);
