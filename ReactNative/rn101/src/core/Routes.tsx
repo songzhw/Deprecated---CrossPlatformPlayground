@@ -44,6 +44,7 @@ import { MyPopupScreen } from "../fancy_ui/popover/MyPopupScreen";
 import { LayoutAnimationDemo } from "../rn_tutorial/anim/LayoutAnimationDemo";
 import { DynamicStyleRulesDemo } from "../rn_tutorial/theme/DynamicStyleRulsDemo";
 import { DynamicAppThemeDemo } from "../rn_tutorial/theme/apptheme/DynamicAppThemeDemo";
+import { DraggableCircleDemo } from "../fancy_ui/drag_n_drop/DraggableCircleDemo";
 
 const AppNavigator = createStackNavigator(
   {
@@ -55,7 +56,7 @@ const AppNavigator = createStackNavigator(
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
     DynamicStyleRulesDemo, DynamicAppThemeDemo,
     DebounceDemo, LambdaInJsx,
-    SimpleHeroAnimDemo, Lottery9Demo,
+    SimpleHeroAnimDemo, Lottery9Demo, DraggableCircleDemo,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3, LayoutAnimationDemo,
     StaggerAnimationScreen, GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo, LinearGradientScreen, ThirdPartyPopOverDemo

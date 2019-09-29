@@ -11,6 +11,7 @@ import SagaInBgDemo from "./biz/bg/SagaInBgDemo";
 import NativeBridgeInBgDemo from "./biz/bg/NativeBridgeInBgDemo";
 import { ThirdPartyPopOverDemo } from "./fancy_ui/popover/ThirdPartyPopOverDemo";
 import { LayoutAnimationDemo } from "./rn_tutorial/anim/LayoutAnimationDemo";
+import { DraggableCircleDemo } from "./fancy_ui/drag_n_drop/DraggableCircleDemo";
 
 console.disableYellowBox = true;
 
@@ -23,11 +24,6 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
 
-      <View style={{ height: 8 }}/>
-      <Text style={styles.title}>Fancy Tools</Text>
-      <HomeButton title="Dynamic Style Rule" onPress={() => navigation.navigate("DynamicStyleRulesDemo")}/>
-      <HomeButton title="Dynamic App Theme" onPress={() => navigation.navigate("DynamicAppThemeDemo")}/>
-
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Fancy UI</Text>
@@ -35,6 +31,13 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="(✔) simple hero anim" onPress={() => navigation.navigate("SimpleHeroAnimDemo")}/>
       <HomeButton title="九宫格抽奖" onPress={() => navigation.navigate("Lottery9Demo")}/>
       <HomeButton title="Pop Over" onPress={() => navigation.navigate("MyPopupScreen")}/>
+      <HomeButton title="Draggable Circle" onPress={() => navigation.navigate("DraggableCircleDemo")}/>
+
+
+      <View style={{ height: 8 }}/>
+      <Text style={styles.title}>Fancy Tools</Text>
+      <HomeButton title="Dynamic Style Rule" onPress={() => navigation.navigate("DynamicStyleRulesDemo")}/>
+      <HomeButton title="Dynamic App Theme" onPress={() => navigation.navigate("DynamicAppThemeDemo")}/>
 
 
       <View style={{ height: 8 }}/>
