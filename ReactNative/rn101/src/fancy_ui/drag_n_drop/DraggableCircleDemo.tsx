@@ -28,7 +28,7 @@ export class DraggableCircleDemo extends React.Component<IProps, IState> {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Animated.View
+        <View
           style={[styles.ball, this.state.position.getLayout()]}
           {...this.state.panResponder.panHandlers}
         />
