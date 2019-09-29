@@ -9,9 +9,9 @@ export const DraggableCircleDemo = (props: IProps) => {
   let panResponder: PanResponderInstance;
 
   useEffect(() => {
-
     panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: ()=>true,
       onPanResponderMove: () => {
         Animated.event([null, { dx: pan.x, dy: pan.y }]);
       }
