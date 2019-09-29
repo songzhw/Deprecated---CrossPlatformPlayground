@@ -9,6 +9,7 @@ export const DraggableCircleDemo = (props: IProps) => {
   let panResponder: PanResponderInstance;
 
   useEffect(() => {
+
     panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderMove: () => {
@@ -21,10 +22,12 @@ export const DraggableCircleDemo = (props: IProps) => {
   const panStyle = {
     transform: pan.getTranslateTransform()
   };
+  // @ts-ignore
+  const animProps = panResponder ? panResponder.panHandlers : null;
   return (
     <Animated.View
       style={[styles.circle, panStyle]}
-      {...panResponder!.panHandlers}
+      {...animProps}
     />
   );
 };
