@@ -19,6 +19,11 @@ export class DraggableCircleDemo extends React.Component<IProps, IState> {
       onStartShouldSetPanResponder: () => true,
       onPanResponderMove: (event, gesture) => {
         position.setValue({ x: gesture.dx, y: gesture.dy });
+      },
+      onPanResponderRelease: (event, gesture) => {
+        Animated.spring(this.state.position,
+          { toValue: { x: 30, y: 30 }, friction: 5 }
+        ).start();
       }
     });
 
