@@ -21,6 +21,7 @@ export class _Carousel extends React.Component {
   render() {
     const { slides, defaultImageHeight, index, ...rest } = this.props;
     const currentSlideData = slides[index];
+    console.log(`szw in data = `, currentSlideData);
     return (
       <div {...rest}>
         <CarouselSlide {...currentSlideData} imgHeight={defaultImageHeight}/>

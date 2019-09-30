@@ -1,6 +1,6 @@
 import React from "react";
 
-export const IndexLooperWrapper = (component, indexPropName) => {
+export const IndexLooperWrapper = (InComponent, indexPropName) =>
   class ComponentWithIndex extends React.PureComponent {
 
     state = { index: 0 };
@@ -25,10 +25,9 @@ export const IndexLooperWrapper = (component, indexPropName) => {
         [`${indexPropName}Increment`]: this.onIncrease,
         [`${indexPropName}Decrement`]: this.onDecrease
       };
-      return <component {...this.props} {...indexProps} />;
+      return <InComponent {...this.props} {...indexProps} />;
     }
 
-  }
+  };
 
-  return ComponentWithIndex;
-};
+
