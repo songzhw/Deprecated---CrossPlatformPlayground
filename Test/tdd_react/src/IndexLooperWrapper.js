@@ -1,9 +1,7 @@
 import React from "react";
-import index from "styled-components/dist/styled-components-macro.esm";
 
 export const IndexLooperWrapper = (component, indexPropName) => {
   class ComponentWithIndex extends React.PureComponent {
-    static displayName = `IndexLooperWrapper(${component.displayName || component.name})`;
 
     state = { index: 0 };
 
@@ -31,4 +29,6 @@ export const IndexLooperWrapper = (component, indexPropName) => {
     }
 
   }
+
+  return ComponentWithIndex;
 };
