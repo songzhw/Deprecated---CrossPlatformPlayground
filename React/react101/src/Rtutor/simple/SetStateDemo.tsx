@@ -21,6 +21,9 @@ export class SetStateDemo extends React.Component<IProps> {
 
     this.setState({ val: this.state.val + 3 });
     console.log(this.state.val);
+
+    this.setState({ val: this.state.val + 1 });
+    console.log(this.state.val);
   }
 
   render() {
