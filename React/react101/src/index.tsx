@@ -4,6 +4,7 @@ import "./index.css";
 import { createStore, Store, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
+import { SetStateDemo } from "./Rtutor/simple/SetStateDemo";
 
 import { waitAnotherActionSaga } from "./three_party/saga/SagaWait";
 
@@ -29,7 +30,7 @@ sagaMiddleware.run(sagaCallReturnValue);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <SagaCallDemo/>
+      <SetStateDemo/>
     </Provider>
   );
 };
