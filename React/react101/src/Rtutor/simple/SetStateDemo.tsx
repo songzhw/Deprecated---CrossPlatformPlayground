@@ -5,7 +5,8 @@ interface IProps {
 
 export class SetStateDemo extends React.Component<IProps> {
   state = {
-    val: 0
+    val: 0,
+    count: 200
   };
 
   constructor(props: IProps) {
@@ -13,28 +14,36 @@ export class SetStateDemo extends React.Component<IProps> {
   }
 
   componentDidMount() {
-    this.setState({ val: this.state.val + 1 });
-    console.log(this.state.val);
 
     this.setState({ val: this.state.val + 2 });
-    console.log(this.state.val);
+    console.log(this.state);
+
+    this.setState({ count: this.state.count - 10 });
+    console.log(this.state);
 
     this.setState({ val: this.state.val + 3 });
-    console.log(this.state.val);
+    console.log(this.state);
 
-    this.setState({ val: this.state.val + 2 });
-    console.log(this.state.val);
+    this.setState({ count: this.state.count - 30 });
+    console.log(this.state);
 
     setTimeout(() => {
-      this.setState({ val: this.state.val + 5 });
-      console.log(this.state.val);
+      console.log("  ******",this.state);  //=> {val: 3, count: 170}
 
-      this.setState({ val: this.state.val + 4 });
-      console.log(this.state.val);
+      this.setState({ val: this.state.val + 1 });
+      console.log("  =>",this.state);
+
+
+      this.setState({ val: this.state.val + 2 });
+      console.log("  =>",this.state);
+
     }, 0);
   }
 
   render() {
-    return <p><strong>state = {this.state.val}</strong></p>;
+    return <div><p/>
+      <strong>value = {this.state.val}</strong><p/>
+      <strong>count = {this.state.count}</strong>
+    </div>;
   }
 }
