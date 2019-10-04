@@ -33,10 +33,14 @@ export class SetStateDemo extends React.Component<IProps> {
       this.setState({ val: this.state.val + 1 });
       console.log("  =>",this.state);
 
+      this.setState({ count: this.state.count - 20 });
+      console.log("  =>",this.state);
 
       this.setState({ val: this.state.val + 2 });
       console.log("  =>",this.state);
 
+      this.setState({ count: this.state.count - 40 });
+      console.log("  =>",this.state);
     }, 0);
   }
 
