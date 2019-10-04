@@ -14,22 +14,16 @@ export class SetStateDemo extends React.Component<IProps> {
 
   componentDidMount() {
     this.setState({ val: this.state.val + 1 });
-    console.log(this.state.val);    // 第 1 次 log
+    console.log(this.state.val);
 
-    this.setState({ val: this.state.val + 1 });
-    console.log(this.state.val);    // 第 2 次 log
+    this.setState({ val: this.state.val + 2 });
+    console.log(this.state.val);
 
-    setTimeout(() => {
-      this.setState({ val: this.state.val + 1 });
-      console.log(this.state.val);  // 第 3 次 log
-
-      this.setState({ val: this.state.val + 1 });
-      console.log(this.state.val);  // 第 4 次 log
-    }, 0);
+    this.setState({ val: this.state.val + 3 });
+    console.log(this.state.val);
   }
 
   render() {
-    return <p> What did this.setState do:  <strong>state = {this.state.val}</strong> </p>;
+    return <p><strong>state = {this.state.val}</strong></p>;
   }
 }
-// 我以为是0,0,2,2; 但结果成了0,0,2,3
