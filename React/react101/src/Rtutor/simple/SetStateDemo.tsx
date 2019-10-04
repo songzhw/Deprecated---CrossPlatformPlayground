@@ -22,8 +22,16 @@ export class SetStateDemo extends React.Component<IProps> {
     this.setState({ val: this.state.val + 3 });
     console.log(this.state.val);
 
-    this.setState({ val: this.state.val + 1 });
+    this.setState({ val: this.state.val + 2 });
     console.log(this.state.val);
+
+    setTimeout(() => {
+      this.setState({ val: this.state.val + 5 });
+      console.log(this.state.val);
+
+      this.setState({ val: this.state.val + 4 });
+      console.log(this.state.val);
+    }, 0);
   }
 
   render() {
