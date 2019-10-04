@@ -1,34 +1,27 @@
 import React from "react";
 import { CarouselSlide } from "./CarouselSlide";
 import { CarouselButton } from "./CarouselButton";
+import { IndexLooperWrapper } from "./IndexLooperWrapper";
 
-export class Carousel extends React.Component {
+export class _Carousel extends React.Component {
   static defaultProps = {
     defaultImageHeight: 500
   };
 
-  state = { index: 0 };
-
   onNext = () => {
-    const length = this.props.slides.length;
-    // this.setState({ index: this.state.index + 1 });
-    this.setState(({ index }) => ({
-      index: (index + 1) % length
-    }))
-    ;
+    const { slides, indexIncrement } = this.props;
+    indexIncrement(slides.length);
   };
 
   onPrev = () => {
-    const length = this.props.slides.length;
-    this.setState(({ index }) => ({
-      index: (index - 1 + length) % length
-    }))
-    ;
+    const { slides, indexDecrement } = this.props;
+    indexDecrement(slides.length);
   };
 
   render() {
-    const { slides, defaultImageHeight, ...rest } = this.props;
-    const currentSlideData = slides[this.state.index];
+    const { slides, defaultImageHeight, index, ...rest } = this.props;
+    const currentSlideData = slides[index];
+    console.log(`szw in data = `, currentSlideData);
     return (
       <div {...rest}>
         <CarouselSlide {...currentSlideData} imgHeight={defaultImageHeight}/>
@@ -38,3 +31,5 @@ export class Carousel extends React.Component {
     );
   }
 }
+
+export default IndexLooperWrapper(_Carousel, "index");
