@@ -21,15 +21,18 @@ import { SagaWaitReducer } from "./three_party/saga/SagaWaitReducer";
 import { SagaCallDemo } from "./three_party/saga/call/SagaCallDemo";
 import { sagaCallReturnValue } from "./three_party/saga/call/SagaCallReturnValue";
 
+import SagaChannelAsyncDemo from "./three_party/saga/channel_async/SagaChannelAsyncDemo";
+import { ChannelAsync_Saga } from "./three_party/saga/channel_async/ChannelAsync_Saga";
+
 
 const sagaMiddleware = createSagaMiddleware();
 const store: Store = createStore(SagaWaitReducer, applyMiddleware(sagaMiddleware));
-sagaMiddleware.run(sagaCallReturnValue);
+sagaMiddleware.run(ChannelAsync_Saga);
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <SagaCallDemo/>
+      <SagaChannelAsyncDemo/>
     </Provider>
   );
 };
