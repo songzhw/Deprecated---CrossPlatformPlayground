@@ -10,9 +10,10 @@ export const ACTION_CONTINUE_SYNC = "@SAGA/CHANNEL_ASYNC/CONTINUE_SYNC";
  * 数据有多页, 所以用一个channel来一项项地传递过来
  */
 function* onSync(action: AnyAction) {
-  SyncManager.start();
-
   const channel = yield call(ChannelAsync_Channel);
+
+  yield call(SyncManager.start);
+
   while (true) {
     const nextAction = yield take(channel);
     yield put(nextAction);
