@@ -3,6 +3,9 @@ import { ACTION_CONTINUE_SYNC } from "./ChannelAsync_Saga";
 
 let listener: any = null;
 
+const subscribe = (l: (action: AnyAction) => void) => {
+  listener = l;
+};
 const unsubscribe = () => {
   listener = null;
 };
@@ -19,4 +22,4 @@ function* start() {
   listener({ type: ACTION_CONTINUE_SYNC, payload: { data: str } });
 }
 
-export default { listener, unsubscribe, start, fetchApi };
+export default { subscribe, unsubscribe, start, fetchApi };

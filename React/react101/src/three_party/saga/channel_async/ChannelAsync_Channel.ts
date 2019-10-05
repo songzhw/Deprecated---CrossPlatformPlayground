@@ -13,7 +13,7 @@ export function ChannelAsync_Channel() {
       }
     }
 
-    SyncManager.listener = observe;
+    SyncManager.subscribe(observe);
     return () => SyncManager.unsubscribe();
   });
 }
