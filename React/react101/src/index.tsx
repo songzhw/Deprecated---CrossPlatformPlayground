@@ -5,7 +5,7 @@ import { createStore, Store, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
 
-import { waitAnotherActionSaga } from "./three_party/saga/SagaWait";
+import { waitAnotherActionSaga } from "./three_party/saga/wait/SagaWait";
 
 import { SlowListReducer } from "./performance/slow_list/SlowListReducer";
 import SlowListScreen from "./performance/slow_list/SlowListScreen";
@@ -16,8 +16,8 @@ import { CountDownReducerScreen } from "./Rtutor/hooks/closure/CountDownReducerS
 import { IntervalPitfallFix2 } from "./Rtutor/hooks/useState/IntervalPitfallFix2";
 import { CountPitfall } from "./Rtutor/hooks/useeffect/CountPitfall";
 import { MyStateScreen2 } from "./Rtutor/hooks/my_hooks/MyStateScreen2";
-import SagaWaitScreen from "./three_party/saga/SagaWaitScreen";
-import { SagaWaitReducer } from "./three_party/saga/SagaWaitReducer";
+import SagaWaitScreen from "./three_party/saga/wait/SagaWaitScreen";
+import { SagaWaitReducer } from "./three_party/saga/wait/SagaWaitReducer";
 import { SagaCallDemo } from "./three_party/saga/call/SagaCallDemo";
 import { sagaCallReturnValue } from "./three_party/saga/call/SagaCallReturnValue";
 
