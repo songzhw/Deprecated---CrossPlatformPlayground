@@ -30,7 +30,7 @@ function* onSync(action: AnyAction) {
 
 function* onContinueSync(action: AnyAction) {
   const { isComplete, nextId } = action.payload.data;
-  console.log(`***szw saga: resp***`, action.payload.data);
+  console.log(`***szw saga: resp***`, action.payload);
   if (!isComplete) {
     yield call(SyncManager.sync, nextId);
   }
