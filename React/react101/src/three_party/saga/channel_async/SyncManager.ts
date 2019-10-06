@@ -11,7 +11,6 @@ const unsubscribe = () => {
 };
 
 const fetchApi = (id: string) => {
-  console.log(`szw mgr: fetchApi: `, id);
 };
 
 function* start() {
