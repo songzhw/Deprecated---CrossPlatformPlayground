@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { ACTION_CONTINUE_SYNC, ACTION_TEMP } from "./ChannelAsync_Saga";
+import { ACTION_CONTINUE_SYNC } from "./ChannelAsync_Saga";
 
 let listener: any = null;
 
@@ -13,19 +13,10 @@ const unsubscribe = () => {
 const fetchApi = (id: string) => {
 };
 
-function* sync(id: string) {
-  console.log(`==================== szw: sync() ${id}`);
-  const resp = yield fetch(`http://www.mocky.io/v2/${id}`);
-  const str = yield resp.json();
-  for (let i = 0; i < 10; i++) {
-    if (listener) {
-      if (i === 0) {
-        listener({ type: ACTION_CONTINUE_SYNC, payload: { id: i, data: str } });
-      } else {
-        listener({ type: ACTION_TEMP, payload: { data: { isComplete: false } } });
-      }
-    }
-  }
+async function sync(id: string) {
+  const resp = await fetch(`http://www.mocky.io/v2/${id}`);
+  const str = await resp.json();
+  listener({ type: ACTION_CONTINUE_SYNC, payload: { data: str } });
 }
 
 export default { subscribe, unsubscribe, sync, fetchApi };
