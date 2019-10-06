@@ -11,6 +11,7 @@ export const ACTION_CONTINUE_SYNC = "@SAGA/CHANNEL_ASYNC/CONTINUE_SYNC";
  */
 function* onSync(action: AnyAction) {
   const channel = yield call(ChannelAsync_Channel);
+  console.log(`szw 000: `, channel);
 
   yield call(SyncManager.start);
 
@@ -21,7 +22,7 @@ function* onSync(action: AnyAction) {
       const nextAction = yield take(channel);
       console.log(`szw 003`, nextAction);
       yield put(nextAction);
-      console.log(`szw 004`)
+      console.log(`szw 004`);
     }
   } catch (error) {
     console.log(`szw error : `, error);
