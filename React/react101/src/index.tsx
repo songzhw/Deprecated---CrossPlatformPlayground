@@ -33,7 +33,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <DefaultPropsDemo2 />
+      <DefaultPropsDemo2/>
     </Provider>
   );
 };

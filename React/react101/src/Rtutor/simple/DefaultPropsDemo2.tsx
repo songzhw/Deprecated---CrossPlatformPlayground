@@ -18,6 +18,10 @@ export const DefaultPropsDemo2 = (props: IProps) => {
   );
 };
 
+DefaultPropsDemo2.defaultProps = {
+  id: "20xp"
+} as Partial<_IProps>;
+
 function mapStateToProps(state: any) {
   return {};
 }
