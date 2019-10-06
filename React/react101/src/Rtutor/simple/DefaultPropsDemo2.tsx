@@ -4,14 +4,17 @@ import { Dispatch } from "redux";
 
 // tslint:disable-next-line:interface-name
 interface _IProps {
-
+  id: string
 }
-type IProps = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+
+type IProps = _IProps & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 export const DefaultPropsDemo2 = (props: IProps) => {
 
   return (
-    <div>{}</div>
+    <div>
+      <p> {props.id}</p>
+    </div>
   );
 };
 
