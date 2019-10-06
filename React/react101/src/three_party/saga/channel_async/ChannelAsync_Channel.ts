@@ -5,10 +5,11 @@ import SyncManager from "./SyncManager";
 export function ChannelAsync_Channel() {
   return eventChannel(emit => {
     function observe(action: AnyAction) {
-      const { isComplete } = action.payload;
+      const { isComplete } = action.payload.data;
       if (isComplete) {
         emit(END);
       } else {
+        console.log(`szw channel emit(): `, action);
         emit(action);
       }
     }
