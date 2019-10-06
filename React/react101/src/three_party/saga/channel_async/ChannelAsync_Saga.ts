@@ -12,7 +12,7 @@ export const ACTION_CONTINUE_SYNC = "@SAGA/CHANNEL_ASYNC/CONTINUE_SYNC";
 function* onSync(action: AnyAction) {
   const channel = yield call(ChannelAsync_Channel);
 
-  yield fork(SyncManager.start);
+  yield fork(SyncManager.sync, "5d99166d340000ec08f48b06");
 
   try {
     while (true) {
@@ -29,8 +29,11 @@ function* onSync(action: AnyAction) {
 }
 
 function* onContinueSync(action: AnyAction) {
-  console.log(`szw : action2 = `, action);
-  yield 10;
+  const { isComplete, nextId } = action.payload.data;
+  console.log(`***szw saga: resp***`, action.payload.data);
+  if (!isComplete) {
+    yield call(SyncManager.sync, nextId);
+  }
 }
 
 export function* ChannelAsync_Saga() {
