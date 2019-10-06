@@ -4,12 +4,12 @@ import SyncManager from "./SyncManager";
 
 export function ChannelAsync_Channel() {
   return eventChannel(emit => {
-    function observe(action: AnyAction) {
-      emit(action);
+    async function observe(action: AnyAction) {
+      await emit(action);
 
       const { isComplete } = action.payload.data;
       if (isComplete) {
-        emit(END);
+        await emit(END);
       }
     }
 
