@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-
+/*
+这是错误代码.
+一开始是显示 15:60
+然后点击"start"后, 就总是15:59, 不会倒计时
+ */
 let intervalHandler = 0;
 
 export const IntervalPitfall = () => {

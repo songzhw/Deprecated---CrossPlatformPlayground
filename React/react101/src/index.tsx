@@ -23,6 +23,7 @@ import { sagaCallReturnValue } from "./three_party/saga/call/SagaCallReturnValue
 
 import SagaChannelAsyncDemo from "./three_party/saga/channel_async/SagaChannelAsyncDemo";
 import { ChannelAsync_Saga } from "./three_party/saga/channel_async/ChannelAsync_Saga";
+import { IntervalPitfall } from "./Rtutor/hooks/useState/IntervalPitfall";
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -32,7 +33,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <SagaChannelAsyncDemo/>
+      <IntervalPitfall/>
     </Provider>
   );
 };
