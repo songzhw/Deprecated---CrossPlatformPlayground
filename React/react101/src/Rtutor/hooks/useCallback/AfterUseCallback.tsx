@@ -14,6 +14,7 @@ export const AfterUseCallback = () => {
   }
 
   console.log(`szw parent re-render`);
+  const callback = useCallback(onClick, []);
   return (
     <div>
 
@@ -23,7 +24,7 @@ export const AfterUseCallback = () => {
       <p> - - - - - - - - - - </p>
 
       <p>Child</p>
-      <Child name={"name from parent"} clickEvent={onClick}/>
+      <Child name={"name from parent"} clickEvent={callback}/>
 
     </div>
   );
@@ -34,12 +35,14 @@ interface IChildProps {
   clickEvent: () => void;
 }
 
-export const Child = React.memo((props: IChildProps) => {
+const _Child = (props: IChildProps) => {
   console.log(`szw child re-render`);
   return (
     <button onClick={props.clickEvent}>{props.name}</button>
   );
-}, ((prevProps, nextProps) => {
-  console.log(`szw , `, nextProps.name === prevProps.name);
+};
+
+export const Child = React.memo(_Child, ((prevProps, nextProps) => {
+  console.log(`szw , `, nextProps.clickEvent === prevProps.clickEvent);
   return nextProps.clickEvent === prevProps.clickEvent;
 }));
