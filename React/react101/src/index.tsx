@@ -26,6 +26,7 @@ import { ChannelAsync_Saga } from "./three_party/saga/channel_async/ChannelAsync
 import { IntervalPitfall } from "./Rtutor/hooks/useState/IntervalPitfall";
 import { BeforeUseCallback } from "./Rtutor/hooks/useCallback/before/BeforeUseCallback";
 import { AfterUseCallback } from "./Rtutor/hooks/useCallback/AfterUseCallback";
+import { AfterUseCallback_ExampleB } from "./Rtutor/hooks/useCallback/AfterUseCallback_ExampleB";
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -35,7 +36,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <AfterUseCallback/>
+      <AfterUseCallback_ExampleB/>
     </Provider>
   );
 };
