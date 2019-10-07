@@ -3,14 +3,14 @@ import React, { useCallback, useState } from "react";
 
 export const AfterUseCallback_ExampleB = () => {
   const [time, setTime] = useState(0);
-  let childName = "from parent";
+  const [name, setName] = useState("init");
 
   function onClickMySelf() {
     setTime(prevTime => prevTime + 1);
   }
 
   function onClickMeToo() {
-    childName = new Date().toISOString();
+    setName(new Date().toISOString());
   }
 
 
@@ -19,7 +19,7 @@ export const AfterUseCallback_ExampleB = () => {
   }
 
   console.log(`szw parent re-render`);
-  const callback = useCallback(onClick, [childName]);
+  const callback = useCallback(onClick, [name]);
   return (
     <div>
 
