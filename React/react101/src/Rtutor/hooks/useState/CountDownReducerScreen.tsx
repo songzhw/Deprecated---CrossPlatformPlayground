@@ -1,5 +1,7 @@
 import React, { useReducer, useState } from "react";
-
+/*
+解决 FC + interval闭包的问题, 这是方法二: 使用useReducer(prevState, action)
+ */
 interface IState {
   time: number;
 }
