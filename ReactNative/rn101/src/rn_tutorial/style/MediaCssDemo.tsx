@@ -22,15 +22,19 @@ export const MediaCssDemo = (props: IProps) => {
 
 
 const styles = StyleSheet.create({
-// @ts-ignore
-  container: props => ({
+  // 下面的continaer带props, 或是带css media query, 都是错的. 所以注释掉了
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: 'green',
+  //   "@media (orientation: landscape)": {
+  //     backgroundColor: "red"
+  //   },
+  //   "@media (orientation: portrait)": {
+  //     backgroundColor: "blue"
+  //   }
+  // }
+  container: {
     flex: 1,
-    backgroundColor: 'green',
-    "@media (orientation: landscape)": {
-      backgroundColor: "red"
-    },
-    "@media (orientation: portrait)": {
-      backgroundColor: "blue"
-    }
-  })
+    backgroundColor: "pink"
+  }
 });
