@@ -45,12 +45,13 @@ import { LayoutAnimationDemo } from "../rn_tutorial/anim/LayoutAnimationDemo";
 import { DynamicStyleRulesDemo } from "../rn_tutorial/theme/DynamicStyleRulsDemo";
 import { DynamicAppThemeDemo } from "../rn_tutorial/theme/apptheme/DynamicAppThemeDemo";
 import { DraggableCircleDemo } from "../fancy_ui/drag_n_drop/DraggableCircleDemo";
+import { MediaCssDemo } from "../rn_tutorial/style/MediaCssDemo";
 
 const AppNavigator = createStackNavigator(
   {
     HomeScreen,
     SetIntervalInBgDemo, AppStateDemo, SagaInBgDemo, NativeBridgeInBgDemo,
-    LifecycleScreen, PageB,
+    LifecycleScreen, PageB, MediaCssDemo,
     PassA1Screen, PassB1Screen, TimerIssue, Skin1, Skin2,
     ActionSheetDemo, ScrubberDemo, MyPopupScreen,
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,

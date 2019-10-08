@@ -55,6 +55,8 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="dataset properties" onPress={() => navigation.navigate("LambdaInJsx")}/>
       <HomeButton title="lifecycle demo" onPress={() => navigation.navigate("LifecycleScreen")}/>
       <HomeButton title="layout animation" onPress={() => navigation.navigate("LayoutAnimationDemo")}/>
+      <HomeButton title="css @media" onPress={() => navigation.navigate("MediaCssDemo")}/>
+
 
 
       <View style={{ height: 8 }}/>
