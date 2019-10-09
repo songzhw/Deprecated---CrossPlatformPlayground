@@ -12,6 +12,7 @@ import NativeBridgeInBgDemo from "./biz/bg/NativeBridgeInBgDemo";
 import { ThirdPartyPopOverDemo } from "./fancy_ui/popover/ThirdPartyPopOverDemo";
 import { LayoutAnimationDemo } from "./rn_tutorial/anim/LayoutAnimationDemo";
 import { DraggableCircleDemo } from "./fancy_ui/drag_n_drop/DraggableCircleDemo";
+import { strings } from "./core/i18n/i18n";
 
 console.disableYellowBox = true;
 
@@ -23,7 +24,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
   return (
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
-
+      <Text>{strings.hello}</Text>
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Fancy UI</Text>
