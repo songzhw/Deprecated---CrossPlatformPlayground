@@ -24,7 +24,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
   return (
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
-      <Text>{strings.hello}</Text>
+      {/*<Text>{strings.hello}</Text>*/}
 
       <View style={{ height: 8 }}/>
       <Text style={styles.title}>Fancy UI</Text>
