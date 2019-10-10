@@ -1,33 +1,38 @@
 import React from "react";
-import {Button, ScrollView, StyleSheet, View, Text, TextInput} from "react-native";
-import {NavigationScreenProps, ScreenProps} from "react-navigation";
-import {FlexLayoutDemo1} from "./rn_tutorial/layout/FlexLayoutDemo1";
-import {TimerIssue} from "./biz/timer/TimerIssue";
-import {ArtDemo} from "./rn_tutorial/art/ArtDemo";
-import {DebounceDemo} from "./performance/DebounceDemo";
-import {Lottery9Demo} from "./fancy_ui/Lottery9/Lottery9Demo";
+import { Button, ScrollView, StyleSheet, View, Text, TextInput } from "react-native";
+import { NavigationScreenProps, ScreenProps } from "react-navigation";
+import { FlexLayoutDemo1 } from "./rn_tutorial/layout/FlexLayoutDemo1";
+import { TimerIssue } from "./biz/timer/TimerIssue";
+import { ArtDemo } from "./rn_tutorial/art/ArtDemo";
+import { DebounceDemo } from "./performance/DebounceDemo";
+import { Lottery9Demo } from "./fancy_ui/Lottery9/Lottery9Demo";
 import AppStateDemo from "./biz/bg/AppStateDemo";
 import SagaInBgDemo from "./biz/bg/SagaInBgDemo";
 import NativeBridgeInBgDemo from "./biz/bg/NativeBridgeInBgDemo";
-import {ThirdPartyPopOverDemo} from "./fancy_ui/popover/ThirdPartyPopOverDemo";
-import {LayoutAnimationDemo} from "./rn_tutorial/anim/LayoutAnimationDemo";
-import {DraggableCircleDemo} from "./fancy_ui/drag_n_drop/DraggableCircleDemo";
+import { ThirdPartyPopOverDemo } from "./fancy_ui/popover/ThirdPartyPopOverDemo";
+import { LayoutAnimationDemo } from "./rn_tutorial/anim/LayoutAnimationDemo";
+import { DraggableCircleDemo } from "./fancy_ui/drag_n_drop/DraggableCircleDemo";
 import * as RNLocalize from "react-native-localize";
 
 console.disableYellowBox = true;
 
 export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
 
-  const {navigation, screenProps} = props;
+  const { navigation, screenProps } = props;
   // console.log(`szw HomeScreeen `, screenProps);//=> 'szw HomeScreeen ', { bg: 'green', textColor: 'white' }
+
+  const str1 = `${RNLocalize.getCountry()}, ${RNLocalize.getTimeZone()}`;
+  const str2 = `${RNLocalize.getCalendar()}, ${RNLocalize.getTemperatureUnit()}`;
+  console.log(`szw locale = `, RNLocalize.getLocales());
+  console.log(`szw currency = `, RNLocalize.getCurrencies());
+  console.log(`szw num = `, RNLocalize.getNumberFormatSettings() );
+  // country: CN || timezone: America/Toronto || calendar: Gregorian || temperatur: celsius
 
   return (
     <ScrollView style={styles.root}>
       {/*<TextInput placeholder="the placeholder of EditText/TextInput"/>*/}
-      <Text>{RNLocalize.getLocales()}, {RNLocalize.getCurrencies()}, {RNLocalize.getCountry()}, {RNLocalize.getTimeZone()}</Text>
-      <Text>{RNLocalize.getCalendar()}, {RNLocalize.getTemperatureUnit()}, {RNLocalize.getNumberFormatSettings()}</Text>
 
-      <View style={{height: 8}}/>
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>Fancy UI</Text>
       <HomeButton title="(X) list <-> Detail Anim 2" onPress={() => navigation.navigate("ListDetailAnimDemo2")}/>
       <HomeButton title="(✔) simple hero anim" onPress={() => navigation.navigate("SimpleHeroAnimDemo")}/>
@@ -36,13 +41,13 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="Draggable Circle" onPress={() => navigation.navigate("DraggableCircleDemo")}/>
 
 
-      <View style={{height: 8}}/>
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>Fancy Tools</Text>
       <HomeButton title="Dynamic Style Rule" onPress={() => navigation.navigate("DynamicStyleRulesDemo")}/>
       <HomeButton title="Dynamic App Theme" onPress={() => navigation.navigate("DynamicAppThemeDemo")}/>
 
 
-      <View style={{height: 8}}/>
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>3rd Library</Text>
       <HomeButton title="static server" onPress={() => navigation.navigate("StaticServerDemo")}/>
       <HomeButton title="fetch blob" onPress={() => navigation.navigate("FetchBlobDemo")}/>
@@ -51,7 +56,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title={"(UI) popover"} onPress={() => navigation.navigate("ThirdPartyPopOverDemo")}/>
 
 
-      <View style={{height: 8}}/>
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>
       <HomeButton title="Debounce + Button" onPress={() => navigation.navigate("DebounceDemo")}/>
       <HomeButton title="dataset properties" onPress={() => navigation.navigate("LambdaInJsx")}/>
@@ -60,14 +65,14 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="css @media" onPress={() => navigation.navigate("MediaCssDemo")}/>
 
 
-      <View style={{height: 8}}/>
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>In Background Issue</Text>
       <HomeButton title="setInterval In Bg Demo" onPress={() => navigation.navigate("SetIntervalInBgDemo")}/>
       <HomeButton title="Saga In Bg Demo" onPress={() => navigation.navigate("SagaInBgDemo")}/>
       <HomeButton title="AppState Demo" onPress={() => navigation.navigate("AppStateDemo")}/>
       <HomeButton title="Native Bridge In Bg Demo" onPress={() => navigation.navigate("NativeBridgeInBgDemo")}/>
 
-      <View style={{height: 8}}/>
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>React Native Tutorial</Text>
       <HomeButton title="WebView <--> JS" onPress={() => navigation.navigate("WebViewDemo")}/>
       <HomeButton title="Flex Layout" onPress={() => navigation.navigate("FlexLayoutDemo1")}/>
@@ -76,14 +81,14 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="R-N Art 2" onPress={() => navigation.navigate("ArtAnimView")}/>
 
 
-      <View style={{height: 8}}/>
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>Business</Text>
       <HomeButton title="startActivityForResult" onPress={() => navigation.navigate("PassA1Screen")}/>
       <HomeButton title="timer in the background" onPress={() => navigation.navigate("TimerIssue")}/>
       <HomeButton title="全局换肤" onPress={() => navigation.navigate("Skin1")}/>
 
 
-      <View style={{height: 8}}/>
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>Custom View</Text>
       <HomeButton title="Action Sheet" onPress={() => navigation.navigate("ActionSheetDemo")}/>
       <HomeButton title="Drawer Layout" onPress={() => navigation.navigate("MyDrawerDemo")}/>
@@ -92,7 +97,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="Scrubber" onPress={() => navigation.navigate("ScrubberDemo")}/>
 
 
-      <View style={{height: 8}}/>
+      <View style={{ height: 8 }}/>
       <Text style={styles.title}>Animation</Text>
       <HomeButton title="Animated.createComponent()" onPress={() => navigation.navigate("AnimatedComponentDemo")}/>
       <HomeButton title="(only for iOS) 自动滚动List" onPress={() => navigation.navigate("AnimatedListDemo")}/>
