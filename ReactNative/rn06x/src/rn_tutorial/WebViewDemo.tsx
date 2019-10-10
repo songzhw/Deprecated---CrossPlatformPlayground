@@ -2,11 +2,8 @@ import React from "react";
 import { Alert, View } from "react-native";
 import WebView from "react-native-webview";
 
-interface IProps {
-}
 
-// TODO layout 还有问题
-export const WebViewDemo = (props: IProps) => {
+export const WebViewDemo = () => {
   const html = `
       <html lang="en">
         <body>
