@@ -2,7 +2,7 @@ import { shallow } from "enzyme";
 import React from "react";
 import { CarouselButton } from "../src/CarouselButton";
 import { CarouselSlide } from "../src/CarouselSlide";
-import Carousel, { _Carousel} from "../src/Carousel";
+import Carousel, { _Carousel } from "../src/Carousel";
 
 const slides = [
   { imageUrl: "https://a.com/1.png", description: "hello", author: "zzz" },
@@ -21,27 +21,17 @@ describe("Carousel", () => {
 
   test("initial state", () => {
     const wrapper = shallow(<_Carousel slides={slides}/>);
-    console.log(`szw wrapper = ${wrapper.debug()}`);
-
     const buttonArray = wrapper.find(CarouselButton);
     expect(buttonArray.at(0).prop("children")).toBe("Prev");
   });
 
-  test("increments `index` when Next is clicked", () => {
-    const wrapper = shallow(<_Carousel slides={slides}/>);
-    // wrapper.find(CarouselButton).at(1)用来找第二个btn, 不太稳定. 故不用
-    // const nextButton = wrapper.find('[data-testId="btnNext"]');
-    const nextButton = wrapper.findWhere(node => node.prop("data-testId") === "btnNext");
-    nextButton.simulate("click");
-    expect(wrapper.state("index")).toBe(1);
-  });
-
   test("renders the current slide as a CarouselSlide", () => {
-    const wrapper = shallow(<_Carousel slides={slides}/>);
+    const wrapper = shallow(<_Carousel slides={slides} index={0}/>);
     let slideImgProps = wrapper.find(CarouselSlide).props();
+    console.log(wrapper.find(CarouselSlide).debug());
     expect(slideImgProps).toEqual({
       ...slides[0],
-      imgHeight: Carousel.defaultProps.defaultImageHeight
+      imgHeight: _Carousel.defaultProps.defaultImageHeight
     });
   });
 
