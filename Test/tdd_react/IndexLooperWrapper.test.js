@@ -24,18 +24,19 @@ describe("[HoC] IndexLooperWrapper", () => {
     expect(wrapper.state("index")).toBe(0);
   });
 
-  test("calls `onIndexChange` on decrement", () => {
+  // test("calls `onIndexChange` on decrement", () => {
+  test("has the max index state on decrement from 0", () => {
     const onIndexChange = jest.fn();
     wrapper.prop("indexDecrement")(3);
     expect(wrapper.state("index")).toBe(2); //0再prev, 就到了2了
   });
 
-  test("calls `onIndexChange` on increment", () => {
+  // test("calls `onIndexChange` on increment", () => {
+  test("has the min index state on increment from the max", () => {
     wrapper.setState({ index: 2 });
     const onIndexChange = jest.fn();
     wrapper.prop("indexIncrement")(3);
     expect(wrapper.state("index")).toBe(0); //0再prev, 就到了2了
   });
-
 
 });
