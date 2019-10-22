@@ -11,13 +11,14 @@ const slides = [
 ];
 
 describe("Carousel", () => {
-  // test.skip("has slide and button children", () => {
-  //   const wrapper = shallow(<Carousel slides={slides}/>);
-  //   console.log(`szw ,`, wrapper.debug());
-  //   expect(wrapper.childAt(0).type()).toBe("CarouselSlide");
-  //   expect(wrapper.childAt(1).type()).toBe("CarouselButton");
-  //   // 其实可以用 wrapper.find(CarouselSlide).toBeNotNull()来测试!
-  // });
+  test("has slide and button children", () => {
+    const wrapper = shallow(<_Carousel slides={slides}/>);
+    console.log(`wrapper = `, wrapper.debug());
+    console.log(`wrapper0 = `, wrapper.childAt(0).debug());
+    expect(wrapper.childAt(0).type()).toBe("CarouselSlide");
+    expect(wrapper.childAt(1).type()).toBe("CarouselButton");
+    // 其实可以用 wrapper.find(CarouselSlide).toBeNotNull()来测试!
+  });
 
   test("initial state", () => {
     const wrapper = shallow(<_Carousel slides={slides}/>);
@@ -28,7 +29,6 @@ describe("Carousel", () => {
   test("renders the current slide as a CarouselSlide", () => {
     const wrapper = shallow(<_Carousel slides={slides} index={0}/>);
     let slideImgProps = wrapper.find(CarouselSlide).props();
-    console.log(wrapper.find(CarouselSlide).debug());
     expect(slideImgProps).toEqual({
       ...slides[0],
       imgHeight: _Carousel.defaultProps.defaultImageHeight
