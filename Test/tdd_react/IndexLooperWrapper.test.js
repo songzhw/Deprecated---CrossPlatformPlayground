@@ -2,7 +2,7 @@ import { shallow } from "enzyme";
 import React from "react";
 import { IndexLooperWrapper } from "./src/IndexLooperWrapper";
 
-// ""就是单独运行本文件
+// "jest IndexLooperWrapper.test.js"就是单独运行本文件
 describe("[HoC] IndexLooperWrapper", () => {
   const MockComponent = () => null;
   MockComponent.displayName = "MockComponent";
@@ -24,7 +24,18 @@ describe("[HoC] IndexLooperWrapper", () => {
     expect(wrapper.state("index")).toBe(0);
   });
 
+  test("calls `onIndexChange` on decrement", () => {
+    const onIndexChange = jest.fn();
+    wrapper.prop("indexDecrement")(3);
+    expect(wrapper.state("index")).toBe(2); //0再prev, 就到了2了
+  });
 
+  test("calls `onIndexChange` on increment", () => {
+    wrapper.setState({ index: 2 });
+    const onIndexChange = jest.fn();
+    wrapper.prop("indexIncrement")(3);
+    expect(wrapper.state("index")).toBe(0); //0再prev, 就到了2了
+  });
 
 
 });
