@@ -4,15 +4,21 @@ export const AutoAdvancesWrapper = (InComponent, advancePropName) =>
   class ComponentWithAutoAdvance extends React.PureComponent {
 
     componentDidMount() {
+      console.log(`componentDidMount()`)
       this.startTimer();
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+      console.log(`componentDidUpdate()`)
       // 第一次加载时不走componentDidUpdate
+      this.startTimer();
     }
 
 
     startTimer = () => {
+      console.log(`startTimer()`)
+      this.clearTimer();
+
       const { interval, upperBound } = this.props;
       // 这包含了 undefined 与 0
       if (!interval) {
@@ -28,6 +34,7 @@ export const AutoAdvancesWrapper = (InComponent, advancePropName) =>
     }
 
     clearTimer = () => {
+      console.log(`clearTimer()`)
       clearTimeout(this._timer);
     };
 
