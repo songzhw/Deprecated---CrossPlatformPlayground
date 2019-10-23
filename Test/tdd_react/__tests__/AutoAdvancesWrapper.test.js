@@ -29,4 +29,10 @@ describe("HoC AutoAdvances", () => {
     jest.advanceTimersByTime(interval);
     expect(incrementFunc).not.toHaveBeenCalled();
   });
+
+  test("does not set a timer if `interval` is 0", () => {
+    wrapper.setProps({ interval: 0 });
+    jest.advanceTimersByTime(9999e3);
+    expect(incrementFunc).not.toHaveBeenCalled();
+  });
 });
