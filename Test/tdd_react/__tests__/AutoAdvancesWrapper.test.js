@@ -23,4 +23,10 @@ describe("HoC AutoAdvances", () => {
     jest.advanceTimersByTime(interval);
     expect(incrementFunc).toBeCalledWith(upperBound);
   });
+
+  test("clears the timer on unmount", () => {
+    wrapper.unmount();
+    jest.advanceTimersByTime(interval);
+    expect(incrementFunc).not.toHaveBeenCalled();
+  });
 });
