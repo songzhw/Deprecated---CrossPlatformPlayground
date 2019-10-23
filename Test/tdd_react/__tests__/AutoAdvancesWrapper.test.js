@@ -31,7 +31,10 @@ describe("HoC AutoAdvances", () => {
   });
 
   test("does not set a timer if `interval` is 0", () => {
-    wrapper.setProps({ interval: 0 });
+    wrapper = shallow(
+      <Hoc indexIncrement={incrementFunc}
+           interval={0} upperBound={upperBound}
+      />);
     jest.advanceTimersByTime(9999e3);
     expect(incrementFunc).not.toHaveBeenCalled();
   });
