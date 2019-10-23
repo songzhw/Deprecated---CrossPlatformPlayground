@@ -11,11 +11,20 @@ export const AutoAdvancesWrapper = (InComponent, advancePropName) =>
       // 第一次加载时不走componentDidUpdate
     }
 
+
     startTimer = () => {
       const { interval, upperBound } = this.props;
       this._timer = setTimeout(() => {
         this.props[`${advancePropName}Increment`](upperBound);
       }, interval);
+    };
+
+    componentWillUnmount() {
+      this.clearTimer();
+    }
+
+    clearTimer = () => {
+      clearTimeout(this._timer);
     };
 
     render() {
