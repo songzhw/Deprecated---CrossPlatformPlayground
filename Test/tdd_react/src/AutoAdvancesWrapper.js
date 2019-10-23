@@ -14,12 +14,10 @@ export const AutoAdvancesWrapper = (InComponent, advancePropName) =>
 
     startTimer = () => {
       const { interval, upperBound } = this.props;
-      console.log(`szw 111 interval = ${interval}`);
       // 这包含了 undefined 与 0
       if (!interval) {
         return;
       }
-      console.log(`szw 222`);
       this._timer = setTimeout(() => {
         this.props[`${advancePropName}Increment`](upperBound);
       }, interval);
