@@ -24,6 +24,11 @@ describe("HoC AutoAdvances", () => {
     expect(incrementFunc).toBeCalledWith(upperBound);
   });
 
+  test("calls the increment function after every `interval`", () => {
+    jest.advanceTimersByTime(interval * 3);
+    expect(incrementFunc).toBeCalledTimes(3);
+  });
+
   test("clears the timer on unmount", () => {
     wrapper.unmount();
     jest.advanceTimersByTime(interval);
