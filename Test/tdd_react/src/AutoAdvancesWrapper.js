@@ -12,7 +12,6 @@ export const AutoAdvancesWrapper = (InComponent, advancePropName) =>
       this.startTimer();
     }
 
-
     startTimer = () => {
       this.clearTimer();
 

@@ -28,7 +28,9 @@ describe("HoC AutoAdvances", () => {
     jest.advanceTimersByTime(interval);
     wrapper.setState({ tmp: 1 });
     jest.advanceTimersByTime(interval);
-    expect(incrementFunc).toBeCalledTimes(2);
+    wrapper.setState({ tmp: 2 });
+    jest.advanceTimersByTime(interval);
+    expect(incrementFunc).toBeCalledTimes(3);
   });
 
   test("clears the timer on unmount", () => {
