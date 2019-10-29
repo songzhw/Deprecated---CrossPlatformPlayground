@@ -20,7 +20,7 @@ export const AutoAdvancesWrapper = (InComponent, advancePropName, interval) =>
         return;
       }
       this._timer = setTimeout(() => {
-        this.props[`${advancePropName}Increment`]();
+        this.props[`${advancePropName}Increment`](this.props.upperBounds);
       }, interval);
     };
 

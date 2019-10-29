@@ -23,7 +23,8 @@ export const IndexLooperWrapper = (InComponent, indexPropName) =>
       const indexProps = {
         [indexPropName]: this.state.index,
         [`${indexPropName}Increment`]: this.onIncrease,
-        [`${indexPropName}Decrement`]: this.onDecrease
+        [`${indexPropName}Decrement`]: this.onDecrease,
+        upperBounds: this.props.slides.length
       };
       return <InComponent {...this.props} {...indexProps} />;
     }
