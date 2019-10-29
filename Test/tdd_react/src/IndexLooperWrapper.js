@@ -6,6 +6,7 @@ export const IndexLooperWrapper = (InComponent, indexPropName) =>
     state = { index: 0 };
 
     onIncrease = upperBound => {
+      console.log(`szw index -> onIncrease()`)
       this.setState(({ index }) => {
         const newIndex = upperBound ? (index + 1) % upperBound : index + 1;
         return { index: newIndex };

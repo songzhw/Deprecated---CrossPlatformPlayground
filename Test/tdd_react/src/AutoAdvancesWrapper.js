@@ -20,7 +20,10 @@ export const AutoAdvancesWrapper = (InComponent, advancePropName, interval) =>
         return;
       }
       this._timer = setTimeout(() => {
-        this.props[`${advancePropName}Increment`]();
+        console.log(`szw auto -> timeout`);
+        // this.props[`${advancePropName}Increment`]();
+        console.log(`${advancePropName}Increment)`);
+        console.log(this.props)
       }, interval);
     };
 
