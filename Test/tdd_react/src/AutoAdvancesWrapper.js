@@ -1,6 +1,6 @@
 import React from "react";
 
-export const AutoAdvancesWrapper = (InComponent, advancePropName) =>
+export const AutoAdvancesWrapper = (InComponent, advancePropName, interval) =>
   class ComponentWithAutoAdvance extends React.PureComponent {
 
     componentDidMount() {
@@ -15,13 +15,12 @@ export const AutoAdvancesWrapper = (InComponent, advancePropName) =>
     startTimer = () => {
       this.clearTimer();
 
-      const { interval, upperBound } = this.props;
       // 这包含了 undefined 与 0
       if (!interval) {
         return;
       }
       this._timer = setTimeout(() => {
-        this.props[`${advancePropName}Increment`](upperBound);
+        this.props[`${advancePropName}Increment`]();
       }, interval);
     };
 

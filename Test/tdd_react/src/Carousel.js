@@ -2,6 +2,7 @@ import React from "react";
 import { CarouselSlide } from "./CarouselSlide";
 import { CarouselButton } from "./CarouselButton";
 import { IndexLooperWrapper } from "./IndexLooperWrapper";
+import { AutoAdvancesWrapper } from "./AutoAdvancesWrapper";
 
 export class _Carousel extends React.Component {
   static defaultProps = {
@@ -31,4 +32,7 @@ export class _Carousel extends React.Component {
   }
 }
 
-export default IndexLooperWrapper(_Carousel, "index");
+export default AutoAdvancesWrapper(
+  IndexLooperWrapper(_Carousel, "index"),
+  "index",
+  1000);
