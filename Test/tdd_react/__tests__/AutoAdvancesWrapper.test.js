@@ -33,6 +33,14 @@ describe("HoC AutoAdvances", () => {
     expect(incrementFunc).toBeCalledTimes(3);
   });
 
+  test("resets the timer when the target prop changes", () => {
+    jest.advanceTimersByTime(interval - 1000);
+    wrapper.setProps({ index: 1 });
+    jest.advanceTimersByTime(1000);
+    expect(incrementFunc).not.toHaveBeenCalled();
+
+  });
+
   test("clears the timer on unmount", () => {
     wrapper.unmount();
     jest.advanceTimersByTime(interval);
