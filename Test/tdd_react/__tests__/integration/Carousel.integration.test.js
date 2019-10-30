@@ -1,6 +1,6 @@
-import { shallow } from "enzyme";
-import Carousel from "../../src/Carousel";
 import React from "react";
+import { mount, shallow } from "enzyme";
+import Carousel, { _Carousel } from "../../src/Carousel";
 
 const slides = [
   { imageUrl: "https://a.com/1.png", description: "hello", author: "zzz" },
@@ -36,3 +36,59 @@ describe("with the first/last slide selected (edge case)", () => {
     expect(wrapper.state("index")).toBe(0);
   });
 });
+
+
+describe("Carousel with HoCs", () => {
+  let mounted;
+  beforeEach(() => {
+    mounted = mount(<Carousel slides={slides}/>);
+    console.log(mounted.debug())
+  });
+
+  test("passes `slides` down to the core component", () => {
+    expect(mounted.find(_Carousel).prop("slides")).toBe(slides);
+  });
+});
+
+/*
+mounted.debug() =
+
+   <ComponentWithIndex slides={{...}}>
+      <ComponentWithAutoAdvance slides={{...}} index={0} indexIncrement={[Function]} indexDecrement={[Function]}>
+        <_Carousel slides={{...}} index={0} indexIncrement={[Function]} indexDecrement={[Function]} defaultImageHeight={500}>
+          <div indexIncrement={[Function]} indexDecrement={[Function]}>
+            <CarouselSlide imageUrl="https://a.com/1.png" description="hello" author="zzz" imgHeight={500}>
+              <figure>
+                <styled.img src="https://a.com/1.png" imgHeight={500}>
+                  <StyledComponent src="https://a.com/1.png" imgHeight={500} forwardedComponent={{...}} forwardedRef={{...}}>
+                    <img src="https://a.com/1.png" className="sc-bdVaJa dTxKS" />
+                  </StyledComponent>
+                </styled.img>
+                <figcaption>
+                  <strong>
+                    hello
+                  </strong>
+                  zzz
+                </figcaption>
+                <text>
+                  on Unsplash
+                </text>
+              </figure>
+            </CarouselSlide>
+            <CarouselButton data-testId="btnPrev" onClick={[Function]}>
+              <button data-testId="btnPrev" onClick={[Function]}>
+                Prev
+              </button>
+            </CarouselButton>
+            <CarouselButton data-testId="btnNext" onClick={[Function]}>
+              <button data-testId="btnNext" onClick={[Function]}>
+                Next
+              </button>
+            </CarouselButton>
+          </div>
+        </_Carousel>
+      </ComponentWithAutoAdvance>
+    </ComponentWithIndex>
+
+
+ */
