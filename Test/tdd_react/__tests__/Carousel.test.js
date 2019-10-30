@@ -3,6 +3,7 @@ import React from "react";
 import { CarouselButton } from "../src/CarouselButton";
 import { CarouselSlide } from "../src/CarouselSlide";
 import Carousel, { _Carousel } from "../src/Carousel";
+import { IndexLooperWrapper } from "../src/IndexLooperWrapper";
 
 const slides = [
   { imageUrl: "https://a.com/1.png", description: "hello", author: "zzz" },
@@ -30,7 +31,8 @@ describe("Carousel", () => {
 
 describe("with the first/last slide selected (edge case)", () => {
   test("wraps `index` to the max value when the first slide is selected and Prev is clicked", () => {
-    const wrapper = shallow(<Carousel slides={slides}/>);
+    const Component = IndexLooperWrapper(Carousel, "index");
+    const wrapper = shallow(<Component slides={slides}/>);
     wrapper.setState({ index: 0 });
 
     const prevButton = wrapper.dive().find("[data-testId='btnPrev']");
