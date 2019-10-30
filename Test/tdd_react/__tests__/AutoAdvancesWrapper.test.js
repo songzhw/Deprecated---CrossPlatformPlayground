@@ -14,7 +14,7 @@ describe("HoC AutoAdvances", () => {
     incrementFunc = jest.fn();
     wrapper = shallow(
       <Hoc indexIncrement={incrementFunc}
-           interval={interval} slides={[1, 2, 3, 4, 5]}
+           slides={[1, 2, 3, 4, 5]}
       />);
   });
 
@@ -50,9 +50,10 @@ describe("HoC AutoAdvances", () => {
 
   test("does not set a timer if `interval` is 0", () => {
     const fn2 = jest.fn();
+    const Hoc2 = AutoAdvancesWrapper(AutoAdvancesWrapper, "index", "slides", 0);
     const wrapper2 = shallow(
-      <Hoc indexIncrement={fn2}
-           interval={0} upperBound={upperBound}
+      <Hoc2 indexIncrement={fn2}
+           slides={[1, 2, 3]}
       />);
     jest.advanceTimersByTime(9999e3);
     expect(fn2).not.toHaveBeenCalled();
