@@ -4,24 +4,23 @@ import { shallow } from "enzyme";
 
 describe("HoC AutoAdvances", () => {
   const MockComponent = () => null;
-  const Hoc = AutoAdvancesWrapper(AutoAdvancesWrapper, "index");
+  const interval = 10e3; //10,000 (10 followed by 3 zeros)
+  const Hoc = AutoAdvancesWrapper(AutoAdvancesWrapper, "index", "slides", interval);
   let wrapper;
   let incrementFunc;
-  const interval = 10e3; //10,000 (10 followed by 3 zeros)
-  const upperBound = 5;
 
   beforeEach(() => {
     jest.useFakeTimers();
     incrementFunc = jest.fn();
     wrapper = shallow(
       <Hoc indexIncrement={incrementFunc}
-           interval={interval} upperBound={upperBound}
+           interval={interval} slides={[1, 2, 3, 4, 5]}
       />);
   });
 
   test("calls the increment function after `interval`", () => {
     jest.advanceTimersByTime(interval);
-    expect(incrementFunc).toBeCalledWith(upperBound);
+    expect(incrementFunc).toBeCalledWith(5);
   });
 
   test("calls the increment function after every `interval`", () => {
