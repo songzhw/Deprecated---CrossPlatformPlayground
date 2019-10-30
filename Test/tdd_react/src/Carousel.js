@@ -33,5 +33,5 @@ export class _Carousel extends React.Component {
 }
 
 export default IndexLooperWrapper(
-  AutoAdvancesWrapper(_Carousel, "index", 1000)
+  AutoAdvancesWrapper(_Carousel, "index", "slides", 5000)
   , "index");

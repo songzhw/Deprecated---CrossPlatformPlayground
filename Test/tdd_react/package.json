@@ -33,7 +33,7 @@
     "test": "jest",
     "eject": "react-scripts eject",
     "web-build": "webpack --config webpack.config.js",
-    "dev": "webpack-dev-server --open"
+    "dev": "yarn run web-build && webpack-dev-server --open"
   },
   "eslintConfig": {
     "extends": "react-app"
