@@ -56,12 +56,14 @@ describe("Carousel with HoCs", () => {
   });
 
   test("advances the slide after `interval` elapse", () => {
-    jest.useFakeTimers();
     const interval = 5e3;//5000
+
+    jest.useFakeTimers();
+    mounted = mount(<Carousel slides={slides}/>);
     jest.advanceTimersByTime(interval);
+    mounted.update();
     console.log(mounted.debug());
     expect(mounted.find(_Carousel).prop("index")).toBe(1);
-
   });
 
 });
