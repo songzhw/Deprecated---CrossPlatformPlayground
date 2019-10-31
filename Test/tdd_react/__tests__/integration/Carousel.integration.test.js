@@ -42,11 +42,18 @@ describe("Carousel with HoCs", () => {
   let mounted;
   beforeEach(() => {
     mounted = mount(<Carousel slides={slides}/>);
-    console.log(mounted.debug())
   });
 
   test("passes `slides` down to the core component", () => {
     expect(mounted.find(_Carousel).prop("slides")).toBe(slides);
+  });
+
+  test("allows `index` to be controlled", () => {
+    const carousel = mounted.find(_Carousel);
+    expect(carousel.prop("index")).toBe(0);
+    mounted.setProps({ index: 2 });
+    console.log(mounted.debug());
+    expect(carousel.prop("index")).toBe(2);
   });
 });
 
