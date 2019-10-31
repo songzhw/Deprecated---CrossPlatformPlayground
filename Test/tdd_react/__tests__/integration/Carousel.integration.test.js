@@ -49,10 +49,10 @@ describe("Carousel with HoCs", () => {
   });
 
   test("allows `index` to be controlled", () => {
+    mounted = mount(<Carousel slides={slides}/>);
     const carousel = mounted.find(_Carousel);
     expect(carousel.prop("index")).toBe(0);
-    mounted.setProps({ index: 2 });
-    console.log(mounted.debug());
+    mounted.setState({ index: 2 });
     expect(carousel.prop("index")).toBe(2);
   });
 });
