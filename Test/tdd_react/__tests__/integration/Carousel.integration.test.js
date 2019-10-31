@@ -54,6 +54,16 @@ describe("Carousel with HoCs", () => {
     mounted.setState({ index: 2 });
     expect(mounted.find(_Carousel).prop("index")).toBe(2);
   });
+
+  test("advances the slide after `interval` elapse", () => {
+    jest.useFakeTimers();
+    const interval = 5e3;//5000
+    jest.advanceTimersByTime(interval);
+    console.log(mounted.debug());
+    expect(mounted.find(_Carousel).prop("index")).toBe(1);
+
+  });
+
 });
 
 /*
