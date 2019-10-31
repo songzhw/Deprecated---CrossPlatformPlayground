@@ -50,10 +50,9 @@ describe("Carousel with HoCs", () => {
 
   test("allows `index` to be controlled", () => {
     mounted = mount(<Carousel slides={slides}/>);
-    const carousel = mounted.find(_Carousel);
-    expect(carousel.prop("index")).toBe(0);
+    expect(mounted.find(_Carousel).prop("index")).toBe(0);
     mounted.setState({ index: 2 });
-    expect(carousel.prop("index")).toBe(2);
+    expect(mounted.find(_Carousel).prop("index")).toBe(2);
   });
 });
 
