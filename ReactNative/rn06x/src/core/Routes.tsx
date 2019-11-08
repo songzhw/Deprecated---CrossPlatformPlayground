@@ -46,6 +46,7 @@ import { DynamicStyleRulesDemo } from "../rn_tutorial/theme/DynamicStyleRulsDemo
 import { DynamicAppThemeDemo } from "../rn_tutorial/theme/apptheme/DynamicAppThemeDemo";
 import { DraggableCircleDemo } from "../fancy_ui/drag_n_drop/DraggableCircleDemo";
 import { MediaCssDemo } from "../rn_tutorial/style/MediaCssDemo";
+import { NetInfoDemo } from "../lib3rd/NetInfoDemo";
 
 const AppNavigator = createStackNavigator(
   {
@@ -60,7 +61,8 @@ const AppNavigator = createStackNavigator(
     SimpleHeroAnimDemo, Lottery9Demo, DraggableCircleDemo,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3, LayoutAnimationDemo,
     StaggerAnimationScreen, GestureAnimScreen,
-    StaticServerDemo, FetchBlobDemo, ZipArchiveDemo, LinearGradientScreen, ThirdPartyPopOverDemo
+    StaticServerDemo, FetchBlobDemo, ZipArchiveDemo, LinearGradientScreen, ThirdPartyPopOverDemo,
+    NetInfoDemo
   },
   {
     headerMode: "screen",
