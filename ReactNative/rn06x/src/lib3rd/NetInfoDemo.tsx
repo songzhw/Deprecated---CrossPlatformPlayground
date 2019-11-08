@@ -21,7 +21,6 @@ export class NetInfoDemo extends React.Component<IProps> {
     this.unsubscribe();
   }
 
-
   fetchNetInfo() {
     NetInfo.fetch().then(state => {
       console.log(`szw connection`, state);
