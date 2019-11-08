@@ -1,17 +1,19 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Button } from "react-native";
 import NetInfo from "@react-native-community/netinfo";
 
 interface IProps {
 }
 
 export class NetInfoDemo extends React.Component<IProps> {
-  state = {};
-  unsubscribe = () => {  };
+  state = { net: {} };
+  unsubscribe = () => {
+  };
 
   componentDidMount() {
     this.unsubscribe = NetInfo.addEventListener(state => {
       console.log(`szw listener: `, state);
+      this.setState({ net: state });
     });
   }
 
@@ -19,14 +21,19 @@ export class NetInfoDemo extends React.Component<IProps> {
     this.unsubscribe();
   }
 
-  fetchNetInfo() {
+  fetchNetInfo = () => {
     NetInfo.fetch().then(state => {
-      console.log(`szw connection`, state);
+      console.log(`szw fetch: `, state);
+      this.setState({ net: state });
     });
-  }
+  };
 
   render() {
-    return super.render();
+    return (
+      <View>
+        <Button onPress={this.fetchNetInfo} title="listen to netinfo"/>
+      </View>
+    );
   }
 }
 
