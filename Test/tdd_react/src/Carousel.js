@@ -2,6 +2,7 @@ import React from "react";
 import { CarouselSlide } from "./CarouselSlide";
 import { CarouselButton } from "./CarouselButton";
 import { IndexLooperWrapper } from "./IndexLooperWrapper";
+import { AutoAdvancesWrapper } from "./AutoAdvancesWrapper";
 
 export class _Carousel extends React.Component {
   static defaultProps = {
@@ -21,7 +22,6 @@ export class _Carousel extends React.Component {
   render() {
     const { slides, defaultImageHeight, index, ...rest } = this.props;
     const currentSlideData = slides[index];
-    console.log(`szw in data = `, currentSlideData);
     return (
       <div {...rest}>
         <CarouselSlide {...currentSlideData} imgHeight={defaultImageHeight}/>
@@ -32,4 +32,6 @@ export class _Carousel extends React.Component {
   }
 }
 
-export default IndexLooperWrapper(_Carousel, "index");
+export default IndexLooperWrapper(
+  AutoAdvancesWrapper(_Carousel, "index", "slides", 5000)
+  , "index");
