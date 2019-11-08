@@ -23,7 +23,7 @@ export class NetInfoDemo extends React.Component<IProps> {
 
   fetchNetInfo = () => {
     NetInfo.fetch().then(state => {
-      console.log(`szw fetch: ${state}`);
+      console.log(`szw fetch:`, state);
       this.setState({ net: state });
     });
   };

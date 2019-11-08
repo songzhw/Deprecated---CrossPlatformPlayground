@@ -16,8 +16,8 @@ jest.mock("@react-native-community/netinfo", () => {
 test("NetInfo addListener", () => {
 });
 
-test("NetInfo fetch", () => {
+test("NetInfo fetch", async () => {
   const tree = shallow(<NetInfoDemo/>);
-  tree.find(Button).simulate("press");
-  console.log(`state = `, tree.state("net"));
+  await tree.find(Button).simulate("press");
+  expect(tree.state("net")).toEqual({ type: "wifi" }); // toEqual用来比较对象的内容!
 });
