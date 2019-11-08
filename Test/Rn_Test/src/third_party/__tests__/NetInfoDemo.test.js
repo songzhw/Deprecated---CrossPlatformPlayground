@@ -7,6 +7,7 @@ import { Button } from "react-native";
 const wifi = { type: "wifi" };
 const mobile = { type: "5G" };
 let temp = wifi;
+const unsubscribe = jest.fn();
 
 jest.mock("@react-native-community/netinfo", () => {
   return {
@@ -15,19 +16,26 @@ jest.mock("@react-native-community/netinfo", () => {
     })),
     addEventListener: jest.fn((state) => {
       console.log(`szw listener (mock)`);
+      return unsubscribe;
     }),
     useNetInfo: jest.fn()
   };
 });
 
-// test("NetInfo fetch", async () => {
-//   const tree = shallow(<NetInfoDemo/>);
-//   await tree.find(Button).simulate("press");
-//   expect(tree.state("net")).toEqual({ type: "wifi" }); // toEqual用来比较对象的内容!
-// });
+test("NetInfo fetch", async () => {
+  const tree = shallow(<NetInfoDemo/>);
+  await tree.find(Button).simulate("press");
+  expect(tree.state("net")).toEqual({ type: "wifi" }); // toEqual用来比较对象的内容!
+});
 
 
 test("NetInfo addListener", () => {
   const tree = shallow(<NetInfoDemo/>);
-  tree.mount();
+  // TODO???
+});
+
+test("removes listener after unmount", () => {
+  const tree = shallow(<NetInfoDemo/>);
+  tree.unmount();
+  expect(unsubscribe).toBeCalled();
 });
