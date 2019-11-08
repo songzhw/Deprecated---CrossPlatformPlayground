@@ -12,7 +12,7 @@ export class NetInfoDemo extends React.Component<IProps> {
 
   componentDidMount() {
     this.unsubscribe = NetInfo.addEventListener(state => {
-      console.log(`szw listener: `, state);
+      console.log(`szw listener: ${state}`);
       this.setState({ net: state });
     });
   }

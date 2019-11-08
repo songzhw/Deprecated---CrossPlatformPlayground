@@ -5,7 +5,9 @@ import { Button } from "react-native";
 
 jest.mock("@react-native-community/netinfo", () => {
   return {
-    fetch: jest.fn(() => Promise.resolve("11")),
+    fetch: jest.fn(() => new Promise((resolve, reject) => {
+      resolve({ type: "wifi" });
+    })),
     addEventListener: jest.fn(),
     useNetInfo: jest.fn()
   };
