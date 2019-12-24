@@ -24,7 +24,7 @@ class NumberAnimationDemo extends React.Component {
     );
   }
 
-  private startAnimation() {
+  private startAnimation = () => {
     Animated.timing(this.state.animation, {
       toValue: 300,
       duration: 2000
