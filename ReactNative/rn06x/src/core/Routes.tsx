@@ -47,7 +47,7 @@ import { DynamicAppThemeDemo } from "../rn_tutorial/theme/apptheme/DynamicAppThe
 import { DraggableCircleDemo } from "../fancy_ui/drag_n_drop/DraggableCircleDemo";
 import { MediaCssDemo } from "../rn_tutorial/style/MediaCssDemo";
 import { NetInfoDemo } from "../lib3rd/NetInfoDemo";
-import {NumberAnimationDemo} from "../fancy_ui/num_anim/temp1";
+import NumberAnimationDemo from "../fancy_ui/num_anim/NumberAnimationDemo";
 
 const AppNavigator = createStackNavigator(
   {
