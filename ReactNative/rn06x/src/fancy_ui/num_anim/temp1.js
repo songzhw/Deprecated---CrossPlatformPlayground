@@ -9,19 +9,13 @@ export class NumberAnimationDemo extends Component {
     super(props);
     this.state = {
       totalPeopleNum: 7759287903,
-      totalManNum: 3423245321,
-      totalWomanNum: 3824245321,
-      thisYearBirthNum: 134456432,
-      thisYearDieNum: 46675234,
-      todayBirthNum: 185432,
-      todayDieNum: 72112
-
+      thisYearBirthNum: 134456432
     };
 
     setInterval(() => {
       this.setState({
-        totalPeopleNum: this.state.totalPeopleNum + this.getRandomNum(50)
-
+        totalPeopleNum: this.state.totalPeopleNum + this.getRandomNum(50),
+        thisYearBirthNum: this.state.thisYearBirthNum - this.getRandomNum(300)
       });
     }, 6000);
   }
@@ -47,7 +41,8 @@ export class NumberAnimationDemo extends Component {
 
   render() {
 
-    var totalPeopleNumStr = this.addCommas(this.state.totalPeopleNum);
+    let totalPeopleNumStr = this.addCommas(this.state.totalPeopleNum);
+    let number2 = this.addCommas(this.state.thisYearBirthNum)
 
     return (
       <View style={styles.container}>
@@ -55,27 +50,28 @@ export class NumberAnimationDemo extends Component {
         <Ticker textStyle={styles.text} tickerNum={3} height={26}>
           {totalPeopleNumStr}
         </Ticker>
-
+        <Ticker textStyle={styles.text2} tickerNum={2} height={26}>
+          {number2}
+        </Ticker>
       </View>
     );
   }
 }
 
 const styles = {
-  view: {
+  container: {
+    flex: 1,
+    flexDirection: "column",
     alignItems: "center",
-    border: "1px solid red",
-    marginTop: 50
+    justifyContent: "center",
+    backgroundColor: "#333"
   },
   text: {
     fontSize: 20,
     color: "#abe333"
   },
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#333"
+  text2: {
+    fontSize: 20,
+    color:"#f3a0b7"
   }
 };
