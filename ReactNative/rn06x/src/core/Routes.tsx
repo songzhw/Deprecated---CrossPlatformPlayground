@@ -47,6 +47,7 @@ import { DynamicAppThemeDemo } from "../rn_tutorial/theme/apptheme/DynamicAppThe
 import { DraggableCircleDemo } from "../fancy_ui/drag_n_drop/DraggableCircleDemo";
 import { MediaCssDemo } from "../rn_tutorial/style/MediaCssDemo";
 import { NetInfoDemo } from "../lib3rd/NetInfoDemo";
+import {NumberAnimationDemo} from "../fancy_ui/num_anim/temp1";
 
 const AppNavigator = createStackNavigator(
   {
@@ -58,7 +59,7 @@ const AppNavigator = createStackNavigator(
     WebViewDemo, FlexLayoutDemo1, ModalExample, ArtDemo, ArtAnimView,
     DynamicStyleRulesDemo, DynamicAppThemeDemo,
     DebounceDemo, LambdaInJsx,
-    SimpleHeroAnimDemo, Lottery9Demo, DraggableCircleDemo,
+    SimpleHeroAnimDemo, Lottery9Demo, DraggableCircleDemo,NumberAnimationDemo,
     AnimatedComponentDemo, AnimatedListDemo, AnimatedListDemo2, AnimatedListDemo3, LayoutAnimationDemo,
     StaggerAnimationScreen, GestureAnimScreen,
     StaticServerDemo, FetchBlobDemo, ZipArchiveDemo, LinearGradientScreen, ThirdPartyPopOverDemo,
