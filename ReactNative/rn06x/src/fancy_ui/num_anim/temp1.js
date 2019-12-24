@@ -3,19 +3,18 @@ import { View, Text, StyleSheet } from "react-native";
 
 import Ticker from "./temp2";
 
+// 坑1: 有小数点时, 跨小数点会crash
 export class NumberAnimationDemo extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      totalPeopleNum: 7759287903,
-      thisYearBirthNum: 134456432
+      totalPeopleNum: 7759287903
     };
 
     setInterval(() => {
       this.setState({
-        totalPeopleNum: this.state.totalPeopleNum + this.getRandomNum(50),
-        thisYearBirthNum: this.state.thisYearBirthNum - this.getRandomNum(300)
+        totalPeopleNum: this.state.totalPeopleNum + this.getRandomNum(500),
       });
     }, 6000);
   }
@@ -42,16 +41,13 @@ export class NumberAnimationDemo extends Component {
   render() {
 
     let totalPeopleNumStr = this.addCommas(this.state.totalPeopleNum);
-    let number2 = this.addCommas(this.state.thisYearBirthNum)
+    console.log(`szw text = ${totalPeopleNumStr}`)
 
     return (
       <View style={styles.container}>
         <Text style={styles.text}>全球总人口数量：</Text>
-        <Ticker textStyle={styles.text} tickerNum={3} height={26}>
+        <Ticker textStyle={styles.text} tickerNum={4} height={26}>
           {totalPeopleNumStr}
-        </Ticker>
-        <Ticker textStyle={styles.text2} tickerNum={2} height={26}>
-          {number2}
         </Ticker>
       </View>
     );
@@ -69,9 +65,5 @@ const styles = {
   text: {
     fontSize: 20,
     color: "#abe333"
-  },
-  text2: {
-    fontSize: 20,
-    color:"#f3a0b7"
   }
 };

@@ -250,7 +250,7 @@ class Tick extends Component {
       height: this.props.height
     });
 
-    console.log("componentWillReceiveProps-> init:" + init + " nextProps.text: " + nextProps.text + " nextProps.rollNum: " + nextProps.rollNum);
+    // console.log("componentWillReceiveProps-> init:" + init + " nextProps.text: " + nextProps.text + " nextProps.rollNum: " + nextProps.rollNum);
     this.setState({
       animation: new Animated.Value(
         init
