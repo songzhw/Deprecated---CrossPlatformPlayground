@@ -14,3 +14,7 @@ p {
 em {
       font-family: serif;
 }
+
+p.green {
+      color: green
+}
