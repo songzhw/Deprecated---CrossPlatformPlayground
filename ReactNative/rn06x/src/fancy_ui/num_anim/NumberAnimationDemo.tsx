@@ -36,11 +36,11 @@ class NumberAnimationDemo extends React.Component {
 
   private startAnimation = () => {
     Animated.timing(this.state.animation, {
-      toValue: 100,
+      toValue: 300,
       duration: 1000
     }).start();
     Animated.spring(this.state.num2, {
-      toValue: 100, tension: 40, friction: 10
+      toValue: 300, bounciness: 6, speed: 2
     }).start();
   };
 
