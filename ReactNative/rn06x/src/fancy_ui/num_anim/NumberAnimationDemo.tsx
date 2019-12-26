@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableHighlight, Animated } from "react-native";
+import { View, StyleSheet, TouchableHighlight, Animated, Text, Button } from "react-native";
 
 
 class NumberAnimationDemo extends React.Component {
@@ -17,9 +17,10 @@ class NumberAnimationDemo extends React.Component {
 
     return (
       <View style={styles.container}>
-        <TouchableHighlight onPress={this.startAnimation}>
-          <Animated.View style={[styles.square, transformStyle]}/>
-        </TouchableHighlight>
+        <Button title="start animation" onPress={this.startAnimation}/>
+        <Animated.View style={[transformStyle]}>
+          <Text>200</Text>
+        </Animated.View>
       </View>
     );
   }
@@ -29,7 +30,7 @@ class NumberAnimationDemo extends React.Component {
       toValue: 300,
       duration: 2000
     }).start();
-  }
+  };
 }
 
 const styles = StyleSheet.create({
