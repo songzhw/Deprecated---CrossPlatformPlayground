@@ -39,6 +39,7 @@ export const HomeScreen = (props: NavigationScreenProps & ScreenProps) => {
       <HomeButton title="九宫格抽奖" onPress={() => navigation.navigate("Lottery9Demo")}/>
       <HomeButton title="Pop Over" onPress={() => navigation.navigate("MyPopupScreen")}/>
       <HomeButton title="Draggable Circle" onPress={() => navigation.navigate("DraggableCircleDemo")}/>
+      <HomeButton title="末尾数字跳动" onPress={() => navigation.navigate("NumberAnimationDemo")}/>
 
 
       <View style={{ height: 8 }}/>
