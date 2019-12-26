@@ -23,7 +23,8 @@ class NumberAnimationDemo extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Button title="start animation" onPress={this.startAnimation}/>
+        <Button title="start " onPress={this.startAnimation}/>
+        <Button title="rest " onPress={this.resetAnimation}/>
         <Animated.View style={[transformStyle]}>
           <Text> 200 </Text>
         </Animated.View>
@@ -37,11 +38,19 @@ class NumberAnimationDemo extends React.Component {
   private startAnimation = () => {
     Animated.timing(this.state.animation, {
       toValue: 300,
-      duration: 1000
+      duration: 2000
     }).start();
     Animated.spring(this.state.num2, {
-      toValue: 300, bounciness: 6, speed: 2
+      toValue: 300, bounciness: 6, speed: 1
     }).start();
+    // spring没有duration哦!!! 控制有两种方式(两种组合)
+  };
+
+  private resetAnimation = () => {
+    this.setState({
+      animation: new Animated.Value(0),
+      num2: new Animated.Value(0)
+    });
   };
 
 }
