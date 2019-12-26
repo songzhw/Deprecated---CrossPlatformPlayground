@@ -1,8 +1,8 @@
 import React from "react";
-import { View, StyleSheet, TouchableHighlight, Animated, Text, Button } from "react-native";
+import { View, StyleSheet, Animated, Text, Button } from "react-native";
 
 
-class NumberAnimationDemo extends React.Component {
+class Nadpross01 extends React.Component {
   state = {
     animation: new Animated.Value(0)
   };
