@@ -4,7 +4,8 @@ import { View, StyleSheet, TouchableHighlight, Animated, Text, Button } from "re
 
 class NumberAnimationDemo extends React.Component {
   state = {
-    animation: new Animated.Value(0)
+    animation: new Animated.Value(0),
+    num2: new Animated.Value(0)
   };
 
   render() {
@@ -13,13 +14,21 @@ class NumberAnimationDemo extends React.Component {
         translateY: this.state.animation
       }]
     };
+    const transformStyle2 = {
+      transform: [{
+        translateY: this.state.num2
+      }]
+    };
 
 
     return (
       <View style={styles.container}>
         <Button title="start animation" onPress={this.startAnimation}/>
         <Animated.View style={[transformStyle]}>
-          <Text>200</Text>
+          <Text> 200 </Text>
+        </Animated.View>
+        <Animated.View style={[transformStyle2]}>
+          <Text> 200 </Text>
         </Animated.View>
       </View>
     );
@@ -30,13 +39,17 @@ class NumberAnimationDemo extends React.Component {
       toValue: 100,
       duration: 1000
     }).start();
+    Animated.spring(this.state.num2, {
+      toValue: 100, tension: 40, friction: 10
+    }).start();
   };
+
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center"
+    flexDirection: "row"
   },
   square: {
     width: 190,

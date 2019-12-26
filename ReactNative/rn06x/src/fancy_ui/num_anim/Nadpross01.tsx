@@ -17,15 +17,15 @@ class Nadpross01 extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Button title="start animation" onPress={this.startAnimation}/>
+
         <Animated.View style={[transformStyle]}>
-          <Text>200</Text>
+          <Text>200  </Text>
         </Animated.View>
       </View>
     );
   }
 
-  private startAnimation = () => {
+  startAnimation = () => {
     Animated.timing(this.state.animation, {
       toValue: 100,
       duration: 1000
