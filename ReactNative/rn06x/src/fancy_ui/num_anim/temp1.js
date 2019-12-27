@@ -14,7 +14,7 @@ export class NumberAnimationDemo extends Component {
 
     setInterval(() => {
       this.setState({
-        totalPeopleNum: this.state.totalPeopleNum + this.getRandomNum(500),
+        totalPeopleNum: this.state.totalPeopleNum + this.getRandomNum(500)
       });
     }, 6000);
   }
@@ -41,12 +41,12 @@ export class NumberAnimationDemo extends Component {
   render() {
 
     let totalPeopleNumStr = this.addCommas(this.state.totalPeopleNum);
-    console.log(`szw text = ${totalPeopleNumStr}`)
+    console.log(`szw text = ${totalPeopleNumStr}`);
 
     return (
       <View style={styles.container}>
         <Text style={styles.text}>全球总人口数量：</Text>
-        <Ticker textStyle={styles.text} tickerNum={4} height={26}>
+        <Ticker textStyle={styles.text} tickerNum={3} height={26}>
           {totalPeopleNumStr}
         </Ticker>
       </View>
