@@ -5,11 +5,14 @@ body {
 }
 h1 {
       font-size: 150%;
-      color: rgb(80%, 40%, 0%)
+      text-decoration: overline;
+      border-bottom: thin dotted #888;
 }
 h2 {
       font-size: 1.2em;
-      color: rgb(123, 51, 0)
+}
+h1, h2 {
+      color: #cc6600;      
 }
 blockquote {
       font-style: italic;
