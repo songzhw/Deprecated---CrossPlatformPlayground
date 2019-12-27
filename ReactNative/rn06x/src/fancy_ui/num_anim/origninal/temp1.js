@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-
-import Ticker from "./temp2";
+import { OrignalComponent } from "./temp2";
 
 // 坑1: 有小数点时, 跨小数点会crash
 export class NumberAnimationDemo extends Component {
@@ -46,9 +45,9 @@ export class NumberAnimationDemo extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>全球总人口数量：</Text>
-        <Ticker textStyle={styles.text} tickerNum={3} height={26}>
+        <OrignalComponent textStyle={styles.text} tickerNum={3} height={26}>
           {totalPeopleNumStr}
-        </Ticker>
+        </OrignalComponent>
       </View>
     );
   }
