@@ -20,8 +20,8 @@ class NumberAnimationDemo extends React.Component {
       <View style={styles.container}>
         <Button title="start " onPress={this.startAnimation}/>
         <Button title="rest " onPress={this.resetAnimation}/>
-        <View style={{ width: 40, height: 40 }}>
-          <Animated.View style={[transformStyle, styles.numberBox]}>
+        <View style={styles.numberBox}>
+          <Animated.View style={[transformStyle]}>
             {this.numbers.map(num => (
               <Text key={num}>{num}</Text>
             ))}
