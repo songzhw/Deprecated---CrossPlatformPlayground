@@ -1,8 +1,7 @@
 import React from "react";
-import { View, StyleSheet, TouchableHighlight, Animated, Text, Button } from "react-native";
+import { View, StyleSheet, Animated, Text, Button } from "react-native";
 
-
-class NumberAnimationDemo extends React.Component {
+export class NumberAnimationDemo extends React.Component {
   state = {
     animation: new Animated.Value(0)
   };
@@ -23,7 +22,7 @@ class NumberAnimationDemo extends React.Component {
         <View style={styles.numberBox}>
           <Animated.View style={[transformStyle]}>
             {this.numbers.map(num => (
-              <Text key={num} style={{height:40}}>{num}</Text>
+              <Text key={num} style={{ height: 40 }}>{num}</Text>
             ))}
           </Animated.View>
         </View>
@@ -58,7 +57,6 @@ const styles = StyleSheet.create({
   }
 });
 
-export default NumberAnimationDemo;
 
 /*
 1. 先做一个两位数字, 最后一位会做translateY的动画的看看

@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 import Ticker from "./temp2";
 
 // 坑1: 有小数点时, 跨小数点会crash
-export class Temp1 extends Component {
+export class NumberAnimationDemo extends Component {
 
   constructor(props) {
     super(props);

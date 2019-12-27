@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Animated } from "react-native";
+import { Animated, StyleSheet, Text, View } from "react-native";
 
 const styles = StyleSheet.create({
   // 数字水平浮动排列
@@ -277,8 +277,8 @@ class Tick extends Component {
       <View style={{ height }}>
         <Animated.View style={getAnimationStyle(animation)}>
           {/*遍历数字范围数组绘制数字*/}
-          {rotateItems.map(v => (
-            <Text key={v} style={[textStyle, { height }]}>
+          {rotateItems.map((v, index) => (
+            <Text key={v + index} style={[textStyle, { height }]}>
               {v}
             </Text>
 
