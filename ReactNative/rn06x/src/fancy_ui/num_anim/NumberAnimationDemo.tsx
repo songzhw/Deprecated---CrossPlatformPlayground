@@ -20,11 +20,13 @@ class NumberAnimationDemo extends React.Component {
       <View style={styles.container}>
         <Button title="start " onPress={this.startAnimation}/>
         <Button title="rest " onPress={this.resetAnimation}/>
-        <Animated.View style={[transformStyle, styles.numberBox]}>
-          {this.numbers.map(num => (
-            <Text key={num}>{num}</Text>
-          ))}
-        </Animated.View>
+        <View style={{ width: 40, height: 40 }}>
+          <Animated.View style={[transformStyle, styles.numberBox]}>
+            {this.numbers.map(num => (
+              <Text key={num}>{num}</Text>
+            ))}
+          </Animated.View>
+        </View>
       </View>
     );
   }
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     backgroundColor: ("#2E7D32")
-  },
+  }
 });
 
 export default NumberAnimationDemo;
