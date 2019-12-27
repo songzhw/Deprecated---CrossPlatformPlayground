@@ -23,7 +23,7 @@ class NumberAnimationDemo extends React.Component {
         <View style={styles.numberBox}>
           <Animated.View style={[transformStyle]}>
             {this.numbers.map(num => (
-              <Text key={num}>{num}</Text>
+              <Text key={num} style={{height:40}}>{num}</Text>
             ))}
           </Animated.View>
         </View>
