@@ -23,6 +23,8 @@ blockquote {
       border-width: 1px;
       border-style: dashed;
       background-color: #a7cece;
+      padding: 12px;
+      margin: 10px;
 }
 
 
