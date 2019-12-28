@@ -1,7 +1,7 @@
 body { 
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: medium;
-      background-image: url("../images/beauty.jpg");
+      background-color: #C7EDCC;
 }
 h1 {
       font-size: 150%;
@@ -26,4 +26,15 @@ blockquote {
       padding: 12px;
 }
 
+p.note {
+      font-style: italic;
+      border-color: black;
+      border-width: 1px;
+      border-style: dashed;
+      background-color: #a7cece;
+      padding: 50px;  
+      margin: 40px;
+      line-height: 2.6em; 
+      background-image: url("../images/img_star.png");
+}
 
