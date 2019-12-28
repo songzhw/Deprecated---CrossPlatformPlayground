@@ -14,6 +14,9 @@ h2 {
 h1, h2 {
       color: #cc6600;      
 }
+p {
+      line-height: 1.6em;
+}
 blockquote {
       font-style: italic;
 }
