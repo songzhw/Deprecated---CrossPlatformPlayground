@@ -1,7 +1,7 @@
 body { 
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: medium;
-      background-color: #C7EDCC;
+      background-image: url("../images/beauty.jpg");
 }
 h1 {
       font-size: 150%;
@@ -24,7 +24,6 @@ blockquote {
       border-style: dashed;
       background-color: #a7cece;
       padding: 12px;
-      margin: 10px;
 }
 
 
