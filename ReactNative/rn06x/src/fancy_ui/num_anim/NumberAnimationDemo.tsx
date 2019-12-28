@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
   numberBox: {
     width: 40,
     height: 40,
-    backgroundColor: ("#2E7D32")
+    backgroundColor: ("#2E7D32"),
+    overflow: "hidden"
   }
 });
 
