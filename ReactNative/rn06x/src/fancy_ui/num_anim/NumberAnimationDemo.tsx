@@ -4,22 +4,27 @@ import { NumberScroller } from "./NumberScroller";
 
 export class NumberAnimationDemo extends React.Component {
 
+  numberView1: NumberScroller | null = null;
+
   startAnimation = () => {
-    // @ts-ignore
-    this.refs.number1.startAnimation()
+    if (this.numberView1) {
+      this.numberView1.startAnimation();
+    }
   };
 
   resetAnimation = () => {
-    // @ts-ignore
-    this.refs.number1.resetAnimation()
+    if (this.numberView1) {
+      this.numberView1.resetAnimation();
+    }
   };
+
 
   render() {
     return (
       <View style={styles.container}>
         <Button title="start " onPress={this.startAnimation}/>
         <Button title="rest " onPress={this.resetAnimation}/>
-        <NumberScroller ref="number1"/>
+        <NumberScroller ref={(c) => this.numberView1 = c}/>
       </View>
     );
   }
