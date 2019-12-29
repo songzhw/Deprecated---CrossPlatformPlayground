@@ -38,9 +38,10 @@ export class NumberScroller extends React.Component {
   };
 
   resetAnimation = () => {
-    this.setState({
-      animation: new Animated.Value(0)
-    });
+    Animated.timing(this.state.animation, {
+      toValue: 0,
+      duration: 1000
+    }).start();
   };
 }
 
