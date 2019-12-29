@@ -34,14 +34,23 @@ export class NumberScroller extends React.Component {
     Animated.timing(this.state.animation, {
       toValue: -310,
       duration: 1000
-    }).start();
+    }).start(()=>{
+      this.setState({
+        animation: new Animated.Value(0)
+      });
+    });
   };
 
   resetAnimation = () => {
-    Animated.timing(this.state.animation, {
-      toValue: 0,
-      duration: 1000
-    }).start();
+    // Animated.timing(this.state.animation, {
+    //   toValue: -310,
+    //   duration: 1000
+    // }).start();
+
+
+    this.setState({
+      animation: new Animated.Value(0)
+    });
   };
 }
 
