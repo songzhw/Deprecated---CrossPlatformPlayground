@@ -26,7 +26,11 @@ export class NumberScroller extends React.Component {
     );
   }
 
-  startAnimation = () => {
+  startAnimation = (delay = 0) => {
+    setTimeout(() => this.start(), delay);
+  };
+
+  private start = () => {
     Animated.timing(this.state.animation, {
       toValue: -310,
       duration: 1000
