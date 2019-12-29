@@ -10,7 +10,8 @@ export class NumberAnimationDemo extends React.Component {
   };
 
   resetAnimation = () => {
-
+    // @ts-ignore
+    this.refs.number1.resetAnimation()
   };
 
   render() {
