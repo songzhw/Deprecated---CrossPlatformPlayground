@@ -32,7 +32,7 @@ export class NumberAnimationDemo extends React.Component {
 
   private startAnimation = () => {
     Animated.timing(this.state.animation, {
-      toValue: 300,
+      toValue: -310,
       duration: 1000
     }).start();
   };
