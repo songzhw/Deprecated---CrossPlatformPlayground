@@ -1,0 +1,20 @@
+body {
+  font-size: small;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.6em;
+}
+h1, h2 {
+  color: #007e7e;
+}
+h1 {
+  font-size: 150%;
+}
+h2 {
+  font-size:120%;
+}
+.contentBlock {
+  border-width: thin;
+  border-style: solid;
+  border-color: #007e7e;
+  padding: 20px;
+}
