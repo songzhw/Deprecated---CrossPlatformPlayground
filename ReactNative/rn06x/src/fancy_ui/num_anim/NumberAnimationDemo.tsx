@@ -12,10 +12,10 @@ export class NumberAnimationDemo extends React.Component {
       this.numberView1.startAnimation();
     }
     if (this.numberView2) {
-      this.numberView2.startAnimation(145);
+      this.numberView2.startAnimation(145, 700, -200);
     }
     if (this.numberView3) {
-      this.numberView3.startAnimation(350);
+      this.numberView3.startAnimation(350, 1200, -280);
     }
   };
 
@@ -36,9 +36,12 @@ export class NumberAnimationDemo extends React.Component {
       <View style={styles.container}>
         <Button title="start " onPress={this.startAnimation}/>
         <Button title="rest " onPress={this.resetAnimation}/>
-        <NumberScroller ref={(c) => this.numberView1 = c}/>
-        <NumberScroller ref={(c) => this.numberView2 = c}/>
-        <NumberScroller ref={(c) => this.numberView3 = c}/>
+        <View style={styles.numbersContainer}>
+          <Text style={styles.textPrefix}>382,120,</Text>
+          <NumberScroller ref={(c) => this.numberView1 = c}/>
+          <NumberScroller ref={(c) => this.numberView2 = c}/>
+          <NumberScroller ref={(c) => this.numberView3 = c}/>
+        </View>
       </View>
     );
   }
@@ -48,8 +51,13 @@ export class NumberAnimationDemo extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
+  },
+  numbersContainer: {
     flexDirection: "row"
+  },
+  textPrefix: {
+    height: 40
   }
 });
 

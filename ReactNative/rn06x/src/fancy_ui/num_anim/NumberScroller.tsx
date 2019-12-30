@@ -26,14 +26,14 @@ export class NumberScroller extends React.Component {
     );
   }
 
-  startAnimation = (delay = 0) => {
-    setTimeout(() => this.start(), delay);
+  startAnimation = (delay = 0, duration=1000, toValue = -320) => {
+    setTimeout(() => this.start(duration), delay);
   };
 
-  private start = () => {
+  private start = (duration=1000, toValue = -320) => {
     Animated.timing(this.state.animation, {
-      toValue: -310,
-      duration: 1000
+      toValue: toValue,
+      duration: duration
     }).start();
   };
 
@@ -47,9 +47,7 @@ export class NumberScroller extends React.Component {
 
 const styles = StyleSheet.create({
   numberBox: {
-    width: 40,
     height: 40,
-    backgroundColor: ("#2E7D32"),
     overflow: "hidden"
   }
 });
