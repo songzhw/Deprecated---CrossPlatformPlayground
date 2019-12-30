@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, TouchableHighlight, Animated, Text, Button } from "react-native";
 
 
-class Nadprocess02 extends React.Component {
+class NadProcess02 extends React.Component {
   state = {
     animation: new Animated.Value(0),
     num2: new Animated.Value(0)
