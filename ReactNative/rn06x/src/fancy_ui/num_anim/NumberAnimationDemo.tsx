@@ -9,13 +9,13 @@ export class NumberAnimationDemo extends React.Component {
 
   startAnimation = () => {
     if (this.numberView1) {
-      this.numberView1.startAnimation();
+      this.numberView1.startAnimation(0, 1000, -100);
     }
     if (this.numberView2) {
       this.numberView2.startAnimation(145, 700, -200);
     }
     if (this.numberView3) {
-      this.numberView3.startAnimation(350, 1200, -280);
+      this.numberView3.startAnimation(350, 1200, -233);
     }
   };
 
@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   textPrefix: {
-    height: 40
+    height: 40,
+    fontSize: 25
   }
 });
 

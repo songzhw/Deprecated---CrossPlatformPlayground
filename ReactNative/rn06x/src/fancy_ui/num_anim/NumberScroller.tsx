@@ -19,7 +19,7 @@ export class NumberScroller extends React.Component {
       <View style={styles.numberBox}>
         <Animated.View style={[(this.transformStyle)]}>
           {this.numbers.map(num => (
-            <Text key={num} style={{ height: 40 }}>{num}</Text>
+            <Text key={num} style={styles.numberText}>{num}</Text>
           ))}
         </Animated.View>
       </View>
@@ -49,5 +49,8 @@ const styles = StyleSheet.create({
   numberBox: {
     height: 40,
     overflow: "hidden"
+  },
+  numberText: {
+    fontSize: 25
   }
 });
