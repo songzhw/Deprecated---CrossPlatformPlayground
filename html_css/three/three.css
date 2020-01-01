@@ -12,7 +12,7 @@ h1 {
 h2 {
   font-size:120%;
 }
-.contentBlock {
+.drinks {
   border-width: thin;
   border-style: solid;
   border-color: #007e7e;
@@ -21,7 +21,7 @@ h2 {
   text-align: center;
   background-image: url('../images/cocktail.gif');
   background-repeat: repeat-x;
-  float:right;
+  float: right;
 }
 .buddha {
   color: blue;
