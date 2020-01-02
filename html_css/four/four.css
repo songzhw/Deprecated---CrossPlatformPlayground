@@ -1,3 +1,7 @@
+.all{
+  width: 800px;
+}
+
 body { 
     background-color: #b5a789;
     font-family:      Georgia, "Times New Roman", Times, serif;
@@ -15,7 +19,7 @@ body {
     background:       #efe5d0 url(../images/background.gif) top left;
     font-size:        105%;
     padding:          15px;
-    margin:           0px 330px 10px 10px;z
+    margin:           0px 330px 10px 10px;
   }
   
   #sidebar {
