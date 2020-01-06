@@ -31,6 +31,7 @@ div#tableRow {
   background:       #efe5d0 url(../images/background.gif) top left;
   font-size:        105%;
   padding:          15px;
+  vertical-align: top;
 }
 
 #sidebar {
@@ -38,6 +39,7 @@ div#tableRow {
   background:       #efe5d0 url(../images/background.gif) bottom right;
   font-size:        105%;
   padding:          15px;
+  vertical-align: top;
 }
 
 #footer {
