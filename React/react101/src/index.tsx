@@ -24,6 +24,7 @@ import { sagaCallReturnValue } from "./three_party/saga/call/SagaCallReturnValue
 import SagaChannelAsyncDemo from "./three_party/saga/channel_async/SagaChannelAsyncDemo";
 import { ChannelAsync_Saga } from "./three_party/saga/channel_async/ChannelAsync_Saga";
 import { PreToastDemo } from "./biz/toast/split/PreToastView";
+import { ToastDemo } from "./biz/toast/ToastDemo";
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -33,7 +34,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <PreToastDemo/>
+      <ToastDemo/>
     </Provider>
   );
 };
