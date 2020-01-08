@@ -1,5 +1,6 @@
 import React from "react";
 import "./Toast.css";
+import { ToastText } from "./ToastText";
 
 interface IProps {
   text: string
@@ -11,10 +12,12 @@ export class ToastView extends React.Component<IProps> {
   render() {
     return (
       <div className="toastContainer">
-        {this.props.text}
-        {"second"}
-        {"three"}
+        <ToastText text={this.props.text}/>
+        <ToastText text={"second"}/>
+        <ToastText text={"third"}/>
       </div>
     );
   }
 }
+
+
