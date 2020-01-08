@@ -14,7 +14,7 @@ import { ToastView } from "./ToastView";
 export class Toast {
   static show(text: string) {
     const container = document.createElement("div");
-    container.style.cssText = `text-align:center`;
+    container.style.cssText = `position: absolute;left:0, top:0, bottom:0, right:0, margin: auto, background-color:red`;
     document.body.appendChild(container); //也加到本组件中来. 没写在render()里, 所以这是动态添加的
     const view = ReactDOM.render(<ToastView text={text}/>, container);
   }
