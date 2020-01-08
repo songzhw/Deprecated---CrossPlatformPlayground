@@ -6,6 +6,11 @@
   transform: translate(-50%, -50%)
 }
 
+/*padding: top right bottom left*/
 .text {
   margin-top: 10px;
+  background-color: rgba(0.1, 0.1, 0.1, 0.6);
+  padding: 10px 25px 10px 25px;
+  color: white;
+  border-radius: 8px;
 }
