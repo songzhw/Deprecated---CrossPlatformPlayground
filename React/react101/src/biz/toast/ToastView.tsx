@@ -10,7 +10,9 @@ export class ToastView extends React.Component<IProps> {
   render() {
     return (
       <div className="toastContainer">
-        {this.props.text}
+        <div className="second">
+          {this.props.text}
+        </div>
       </div>
     );
   }
