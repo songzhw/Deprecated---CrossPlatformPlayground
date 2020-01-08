@@ -11,7 +11,9 @@ export class ToastView extends React.Component<IProps> {
   render() {
     return (
       <div className="toastContainer">
-          {this.props.text}
+        {this.props.text}
+        {"second"}
+        {"three"}
       </div>
     );
   }
