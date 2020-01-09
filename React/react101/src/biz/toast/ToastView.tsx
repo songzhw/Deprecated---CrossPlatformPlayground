@@ -8,16 +8,20 @@ interface IProps {
 }
 
 export class ToastView extends React.Component<IProps> {
-  state = {};
+  state = { isShowing: true };
 
   onHideOneText = (toastId: string) => {
     console.log(`szw time to hide: ${toastId}`);
+    this.setState({ isShowing: false });
   };
 
   render() {
     return (
       <div className="toastContainer">
-        <ToastText id={weakUuid()} text={this.props.text} onHide={this.onHideOneText}/>
+        {this.state.isShowing &&
+            <ToastText id={weakUuid()} text={this.props.text} onHide={this.onHideOneText}/>
+        }
+
         {/*<ToastText text={"second"}/>*/}
         {/*<ToastText text={"super long and very long, hello world, this is js and react and toast playground"}/>*/}
       </div>
