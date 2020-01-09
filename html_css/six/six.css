@@ -1,6 +1,10 @@
 .all{
 }
 
+#headerLeft{
+  float: left;
+}
+
 body { 
   background-color: #b5a789;
   font-family:      Georgia, "Times New Roman", Times, serif;
