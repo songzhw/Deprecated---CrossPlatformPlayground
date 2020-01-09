@@ -2,9 +2,10 @@ import React from "react";
 import "./Toast.css";
 
 interface IProps {
+  id: string;
   text: string;
   duration: number;
-  onHide: () => void;
+  onHide: (id: string) => void;
 }
 
 export class ToastText extends React.Component<IProps> {
@@ -13,7 +14,8 @@ export class ToastText extends React.Component<IProps> {
   };
 
   componentDidMount(): void {
-    setTimeout(this.props.onHide, this.props.duration);
+    const { id, duration, onHide } = this.props;
+    setTimeout(() => onHide(id), duration);
   }
 
   render() {
