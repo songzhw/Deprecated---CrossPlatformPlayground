@@ -12,10 +12,15 @@ import ReactDOM from "react-dom";
 import { ToastView } from "./ToastView";
 
 export class Toast {
+  container = document.createElement("div");
+
   static show(text: string) {
-    const container = document.createElement("div");
     // container.style.cssText = `display:flex;justify-content:center;align-items:center; height:100vh;`; //另一种布局方式
-    document.body.appendChild(container); //也加到本组件中来. 没写在render()里, 所以这是动态添加的
+    document.body.appendChild(this.container); //也加到本组件中来. 没写在render()里, 所以这是动态添加的
     const view = ReactDOM.render(<ToastView text={text}/>, container);
+  }
+
+  static dismiss(){
+
   }
 }
