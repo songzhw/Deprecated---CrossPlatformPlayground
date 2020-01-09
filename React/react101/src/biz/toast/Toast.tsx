@@ -21,6 +21,6 @@ export class Toast {
   }
 
   static dismiss() {
-
+    ReactDOM.unmountComponentAtNode(Toast.container)
   }
 }
