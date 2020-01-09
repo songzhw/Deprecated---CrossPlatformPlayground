@@ -13,7 +13,7 @@ export class ToastText extends React.Component<IProps> {
   };
 
   componentDidMount(): void {
-    setTimeout(() => this.props.onHide, this.props.duration);
+    setTimeout(this.props.onHide, this.props.duration);
   }
 
   render() {
