@@ -29,6 +29,12 @@ body {
   transform: translateX(-50%);
 }
 
+#coupon {
+  position: fixed;
+  top: 300px;
+  left: 100px;
+}
+
 div#table {
   display: table;
   border-spacing: 10px;
