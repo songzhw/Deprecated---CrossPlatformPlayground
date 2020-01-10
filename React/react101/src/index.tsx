@@ -26,7 +26,6 @@ import { ChannelAsync_Saga } from "./three_party/saga/channel_async/ChannelAsync
 import { PreToastDemo } from "./biz/toast/split/PreToastView";
 import { ToastDemo } from "./biz/toast/ToastDemo";
 
-
 const sagaMiddleware = createSagaMiddleware();
 const store: Store = createStore(SagaWaitReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(ChannelAsync_Saga);
