@@ -26,7 +26,7 @@ export class ToastView extends React.Component<IProps> {
   }
 
   onHideOneText = (toastId: string) => {
-    console.log(`szw time to hide: ${toastId}`);
+
   };
 
   render() {
