@@ -1,5 +1,6 @@
 import React from "react";
 import "./Toast.css";
+import { removeBy } from "../../utils/ArrayUtils";
 import { ToastText } from "./ToastText";
 import { weakUuid } from "../../utils/utils";
 
@@ -26,7 +27,10 @@ export class ToastView extends React.Component<IProps> {
   }
 
   onHideOneText = (toastId: string) => {
-
+    const { queue } = this.state;
+    const newQueue = removeBy(queue, (item: ToastItem) => item.id !== toastId);
+    console.log(`szw time to remove(${toastId}): `, newQueue);
+    this.setState({ queue: newQueue });
   };
 
   render() {
