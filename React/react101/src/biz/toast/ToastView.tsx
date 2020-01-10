@@ -16,17 +16,17 @@ interface ToastItem {
 
 export class ToastView extends React.Component<IProps> {
   queue: ToastItem[] = [];
-  state = { isShowing: true };
+  state = { queue: this.queue };
 
   add(text: string) {
     const id = weakUuid();
     const item = { id, text, onClose: this.onHideOneText, isShowing: true };
     this.queue.push(item);
+    this.setState({ queue: this.queue });
   }
 
   onHideOneText = (toastId: string) => {
     console.log(`szw time to hide: ${toastId}`);
-    this.setState({ isShowing: false });
   };
 
   render() {
