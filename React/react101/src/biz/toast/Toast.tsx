@@ -17,8 +17,7 @@ export class Toast {
   static show(text: string) {
     // container.style.cssText = `display:flex;justify-content:center;align-items:center; height:100vh;`; //另一种布局方式
     document.body.appendChild(Toast.container); //也加到本组件中来. 没写在render()里, 所以这是动态添加的
-    const view = ReactDOM.render(<ToastView/>, Toast.container);
-    // @ts-ignore
+    const view = ReactDOM.render(<ToastView/>, Toast.container) as unknown as ToastView; // 不加"as unknown"就会报错
     view.add(text);
   }
 
