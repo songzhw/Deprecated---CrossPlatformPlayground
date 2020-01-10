@@ -20,7 +20,7 @@ interface IState {
 }
 
 export class ToastView extends React.Component<IProps, IState> {
-  state = { queue: [] };
+  state = { queue: [] as ToastItem[] };
 
   add(text: string) {
     const id = weakUuid();
