@@ -7,7 +7,7 @@ export class IFrameCommunicationDemo extends React.Component {
     const callback = (event: any) => {
       console.log(`szw get value from <iframe> page: `, event);
     };
-    window.addEventListener("change", callback, false);
+    window.addEventListener("message", callback, false);
   }
 
 
