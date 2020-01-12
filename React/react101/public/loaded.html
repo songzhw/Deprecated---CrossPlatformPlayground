@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <title>Page Loaded by Iframe</title>
     <script>
+      window.onload = function() {
         document.getElementById("btn").onclick = function() {
           console.log("szw click!");
           window.parent.postMessage(`hello, msg from pages inside the <iframe>`);
         };
+      };
     </script>
 </head>
 
