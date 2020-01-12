@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Page Loaded by Iframe</title>
+    <script>
+      document.getElementById("click20").onclick = function() {
+        window.parent.postMessage(`hello, msg from pages inside the <iframe>`);
+      };
+    </script>
 </head>
 
 <body style="border: 10px solid #333">
     <h1>page loaded by iframe</h1>
+    <button id="click20">send out message</button>
 </body>
 
 </html>
