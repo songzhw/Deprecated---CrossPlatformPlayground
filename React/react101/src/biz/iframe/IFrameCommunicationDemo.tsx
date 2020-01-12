@@ -12,7 +12,14 @@ export class IFrameCommunicationDemo extends React.Component {
   }
 
   passMessage = () => {
+    if (!this.webview) {
+      return;
+    }
+    if (!this.webview.contentWindow) {
+      return;
+    }
 
+    this.webview.contentWindow.postMessage("react says hi", "*");
   };
 
   render() {

@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <title>Page Loaded by Iframe</title>
     <script>
+      //====== send message to react ======
       window.onload = function() {
         document.getElementById("btn2").onclick = function() {
           window.parent.postMessage(`hello, msg from pages inside the <iframe>`);
         };
       };
+
+
+      // ====== receive message from rect ======
+      function onMessage(event) {
+        console.log("szw loaded.html got: ", event.data);
+      }
+      window.addEventListener("message", onMessage, false);
+
     </script>
 </head>
 
