@@ -2,6 +2,7 @@ import React from "react";
 
 export class IFrameCommunicationDemo extends React.Component {
   state = {};
+  webview: HTMLIFrameElement | null = null;
 
   componentDidMount() {
     const callback = (event: MessageEvent) => {
@@ -10,12 +11,17 @@ export class IFrameCommunicationDemo extends React.Component {
     window.addEventListener("message", callback, false);
   }
 
+  passMessage = () => {
+
+  };
 
   render() {
     return (
       <div>
         <h1> {"Iframe <=> React"} </h1>
-        <iframe src="loaded.html" id="ifa"/>
+        <button onClick={this.passMessage}>{"Pass msg to <iframe>"}</button>
+        <p/>
+        <iframe src="loaded.html" ref={el => this.webview = el}/>
       </div>
     );
   }
