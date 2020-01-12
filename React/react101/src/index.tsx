@@ -4,6 +4,7 @@ import "./index.css";
 import { createStore, Store, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
+import { IFrameCommunicationDemo } from "./biz/iframe/IFrameCommunicationDemo";
 import { DefaultPropsDemo2 } from "./Rtutor/simple/DefaultPropsDemo2";
 
 import { waitAnotherActionSaga } from "./three_party/saga/wait/SagaWait";
@@ -33,7 +34,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <ToastDemo/>
+      <IFrameCommunicationDemo/>
     </Provider>
   );
 };
