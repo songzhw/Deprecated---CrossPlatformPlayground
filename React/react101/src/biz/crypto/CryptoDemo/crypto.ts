@@ -137,13 +137,10 @@ export function base64ToUint8Array(base64: string) {
 // =================
 
 export function decryptDRMedBase64(userId: string, deviceId: string, rawKey: string, encryptedBase64: string) {
-  console.log(`enc src1 = `, userId);
-  console.log(`enc src2 = `, deviceId);
-  console.log(`enc src3 = `, rawKey);
-  console.log(`enc src4 = `, encryptedBase64);
   const realKey = _getRealKey(userId, deviceId, rawKey);
   // @ts-ignore
   const decrypted = AES.decrypt(encryptedBase64, realKey, { mode: ECB, padding: Pkcs7 });
+  console.log(`szw : `, decrypted)
   return decrypted.toString(Utf8);
 }
 
