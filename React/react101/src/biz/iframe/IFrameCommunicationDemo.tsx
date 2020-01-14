@@ -1,4 +1,5 @@
 import React from "react";
+import "./webview.css"
 
 export class IFrameCommunicationDemo extends React.Component {
   state = {};
@@ -24,11 +25,11 @@ export class IFrameCommunicationDemo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="parent">
         <h1> {"Iframe <=> React"} </h1>
         <button onClick={this.passMessage}>{"Pass msg to <iframe>"}</button>
         <p/>
-        <iframe src="loaded.html" ref={el => this.webview = el}/>
+        <iframe src="loaded.html" ref={el => this.webview = el} className="webview" frameBorder={0}/>
       </div>
     );
   }
