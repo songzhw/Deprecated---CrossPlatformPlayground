@@ -20,10 +20,19 @@
       window.addEventListener("message", onMessage, false);
 
     </script>
+
+    <style type="text/css">
+        .parent {
+            display: flex;
+            flex-direction: column;
+            width: 900px;
+            height: 900px;
+        }
+    </style>
 </head>
 
 <body>
-<div style="display:flex; flex-direction: column; height: 500px; width: 300px;">
+<div class="parent">
     <h1>page loaded by iframe</h1>
     <button id="btn2">send out message</button>
     <p id="p3"></p>
