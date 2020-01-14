@@ -23,7 +23,7 @@ const Header = () => {
       <NavLink to="/file" className="headerLink" activeClassName="activeHeaderLink"> en/de_file </NavLink>
       <NavLink to="/decryptf" className="headerLink" activeClassName="activeHeaderLink"> ADRMS </NavLink>
       <NavLink to="/decrypt2" className="headerLink" activeClassName="activeHeaderLink"> SjDRMB </NavLink>
-      <NavLink to="/decrypt3" className="headerLink" activeClassName="activeHeaderLink"> RtmDRMB </NavLink>
+      <NavLink to="/decrypt3" className="headerLink" activeClassName="activeHeaderLink"> DRM解密图片 </NavLink>
     </div>
   );
 };

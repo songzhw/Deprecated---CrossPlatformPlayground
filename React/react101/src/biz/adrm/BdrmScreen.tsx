@@ -200,8 +200,8 @@ export const BdrmsScreen: React.FC = () => {
     <div>
       <p>{info}</p>
       <button onClick={onClickDownload} style={{ fontSize: 16, marginLeft: 5 }}> download book</button>
-      <button onClick={onClickReadPackage} style={{ fontSize: 16, marginLeft: 5 }}>read zip</button>
-      <button onClick={onClickDesp} style={{ fontSize: 16, marginLeft: 5 }}>description</button>
+      <button onClick={onClickReadPackage} style={{ fontSize: 16, marginLeft: 5 }}>{"ops/9781451648553.opf"}</button>
+      <button onClick={onClickDesp} style={{ fontSize: 16, marginLeft: 5 }}>ops/xhtml/des.html</button>
       <button onClick={onClickImage} style={{ fontSize: 16, marginLeft: 5 }}>image</button>
       <p/>
       <img src={image} alt="desp.jpg"/>
