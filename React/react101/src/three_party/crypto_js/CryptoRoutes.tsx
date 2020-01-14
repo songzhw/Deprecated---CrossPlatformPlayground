@@ -10,7 +10,7 @@ import { AdrmsScreen } from "../../biz/adrm/AdrmsScreen";
 import { AesOutputScreen } from "./AesOutputScreen";
 import { EncryptFileScreen } from "./EncryptFileScreen";
 import { BdrmsScreen } from "../../biz/adrm/BdrmScreen";
-import { CdrmsScreen } from "../../biz/adrm/CdrmScreen";
+import { DrmImageScreen } from "../../biz/adrm/CdrmScreen";
 
 const Header = () => {
   return (
@@ -44,7 +44,7 @@ export const CryptoRouter = () => {
         <Route path="/cross" component={CrossScreen}/>
         <Route path="/decryptf" component={AdrmsScreen}/>
         <Route path="/decrypt2" component={BdrmsScreen}/>
-        <Route path="/decrypt3" component={CdrmsScreen}/>
+        <Route path="/decrypt3" component={DrmImageScreen}/>
       </Switch>
     </BrowserRouter>
   );

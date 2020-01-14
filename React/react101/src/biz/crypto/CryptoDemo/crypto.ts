@@ -140,7 +140,6 @@ export function decryptDRMedBase64(userId: string, deviceId: string, rawKey: str
   const realKey = _getRealKey(userId, deviceId, rawKey);
   // @ts-ignore
   const decrypted = AES.decrypt(encryptedBase64, realKey, { mode: ECB, padding: Pkcs7 });
-  console.log(`szw : `, decrypted)
   return decrypted.toString(Utf8);
 }
 

@@ -36,7 +36,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <CryptoDemo/>
+      <CryptoRouter/>
     </Provider>
   );
 };
