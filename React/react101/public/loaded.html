@@ -16,15 +16,17 @@
       function onMessage(event) {
         console.log("szw loaded.html got: ", event.data);
       }
+
       window.addEventListener("message", onMessage, false);
 
     </script>
 </head>
 
-<body style="border: 10px solid #333">
+<body style="display:flex; flex-direction: column; height: 100%">
 <h1>page loaded by iframe</h1>
 <button id="btn2">send out message</button>
 <p id="p3"></p>
+<a href="./index.html">index</a>
 </body>
 
 </html>
