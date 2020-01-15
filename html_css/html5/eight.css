@@ -44,13 +44,13 @@ div#tableRow {
   display: table-row;
 }
 
-#drinks{
+section#drinks{
   display:table-cell;
   background:       #efe5d0;
   padding: 15px;
 }
 
-#main {
+section#main {
   display: table-cell;
   background:       #efe5d0 url(../images/background.gif) top left;
   font-size:        105%;
