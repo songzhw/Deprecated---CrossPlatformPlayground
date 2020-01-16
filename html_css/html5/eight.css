@@ -113,4 +113,14 @@ ul li {
   padding: 5px 10px 5px 10px;
 }
 
+ul li a:link, ul li a:visited {
+  color: #954b4b;
+  border-bottom: none;
+  font-weight: bold;
+}
+
+ul li.selected {
+  background-color: #c8b99c;
+}
+
 /*margin: top right bottom left */
