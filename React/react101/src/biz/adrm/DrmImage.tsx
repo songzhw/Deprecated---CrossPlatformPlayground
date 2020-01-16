@@ -22,7 +22,6 @@ export const DrmImageScreen: React.FC = () => {
   const [info, setInfo] = useState("-----");
   const [db, setDb] = useState<IDBDatabase>();
   const [image, setImage] = useState("");
-  const [chapter, setChapter] = useState("");
 
   useEffect(() => {
     const openRequest = indexedDB.open("demo01", 2);
@@ -111,54 +110,14 @@ export const DrmImageScreen: React.FC = () => {
     }
   }
 
-  function onClickText() {
-    const sha256 = SHA256(d2id + u2id);
-    // @ts-ignore
-    const bytes = wordArrayToByteArray(sha256);
-    const start = bytes.length - 16;
-    const k1 = [];
-    for (let x = start; x < bytes.length; x++) {
-      k1[x - start] = bytes[x];
-    }
-    const rawKey = byteArrayToWordArray(k1);
-    // @ts-ignore
-    const mykey = AES.decrypt(i2id, rawKey, { mode: ECB, padding: CryptoJS.pad.NoPadding });
-
-    if (db) {
-      const transaction = db.transaction(BOOK2, "readwrite");
-      const objectStore = transaction.objectStore(BOOK2);
-      const request = objectStore.get(1);
-      request.onerror = err => console.dir(err);
-      request.onsuccess = (ev: Event) => {
-        const ebook = (ev.target as IDBRequest).result;
-        JSZip.loadAsync(ebook)
-          .then(zip => {
-            return zip.file("chapter01.html")
-              .async("base64");
-            // .async("uint8array");
-          })
-          .then(tmp => {
-            // @ts-ignore
-            let result = AES.decrypt(tmp, mykey, { mode: ECB, padding: Pkcs7 });
-            result = result.toString(Utf8) as string;
-            // @ts-ignore
-            setChapter(result);
-          });
-
-      };
-    }
-  }
-
   return (
     <div>
       <p>{info}</p>
       <button onClick={onClickDownload} style={{ fontSize: 18, marginLeft: 5 }}> download book</button>
       <button onClick={onClickImage} style={{ fontSize: 18, marginLeft: 20 }}>image</button>
-      <button onClick={onClickText}>text</button>
       <p/>
-      <img src={image} alt="desp.jpg" style={{ width: 340, height: 380 }}/>
+      <img src={image} alt="desp.jpg" style={{width: 340, height: 380}}/>
       <p/>
-      <p>{chapter}</p>
     </div>
   );
 };

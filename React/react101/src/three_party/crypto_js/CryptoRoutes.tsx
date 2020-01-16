@@ -10,7 +10,7 @@ import { AdrmsScreen } from "../../biz/adrm/AdrmsScreen";
 import { AesOutputScreen } from "./AesOutputScreen";
 import { EncryptFileScreen } from "./EncryptFileScreen";
 import { BdrmsScreen } from "../../biz/adrm/BdrmScreen";
-import { DrmImageScreen } from "../../biz/adrm/CdrmScreen";
+import { DrmImageScreen } from "../../biz/adrm/DrmImage";
 
 const Header = () => {
   return (
