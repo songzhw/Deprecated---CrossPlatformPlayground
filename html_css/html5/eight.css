@@ -16,7 +16,7 @@ body {
   margin:           0px;
 }
 
-#header {
+header {
   background-color: #675c47;
   margin:           10px 10px 0px 10px;
   height:           108px;
@@ -44,13 +44,13 @@ div#tableRow {
   display: table-row;
 }
 
-#drinks{
+section#drinks{
   display:table-cell;
   background:       #efe5d0;
   padding: 15px;
 }
 
-#main {
+section#main {
   display: table-cell;
   background:       #efe5d0 url(../images/background.gif) top left;
   font-size:        105%;
@@ -58,7 +58,7 @@ div#tableRow {
   vertical-align: top;
 }
 
-#sidebar {
+aside {
   display: table-cell;
   background:       #efe5d0 url(../images/background.gif) bottom right;
   font-size:        105%;
@@ -66,7 +66,7 @@ div#tableRow {
   vertical-align: top;
 }
 
-#footer {
+footer {
   background-color: #675c47;
   color:            #efe5d0;
   text-align:       center;
