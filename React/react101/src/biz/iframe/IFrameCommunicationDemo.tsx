@@ -1,5 +1,5 @@
 import React from "react";
-import "./webview.css"
+import "./webview.css";
 
 export class IFrameCommunicationDemo extends React.Component {
   state = {};
@@ -29,9 +29,9 @@ export class IFrameCommunicationDemo extends React.Component {
         <h1> {"Iframe <=> React"} </h1>
         <button onClick={this.passMessage}>{"Pass msg to <iframe>"}</button>
         <p/>
-        <iframe src="loaded.html" style="height: 200"/>
+        <iframe src="loaded.html" style={{ height: 200 }}/>
         <p/>
-        <iframe src="loaded.html" ref={el => this.webview = el} className="webview" frameBorder={1}/>
+        <iframe src="loaded2.html" ref={el => this.webview = el} className="webview" frameBorder={1}/>
       </div>
     );
   }
