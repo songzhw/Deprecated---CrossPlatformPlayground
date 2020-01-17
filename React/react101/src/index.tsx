@@ -26,6 +26,8 @@ import SagaChannelAsyncDemo from "./three_party/saga/channel_async/SagaChannelAs
 import { ChannelAsync_Saga } from "./three_party/saga/channel_async/ChannelAsync_Saga";
 import { PreToastDemo } from "./biz/toast/split/PreToastView";
 import { ToastDemo } from "./biz/toast/ToastDemo";
+import { CryptoDemo } from "./biz/crypto/CryptoDemo/CryptoDemo";
+import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
 
 const sagaMiddleware = createSagaMiddleware();
 const store: Store = createStore(SagaWaitReducer, applyMiddleware(sagaMiddleware));
@@ -34,7 +36,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <IFrameCommunicationDemo/>
+      <CryptoDemo/>
     </Provider>
   );
 };

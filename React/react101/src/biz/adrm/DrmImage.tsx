@@ -18,7 +18,7 @@ import {
 import { d2id, i2id, i2name, u2id } from "./id_rtm";
 
 const BOOK2 = "book2";
-export const CdrmsScreen: React.FC = () => {
+export const DrmImageScreen: React.FC = () => {
   const [info, setInfo] = useState("-----");
   const [db, setDb] = useState<IDBDatabase>();
   const [image, setImage] = useState("");

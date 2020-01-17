@@ -10,7 +10,7 @@ import { AdrmsScreen } from "../../biz/adrm/AdrmsScreen";
 import { AesOutputScreen } from "./AesOutputScreen";
 import { EncryptFileScreen } from "./EncryptFileScreen";
 import { BdrmsScreen } from "../../biz/adrm/BdrmScreen";
-import { CdrmsScreen } from "../../biz/adrm/CdrmScreen";
+import { DrmImageScreen } from "../../biz/adrm/DrmImage";
 
 const Header = () => {
   return (
@@ -23,7 +23,7 @@ const Header = () => {
       <NavLink to="/file" className="headerLink" activeClassName="activeHeaderLink"> en/de_file </NavLink>
       <NavLink to="/decryptf" className="headerLink" activeClassName="activeHeaderLink"> ADRMS </NavLink>
       <NavLink to="/decrypt2" className="headerLink" activeClassName="activeHeaderLink"> SjDRMB </NavLink>
-      <NavLink to="/decrypt3" className="headerLink" activeClassName="activeHeaderLink"> RtmDRMB </NavLink>
+      <NavLink to="/decrypt3" className="headerLink" activeClassName="activeHeaderLink"> DRM解密图片 </NavLink>
     </div>
   );
 };
@@ -44,7 +44,7 @@ export const CryptoRouter = () => {
         <Route path="/cross" component={CrossScreen}/>
         <Route path="/decryptf" component={AdrmsScreen}/>
         <Route path="/decrypt2" component={BdrmsScreen}/>
-        <Route path="/decrypt3" component={CdrmsScreen}/>
+        <Route path="/decrypt3" component={DrmImageScreen}/>
       </Switch>
     </BrowserRouter>
   );
