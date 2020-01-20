@@ -22,8 +22,8 @@ export const DropZoneDemo = (props: IProps) => {
 
   return (
     <div>
-      <p>drop files here</p>
-      <div {...getRootProps({})} style={{ backgroundColor: "red" }}>
+      <h5>drop files here</h5>
+      <div {...getRootProps({})}>
         <input {...getInputProps()}/>
         {dropHere}
       </div>
