@@ -1,0 +1,7 @@
+p:first-letter {
+  font-size: 4em;
+}
+
+h1+p {
+  font-style: italic;
+}
