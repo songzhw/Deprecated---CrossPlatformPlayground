@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Base64 from "crypto-js/enc-base64";
 import Utf8 from "crypto-js/enc-utf8";
-import SHA256 from "crypto-js/sha256";
-import AES from "crypto-js/aes";
 
 interface IProps {
 
@@ -40,7 +38,7 @@ export const Base64Screen = (props: IProps) => {
 
   function encode() {
     const src = Utf8.parse("01234567");
-    const ret : string = Base64.stringify(src);
+    const ret: string = Base64.stringify(src);
     setResult(ret);
   }
 

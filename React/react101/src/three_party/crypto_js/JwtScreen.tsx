@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Base64 from "crypto-js/enc-base64";
 import Utf8 from "crypto-js/enc-utf8";
-import SHA256 from "crypto-js/sha256";
-import AES from "crypto-js/aes";
 import HmacSHA256 from "crypto-js/hmac-sha256";
 
 interface IProps {

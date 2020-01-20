@@ -1,16 +1,11 @@
-import React, { useState } from "react";
-import { BrowserRouter, NavLink, Redirect, Route, RouteComponentProps, Switch } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, NavLink, Redirect, Route, Switch } from "react-router-dom";
 import "./Crypto.css";
 import { Base64Screen } from "./Base64Screen";
 import { CryptoScreen } from "./CryptoScreen";
 import { JwtScreen } from "./JwtScreen";
 import { AesScreen } from "./AesScreen";
-import { CrossScreen } from "./CrossScreen";
-import { AdrmsScreen } from "../../biz/adrm/AdrmsScreen";
 import { AesOutputScreen } from "./AesOutputScreen";
-import { EncryptFileScreen } from "./EncryptFileScreen";
-import { BdrmsScreen } from "../../biz/adrm/BdrmScreen";
-import { DrmImageScreen } from "../../biz/adrm/DrmImage";
 
 const Header = () => {
   return (
@@ -19,11 +14,6 @@ const Header = () => {
       <NavLink to="/jwt" className="headerLink" activeClassName="activeHeaderLink"> jwt </NavLink>
       <NavLink to="/aes" className="headerLink" activeClassName="activeHeaderLink"> AES </NavLink>
       <NavLink to="/aes2" className="headerLink" activeClassName="activeHeaderLink"> AES Output</NavLink>
-      <NavLink to="/cross" className="headerLink" activeClassName="activeHeaderLink"> Cross-Platform </NavLink>
-      <NavLink to="/file" className="headerLink" activeClassName="activeHeaderLink"> en/de_file </NavLink>
-      <NavLink to="/decryptf" className="headerLink" activeClassName="activeHeaderLink"> ADRMS </NavLink>
-      <NavLink to="/decrypt2" className="headerLink" activeClassName="activeHeaderLink"> SjDRMB </NavLink>
-      <NavLink to="/decrypt3" className="headerLink" activeClassName="activeHeaderLink"> DRM解密图片 </NavLink>
     </div>
   );
 };
@@ -40,11 +30,6 @@ export const CryptoRouter = () => {
         <Route path="/jwt" component={JwtScreen}/>
         <Route path="/aes" component={AesScreen}/>
         <Route path="/aes2" component={AesOutputScreen}/>
-        <Route path="/file" component={EncryptFileScreen}/>
-        <Route path="/cross" component={CrossScreen}/>
-        <Route path="/decryptf" component={AdrmsScreen}/>
-        <Route path="/decrypt2" component={BdrmsScreen}/>
-        <Route path="/decrypt3" component={DrmImageScreen}/>
       </Switch>
     </BrowserRouter>
   );
