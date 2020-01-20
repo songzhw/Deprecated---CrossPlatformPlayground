@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Loaded by Iframe</title>
+    <script>
+      function sendMessage() {
+        window.parent.postMessage("loaded2.html sent a msg", "*");
+      }
+    </script>
+
+</head>
+
+<body>
+<div class="parent">
+    <h1>page loaded by iframe</h1>
+    <a href="javascript:void(0)" onclick="sendMessage()">index</a>
+</div>
+</body>
+
+</html>
