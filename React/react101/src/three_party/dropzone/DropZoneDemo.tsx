@@ -4,8 +4,9 @@ import { DropEvent, useDropzone } from "react-dropzone";
 export const DropZoneDemo = () => {
 
   const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: File[], event: DropEvent) => {
-    const reader = new FileReader();
     acceptedFiles.forEach(file => {
+      // put the `reader` here, so we could read multiple files at the same time
+      const reader = new FileReader();
       reader.onload = () => {
         const text = reader.result as string;
         console.log(`szw content = ${text}`);
