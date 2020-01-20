@@ -16,15 +16,12 @@ export const DropZoneDemo = (props: IProps) => {
       reader.readAsText(file);
     });
   }, []);
-  const { getRootProps, getInputProps } = useDropzone({ onDrop });
-
+  const value = useDropzone({ onDrop });
+  console.log(`szw `, value)
 
   return (
     <div>
       <p>drop files here</p>
-      <div {...getRootProps()} style={{backgroundColor: "red"}}>
-        <input {...getInputProps()}/>
-      </div>
     </div>
   );
 };
