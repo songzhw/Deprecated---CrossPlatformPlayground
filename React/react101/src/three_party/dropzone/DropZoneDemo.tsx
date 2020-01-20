@@ -16,12 +16,19 @@ export const DropZoneDemo = (props: IProps) => {
       reader.readAsText(file);
     });
   }, []);
-  const value = useDropzone({ onDrop });
-  console.log(`szw `, value)
+  const value = useDropzone({
+    onDrop,
+    accept: "text/*,application/epub+zip"
+  });
+  console.log(`szw v = `, value)
+  const { getRootProps, getInputProps, isDragActive } = value
 
   return (
     <div>
       <p>drop files here</p>
+      <div {...getRootProps()} style={{backgroundColor: "red"}}>
+        <input {...getInputProps()}/>
+      </div>
     </div>
   );
 };
