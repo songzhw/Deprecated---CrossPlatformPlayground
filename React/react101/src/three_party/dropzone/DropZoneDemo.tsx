@@ -1,10 +1,7 @@
 import React, { useCallback } from "react";
 import { DropEvent, useDropzone } from "react-dropzone";
 
-interface IProps {
-}
-
-export const DropZoneDemo = (props: IProps) => {
+export const DropZoneDemo = () => {
 
   const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: File[], event: DropEvent) => {
     const reader = new FileReader();
