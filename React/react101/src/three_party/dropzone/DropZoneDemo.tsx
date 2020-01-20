@@ -6,10 +6,10 @@ interface IProps {
 
 export const DropZoneDemo = (props: IProps) => {
 
-  const onDropFile = useCallback((acceptedFiles: File[], rejectedFiles: File[], event: DropEvent) => {
+  const onDrop = useCallback((acceptedFiles: File[], rejectedFiles: File[], event: DropEvent) => {
 
   }, []);
-  const { getRootProps, getInputProps } = useDropzone({ onDropFile });
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
 
   return (

@@ -28,6 +28,7 @@ import { PreToastDemo } from "./biz/toast/split/PreToastView";
 import { ToastDemo } from "./biz/toast/ToastDemo";
 import { CryptoDemo } from "./biz/crypto/CryptoDemo/CryptoDemo";
 import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
+import { DropZoneDemo } from "./three_party/dropzone/DropZoneDemo";
 
 const sagaMiddleware = createSagaMiddleware();
 const store: Store = createStore(SagaWaitReducer, applyMiddleware(sagaMiddleware));
@@ -36,7 +37,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <CryptoDemo/>
+      <DropZoneDemo/>
     </Provider>
   );
 };
