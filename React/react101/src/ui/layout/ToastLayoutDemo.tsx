@@ -6,10 +6,21 @@ export class ToastLayoutDemo extends React.Component {
   render() {
     return (
       <div className="toastContainer">
-        {"one"}
-        {"second"}
-        {"three"}
+        <ToastLayoutItem/>
+        <ToastLayoutItem/>
+        <ToastLayoutItem/>
       </div>
     );
+  }
+}
+
+// tslint:disable-next-line:max-classes-per-file
+class ToastLayoutItem extends React.Component {
+  render() {
+    return (
+      <div>
+        {"one"}
+      </div>
+    )
   }
 }
