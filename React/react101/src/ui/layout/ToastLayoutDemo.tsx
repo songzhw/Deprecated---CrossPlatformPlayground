@@ -1,5 +1,8 @@
 import React from "react";
 
+/*
+ css - display: default value might be `block` or `inline`
+ */
 export class ToastLayoutDemo extends React.Component {
   state = { queue: ["one", "two", "three"] };
 
@@ -13,6 +16,7 @@ export class ToastLayoutDemo extends React.Component {
     );
   }
 }
+
 
 
 /*
