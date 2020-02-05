@@ -8,6 +8,12 @@ export class NodeTreeDemo extends React.Component {
   onClick1 = () => {
     if(!this.root){ return; }
     console.log(`szw children = `, this.root.childNodes.length); //=> 7
+
+    const length = this.root.childNodes.length;
+    for(let index = 0; index < length; index++){
+      const child = this.root.childNodes[index];
+      console.log("szw ", child)
+    }
   };
 
   render() {
