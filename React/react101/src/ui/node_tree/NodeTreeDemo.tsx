@@ -7,19 +7,29 @@ export class NodeTreeDemo extends React.Component {
 
   onClick1 = () => {
     if(!this.root){ return; }
+    console.log(`szw body = `, this.root.getBoundingClientRect());
     console.log(`szw children = `, this.root.childNodes.length); //=> 7
 
     const length = this.root.childNodes.length;
     for (let index = 0; index < length; index++) {
       const child = this.root.childNodes[index] as Element; // ChildNode类型没有getBoundingClientRect()方法
-      console.log("szw ", child.getBoundingClientRect(), child);
+      if (this.isNodeInRoot(child.getBoundingClientRect(), this.root.getBoundingClientRect())) {
+        console.log(`szw ${index} is in: `, child);
+      }
     }
   };
+
+  isNodeInRoot = (nodeRect: ClientRect, rootRect: ClientRect) => {
+    return nodeRect.left < rootRect.right
+      && nodeRect.right > rootRect.left
+      && nodeRect.bottom > rootRect.top
+      && nodeRect.top < rootRect.bottom;
+  };
+
 
   render() {
     return (
       <div>
-        <p>看看root中的位置是不是以(0, 0)起来? </p>
         <div ref={el => this.root = el}>
           <button onClick={this.onClick1}>action 1</button>
           <p className="text">EPUB is an e-book file format that uses the ".epub" file extension. The term is short for electronic publication and is sometimes styled ePub. EPUB is supported by many e-readers, and compatible software is available for most smartphones, tablets, and computers. EPUB is a technical standard published by the International Digital Publishing Forum (IDPF). It became an official standard of the IDPF in September 2007, superseding the older Open eBook standard.[2]</p>
