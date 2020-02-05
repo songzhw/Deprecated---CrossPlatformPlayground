@@ -1,5 +1,5 @@
 import React from "react";
-import "../UiDemos.css"
+import "../UiDemos.css";
 
 export class NodeTreeDemo extends React.Component {
   state = {};
@@ -10,9 +10,8 @@ export class NodeTreeDemo extends React.Component {
     console.log(`szw children = `, this.root.childNodes.length); //=> 7
 
     const length = this.root.childNodes.length;
-    for(let index = 0; index < length; index++){
-      const child = this.root.childNodes[index];
-      // @ts-ignore
+    for (let index = 0; index < length; index++) {
+      const child = this.root.childNodes[index] as Element; // ChildNode类型没有getBoundingClientRect()方法
       console.log("szw ", child.getBoundingClientRect(), child);
     }
   };
