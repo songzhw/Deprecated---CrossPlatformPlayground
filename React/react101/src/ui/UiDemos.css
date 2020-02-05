@@ -1,0 +1,12 @@
+body {
+  font-size: large;
+}
+
+h2 {
+  font-size: 160%;
+}
+
+.text {
+  font-size: 120%;
+  line-height: 40px;
+}
