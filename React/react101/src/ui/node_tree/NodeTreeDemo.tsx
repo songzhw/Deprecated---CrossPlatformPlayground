@@ -28,6 +28,9 @@ export class NodeTreeDemo extends React.Component {
           {/*hello comment*/}
           <button onClick={this.onClick1}>same action</button>
           <h2>History</h2>
+          <div>
+            <p>inner text</p>
+          </div>
           <p className="text">A successor to the Open eBook Publication Structure, EPUB 2.0 was approved in October 2007,[5] with a maintenance update (2.0.1) approved in September 2010.[6]</p>
           <p className="text"> The EPUB 3.0 specification became effective in October 2011, superseded by a minor maintenance update (3.0.1) in June 2014.[7] New major features include support for precise layout or specialized formatting (Fixed Layout Documents), such as for comic books,[8] and MathML support. The current version of EPUB is 3.1, effective January 5, 2017.[9] The (text of) format specification underwent reorganization[10] and clean-up; format supports remotely-hosted resources and new font formats (WOFF 2.0 and SFNT)[11] and uses more pure HTML and CSS.[12]</p>
           <p className="text">  In May 2016 IDPF Members approved World Wide Web Consortium (W3C) merger,[13] "to fully align the publishing industry and core Web technology".[14]</p>
