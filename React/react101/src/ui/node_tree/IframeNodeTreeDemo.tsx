@@ -10,16 +10,17 @@ export class IframeNodeTreeDemo extends React.Component {
     if (!this.webview) { return; }
     if(!this.webview.contentDocument){ return; }
     const body = this.webview.contentDocument.querySelector("body");
-    const item = this.findFirstVisibleItem(body as Element);
+    const item = this.findFirstVisibleItem(body as Element, this.webview);
     console.log(`fistVisible = `, item);
   };
 
-  findFirstVisibleItem = (parent: Element) => {
+  // parent应该是iframe加载的body元素; 但client应该是iframe本身. (要也是body, 那body极长, firstVisibleItem就总是第一个子元素了)
+  findFirstVisibleItem = (parent: Element, client: Element) => {
     const length = parent.childNodes.length;
+    const parentLayout = getLayout(client);
     for (let index = 0; index < length; index++) {
       const child = parent.childNodes[index] as Element; // ChildNode类型没有getBoundingClientRect()方法
       const childLayout = getLayout(child);
-      const parentLayout = getLayout(child);
       if(!childLayout || !parentLayout) { continue; }
       if (this.isNodeInRoot(childLayout, parentLayout)) {
         console.log(`szw ${index} is in: `, child);
