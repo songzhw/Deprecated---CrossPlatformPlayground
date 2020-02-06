@@ -18,9 +18,10 @@ export class IframeNodeTreeDemo extends React.Component {
     const length = parent.childNodes.length;
     for (let index = 0; index < length; index++) {
       const child = parent.childNodes[index] as Element; // ChildNode类型没有getBoundingClientRect()方法
+      console.log(`szw child = `, child);
       if (this.isNodeInRoot(child.getBoundingClientRect(), parent.getBoundingClientRect())) {
         console.log(`szw ${index} is in: `, child);
-        break;
+        return child;
       }
     }
   };
