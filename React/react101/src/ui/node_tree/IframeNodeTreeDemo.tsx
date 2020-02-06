@@ -8,7 +8,7 @@ export class IframeNodeTreeDemo extends React.Component {
   render() {
     return (
       <div className="webViewContainer">
-        <iframe ref={el => this.webview = el} src="loaded.html" className="webview"/>
+        <iframe ref={el => this.webview = el} src="longText.html" className="webview"/>
       </div>
     );
   }
