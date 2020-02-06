@@ -10,7 +10,7 @@ export class IframeNodeTreeDemo extends React.Component {
     if (!this.webview) { return; }
     if(!this.webview.contentDocument){ return; }
     const body = this.webview.contentDocument.querySelector("body");
-    const item = this.findFirstVisibleItem(this.webview.contentDocument.documentElement);
+    const item = this.findFirstVisibleItem(body as Element);
     console.log(`fistVisible = `, item);
   };
 
