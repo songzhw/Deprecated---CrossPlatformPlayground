@@ -30,6 +30,7 @@ import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
 import { DropZoneDemo } from "./three_party/dropzone/DropZoneDemo";
 import { ToastLayoutDemo } from "./ui/layout/ToastLayoutDemo";
 import { NodeTreeDemo } from "./ui/node_tree/NodeTreeDemo";
+import { IframeNodeTreeDemo } from "./ui/node_tree/IframeNodeTreeDemo";
 
 const sagaMiddleware = createSagaMiddleware();
 const store: Store = createStore(SagaWaitReducer, applyMiddleware(sagaMiddleware));
@@ -38,7 +39,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <NodeTreeDemo/>
+      <IframeNodeTreeDemo/>
     </Provider>
   );
 };
