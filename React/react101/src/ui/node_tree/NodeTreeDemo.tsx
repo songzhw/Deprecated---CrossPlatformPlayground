@@ -15,6 +15,7 @@ export class NodeTreeDemo extends React.Component {
       const child = this.root.childNodes[index] as Element; // ChildNode类型没有getBoundingClientRect()方法
       if (this.isNodeInRoot(child.getBoundingClientRect(), this.root.getBoundingClientRect())) {
         console.log(`szw ${index} is in: `, child);
+        break;
       }
     }
   };
@@ -22,7 +23,7 @@ export class NodeTreeDemo extends React.Component {
   isNodeInRoot = (nodeRect: ClientRect, rootRect: ClientRect) => {
     return nodeRect.left < rootRect.right
       && nodeRect.right > rootRect.left
-      && nodeRect.bottom > rootRect.top
+      && nodeRect.bottom > 0
       && nodeRect.top < rootRect.bottom;
   };
 
