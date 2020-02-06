@@ -6,11 +6,10 @@ export class IframeNodeTreeDemo extends React.Component {
   webview: HTMLIFrameElement | null = null;
 
   onClick = () => {
-    if (!this.webview) {
-      return;
-    }
+    if (!this.webview) { return; }
     console.log(`iframe size = `, this.webview.getBoundingClientRect());
-    const item = this.findFirstVisibleItem(this.webview);
+    if(!this.webview.contentDocument){ return; }
+    const item = this.findFirstVisibleItem(this.webview.contentDocument.documentElement);
     console.log(`fistVisible = `, item);
   };
 
