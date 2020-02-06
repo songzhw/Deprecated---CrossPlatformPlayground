@@ -19,7 +19,7 @@ export class IframeNodeTreeDemo extends React.Component {
       const child = parent.childNodes[index] as Element; // ChildNode类型没有getBoundingClientRect()方法
       const childLayout = getLayout(child);
       const parentLayout = getLayout(child);
-      if(!childLayout || !parentLayout) { return; }
+      if(!childLayout || !parentLayout) { continue; }
       if (this.isNodeInRoot(childLayout, parentLayout)) {
         console.log(`szw ${index} is in: `, child);
         return child;
