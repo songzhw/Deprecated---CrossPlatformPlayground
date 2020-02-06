@@ -1,5 +1,6 @@
 import React from "react";
 import "../UiDemos.css";
+import { getLayout } from "../../utils/UiUtils";
 
 export class IframeNodeTreeDemo extends React.Component {
   state = {};
@@ -7,7 +8,6 @@ export class IframeNodeTreeDemo extends React.Component {
 
   onClick = () => {
     if (!this.webview) { return; }
-    console.log(`iframe size = `, this.webview.getBoundingClientRect());
     if(!this.webview.contentDocument){ return; }
     const item = this.findFirstVisibleItem(this.webview.contentDocument.documentElement);
     console.log(`fistVisible = `, item);
@@ -17,8 +17,10 @@ export class IframeNodeTreeDemo extends React.Component {
     const length = parent.childNodes.length;
     for (let index = 0; index < length; index++) {
       const child = parent.childNodes[index] as Element; // ChildNode类型没有getBoundingClientRect()方法
-      console.log(`szw child = `, child);
-      if (this.isNodeInRoot(child.getBoundingClientRect(), parent.getBoundingClientRect())) {
+      const childLayout = getLayout(child);
+      const parentLayout = getLayout(child);
+      if(!childLayout || !parentLayout) { return; }
+      if (this.isNodeInRoot(childLayout, parentLayout)) {
         console.log(`szw ${index} is in: `, child);
         return child;
       }
