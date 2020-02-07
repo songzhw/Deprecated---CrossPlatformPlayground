@@ -13,7 +13,7 @@ export class IframeNodeTreeDemo extends React.Component {
     // const item = this.findFirstVisibleItem(body as Element, this.webview);
     // console.log(`fistVisible = `, item);
 
-    const h4 = this.webview.contentDocument.querySelector("h4");
+    const h4 = this.webview.contentDocument.querySelector("p");
     if(!body || !h4) {return;}
     h4.scrollIntoView()
   };
