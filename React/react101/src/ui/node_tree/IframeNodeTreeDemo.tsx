@@ -18,14 +18,11 @@ export class IframeNodeTreeDemo extends React.Component {
   findFirstVisibleItem = (parent: Element, client: Element) => {
     const length = parent.childNodes.length;
     const parentLayout = getLayout(client);
-    console.log(`==== parent = `, parentLayout)
     for (let index = 0; index < length; index++) {
       const child = parent.childNodes[index] as Element; // ChildNode类型没有getBoundingClientRect()方法
       const childLayout = getLayout(child);
-      console.log(`szw child`, child, "\n rect = ", childLayout)
       if(!childLayout || !parentLayout) { continue; }
       if (this.isNodeInRoot(childLayout, parentLayout)) {
-        console.log(`szw ${index} is in: `, child);
         return child;
       }
     }
