@@ -10,8 +10,12 @@ export class IframeNodeTreeDemo extends React.Component {
     if (!this.webview) { return; }
     if(!this.webview.contentDocument){ return; }
     const body = this.webview.contentDocument.querySelector("body");
-    const item = this.findFirstVisibleItem(body as Element, this.webview);
-    console.log(`fistVisible = `, item);
+    // const item = this.findFirstVisibleItem(body as Element, this.webview);
+    // console.log(`fistVisible = `, item);
+
+    const h4 = this.webview.contentDocument.querySelector("h4");
+    if(!body || !h4) {return;}
+    h4.scrollIntoView()
   };
 
   // parent应该是iframe加载的body元素; 但client应该是iframe本身. (要也是body, 那body极长, firstVisibleItem就总是第一个子元素了)
