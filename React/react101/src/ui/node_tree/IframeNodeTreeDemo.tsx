@@ -20,8 +20,9 @@ export class IframeNodeTreeDemo extends React.Component {
     if (!this.webview) { return; }
     if(!this.webview.contentDocument){ return; }
 
-    // @ts-ignore
-    this.webview.contentDocumen.scrollTo(0, 500);
+    const body = this.webview.contentDocument.querySelector("body");
+    if(!body) {return}
+    body.scrollTo(0, 480);
 
     /*
     const p = this.webview.contentDocument.querySelector("h4");
