@@ -24,13 +24,18 @@ export const FlatListDemo = (props: IProps) => {
     return <View style={styles.divider}/>;
   }
 
+  function renderEmptyView() {
+    return <Text> No Data At All </Text>
+  }
+
   return (
     <View>
       <FlatList
-        data={data}
+        keyExtractor={(item, index) => index + "" + item.id}
+        data={[]}
         renderItem={renderRow}
         ItemSeparatorComponent={renderDivider}
-        keyExtractor={(item, index) => index + "" + item.id}
+        ListEmptyComponent={renderEmptyView}
       />
     </View>
   );
