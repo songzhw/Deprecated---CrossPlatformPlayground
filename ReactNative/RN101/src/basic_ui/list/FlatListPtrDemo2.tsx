@@ -24,7 +24,8 @@ export const FlatListPtrDemo2 = (props: IProps) => {
   }
 
   function onRefreshList() {
-    console.log(`szw refresh`);
+    setIsRefreshing(true);
+    setTimeout(() => setIsRefreshing(false), 3000);
   }
 
   function renderRefreshControl() {
@@ -32,6 +33,8 @@ export const FlatListPtrDemo2 = (props: IProps) => {
       <RefreshControl
         refreshing={isRefreshing}
         onRefresh={onRefreshList}
+        colors={["#ff0000", "#00ff00", "#0000ff"]}
+        progressBackgroundColor={"#000"}
       />);
   }
 
