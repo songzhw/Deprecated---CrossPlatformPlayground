@@ -42,6 +42,7 @@ export const FlatListDemo = (props: IProps) => {
         keyExtractor={(item, index) => index + "" + item.id}
         data={data}
         renderItem={renderRow}
+        numColumns={2}
         ItemSeparatorComponent={renderDivider}
         ListEmptyComponent={renderEmptyView}
         ListHeaderComponent={renderHeader}
