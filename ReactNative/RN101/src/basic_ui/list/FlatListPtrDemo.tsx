@@ -23,6 +23,10 @@ export const FlatListPtrDemo = (props: IProps) => {
     return <View style={styles.divider}/>;
   }
 
+  function onRefreshList(){
+    console.log(`szw refresh`)
+  }
+
   return (
     <View>
       <FlatList
@@ -30,6 +34,8 @@ export const FlatListPtrDemo = (props: IProps) => {
         data={data}
         renderItem={renderRow}
         ItemSeparatorComponent={renderDivider}
+        refreshing={isRefreshing}
+        onRefresh={onRefreshList}
       />
     </View>
   );
