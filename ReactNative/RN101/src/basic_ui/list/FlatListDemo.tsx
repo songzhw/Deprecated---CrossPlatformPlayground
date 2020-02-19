@@ -25,14 +25,14 @@ export const FlatListDemo = (props: IProps) => {
   }
 
   function renderEmptyView() {
-    return <Text> No Data At All </Text>
+    return <Text> No Data At All </Text>;
   }
 
   return (
     <View>
       <FlatList
         keyExtractor={(item, index) => index + "" + item.id}
-        data={[]}
+        data={data}
         renderItem={renderRow}
         ItemSeparatorComponent={renderDivider}
         ListEmptyComponent={renderEmptyView}
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   container: {},
   divider: {
     //不写width就是divider全屏
-    height:1,
+    height: 1,
     backgroundColor: "black"
   }
 });
