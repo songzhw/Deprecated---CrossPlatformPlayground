@@ -27,10 +27,6 @@ export const FlatListPtrDemo = (props: IProps) => {
     console.log(`szw refresh`);
   }
 
-  function renderRefreshControl() {
-    return <Text style={{ backgroundColor: "#ccc" }}> Ad Ad here </Text>;
-  }
-
   return (
     <View>
       <FlatList
@@ -40,7 +36,6 @@ export const FlatListPtrDemo = (props: IProps) => {
         ItemSeparatorComponent={renderDivider}
         refreshing={isRefreshing}
         onRefresh={onRefreshList}
-        refreshControl={renderRefreshControl}
       />
     </View>
   );

@@ -41,7 +41,7 @@ export const FlatListPtrDemo2 = (props: IProps) => {
         keyExtractor={(item, index) => index + "" + item.id}
         data={data}
         renderItem={renderRow}
-        ItemSeparatorComponent={renderDivider()}
+        ItemSeparatorComponent={renderDivider}
         refreshControl={renderRefreshControl()}
       />
     </View>
