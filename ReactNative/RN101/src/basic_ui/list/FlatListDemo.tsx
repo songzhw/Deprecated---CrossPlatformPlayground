@@ -28,6 +28,14 @@ export const FlatListDemo = (props: IProps) => {
     return <Text> No Data At All </Text>;
   }
 
+  function renderHeader() {
+    return <Text style={{backgroundColor:'#ccc'}}> Ad Ad here </Text>;
+  }
+
+  function renderFooter() {
+    return <Text style={{backgroundColor:'#c3a4ba'}} > want to know more? </Text>;
+  }
+
   return (
     <View>
       <FlatList
@@ -36,6 +44,8 @@ export const FlatListDemo = (props: IProps) => {
         renderItem={renderRow}
         ItemSeparatorComponent={renderDivider}
         ListEmptyComponent={renderEmptyView}
+        ListHeaderComponent={renderHeader}
+        ListFooterComponent={renderFooter}
       />
     </View>
   );
