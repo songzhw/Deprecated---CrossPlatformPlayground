@@ -23,8 +23,12 @@ export const FlatListPtrDemo = (props: IProps) => {
     return <View style={styles.divider}/>;
   }
 
-  function onRefreshList(){
-    console.log(`szw refresh`)
+  function onRefreshList() {
+    console.log(`szw refresh`);
+  }
+
+  function renderRefreshControl() {
+    return <Text style={{ backgroundColor: "#ccc" }}> Ad Ad here </Text>;
   }
 
   return (
@@ -36,6 +40,7 @@ export const FlatListPtrDemo = (props: IProps) => {
         ItemSeparatorComponent={renderDivider}
         refreshing={isRefreshing}
         onRefresh={onRefreshList}
+        refreshControl={renderRefreshControl}
       />
     </View>
   );
