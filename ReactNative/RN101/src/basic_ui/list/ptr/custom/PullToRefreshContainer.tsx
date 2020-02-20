@@ -24,7 +24,5 @@ export class PullToRefreshContainer extends React.Component<IPros> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "grey"
   }
 });
