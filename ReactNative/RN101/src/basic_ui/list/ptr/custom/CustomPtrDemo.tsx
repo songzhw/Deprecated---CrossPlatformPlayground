@@ -12,9 +12,8 @@ export const CustomPtrDemo = (props: IProps) => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <PullToRefreshContainer
-        style={styles.container}
         headerComponent={renderHeader}
       />
     </View>

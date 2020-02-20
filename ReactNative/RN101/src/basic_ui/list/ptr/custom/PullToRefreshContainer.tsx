@@ -1,5 +1,5 @@
 import React, { ComponentType } from "react";
-import { StyleSheet, View, ViewProps } from "react-native";
+import { StyleSheet, View, ViewProps, Animated } from "react-native";
 import { MyFlatList } from "./MyFlatList";
 
 interface IPros extends ViewProps{
@@ -13,9 +13,7 @@ export class PullToRefreshContainer extends React.Component<IPros> {
     const Header = this.props.headerComponent;
     return (
       <View style={styles.container}>
-        {/*<Animated.View style={{ position: "absolute", top: -7, height: 30, backgroundColor: "blue" }}>*/}
-        {/*  <Header/>*/}
-        {/*</Animated.View>*/}
+        <Header/>
         <MyFlatList/>
       </View>
     );
