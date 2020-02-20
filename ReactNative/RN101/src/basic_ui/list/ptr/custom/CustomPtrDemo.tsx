@@ -8,7 +8,7 @@ interface IProps extends ViewProps {
 export const CustomPtrDemo = (props: IProps) => {
 
   function renderHeader() {
-    return <Text style={styles.header}>Header Header</Text>;
+    return <Text>Header Header</Text>;
   }
 
   return (
@@ -23,8 +23,4 @@ export const CustomPtrDemo = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {},
-  header: {
-    height: 30,
-    backgroundColor: "blue"
-  }
 });

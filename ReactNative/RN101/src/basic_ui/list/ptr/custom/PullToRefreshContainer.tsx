@@ -13,9 +13,6 @@ export class PullToRefreshContainer extends React.Component<IPros> {
     const Header = this.props.headerComponent;
     return (
       <View style={styles.container}>
-        <Animated.View style={{position:'absolute', top: -7}}>
-          <Header/>
-        </Animated.View>
         <MyFlatList/>
       </View>
     );
@@ -23,7 +20,7 @@ export class PullToRefreshContainer extends React.Component<IPros> {
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1
+  container: {
+    flex: 1
   }
 });
