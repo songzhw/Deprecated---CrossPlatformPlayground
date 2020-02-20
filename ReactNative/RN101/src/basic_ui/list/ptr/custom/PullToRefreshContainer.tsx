@@ -1,5 +1,5 @@
 import React, { ComponentType } from "react";
-import { Animated, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { MyFlatList } from "./MyFlatList";
 
 interface IPros {
@@ -25,6 +25,6 @@ export class PullToRefreshContainer extends React.Component<IPros> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column"
+    backgroundColor: "grey"
   }
 });
