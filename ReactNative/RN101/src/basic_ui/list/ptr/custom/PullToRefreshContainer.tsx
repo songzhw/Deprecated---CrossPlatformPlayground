@@ -9,9 +9,10 @@ export class PullToRefreshContainer extends React.Component<IPros> {
   state = {};
 
   render() {
+    const Header = this.props.headerComponent;
     return (
       <View>
-        {this.props.headerComponent}
+        <Header/>
       </View>
     );
   }
