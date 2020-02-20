@@ -16,7 +16,7 @@ export const FlexLayoutDemo1 = (props: IProps) => {
 
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: 'grey'},
+  container: { backgroundColor: "grey", justifyContent: "flex-end", alignItems: "center", height: 250},
   redBox: { width: 50, height: 50, backgroundColor: "red" },
   blueBox: { width: 90, height: 90, backgroundColor: "blue" }
 });
