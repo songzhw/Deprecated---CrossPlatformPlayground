@@ -14,6 +14,7 @@ export const CustomPtrDemo = (props: IProps) => {
   return (
     <View>
       <PullToRefreshContainer
+        style={styles.container}
         headerComponent={renderHeader}
       />
     </View>
@@ -22,5 +23,5 @@ export const CustomPtrDemo = (props: IProps) => {
 
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { flex: 1, backgroundColor: 'red' }
 });

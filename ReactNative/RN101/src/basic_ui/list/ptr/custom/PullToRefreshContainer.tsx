@@ -1,8 +1,8 @@
 import React, { ComponentType } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ViewProps } from "react-native";
 import { MyFlatList } from "./MyFlatList";
 
-interface IPros {
+interface IPros extends ViewProps{
   headerComponent: ComponentType
 }
 
