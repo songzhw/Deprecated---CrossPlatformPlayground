@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { FlatList, ListRenderItemInfo, StyleSheet, Text, View, ViewProps } from "react-native";
-import { Tea } from "./ListPojo";
+import { FlatList, ListRenderItemInfo, RefreshControl, StyleSheet, Text, View, ViewProps } from "react-native";
+import { Tea } from "../ListPojo";
 
 interface IProps extends ViewProps {
 }
 
-export const FlatListPtrDemo = (props: IProps) => {
+export const FlatListPtrDemo2 = (props: IProps) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [data, setData] = useState<Tea[]>([{ id: 100, name: "乌龙" }, { id: 101, name: "龙井" },
     { id: 102, name: "魁龙珠" }, { id: 103, name: "猴魁" }, { id: 104, name: "毛尖" }]);
@@ -24,7 +24,18 @@ export const FlatListPtrDemo = (props: IProps) => {
   }
 
   function onRefreshList() {
-    console.log(`szw refresh`);
+    setIsRefreshing(true);
+    setTimeout(() => setIsRefreshing(false), 3000);
+  }
+
+  function renderRefreshControl() {
+    return (
+      <RefreshControl
+        refreshing={isRefreshing}
+        onRefresh={onRefreshList}
+        colors={["#ff0000", "#00ff00", "#0000ff"]}
+        progressBackgroundColor={"#000"}
+      />);
   }
 
   return (
@@ -34,8 +45,7 @@ export const FlatListPtrDemo = (props: IProps) => {
         data={data}
         renderItem={renderRow}
         ItemSeparatorComponent={renderDivider}
-        refreshing={isRefreshing}
-        onRefresh={onRefreshList}
+        refreshControl={renderRefreshControl()}
       />
     </View>
   );
