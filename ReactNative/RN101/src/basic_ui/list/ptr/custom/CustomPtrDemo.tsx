@@ -1,15 +1,21 @@
 import React from "react";
-import { StyleSheet, View, ViewProps } from "react-native";
-import { MyFlatList } from "./MyFlatList";
+import { StyleSheet, Text, View, ViewProps } from "react-native";
+import { PullToRefreshContainer } from "./PullToRefreshContainer";
 
 interface IProps extends ViewProps {
 }
 
 export const CustomPtrDemo = (props: IProps) => {
 
+  function renderHeader() {
+    return <Text>Header Header</Text>;
+  }
+
   return (
     <View>
-      <MyFlatList/>
+      <PullToRefreshContainer
+        headerComponent={renderHeader}
+      />
     </View>
   );
 };
