@@ -1,5 +1,5 @@
 import React, { ComponentType } from "react";
-import { StyleSheet, View } from "react-native";
+import { Animated, StyleSheet, View } from "react-native";
 
 interface IPros {
   headerComponent: ComponentType
@@ -12,7 +12,9 @@ export class PullToRefreshContainer extends React.Component<IPros> {
     const Header = this.props.headerComponent;
     return (
       <View>
-        <Header/>
+        <Animated.View style={{position:'absolute', top: -10}}>
+          <Header/>
+        </Animated.View>
       </View>
     );
   }
