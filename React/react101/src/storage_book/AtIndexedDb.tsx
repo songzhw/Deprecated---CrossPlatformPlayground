@@ -10,6 +10,7 @@ export const AtIndexedDB = () => {
   const [title, setTitle] = useState("(none))");
   const [id, setId] = useState<string>("");
 
+  // 备注: indexedDB可以在Android 4.4+和iOS8 +上运行。 (iOS8已经开始支持indexedDB了)
   function isIdbOK() {
     return "indexedDB" in window &&
       !/iPad|iPhone|iPod/.test(navigator.platform);
@@ -96,11 +97,9 @@ export const AtIndexedDB = () => {
       const objectStore = transaction.objectStore(DEV);
       const request: IDBRequest = objectStore.openCursor();
       request.onsuccess = (ev: Event) => { // 类似while循环
-        console.log(`start`);
         const cursor = (ev.target as IDBRequest).result;
         if (cursor) {
           let buf = cursor.key;
-          console.log(`key = `, cursor.key);
           for (let field in cursor.value) {
             buf += " " + cursor.value[field];
           }
