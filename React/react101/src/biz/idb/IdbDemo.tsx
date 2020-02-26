@@ -21,10 +21,19 @@ export class IdbDemo extends React.Component {
       .then(id => console.log(`the new id = ${id}`));
   };
 
+  // https://dexie.org/docs/Table/Table.get()
+  getData = () => {
+    // 注意, 这里只会 returns the first matching result !!
+    idb.table("todos")
+      .get({ title: "15:14" })
+      .then(data => console.log(`get: `, data));
+  };
+
   render() {
     return (
       <div>
         <button onClick={this.addData}>add</button>
+        <button onClick={this.getData}>get</button>
       </div>
     );
   }
