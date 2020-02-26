@@ -155,6 +155,7 @@ export const AtIndexedDB = () => {
     }
 
     const openRequest = indexedDB.open("demo01", 1);
+    // 第一次打开db, 就得先建表. idb中的表就叫OjbectStore; 另外, 新建表是在onupgradeneeded()里
     openRequest.onupgradeneeded = (ev: Event) => {
       console.log("szw onUpgradeNeeded ");
       const _db = (ev.target as IDBOpenDBRequest).result;
