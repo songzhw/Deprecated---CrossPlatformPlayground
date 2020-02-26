@@ -21,30 +21,30 @@ export class BookmarkIdbDemo extends React.Component {
       .add(bookmarkEntry)
       .then(id => console.log(`the new id = ${id}`));
   };
-/*
+
   // https://dexie.org/docs/Table/Table.get()
   getData = () => {
     // 注意, 这里只会 returns the first matching result !!
     idb2.table("bookmarks")
-      .get({ title: "15:14" })
+      .get({ bookName: "六朝14" })
       .then(data => console.log(`get: `, data));
   };
 
-  // https://dexie.org/docs/Table/Table.update()
-  updateData = () => {
-    // update(id) need the primary key!
-    idb2.table("bookmarks")
-      .update(3, { isDone: true, title: "15:22" })
-      .then(isUpdated => console.log(`isUpdated = `, isUpdated));
-    // isUpdated的值:  1 if an object was updated, otherwise 0
-  };
-*/
+    // https://dexie.org/docs/Table/Table.update()
+    updateData = () => {
+      // update(id) need the primary key!
+      idb2.table("bookmarks")
+        .update("六朝14", { bookmark: "OPS/chap2.html||548.15:47" })
+        .then(isUpdated => console.log(`isUpdated = `, isUpdated));
+      // isUpdated的值:  1 if an object was updated, otherwise 0
+    };
+
   render() {
     return (
       <div>
         <button onClick={this.addData}>add</button>
-        {/*<button onClick={this.getData}>get</button>*/}
-        {/*<button onClick={this.updateData}>update</button>*/}
+        <button onClick={this.getData}>get</button>
+        <button onClick={this.updateData}>update</button>
       </div>
     );
   }
