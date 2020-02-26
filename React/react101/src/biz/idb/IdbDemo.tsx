@@ -29,11 +29,21 @@ export class IdbDemo extends React.Component {
       .then(data => console.log(`get: `, data));
   };
 
+  // https://dexie.org/docs/Table/Table.update()
+  updateData = () => {
+    // update(id) need the primary key!
+    idb.table("todos")
+      .update(3, { isDone: true, title: "15:22" })
+      .then(isUpdated => console.log(`isUpdated = `, isUpdated));
+    // isUpdated的值:  1 if an object was updated, otherwise 0
+  };
+
   render() {
     return (
       <div>
         <button onClick={this.addData}>add</button>
         <button onClick={this.getData}>get</button>
+        <button onClick={this.updateData}>update</button>
       </div>
     );
   }
