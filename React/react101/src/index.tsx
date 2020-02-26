@@ -32,6 +32,7 @@ import { ToastLayoutDemo } from "./ui/layout/ToastLayoutDemo";
 import { NodeTreeDemo } from "./ui/node_tree/NodeTreeDemo";
 import { IframeNodeTreeDemo } from "./ui/node_tree/IframeNodeTreeDemo";
 import { IdbDemo } from "./biz/idb/IdbDemo";
+import { BookmarkIdbDemo } from "./biz/idb/BookmarkIdbDemo";
 
 const sagaMiddleware = createSagaMiddleware();
 const store: Store = createStore(SagaWaitReducer, applyMiddleware(sagaMiddleware));
@@ -40,7 +41,7 @@ sagaMiddleware.run(ChannelAsync_Saga);
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <IdbDemo/>
+      <BookmarkIdbDemo/>
     </Provider>
   );
 };
