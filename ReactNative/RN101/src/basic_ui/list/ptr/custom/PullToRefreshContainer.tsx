@@ -8,14 +8,22 @@ interface IPros extends ViewProps {
 }
 
 export class PullToRefreshContainer extends React.Component<IPros> {
-  state = {};
+  state = { containerTop: 0 };
+
+  headerStyle = {
+    position: "absolute",
+    left: 0,
+    width: "100%",
+    top: -this.props.headerHeight,
+    transform: [{ translateY: this.state.containerTop }]
+  };
 
   render() {
     const Header = this.props.headerComponent;
     const headHeight = this.props.headerHeight;
     return (
       <View style={styles.container}>
-        <Animated.View style={{ position: "absolute", top: -headHeight, height: 30, backgroundColor: "blue" }}>
+        <Animated.View style={this.headerStyle}>
           <Header/>
         </Animated.View>
         <MyFlatList/>
@@ -27,3 +35,9 @@ export class PullToRefreshContainer extends React.Component<IPros> {
 const styles = StyleSheet.create({
   container: {}
 });
+
+
+/*
+1.  FlatList 的当前下拉位置，这可以通过 FlatList 的 onScroll 属性来获取当前 FlatList 的滚动距离。
+2.
+ */
