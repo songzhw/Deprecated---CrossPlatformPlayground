@@ -26,7 +26,9 @@ export class PullToRefreshContainer extends React.Component<IPros> {
         <Animated.View style={this.headerStyle}>
           <Header/>
         </Animated.View>
-        <MyFlatList/>
+        <Animated.View style={{ flex: 1, transform: [{ translateY: this.state.containerTop }] }}>
+          <MyFlatList/>
+        </Animated.View>
       </View>
     );
   }
