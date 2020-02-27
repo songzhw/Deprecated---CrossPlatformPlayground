@@ -8,14 +8,14 @@ interface IPros extends ViewProps {
 }
 
 export class PullToRefreshContainer extends React.Component<IPros> {
-  state = { containerTop: 0 };
+  state = { pullDown: new Animated.Value(0) };
 
   headerStyle = {
     position: "absolute",
     left: 0,
     width: "100%",
     top: -this.props.headerHeight,
-    transform: [{ translateY: this.state.containerTop }]
+    transform: [{ translateY: this.state.pullDown }]
   };
 
   render() {
@@ -26,7 +26,7 @@ export class PullToRefreshContainer extends React.Component<IPros> {
         <Animated.View style={this.headerStyle}>
           <Header/>
         </Animated.View>
-        <Animated.View style={{ flex: 1, transform: [{ translateY: this.state.containerTop }] }}>
+        <Animated.View style={{ flex: 1, transform: [{ translateY: this.state.pullDown }] }}>
           <MyFlatList/>
         </Animated.View>
       </View>
