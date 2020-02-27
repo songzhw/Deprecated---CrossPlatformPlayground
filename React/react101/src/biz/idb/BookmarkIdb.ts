@@ -6,4 +6,7 @@ export const idb2 = new Dexie("books");
 idb2.version(1).stores({
   bookmarks: "bookName"
 });
+// idb2.version(2).stores({
+//   // ...
+// })
 // 这个bookName就是主键!
