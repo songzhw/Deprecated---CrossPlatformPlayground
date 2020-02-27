@@ -30,14 +30,29 @@ export class BookmarkIdbDemo extends React.Component {
       .then(data => console.log(`get: `, data));
   };
 
-    // https://dexie.org/docs/Table/Table.update()
-    updateData = () => {
-      // update(id) need the primary key!
-      idb2.table("bookmarks")
-        .update("六朝14", { bookmark: "OPS/chap2.html||548.15:47" })
-        .then(isUpdated => console.log(`isUpdated = `, isUpdated));
-      // isUpdated的值:  1 if an object was updated, otherwise 0
-    };
+  // https://dexie.org/docs/Table/Table.update()
+  updateData = () => {
+    // update(id) need the primary key!
+    idb2.table("bookmarks")
+      .update("六朝14", { bookmark: "OPS/chap2.html||548.15:47" })
+      .then(isUpdated => console.log(`isUpdated = `, isUpdated));
+    // isUpdated的值:  1 if an object was updated, otherwise 0
+  };
+
+  addOrUpdate = async () => {
+    const bookName = "六朝14";
+    const bookmark = "OPES/chapter32.html||20";
+
+    const table = idb2.table("bookmarks");
+    const data = await table.get(bookName);
+    if (data) {
+      table.update(bookName, { bookmark });
+    } else {
+      // add data
+      const entry = { bookName, bookmark };
+      table.add(entry);
+    }
+  };
 
   render() {
     return (
@@ -45,6 +60,7 @@ export class BookmarkIdbDemo extends React.Component {
         <button onClick={this.addData}>add</button>
         <button onClick={this.getData}>get</button>
         <button onClick={this.updateData}>update</button>
+        <button onClick={this.addOrUpdate}>add/update</button>
       </div>
     );
   }
