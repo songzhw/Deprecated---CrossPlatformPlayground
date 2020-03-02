@@ -64,7 +64,7 @@ export class PullToRefreshContainer extends React.Component<IPros> {
   render() {
     const Header = this.props.headerComponent;
     return (
-      <View style={styles.container}>
+      <View style={styles.container} {...this.panResponder.panHandlers}>
         <Animated.View style={this.headerStyle}>
           <Header/>
         </Animated.View>
