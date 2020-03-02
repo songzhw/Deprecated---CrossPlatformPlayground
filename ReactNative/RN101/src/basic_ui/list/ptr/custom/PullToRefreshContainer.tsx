@@ -20,7 +20,6 @@ export class PullToRefreshContainer extends React.Component<IPros> {
 
   render() {
     const Header = this.props.headerComponent;
-    const headHeight = this.props.headerHeight;
     return (
       <View style={styles.container}>
         <Animated.View style={this.headerStyle}>
@@ -40,6 +39,7 @@ const styles = StyleSheet.create({
 
 
 /*
-1.  FlatList 的当前下拉位置，这可以通过 FlatList 的 onScroll 属性来获取当前 FlatList 的滚动距离。
-2.
+1. FlatList 的当前下拉位置，这可以通过 FlatList 的 onScroll 属性来获取当前 FlatList 的滚动距离。
+2. 动画中的this.state.pullDown应该是一个Animated.Value(), 这样才好做动画
+3.
  */
