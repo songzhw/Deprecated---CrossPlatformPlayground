@@ -1,0 +1,9 @@
+{
+  "name": "demo0",
+  "version": "0.0.1",
+  "description": "webpack demo 0",
+  "main": "index.html",
+  "author": "songzhw2012",
+  "license": "Apache",
+  "private": false
+}
