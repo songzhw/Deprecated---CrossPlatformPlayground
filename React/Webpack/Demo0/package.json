@@ -6,8 +6,8 @@
   "license": "Apache",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "dev": "open http://localhost:8080 && webpack-dev-server --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "dev": "yarn run build && webpack-dev-server --open"
   },
   "devDependencies": {
     "css-loader": "^3.4.2",
