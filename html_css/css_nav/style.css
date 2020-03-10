@@ -18,19 +18,28 @@ body {
 
 main {
     /*em: 一个相对的单位, 相对于html根元素的font-size属性. 所以这里就是80px*/
-    margin-left: 5rem;
+    margin-left: 6rem;
     margin-right: 1rem;
 }
-
-
 
 /*scroll bar*/
 body::-webkit-scrollbar {
     width: 0.25rem;
 }
+
 body::-webkit-scrollbar-track {
     background: #1e1e24;
 }
+
 body::-webkit-scrollbar-thumb {
     background: #6649b8;
+}
+
+/* nav bar*/
+.navbar {
+    width: 5rem;
+    /*100vh: relative to the size of view port*/
+    height: 100vh;
+    position: fixed;
+    background-color: var(--bg-primary);
 }
