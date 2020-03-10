@@ -1,0 +1,22 @@
+/*:root是伪类, 匹配document的根元素*/
+:root {
+    font-size: 16px;
+    font-family: "JetBrains Mono", sans-serif;
+    /*CSS variables*/
+    --text-primary: #1e1e1e;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+}
+
+body {
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    /*em: 一个相对的单位, 相对于html根元素*/
+    margin-left: 5rem;
+}
