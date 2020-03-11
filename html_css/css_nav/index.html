@@ -47,8 +47,8 @@
         implementation "androidx.room:room-runtime:$room_version"
         kapt "androidx.room:room-compiler:$room_version"
         implementation "androidx.room:room-ktx:$room_version" // ktx + Coroutine
-        By the way, you can check here to see the release log of Room.
       </pre>
+      <p>By the way, you can check here to see the release log of Room.</p>
 
       <h2>Relation</h2>
       <p>multiple tables and there might be 1:1, 1:Many, Many:Many relation among these tables.      I would like to explain how to build a many to many relation using Room, as this is the hardest relation for us. Say I have a recipe database, which has two tables: "ingredient" and "recipe". The relation between ingredient and recipe, of course, are many to many. Here is how we retrieve data from Database</p>
@@ -111,3 +111,4 @@
     </main>
   </body>
 </html>
+

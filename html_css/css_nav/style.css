@@ -9,6 +9,7 @@
     --bg-secondary: #141418;
 }
 
+/*不加这个就会body有个自动的margin, 效果就差了*/
 body {
     color: black;
     background-color: white;
@@ -44,3 +45,14 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     background-color: var(--bg-primary);
 }
+
+.navbar-nav {
+    /*no bullet at the left for <li>*/
+    list-style: none;
+    /*<li> has large margin/padding by default. After these change, icons are align to the left*/
+    padding: 0;
+    margin: 0;
+}
+
+
+
