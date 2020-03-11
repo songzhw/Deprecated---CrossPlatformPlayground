@@ -48,6 +48,19 @@
         .createFromAsset("database/recipe.app")
         .build()
       </pre>
+
+      <h1>search text</h1>
+      <p>We would type Select name from cuisine where name like '%egg%' to search data by a substring in a SQLite console. That's right. But things get a litte different in the ROOM. ROOM does not support the %% yet. So you have to do a text search by this</p>
+      <pre>
+        // DAO
+        @Query("select * from Cuisine where name like :keyword")
+            suspend fun getCuisinesBy(keyword: String): List<Cuisine>
+
+
+        // ViewModel
+        val arg = "%$keyword%"
+        val cuisines = dao.getCuisinesBy(arg)
+      </pre>
     </main>
   </body>
 </html>
