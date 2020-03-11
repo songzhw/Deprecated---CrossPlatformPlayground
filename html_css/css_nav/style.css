@@ -40,6 +40,7 @@ body::-webkit-scrollbar-thumb {
     width: 5rem;
     /*100vh: relative to the size of view port*/
     height: 100vh;
+    /*it will stay no matter how the user scroll the screen */
     position: fixed;
     background-color: var(--bg-primary);
 }
