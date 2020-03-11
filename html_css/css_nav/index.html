@@ -54,12 +54,29 @@
       <pre>
         // DAO
         @Query("select * from Cuisine where name like :keyword")
-            suspend fun getCuisinesBy(keyword: String): List<Cuisine>
-
+            suspend fun getCuisinesBy(keyword: String): List&lt;Cuisine&gt;
 
         // ViewModel
         val arg = "%$keyword%"
         val cuisines = dao.getCuisinesBy(arg)
+      </pre>
+
+
+      <h2>unit test</h2>
+      <p>One most important rule of unit test is "you can only fail one test because your logic is not working as you expected". That means, the connectivity of network/database, the multi-thread random issues should not be the reason to fail your test. The solution for that is isolation. Same for unit test against database code. We have to have a mock database to test, so tests don't fail just because the database connectivity.The wait to finish is another issue we have to deal with in the unit test. In the production, it's okay to wait the code to get the data from back-end or database. It's understandable. But when it comes to unit test, we need the unit test to run as fast as possible. (another import rule of unit test: fast!!!)</p>
+      <pre>
+            @Test
+            fun insertManyToManyRelation_queryingGetsResults() = runBlocking {
+                dao.insertCuisine(Cuisine("pizza", 1))
+                dao.insertIngredient(Ingredient("dough", 3, 1, ""))
+                dao.insertIngredient(Ingredient("chicken", 2, 0, ""))
+                dao.insertJoint(IngredientCuisine(1, 1))
+                dao.insertJoint(IngredientCuisine(2, 1))
+
+                val result = dao.cuisinesWithIngredients()
+                assertEquals(1, result.size)
+                assertEquals(2, result[0].ingredients.size)
+            }
       </pre>
     </main>
   </body>
