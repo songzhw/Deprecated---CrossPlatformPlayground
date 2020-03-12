@@ -68,8 +68,7 @@ body::-webkit-scrollbar-thumb {
 .nav-a {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 6rem;
+    height: 5rem;
     text-decoration: none;
     color: var(--text-primary)
 }
@@ -85,6 +84,12 @@ body::-webkit-scrollbar-thumb {
 
 .navbar:hover .link-text {
     display: block;
+}
+
+.nav-a svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
 }
 
 
