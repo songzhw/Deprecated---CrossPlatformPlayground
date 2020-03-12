@@ -52,6 +52,8 @@ body::-webkit-scrollbar-thumb {
     /*<li> has large margin/padding by default. After these change, icons are align to the left*/
     padding: 0;
     margin: 0;
+    height: 100%;
+    background-color: rebeccapurple;
 }
 
 .nav-li {
