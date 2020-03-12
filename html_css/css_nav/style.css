@@ -44,6 +44,7 @@ body::-webkit-scrollbar-thumb {
     /*it will stay no matter how the user scroll the screen */
     position: fixed;
     background-color: var(--bg-primary);
+    transition: width 200ms ease;
 }
 
 .nav-ul {
