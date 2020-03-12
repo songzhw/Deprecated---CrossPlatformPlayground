@@ -52,19 +52,25 @@ body::-webkit-scrollbar-thumb {
     /*<li> has large margin/padding by default. After these change, icons are align to the left*/
     padding: 0;
     margin: 0;
+    /*height:100% to take all the height in the navbar. Otherwise, it will just be wrap_content*/
     height: 100%;
-    background-color: rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .nav-li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 6rem;
+    width: 100%;
 }
 
-.navbar-ul:last-child {
+.nav-li:last-child {
     margin-top: auto;
+}
+
+.nav-a {
+    display: flex;
+    align-items: center;
+    height: 6rem;
 }
 
 
