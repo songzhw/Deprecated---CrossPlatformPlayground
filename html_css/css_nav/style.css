@@ -46,31 +46,24 @@ body::-webkit-scrollbar-thumb {
     background-color: var(--bg-primary);
 }
 
-.navbar-ul {
+.nav-ul {
     /*no bullet at the left for <li>*/
     list-style: none;
     /*<li> has large margin/padding by default. After these change, icons are align to the left*/
     padding: 0;
     margin: 0;
-    /*height:100% to take all the height in the navbar. Otherwise, it will just be wrap_content*/
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .nav-li {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
 }
 
 .nav-li:last-child {
     margin-top: auto;
-}
-
-.nav-a {
-    display: flex;
-    align-items: center;
-    height: 6rem;
 }
 
 
