@@ -74,12 +74,13 @@ body::-webkit-scrollbar-thumb {
     height: 5rem;
     text-decoration: none;
     color: var(--text-primary);
-    filter: blur(10px) opacity(0.7);
+    filter: grayscale(100%) opacity(0.7);
+    transition: var(--transition-speed)
 }
 
 .nav-a:hover {
     /* 回归本色 */
-    filter: blur(0) opacity(1);
+    filter: grayscale(0%) opacity(1);
     /* 选中时整行的背景不一样 */
     background: var(--bg-secondary);
     /* 选中的文字颜色也不一样 */
@@ -109,5 +110,12 @@ body::-webkit-scrollbar-thumb {
     fill: var(--selected-icon);
 }
 
+.logo-li {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 0.3ch;
+    width: 100%;
+}
 
 
