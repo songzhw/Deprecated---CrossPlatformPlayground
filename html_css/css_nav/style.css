@@ -7,6 +7,8 @@
     --text-secondary: #ececec;
     --bg-primary: #23232e;
     --bg-secondary: #141418;
+    --selected-icon: #ff7eee;
+    --transition-speed: 600ms;
 }
 
 /*不加这个就会body有个自动的margin, 效果就差了*/
@@ -94,7 +96,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .svg-path {
-    fill: #ff7eee
+    fill: var(--selected-icon);
 }
 
 
