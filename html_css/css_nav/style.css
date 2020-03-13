@@ -93,6 +93,13 @@ body::-webkit-scrollbar-thumb {
     margin: 0 1.5rem;
 }
 
+.svg-group {
+    color: #ff7eee
+}
+
+.svg-path {
+    color: #ff7eee
+}
 
 
 
