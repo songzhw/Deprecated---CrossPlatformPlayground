@@ -73,7 +73,17 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     height: 5rem;
     text-decoration: none;
-    color: var(--text-primary)
+    color: var(--text-primary);
+    filter: grayscale(100%) opacity(0.7);
+}
+
+.nav-a:hover {
+    /* 回归本色 */
+    filter: grayscale(0%) opacity(1);
+    /* 选中时整行的背景不一样 */
+    background: var(--bg-secondary);
+    /* 选中的文字颜色也不一样 */
+    color: var(--selected-icon);
 }
 
 .link-text {
