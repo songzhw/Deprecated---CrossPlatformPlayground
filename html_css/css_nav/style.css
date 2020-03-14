@@ -92,13 +92,7 @@ body::-webkit-scrollbar-thumb {
     margin-left: 1rem;
 }
 
-.navbar:hover {
-    width: 16rem;
-}
 
-.navbar:hover .link-text {
-    display: block;
-}
 
 .nav-a svg {
     width: 2rem;
@@ -136,7 +130,7 @@ body::-webkit-scrollbar-thumb {
         height: 5rem
     }
 
-    .logo {
+    .logo-li {
         display: none
     }
 
@@ -150,5 +144,17 @@ body::-webkit-scrollbar-thumb {
 
     main {
         margin: 0
+    }
+}
+
+/*================large Screens====================*/
+/*现在hover就变宽, 是只在大屏下. 小屏下只高亮icon, 没有文字. 所以要移动一部分到large屏来*/
+@media only screen and (min-width: 600px) {
+    .navbar:hover {
+        width: 16rem;
+    }
+
+    .navbar:hover .link-text {
+        display: block;
     }
 }
