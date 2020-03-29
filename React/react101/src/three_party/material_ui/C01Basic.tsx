@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { BottomNavigation, BottomNavigationAction, Menu, MenuItem } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import BookmarksIcon from "@material-ui/icons/Bookmarks";
 import "./mu.css";
 
 interface IProps {
@@ -39,6 +42,11 @@ export const C01Basic = (props: IProps) => {
     console.log(`szw value = ${newValue}`);
   };
 
+  const goBack = () => {
+    console.log(`szw go back`);
+  };
+
+
   return (
     <div className="c01">
       {/*variant有三种可选值: text(边框都没有), outlined(只有边框), container(实心)*/}
@@ -67,8 +75,10 @@ export const C01Basic = (props: IProps) => {
       </div>
 
       <BottomNavigation className="bottoms" onChange={selectBottomMenu}>
-        <BottomNavigationAction icon={<ArrowBackIcon/>} value="back"/>
-
+        <BottomNavigationAction icon={<ArrowBackIcon/>} value="back" onClick={goBack}/>
+        <BottomNavigationAction icon={<ArrowBackIosIcon/>} value="prev"/>
+        <BottomNavigationAction icon={<ArrowForwardIosIcon/>} value="next"/>
+        <BottomNavigationAction icon={<BookmarksIcon/>} value="bookmark"/>
       </BottomNavigation>
 
 
