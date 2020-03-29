@@ -1,0 +1,11 @@
+.c01 {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottoms {
+  position: absolute;
+  left: 0;
+  rigth: 0;
+  bottom: 0
+}
