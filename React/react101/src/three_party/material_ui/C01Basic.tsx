@@ -7,6 +7,14 @@ interface IProps {
 
 export const C01Basic = (props: IProps) => {
   const [anchor, setAnchor] = useState<HTMLElement | null>(null);
+  const [selected, setSelected] = useState(1);
+
+  const toc = [
+    "Talbe Of Content",
+    "Chapter 1. New House",
+    "Chapter 2. Memory",
+    "Chapter 3. Welcome Home"
+  ];
 
   const clickMe = () => {
     console.log(`szw click me`);
@@ -17,6 +25,11 @@ export const C01Basic = (props: IProps) => {
   };
 
   const closePopup = () => {
+    setAnchor(null);
+  };
+
+  const selectChapter = (event: React.MouseEvent<HTMLElement>, index: number) => {
+    setSelected(index);
     setAnchor(null);
   };
 
@@ -37,12 +50,13 @@ export const C01Basic = (props: IProps) => {
       {/*弹出菜单 -- 选择菜单(即弹出popover menu时, 是会记忆并突出显示上一次选的内容的*/}
       <Button variant="outlined" aria-controls="menu-toc" aria-haspopup="true" onClick={showPopup}>TOC</Button>
       <Menu id="menu-toc" anchorEl={anchor} open={anchor ? anchor.textContent === "TOC" : false} onClose={closePopup}>
-        <MenuItem onClick={closePopup}>Chapter1. Hello</MenuItem>
-        <MenuItem onClick={closePopup}>Chapter2. Headache</MenuItem>
-        <MenuItem onClick={closePopup}>Chapter3. New Home</MenuItem>
-      </Menu>
+        {toc.map((chap, index) => {
+          // tslint:disable-next-line:jsx-no-lambda no-unused-expression
+          <MenuItem key={chap}  disabled={index === 0} selected={index === selected} onClick={(event) => selectChapter(event, index)}> {chap} </MenuItem>
+        })}
+        </Menu>
 
-    </div>
-  );
-};
+        </div>
+        );
+        };
 
