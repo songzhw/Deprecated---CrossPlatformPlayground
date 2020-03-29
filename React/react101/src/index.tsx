@@ -1,3 +1,5 @@
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { green, purple } from "@material-ui/core/colors";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -14,10 +16,19 @@ const sagaMiddleware = createSagaMiddleware();
 const store: Store = createStore(SagaWaitReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(ChannelAsync_Saga);
 
+const theme = createMuiTheme({
+  palette: {
+    primary: purple,
+    secondary: green
+  }
+});
+
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <C01Basic/>
+      <ThemeProvider theme={theme}>
+        <C01Basic/>
+      </ThemeProvider>
     </Provider>
   )
     ;
