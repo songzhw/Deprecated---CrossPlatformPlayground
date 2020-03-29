@@ -1,3 +1,4 @@
+import { green, orange } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
 import { BottomNavigation, BottomNavigationAction, Menu, MenuItem } from "@material-ui/core";
@@ -47,12 +48,6 @@ export const C01Basic = (props: IProps) => {
     console.log(`szw go back`);
   };
 
-  const bottomStyle = makeStyles({
-    root: {
-      width: "100vh"
-    }
-  })();
-
   return (
     <div className="c01">
       {/*variant有三种可选值: text(边框都没有), outlined(只有边框), container(实心)*/}
@@ -74,17 +69,16 @@ export const C01Basic = (props: IProps) => {
         <Menu id="menu-toc" anchorEl={anchor} open={anchor ? anchor.textContent === "TOC" : false} onClose={closePopup}>
           {toc.map((chap, index) =>
             // tslint:disable-next-line:jsx-no-lambda no-unused-expression
-            <MenuItem key={chap} disabled={index === 0} selected={index === selected}
-                      onClick={(event) => selectChapter(event, index)}> {chap} </MenuItem>
+            <MenuItem key={chap} disabled={index === 0} selected={index === selected} onClick={(event) => selectChapter(event, index)}> {chap} </MenuItem>
           )}
         </Menu>
       </div>
 
-      <BottomNavigation className={bottomStyle.root} onChange={selectBottomMenu}>
-        <BottomNavigationAction icon={<ArrowBackIcon/>} value="back" onClick={goBack}/>
-        <BottomNavigationAction icon={<ArrowBackIosIcon/>} value="prev"/>
-        <BottomNavigationAction icon={<ArrowForwardIosIcon/>} value="next"/>
-        <BottomNavigationAction icon={<BookmarksIcon/>} value="bookmark"/>
+      <BottomNavigation className="bottoms" onChange={selectBottomMenu}>
+        <BottomNavigationAction icon={<ArrowBackIcon color="primary"/>} value="back" onClick={goBack}/>
+        <BottomNavigationAction icon={<ArrowBackIosIcon color="secondary"/>} value="prev"/>
+        <BottomNavigationAction icon={<ArrowForwardIosIcon color="disabled"/>} value="next"/>
+        <BottomNavigationAction icon={<BookmarksIcon style={{ color: orange[500] }}/>} value="bookmark"/>
       </BottomNavigation>
 
 

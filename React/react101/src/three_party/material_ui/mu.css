@@ -4,9 +4,10 @@
 }
 
 .bottoms {
-  background-color: #6c757d;
+  width:100%;
+  background: #2e7d32;
   position: absolute;
   left: 0;
-  rigth: 0;
+  right: 0;
   bottom: 0
 }
