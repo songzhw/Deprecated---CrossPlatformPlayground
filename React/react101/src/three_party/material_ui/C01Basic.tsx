@@ -34,7 +34,7 @@ export const C01Basic = (props: IProps) => {
       </Menu>
 
       {/*弹出菜单 -- 选择菜单(即弹出popover menu时, 是会记忆并突出显示上一次选的内容的*/}
-      <Button variant="text" aria-controls="menu-toc" aria-haspopup="true" onClick={showPopup}>TOC</Button>
+      <Button variant="outlined" aria-controls="menu-toc" aria-haspopup="true" onClick={showPopup}>TOC</Button>
       <Menu id="menu-toc" anchorEl={anchor} open={Boolean(anchor)} onClose={closePopup}>
         <MenuItem onClick={closePopup}>Chapter1. Hello</MenuItem>
         <MenuItem onClick={closePopup}>Chapter2. Headache</MenuItem>
