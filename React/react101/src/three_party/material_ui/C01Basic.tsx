@@ -26,6 +26,14 @@ export const C01Basic = (props: IProps) => {
       <Button variant="contained" color="primary" onClick={clickMe}>Click Me</Button>
 
       {/*弹出菜单. (我测试过, 下面Button的两个aria属性不加也没问题*/}
+      <Button variant="text" aria-controls="menu-nav" aria-haspopup="true" onClick={showPopup}>Navigation</Button>
+      <Menu id="menu-nav" anchorEl={anchor} open={Boolean(anchor)} onClose={closePopup}>
+        <MenuItem onClick={closePopup}>Settings</MenuItem>
+        <MenuItem onClick={closePopup}>Profile</MenuItem>
+        <MenuItem onClick={closePopup}>Home</MenuItem>
+      </Menu>
+
+      {/*弹出菜单 -- 选择菜单(即弹出popover menu时, 是会记忆并突出显示上一次选的内容的*/}
       <Button variant="text" aria-controls="menu-toc" aria-haspopup="true" onClick={showPopup}>TOC</Button>
       <Menu id="menu-toc" anchorEl={anchor} open={Boolean(anchor)} onClose={closePopup}>
         <MenuItem onClick={closePopup}>Chapter1. Hello</MenuItem>
