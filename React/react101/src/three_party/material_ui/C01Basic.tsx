@@ -1,3 +1,4 @@
+import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
 import { BottomNavigation, BottomNavigationAction, Menu, MenuItem } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
@@ -46,6 +47,11 @@ export const C01Basic = (props: IProps) => {
     console.log(`szw go back`);
   };
 
+  const bottomStyle = makeStyles({
+    root: {
+      width: "100vh"
+    }
+  })();
 
   return (
     <div className="c01">
@@ -74,7 +80,7 @@ export const C01Basic = (props: IProps) => {
         </Menu>
       </div>
 
-      <BottomNavigation className="bottoms" onChange={selectBottomMenu}>
+      <BottomNavigation className={bottomStyle.root} onChange={selectBottomMenu}>
         <BottomNavigationAction icon={<ArrowBackIcon/>} value="back" onClick={goBack}/>
         <BottomNavigationAction icon={<ArrowBackIosIcon/>} value="prev"/>
         <BottomNavigationAction icon={<ArrowForwardIosIcon/>} value="next"/>
