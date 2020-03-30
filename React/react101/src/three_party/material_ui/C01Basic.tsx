@@ -63,7 +63,7 @@ export const C01Basic = (props: IProps) => {
         <BottomNavigationAction icon={<ArrowBackIcon color="primary"/>} value="back" onClick={goBack}/>
         <BottomNavigationAction icon={<ArrowBackIosIcon color="secondary"/>} value="prev"/>
         <BottomNavigationAction icon={<ArrowForwardIosIcon color="disabled"/>} value="next"/>
-        <BottomNavigationAction icon={<BookmarksIcon style={{ color: orange[500] }}/>} value="bookmark" onClick={showPopup} >
+        <BottomNavigationAction icon={<BookmarksIcon style={{ color: orange[500] }}/>} value="bookmark" onClick={showPopup} aria-controls="menu-nav" aria-haspopup="true">
           <Menu id="menu-nav" anchorEl={anchor} open={Boolean(anchor)}
                 onClose={closePopup}>
             <MenuItem onClick={closePopup}>Settings</MenuItem>
