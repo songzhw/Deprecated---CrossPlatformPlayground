@@ -1,4 +1,4 @@
-import { green, orange } from "@material-ui/core/colors";
+import { blue, green, orange, red } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
 import { BottomNavigation, BottomNavigationAction, Menu, MenuItem } from "@material-ui/core";
@@ -7,6 +7,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import BookmarksIcon from "@material-ui/icons/Bookmarks";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
 import "./mu.css";
 
 interface IProps {
@@ -50,9 +51,12 @@ export const C01Basic = (props: IProps) => {
 
   return (
     <div className="c01">
-      {/*variant有三种可选值: text(边框都没有), outlined(只有边框), container(实心)*/}
-      <Button variant="contained" color="primary" onClick={clickMe}>Click Me</Button>
 
+      <div>
+        {/*variant有三种可选值: text(边框都没有), outlined(只有边框), container(实心)*/}
+        <Button variant="contained" color="primary" onClick={clickMe}>Click Me</Button>
+        <Button variant="contained" color="default" startIcon={<MenuBookIcon style={{ color: blue[500] }}/>}> open book </Button>
+      </div>
 
       <div>
         {/*弹出菜单. (我测试过, 下面Button的两个aria属性不加也没问题*/}
@@ -69,10 +73,12 @@ export const C01Basic = (props: IProps) => {
         <Menu id="menu-toc" anchorEl={anchor} open={anchor ? anchor.textContent === "TOC" : false} onClose={closePopup}>
           {toc.map((chap, index) =>
             // tslint:disable-next-line:jsx-no-lambda no-unused-expression
-            <MenuItem key={chap} disabled={index === 0} selected={index === selected} onClick={(event) => selectChapter(event, index)}> {chap} </MenuItem>
+            <MenuItem key={chap} disabled={index === 0} selected={index === selected}
+                      onClick={(event) => selectChapter(event, index)}> {chap} </MenuItem>
           )}
         </Menu>
       </div>
+
 
       <BottomNavigation className="bottoms" onChange={selectBottomMenu}>
         <BottomNavigationAction icon={<ArrowBackIcon color="primary"/>} value="back" onClick={goBack}/>
