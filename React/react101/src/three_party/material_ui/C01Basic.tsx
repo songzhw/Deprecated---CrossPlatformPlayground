@@ -1,13 +1,23 @@
 import { blue, green, orange, red } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
-import { BottomNavigation, BottomNavigationAction, Menu, MenuItem } from "@material-ui/core";
+import {
+  AppBar,
+  BottomNavigation,
+  BottomNavigationAction,
+  Dialog,
+  IconButton, List, ListItem, ListItemText,
+  Menu,
+  MenuItem,
+  Toolbar, Typography
+} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import BookmarksIcon from "@material-ui/icons/Bookmarks";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
+import CloseIcon from "@material-ui/icons/Close";
 import "./mu.css";
 
 interface IProps {
@@ -16,6 +26,7 @@ interface IProps {
 export const C01Basic = (props: IProps) => {
   const [anchor, setAnchor] = useState<HTMLElement | null>(null);
   const [selected, setSelected] = useState(1);
+  const [isOpenToc, setOpenToc] = useState(false);
 
   const toc = [
     "Talbe Of Content",
@@ -49,13 +60,18 @@ export const C01Basic = (props: IProps) => {
     console.log(`szw go back`);
   };
 
+  const toggleTocDialog = () => {
+    setOpenToc(!isOpenToc);
+  };
+
   return (
     <div className="c01">
 
       <div>
         {/*variant有三种可选值: text(边框都没有), outlined(只有边框), container(实心)*/}
         <Button variant="contained" color="primary" onClick={clickMe}>Click Me</Button>
-        <Button variant="contained" color="default" startIcon={<MenuBookIcon style={{ color: blue[500] }}/>}> open book </Button>
+        <Button variant="contained" color="default" startIcon={<MenuBookIcon style={{ color: blue[500] }}/>}> open
+          book </Button>
       </div>
 
       <div>
@@ -74,11 +90,36 @@ export const C01Basic = (props: IProps) => {
         <Menu id="menu-toc" anchorEl={anchor} open={anchor ? anchor.textContent === "TOC" : false} onClose={closePopup}>
           {toc.map((chap, index) =>
             // tslint:disable-next-line:jsx-no-lambda no-unused-expression
-            <MenuItem key={chap} disabled={index === 0} selected={index === selected} onClick={(event) => selectChapter(event, index)}> {chap} </MenuItem>
+            <MenuItem key={chap} disabled={index === 0} selected={index === selected}
+                      onClick={(event) => selectChapter(event, index)}> {chap} </MenuItem>
           )}
         </Menu>
       </div>
 
+      {/*全局的dialog*/}
+      <div>
+        <Button onClick={toggleTocDialog}>Chapters</Button>
+        <Dialog fullScreen={true} open={isOpenToc} onClose={toggleTocDialog}>
+          <AppBar>
+            <Toolbar>
+              <IconButton edge="start" color="inherit" onClick={toggleTocDialog}>
+                <CloseIcon/>
+              </IconButton>
+              <Typography variant="h6">Table of Content</Typography>
+            </Toolbar>
+          </AppBar>
+
+          <List>
+            {toc.map((chap, index) =>
+              // tslint:disable-next-line:jsx-no-lambda no-unused-expression
+              <ListItem key={`${chap}-${index}-dialog`} button={true}>
+                <ListItemText primary={chap}/>
+              </ListItem>
+            )}
+          </List>
+
+        </Dialog>
+      </div>
 
       <BottomNavigation className="bottoms" onChange={selectBottomMenu}>
         <BottomNavigationAction icon={<ArrowBackIcon color="primary"/>} value="back" onClick={goBack}/>
