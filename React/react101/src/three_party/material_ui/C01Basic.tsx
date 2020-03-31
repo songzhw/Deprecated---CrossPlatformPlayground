@@ -121,7 +121,7 @@ export const C01Basic = (props: IProps) => {
           <List>
             {toc.map((chap, index) =>
               // tslint:disable-next-line:jsx-no-lambda no-unused-expression
-              <ListItem key={`${chap}-${index}-dialog`} button={true}>
+              <ListItem key={`${chap}-${index}-dialog`} button={true} onClick={toggleTocDialog}>
                 <ListItemText primary={chap}/>
               </ListItem>
             )}
