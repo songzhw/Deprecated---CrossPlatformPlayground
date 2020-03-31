@@ -1,5 +1,6 @@
 import { blue, green, orange, red } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
+import { TransitionProps } from "@material-ui/core/transitions";
 import React, { useState } from "react";
 import {
   AppBar,
@@ -8,7 +9,7 @@ import {
   Dialog,
   IconButton, List, ListItem, ListItemText,
   Menu,
-  MenuItem,
+  MenuItem, Slide,
   Toolbar, Typography
 } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
@@ -22,6 +23,13 @@ import "./mu.css";
 
 interface IProps {
 }
+
+const TocTransition = React.forwardRef(function Transition(
+  props: TransitionProps & { children?: React.ReactElement },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props}/>;
+});
 
 export const C01Basic = (props: IProps) => {
   const [anchor, setAnchor] = useState<HTMLElement | null>(null);
@@ -64,6 +72,7 @@ export const C01Basic = (props: IProps) => {
     setOpenToc(!isOpenToc);
   };
 
+
   return (
     <div className="c01">
 
@@ -99,7 +108,7 @@ export const C01Basic = (props: IProps) => {
       {/*全局的dialog*/}
       <div>
         <Button onClick={toggleTocDialog}>Chapters</Button>
-        <Dialog fullScreen={true} open={isOpenToc} onClose={toggleTocDialog}>
+        <Dialog fullScreen={true} open={isOpenToc} onClose={toggleTocDialog} TransitionComponent={TocTransition}>
           <AppBar>
             <Toolbar>
               <IconButton edge="start" color="inherit" onClick={toggleTocDialog}>
