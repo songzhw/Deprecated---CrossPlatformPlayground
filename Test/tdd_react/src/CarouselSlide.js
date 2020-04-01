@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import "./CarouselSlide.css"
 
 export const SImage = styled.img`
   object-fit: cover;
@@ -15,7 +16,7 @@ export const SImage = styled.img`
 export const CarouselSlide = (props) => {
   const { imageUrl, description, author, imgHeight, ...rest } = props;
   return (
-    <figure {...rest}>
+    <figure className="slide" {...rest}>
       <SImage src={imageUrl} imgHeight={imgHeight}/>
       <figcaption>
         <strong>{description}</strong>
