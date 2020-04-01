@@ -5,8 +5,7 @@ const ZipPlugin = require("zip-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    carousel: "./src/index.js",
-    example: "./src/webpack_demo.js"
+    carousel: "./src/index.js"
   },
   module: {
     rules: [
