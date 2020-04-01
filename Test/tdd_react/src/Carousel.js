@@ -3,6 +3,7 @@ import { CarouselSlide } from "./CarouselSlide";
 import { CarouselButton } from "./CarouselButton";
 import { IndexLooperWrapper } from "./IndexLooperWrapper";
 import { AutoAdvancesWrapper } from "./AutoAdvancesWrapper";
+import "./Carousel.css"
 
 export class _Carousel extends React.Component {
   static defaultProps = {

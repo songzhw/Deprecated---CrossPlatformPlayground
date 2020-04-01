@@ -12,6 +12,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: require.resolve("babel-loader")
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
