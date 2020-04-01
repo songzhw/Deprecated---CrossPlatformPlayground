@@ -23,7 +23,7 @@ export class _Carousel extends React.Component {
     const { slides, defaultImageHeight, index, ...rest } = this.props;
     const currentSlideData = slides[index];
     return (
-      <div {...rest}>
+      <div className="carousel" {...rest}>
         <CarouselSlide {...currentSlideData} imgHeight={defaultImageHeight}/>
         <CarouselButton data-testId="btnPrev" onClick={this.onPrev}>Prev</CarouselButton>
         <CarouselButton data-testId="btnNext" onClick={this.onNext}>Next</CarouselButton>

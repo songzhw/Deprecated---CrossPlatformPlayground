@@ -6,7 +6,7 @@ import {
   AppBar,
   BottomNavigation,
   BottomNavigationAction,
-  Dialog,
+  Dialog, Divider,
   IconButton, List, ListItem, ListItemText,
   Menu,
   MenuItem, Slide,
@@ -120,7 +120,6 @@ export const C01Basic = (props: IProps) => {
 
           <List>
             {toc.map((chap, index) =>
-              // tslint:disable-next-line:jsx-no-lambda no-unused-expression
               <ListItem key={`${chap}-${index}-dialog`} button={true} onClick={toggleTocDialog}>
                 <ListItemText primary={chap}/>
               </ListItem>
