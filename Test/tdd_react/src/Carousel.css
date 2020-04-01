@@ -6,6 +6,6 @@
     align-items: center;
 }
 
-CarouselButton {
+.buttons {
     background-color: red;
 }
