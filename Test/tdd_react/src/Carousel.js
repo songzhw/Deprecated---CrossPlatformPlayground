@@ -3,7 +3,7 @@ import { CarouselSlide } from "./CarouselSlide";
 import { CarouselButton } from "./CarouselButton";
 import { IndexLooperWrapper } from "./IndexLooperWrapper";
 import { AutoAdvancesWrapper } from "./AutoAdvancesWrapper";
-import "./Carousel.css"
+import "./Carousel.css";
 
 export class _Carousel extends React.Component {
   static defaultProps = {
@@ -26,8 +26,10 @@ export class _Carousel extends React.Component {
     return (
       <div className="carousel" {...rest}>
         <CarouselSlide {...currentSlideData} imgHeight={defaultImageHeight}/>
-        <CarouselButton className="buttons" data-testId="btnPrev" onClick={this.onPrev}>Prev</CarouselButton>
-        <CarouselButton className="buttons" data-testId="btnNext" onClick={this.onNext}>Next</CarouselButton>
+        <div className="controlBar">
+          <CarouselButton className="buttons" data-testId="btnPrev" onClick={this.onPrev}>Prev</CarouselButton>
+          <CarouselButton className="buttons" data-testId="btnNext" onClick={this.onNext}>Next</CarouselButton>
+        </div>
       </div>
     );
   }
