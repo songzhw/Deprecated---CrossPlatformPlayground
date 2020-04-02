@@ -8,7 +8,7 @@ module.exports = {
   },
   devtool: "source-map",
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
+    extensions: [".ts", ".tsx"]
   },
   module: {
     rules: [
@@ -25,10 +25,6 @@ module.exports = {
         enforce: "pre",
         test: /\.js$/,
         loader: "source-map-loader"
-      },
-      {
-        test: /\.js$/,
-        loader: require.resolve("babel-loader")
       },
       {
         test: /\.css$/i,
