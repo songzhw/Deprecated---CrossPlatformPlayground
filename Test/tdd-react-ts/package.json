@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "web-build": "webpack --config webpack.config.js",
-    "dev": "yarn run web-build && webpack-dev-server --open"
+    "dev": "yarn run web-build && webpack-dev-server --no-line --open "
   },
   "eslintConfig": {
     "extends": "react-app"

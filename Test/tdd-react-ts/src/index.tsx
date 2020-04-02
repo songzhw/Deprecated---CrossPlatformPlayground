@@ -3,5 +3,5 @@ import ReactDOM from "react-dom";
 
 const container = document.createElement("div");
 document.body.appendChild(container);
-ReactDOM.render(<div/>, container);
+ReactDOM.render(<p>hello</p>, container);
 

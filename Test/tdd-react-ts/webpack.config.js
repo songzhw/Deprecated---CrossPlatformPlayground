@@ -8,7 +8,7 @@ module.exports = {
   },
   devtool: "source-map",
   resolve: {
-    extensions: [".ts", ".tsx"]
+    extensions: [".ts", ".tsx", ".css"]
   },
   module: {
     rules: [
