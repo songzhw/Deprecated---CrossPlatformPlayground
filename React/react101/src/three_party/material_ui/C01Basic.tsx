@@ -31,10 +31,19 @@ const TocTransition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props}/>;
 });
 
+
+const useStyles = makeStyles({
+  root: {
+    width: 500
+  }
+});
+
 export const C01Basic = (props: IProps) => {
   const [anchor, setAnchor] = useState<HTMLElement | null>(null);
   const [selected, setSelected] = useState(1);
   const [isOpenToc, setOpenToc] = useState(false);
+
+  const classes = useStyles();
 
   const toc = [
     "Talbe Of Content",
@@ -136,6 +145,13 @@ export const C01Basic = (props: IProps) => {
         <BottomNavigationAction icon={<BookmarksIcon style={{ color: orange[500] }}/>} value="bookmark"/>
       </BottomNavigation>
 
+
+      <BottomNavigation className={classes.root} onChange={selectBottomMenu}>
+        <BottomNavigationAction icon={<ArrowBackIcon color="primary"/>} value="back" onClick={goBack}/>
+        <BottomNavigationAction icon={<ArrowBackIosIcon color="secondary"/>} value="prev"/>
+        <BottomNavigationAction icon={<ArrowForwardIosIcon color="disabled"/>} value="next"/>
+        <BottomNavigationAction icon={<BookmarksIcon style={{ color: orange[500] }}/>} value="bookmark"/>
+      </BottomNavigation>
 
     </div>
   );
