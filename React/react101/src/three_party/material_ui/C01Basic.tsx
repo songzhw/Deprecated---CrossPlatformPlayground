@@ -34,7 +34,9 @@ const TocTransition = React.forwardRef(function Transition(
 
 const useStyles = makeStyles({
   root: {
-    width: 500
+    width: "100%",
+    // background: "gray"
+    background: "linear-gradient(45deg, #fe6b8b, 30%, #FF8E53 90%)"
   }
 });
 
@@ -150,7 +152,7 @@ export const C01Basic = (props: IProps) => {
         <BottomNavigationAction icon={<ArrowBackIcon color="primary"/>} value="back" onClick={goBack}/>
         <BottomNavigationAction icon={<ArrowBackIosIcon color="secondary"/>} value="prev"/>
         <BottomNavigationAction icon={<ArrowForwardIosIcon color="disabled"/>} value="next"/>
-        <BottomNavigationAction icon={<BookmarksIcon style={{ color: orange[500] }}/>} value="bookmark"/>
+        <BottomNavigationAction icon={<BookmarksIcon style={{ color: blue[500] }}/>} value="bookmark"/>
       </BottomNavigation>
 
     </div>
