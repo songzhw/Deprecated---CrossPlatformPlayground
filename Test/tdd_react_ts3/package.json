@@ -1,10 +1,11 @@
 {
-  "name": "tdd_react_ts",
+  "name": "tdd_react_ts3",
   "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
   "devDependencies": {
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.6",
-    "html-webpack-plugin": "^4.0.4",
     "source-map-loader": "^0.2.4",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
@@ -14,9 +15,5 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  },
-  "scripts": {
-    "web-build": "webpack --config webpack.config.js",
-    "dev": "yarn run web-build && webpack-dev-server --open"
   }
 }
