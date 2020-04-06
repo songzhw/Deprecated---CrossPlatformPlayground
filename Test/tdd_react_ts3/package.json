@@ -16,7 +16,7 @@
     "react-dom": "^16.13.1"
   },
   "scripts": {
-    "web": "webpack webpack.config.js",
+    "web": "webpack --config webpack.config.js",
     "dev": "live-server dist"
   }
 }
