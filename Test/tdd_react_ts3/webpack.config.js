@@ -3,6 +3,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
 
+  entry: {
+    carousel: "./src/index.tsx"
+  },
+
   // Enable sourcemaps for debugging webpack's output.
   devtool: "source-map",
 
