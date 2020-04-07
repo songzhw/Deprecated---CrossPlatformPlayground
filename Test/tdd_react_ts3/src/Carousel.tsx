@@ -2,6 +2,7 @@ import React from "react";
 import { CarouselButton } from "./CarouselButton";
 import { ISlideData } from "./data";
 import { CarouselSlide } from "./CarouselSlide";
+import "./carousel.css"
 
 interface IProps {
   slides: ISlideData[]
