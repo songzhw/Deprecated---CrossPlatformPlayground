@@ -20,11 +20,12 @@
 
 .slide {
     display: flex;
+    height: 40%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .slideImage {
-    width: 60%
+    width: 60%;
 }
