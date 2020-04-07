@@ -17,8 +17,8 @@ export class Carousel extends React.Component<IProps> {
   render() {
     return (
       <div className="carousel">
+        <CarouselSlide slide={this.props.slides[0]}/>
         <div className="controlBar">
-          <CarouselSlide slide={this.props.slides[0]}/>
           <CarouselButton className="buttons" onClick={this.onPrev}>Prev</CarouselButton>
           <CarouselButton className="buttons" onClick={this.onNext}>Next</CarouselButton>
         </div>
