@@ -1,14 +1,24 @@
 import React from "react";
+import { CarouselButton } from "./CarouselButton";
 
 interface IProps {
 }
 
-export const Carousel = (props: IProps) => {
+export class Carousel extends React.Component<IProps> {
+  onNext = () => {
+  };
+  onPrev = () => {
+  };
 
-  return (
-    <div>
-      <h1>Hello World 333</h1>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="carousel">
+        <div className="controlBar">
+          <CarouselButton className="buttons" data-testId="btnPrev" onClick={this.onPrev}>Prev</CarouselButton>
+          <CarouselButton className="buttons" data-testId="btnNext" onClick={this.onNext}>Next</CarouselButton>
+        </div>
+      </div>
+    );
+  }
+}
 

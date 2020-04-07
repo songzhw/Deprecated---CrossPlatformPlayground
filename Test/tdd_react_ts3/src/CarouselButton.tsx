@@ -1,13 +1,4 @@
 import React from "react";
 
-interface IProps  {}
-
-export const CarouselButton = (props: IProps) => {
-
-  return (
-    <div>
-
-    </div>
-  )
-}
+export const CarouselButton = (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => <button {...props}/>;
 
