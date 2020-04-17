@@ -1,0 +1,24 @@
+import React, { useState } from "react";
+
+interface IProps {
+}
+
+export const KeyImportancePage = (props: IProps) => {
+  const [data, setData] = useState(["one", "two", "three", "four"]);
+
+  const onRemoveOne = () => {
+
+  };
+
+  return (
+    <div>
+      <button onClick={onRemoveOne}>remove two</button>
+      <ul>
+        {data.map((item, index) =>
+          <li>{item}</li>
+        )}
+      </ul>
+    </div>
+  );
+};
+
