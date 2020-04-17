@@ -7,7 +7,7 @@ export const KeyImportancePage = (props: IProps) => {
   const [data, setData] = useState(["one", "two", "three", "four"]);
 
   const onRemoveOne = () => {
-
+    setData(["one", "three", "four"]);
   };
 
   return (
