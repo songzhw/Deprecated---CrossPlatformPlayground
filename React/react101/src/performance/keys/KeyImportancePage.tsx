@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-interface IProps {
-}
+interface IProps {}
 
 export const KeyImportancePage = (props: IProps) => {
   const [data, setData] = useState(["one", "two", "three", "four"]);
