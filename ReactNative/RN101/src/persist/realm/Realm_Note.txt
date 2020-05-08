@@ -1,6 +1,13 @@
+一. 接入Realm
 1. $ yarn add realm
 2. $ yarn add @types/realm -D
 3. $ cd ios && pod install && cd ..  (注意是两个&)
         (这时就能在日志里看到"Installing RealmJS (5.0.4)"的字样)
 4. 官网上说: "Android工程不能自动link. 得自己手动去settings.gradle, app/build.gradle, 以及MainApplication中做修改"
 但我实践了下, 并不需要, 这一步可以省略
+
+二.
+1. console.log(`realm = `, Realm.defaultPath)
+可以找到default.realm文件在哪里.  (ios模拟器, 在这里就比android模拟器更方便, 因为default.realm就在mac止. 而Android的还得去adb pull)
+
+2.
