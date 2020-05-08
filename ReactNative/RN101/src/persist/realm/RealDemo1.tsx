@@ -1,17 +1,18 @@
 import React from "react";
-import {View, StyleSheet, Text, ViewProps, TextInput} from "react-native";
+import {View, StyleSheet, Text, ViewProps, TextInput, TouchableOpacity} from "react-native";
 import Realm from "realm";
 import {CarSchema, OwnerSchema} from "./RealmScheme";
+import {Button} from "../../ui/button/Button";
 
 interface IProps extends ViewProps {
 }
 
 interface IState {
-  realm: Realm | null
+  realm: Realm | undefined
 }
 
 export class RealDemo1 extends React.Component<IProps, IState> {
-  state = {realm: null};
+  state = {realm: undefined};
   carName = ""
   carMiles = 0
 
@@ -32,14 +33,19 @@ export class RealDemo1 extends React.Component<IProps, IState> {
     }
   }
 
+  createCar = ()=>{
+    this.state.realm?.create("Car", {name: this.carName, miles: this.carMiles})
+  }
+
   render() {
-    // @ts-ignore
     const info = this.state.realm ? "Realm Database:" : "Loading...";
     return (
       <View>
         <Text style={{fontSize: 30}}>{info}</Text>
         <View style={styles.carContainer}>
           <TextInput style={styles.inputs} onChangeText={text=>this.carName = text} defaultValue="car name"/>
+          <TextInput style={styles.inputs} onChangeText={text=>this.carName = text} defaultValue="car miles"/>
+          <Button style={styles.inputs} text="Crate Car" onPress={this.createCar}/>
         </View>
       </View>
     );
@@ -51,10 +57,11 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: "space-around",
-    height: 100
   },
   inputs: {
     width: 100,
+    height: 50,
+    backgroundColor: "grey"
   }
 });
 
