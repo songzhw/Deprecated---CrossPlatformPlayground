@@ -10,7 +10,7 @@ import { FlexLayoutDemo1 } from "./src/basic_ui/layout/FlexLayoutDemo1";
 
 const App = () => {
   return (
-    <CustomPtrDemo/>
+    <FlatListDemo/>
   );
 };
 
