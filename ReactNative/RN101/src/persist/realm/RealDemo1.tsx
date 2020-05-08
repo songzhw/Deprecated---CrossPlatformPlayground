@@ -8,11 +8,11 @@ interface IProps extends ViewProps {
 }
 
 interface IState {
-  realm: Realm | undefined
+  realm: Realm | null
 }
 
 export class RealDemo1 extends React.Component<IProps, IState> {
-  state = {realm: undefined};
+  state = {realm: null};
   carName = ""
   carMiles = 0
 
@@ -34,7 +34,14 @@ export class RealDemo1 extends React.Component<IProps, IState> {
   }
 
   createCar = ()=>{
-    this.state.realm?.create("Car", {name: this.carName, miles: this.carMiles})
+    // 要加write(), 不然会出错, 说:"can't modify manged objects outside a write transaction". 因为write是一个事务
+    // @ts-ignore
+    this.state.realm.write(()=>this.state.realm.create("Car", {name: this.carName, miles: this.carMiles}))
+  }
+
+  getCars = ()=>{
+    // @ts-ignore
+    console.log(`szw cars = `, this.state.realm.objects("Car"))
   }
 
   render() {
@@ -43,9 +50,10 @@ export class RealDemo1 extends React.Component<IProps, IState> {
       <View>
         <Text style={{fontSize: 30}}>{info}</Text>
         <View style={styles.carContainer}>
-          <TextInput style={styles.inputs} onChangeText={text=>this.carName = text} defaultValue="car name"/>
-          <TextInput style={styles.inputs} onChangeText={text=>this.carName = text} defaultValue="car miles"/>
+          <TextInput style={styles.inputs} onChangeText={text=>this.carName = text} placeholder="car name"/>
+          <TextInput style={styles.inputs} onChangeText={text=>this.carName = text} placeholder="car miles"/>
           <Button style={styles.inputs} text="Crate Car" onPress={this.createCar}/>
+          <Button style={styles.inputs} text="get cars" onPress={this.getCars}/>
         </View>
       </View>
     );
@@ -61,7 +69,7 @@ const styles = StyleSheet.create({
   inputs: {
     width: 100,
     height: 50,
-    backgroundColor: "grey"
+    backgroundColor: "#e3f2fd"
   }
 });
 
