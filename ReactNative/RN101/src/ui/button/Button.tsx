@@ -26,10 +26,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: "white",
     fontSize: 18,
-    position: 'absolute',
-    top: "50%",
-    left: "50%",
-    transform: [{translateX: "-50%"}]
+    height: 45,
+    lineHeight: 45
   }
 });
 
