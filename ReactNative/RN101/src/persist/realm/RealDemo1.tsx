@@ -12,7 +12,7 @@ interface IState {
 }
 
 export class RealDemo1 extends React.Component<IProps, IState> {
-  state = {realm: null};
+  state = {realm: null} as any;
   carName = ""
   carMiles = 0
 
@@ -26,7 +26,7 @@ export class RealDemo1 extends React.Component<IProps, IState> {
 
   componentWillUnmount() {
     if (this.state.realm !== null) {
-      const realm = this.state.realm as any //可再优化. 这里实在是TS无法推断realm非空, 才不得已用any
+      const realm = this.state.realm //可再优化. 这里实在是TS无法推断realm非空, 才不得已用any
       if (!realm.isClosed) {
         realm.close();
       }
@@ -40,7 +40,6 @@ export class RealDemo1 extends React.Component<IProps, IState> {
   }
 
   getCars = ()=>{
-    // @ts-ignore
     console.log(`szw cars = `, this.state.realm.objects("Car"))
   }
 
