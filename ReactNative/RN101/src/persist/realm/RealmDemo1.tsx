@@ -59,9 +59,10 @@ export class RealmDemo1 extends React.Component {
   render() {
     const info = this.state.realm ? "Realm Database:" : "Loading...";
     return (
-      <View>
+      <View style={styles.root}>
 
-        <Text style={{fontSize: 30}}>{info}</Text>
+        <Text style={{fontSize: 30, height: 40}}>{info}</Text>
+        <Text style={{fontSize: 22, height: 30}}>Car</Text>
 
         <View style={styles.carContainer}>
           <TextInput style={styles.inputs} onChangeText={text => this.carId = parseInt(text)} placeholder="ID"/>
@@ -88,9 +89,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'red'
   },
   carContainer: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: "space-around",
+    height: 60
   },
   inputs: {
     width: 80,
