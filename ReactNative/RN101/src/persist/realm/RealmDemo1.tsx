@@ -51,6 +51,9 @@ export class RealmDemo1 extends React.Component {
   }
 
   filter1 = () => {
+    const cars = this.state.realm!!.objects("Car")
+    const wCar = cars.filtered(`name BEGINSWITH "W" AND miles > 150`)
+    console.log(`szw filter 1 = `, wCar)
   }
 
   filter2 = () => {
