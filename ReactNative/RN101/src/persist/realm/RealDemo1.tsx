@@ -1,5 +1,5 @@
 import React from "react";
-import {View, StyleSheet, Text, ViewProps, TextInput, TouchableOpacity} from "react-native";
+import {StyleSheet, Text, TextInput, View, ViewProps} from "react-native";
 import Realm from "realm";
 import {CarSchema, OwnerSchema} from "./RealmScheme";
 import {Button} from "../../ui/button/Button";
@@ -37,8 +37,14 @@ export class RealDemo1 extends React.Component<IProps, IState> {
     if(this.state.realm) {
       const realm = this.state.realm
       // 要加write(), 不然会出错, 说:"can't modify manged objects outside a write transaction". 因为write是一个事务
-      realm.write(() => realm.create("Car", {name: this.carName, miles: this.carMiles}))
+      realm.write(() => realm.create("Car", {name: this.carName, miles: this.carMiles}, Realm.UpdateMode.Never))
     }
+    /*
+    想create, 发现了已经存在了这个对象, 怎么办, 这就要看UpdateMode参数了
+     * NEVER: 只扔出个exception
+     * ALL: 第二参提供的property会全被更新. 其它的参数不变
+     * MODIFIED: 只有变化了的property会被更新. 用于提升性能. 但多用户操作同一DB时, merge的结果可能会有影响
+     */
   }
 
   getCars = ()=>{
@@ -52,7 +58,7 @@ export class RealDemo1 extends React.Component<IProps, IState> {
         <Text style={{fontSize: 30}}>{info}</Text>
         <View style={styles.carContainer}>
           <TextInput style={styles.inputs} onChangeText={text=>this.carName = text} placeholder="car name"/>
-          <TextInput style={styles.inputs} onChangeText={text=>this.carName = text} placeholder="car miles"/>
+          <TextInput style={styles.inputs} onChangeText={text=>this.carMiles = parseInt(text)} placeholder="car miles"/>
           <Button style={styles.inputs} text="Crate Car" onPress={this.createCar}/>
           <Button style={styles.inputs} text="get cars" onPress={this.getCars}/>
         </View>
