@@ -16,14 +16,14 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {FlatListDemo} from "./src/basic_ui/list/FlatListDemo";
-import {RealDemo1} from "./src/persist/realm/RealDemo1";
+import {RealmDemo1} from "./src/persist/realm/RealmDemo1";
 
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
     <SafeAreaView>
-      <RealDemo1/>
+      <RealmDemo1/>
     </SafeAreaView>
   );
 };
