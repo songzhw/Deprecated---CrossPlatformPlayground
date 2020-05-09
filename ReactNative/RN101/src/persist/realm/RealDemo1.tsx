@@ -12,7 +12,7 @@ interface IState {
 }
 
 export class RealDemo1 extends React.Component<IProps, IState> {
-  state = {realm: null} as any;
+  state: IState = {realm: null};
   carName = ""
   carMiles = 0
 
@@ -25,8 +25,8 @@ export class RealDemo1 extends React.Component<IProps, IState> {
   }
 
   componentWillUnmount() {
-    if (this.state.realm !== null) {
-      const realm = this.state.realm //可再优化. 这里实在是TS无法推断realm非空, 才不得已用any
+    if (this.state.realm) {
+      const realm = this.state.realm
       if (!realm.isClosed) {
         realm.close();
       }
@@ -34,13 +34,15 @@ export class RealDemo1 extends React.Component<IProps, IState> {
   }
 
   createCar = ()=>{
-    // 要加write(), 不然会出错, 说:"can't modify manged objects outside a write transaction". 因为write是一个事务
-    // @ts-ignore
-    this.state.realm.write(()=>this.state.realm.create("Car", {name: this.carName, miles: this.carMiles}))
+    if(this.state.realm) {
+      const realm = this.state.realm
+      // 要加write(), 不然会出错, 说:"can't modify manged objects outside a write transaction". 因为write是一个事务
+      realm.write(() => realm.create("Car", {name: this.carName, miles: this.carMiles}))
+    }
   }
 
   getCars = ()=>{
-    console.log(`szw cars = `, this.state.realm.objects("Car"))
+    console.log(`szw cars = `, this.state.realm!!.objects("Car"))
   }
 
   render() {
