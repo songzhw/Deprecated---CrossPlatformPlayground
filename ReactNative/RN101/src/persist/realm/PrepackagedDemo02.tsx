@@ -16,6 +16,8 @@ export class PrepackagedDemo02 extends React.Component<IProps> {
       path: "cars.realm",
       schema: [CarSchema]
     }).then(realm => {
+      console.log(`realm = `, Realm.defaultPath)
+      console.log(`realm version = `, Realm.schemaVersion(Realm.defaultPath))//=> 初始时, version = 0
       const cars = realm.objects("Car")
       console.log(`szw prepacakged = `, cars)
     })

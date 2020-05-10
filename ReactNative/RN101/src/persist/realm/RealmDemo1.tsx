@@ -17,7 +17,7 @@ export class RealmDemo1 extends React.Component {
   componentDidMount() {
     Realm.open({schema: [CarSchema, OwnerSchema]})
       .then(realm => {
-        // console.log(`realm = `, Realm.defaultPath)
+        console.log(`realm = `, Realm.defaultPath)
         this.setState({realm});
       });
   }

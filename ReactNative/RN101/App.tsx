@@ -24,7 +24,7 @@ declare const global: { HermesInternal: null | {} };
 const App = () => {
   return (
     <SafeAreaView>
-      <PrepackagedDemo02/>
+      <RealmDemo1/>
     </SafeAreaView>
   );
 };
