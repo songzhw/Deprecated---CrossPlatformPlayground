@@ -1,8 +1,8 @@
 import React from "react";
 import {View, StyleSheet, Text, ViewProps} from "react-native";
 import Realm from "realm";
+import {CarSchema, OwnerSchema} from "./RealmScheme";
 import {Button} from "../../ui/button/Button";
-import {Car, Owner} from "./RealmScheme";
 
 interface IState {
   realm: Realm | null
@@ -12,7 +12,7 @@ export class RealmDemo2 extends React.Component {
   state: IState = {realm: null};
 
   componentDidMount() {
-    Realm.open({schema: [Car, Owner]})
+    Realm.open({schema: [CarSchema, OwnerSchema]})
       .then(realm => {
         this.setState({realm});
       });
