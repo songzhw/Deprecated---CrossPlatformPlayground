@@ -22,7 +22,7 @@ export class RealmDemo2 extends React.Component {
     this.state.realm!!.close();
   }
 
-  createPeople = () => {
+  createPeople1 = () => {
     const realm = this.state.realm!!
     realm.write(() => {
       const owner = realm.create("Owner", {id: 101, name: 'appleton'}, Realm.UpdateMode.Never) as any
@@ -36,11 +36,33 @@ export class RealmDemo2 extends React.Component {
     console.log(`szw cars = `, this.state.realm!!.objects("Car"))
   }
 
+  createPeople2 = () => {
+    const realm = this.state.realm!!
+    realm.write(() => {
+      const carList = this.state.realm!!.objects("Car")
+
+      const owner = realm.create("Owner", {id: 102, name: 'hacker'}, Realm.UpdateMode.Never) as any
+      const cars = owner.cars;
+      cars.push(carList[0])
+      cars.push({id: 7, name: 'yyy', miles: 14})
+      console.log(`szw owner = `, owner)
+    })
+  }
+
+  getOwner = () => {
+    const owners = this.state.realm!!.objects("Owner") as any
+    console.log(`szw owner = `, owners)
+    const cars = owners[1].cars;
+    console.log(`szw cars = `, cars)
+  }
+
   render() {
     return (
       <View>
         <Button style={styles.btn} onPress={this.getCars} text="get cars"/>
-        <Button style={styles.btn} onPress={this.createPeople} text="create people"/>
+        <Button style={styles.btn} onPress={this.createPeople1} text="create people 1"/>
+        <Button style={styles.btn} onPress={this.createPeople2} text="create people 2"/>
+        <Button style={styles.btn} onPress={this.getOwner} text="get owner"/>
       </View>
     );
   }
