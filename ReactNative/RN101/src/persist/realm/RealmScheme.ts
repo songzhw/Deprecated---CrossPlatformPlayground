@@ -1,4 +1,8 @@
-export const CarSchema = {
+export class Car {
+}
+
+// @ts-ignore
+Car.schema = {
   name: "Car",
   primaryKey: 'id',
   properties: {
@@ -8,7 +12,11 @@ export const CarSchema = {
   }
 };
 
-export const OwnerSchema = {
+export class Owner {
+}
+
+// @ts-ignore
+Owner.schema = {
   name: "Owner",
   primaryKey: 'id',
   properties: {
