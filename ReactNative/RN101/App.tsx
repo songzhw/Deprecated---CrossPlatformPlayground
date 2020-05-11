@@ -26,9 +26,7 @@ declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <FlexBoxDemo2/>
-    </SafeAreaView>
+    <FlexBoxDemo2/>
   );
 };
 
