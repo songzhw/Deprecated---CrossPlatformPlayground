@@ -7,7 +7,6 @@ interface IProps extends ViewProps {
 export const FlexBoxDemo4 = (props: IProps) => {
 
   return (
-    <SafeAreaView>
       <View style={styles.container}>
         <View style={styles.row1}>
           <Text style={styles.text}>First Line</Text>
@@ -17,7 +16,6 @@ export const FlexBoxDemo4 = (props: IProps) => {
           <Text style={styles.text}>Second Line</Text>
         </View>
       </View>
-    </SafeAreaView>
   )
 }
 
