@@ -16,18 +16,20 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {FlatListDemo} from "./src/basic_ui/list/FlatListDemo";
-import {RealmDemo1} from "./src/persist/realm/RealmDemo1";
 import {PrepackagedDemo02} from "./src/persist/realm/PrepackagedDemo02";
 import {RealmDemo2} from "./src/persist/realm/RealmDemo2";
+import {RealmDemo1} from "./src/persist/realm/RealmDemo1";
 import {FlexLayoutDemo1} from "./src/basic_ui/layout/FlexLayoutDemo1";
 import {FlexBoxDemo2} from "./src/basic_ui/layout/FlexBoxDemo2";
 import {FlexBoxDemo3} from "./src/basic_ui/layout/FlexBoxDemo3";
+import {FlexBoxDemo4} from "./src/basic_ui/layout/FlexBoxDemo4";
 
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    <FlexBoxDemo3/>
+    // <RealmDemo1/>
+    <FlexBoxDemo4/>
   );
 };
 
