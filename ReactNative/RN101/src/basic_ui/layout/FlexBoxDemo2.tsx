@@ -1,5 +1,5 @@
 import React from "react";
-import {View, ViewProps, Text, StyleSheet, SafeAreaView} from "react-native";
+import {View, ViewProps, Text, StyleSheet, SafeAreaView, Button} from "react-native";
 
 interface IProps extends ViewProps {
 }
@@ -7,10 +7,15 @@ interface IProps extends ViewProps {
 export const FlexBoxDemo2 = (props: IProps) => {
 
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <View style={{width: 100, height: 100, backgroundColor: "red"}}/>
-        <View style={{width: 300, height: 300, backgroundColor: "blue"}}/>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={{fontSize: 23}}>First Line</Text>
+        <Text style={{fontSize: 20}}>right item</Text>
+      </View>
+
+      <View>
+        <Text style={{fontSize: 23}}>Second Line</Text>
+        <Text style={{fontSize: 20}}>second item</Text>
       </View>
     </SafeAreaView>
   )
@@ -18,5 +23,5 @@ export const FlexBoxDemo2 = (props: IProps) => {
 
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: 'gray', flex:1}
+  container: {backgroundColor: 'gray', flex: 1}
 });
