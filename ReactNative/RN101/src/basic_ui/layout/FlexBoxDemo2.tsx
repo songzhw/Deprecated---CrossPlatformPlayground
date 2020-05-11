@@ -7,21 +7,16 @@ interface IProps extends ViewProps {
 export const FlexBoxDemo2 = (props: IProps) => {
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={{fontSize: 23}}>First Line</Text>
-        <Text style={{fontSize: 20}}>right item</Text>
-      </View>
-
-      <View>
-        <Text style={{fontSize: 23}}>Second Line</Text>
-        <Text style={{fontSize: 20}}>second item</Text>
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={[styles.square, {backgroundColor: "red"}]}/>
+      <View style={[styles.square, {backgroundColor: "blue"}]}/>
+    </View>
   )
 }
 
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: 'gray', flex: 1}
+  container: {backgroundColor: 'gray', height: 200, flexDirection: 'row'},
+  square: {width: 80},
+  row: {flexDirection: "row", height: 200}
 });
