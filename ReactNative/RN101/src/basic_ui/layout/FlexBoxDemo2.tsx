@@ -15,5 +15,5 @@ export const FlexBoxDemo2 = (props: IProps) => {
 
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: 'grey'}
+  container: {backgroundColor: 'gray', height: 100}
 });
