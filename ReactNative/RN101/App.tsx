@@ -21,12 +21,13 @@ import {PrepackagedDemo02} from "./src/persist/realm/PrepackagedDemo02";
 import {RealmDemo2} from "./src/persist/realm/RealmDemo2";
 import {FlexLayoutDemo1} from "./src/basic_ui/layout/FlexLayoutDemo1";
 import {FlexBoxDemo2} from "./src/basic_ui/layout/FlexBoxDemo2";
+import {FlexBoxDemo3} from "./src/basic_ui/layout/FlexBoxDemo3";
 
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    <FlexBoxDemo2/>
+    <FlexBoxDemo3/>
   );
 };
 

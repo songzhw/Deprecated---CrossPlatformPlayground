@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, Text, TextInput, View} from "react-native";
+import {SafeAreaView, StyleSheet, Text, TextInput, View} from "react-native";
 import Realm from "realm";
 import {CarSchema, OwnerSchema} from "./RealmScheme";
 import {Button} from "../../ui/button/Button";
@@ -62,25 +62,27 @@ export class RealmDemo1 extends React.Component {
   render() {
     const info = this.state.realm ? "Realm Database:" : "Loading...";
     return (
-      <View style={styles.root}>
+      <SafeAreaView>
+        <View style={styles.root}>
 
-        <Text style={{fontSize: 30, height: 40}}>{info}</Text>
-        <Text style={{fontSize: 22, height: 30}}>Car</Text>
+          <Text style={{fontSize: 30, height: 40}}>{info}</Text>
+          <Text style={{fontSize: 22, height: 30}}>Car</Text>
 
-        <View style={styles.carContainer}>
-          <TextInput style={styles.inputs} onChangeText={text => this.carId = parseInt(text)} placeholder="ID"/>
-          <TextInput style={styles.inputs} onChangeText={text => this.carName = text} placeholder="name"/>
-          <TextInput style={styles.inputs} onChangeText={text => this.carMiles = parseInt(text)} placeholder="miles"/>
-          <Button style={styles.inputs} text="Create Car" onPress={this.createCar}/>
-          <Button style={styles.inputs} text="get cars" onPress={this.getCars}/>
+          <View style={styles.carContainer}>
+            <TextInput style={styles.inputs} onChangeText={text => this.carId = parseInt(text)} placeholder="ID"/>
+            <TextInput style={styles.inputs} onChangeText={text => this.carName = text} placeholder="name"/>
+            <TextInput style={styles.inputs} onChangeText={text => this.carMiles = parseInt(text)} placeholder="miles"/>
+            <Button style={styles.inputs} text="Create Car" onPress={this.createCar}/>
+            <Button style={styles.inputs} text="get cars" onPress={this.getCars}/>
+          </View>
+
+          <View style={styles.carContainer}>
+            <Button style={styles.inputs} text="filter1" onPress={this.filter1}/>
+            <Button style={styles.inputs} text="filter2" onPress={this.filter2}/>
+          </View>
+
         </View>
-
-        <View style={styles.carContainer}>
-          <Button style={styles.inputs} text="filter1" onPress={this.filter1}/>
-          <Button style={styles.inputs} text="filter2" onPress={this.filter2}/>
-        </View>
-
-      </View>
+      </SafeAreaView>
     );
   }
 }
@@ -94,11 +96,11 @@ const styles = StyleSheet.create({
   carContainer: {
     flexDirection: 'row',
     justifyContent: "space-around",
-    height: 60
+    flex:1
   },
   inputs: {
     width: 80,
-    height: 50,
+    height:40,
     backgroundColor: "#e3f2fd"
   }
 });
