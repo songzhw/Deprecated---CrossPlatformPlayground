@@ -23,13 +23,13 @@ import {FlexLayoutDemo1} from "./src/basic_ui/layout/FlexLayoutDemo1";
 import {FlexBoxDemo2} from "./src/basic_ui/layout/FlexBoxDemo2";
 import {FlexBoxDemo3} from "./src/basic_ui/layout/FlexBoxDemo3";
 import {FlexBoxDemo4} from "./src/basic_ui/layout/FlexBoxDemo4";
+import {FlexBoxDemo5} from "./src/basic_ui/layout/FlexBoxDemo5";
 
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    // <RealmDemo1/>
-    <FlexBoxDemo4/>
+    <FlexBoxDemo5/>
   );
 };
 
