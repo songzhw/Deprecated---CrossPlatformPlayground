@@ -1,8 +1,7 @@
 import React from "react";
 import "./TaskView.css";
-import fullStar from "../../res/img/ic_star_full.svg";
-import emptyStar from "../../res/img/ic_star_empty.svg";
-import logo from "../logo.svg";
+import fullStar from "../res/img/ic_star_full.svg";
+import emptyStar from "../res/img/ic_star_empty.svg";
 
 export enum TaskState {
   normal = "normal",
