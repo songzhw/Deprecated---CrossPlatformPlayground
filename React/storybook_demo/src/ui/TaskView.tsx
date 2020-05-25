@@ -1,4 +1,5 @@
 import React from "react";
+import "./TaskView.css";
 
 export enum TaskState {
   normal,
@@ -19,11 +20,11 @@ interface IProps {
 }
 
 export const TaskView = (props: IProps) => {
-  const {id, title, state} = props.task
+  const { id, title, state } = props.task;
 
   return (
     <div className="list-item">
       <input type="text" value={title} readOnly={true}/>
     </div>
-  )
-}
+  );
+};
