@@ -1,5 +1,8 @@
 import React from "react";
 import "./TaskView.css";
+import fullStar from "../../res/img/ic_star_full.svg";
+import emptyStar from "../../res/img/ic_star_empty.svg";
+import logo from "../logo.svg";
 
 export enum TaskState {
   normal = "normal",
@@ -22,6 +25,10 @@ interface IProps {
 export const TaskView = (props: IProps) => {
   const { id, title, state } = props.task;
 
+  const starIcon = state === TaskState.done ? null
+    : state === TaskState.pinned ? <img src={fullStar} className="star-icon"/>
+      : <img src={emptyStar} className="star-icon"/>;
+
   return (
     <div className={`list-item ${state.toString()}`}>
       <label className="checkbox">
@@ -34,13 +41,9 @@ export const TaskView = (props: IProps) => {
       </div>
 
       <div className="actions" onClick={event => event.stopPropagation()}>
-        {
-          state !== TaskState.done && (
-            <a onClick={() => props.onPin(id)}>
-              <span className="icon-star"/>
-            </a>
-          )
-        }
+        <a onClick={() => props.onPin(id)}>
+          {starIcon}
+        </a>
       </div>
 
     </div>

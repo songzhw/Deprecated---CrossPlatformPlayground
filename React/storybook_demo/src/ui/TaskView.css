@@ -1,17 +1,19 @@
 .list-item {
-    height: 400px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 2rem;
+    width: 100%;
+    background-color: white;
+    display: flex;
 }
 
 .normal {
-    background-color: antiquewhite;
 }
 
 .pinned {
-    background-color: blue;
 }
 
 .done {
-    background-color: black;
 }
 
 .checkbox {
