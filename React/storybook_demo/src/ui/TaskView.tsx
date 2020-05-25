@@ -2,9 +2,9 @@ import React from "react";
 import "./TaskView.css";
 
 export enum TaskState {
-  normal,
-  pinned,
-  done
+  normal= "normal",
+  pinned = "pinned",
+  done = "done"
 }
 
 export interface ITask {

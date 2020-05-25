@@ -2,3 +2,13 @@
     height: 100px;
     background-color: antiquewhite;
 }
+
+.list-item-pinned{
+    height: 100px;
+    background-color: antiquewhite;
+}
+
+.list-item-done{
+    height: 100px;
+    background-color: antiquewhite;
+}
