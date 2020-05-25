@@ -1,14 +1,32 @@
-.list-item-normal{
+.list-item-normal {
     height: 100px;
     background-color: antiquewhite;
 }
 
-.list-item-pinned{
+.list-item-pinned {
     height: 100px;
     background-color: antiquewhite;
 }
 
-.list-item-done{
+.list-item-done {
     height: 100px;
     background-color: antiquewhite;
+}
+
+.checkbox {
+
+}
+
+.checkbox-custom {
+
+}
+
+.title {
+
+}
+
+.actions {
+}
+
+.icon-star {
 }

@@ -2,7 +2,7 @@ import React from "react";
 import "./TaskView.css";
 
 export enum TaskState {
-  normal= "normal",
+  normal = "normal",
   pinned = "pinned",
   done = "done"
 }
@@ -24,7 +24,25 @@ export const TaskView = (props: IProps) => {
 
   return (
     <div className={`list-item-${state.toString()}`}>
-      <input type="text" value={title} readOnly={true}/>
+      <label className="checkbox">
+        <input type="checkbox" defaultChecked={state === TaskState.done} disabled={true} name="checked"/>
+        <span className="checkbox-custom" onClick={() => props.onDone(id)}/>
+      </label>
+
+      <div className={"title"}>
+        <input type={"text"} value={title} readOnly={true} placeholder={"input title"}/>
+      </div>
+
+      <div className="actions" onClick={event => event.stopPropagation()}>
+        {
+          state !== TaskState.done && (
+            <a onClick={() => props.onPin(id)}>
+              <span className="icon-star"/>
+            </a>
+          )
+        }
+      </div>
+
     </div>
   );
 };
