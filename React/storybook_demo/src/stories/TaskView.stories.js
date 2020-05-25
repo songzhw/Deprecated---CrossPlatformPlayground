@@ -1,12 +1,9 @@
 /*
  * story的文件一定得是js, 不能是ts或tsx, 不然storybook解析不了 !!!
  */
-
-import { ITask, TaskState, TaskView } from "../ui/TaskView";
+import { TaskState, TaskView } from "../ui/TaskView";
 import { action } from "@storybook/addon-actions";
 import React from "react";
-import { storiesOf } from "@storybook/react";
-import { Button } from "@storybook/react/demo";
 
 const task = {
   id: 100,

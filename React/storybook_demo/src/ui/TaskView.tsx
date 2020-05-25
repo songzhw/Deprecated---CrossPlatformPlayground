@@ -23,7 +23,7 @@ export const TaskView = (props: IProps) => {
   const { id, title, state } = props.task;
 
   return (
-    <div className="list-item">
+    <div className={`list-item-${state.toString()}`}>
       <input type="text" value={title} readOnly={true}/>
     </div>
   );
