@@ -23,7 +23,7 @@ export const TaskView = (props: IProps) => {
   const { id, title, state } = props.task;
 
   return (
-    <div className={`list-item-${state.toString()}`}>
+    <div className={`list-item ${state.toString()}`}>
       <label className="checkbox">
         <input type="checkbox" defaultChecked={state === TaskState.done} disabled={true} name="checked"/>
         <span className="checkbox-custom" onClick={() => props.onDone(id)}/>

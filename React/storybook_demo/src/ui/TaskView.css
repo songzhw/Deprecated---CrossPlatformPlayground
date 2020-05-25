@@ -1,16 +1,17 @@
-.list-item-normal {
-    height: 100px;
+.list-item {
+    height: 400px;
+}
+
+.normal {
     background-color: antiquewhite;
 }
 
-.list-item-pinned {
-    height: 100px;
-    background-color: antiquewhite;
+.pinned {
+    background-color: blue;
 }
 
-.list-item-done {
-    height: 100px;
-    background-color: antiquewhite;
+.done {
+    background-color: black;
 }
 
 .checkbox {
