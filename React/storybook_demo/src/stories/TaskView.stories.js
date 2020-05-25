@@ -1,7 +1,12 @@
+/*
+ * story的文件一定得是js, 不能是ts或tsx, 不然storybook解析不了 !!!
+ */
+
 import { ITask, TaskState, TaskView } from "../ui/TaskView";
 import { action } from "@storybook/addon-actions";
 import React from "react";
 import { storiesOf } from "@storybook/react";
+import { Button } from "@storybook/react/demo";
 
 const task = {
   id: 100,
@@ -14,8 +19,11 @@ const actions = {
   onDone: action("done")
 };
 
-storiesOf("TaskView", module)
-  .add("default", () => <TaskView task={task} {...actions}/>)
-  .add("pinned", () => <TaskView task={{ ...task, state: TaskState.pinned }} {...actions}/>)
-  .add("default", () => <TaskView task={{ ...task, state: TaskState.done }} {...actions}/>);
+export default {
+  title: "TaskView",
+  component: TaskView
+};
 
+export const DefaultTask = () => <TaskView task={task} {...actions}/>;
+export const PinnedTask = () => <TaskView task={{ ...task, state: TaskState.pinned }} {...actions}/>;
+export const ArchievedTask = () => <TaskView task={{ ...task, state: TaskState.done }} {...actions}/>;
