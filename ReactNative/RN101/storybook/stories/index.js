@@ -9,20 +9,18 @@ import Button from "./Button";
 import CenterView from "./CenterView";
 import Welcome from "./Welcome";
 import { TaskView } from "../../src/lib/storybook/task/TaskView";
+import { TaskViewStory } from "./task/TaskView-story";
+import { TaskListStory } from "./task/TaskList-story";
 
 console.disableYellowBox = true;
 
+storiesOf("TaskList", module)
+  .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
+  .add("preview", () => <TaskListStory/>);
+
 storiesOf("Task", module)
   .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
-  .add("preview", () => (
-    <View>
-      <Text>on</Text>
-      <TaskView isChecked={true} task={{id:100, name: "hello world", isPinned: false}}/>
-      <Text>off</Text>
-      <TaskView isChecked={false} task={{id:101, name: "second todo", isPinned: true}}/>
-    </View>
-  ));
-
+  .add("preview", () => <TaskViewStory/>);
 
 storiesOf("Welcome", module).add("to Storybook", () => <Welcome showApp={linkTo("Button")}/>);
 
