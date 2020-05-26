@@ -16,8 +16,10 @@ storiesOf("Task", module)
   .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
   .add("preview", () => (
     <View>
-      <TaskView/>
-      <TaskView/>
+      <Text>on</Text>
+      <TaskView isChecked={true}/>
+      <Text>off</Text>
+      <TaskView isChecked={false}/>
     </View>
   ));
 
