@@ -17,9 +17,9 @@ storiesOf("Task", module)
   .add("preview", () => (
     <View>
       <Text>on</Text>
-      <TaskView isChecked={true}/>
+      <TaskView isChecked={true} task={{id:100, name: "hello world", isPinned: false}}/>
       <Text>off</Text>
-      <TaskView isChecked={false}/>
+      <TaskView isChecked={false} task={{id:101, name: "second todo", isPinned: true}}/>
     </View>
   ));
 
