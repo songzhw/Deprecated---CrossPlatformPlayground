@@ -7,6 +7,7 @@ import { applyMiddleware, createStore, Store } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
 import { KeyImportancePage } from "./performance/keys/KeyImportancePage";
+import { UseIntervalDemo } from "./Rtutor/hooks/useState/useinterval/UseIntervalDemo";
 import { C01Basic } from "./three_party/material_ui/C01Basic";
 import { SagaWaitReducer } from "./three_party/saga/wait/SagaWaitReducer";
 import { ChannelAsync_Saga } from "./three_party/saga/channel_async/ChannelAsync_Saga";
@@ -28,7 +29,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <KeyImportancePage/>
+        <UseIntervalDemo/>
       </ThemeProvider>
     </Provider>
   )
