@@ -6,16 +6,12 @@ interface IProps {
 
 export const UseIntervalDemo = (props: IProps) => {
   const [time, setTime] = useState(60);
-
-  const countDown = () => {
     const fn = () => setTime(time - 1);
     useInterval(fn, 1000);
-  };
 
   return (
     <div>
       <p> 15: {time}</p>
-      <button onClick={countDown}> start</button>
     </div>
   );
 };
