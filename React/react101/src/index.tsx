@@ -7,6 +7,8 @@ import { applyMiddleware, createStore, Store } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
 import { KeyImportancePage } from "./performance/keys/KeyImportancePage";
+import { BeforeUseCallback1 } from "./Rtutor/hooks/useCallback/before/BeforeUseCallback";
+import { UseMemo1 } from "./Rtutor/hooks/useMemo/usememo1";
 import { FC_ref_Demo } from "./Rtutor/hooks/useref/FC_ref_Demo";
 import { Useref01 } from "./Rtutor/hooks/useref/useref01";
 import { Useref04 } from "./Rtutor/hooks/useref/useref04";
@@ -38,7 +40,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Useref08/>
+        <UseMemo1/>
       </ThemeProvider>
     </Provider>
   )

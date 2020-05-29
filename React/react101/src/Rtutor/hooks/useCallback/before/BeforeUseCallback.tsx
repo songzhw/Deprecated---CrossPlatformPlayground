@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-export const BeforeUseCallback = () => {
+export const BeforeUseCallback1 = () => {
   const [time, setTime] = useState(0);
 
   function onClickMySelf() {
