@@ -11,6 +11,7 @@ import { BeforeUseCallback1 } from "./Rtutor/hooks/useCallback/before/BeforeUseC
 import { UseMemo1 } from "./Rtutor/hooks/useMemo/usememo1";
 import { UseMemo2 } from "./Rtutor/hooks/useMemo/usememo2";
 import { UseMemo3 } from "./Rtutor/hooks/useMemo/usememo3";
+import { UseMemo5 } from "./Rtutor/hooks/useMemo/usememo5";
 import { FC_ref_Demo } from "./Rtutor/hooks/useref/FC_ref_Demo";
 import { Useref01 } from "./Rtutor/hooks/useref/useref01";
 import { Useref04 } from "./Rtutor/hooks/useref/useref04";
@@ -42,7 +43,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <UseMemo3/>
+        <UseMemo5/>
       </ThemeProvider>
     </Provider>
   )
