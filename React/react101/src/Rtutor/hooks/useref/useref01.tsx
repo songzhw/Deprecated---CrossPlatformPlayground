@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 interface IProps {
 }
 
-export const Useref1 = (props: IProps) => {
+export const Useref01 = (props: IProps) => {
   const ref = useRef<HTMLInputElement>(null);
 
   const onClick = () => {
