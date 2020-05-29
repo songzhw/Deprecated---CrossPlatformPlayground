@@ -1,6 +1,7 @@
 import React, { MutableRefObject, RefObject, useRef } from "react";
 
-/*@deprecated (点击时crash, 说ref = {current: null}) */
+
+/*@deprecated (先是warning, "Warning: Function components cannot be given refs."; 若再点击时crash, 说ref = {current: null}) */
 export const Useref02 = () => {
   const ref = useRef<HTMLInputElement>(null);
 
