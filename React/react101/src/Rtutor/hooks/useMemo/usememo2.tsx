@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface IProps {
   fn: () => {};
   values: []
 }
 
-function MemoChild(props: IProps) {
+function MemoChild2(props: IProps) {
+  const { fn, values } = props;
 
+  useEffect(() => {
+    console.log(`szw Child re-render`);
+  }, [fn, values]);
+
+  return <div> Child </div>;
 }
 
-export const Usememo2 = () => {
+export const UseMemo2 = () => {
+  const [count, setCount] = useState(1);
+  const fn = () => ({});
+
+  const onClick = () => {
+    setCount(count + 1);
+  };
 
   return (
     <div>
-
+      <MemoChild2 fn={fn} values={[]}/>
+      <button onClick={onClick}>+1</button>
     </div>
   );
 };
