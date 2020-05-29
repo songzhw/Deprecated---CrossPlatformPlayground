@@ -10,8 +10,8 @@ export const Useref03 = () => {
 
   return (
     <div>
-      <MyInput2 ref={ref} placeholder="hello"/>
-      <button onClick={onClick}>focus the input2</button>
+      <MyInput3 ref={ref} placeholder="hello"/>
+      <button onClick={onClick}>focus the input3</button>
     </div>
   );
 };
@@ -19,6 +19,6 @@ export const Useref03 = () => {
 interface IProps {
   placeholder: string
 }
-export const MyInput2 = React.forwardRef((props: IProps, ref: Ref<HTMLInputElement>) =>
+export const MyInput3 = React.forwardRef((props: IProps, ref: Ref<HTMLInputElement>) =>
   <input ref={ref} type="text" placeholder={props.placeholder}/>
 );
