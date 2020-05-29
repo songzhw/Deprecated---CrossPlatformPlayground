@@ -1,6 +1,5 @@
 import React, { forwardRef, Ref, useImperativeHandle, useRef } from "react";
 
-/* @deprecated(error = "TypeError: ref.current.focus is not a function" when click the button" */
 export const Useref06 = () => {
   const ref = useRef<HTMLInputElement>(null);
 
