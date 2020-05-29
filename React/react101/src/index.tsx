@@ -10,6 +10,7 @@ import { KeyImportancePage } from "./performance/keys/KeyImportancePage";
 import { FC_ref_Demo } from "./Rtutor/hooks/useref/FC_ref_Demo";
 import { Useref01 } from "./Rtutor/hooks/useref/useref01";
 import { Useref04 } from "./Rtutor/hooks/useref/useref04";
+import { Useref05 } from "./Rtutor/hooks/useref/useRef05";
 import { Useref02 } from "./Rtutor/hooks/useref/useref2";
 import { Useref03 } from "./Rtutor/hooks/useref/useref3";
 import { UseIntervalDemo } from "./Rtutor/hooks/useState/useinterval/UseIntervalDemo";
@@ -34,7 +35,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Useref04/>
+        <Useref05/>
       </ThemeProvider>
     </Provider>
   )

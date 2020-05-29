@@ -22,5 +22,4 @@ interface IProps {
 export const _MyInput4 = (props: IProps, ref: Ref<HTMLInputElement>) =>
   <input ref={ref} type="text" placeholder={props.placeholder}/>
 
-
 export const MyInput4 = forwardRef(_MyInput4)
