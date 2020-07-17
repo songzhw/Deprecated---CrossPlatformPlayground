@@ -37,9 +37,17 @@ export const CryptoScreen: React.FC<IProps> = (props: IProps) => {
     setResult(ret);
   }
 
+  function _utf8() {
+    const str1 = "hello js";
+    const ret = Utf8.parse(str1);
+    console.log(`ret = `, ret);
+    setResult(ret);  //crash: Objects are not valid as a React child (found: object with keys {words, sigBytes}). If you meant to render a collection of children, use an array instead.
+  }
+
   return (
     <div>
       <p>{result}</p>
+      <button onClick={_utf8}>utf8</button>
       <button onClick={base64}>base64</button>
       <button onClick={sha256}>SHA256</button>
       <button onClick={aes}>AES</button>

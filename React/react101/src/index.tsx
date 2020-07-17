@@ -22,6 +22,7 @@ import { Useref02 } from "./Rtutor/hooks/useref/useref2";
 import { Useref03 } from "./Rtutor/hooks/useref/useref3";
 import { Useref08 } from "./Rtutor/hooks/useref/useRef8";
 import { UseIntervalDemo } from "./Rtutor/hooks/useState/useinterval/UseIntervalDemo";
+import { CryptoRouter } from "./three_party/crypto_js/CryptoRoutes";
 import { C01Basic } from "./three_party/material_ui/C01Basic";
 import { SagaWaitReducer } from "./three_party/saga/wait/SagaWaitReducer";
 import { ChannelAsync_Saga } from "./three_party/saga/channel_async/ChannelAsync_Saga";
@@ -43,7 +44,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <UseMemo5/>
+        <CryptoRouter/>
       </ThemeProvider>
     </Provider>
   )
