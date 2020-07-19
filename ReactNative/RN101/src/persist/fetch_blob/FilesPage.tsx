@@ -12,6 +12,13 @@ export const FilesPage = (props: IProps) => {
   console.log(`LibraryDir = `, RNFetchBlob.fs.dirs.LibraryDir); //=>  undefined
 
   const download = () => {
+    const url = "https://songzhw.github.io/repo/index.html";
+    RNFetchBlob.fetch("GET", url)
+      .then((res) => {
+        console.log(`base64 = `, res.base64())
+        console.log(`text = `, res.text())
+        // console.log(`json = `, res.json()) // html不是json格式, 所以这行会报错的
+      });
   };
 
   return (
