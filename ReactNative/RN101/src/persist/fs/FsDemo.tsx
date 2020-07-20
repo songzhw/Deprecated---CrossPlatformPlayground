@@ -25,9 +25,9 @@ export const FsDemo = (props: IProps) => {
   };
 
   const moveFile = () => {
-    // const FROM = require("./work.txt");
-    // const uri = Image.resolveAssetSource(FROM);
-    // console.log(`uri = `, uri)
+    const FROM = require("../assets/work.html");
+    const {uri} = Image.resolveAssetSource(FROM);
+    console.log(`uri = `, uri)
   };
 
   const readerFolder = () => {
