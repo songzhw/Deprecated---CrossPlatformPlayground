@@ -27,7 +27,8 @@ export const FsDemo = (props: IProps) => {
   const moveFile = () => {
     const FROM = require("../assets/work.html");
     const {uri} = Image.resolveAssetSource(FROM);
-    console.log(`uri = `, uri)
+    RnFs.moveFile(uri, RnFs.DocumentDirectoryPath+"/jobs")
+      .then(()=> {console.log(`move done`)})
   };
 
   const readerFolder = () => {
