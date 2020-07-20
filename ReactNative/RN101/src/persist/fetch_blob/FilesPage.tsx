@@ -1,6 +1,7 @@
 import React from "react";
 import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
 import RNFetchBlob from "rn-fetch-blob";
+import RnFs from "react-native-fs";
 
 interface IProps extends ViewProps {
 }
@@ -10,6 +11,7 @@ export const FilesPage = (props: IProps) => {
   console.log(`SDCardDir = `, RNFetchBlob.fs.dirs.SDCardDir); //=>  /storage/emulated/0
   console.log(`DownloadDir = `, RNFetchBlob.fs.dirs.DownloadDir); //=>  /storage/emulated/0/Download
   console.log(`LibraryDir = `, RNFetchBlob.fs.dirs.LibraryDir); //=>  undefined
+  console.log(`MainBundle = `, RNFetchBlob.fs.dirs.MainBundleDir); //=>  undefined
 
   const downloadHtml = () => {
     const url = "https://songzhw.github.io/repo/index.html";

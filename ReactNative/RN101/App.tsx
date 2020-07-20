@@ -25,12 +25,13 @@ import {FlexBoxDemo3} from "./src/basic_ui/layout/FlexBoxDemo3";
 import {FlexBoxDemo4} from "./src/basic_ui/layout/FlexBoxDemo4";
 import {FlexBoxDemo5} from "./src/basic_ui/layout/FlexBoxDemo5";
 import { FilesPage } from "./src/persist/fetch_blob/FilesPage";
+import { FsDemo } from "./src/persist/fs/FsDemo";
 
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    <FilesPage/>
+    <FsDemo/>
   );
 };
 
