@@ -13,7 +13,6 @@ export const FsDemo = (props: IProps) => {
   console.log(`MainBundle1 = `, RnFs.MainBundlePath); //=>  /data/user/0/com.rn101
 
 
-
   const downloadHtml = () => {
     const url = "https://songzhw.github.io/repo/index.html";
     // RNFetchBlob.fetch("GET", url)
@@ -24,11 +23,27 @@ export const FsDemo = (props: IProps) => {
     //   });
   };
 
+
   const moveFile = () => {
+    // 这种moveFile会失败, 因为uri, path是不同的.
+    // const FROM = require("../assets/work.html");
+    // const {uri} = Image.resolveAssetSource(FROM);
+    // RnFs.moveFile(uri, RnFs.DocumentDirectoryPath+"/jobs")
+    //   .then(()=> {console.log(`move done`)})
+
+    // 正确的做法是下载, 把这个uri下载到本地, 就变相达到了moveFile的目的了
     const FROM = require("../assets/work.html");
-    const {uri} = Image.resolveAssetSource(FROM);
-    RnFs.moveFile(uri, RnFs.DocumentDirectoryPath+"/jobs")
-      .then(()=> {console.log(`move done`)})
+    const { uri } = Image.resolveAssetSource(FROM);
+
+    const options = {
+      fromUrl: uri,
+      toFile: RnFs.DocumentDirectoryPath + "/my.html"
+    }; // 目录不会帮你创建哦, 要自己先调用RnFs.mkdir()先
+
+    RnFs.downloadFile(options)
+      .promise
+      .then(resp => console.log(`szw download => `, resp));
+
   };
 
   const readerFolder = () => {
