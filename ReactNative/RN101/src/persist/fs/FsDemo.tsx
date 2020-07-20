@@ -6,11 +6,11 @@ interface IProps extends ViewProps {
 }
 
 export const FsDemo = (props: IProps) => {
-  console.log(`DocumentDir1 = `, RnFs.DocumentDirectoryPath); //=>  /data/user/0/com.rn101/files
-  console.log(`SDCardDir1 = `, RnFs.ExternalCachesDirectoryPath); //=>  /storage/emulated/0/Android/data/com.rn101/cache
-  console.log(`DownloadDir1 = `, RnFs.DownloadDirectoryPath); //=>  /storage/emulated/0/Download
-  console.log(`LibraryDir1 = `, RnFs.LibraryDirectoryPath); //=>  undefined
-  console.log(`MainBundle1 = `, RnFs.MainBundlePath); //=>  /data/user/0/com.rn101
+  // console.log(`DocumentDir1 = `, RnFs.DocumentDirectoryPath); //=>  /data/user/0/com.rn101/files
+  // console.log(`SDCardDir1 = `, RnFs.ExternalCachesDirectoryPath); //=>  /storage/emulated/0/Android/data/com.rn101/cache
+  // console.log(`DownloadDir1 = `, RnFs.DownloadDirectoryPath); //=>  /storage/emulated/0/Download
+  // console.log(`LibraryDir1 = `, RnFs.LibraryDirectoryPath); //=>  undefined
+  // console.log(`MainBundle1 = `, RnFs.MainBundlePath); //=>  /data/user/0/com.rn101
 
 
   const downloadHtml = () => {
