@@ -15,7 +15,7 @@
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-fs": "^2.16.6",
-    "react-native-http-bridge": "^0.6.1",
+    "react-native-http-bridge": "https://github.com/babeone/react-native-http-bridge.git",
     "react-native-webview": "^10.3.2",
     "realm": "^5.0.4",
     "rn-fetch-blob": "^0.12.0"
