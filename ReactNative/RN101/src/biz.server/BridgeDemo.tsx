@@ -11,16 +11,17 @@ export const BridgeDemo = () => {
 
   const [url, setUrl] = useState("https://www.google.com");
 
-  useEffect(()=>{
-    console.log(`szw component unmount`)
-    return stop()
-  }, [])
+  useEffect(() => {
+    console.log(`szw component unmount`);
+    return stop();
+  }, []);
 
   const start = () => {
     console.log(`szw start server => `);
     HttpBridge.start(8321, "szw1", request => {
-      console.log(`szw intercept!!! : url = `, request.url, "; id = "+request.requestId);
-      HttpBridge.respond(request.requestId, 200, "text/html", "<html><body><h1>hello world</h1></body></html>");
+      if (request.url === "/favicon.ico") return;
+      console.log(`szw intercept!!! : url = `, request.url, "; id = " + request.requestId);
+      HttpBridge.respond(request.requestId, 200, "text/html", `<html><body><h1>hello world: ${request.url}</h1></body></html>`);
       // HttpBridge.respond(request.requestId, 200, "application/json", `{"message":"ok","id":200}`);
     });
     setUrl("http://localhost:8321");
@@ -36,16 +37,23 @@ export const BridgeDemo = () => {
     setUrl("https://www.google.com");
   };
 
-  const mine = ()=>{
-    setUrl("http://localhost:8321");
-  }
+  const load1 = () => {
+    setUrl("http://localhost:8321/one.html");
+  };
+
+  const load2 = () => {
+    setUrl("http://localhost:8321/two.txt");
+  };
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ height: 10 }}/>
       <Button title="start server" onPress={start}/>
       <View style={{ height: 10 }}/>
       <Button title="stop server" onPress={stop}/>
+      <View style={{ height: 10 }}/>
+      <Button title="load text1" onPress={load1}/>
+      <View style={{ height: 10 }}/>
+      <Button title="load text2" onPress={load2}/>
       <WebView
         source={{ uri: url }}
         style={{ flex: 1 }}
