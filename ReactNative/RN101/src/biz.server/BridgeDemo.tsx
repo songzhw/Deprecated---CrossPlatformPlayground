@@ -21,7 +21,8 @@ export const BridgeDemo = () => {
     HttpBridge.start(8321, "szw1", request => {
       if (request.url === "/favicon.ico") return;
       console.log(`szw intercept!!! : url = `, request.url, "; id = " + request.requestId);
-      HttpBridge.respond(request.requestId, 200, "text/html", `<html><body><h1>hello world: ${request.url}</h1></body></html>`);
+      HttpBridge.respond(request.requestId, 200, "text/html",
+        `<html><body><h1>hello world: ${request.url}</h1><p/><img src="/a.png"/></body></html>`);
       // HttpBridge.respond(request.requestId, 200, "application/json", `{"message":"ok","id":200}`);
     });
     setUrl("http://localhost:8321");
