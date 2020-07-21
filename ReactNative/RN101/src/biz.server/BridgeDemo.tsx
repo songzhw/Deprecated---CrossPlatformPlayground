@@ -22,7 +22,18 @@ export const BridgeDemo = () => {
       if (request.url === "/favicon.ico") return;
       console.log(`szw intercept!!! : url = `, request.url, "; id = " + request.requestId);
       HttpBridge.respond(request.requestId, 200, "text/html",
-        `<html><body><h1>hello world: ${request.url}</h1><p/><img src="/a.png"/></body></html>`);
+        `
+<html>
+     <head>
+      <style type="text/css">@font-face { font-family: 'jb'; src: url('/fonts/abc.ttf');}  </style>
+      <title>my t itle</title>
+      </head>
+    <body>
+      <h1>hello world: ${request.url}</h1><p/>
+      <span  style="font-family:'jb'; font-size:25px">second line</span><p/>
+      <img src="/a.png"/>
+    </body>
+</html>`);
       // HttpBridge.respond(request.requestId, 200, "application/json", `{"message":"ok","id":200}`);
     });
     setUrl("http://localhost:8321");
