@@ -1,15 +1,11 @@
 import React from 'react';
-import {
-  StyleSheet,
-} from 'react-native';
-
-
-declare const global: { HermesInternal: null | {} };
+import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {BridgeDemo} from "./src/biz.server/BridgeDemo";
 
 const App = () => {
   return (
     <>
-
+      <BridgeDemo/>
     </>
   );
 };
