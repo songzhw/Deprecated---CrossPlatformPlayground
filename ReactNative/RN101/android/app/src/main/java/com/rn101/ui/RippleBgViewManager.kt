@@ -18,8 +18,8 @@ class RippleBgViewManager(val ctx: ReactApplicationContext) : SimpleViewManager<
 
     override fun getConstants(): MutableMap<String, Any> {
         val constants = HashMap<String, Any>()
-        constants.put("fitXY", ImageView.ScaleType.FIT_XY)
-        constants.put("centerCrop", ImageView.ScaleType.CENTER_CROP)
+        constants["fitXY"] = ImageView.ScaleType.FIT_XY
+        constants["centerCrop"] = ImageView.ScaleType.CENTER_CROP
         return constants
     }
 
