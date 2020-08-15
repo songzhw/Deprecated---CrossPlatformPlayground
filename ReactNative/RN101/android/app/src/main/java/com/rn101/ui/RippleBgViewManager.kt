@@ -16,7 +16,6 @@ class RippleBgViewManager(val ctx: ReactApplicationContext) : SimpleViewManager<
 
     override fun createViewInstance(reactContext: ThemedReactContext): RippleBgView {
         val view = RippleBgView(ctx)
-        view.layoutParams = ViewGroup.LayoutParams(500, 500)
         view.setImageResource(R.mipmap.ic_launcher_round)
         return view
     }
