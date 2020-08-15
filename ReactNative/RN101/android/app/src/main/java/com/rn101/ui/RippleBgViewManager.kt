@@ -30,8 +30,9 @@ class RippleBgViewManager(val ctx: ReactApplicationContext) : SimpleViewManager<
     }
 
     @ReactProp(name = "stretchMode")
-    fun setStretchMode(view: RippleBgView, @Nullable scaleType: ImageView.ScaleType) {
-        view.scaleType = scaleType ?: ImageView.ScaleType.FIT_START
+    fun setStretchMode(view: RippleBgView, @Nullable scaleType: String) {
+        val type: ImageView.ScaleType = constants[scaleType] as ImageView.ScaleType? ?: ImageView.ScaleType.FIT_START;
+        view.scaleType = type
     }
 
 }
