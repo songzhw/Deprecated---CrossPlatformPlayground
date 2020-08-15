@@ -3,7 +3,7 @@ import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
 import { WebView } from "react-native-webview";
 import HttpBridge from "react-native-http-bridge";
 
-export const BridgeDemo = () => {
+export const LocalServerDemo = () => {
   /*
   [Mon Jul 20 2020 15:55:56.635] szw intercept!!! : url =  /
   [Mon Jul 20 2020 15:55:56.825] szw intercept!!! : url =  /favicon.ico
