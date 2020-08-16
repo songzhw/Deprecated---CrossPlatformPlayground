@@ -1,5 +1,6 @@
 package com.rn101.ui
 
+import android.graphics.Color
 import android.widget.ImageView
 import androidx.annotation.Nullable
 import com.facebook.react.ReactPackage
@@ -26,6 +27,7 @@ class RippleBgViewManager(val ctx: ReactApplicationContext) : SimpleViewManager<
     override fun createViewInstance(reactContext: ThemedReactContext): RippleBgView {
         val view = RippleBgView(ctx)
         view.setImageResource(R.mipmap.ic_launcher_round)
+        view.setBackgroundColor(Color.BLUE)
         return view
     }
 
