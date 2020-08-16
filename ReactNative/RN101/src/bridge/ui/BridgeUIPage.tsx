@@ -9,7 +9,7 @@ export const BridgeUIPage = (props: IProps) => {
   return (
     <SafeAreaView>
       <RippleBgView
-        style={{width:140, height: 450}}
+        style={{width:140, height: 450, backgroundColor:"black"}}
         stretchMode=""
       />
     </SafeAreaView>
