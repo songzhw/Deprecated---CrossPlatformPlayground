@@ -9,13 +9,14 @@ export const LayoutAnimDemo = (props: IProps) => {
 
   const click1 = () => {
     LayoutAnimation.configureNext({
-      duration: 2000,
+      duration: 2000,   //持续时间
       create: {
         type: LayoutAnimation.Types.spring,
-        property: LayoutAnimation.Properties.scaleXY
+        property: 'opacity',
       },
       update: {
-        type: LayoutAnimation.Types.easeInEaseOut
+        type: 'spring',
+        springDamping: 0.4,
       }
     });
     const newSize = size === 90 ? 220 : 90;
