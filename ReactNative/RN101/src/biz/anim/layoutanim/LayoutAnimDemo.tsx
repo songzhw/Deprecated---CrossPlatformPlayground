@@ -11,8 +11,11 @@ export const LayoutAnimDemo = (props: IProps) => {
     LayoutAnimation.configureNext({
       duration: 2000,
       create: {
-        type: "spring",
-        property: "width"
+        type: LayoutAnimation.Types.spring,
+        property: LayoutAnimation.Properties.scaleXY
+      },
+      update: {
+        type: LayoutAnimation.Types.easeInEaseOut
       }
     });
     const newSize = size === 90 ? 220 : 90;
