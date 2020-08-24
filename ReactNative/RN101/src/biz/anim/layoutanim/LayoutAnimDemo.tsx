@@ -8,7 +8,19 @@ export const LayoutAnimDemo = (props: IProps) => {
   const [size, setSize] = useState(90);
 
   const click1 = () => {
-    LayoutAnimation.spring();
+    LayoutAnimation.configureNext({
+      duration: 12000,
+      create: {
+        type: LayoutAnimation.Types.linear,
+        property: LayoutAnimation.Properties.scaleXY,
+        springDamping: 3
+      },
+      update: {
+        type: LayoutAnimation.Types.linear,
+        property: LayoutAnimation.Properties.scaleXY,
+        springDamping: 3
+      }
+    })
     const newSize = size === 90 ? 220 : 90;
     setSize(newSize);
   };
@@ -16,7 +28,7 @@ export const LayoutAnimDemo = (props: IProps) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={click1}>
-        <View style={[styles.circle, { width: size, height: size, borderRadius: size/2 }]}/>
+        <View style={[styles.circle, { width: size, height: size, borderRadius: size / 2 }]}/>
       </TouchableOpacity>
     </View>
   );
@@ -31,6 +43,6 @@ const styles = StyleSheet.create({
   },
   circle: {
     backgroundColor: "#f76260",
-    borderColor: "white",
+    borderColor: "white"
   }
 });
