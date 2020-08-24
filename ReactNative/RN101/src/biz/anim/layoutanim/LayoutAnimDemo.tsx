@@ -12,7 +12,7 @@ export const LayoutAnimDemo = (props: IProps) => {
       duration: 2000,
       create: {
         type: "spring",
-        property: "size"
+        property: "width"
       }
     });
     const newSize = size === 90 ? 220 : 90;
