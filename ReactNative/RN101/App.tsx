@@ -28,12 +28,13 @@ import { FilesPage } from "./src/persist/fetch_blob/FilesPage";
 import { FsDemo } from "./src/persist/fs/FsDemo";
 import { BridgeUIPage } from "./src/bridge/ui/BridgeUIPage";
 import { LayoutAnimDemo } from "./src/biz/anim/layoutanim/LayoutAnimDemo";
+import { LayoutAnimDemo2 } from "./src/biz/anim/layoutanim/LayoutAnimDemo2";
 
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    <LayoutAnimDemo/>
+    <LayoutAnimDemo2/>
   );
 };
 

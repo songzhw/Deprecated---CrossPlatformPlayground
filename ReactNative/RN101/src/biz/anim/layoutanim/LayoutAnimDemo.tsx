@@ -8,17 +8,7 @@ export const LayoutAnimDemo = (props: IProps) => {
   const [size, setSize] = useState(90);
 
   const click1 = () => {
-    LayoutAnimation.configureNext({
-      duration: 2000,   //持续时间
-      create: {
-        type: LayoutAnimation.Types.spring,
-        property: 'opacity',
-      },
-      update: {
-        type: 'spring',
-        springDamping: 0.4,
-      }
-    });
+    LayoutAnimation.spring();
     const newSize = size === 90 ? 220 : 90;
     setSize(newSize);
   };
