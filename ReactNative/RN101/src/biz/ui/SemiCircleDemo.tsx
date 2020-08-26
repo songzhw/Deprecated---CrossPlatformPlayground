@@ -8,7 +8,9 @@ export const SemiCircleDemo = (props: IProps) => {
 
   return (
     <View>
-        <SemiCircleProgressView radius={100} bg="grey"/>
+        <SemiCircleProgressView radius={100} bg="grey">
+          <Text>fulfilled: 35%</Text>
+        </SemiCircleProgressView>
     </View>
   )
 }
