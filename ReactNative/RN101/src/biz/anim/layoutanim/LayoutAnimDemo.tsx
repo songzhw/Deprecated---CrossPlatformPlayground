@@ -8,19 +8,20 @@ export const LayoutAnimDemo = (props: IProps) => {
   const [size, setSize] = useState(90);
 
   const click1 = () => {
-    LayoutAnimation.configureNext({
-      duration: 12000,
-      create: {
-        type: LayoutAnimation.Types.linear,
-        property: LayoutAnimation.Properties.scaleXY,
-        springDamping: 3
-      },
-      update: {
-        type: LayoutAnimation.Types.linear,
-        property: LayoutAnimation.Properties.scaleXY,
-        springDamping: 3
-      }
-    })
+    // LayoutAnimation.configureNext({
+    //   duration: 12000,
+    //   create: {
+    //     type: LayoutAnimation.Types.linear,
+    //     property: LayoutAnimation.Properties.scaleXY,
+    //     springDamping: 3
+    //   },
+    //   update: {
+    //     type: LayoutAnimation.Types.linear,
+    //     property: LayoutAnimation.Properties.scaleXY,
+    //     springDamping: 3
+    //   }
+    // })
+    LayoutAnimation.spring();
     const newSize = size === 90 ? 220 : 90;
     setSize(newSize);
   };
