@@ -1,7 +1,8 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { View, ViewProps, Text, StyleSheet } from "react-native";
 
-interface IProps extends ViewProps {
+// type PropsWithChildren<P> = P & { children?: ReactNode };
+interface IProps extends PropsWithChildren<ViewProps> {
   radius: number,
   bg: string
 }
