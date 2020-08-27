@@ -26,13 +26,13 @@ export const SemiCircleProgressView = (props: IProps) => {
       progress: {
         width: radius * 2,
         height: radius, //所以是半圆
-        top: radius
+        top: radius //因为高度就是radius, 故这相当于把progress给推出去了
       },
-      inner: {
+      ring: {
         width: radius * 2,
         height: radius,
         borderRadius: radius,
-        backgroundColor: color,
+        backgroundColor: color
       },
       space: {
         width: innerRadius * 2,
@@ -49,12 +49,9 @@ export const SemiCircleProgressView = (props: IProps) => {
   return (
     <View style={[styles.container, dynamicStyle.container, props.style]}>
       <View style={[styles.progress, dynamicStyle.progress]}>
-        <View style={[styles.inner, dynamicStyle.inner]}/>
+        <View style={[styles.ring, dynamicStyle.ring]}/>
       </View>
 
-      <View style={[styles.space, dynamicStyle.space]}>
-        {props.children}
-      </View>
 
     </View>
   );
@@ -63,26 +60,28 @@ export const SemiCircleProgressView = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
     alignItems: "center",
     // overflow:"hidden",
-    backgroundColor: 'green'
+    backgroundColor: "green"
   },
   progress: {
     position: "absolute",
     left: 0
   },
-  inner: {
-    position: 'absolute',
+  ring: {
+    position: "absolute",
     top: 0,
     left: 0,
     borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
+    borderTopRightRadius: 0
   },
   space: {
-    overflow: 'hidden',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    overflow: "hidden",
+    justifyContent: "flex-end",
+    alignItems: "center",
     borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
+    borderBottomRightRadius: 0
   }
 });
