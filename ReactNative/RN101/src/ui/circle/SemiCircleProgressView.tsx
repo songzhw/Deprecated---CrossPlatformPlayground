@@ -48,10 +48,14 @@ export const SemiCircleProgressView = (props: IProps) => {
   const dynamicStyle = calculateStyle();
   return (
     <View style={[styles.container, dynamicStyle.container, props.style]}>
+
       <View style={[styles.progress, dynamicStyle.progress]}>
         <View style={[styles.ring, dynamicStyle.ring]}/>
       </View>
 
+      <View style={[styles.space, dynamicStyle.space]}>
+        {props.children}
+      </View>
 
     </View>
   );
