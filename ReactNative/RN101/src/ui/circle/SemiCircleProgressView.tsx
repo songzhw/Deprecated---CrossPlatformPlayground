@@ -1,5 +1,5 @@
-import React, { PropsWithChildren } from "react";
-import { View, ViewProps, Text, StyleSheet } from "react-native";
+import React, { PropsWithChildren, useEffect, useState } from "react";
+import { View, ViewProps, Text, StyleSheet, Animated } from "react-native";
 
 // type PropsWithChildren<P> = P & { children?: ReactNode };
 interface IProps extends PropsWithChildren<ViewProps> {
@@ -7,10 +7,28 @@ interface IProps extends PropsWithChildren<ViewProps> {
   bg: string;
   color: string;
   progressWidth: number;
-
+  progress: number
 }
 
 export const SemiCircleProgressView = (props: IProps) => {
+  const [degree, setDegree] = useState(new Animated.Value(0));
+
+  const anim = () => {
+    const toValue = props.progress;
+    const speed = 2;
+
+    Animated.spring(degree, {
+      toValue,
+      speed,
+      useNativeDriver: true
+    }).start();
+  };
+
+  useEffect(() => {
+    anim();
+  }, [props.radius, props.bg, props.color, props.progressWidth, props.progress]); //故意不设第二参, 所以componentDidMount与componentDidUpdate都会变化它
+  // TODO 只设置props呢?
+
 
   const calculateStyle = () => {
     const { radius, bg, color, progressWidth } = props;
@@ -32,7 +50,18 @@ export const SemiCircleProgressView = (props: IProps) => {
         width: radius * 2,
         height: radius,
         borderRadius: radius,
-        backgroundColor: color
+        backgroundColor: color,
+        transform: [
+          { translateY: -radius / 2 },
+          {
+            // @ts-ignore
+            rotate: degree.interpolate({
+              inputRange: [0, 100],
+              outputRange: ["0deg", "180deg"]
+            })
+          },
+          { translateY: radius / 2 }
+        ]
       },
       space: {
         width: innerRadius * 2,
@@ -50,7 +79,7 @@ export const SemiCircleProgressView = (props: IProps) => {
     <View style={[styles.container, dynamicStyle.container, props.style]}>
 
       <View style={[styles.progress, dynamicStyle.progress]}>
-        <View style={[styles.ring, dynamicStyle.ring]}/>
+        <Animated.View style={[styles.ring, dynamicStyle.ring]}/>
       </View>
 
       <View style={[styles.space, dynamicStyle.space]}>
@@ -67,7 +96,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
     alignItems: "center",
-    // overflow:"hidden",
+    overflow: "hidden",
     backgroundColor: "green"
   },
   progress: {
