@@ -27,7 +27,6 @@ export const SemiCircleProgressView = (props: IProps) => {
   useEffect(() => {
     anim();
   }, [props.radius, props.bg, props.color, props.progressWidth, props.progress]); //故意不设第二参, 所以componentDidMount与componentDidUpdate都会变化它
-  // TODO 只设置props呢?
 
 
   const calculateStyle = () => {
