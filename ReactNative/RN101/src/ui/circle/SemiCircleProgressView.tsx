@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 0
   },
   space: {
-    overflow: "hidden",
+    // overflow: "hidden",
     justifyContent: "flex-end",
     alignItems: "center",
     borderBottomLeftRadius: 0,
