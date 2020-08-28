@@ -5,16 +5,21 @@ import Svg, { Circle, Rect } from "react-native-svg";
 interface IProps extends ViewProps {
 }
 
-export const SvgCanvasDemo1 = (props: IProps) => {
+export const SvgCanvasDemo2 = (props: IProps) => {
 
   // absoluteFill的样式, 就是absolute, 并且left/right/top/bottom全是0
   return (
-      <Svg height="300" width="200" viewBox="0 0 100 100" preserveAspectRatio={"YMin slice"} style={{backgroundColor: "gray"}}>
-        <Rect x="0" y="0"
+    <View style={[StyleSheet.absoluteFill, styles.container]}>
+      <Svg height="50%" width="50%" viewBox="0 0 100 100" style={{backgroundColor: "gray"}}>
+        <Circle cx="50" cy="50" r="45"
+                stroke="blue" strokeWidth="2.5"
+                fill="green"/>
+        <Rect x="15" y="15"
               width="70" height="70"
               stroke="red" strokeWidth="2"
               fill="yellow"/>
       </Svg>
+    </View>
   );
 };
 
