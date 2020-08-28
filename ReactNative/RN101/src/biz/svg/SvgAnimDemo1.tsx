@@ -11,8 +11,7 @@ export const SvgAnimDemo1 = (props: IProps) => {
   const [radius, setRadius] = useState(new Animated.Value(38));
 
   const anim = () => {
-    // @ts-ignore
-    Animated.spring(radius, { toValue: 245 })
+    Animated.spring(radius, { toValue: 245, duration: 55000, useNativeDriver: true })
       .start();
   };
 

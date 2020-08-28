@@ -9,8 +9,8 @@ export const SvgCanvasDemo1 = (props: IProps) => {
 
   // absoluteFill的样式, 就是absolute, 并且left/right/top/bottom全是0
   return (
-      <Svg height="300" width="200" viewBox="0 0 100 100" preserveAspectRatio={"YMin slice"} style={{backgroundColor: "gray"}}>
-        <Rect x="0" y="0"
+      <Svg height="300" width="200" viewBox="0 0 100 100" style={{backgroundColor: "gray"}}>
+        <Rect x="15" y="15"
               width="70" height="70"
               stroke="red" strokeWidth="2"
               fill="yellow"/>
