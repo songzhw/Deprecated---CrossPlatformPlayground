@@ -11,7 +11,8 @@ export const SvgAnimDemo1 = (props: IProps) => {
   const [radius, setRadius] = useState(new Animated.Value(38));
 
   const anim = () => {
-    Animated.timing(radius, { toValue: 245, duration: 5000, useNativeDriver: true })
+    // Animated.timing(radius, { toValue: 180, duration: 2000, useNativeDriver: true })
+    Animated.spring(radius, {toValue: 180, useNativeDriver: true, tension: 1, friction: 1})
       .start();
   };
 
@@ -21,7 +22,7 @@ export const SvgAnimDemo1 = (props: IProps) => {
         <Svg height="100%" width="100%" style={{ backgroundColor: "grey" }}>
           <G fill="none">
             <AnimatedCircle
-              cx={160} cy={220} r={radius} fill="white"
+              cx={200} cy={300} r={radius} fill="white"
               stroke="#0078FF" strokeWidth="3" strokeDasharray="28,25"
             />
           </G>
