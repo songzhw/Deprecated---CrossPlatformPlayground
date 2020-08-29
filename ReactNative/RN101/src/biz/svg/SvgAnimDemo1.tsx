@@ -12,7 +12,7 @@ export const SvgAnimDemo1 = (props: IProps) => {
 
   const anim = () => {
     // Animated.timing(radius, { toValue: 180, duration: 2000, useNativeDriver: true })
-    Animated.spring(radius, {toValue: 180, useNativeDriver: true, tension: 1, friction: 1})
+    Animated.spring(radius, {toValue: 180, useNativeDriver: true, tension: 1, friction: 12})
       .start();
   };
 
