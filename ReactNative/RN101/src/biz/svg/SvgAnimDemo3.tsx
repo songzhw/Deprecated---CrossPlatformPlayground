@@ -1,15 +1,27 @@
-import React from "react";
-import { View, ViewProps, Text, StyleSheet } from "react-native";
+import React, { useRef, useState } from "react";
+import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
 import { CircleProgress } from "../../ui/circle/CircleProgress";
 
-interface IProps extends ViewProps {
-}
+export const SvgAnimDemo3 = () => {
+  const [start, setStart] = useState(false);
+  const [reset, setReset] = useState(true);
 
-export const SvgAnimDemo3 = (props: IProps) => {
+  const startAnim = () => {
+    setStart(true);
+    setReset(false);
+  };
+  const resetAnim = () => {
+    setStart(false);
+    setReset(true);
+  };
 
   return (
     <View style={styles.container}>
-      <CircleProgress radius={120}/>
+      <Button title={"start anim"} onPress={startAnim}/>
+      <View style={{ width: 1, height: 20 }}/>
+      <Button title={"reset anim"} onPress={resetAnim}/>
+      <View style={{ width: 1, height: 20 }}/>
+      <CircleProgress radius={120} start={start} reset={reset}/>
     </View>
   );
 };
