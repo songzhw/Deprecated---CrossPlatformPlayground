@@ -13,9 +13,17 @@ export const SvgAnimDemo2 = (props: IProps) => {
   const [progress, setProgress] = useState(new Animated.Value(0));  // 倒计时动画进度
 
   const startAnim = () => {
+    Animated.timing(progress, {
+      toValue: circumference,
+      duration: 1500,
+      useNativeDriver: true,
+      easing: Easing.linear
+    }).start();
   };
 
   const resetAnim = () => {
+    progress.stopAnimation();  // 停止当前动画
+    progress.setValue(0);  // 重置动画值
   };
 
   return (
@@ -45,6 +53,11 @@ export const SvgAnimDemo2 = (props: IProps) => {
           strokeDasharray={`${circumference} ${circumference}`}
           strokeDashoffset={-140} rotation={270}/>
 
+        <AnimatedCircle
+            x={80} y={400} r={radius}
+            fill="#f5a634" stroke="#0736cd" strokeWidth={5}
+            strokeDasharray={`${circumference}`}
+            strokeDashoffset={progress} rotation={-90}/>
       </Svg>
 
     </View>

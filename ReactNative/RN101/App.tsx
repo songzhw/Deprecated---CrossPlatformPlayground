@@ -39,7 +39,7 @@ declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    <SvgAnimDemo3/>
+    <SvgAnimDemo2/>
   );
 };
 
