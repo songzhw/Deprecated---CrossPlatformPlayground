@@ -5,21 +5,25 @@ import Svg, { Circle, Text, G } from "react-native-svg";
 interface IProps extends ViewProps {
   progress: Animated.Value;
   duration: number;
+  svgSize: number;
+  strokeWidth: number;
+  gap: number; /*内外环间隔*/
 }
 
-const svgSize = 100;  // 画布的宽高
-const halfOfSvgSize = svgSize / 2;
-const strokeWidth = 2;  // 圆形进度条宽度
-const radius = (svgSize - strokeWidth) / 2;  // 外层倒计时进度半径
-const innerRadius = radius - 6;  // 内层半径
-const circumference = 2 * radius * Math.PI;  // 总周长
 
 export const CircleProgress = (props: IProps) => {
-  const { progress, duration } = props;
+  const { progress, duration, svgSize, strokeWidth, gap } = props;
+  const [count, setCount] = useState(duration);
+
+  const halfOfSvgSize = svgSize / 2;
+  const radius = (svgSize - strokeWidth) / 2;  // 外层倒计时进度半径
+  const innerRadius = radius - gap;  // 内层半径
+  const circumference = 2 * radius * Math.PI;  // 总周长
+
   const radian = progress.interpolate({
     inputRange: [0, 1],
     outputRange: [0, 2 * Math.PI]
-  });
+  }); // 弧度 (一周的弧度就是2π)
   const circumferenceWithProgress = Animated.multiply(radius, radian);
   const AnimatedCircleProgress = Animated.createAnimatedComponent(Circle);
   const outerCircleCommonConfig = {
@@ -31,10 +35,9 @@ export const CircleProgress = (props: IProps) => {
     strokeDasharray: `${circumference}  ${circumference}`
   };
 
-  const [count, setCount] = useState(duration);
 
   useEffect(() => {
-    progress.addListener(({ value }) => {
+    progress.addListener(({ value }: { value: number }) => {
       const ratio = 1 - value;
       setCount(Math.round(duration * ratio));
     });
@@ -47,36 +50,24 @@ export const CircleProgress = (props: IProps) => {
     <Svg width={svgSize} height={svgSize}>
       {/* 内层显示倒计时时间圆圈 */}
       <Circle
-        stroke='#25BB7E'
-        fill='#25BB7E'
-        cx={halfOfSvgSize}
-        cy={halfOfSvgSize}
-        r={innerRadius}
-        strokeWidth={strokeWidth}
-        strokeDasharray={`${circumference}  ${circumference}`}
+        stroke='#25BB7E' fill='#25BB7E'
+        cx={halfOfSvgSize} cy={halfOfSvgSize} r={innerRadius}
+        strokeWidth={strokeWidth} strokeDasharray={`${circumference}  ${circumference}`}
       />
       <Text
-        fill="#fff"
-        fontSize="20"
-        fontWeight="bold"
-        x={halfOfSvgSize}
-        y={halfOfSvgSize + 5}
-        textAnchor="middle"
-      >
-        {`${count} s`}
-      </Text>
+        fill="#fff" textAnchor="middle"
+        fontSize="20" fontWeight="bold"
+        x={halfOfSvgSize} y={halfOfSvgSize + 5}
+      >{`${count} s`}</Text>
+
       {/* 外层倒计时圆圈 */}
       <G rotation={-90} origin={`${halfOfSvgSize}, ${halfOfSvgSize}`}>
-        <Circle
-          stroke='#D2D2D2'
-          {...outerCircleCommonConfig}
-        />
+        <Circle stroke='#D2D2D2' {...outerCircleCommonConfig}/>
         <AnimatedCircleProgress
-          stroke='#25BB7E'
-          {...outerCircleCommonConfig}
-          strokeDashoffset={circumferenceWithProgress}
-        />
+          stroke='#25BB7E' strokeDashoffset={circumferenceWithProgress}
+          {...outerCircleCommonConfig} />
       </G>
+      
     </Svg>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, ViewProps, Text, StyleSheet, Animated, Button, Easing } from "react-native";
+import { View, StyleSheet, Animated, Button, Easing } from "react-native";
 import { CircleProgress } from "../../ui/circle/CircleProgress";
 
 export const SvgAnimDemo3 = () => {
@@ -26,7 +26,11 @@ export const SvgAnimDemo3 = () => {
       <View style={{ width: 1, height: 20 }}/>
       <Button title={"reset anim"} onPress={resetAnim}/>
       <View style={{ width: 1, height: 20 }}/>
-      <CircleProgress progress={progress} duration={duration}/>
+
+      <CircleProgress
+        progress={progress} duration={duration}
+        svgSize={160} strokeWidth={5} gap={8}/>
+
     </View>
   );
 };

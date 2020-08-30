@@ -32,6 +32,7 @@ import { SemiCircleDemo } from "./src/biz/ui/SemiCircleDemo";
 import { SvgCanvasDemo1 } from "./src/biz/svg/SvgCanvasDemo1";
 import { SvgAnimDemo1 } from "./src/biz/svg/SvgAnimDemo1";
 import { SvgAnimDemo2_Deprecated } from "./src/biz/svg/SvgAnimDemo2_Deprecated";
+import { SvgAnimDemo2 } from "./src/biz/svg/SvgAnimDemo2";
 import { SvgAnimDemo3 } from "./src/biz/svg/SvgAnimDemo3";
 
 declare const global: { HermesInternal: null | {} };
