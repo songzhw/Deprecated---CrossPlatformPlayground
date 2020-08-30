@@ -21,8 +21,7 @@ export const CircleProgress = (props: IProps) => {
       const anim = Animated.timing(progress, {
           toValue: circumference,
           duration: 1500,
-          useNativeDriver: true,
-          easing: Easing.linear
+          useNativeDriver: true
         });
       Animated.loop(anim).start();
     }

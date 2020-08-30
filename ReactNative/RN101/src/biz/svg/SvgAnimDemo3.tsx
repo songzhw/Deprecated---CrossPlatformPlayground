@@ -1,3 +1,5 @@
+// 做一个圆环progress. 效果还行, 但动画没太自然, 还要修改
+
 import React, { useRef, useState } from "react";
 import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
 import { CircleProgress } from "../../ui/circle/CircleProgress";
@@ -21,7 +23,7 @@ export const SvgAnimDemo3 = () => {
       <View style={{ width: 1, height: 20 }}/>
       <Button title={"reset anim"} onPress={resetAnim}/>
       <View style={{ width: 1, height: 20 }}/>
-      <CircleProgress radius={120} start={start} reset={reset}/>
+      <CircleProgress radius={50} start={start} reset={reset}/>
     </View>
   );
 };
