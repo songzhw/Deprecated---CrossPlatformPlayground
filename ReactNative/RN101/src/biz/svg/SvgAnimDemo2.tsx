@@ -1,4 +1,4 @@
-// 本例主要是为了分解 CircleProgress.tsx 所用
+// 本例主要是为了分解 CountDownView.tsx 所用
 
 import React, { useState } from "react";
 import { View, StyleSheet, Button, Animated, Easing } from "react-native";
@@ -54,7 +54,7 @@ export const SvgAnimDemo2 = () => {
 
         <AnimatedCircle
           x={80} y={400} r={radius}
-          fill="#f5a634" stroke="#0736cd" strokeWidth={5}
+          fill="none" stroke="#0736cd" strokeWidth={5}
           strokeDasharray={`${circumference}`}
           strokeDashoffset={progress} rotation={-90}/>
         {/* <svg>中还是要使用react-native-svg中的<Text/> !!! */}
