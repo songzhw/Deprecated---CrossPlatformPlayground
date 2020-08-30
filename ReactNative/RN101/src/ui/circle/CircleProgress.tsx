@@ -1,73 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { Animated, ViewProps } from "react-native";
-import Svg, { Circle, Text, G } from "react-native-svg";
+import React, { useState } from "react";
+import { View, ViewProps, Text, StyleSheet, Animated, Easing } from "react-native";
+import Svg, { Circle } from "react-native-svg";
+
+const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 interface IProps extends ViewProps {
-  progress: Animated.Value;
-  duration: number;
-  svgSize: number;
-  strokeWidth: number;
-  gap: number; /*内外环间隔*/
+  radius: number;
 }
 
-
 export const CircleProgress = (props: IProps) => {
-  const { progress, duration, svgSize, strokeWidth, gap } = props;
-  const [count, setCount] = useState(duration);
-
-  const halfOfSvgSize = svgSize / 2;
-  const radius = (svgSize - strokeWidth) / 2;  // 外层倒计时进度半径
-  const innerRadius = radius - gap;  // 内层半径
+  const { radius } = props;
+  const size = 2 * radius + 30;
   const circumference = 2 * radius * Math.PI;  // 总周长
+  const [progress, setProgress] = useState(new Animated.Value(0));  // 倒计时动画进度
 
-  const radian = progress.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 2 * Math.PI]
-  }); // 弧度 (一周的弧度就是2π)
-  const circumferenceWithProgress = Animated.multiply(radius, radian);
-  const AnimatedCircleProgress = Animated.createAnimatedComponent(Circle);
-  const outerCircleCommonConfig = {
-    fill: "none",
-    cx: halfOfSvgSize,
-    cy: halfOfSvgSize,
-    r: radius,
-    strokeWidth: strokeWidth,
-    strokeDasharray: `${circumference}  ${circumference}`
+  const startAnim = () => {
+    Animated.timing(progress, {
+      toValue: circumference,
+      duration: 1500,
+      useNativeDriver: true,
+      easing: Easing.linear
+    }).start();
   };
 
-
-  useEffect(() => {
-    progress.addListener(({ value }: { value: number }) => {
-      const ratio = 1 - value;
-      setCount(Math.round(duration * ratio));
-    });
-    return () => {
-      progress.removeAllListeners();
-    };
-  }, []);
+  const resetAnim = () => {
+    progress.stopAnimation();  // 停止当前动画
+    progress.setValue(0);  // 重置动画值
+  };
 
   return (
-    <Svg width={svgSize} height={svgSize}>
-      {/* 内层显示倒计时时间圆圈 */}
-      <Circle
-        stroke='#25BB7E' fill='#25BB7E'
-        cx={halfOfSvgSize} cy={halfOfSvgSize} r={innerRadius}
-        strokeWidth={strokeWidth} strokeDasharray={`${circumference}  ${circumference}`}
-      />
-      <Text
-        fill="#fff" textAnchor="middle"
-        fontSize="20" fontWeight="bold"
-        x={halfOfSvgSize} y={halfOfSvgSize + 5}
-      >{`${count} s`}</Text>
-
-      {/* 外层倒计时圆圈 */}
-      <G rotation={-90} origin={`${halfOfSvgSize}, ${halfOfSvgSize}`}>
-        <Circle stroke='#D2D2D2' {...outerCircleCommonConfig}/>
-        <AnimatedCircleProgress
-          stroke='#25BB7E' strokeDashoffset={circumferenceWithProgress}
-          {...outerCircleCommonConfig} />
-      </G>
-      
+    <Svg width={size} height={size}>
+      <AnimatedCircle
+        x={size/2} y={size/2} r={radius}
+        fill={"none"}
+        stroke="blue" strokeWidth={4}
+        strokeDasharray={`${circumference}`}
+        strokeDashoffset={progress}/>
     </Svg>
   );
 };
+
+
+const styles = StyleSheet.create({
+  container: {}
+});
