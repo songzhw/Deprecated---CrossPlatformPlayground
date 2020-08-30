@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { View, ViewProps, Text, StyleSheet, Button, Animated, Easing } from "react-native";
-import Svg, { Circle } from "react-native-svg";
+// 本例主要是为了分解 CircleProgress.tsx 所用
 
-interface IProps extends ViewProps {
-}
+import React, { useState } from "react";
+import { View, StyleSheet, Button, Animated, Easing } from "react-native";
+import Svg, { Circle, Text } from "react-native-svg";
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-export const SvgAnimDemo2 = (props: IProps) => {
+export const SvgAnimDemo2 = () => {
   const radius = 65;
   const circumference = 2 * radius * Math.PI;  // 总周长
   const [progress, setProgress] = useState(new Animated.Value(0));  // 倒计时动画进度
@@ -54,10 +53,13 @@ export const SvgAnimDemo2 = (props: IProps) => {
           strokeDashoffset={-140} rotation={270}/>
 
         <AnimatedCircle
-            x={80} y={400} r={radius}
-            fill="#f5a634" stroke="#0736cd" strokeWidth={5}
-            strokeDasharray={`${circumference}`}
-            strokeDashoffset={progress} rotation={-90}/>
+          x={80} y={400} r={radius}
+          fill="#f5a634" stroke="#0736cd" strokeWidth={5}
+          strokeDasharray={`${circumference}`}
+          strokeDashoffset={progress} rotation={-90}/>
+        {/* <svg>中还是要使用react-native-svg中的<Text/> !!! */}
+        <Text fill="white" textAnchor="middle" x={80} y={400} fontSize={"24"}>Anim</Text>
+
       </Svg>
 
     </View>
