@@ -35,12 +35,13 @@ import { SvgAnimDemo2_Deprecated } from "./src/biz/svg/SvgAnimDemo2_Deprecated";
 import { SvgAnimDemo2 } from "./src/biz/svg/SvgAnimDemo2";
 import { SvgAnimDemo3 } from "./src/biz/svg/SvgAnimDemo3";
 import { SvgAnimDemo4 } from "./src/biz/svg/SvgAnimDemo4";
+import { MaskDemo } from "./src/biz/ui/MaskDemo";
 
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    <SvgAnimDemo3/>
+    <MaskDemo/>
   );
 };
 
