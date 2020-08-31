@@ -36,12 +36,13 @@ import { SvgAnimDemo2 } from "./src/biz/svg/SvgAnimDemo2";
 import { SvgAnimDemo3 } from "./src/biz/svg/SvgAnimDemo3";
 import { SvgAnimDemo4 } from "./src/biz/svg/SvgAnimDemo4";
 import { MaskDemo } from "./src/biz/ui/MaskDemo";
+import { SvgCanvasDemo3 } from "./src/biz/svg/SvgCanvasDemo3";
 
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    <MaskDemo/>
+    <SvgCanvasDemo3/>
   );
 };
 
