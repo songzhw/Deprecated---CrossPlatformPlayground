@@ -20,7 +20,6 @@
 		945226AA99047D72B86D4700 /* libPods-RN101-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1A896406CD0BC7AE231C93 /* libPods-RN101-tvOS.a */; };
 		C0FC94FB40547AB6FD2BDD31 /* libPods-RN101-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E4190FB62FC89A82CC1CFA /* libPods-RN101-tvOSTests.a */; };
 		DCAF8BACB0839A915CAB900D /* libPods-RN101-RN101Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3314949EE80AEBF612B683 /* libPods-RN101-RN101Tests.a */; };
-		19082F2D3567416B827D3147 /* libRCTHttpServer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CF72B4B2F64EE49BDC670A /* libRCTHttpServer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +36,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "RN101-tvOS";
+		};
+		FE96C5FC24FD9B6500CB88CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEA2803AE30545E893C8A6EC /* RCTHttpServer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B29EC9CC1E48BED600704A36;
+			remoteInfo = RCTHttpServer;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -61,15 +67,15 @@
 		30E4190FB62FC89A82CC1CFA /* libPods-RN101-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RN101-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		509EC06B79429CE0EFBBBBDF /* Pods-RN101-RN101Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RN101-RN101Tests.debug.xcconfig"; path = "Target Support Files/Pods-RN101-RN101Tests/Pods-RN101-RN101Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		85069FC8908345740690F371 /* Pods-RN101-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RN101-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-RN101-tvOSTests/Pods-RN101-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		86CF72B4B2F64EE49BDC670A /* libRCTHttpServer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTHttpServer.a; sourceTree = "<group>"; };
 		AD939DCB89E9036A286E61DD /* Pods-RN101.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RN101.debug.xcconfig"; path = "Target Support Files/Pods-RN101/Pods-RN101.debug.xcconfig"; sourceTree = "<group>"; };
 		B282D507EBF84D99F259E1B8 /* Pods-RN101-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RN101-tvOS.release.xcconfig"; path = "Target Support Files/Pods-RN101-tvOS/Pods-RN101-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		BFBB03D852F3FA4363F9258E /* Pods-RN101-RN101Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RN101-RN101Tests.release.xcconfig"; path = "Target Support Files/Pods-RN101-RN101Tests/Pods-RN101-RN101Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C76B8E75C1BC07395736AC10 /* libPods-RN101.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RN101.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEA2803AE30545E893C8A6EC /* RCTHttpServer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTHttpServer.xcodeproj; path = "../node_modules/react-native-http-bridge/ios/RCTHttpServer.xcodeproj"; sourceTree = "<group>"; };
 		E10273F702CE5795B2692D13 /* Pods-RN101.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RN101.release.xcconfig"; path = "Target Support Files/Pods-RN101/Pods-RN101.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		DEA2803AE30545E893C8A6EC /* RCTHttpServer.xcodeproj */ = {isa = PBXFileReference; name = "RCTHttpServer.xcodeproj"; path = "../node_modules/react-native-http-bridge/ios/RCTHttpServer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		86CF72B4B2F64EE49BDC670A /* libRCTHttpServer.a */ = {isa = PBXFileReference; name = "libRCTHttpServer.a"; path = "libRCTHttpServer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +92,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F82F2A27760013E3F58DF25 /* libPods-RN101.a in Frameworks */,
-				19082F2D3567416B827D3147 /* libRCTHttpServer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +175,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				9B090470D8FB89E75923A5A6 /* Pods */,
+				FE96C5F824FD9B6400CB88CC /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -199,8 +205,23 @@
 				1D4070636B922724E550154C /* Pods-RN101-tvOSTests.debug.xcconfig */,
 				85069FC8908345740690F371 /* Pods-RN101-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FE96C5F824FD9B6400CB88CC /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				86CF72B4B2F64EE49BDC670A /* libRCTHttpServer.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		FE96C5F924FD9B6500CB88CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE96C5FD24FD9B6500CB88CC /* libRCTHttpServer.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +342,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FE96C5F924FD9B6500CB88CC /* Products */;
+					ProjectRef = DEA2803AE30545E893C8A6EC /* RCTHttpServer.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* RN101 */,
@@ -330,6 +357,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FE96C5FD24FD9B6500CB88CC /* libRCTHttpServer.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTHttpServer.a;
+			remoteRef = FE96C5FC24FD9B6500CB88CC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -594,9 +631,17 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
+				);
 				INFOPLIST_FILE = RN101Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -605,14 +650,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RN101.app/RN101";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
-				);
 			};
 			name = Debug;
 		};
@@ -622,9 +659,17 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
+				);
 				INFOPLIST_FILE = RN101Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -633,14 +678,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RN101.app/RN101";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
-				);
 			};
 			name = Release;
 		};
@@ -656,6 +693,10 @@
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
+				);
 				INFOPLIST_FILE = RN101/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -668,10 +709,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
-				);
 			};
 			name = Debug;
 		};
@@ -682,6 +719,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
+				);
 				INFOPLIST_FILE = RN101/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -693,10 +734,6 @@
 				PRODUCT_NAME = RN101;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
-				);
 			};
 			name = Release;
 		};
@@ -713,8 +750,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
+				);
 				INFOPLIST_FILE = "RN101-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -725,14 +770,6 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
-				);
 			};
 			name = Debug;
 		};
@@ -749,8 +786,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
+				);
 				INFOPLIST_FILE = "RN101-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -761,14 +806,6 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
-				);
 			};
 			name = Release;
 		};
@@ -784,8 +821,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
+				);
 				INFOPLIST_FILE = "RN101-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -796,14 +841,6 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RN101-tvOS.app/RN101-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
-				);
 			};
 			name = Debug;
 		};
@@ -819,8 +856,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
+				);
 				INFOPLIST_FILE = "RN101-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -831,14 +876,6 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RN101-tvOS.app/RN101-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-http-bridge/**",
-				);
 			};
 			name = Release;
 		};
