@@ -3,22 +3,9 @@ import { View, ViewProps, Text, StyleSheet, Platform } from "react-native";
 import Svg, { ClipPath, Defs, G, Image, Path } from "react-native-svg";
 
 
-
 export const SvgCanvasDemo3 = () => {
 
   const imageUrl = "https://raisinghappykittens.com/dev/wp-content/uploads//2019/10/kittens-555822-1024x569.jpg";
-  const image = Platform.OS === "ios" ? (
-    <G clipPath="url(#clipPath)">
-      <Image x="0" y="0" width="120%" height="100%"
-             preserveAspectRatio="xMidYMid slice"
-             href={{ uri: imageUrl }}/>
-    </G>
-  ) : (
-    <Image clipPath="url(#clipPath)"
-           x="0" y="0" width="100%"
-           preserveAspectRatio="xMidYMid slice"
-           href={{ uri: imageUrl }}/>
-  );
 
   return (
     <View style={styles.container}>
@@ -33,7 +20,10 @@ c8.4-10.4,21.3-17.1,35.8-17.1c14.4,0,27.2,6.6,35.6,16.9l308.4-178c1.9-1.1,3.4-2.
           </ClipPath>
         </Defs>
 
-        {image}
+        <Image clipPath="url(#clipPath)"
+               x="0" y="0" width="100%"
+               preserveAspectRatio="xMidYMid slice"
+               href={{ uri: imageUrl }}/>
       </Svg>
     </View>
   );
