@@ -39,12 +39,13 @@ import { MaskDemo } from "./src/biz/ui/MaskDemo";
 import { SvgCanvasDemo3 } from "./src/biz/svg/SvgCanvasDemo3";
 import { SvgCanvasDemo4 } from "./src/biz/svg/SvgCanvasDemo4";
 import { SvgAnimDemo5 } from "./src/biz/svg/SvgAnimDemo5";
+import { SvgCanvas5Pie } from "./src/biz/svg/SvgCanvas5Pie";
 
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
   return (
-    <SvgAnimDemo5/>
+    <SvgCanvas5Pie/>
   );
 };
 
