@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ViewProps, StyleSheet } from "react-native";
+import { View, ViewProps, StyleSheet, SafeAreaView } from "react-native";
 import Svg, { Circle, Defs, Use, Text } from "react-native-svg";
 
 interface IProps extends ViewProps {
@@ -8,10 +8,10 @@ interface IProps extends ViewProps {
 export const SvgCanvas5Pie = (props: IProps) => {
 
   return (
-    <View>
-      <Svg width={200} height={200} style={{backgroundColor: "gray"}}>
+    <SafeAreaView>
+      <Svg width={160} height={160} style={{backgroundColor: "gray"}}>
         <Defs>
-          <Circle id="shape" cx="100" cy="100" r="80" fill="none" strokeWidth={28}/>
+          <Circle id="shape" cx="80" cy="80" r="80" fill="none" strokeWidth={28}/>
         </Defs>
 
         {/*越长的环, 越要在下方; 要是在上亠, 就会遮住其它环*/}
@@ -21,7 +21,7 @@ export const SvgCanvas5Pie = (props: IProps) => {
 
         <Text x="50%" y="50%" fontSize={40} fill={"blue"} textAnchor={"middle"}>Pie</Text>
       </Svg>
-    </View>
+    </SafeAreaView>
   );
 };
 
