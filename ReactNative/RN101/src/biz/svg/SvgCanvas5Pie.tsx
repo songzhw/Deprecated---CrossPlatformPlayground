@@ -9,7 +9,9 @@ interface IProps extends ViewProps {
 export const SvgCanvas5Pie = (props: IProps) => {
 
   const data: IPieData[] = [
-    {percentage: 20, name: "book", color: "red"}
+    { percentage: 25, name: "book", color: "black" },
+    { percentage: 35, name: "comic", color: "green" },
+    { percentage: 40, name: "TV" }
   ];
 
   return (

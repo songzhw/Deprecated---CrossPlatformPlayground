@@ -5,7 +5,7 @@ import Svg, { Circle, Defs, Use, Text } from "react-native-svg";
 export interface IPieData {
   percentage: number; //30 means "30%"
   name: string;
-  color?: string;
+  color?: string
 }
 
 interface IProps extends ViewProps {
@@ -24,9 +24,9 @@ export const PieChart = (props: IProps) => {
   const pieData: IPieData[] = data.map(datum => {
     const length = circumference * datum.percentage / 100;
     previousLength += length;
-    const color = datum.color ? datum.color : "black"; //TODO 改随机颜色
+    const color = datum.color ? datum.color : `#${Math.random().toString(16).substr(2, 6)}`;
     return { percentage: previousLength, name: datum.name, color: color };
-  });
+  }).reverse(); //倒序就是为了让长度最长的在最下方, 这样可以被其它短的遮住
 
 
   return (
