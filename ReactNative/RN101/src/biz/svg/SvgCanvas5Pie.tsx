@@ -16,7 +16,8 @@ export const SvgCanvas5Pie = (props: IProps) => {
 
   return (
     <SafeAreaView style={styles.root}>
-      <PieChart radius={40} size={100} pieWidth={12} data={data} title="Pie"/>
+      <PieChart radius={40} size={100} pieWidth={12} data={data}
+                title="Pie" titleColor={"red"} titleSize={18}/>
     </SafeAreaView>
   );
 };

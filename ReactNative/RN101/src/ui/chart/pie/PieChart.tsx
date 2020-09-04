@@ -14,10 +14,12 @@ interface IProps extends ViewProps {
   pieWidth: number;
   data: IPieData[]; // all of their `percentage` should sum up to be 100
   title: string;
+  titleColor: string;
+  titleSize: number
 }
 
 export const PieChart = (props: IProps) => {
-  const { size, radius, pieWidth, data, title } = props;
+  const { size, radius, pieWidth, data, title, titleColor, titleSize } = props;
 
   const circumference = Math.PI * 2 * radius;
   let previousLength = 0;
@@ -31,17 +33,17 @@ export const PieChart = (props: IProps) => {
 
   return (
     <View style={props.style}>
-      <Svg width={size} height={size} viewBox="0 0 100 100" style={{ backgroundColor: "gray" }}>
+      <Svg width={size} height={size} viewBox="0 0 100 100">
         <Defs>
           <Circle id="shape" cx="50" cy="50" r={radius} fill="none" strokeWidth={pieWidth}/>
         </Defs>
 
         {/*越长的环, 越要在下方; 要是在上方, 就会遮住其它环*/}
         {pieData.map(datum =>
-          <Use href="#shape" x={0} y={0} stroke={datum.color} strokeDasharray={`${datum.percentage} 3000`}/>
+          <Use key={datum.name} href="#shape" x={0} y={0} stroke={datum.color} strokeDasharray={`${datum.percentage} 3000`}/>
         )}
 
-        <Text x="50" y="50" fontSize={18} fill={"blue"} textAnchor={"middle"}>{title}</Text>
+        <Text x="50" y="55" fontSize={titleSize} fill={titleColor} textAnchor={"middle"}>{title}</Text>
       </Svg>
     </View>
   );
