@@ -53,3 +53,6 @@ export const PieChart = (props: IProps) => {
 const styles = StyleSheet.create({
   container: {}
 });
+
+
+
