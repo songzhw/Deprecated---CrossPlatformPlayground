@@ -1,20 +1,49 @@
 import React from "react";
-import { View, ViewProps, Animated, Easing, StyleSheet } from "react-native";
+import { View, StyleSheet, Button, Animated } from "react-native";
 import { WaveView } from "../../ui/svg/WaveView";
 
 
-interface IProps extends ViewProps  {}
+export class SvgAnimDemo6_Wave extends React.Component {
 
-export const SvgAnimDemo6_Wave = (props: IProps) => {
+  render() {
+    return (
+      <View style={_styles.container}>
 
-  return (
-    <View>
-      <WaveView/>
-    </View>
-  )
+        <WaveView
+          style={_styles.waveBall}
+          H={12}
+          waveParams={[
+            { A: 10, T: 180, fill: "#62c2ff" },
+            { A: 15, T: 140, fill: "#0087dc" },
+            { A: 20, T: 100, fill: "#1aa7ff" }
+          ]}
+          animated={true}
+        />
+      </View>
+    );
+  }
 }
 
 
-const styles = StyleSheet.create({
-  container: {}
+const _styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginVertical: 10,
+    marginHorizontal: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: StyleSheet.hairlineWidth
+  },
+  wave: {
+    width: 100,
+    aspectRatio: 1,
+    overflow: "hidden",
+    backgroundColor: "white"
+  },
+  waveBall: {
+    width: 100,
+    aspectRatio: 1,
+    borderRadius: 50,
+    overflow: "hidden"
+  }
 });
