@@ -124,6 +124,7 @@ export class WaveView extends React.PureComponent<IProps, IState> {
   }
 
   setWaterHeight(H: number) {
+    console.log(`szw setWaterHeight()`)
     this.setState({ H });
   }
 

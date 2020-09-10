@@ -4,25 +4,21 @@ import { WaveView } from "../../ui/svg/WaveView";
 
 
 export class SvgAnimDemo6_Wave extends React.Component {
-  state = {progress: new Animated.Value(0), height: 0}
+  state = {height: 0}
 
   startAnim = () => {
-    this.state.progress.addListener(({ value }) => {
-      this.setState({height: value});
-    });
+    const times = [1000, 3000, 5000, 8000, 10000]
+    for(let i in times){
+      setTimeout(()=>{
+        console.log(`szw time to `, times[i]/100)
+        this.setState({height: times[i]/100})
+      }, times[i])
+    }
 
-    Animated.timing(this.state.progress, {
-      toValue: 100,
-      duration: 12000,
-      useNativeDriver: true,
-      easing: Easing.linear
-    }).start();
-    console.log(`szw start anim`)
   };
 
   resetAnim = () => {
-    this.state.progress.stopAnimation();  // 停止当前动画
-    this.state.progress.setValue(0);  // 重置动画值
+
   };
 
   render() {
