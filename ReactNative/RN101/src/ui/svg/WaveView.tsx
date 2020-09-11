@@ -53,9 +53,7 @@ export class WaveView extends React.PureComponent<IProps, IState> {
   }
 
   render() {
-    let { style } = this.props;
-    let { H, waveParams } = this.state;
-
+    let { H, waveParams, style } = this.props;
     let waves = [];
 
     for (let i = 0; i < waveParams.length; i++) {

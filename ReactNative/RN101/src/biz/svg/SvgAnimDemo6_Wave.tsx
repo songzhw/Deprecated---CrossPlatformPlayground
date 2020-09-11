@@ -26,7 +26,9 @@ export class SvgAnimDemo6_Wave extends React.Component {
     return (
       <View style={_styles.container}>
         <Button title={"start anim"} onPress={this.startAnim}/>
+        <View style={{height: 10}}/>
         <Button title={"reset anim"} onPress={this.resetAnim}/>
+        <View style={{height: 10}}/>
 
         <WaveView
           style={_styles.waveBall}
