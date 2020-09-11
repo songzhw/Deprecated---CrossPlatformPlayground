@@ -45,6 +45,34 @@ export class WaveView extends React.PureComponent<IProps> {
     this._animations = [];
   }
 
+  startAnim() {
+    this.stopAnim();
+
+    const speed = 5000;
+    const speedIncreasePerWave = 1000;
+    const easing = "linear";
+
+    for (let i = 0; i < this._animValues.length; i++) {
+      let anim = Animated.loop(Animated.timing(this._animValues[i], {
+        toValue: 1,
+        duration: speed + i * speedIncreasePerWave,
+        easing: Easing[easing],
+        useNativeDriver: true
+      }));
+      this._animations.push(anim);
+      anim.start();
+    }
+    this._animated = true;
+  }
+
+  stopAnim() {
+    for (let _anim of this._animations) {
+      _anim.stop();
+    }
+    this._animations = [];
+    this._animated = false;
+  }
+
   render() {
     let { H, waveParams, style } = this.props;
     let waves = [];
@@ -86,64 +114,6 @@ export class WaveView extends React.PureComponent<IProps> {
     );
   }
 
-  setWaveParams(waveParams: IWaveParams[]) {
-    if (!waveParams) return;
 
-    let animated = this._animated;
-    let newWaveCount = waveParams.length;
-    let oldWaveCount = this.props.waveParams.length;
-    if (animated) {
-      this.stopAnim();
-      for (let v of this._animValues) {
-        v.setValue(0);
-      }
-    }
-    if (newWaveCount !== oldWaveCount) {
-      this._animValues = [];
-      for (let i = 0; i < waveParams.length; i++) {
-        this._animValues.push(new Animated.Value(0));
-      }
-    }
 
-    this.setState({
-      waveParams
-    }, () => {
-      if (animated) {
-        this.startAnim();
-      }
-    });
-  }
-
-  setWaterHeight(H: number) {
-    console.log(`szw setWaterHeight()`)
-    this.setState({ H });
-  }
-
-  startAnim() {
-    this.stopAnim();
-
-    const speed = 5000;
-    const speedIncreasePerWave = 1000;
-    const easing = "linear";
-
-    for (let i = 0; i < this._animValues.length; i++) {
-      let anim = Animated.loop(Animated.timing(this._animValues[i], {
-        toValue: 1,
-        duration: speed + i * speedIncreasePerWave,
-        easing: Easing[easing],
-        useNativeDriver: true
-      }));
-      this._animations.push(anim);
-      anim.start();
-    }
-    this._animated = true;
-  }
-
-  stopAnim() {
-    for (let _anim of this._animations) {
-      _anim.stop();
-    }
-    this._animations = [];
-    this._animated = false;
-  }
 }
