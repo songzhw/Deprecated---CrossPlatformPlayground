@@ -16,12 +16,8 @@ interface IProps extends ViewProps {
   animated: boolean;
 }
 
-interface IState {
-  H: number;
-  waveParams: IWaveParams[];
-}
 
-export class WaveView extends React.PureComponent<IProps, IState> {
+export class WaveView extends React.PureComponent<IProps> {
   _animValues: Animated.Value[];
   _animated: boolean;
   _animations: any[];
@@ -29,15 +25,12 @@ export class WaveView extends React.PureComponent<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 
-    let { H, waveParams, animated } = this.props;
-
-    this.state = { H, waveParams };
-
+    let { waveParams, animated } = this.props;
     this._animValues = [];
     this._animations = [];
     this._animated = animated || false;
 
-    for (let i = 0; i < this.state.waveParams.length; i++) {
+    for (let i = 0; i < waveParams.length; i++) {
       this._animValues.push(new Animated.Value(0));
     }
   }
@@ -98,7 +91,7 @@ export class WaveView extends React.PureComponent<IProps, IState> {
 
     let animated = this._animated;
     let newWaveCount = waveParams.length;
-    let oldWaveCount = this.state.waveParams.length;
+    let oldWaveCount = this.props.waveParams.length;
     if (animated) {
       this.stopAnim();
       for (let v of this._animValues) {

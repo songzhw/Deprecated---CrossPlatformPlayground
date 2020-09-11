@@ -25,6 +25,7 @@ export class SvgAnimDemo6_Wave extends React.Component {
   resetAnim = () => {
     this.state.progress.stopAnimation();  // 停止当前动画
     this.state.progress.setValue(0);  // 重置动画值
+    this.setState({height: 0})
   };
 
   render() {
