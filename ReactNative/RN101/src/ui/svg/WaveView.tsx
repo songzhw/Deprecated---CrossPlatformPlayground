@@ -5,13 +5,13 @@ import Svg, { Path } from "react-native-svg";
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
 export interface IWaveParams {
-  verticalOffset: number;
-  waveTop: number;
+  waveHeight: number;
+  waveWidth: number;
   fillColor: string;
 }
 
 interface IProps extends ViewProps {
-  height: number;
+  waterHeight: number;
   waveParams: IWaveParams[];
   animated: boolean;
 }
@@ -74,31 +74,31 @@ export class WaveView extends React.PureComponent<IProps> {
   }
 
   render() {
-    let { height, waveParams, style } = this.props;
+    let { waterHeight, waveParams, style } = this.props;
     let waves = [];
 
     for (let i = 0; i < waveParams.length; i++) {
-      let { verticalOffset, waveTop, fillColor } = waveParams[i];
+      let { waveHeight, waveWidth, fillColor } = waveParams[i];
       let translateX = this._animValues[i].interpolate({
         inputRange: [0, 1],
-        outputRange: [0, -2 * waveTop]
+        outputRange: [0, -2 * waveWidth]
       });
       let wave = (
         <AnimatedSvg
           key={i}
           style={{
-            width: 3 * waveTop, height: verticalOffset + height,
+            width: 3 * waveWidth, height: waveHeight + waterHeight,
             position: "absolute", left: 0, bottom: 0,
             transform: [{ translateX }]
           }}
           preserveAspectRatio="xMinYMin meet"
-          viewBox={`0 0 ${3 * waveTop} ${verticalOffset + height}`}
+          viewBox={`0 0 ${3 * waveWidth} ${waveHeight + waterHeight}`}
         >
           {/*M移动到某点; Q二次贝赛尔曲线(控制点与终点); T简短版的Q(终点); V y 垂直线; H x 水平线; Z 闭合 */}
           <Path
-            d={`M 0 0 Q ${waveTop / 4} ${-verticalOffset} ${waveTop / 2} 0 T ${waveTop} 0 T ${3 * waveTop / 2} 0 T ${2 * waveTop} 0 T ${5 * waveTop / 2} 0 T ${3 * waveTop} 0 V ${height} H 0 Z`}
+            d={`M 0 0 Q ${waveWidth / 4} ${-waveHeight} ${waveWidth / 2} 0 T ${waveWidth} 0 T ${3 * waveWidth / 2} 0 T ${2 * waveWidth} 0 T ${5 * waveWidth / 2} 0 T ${3 * waveWidth} 0 V ${waterHeight} H 0 Z`}
             fill={fillColor}
-            transform={`translate(0, ${verticalOffset})`}
+            transform={`translate(0, ${waveHeight})`}
           />
         </AnimatedSvg>
       );

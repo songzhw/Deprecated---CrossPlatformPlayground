@@ -38,11 +38,11 @@ export class SvgAnimDemo6_Wave extends React.Component {
 
         <WaveView
           style={_styles.waveBall}
-          height={this.state.height}
+          waterHeight={this.state.height}
           waveParams={[
-            { verticalOffset: 10, waveTop: 180, fillColor: "#62c2ff" },
-            { verticalOffset: 15, waveTop: 140, fillColor: "#0087dc" },
-            { verticalOffset: 20, waveTop: 100, fillColor: "#1aa7ff" }
+            { waveHeight: 10, waveWidth: 180, fillColor: "#62c2ff" },
+            { waveHeight: 15, waveWidth: 140, fillColor: "#0087dc" },
+            { waveHeight: 20, waveWidth: 100, fillColor: "#1aa7ff" }
           ]}
           animated={true}
         />
