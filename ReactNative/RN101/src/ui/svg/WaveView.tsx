@@ -83,6 +83,8 @@ export class WaveView extends React.PureComponent<IProps> {
         inputRange: [0, 1],
         outputRange: [0, -2 * waveWidth]
       });
+      // 这的transform: translateX就是水波的移动. 要是没这translateX, 水波就不会有移动的效果了
+      // xMin yMin是viewport与viewBox的左与上边缘对齐;  meet是保持宽高比地, 让viewBox在svg的viewport中完全显示; (slice也是保持宽高比, 但viewBox可能会超出svg)
       let wave = (
         <AnimatedSvg
           key={i}
