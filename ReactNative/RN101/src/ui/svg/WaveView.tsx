@@ -5,18 +5,18 @@ import Svg, { Path } from "react-native-svg";
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 
 export interface IWaveParams {
-  A: number;
-  T: number;
-  fill: string;
+  verticalOffset: number;
+  waveTop: number;
+  fillColor: string;
 }
 
 interface IProps extends ViewProps {
-  H: number;
+  height: number;
   waveParams: IWaveParams[];
   animated: boolean;
 }
 
-
+// 本质上就是三个动画, 然后重合在一起, 就有了最顶上水波荡漾的效果了.
 export class WaveView extends React.PureComponent<IProps> {
   _animValues: Animated.Value[];
   _animated: boolean;
@@ -74,33 +74,31 @@ export class WaveView extends React.PureComponent<IProps> {
   }
 
   render() {
-    let { H, waveParams, style } = this.props;
+    let { height, waveParams, style } = this.props;
     let waves = [];
 
     for (let i = 0; i < waveParams.length; i++) {
-      let { A, T, fill } = waveParams[i];
+      let { verticalOffset, waveTop, fillColor } = waveParams[i];
       let translateX = this._animValues[i].interpolate({
         inputRange: [0, 1],
-        outputRange: [0, -2 * T]
+        outputRange: [0, -2 * waveTop]
       });
       let wave = (
         <AnimatedSvg
           key={i}
           style={{
-            width: 3 * T,
-            height: A + H,
-            position: "absolute",
-            left: 0,
-            bottom: 0,
+            width: 3 * waveTop, height: verticalOffset + height,
+            position: "absolute", left: 0, bottom: 0,
             transform: [{ translateX }]
           }}
           preserveAspectRatio="xMinYMin meet"
-          viewBox={`0 0 ${3 * T} ${A + H}`}
+          viewBox={`0 0 ${3 * waveTop} ${verticalOffset + height}`}
         >
+          {/*M移动到某点; Q二次贝赛尔曲线(控制点与终点); T简短版的Q(终点); V y 垂直线; H x 水平线; Z 闭合 */}
           <Path
-            d={`M 0 0 Q ${T / 4} ${-A} ${T / 2} 0 T ${T} 0 T ${3 * T / 2} 0 T ${2 * T} 0 T ${5 * T / 2} 0 T ${3 * T} 0 V ${H} H 0 Z`}
-            fill={fill}
-            transform={`translate(0, ${A})`}
+            d={`M 0 0 Q ${waveTop / 4} ${-verticalOffset} ${waveTop / 2} 0 T ${waveTop} 0 T ${3 * waveTop / 2} 0 T ${2 * waveTop} 0 T ${5 * waveTop / 2} 0 T ${3 * waveTop} 0 V ${height} H 0 Z`}
+            fill={fillColor}
+            transform={`translate(0, ${verticalOffset})`}
           />
         </AnimatedSvg>
       );
@@ -113,7 +111,6 @@ export class WaveView extends React.PureComponent<IProps> {
       </View>
     );
   }
-
 
 
 }

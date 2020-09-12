@@ -29,7 +29,6 @@ export class SvgAnimDemo6_Wave extends React.Component {
   };
 
   render() {
-    console.log(`szw getHeight: `, this.state.height)
     return (
       <View style={_styles.container}>
         <Button title={"start anim"} onPress={this.startAnim}/>
@@ -39,11 +38,11 @@ export class SvgAnimDemo6_Wave extends React.Component {
 
         <WaveView
           style={_styles.waveBall}
-          H={this.state.height}
+          height={this.state.height}
           waveParams={[
-            { A: 10, T: 180, fill: "#62c2ff" },
-            { A: 15, T: 140, fill: "#0087dc" },
-            { A: 20, T: 100, fill: "#1aa7ff" }
+            { verticalOffset: 10, waveTop: 180, fillColor: "#62c2ff" },
+            { verticalOffset: 15, waveTop: 140, fillColor: "#0087dc" },
+            { verticalOffset: 20, waveTop: 100, fillColor: "#1aa7ff" }
           ]}
           animated={true}
         />
