@@ -1,20 +1,4 @@
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar
-} from "react-native";
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions
-} from "react-native/Libraries/NewAppScreen";
 import { FlatListDemo } from "./src/basic_ui/list/FlatListDemo";
 import { PrepackagedDemo02 } from "./src/persist/realm/PrepackagedDemo02";
 import { RealmDemo2 } from "./src/persist/realm/RealmDemo2";
@@ -42,10 +26,11 @@ import { SvgAnimDemo5 } from "./src/biz/svg/SvgAnimDemo5";
 import { SvgCanvas5Pie } from "./src/biz/svg/SvgCanvas5Pie";
 import { SvgAnimDemo6_Wave } from "./src/biz/svg/SvgAnimDemo6_Wave";
 import { SvgAnimDemo7 } from "./src/biz/svg/SvgAnimDemo7";
+import { BadgerDemo } from "./src/biz/ui/BadgerDemo";
 
 const App = () => {
   return (
-    <SvgAnimDemo7/>
+    <BadgerDemo/>
   );
 };
 
