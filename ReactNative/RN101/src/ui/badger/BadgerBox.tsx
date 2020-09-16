@@ -14,7 +14,9 @@ export const BadgerBox = (props: IProps) => {
   return (
     <View style={styles.container}>
       {props.children}
-      <Text testID="label" style={[styles.label, styles.labelText, styles.labelAnim]}>New</Text>
+      <View style={[styles.label, styles.labelAnim]}>
+        <Text testID="label" style={[ styles.labelText]}>New</Text>
+      </View>
     </View>
   );
 };
@@ -22,6 +24,7 @@ export const BadgerBox = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {
+    overflow: "hidden"
   },
   label: {
     position: "absolute",
