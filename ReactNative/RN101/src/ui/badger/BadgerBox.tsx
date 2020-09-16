@@ -31,10 +31,13 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    backgroundColor: "#ccccccaa",
-    height: 50
+    height: 200,
+    width: 320,
+    alignItems: "center"
   },
   labelText: {
+    width: 377,
+    backgroundColor: "#ccccccaa",
     color: "white",
     fontSize: 20,
     textAlign: "center", /*水平居中*/
@@ -45,7 +48,7 @@ const styles = StyleSheet.create({
       { translateX: 160 },
       { translateY: -100 },
       { rotate: "45deg" },
-      { translateY: 130 }
+      { translateY: 140 }
     ]
   }
 });
