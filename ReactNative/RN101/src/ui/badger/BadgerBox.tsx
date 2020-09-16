@@ -9,12 +9,10 @@ interface IProps extends ViewProps {
 }
 
 export const BadgerBox = (props: IProps) => {
-  console.log(`size1 = `, hyp(320, 200))
-  console.log(`size2 = `, hyp(160, 100))
   return (
     <View style={styles.container}>
       {props.children}
-      <View style={[styles.label, styles.labelAnim]}>
+      <View style={[styles.maskSize, styles.maskAnim]}>
         <Text testID="label" style={[ styles.labelText]}>New</Text>
       </View>
     </View>
@@ -26,29 +24,28 @@ const styles = StyleSheet.create({
   container: {
     overflow: "hidden"
   },
-  label: {
+  maskSize: {
     position: "absolute",
     top: 0,
     left: 0,
     right: 0,
-    height: 200,
-    width: 320,
-    alignItems: "center"
+    bottom: 0,  /* 这里即使是absolute式的全屏, 那就可以不写width与height. 它们就默认和parent一样大了*/
+    alignItems: "center" /*因为label长377, mask这个parent长300, 所以要让文字居中才行*/
   },
-  labelText: {
-    width: 377,
-    backgroundColor: "#ccccccaa",
-    color: "white",
-    fontSize: 20,
-    textAlign: "center", /*水平居中*/
-    lineHeight: 50 /*垂直居中. 主要复用了lineHeight与height同样高度*/
-  },
-  labelAnim: {
+  maskAnim: {
     transform: [
       { translateX: 160 },
       { translateY: -100 },
       { rotate: "45deg" },
       { translateY: 140 }
     ]
+  },
+  labelText: {
+    width: 377,  /*377是320^2 + 200 ^2的平方根*/
+    backgroundColor: "#ccccccaa",
+    color: "white",
+    fontSize: 20,
+    textAlign: "center", /*水平居中*/
+    lineHeight: 50 /*垂直居中. 主要复用了lineHeight与height同样高度*/
   }
 });
