@@ -13,6 +13,7 @@ interface IProps extends ViewProps {
   labelTextColor: string;
   labelTextHeight: number;
   labelTextSize: number;
+  labelText:string;
 }
 
 export const BadgerBox = (props: IProps) => {
@@ -49,7 +50,7 @@ export const BadgerBox = (props: IProps) => {
     <View style={styles.container}>
       {props.children}
       <View style={[styles.maskSize, dynamicStyles.maskAnim]} onLayout={onLayout}>
-        <Text testID="label" style={dynamicStyles.labelText}>New</Text>
+        <Text testID="label" style={dynamicStyles.labelText}>{props.labelText}</Text>
       </View>
     </View>
   );
