@@ -15,12 +15,16 @@ export const SvgAnimDemo7 = () => {
 
   useEffect(() => {
     animRadius.addListener((circleRadius) => {
+      // @ts-ignore
       _myCircle.current.setNativeProps({ cx: circleRadius.value.toString() });
     });
     path.addListener(a => {
       setPathX(a.value.toString());
+      // @ts-ignore
       setPathY((318 + parseInt(a.value)).toString());
+      // @ts-ignore
       setPathA((330 + parseInt(a.value)).toString());
+      // @ts-ignore
       setPathB((350 + parseInt(a.value)).toString());
     });
   }, []);
