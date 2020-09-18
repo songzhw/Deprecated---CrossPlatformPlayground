@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { Animated, Easing, StyleSheet, View } from "react-native";
 import Svg, { Circle, ClipPath, Defs, LinearGradient, Rect, Stop } from "react-native-svg";
 import { Shimmer } from "../../ui/shimmer/Shimmer";
 
