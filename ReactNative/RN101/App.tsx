@@ -27,10 +27,11 @@ import { SvgCanvas5Pie } from "./src/biz/svg/SvgCanvas5Pie";
 import { SvgAnimDemo6_Wave } from "./src/biz/svg/SvgAnimDemo6_Wave";
 import { SvgAnimDemo7 } from "./src/biz/svg/SvgAnimDemo7";
 import { BadgerDemo } from "./src/biz/ui/BadgerDemo";
+import { PlaceHolderDemo } from "./src/biz/anim/PlaceHolderDemo";
 
 const App = () => {
   return (
-    <BadgerDemo/>
+    <PlaceHolderDemo/>
   );
 };
 
