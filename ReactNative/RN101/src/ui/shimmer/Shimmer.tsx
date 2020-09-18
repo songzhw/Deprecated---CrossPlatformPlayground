@@ -20,14 +20,21 @@ export const Shimmer = (props: IProps) => {
       }
     });
 
-    Animated.timing(anim, { toValue: 1, duration: 1000, useNativeDriver: true })
-      .start();
-
+    startInfiniteAnimation();
     return () => {
       anim.removeAllListeners();
     };
   }, []);
 
+  const startInfiniteAnimation = () => {
+    Animated.timing(anim, { toValue: 1, duration: 1000, useNativeDriver: true })
+      .start((event) => {
+        if (event.finished) {
+          anim.setValue(0);
+          startInfiniteAnimation();
+        }
+      });
+  };
 
   return (
     <Svg width={props.width} height={props.height} style={{ backgroundColor: "#0001" }}>
@@ -37,8 +44,10 @@ export const Shimmer = (props: IProps) => {
         </ClipPath>
 
         <LinearGradient id={"shimmer"} x1={0} y1={0} x2={"100%"} y2={0}>
+          <Stop stopColor="#ffebee" offset={offset - 1}/>
+          <Stop stopColor="#b71c1c" offset={offset - 0.6}/>
           <Stop stopColor="#ffebee" offset={offset}/>
-          <Stop stopColor="#b71c1c" offset={offset + 0.6}/>
+          <Stop stopColor="#b71c1c" offset={offset + 0.5}/>
           <Stop stopColor="#ffebee" offset={offset + 1}/>
         </LinearGradient>
       </Defs>
@@ -48,7 +57,3 @@ export const Shimmer = (props: IProps) => {
   );
 };
 
-
-const styles = StyleSheet.create({
-  container: {}
-});
