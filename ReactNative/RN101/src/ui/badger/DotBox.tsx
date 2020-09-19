@@ -19,5 +19,10 @@ export const DotBox = (props: IProps) => {
 
 const styles = StyleSheet.create({
   container: {},
-  circle: {}
+  circle: {
+    position: "absolute", top: -5, right: -5,
+    width: 30, height: 30, borderRadius: 15,
+    backgroundColor: "red", color: "white",
+    textAlign: "center", lineHeight: 30
+  }
 });
