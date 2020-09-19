@@ -1,6 +1,7 @@
 import React from "react";
 import { View, ViewProps, Text, StyleSheet, Image } from "react-native";
 import { BadgerBox } from "../../ui/badger/BadgerBox";
+import { DotBox } from "../../ui/badger/DotBox";
 
 const width = 320;
 const height = 160;
@@ -35,6 +36,11 @@ export const BadgerDemo = () => {
                style={{width:160, height:70}}/>
       </BadgerBox>
 
+      <View style={{height:30}}/>
+      <DotBox text={"3"}>
+        <Image source={require("../../../res/img/Daimond.jpg")}
+               style={{width:100, height:100}}/>
+      </DotBox>
 
     </View>
   );

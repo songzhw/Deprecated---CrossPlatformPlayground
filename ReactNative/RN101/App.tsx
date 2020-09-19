@@ -31,7 +31,7 @@ import { PlaceHolderDemo } from "./src/biz/anim/PlaceHolderDemo";
 
 const App = () => {
   return (
-    <PlaceHolderDemo/>
+    <BadgerDemo/>
   );
 };
 
