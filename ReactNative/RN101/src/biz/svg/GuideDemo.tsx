@@ -1,5 +1,6 @@
 import React from "react";
 import { View, ViewProps, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { GuideMask } from "../../ui/guide/GuideMask";
 
 
 export const GuideDemo = () => {
@@ -14,8 +15,9 @@ export const GuideDemo = () => {
       <TouchableOpacity style={styles.btn} onPress={start}>
         <Text style={styles.btnText}>Start Animation</Text>
       </TouchableOpacity>
-
       <Text style={styles.end}>Your order has arrived!</Text>
+
+      <GuideMask/>
     </View>
   );
 };
