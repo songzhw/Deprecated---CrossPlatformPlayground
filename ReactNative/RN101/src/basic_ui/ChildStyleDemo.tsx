@@ -6,6 +6,7 @@ export const ChildStyleDemo = () => {
   return (
     <View style={{ backgroundColor: "gray" }}>
       <StyleableParent1>
+        <Text>Hello World</Text>
         <Image source={require("../../res/img/ic_star_full.png")} style={{ width: 100, height: 100 }}/>
       </StyleableParent1>
 
@@ -21,14 +22,12 @@ interface IProps {
 
 export const StyleableParent1 = (props: IProps) => {
 
-  const newChild = createElement(props.children,
-    {style: {width: 300, height:300, backgroundColor: "red"}}
-    )
-  console.log(`szw newc = `, newChild)
-
   return (
     <View style={styles.container}>
-      {newChild}
+      {React.Children.map(props.children, (element, index) => {
+        // @ts-ignore
+        return React.cloneElement(element, {style: {width: 300, height: 300}})
+      })}
     </View>
   );
 };
