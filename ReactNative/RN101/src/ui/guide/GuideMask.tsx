@@ -12,17 +12,16 @@ export const GuideMask = (props: IProps) => {
     <Svg style={styles.container}>
       <Defs>
         <ClipPath id="clipPath">
-          <Path fill="white" stroke="gray" strokeWidth="3"
-                d="M10 10 H 90 V 90 H 10 L 10 10"/>
+          <Rect x={100} y={40} width={140} height={50}/>
         </ClipPath>
       </Defs>
 
-      <Rect x={100} y={40} width={200} height={80} clipPath="url(#clipPath)" fill="red"/>
+      <Rect x={0} y={0} width={"100%"} height={"100%"} fill="#0005"/>
     </Svg>
   )
 }
 
 
 const styles = StyleSheet.create({
-  container: {...StyleSheet.absoluteFillObject, backgroundColor: "#000a"}
+  container: {...StyleSheet.absoluteFillObject}
 });
