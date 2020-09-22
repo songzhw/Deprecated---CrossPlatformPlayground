@@ -10,7 +10,7 @@ export const GuideMask = (props: IProps) => {
   // style={{backgroundColor: "blue"}}
   return (
     <View style={{ position: "absolute", top: 0, right: 0, left: 0, bottom: 0 }}>
-      <Svg height="100%" width="100%" >
+      <Svg height="100%" width="100%" viewBox="0 0 100 100" preserveAspectRatio={"xMaxYMax"}>
         <Defs>
           <Mask id="mask" >
             <Circle r="45" cx="50" cy="50" fill="red"/>
