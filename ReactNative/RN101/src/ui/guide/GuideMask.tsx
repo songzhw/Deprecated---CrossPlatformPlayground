@@ -1,27 +1,29 @@
 import React from "react";
 import { View, ViewProps, Text, StyleSheet } from "react-native";
-import Svg, { ClipPath, Defs, Image, LinearGradient, Path, Rect, Stop } from "react-native-svg";
+import Svg, { Circle, ClipPath, Defs, Image, LinearGradient, Mask, Path, Rect, Stop } from "react-native-svg";
 
-interface IProps extends ViewProps  {
+interface IProps extends ViewProps {
 
 }
 
 export const GuideMask = (props: IProps) => {
-
+  // style={{backgroundColor: "blue"}}
   return (
-    <Svg style={styles.container}>
-      <Defs>
-        <ClipPath id="clipPath">
-          <Rect x={100} y={40} width={140} height={50}/>
-        </ClipPath>
-      </Defs>
-
-      <Rect x={0} y={0} width={"100%"} height={"100%"} clipPath="url(#clipPath)" fill="#0005"/>
-    </Svg>
-  )
-}
+    <View style={{ position: "absolute", top: 0, right: 0, left: 0, bottom: 0 }}>
+      <Svg height="100%" width="100%" >
+        <Defs>
+          <Mask id="mask" >
+            <Circle r="45" cx="50" cy="50" fill="red"/>
+          </Mask>
+        </Defs>
+        <Circle r={20} cx={0} cy={0} fill={"red"}/>
+        <Rect x={0} y={0} height="100%" width="100%" fill="#0007"  />
+      </Svg>
+    </View>
+  );
+};
 
 
 const styles = StyleSheet.create({
-  container: {...StyleSheet.absoluteFillObject}
+  container: { ...StyleSheet.absoluteFillObject }
 });
