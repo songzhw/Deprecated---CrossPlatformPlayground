@@ -16,7 +16,7 @@ export const GuideMask = (props: IProps) => {
         </ClipPath>
       </Defs>
 
-      <Rect x={0} y={0} width={"100%"} height={"100%"} fill="#0005"/>
+      <Rect x={0} y={0} width={"100%"} height={"100%"} clipPath="url(#clipPath)" fill="#0005"/>
     </Svg>
   )
 }
