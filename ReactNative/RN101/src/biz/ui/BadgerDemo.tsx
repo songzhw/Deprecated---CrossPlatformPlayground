@@ -39,7 +39,7 @@ export const BadgerDemo = () => {
       <View style={{height:30}}/>
       <DotBox text={"3"}>
         <Image source={require("../../../res/img/Daimond.jpg")}
-               style={{width:100, height:100}}/>
+               style={{width:80, height:80}}/>
       </DotBox>
 
     </View>

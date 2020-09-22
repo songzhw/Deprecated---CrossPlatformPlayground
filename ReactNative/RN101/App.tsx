@@ -28,10 +28,11 @@ import { SvgAnimDemo6_Wave } from "./src/biz/svg/SvgAnimDemo6_Wave";
 import { SvgAnimDemo7 } from "./src/biz/svg/SvgAnimDemo7";
 import { BadgerDemo } from "./src/biz/ui/BadgerDemo";
 import { PlaceHolderDemo } from "./src/biz/anim/PlaceHolderDemo";
+import { ChildStyleDemo } from "./src/basic_ui/ChildStyleDemo";
 
 const App = () => {
   return (
-    <BadgerDemo/>
+    <ChildStyleDemo/>
   );
 };
 
