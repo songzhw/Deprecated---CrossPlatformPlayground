@@ -26,13 +26,14 @@ import { SvgAnimDemo5 } from "./src/biz/svg/SvgAnimDemo5";
 import { SvgCanvas5Pie } from "./src/biz/svg/SvgCanvas5Pie";
 import { SvgAnimDemo6_Wave } from "./src/biz/svg/SvgAnimDemo6_Wave";
 import { SvgAnimDemo7 } from "./src/biz/svg/SvgAnimDemo7";
-import { BadgerDemo } from "./src/biz/ui/BadgerDemo";
-import { PlaceHolderDemo } from "./src/biz/anim/PlaceHolderDemo";
-import { ChildStyleDemo } from "./src/basic_ui/ChildStyleDemo";
+import { BadgerDemo } from "./src/biz/ui/BadgerDemo";  //在任意组件的右上角添加倾斜的label, 用来标new, hot这些
+import { PlaceHolderDemo } from "./src/biz/anim/PlaceHolderDemo"; //加载之前的效果, 还gradient动画. 类似facebook/shimmer动画
+import { ChildStyleDemo } from "./src/basic_ui/ChildStyleDemo"; //如何给{this.props.childre}添加样式或属性
+import { GuideDemo } from "./src/ui/guide/GuideDemo"; // 新手引导页
 
 const App = () => {
   return (
-    <ChildStyleDemo/>
+    <GuideDemo/>
   );
 };
 

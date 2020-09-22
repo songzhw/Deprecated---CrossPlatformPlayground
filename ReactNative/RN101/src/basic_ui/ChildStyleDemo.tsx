@@ -26,7 +26,7 @@ export const StyleableParent1 = (props: IProps) => {
     <View style={styles.container}>
       {React.Children.map(props.children, (element, index) => {
         // @ts-ignore
-        return React.cloneElement(element, {style: {width: 300, height: 300}})
+        return React.cloneElement(element, {style: {width: 200, height: 200, backgroundColor: "blue"}})
       })}
     </View>
   );
