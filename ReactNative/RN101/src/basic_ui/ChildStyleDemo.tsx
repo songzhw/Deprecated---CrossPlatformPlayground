@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createElement } from "react";
 import { View, ViewProps, Text, StyleSheet, Image } from "react-native";
 
 export const ChildStyleDemo = () => {
@@ -6,8 +6,6 @@ export const ChildStyleDemo = () => {
   return (
     <View style={{ backgroundColor: "gray" }}>
       <StyleableParent1>
-        <Text>Hello</Text>
-        <Text>World</Text>
         <Image source={require("../../res/img/ic_star_full.png")} style={{ width: 100, height: 100 }}/>
       </StyleableParent1>
 
@@ -22,9 +20,15 @@ interface IProps {
 }
 
 export const StyleableParent1 = (props: IProps) => {
+
+  const newChild = createElement(props.children,
+    {style: {width: 300, height:300, backgroundColor: "red"}}
+    )
+  console.log(`szw newc = `, newChild)
+
   return (
     <View style={styles.container}>
-      {props.children}
+      {newChild}
     </View>
   );
 };
