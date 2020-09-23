@@ -30,10 +30,13 @@ import { BadgerDemo } from "./src/biz/ui/BadgerDemo";  //在任意组件的右�
 import { PlaceHolderDemo } from "./src/biz/anim/PlaceHolderDemo"; //加载之前的效果, 还gradient动画. 类似facebook/shimmer动画
 import { ChildStyleDemo } from "./src/basic_ui/ChildStyleDemo";
 import { GuideDemo } from "./src/biz/svg/GuideDemo"; //如何给{this.props.childre}添加样式或属性
+import { SvgCanvasDemo6 } from "./src/biz/svg/SvgCanvasDemo6";  // Svg中Mask, ClipPath的区别
+
+
 
 const App = () => {
   return (
-    <GuideDemo/>
+    <SvgCanvasDemo6/>
   );
 };
 
