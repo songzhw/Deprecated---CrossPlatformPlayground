@@ -1,9 +1,9 @@
 import React from "react";
 import { SafeAreaView, Text, StatusBar } from "react-native";
-import { add } from "@six/calc";
+import { add } from "@six/calculator";
 
 const App = () => {
-  const value = add(30, 21);
+  const value = add(10, 31);
   return (
     <>
       <StatusBar barStyle="dark-content" />
