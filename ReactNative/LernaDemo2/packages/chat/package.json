@@ -2,8 +2,8 @@
   "name": "@six/chat",
   "version": "0.1.0",
   "description": "chat",
-  "main": "lib/commonjs/index",
-  "types": "lib/typescript/src/index.d.ts",
+  "main": "src/index",
+  "types": "src/index.d.ts",
   "source": "src/index",
   "files": [
     "src",
