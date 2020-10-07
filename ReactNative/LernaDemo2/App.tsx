@@ -8,8 +8,9 @@ const App = () => {
   const value = add(10, 31);
   const value2 = multiple(3, 5);
 
-  Chat.multiply(20, 30)
-    .then(ret => console.log(`szw promise = ${ret}`));
+  // Chat.multiply(20, 30)
+  //   .then(ret => console.log(`szw promise = ${ret}`));
+  console.log("szw chat = ", Chat)
 
   return (
     <>
