@@ -1,6 +1,6 @@
 import React from "react";
-import { View, ViewProps, Text, StyleSheet } from "react-native";
-import Svg, { Circle, ClipPath, Defs, Image, Rect } from "react-native-svg";
+import { View, ViewProps, StyleSheet } from "react-native";
+import Svg, { Circle, ClipPath, Defs, Image, Rect, Text } from "react-native-svg";
 
 
 export const AvatarDemo = () => {
@@ -24,9 +24,10 @@ const Avatar = (props: IProps) => {
         </ClipPath>
       </Defs>
       <Rect width={200} height={200} fill={"gray"}/>
-      <Image href={require("../../../res/img/Daimond.jpg")} preserveAspectRatio="none"
-             width={200} height={200}
-             />
+      <Text x={20} y={20} fontSize={30} fill={"red"} clipPath="url(#clip)">Szw</Text>
+      {/*<Image href={require("../../../res/img/Daimond.jpg")} preserveAspectRatio="xMidYMid slice"*/}
+      {/*       width={200} height={200}*/}
+      {/*       />*/}
     </Svg>
   );
 };
