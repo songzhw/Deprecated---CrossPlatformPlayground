@@ -7,6 +7,7 @@ export const AvatarDemo = () => {
   return (
     <View>
       <Avatar/>
+      <TextAvatar/>
     </View>
   );
 };
@@ -17,17 +18,32 @@ interface IProps extends ViewProps {
 
 const Avatar = (props: IProps) => {
   return (
+    <Svg width={200} height={200}>
+      <Defs>
+        <ClipPath id="clip">
+          <Circle cx="100" cy="100" r="100"/>
+        </ClipPath>
+      </Defs>
+      <Image href={require("../../../res/img/Daimond.jpg")} preserveAspectRatio="xMidYMid slice"
+             width={200} height={200}
+             clipPath="url(#clip)"
+      />
+    </Svg>
+  );
+};
+
+
+const TextAvatar = (props: IProps) => {
+  return (
     <Svg>
       <Defs>
         <ClipPath id="clip">
           <Circle cx="100" cy="100" r="100"/>
         </ClipPath>
       </Defs>
-      <Rect width={200} height={200} fill={"gray"}/>
-      <Text x={20} y={20} fontSize={30} fill={"red"} clipPath="url(#clip)">Szw</Text>
-      {/*<Image href={require("../../../res/img/Daimond.jpg")} preserveAspectRatio="xMidYMid slice"*/}
-      {/*       width={200} height={200}*/}
-      {/*       />*/}
+      <Rect width={200} height={200}
+            fill="gray" clipPath="url(#clip)"
+      />
     </Svg>
   );
 };
