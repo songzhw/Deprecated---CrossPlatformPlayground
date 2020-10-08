@@ -21,10 +21,10 @@ const Avatar = (props: IProps) => {
     <Svg>
       <Defs>
         <ClipPath id="clip">
-          <Circle cx="50%" cy="50%" r="40%"/>
+          <Circle cx="100" cy="100" r="100"/>
         </ClipPath>
       </Defs>
-      <Image href={require("../../../res/img/Daimond.jpg")} preserveAspectRatio="xMidYMid slice"
+      <Image href={require("../../../res/img/cat1.jpg")} preserveAspectRatio="xMidYMid slice"
              width={200} height={200}
       clipPath="url(#clip)"/>
     </Svg>
