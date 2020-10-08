@@ -24,7 +24,7 @@ const Avatar = (props: IProps) => {
         </ClipPath>
       </Defs>
       <Rect width={200} height={200} fill={"gray"}/>
-      <Image href={require("../../../res/img/Daimond.jpg")} preserveAspectRatio="xMinYMid slice"
+      <Image href={require("../../../res/img/Daimond.jpg")} preserveAspectRatio="none"
              width={200} height={200}
              />
     </Svg>
