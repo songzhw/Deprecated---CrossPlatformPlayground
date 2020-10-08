@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ViewProps, Text, StyleSheet } from "react-native";
-import Svg, { Image } from "react-native-svg";
+import Svg, { Circle, ClipPath, Defs, Image } from "react-native-svg";
 
 
 
@@ -19,7 +19,14 @@ interface IProps extends ViewProps  {}
 const Avatar = (props: IProps) => {
   return (
     <Svg>
-      <Image href={require("../../../res/img/Daimond.jpg")}/>
+      <Defs>
+        <ClipPath id="clip">
+          <Circle cx="50%" cy="50%" r="40%"/>
+        </ClipPath>
+      </Defs>
+      <Image href={require("../../../res/img/Daimond.jpg")} preserveAspectRatio="xMidYMid slice"
+             width={200} height={200}
+      clipPath="url(#clip)"/>
     </Svg>
   )
 }
