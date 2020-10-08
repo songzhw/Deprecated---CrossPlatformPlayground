@@ -35,7 +35,7 @@ const Avatar = (props: IProps) => {
 
 const TextAvatar = (props: IProps) => {
   return (
-    <Svg>
+    <Svg width={200} height={200}>
       <Defs>
         <ClipPath id="clip">
           <Circle cx="100" cy="100" r="100"/>
@@ -44,6 +44,7 @@ const TextAvatar = (props: IProps) => {
       <Rect width={200} height={200}
             fill="gray" clipPath="url(#clip)"
       />
+      <Text x={100} y={130} fill="red" fontSize={70} textAnchor={"middle"} fontWeight={"bold"}>MJ</Text>
     </Svg>
   );
 };
