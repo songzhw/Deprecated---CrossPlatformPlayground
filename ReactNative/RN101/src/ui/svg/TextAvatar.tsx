@@ -15,7 +15,7 @@ export const TextAvatar = (props: IProps) => {
   const { size, bgColor, textColor } = props;
   const radius = size / 2;
   return (
-    <Svg width={size} height={size}>
+    <Svg width={size} height={size} style={props.style}>
       <Defs>
         <ClipPath id="clip">
           <Circle cx={radius} cy={radius} r={radius}/>

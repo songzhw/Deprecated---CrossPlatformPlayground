@@ -5,14 +5,14 @@ import React from "react";
 
 interface IProps extends ViewProps {
   size: number;
-  href?: ReactNative.ImageProps['source'];
+  href?: ReactNative.ImageProps["source"];
 }
 
 export const ImageAvatar = (props: IProps) => {
-  const {size} = props;
-  const radius = size/2
+  const { size } = props;
+  const radius = size / 2;
   return (
-    <Svg width={size} height={size}>
+    <Svg width={size} height={size} style={props.style}>
       <Defs>
         <ClipPath id="clip">
           <Circle cx={radius} cy={radius} r={radius}/>
