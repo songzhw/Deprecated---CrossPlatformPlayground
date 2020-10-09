@@ -21,6 +21,8 @@ export const SvgCanvasDemo7_Pattern = (props: IProps) => {
       <Ellipse cx={200} cy={200} rx={140} ry={70} stroke="black"
                fill="url(#ptn)"/>
 
+      <Ellipse cx={200} cy={400} rx={140} ry={70}
+               stroke="url(#ptn)" strokeWidth={20}/>
     </Svg>
   );
 };
