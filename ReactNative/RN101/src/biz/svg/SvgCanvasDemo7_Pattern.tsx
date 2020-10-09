@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ViewProps, Text, StyleSheet } from "react-native";
-import Svg, { Defs, Ellipse, Path, Pattern } from "react-native-svg";
+import Svg, { Circle, Defs, Ellipse, Path, Pattern } from "react-native-svg";
 
 interface IProps extends ViewProps {
 }
@@ -12,15 +12,14 @@ export const SvgCanvasDemo7_Pattern = (props: IProps) => {
     <Svg width="100%" height="100%">
 
       <Defs>
-        <Pattern id="ptn" patternUnits="objectBoundingBox"
-                 x={0} y={0} width={100} height={100}>
-          <Path d="M 0 0 L 7 0 L 3.5 7 z" fill="gray" stroke="blue"/>
+        <Pattern id="ptn" patternUnits="userSpaceOnUse"
+                 width={20} height={20} x={10} y={10}>
+          <Circle cx={10} cy={10} r={10} stroke="none" fill="#393"/>
         </Pattern>
       </Defs>
 
-      <Ellipse cx={200} cy={100} rx={150} ry={70} stroke="black"
-               fill="url(#ptn)"
-        />
+      <Ellipse cx={200} cy={200} rx={140} ry={70} stroke="black"
+               fill="url(#ptn)"/>
 
     </Svg>
   );
