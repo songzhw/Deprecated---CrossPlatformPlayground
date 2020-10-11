@@ -24,7 +24,7 @@ interface IProps extends ViewProps {
 /* Linear Graident Button */
 export const LGButton = (props: IProps) => {
   return (
-    <Svg>
+    <Svg width={props.width} height={props.height}>
       <Defs>
         <LinearGradient id="lg">
           <Stop offset={0} stopColor={props.startColor}/>
