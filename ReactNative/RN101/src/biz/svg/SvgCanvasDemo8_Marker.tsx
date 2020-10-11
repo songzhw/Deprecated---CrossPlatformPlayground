@@ -18,6 +18,7 @@ export const SvgCanvasDemo8_Marker = (props: IProps) => {
 
 
         <Line x1="50" y1="100" x2="250" y2="100" stroke="#000" strokeWidth="5" markerEnd="url(#arrow)"/>
+        <Line x1="295" y1="150" x2="95" y2="195" stroke="#000" strokeWidth="5" markerEnd="url(#arrow)"/>
       </Svg>
     </View>
   );
