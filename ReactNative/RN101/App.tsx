@@ -32,13 +32,14 @@ import { ChildStyleDemo } from "./src/basic_ui/ChildStyleDemo";
 import { GuideDemo } from "./src/biz/svg/GuideDemo"; //如何给{this.props.childre}添加样式或属性
 import { SvgCanvasDemo6 } from "./src/biz/svg/SvgCanvasDemo6";
 import { AvatarDemo } from "./src/biz/svg/AvatarDemo";
-import { SvgCanvasDemo7_Pattern } from "./src/biz/svg/SvgCanvasDemo7_Pattern";  // Svg中Mask, ClipPath的区别
+import { SvgCanvasDemo7_Pattern } from "./src/biz/svg/SvgCanvasDemo7_Pattern";
+import { SvgCanvasDemo8_Marker } from "./src/biz/svg/SvgCanvasDemo8_Marker";  // Svg中Mask, ClipPath的区别
 
 
 
 const App = () => {
   return (
-    <SvgCanvasDemo7_Pattern/>
+    <SvgCanvasDemo8_Marker/>
   );
 };
 
