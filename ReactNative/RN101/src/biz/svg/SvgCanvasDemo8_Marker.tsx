@@ -9,13 +9,15 @@ export const SvgCanvasDemo8_Marker = (props: IProps) => {
 
   return (
     <View>
-      <Svg width="600px" height="100px">
+      <Svg>
         <Defs>
-          <Marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth" orient="auto">
+          <Marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto"  >
             <Path d="M0,0 L0,6 L9,3 z" fill="#f00"/>
           </Marker>
         </Defs>
-        <Line x1="50" y1="50" x2="250" y2="50" stroke="#000" strokeWidth="5" markerEnd="url(#arrow)"/>
+
+
+        <Line x1="50" y1="100" x2="250" y2="100" stroke="#000" strokeWidth="5" markerEnd="url(#arrow)"/>
       </Svg>
     </View>
   );
