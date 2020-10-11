@@ -33,13 +33,14 @@ import { GuideDemo } from "./src/biz/svg/GuideDemo"; //如何给{this.props.chil
 import { SvgCanvasDemo6 } from "./src/biz/svg/SvgCanvasDemo6";
 import { AvatarDemo } from "./src/biz/svg/AvatarDemo";
 import { SvgCanvasDemo7_Pattern } from "./src/biz/svg/SvgCanvasDemo7_Pattern";
-import { SvgCanvasDemo8_Marker } from "./src/biz/svg/SvgCanvasDemo8_Marker";  // Svg中Mask, ClipPath的区别
+import { SvgCanvasDemo8_Marker } from "./src/biz/svg/SvgCanvasDemo8_Marker";
+import { SvgCanvasDemo9_ForeignObj } from "./src/biz/svg/SvgCanvasDemo9_ForeignObj";  // Svg中Mask, ClipPath的区别
 
 
 
 const App = () => {
   return (
-    <SvgCanvasDemo8_Marker/>
+    <SvgCanvasDemo9_ForeignObj/>
   );
 };
 
