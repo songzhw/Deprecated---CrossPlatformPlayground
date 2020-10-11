@@ -38,7 +38,7 @@ export const LGButton = (props: IProps) => {
       <Rect width={props.width} height={props.height} rx={props.roundCornerRadius} ry={props.roundCornerRadius}
             fill="url(#lg)"/>
       <SvgText x="50%" y="50%"
-            fill={"white"} fontSize={12}
+            fill={props.textColor} fontSize={props.fontSize}
             textAnchor={"middle"} alignmentBaseline={"middle"}>{props.text}</SvgText>
 
       {/*<ForeignObject x={0} y={0} width={props.width} height={props.height}>*/}
