@@ -35,13 +35,14 @@ import { AvatarDemo } from "./src/biz/svg/AvatarDemo";
 import { SvgCanvasDemo7_Pattern } from "./src/biz/svg/SvgCanvasDemo7_Pattern";
 import { SvgCanvasDemo8_Marker } from "./src/biz/svg/SvgCanvasDemo8_Marker";
 import { SvgCanvasDemo9_ForeignObj } from "./src/biz/svg/SvgCanvasDemo9_ForeignObj";
-import { SvgCanvasDemo10_GradientButton } from "./src/biz/svg/SvgCanvasDemo10_GradientButton";  // Svg中Mask, ClipPath的区别
+import { SvgCanvasDemo10_GradientButton } from "./src/biz/svg/SvgCanvasDemo10_GradientButton";
+import { SvgCanvas11_CoordinateSystem } from "./src/biz/svg/SvgCanvas11_CoordinateSystem";  // Svg中Mask, ClipPath的区别
 
 
 
 const App = () => {
   return (
-    <SvgCanvasDemo10_GradientButton/>
+    <SvgCanvas11_CoordinateSystem/>
   );
 };
 
