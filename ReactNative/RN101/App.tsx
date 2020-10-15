@@ -42,7 +42,7 @@ import { SvgCanvas11_CoordinateSystem } from "./src/biz/svg/SvgCanvas11_Coordina
 
 const App = () => {
   return (
-    <SvgCanvas11_CoordinateSystem/>
+    <SvgCanvasDemo7_Pattern/>
   );
 };
 
