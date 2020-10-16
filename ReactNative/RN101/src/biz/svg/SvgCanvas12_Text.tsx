@@ -14,7 +14,6 @@ export const SvgCanvas12_Text = (props: IProps) => {
   )
 }
 
-
 const styles = StyleSheet.create({
   root: {}
 });
