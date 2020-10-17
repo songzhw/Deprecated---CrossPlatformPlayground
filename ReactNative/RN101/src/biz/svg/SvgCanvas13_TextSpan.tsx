@@ -10,9 +10,9 @@ export const SvgCanvas13_TextSpan = (props: IProps) => {
   return (
     <View style={styles.root}>
       <Svg width={300} height={200} style={{ backgroundColor: "#cccc" }}>
-        <Text x={30} y={30} fontSize={20} fill={"red"}>
+        <Text x={50} y={60} fontSize={20} fill={"red"}>
           <TSpan>Svg1</TSpan>
-          <TSpan x={10} y={20} fontSize={22} fill={"blue"}>Svg2</TSpan>
+          <TSpan x={10} y={20} fontSize={22} fill={"blue"} rotate={30}>Svg2</TSpan>
         </Text>
       </Svg>
     </View>
