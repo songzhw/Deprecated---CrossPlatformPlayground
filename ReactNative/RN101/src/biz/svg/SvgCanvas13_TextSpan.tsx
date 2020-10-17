@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ViewProps, StyleSheet } from "react-native";
-import Svg, {Text} from "react-native-svg";
+import Svg, { Text, TSpan } from "react-native-svg";
 
 interface IProps extends ViewProps {
 }
@@ -9,8 +9,11 @@ export const SvgCanvas13_TextSpan = (props: IProps) => {
 
   return (
     <View style={styles.root}>
-      <Svg width={300} height={200} style={{backgroundColor: "#cccc"}}>
-        <Text x={0} y={0}>Svg1 Svg2</Text>
+      <Svg width={300} height={200} style={{ backgroundColor: "#cccc" }}>
+        <Text x={30} y={30} fontSize={20} fill={"red"}>
+          <TSpan>Svg1</TSpan>
+          <TSpan x={10} y={20} fontSize={22} fill={"blue"}>Svg2</TSpan>
+        </Text>
       </Svg>
     </View>
   );
