@@ -38,12 +38,12 @@ import { SvgCanvasDemo9_ForeignObj } from "./src/biz/svg/SvgCanvasDemo9_ForeignO
 import { SvgCanvasDemo10_GradientButton } from "./src/biz/svg/SvgCanvasDemo10_GradientButton";
 import { SvgCanvas11_CoordinateSystem } from "./src/biz/svg/SvgCanvas11_CoordinateSystem";
 import { SvgCanvas12_Text } from "./src/biz/svg/SvgCanvas12_Text";
-
+import { SvgCanvas13_TextSpan } from "./src/biz/svg/SvgCanvas13_TextSpan";
 
 
 const App = () => {
   return (
-    <SvgCanvas12_Text/>
+    <SvgCanvas13_TextSpan/>
   );
 };
 
