@@ -43,7 +43,7 @@ import { SvgCanvas13_TextSpan } from "./src/biz/svg/SvgCanvas13_TextSpan";
 
 const App = () => {
   return (
-    <SvgCanvas13_TextSpan/>
+    <SvgCanvas12_Text/>
   );
 };
 
