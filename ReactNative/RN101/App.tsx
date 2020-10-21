@@ -39,11 +39,12 @@ import { SvgCanvasDemo10_GradientButton } from "./src/biz/svg/SvgCanvasDemo10_Gr
 import { SvgCanvas11_CoordinateSystem } from "./src/biz/svg/SvgCanvas11_CoordinateSystem";
 import { SvgCanvas12_Text } from "./src/biz/svg/SvgCanvas12_Text";
 import { SvgCanvas13_TextSpan } from "./src/biz/svg/SvgCanvas13_TextSpan";
+import { SvgCanvas14_Text } from "./src/biz/svg/SvgCanvas14_Text";
 
 
 const App = () => {
   return (
-    <SvgCanvas12_Text/>
+    <SvgCanvas14_Text/>
   );
 };
 
