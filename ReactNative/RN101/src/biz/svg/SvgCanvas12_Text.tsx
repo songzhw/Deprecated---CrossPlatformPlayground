@@ -55,6 +55,14 @@ export const SvgCanvas12_Text = (props: IProps) => {
         <TSpan alignmentBaseline={"text-before-edge"}>SVG text-before-edge </TSpan>
         <TSpan alignmentBaseline={"text-after-edge"}>  SVG text-after-edge</TSpan>
       </Text>
+
+
+      <Line x1={0} y1={540} x2={900} y2={540} stroke="green" strokeWidth={1}/>
+      <Text x={0} y={540} fill="blue" fontSize={50} >x
+        <TSpan baselineShift="20" >2 </TSpan>
+        <TSpan>CO</TSpan>
+        <TSpan baselineShift="-20" >2 </TSpan>
+      </Text>
     </Svg>
   );
 };
