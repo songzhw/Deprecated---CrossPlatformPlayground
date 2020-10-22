@@ -14,7 +14,7 @@ export const SvgCanvas15_TextPath = (props: IProps) => {
       </Defs>
       <G y="20">
         <Text fill="blue" fontSize={20}>
-          <TextPath href="#path" startOffset="-10%">
+          <TextPath href="#path" startOffset="10%">
             We go up and down,
             <TSpan fill="red" dy="5,5,5">
               then up again
