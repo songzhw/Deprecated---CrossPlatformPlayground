@@ -40,11 +40,12 @@ import { SvgCanvas11_CoordinateSystem } from "./src/biz/svg/SvgCanvas11_Coordina
 import { SvgCanvas12_Text } from "./src/biz/svg/SvgCanvas12_Text";
 import { SvgCanvas13_TextSpan } from "./src/biz/svg/SvgCanvas13_TextSpan";
 import { SvgCanvas14_Text } from "./src/biz/svg/SvgCanvas14_Text";
+import { SvgCanvas15_TextPath } from "./src/biz/svg/SvgCanvas15_TextPath";
 
 
 const App = () => {
   return (
-    <SvgCanvas14_Text/>
+    <SvgCanvas15_TextPath/>
   );
 };
 
