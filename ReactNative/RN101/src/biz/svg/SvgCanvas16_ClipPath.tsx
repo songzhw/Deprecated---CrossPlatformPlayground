@@ -15,7 +15,7 @@ export const SvgCanvas16_ClipPath = (props: IProps) => {
         </ClipPath>
       </Defs>
       <Rect x={25} y={125} width={200} height={100} fill={"#9c6"}
-          clipPath="url(#clip1)"/>
+          clipPath="url(#clip1)" clipRule="nonzero"/>
       <Rect x={25} y={125} width={200} height={100} stroke={"#9c6"}/>
     </Svg>
   );
