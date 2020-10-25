@@ -5,7 +5,7 @@ import Svg, { Circle, ClipPath, Defs, G, Polygon, Text } from "react-native-svg"
 interface IProps extends ViewProps {
 }
 
-export const SvgCanvas17_ClipPath = (props: IProps) => {
+export const SvgCanvas17_ClipPath_Text = (props: IProps) => {
 
   return (
     <Svg style={{ marginTop: 30 }}>

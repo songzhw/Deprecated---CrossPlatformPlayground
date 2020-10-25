@@ -3,7 +3,7 @@ import { View, ViewProps, Text, StyleSheet, Platform } from "react-native";
 import Svg, { ClipPath, Defs, G, Image, Path } from "react-native-svg";
 
 
-export const SvgCanvasDemo3 = () => {
+export const SvgCanvas18_ClipPath_Image = () => {
 
   const imageUrl = "https://raisinghappykittens.com/dev/wp-content/uploads//2019/10/kittens-555822-1024x569.jpg";
 
