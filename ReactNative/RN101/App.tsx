@@ -42,11 +42,12 @@ import { SvgCanvas13_TextSpan } from "./src/biz/svg/SvgCanvas13_TextSpan";
 import { SvgCanvas14_Text } from "./src/biz/svg/SvgCanvas14_Text";
 import { SvgCanvas15_TextPath } from "./src/biz/svg/SvgCanvas15_TextPath";
 import { SvgCanvas16_ClipPath } from "./src/biz/svg/SvgCanvas16_ClipPath";
+import { SvgCanvas17_ClipPath } from "./src/biz/svg/SvgCanvas17_ClipPath";
 
 
 const App = () => {
   return (
-    <SvgCanvas16_ClipPath/>
+    <SvgCanvas17_ClipPath/>
   );
 };
 
