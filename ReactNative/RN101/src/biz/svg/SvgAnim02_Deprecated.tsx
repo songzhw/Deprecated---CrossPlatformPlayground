@@ -8,7 +8,7 @@ import Svg, { Circle, Path } from "react-native-svg";
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 
 // deprecated!
-export class SvgAnimDemo2_Deprecated extends Component {
+export class SvgAnim02_Deprecated extends Component {
   state = {
     progress: new Animated.Value(0)
   };

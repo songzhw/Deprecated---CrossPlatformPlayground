@@ -1,12 +1,12 @@
-// 本例主要是为了分解 CountDownView.tsx 所用
-
 import React, { useState } from "react";
 import { View, StyleSheet, Button, Animated, Easing } from "react-native";
 import Svg, { Circle, Text } from "react-native-svg";
 
+// DESP: 本例主要是为了分解 CountDownView.tsx 所用
+
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-export const SvgAnimDemo2 = () => {
+export const SvgAnim02_TimeCountDown = () => {
   const radius = 65;
   const circumference = 2 * radius * Math.PI;  // 总周长
   const [progress, setProgress] = useState(new Animated.Value(0));  // 倒计时动画进度

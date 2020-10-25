@@ -3,7 +3,7 @@ import { View, StyleSheet, Button, Animated, Easing } from "react-native";
 import { WaveView } from "../../ui/svg/WaveView";
 
 
-export class SvgAnimDemo6_Wave extends React.Component {
+export class SvgAnim06_Wave extends React.Component {
   state = {height: 0, progress: new Animated.Value(0)}
 
   startAnim = () => {

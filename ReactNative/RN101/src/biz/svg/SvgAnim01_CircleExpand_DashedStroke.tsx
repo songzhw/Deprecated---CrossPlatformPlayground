@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { View, ViewProps, Text, StyleSheet, Animated, TouchableWithoutFeedback } from "react-native";
 import Svg, { Circle, G } from "react-native-svg";
 
+// DESP: 圆变大的动画. 关键是虚线stroke也变多了, 但siz与gap仍不变!
+
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-interface IProps extends ViewProps {
-}
-
-export const SvgAnimDemo1 = (props: IProps) => {
+export const SvgAnim01_CircleExpand_DashedStroke = () => {
   const [radius, setRadius] = useState(new Animated.Value(38));
 
   const anim = () => {
@@ -22,8 +21,8 @@ export const SvgAnimDemo1 = (props: IProps) => {
         <Svg height="100%" width="100%" style={{ backgroundColor: "grey" }}>
           <G fill="none">
             <AnimatedCircle
-              cx={200} cy={300} r={radius} fill="white"
-              stroke="#0078FF" strokeWidth="3" strokeDasharray="28,25"
+              cx={200} cy={300} r={radius} fill="#e3eff3"
+              stroke="#0078FF" strokeWidth="5" strokeDasharray="28,25"
             />
           </G>
         </Svg>

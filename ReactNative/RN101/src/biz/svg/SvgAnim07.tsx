@@ -3,7 +3,7 @@ import { View, ViewProps, Text, StyleSheet, Button, Animated } from "react-nativ
 import Svg, { Circle, Path } from "react-native-svg";
 
 // 本文件虽然有warning, 但能运行出动画来
-export const SvgAnimDemo7 = () => {
+export const SvgAnim07 = () => {
   // let _myCircle = createRef<Circle>() //这一行, 与下一行, 都是可以的. 不过都解决不了TypeScript的warning
   let _myCircle = useRef<Circle | null>(null);
   const [animRadius, setAnimRadius] = useState(new Animated.Value(546));

@@ -1,10 +1,10 @@
-// 做一个圆环progress. 效果还行, 但动画没太自然, 还要修改
+
 
 import React, { useRef, useState } from "react";
 import { View, ViewProps, Text, StyleSheet, Button } from "react-native";
 import { CircleProgress } from "../../ui/circle/CircleProgress";
-
-export const SvgAnimDemo3 = () => {
+// DESP 做一个圆环progress. 效果还行, 但动画没太自然, 还要修改
+export const SvgAnim03_CircleProgresss = () => {
   const [start, setStart] = useState(false);
   const [reset, setReset] = useState(true);
 

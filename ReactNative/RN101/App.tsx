@@ -14,18 +14,18 @@ import { BridgeUIPage } from "./src/bridge/ui/BridgeUIPage";
 import { LayoutAnimDemo } from "./src/biz/anim/layoutanim/LayoutAnimDemo";
 import { SemiCircleDemo } from "./src/biz/ui/SemiCircleDemo";
 import { SvgCanvasDemo1 } from "./src/biz/svg/SvgCanvasDemo1";
-import { SvgAnimDemo1 } from "./src/biz/svg/SvgAnimDemo1";
-import { SvgAnimDemo2_Deprecated } from "./src/biz/svg/SvgAnimDemo2_Deprecated";
-import { SvgAnimDemo2 } from "./src/biz/svg/SvgAnimDemo2";
-import { SvgAnimDemo3 } from "./src/biz/svg/SvgAnimDemo3";
-import { SvgAnimDemo4 } from "./src/biz/svg/SvgAnimDemo4";
+import { SvgAnim01_CircleExpand_DashedStroke } from "./src/biz/svg/SvgAnim01_CircleExpand_DashedStroke";
+import { SvgAnim02_Deprecated } from "./src/biz/svg/SvgAnim02_Deprecated";
+import { SvgAnim02_TimeCountDown } from "./src/biz/svg/SvgAnim02_TimeCountDown";
+import { SvgAnim03_CircleProgresss } from "./src/biz/svg/SvgAnim03_CircleProgresss";
+import { SvgAnim04_TimeCountDown_Complete } from "./src/biz/svg/SvgAnim04_TimeCountDown_Complete";
 import { MaskDemo } from "./src/biz/ui/MaskDemo";
 
 import { SvgCanvasDemo4 } from "./src/biz/svg/SvgCanvasDemo4";
-import { SvgAnimDemo5 } from "./src/biz/svg/SvgAnimDemo5";
+import { SvgAnim05_CircleProgress } from "./src/biz/svg/SvgAnim05_CircleProgress";
 import { SvgCanvas5Pie } from "./src/biz/svg/SvgCanvas5Pie";
-import { SvgAnimDemo6_Wave } from "./src/biz/svg/SvgAnimDemo6_Wave";
-import { SvgAnimDemo7 } from "./src/biz/svg/SvgAnimDemo7";
+import { SvgAnim06_Wave } from "./src/biz/svg/SvgAnim06_Wave";
+import { SvgAnim07 } from "./src/biz/svg/SvgAnim07";
 import { BadgerDemo } from "./src/biz/ui/BadgerDemo";  //在任意组件的右上角添加倾斜的label, 用来标new, hot这些
 import { PlaceHolderDemo } from "./src/biz/anim/PlaceHolderDemo"; //加载之前的效果, 还gradient动画. 类似facebook/shimmer动画
 import { ChildStyleDemo } from "./src/basic_ui/ChildStyleDemo";
@@ -45,11 +45,12 @@ import { SvgCanvas16_ClipPath } from "./src/biz/svg/SvgCanvas16_ClipPath";
 import { SvgCanvas17_ClipPath_Text } from "./src/biz/svg/SvgCanvas17_ClipPath_Text";
 import { SvgCanvas18_ClipPath_Image } from "./src/biz/svg/SvgCanvas18_ClipPath_Image";
 import { SvgCanvas19_ClipPath_Image } from "./src/biz/svg/SvgCanva19_ClipPath_Image";
+import { Svg101_Icon_ChangeColor } from "./src/biz/svg/Svg101_Icon_ChangeColor";
 
 
 const App = () => {
   return (
-    <SvgCanvas19_ClipPath_Image/>
+    <Svg101_Icon_ChangeColor/>
   );
 };
 
