@@ -16,8 +16,8 @@ export const SvgCanvas17_ClipPath_Text = (props: IProps) => {
       </Defs>
 
       <G clipPath="url(#ctext)">
-        <Polygon points="160 60, 420 110, 160,160"/>
-        <Circle cx="110" cy="110" r="68"/>
+        <Polygon points="160 60, 420 110, 160,160" fill="#c99"/>
+        <Circle cx="110" cy="110" r="68" fill="#9c6"/>
       </G>
     </Svg>
   );
