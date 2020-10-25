@@ -20,7 +20,7 @@ import { SvgAnimDemo2 } from "./src/biz/svg/SvgAnimDemo2";
 import { SvgAnimDemo3 } from "./src/biz/svg/SvgAnimDemo3";
 import { SvgAnimDemo4 } from "./src/biz/svg/SvgAnimDemo4";
 import { MaskDemo } from "./src/biz/ui/MaskDemo";
-import { SvgCanvas18_ClipPath_Image } from "./src/biz/svg/SvgCanvas18_ClipPath_Image";
+
 import { SvgCanvasDemo4 } from "./src/biz/svg/SvgCanvasDemo4";
 import { SvgAnimDemo5 } from "./src/biz/svg/SvgAnimDemo5";
 import { SvgCanvas5Pie } from "./src/biz/svg/SvgCanvas5Pie";
@@ -43,11 +43,13 @@ import { SvgCanvas14_Text } from "./src/biz/svg/SvgCanvas14_Text";
 import { SvgCanvas15_TextPath } from "./src/biz/svg/SvgCanvas15_TextPath";
 import { SvgCanvas16_ClipPath } from "./src/biz/svg/SvgCanvas16_ClipPath";
 import { SvgCanvas17_ClipPath_Text } from "./src/biz/svg/SvgCanvas17_ClipPath_Text";
+import { SvgCanvas18_ClipPath_Image } from "./src/biz/svg/SvgCanvas18_ClipPath_Image";
+import { SvgCanvas19_ClipPath_Image } from "./src/biz/svg/SvgCanva19_ClipPath_Image";
 
 
 const App = () => {
   return (
-    <SvgCanvas18_ClipPath_Image/>
+    <SvgCanvas19_ClipPath_Image/>
   );
 };
 
