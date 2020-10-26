@@ -51,7 +51,7 @@ import { Svg101B_Icon_ChangeColor } from "./src/biz/svg/Svg101B_Icon_ChangeColor
 
 const App = () => {
   return (
-    <Svg101B_Icon_ChangeColor/>
+    <SvgCanvasDemo7_Pattern/>
   );
 };
 

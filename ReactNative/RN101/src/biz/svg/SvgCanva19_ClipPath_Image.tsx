@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ViewProps, Text, StyleSheet, Platform } from "react-native";
-import Svg, { ClipPath, Defs, G, Image, Path, Use } from "react-native-svg";
+import Svg, { ClipPath, Defs, G, Image, Path, Rect, Use } from "react-native-svg";
 
 
 export const SvgCanvas19_ClipPath_Image = () => {
@@ -28,6 +28,7 @@ c8.4-10.4,21.3-17.1,35.8-17.1c14.4,0,27.2,6.6,35.6,16.9l308.4-178c1.9-1.1,3.4-2.
         <Use href="url(#iv)"/>
         <Use href="url(#iv)" rotation="-90" x={-830} y={0}/>
         <Use href="url(#iv)" rotation="90" x={0} y={-830}/>
+
       </Svg>
     </View>
   );

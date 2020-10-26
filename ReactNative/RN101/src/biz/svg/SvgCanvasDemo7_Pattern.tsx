@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ViewProps, Text, StyleSheet } from "react-native";
+import { View, ViewProps, Text, StyleSheet, Image } from "react-native";
 import Svg, { Circle, Defs, Ellipse, Path, Pattern, Rect } from "react-native-svg";
 
 interface IProps extends ViewProps {
@@ -25,15 +25,21 @@ export const SvgCanvasDemo7_Pattern = (props: IProps) => {
                  width={50} height={50} x={10} y={10}>
           <Circle x={25} y={25} r={25} fill="url(#p1)"/>
         </Pattern>
+
+        <Pattern id="brick">
+          <Image source={require("../../../res/img/brick.jpg")}/>
+        </Pattern>
       </Defs>
 
-      <Ellipse cx={200} cy={200} rx={140} ry={70} stroke="black"
+      <Ellipse cx={200} cy={120} rx={140} ry={70} stroke="black"
                fill="url(#ptn)"/>
 
-      <Ellipse cx={200} cy={400} rx={140} ry={70}
+      <Ellipse cx={200} cy={280} rx={140} ry={70}
                stroke="url(#ptn)" strokeWidth={20}/>
 
-      <Rect x={50} y={530} width={300} height={150} fill="url(#p2)"/>
+      <Rect x={50} y={380} width={300} height={150} fill="url(#p2)"/>
+      <Rect x={50} y={560} width={300} height={150} fill="url(#brick)"/>
+
     </Svg>
   );
 };
