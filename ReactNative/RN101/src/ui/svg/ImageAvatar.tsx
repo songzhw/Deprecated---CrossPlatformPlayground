@@ -5,12 +5,14 @@ import React from "react";
 
 interface IProps extends ViewProps {
   size: number;
+  scale?: string;
   href?: ReactNative.ImageProps["source"];
 }
 
 export const ImageAvatar = (props: IProps) => {
   const { size } = props;
   const radius = size / 2;
+  const scale = props.scale ? props.scale : "xMidYMid slice"
   return (
     <Svg width={size} height={size} style={props.style}>
       <Defs>
@@ -18,7 +20,7 @@ export const ImageAvatar = (props: IProps) => {
           <Circle cx={radius} cy={radius} r={radius}/>
         </ClipPath>
       </Defs>
-      <Image href={props.href} preserveAspectRatio="xMidYMid slice"
+      <Image href={props.href} preserveAspectRatio={scale}
              width={size} height={size}
              clipPath="url(#clip)"
       />
