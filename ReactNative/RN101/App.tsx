@@ -46,11 +46,12 @@ import { SvgCanvas17_ClipPath_Text } from "./src/biz/svg/SvgCanvas17_ClipPath_Te
 import { SvgCanvas18_ClipPath_Image } from "./src/biz/svg/SvgCanvas18_ClipPath_Image";
 import { SvgCanvas19_ClipPath_Image } from "./src/biz/svg/SvgCanva19_ClipPath_Image";
 import { Svg101_Icon_ChangeColor } from "./src/biz/svg/Svg101_Icon_ChangeColor";
+import { Svg101B_Icon_ChangeColor } from "./src/biz/svg/Svg101B_Icon_ChangeColor";
 
 
 const App = () => {
   return (
-    <Svg101_Icon_ChangeColor/>
+    <Svg101B_Icon_ChangeColor/>
   );
 };
 
