@@ -35,10 +35,8 @@ export const SvgCanvas04_Linear_Gradient = (props: IProps) => {
         <G x={100} y={360}>
           <Rect x={0} y={0} width={220} height={100}
                 fill="url(#g3)" rx={20} ry={20}/>
-          <Line x1={0} y1={50} x2={220} y2={50} stroke="white" strokeWidth={5}/>
-          {/*文字居中*/}
-          <Text x={110} y={50} fill="#f00" fontSize={50}
-                >Login</Text>
+          <Text x={110} y={50} fill="#fff" fontSize={50}
+                alignmentBaseline="bottom" textAnchor="middle">Login</Text>
         </G>
       </Svg>
     </View>
