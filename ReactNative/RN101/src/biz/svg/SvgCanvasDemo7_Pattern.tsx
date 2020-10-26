@@ -1,6 +1,6 @@
 import React from "react";
-import { View, ViewProps, Text, StyleSheet, Image } from "react-native";
-import Svg, { Circle, Defs, Ellipse, Path, Pattern, Rect } from "react-native-svg";
+import { View, ViewProps, Text, StyleSheet } from "react-native";
+import Svg, { Circle, Defs, Ellipse, Path, Pattern, Rect, Image } from "react-native-svg";
 
 interface IProps extends ViewProps {
 }
@@ -26,8 +26,10 @@ export const SvgCanvasDemo7_Pattern = (props: IProps) => {
           <Circle x={25} y={25} r={25} fill="url(#p1)"/>
         </Pattern>
 
-        <Pattern id="brick">
-          <Image source={require("../../../res/img/brick.jpg")}/>
+        {/*每一个Pattern必须有宽高, 不然效果就不对了*/}
+        <Pattern id="brick" patternUnits="userSpaceOnUse"
+                 width={61} height={64}>
+          <Image href={require("../../../res/img/brick.jpg")} width={61} height={64}/>
         </Pattern>
       </Defs>
 
