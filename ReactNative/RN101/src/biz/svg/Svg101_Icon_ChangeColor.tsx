@@ -17,7 +17,6 @@ export const Svg101_Icon_ChangeColor = () => {
       <Use href="#lang" x={0} y={400} width={180} height={180} fill="blue"/>
     </Svg>
 
-
   );
 };
 

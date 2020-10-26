@@ -21,7 +21,7 @@ import { SvgAnim03_CircleProgresss } from "./src/biz/svg/SvgAnim03_CircleProgres
 import { SvgAnim04_TimeCountDown_Complete } from "./src/biz/svg/SvgAnim04_TimeCountDown_Complete";
 import { MaskDemo } from "./src/biz/ui/MaskDemo";
 
-import { SvgCanvasDemo4 } from "./src/biz/svg/SvgCanvasDemo4";
+import { SvgCanvas04_Linear_Gradient } from "./src/biz/svg/SvgCanvas04_Linear_Gradient";
 import { SvgAnim05_CircleProgress } from "./src/biz/svg/SvgAnim05_CircleProgress";
 import { SvgCanvas5Pie } from "./src/biz/svg/SvgCanvas5Pie";
 import { SvgAnim06_Wave } from "./src/biz/svg/SvgAnim06_Wave";
@@ -51,7 +51,7 @@ import { Svg101B_Icon_ChangeColor } from "./src/biz/svg/Svg101B_Icon_ChangeColor
 
 const App = () => {
   return (
-    <SvgCanvasDemo7_Pattern/>
+    <SvgCanvas04_Linear_Gradient/>
   );
 };
 
