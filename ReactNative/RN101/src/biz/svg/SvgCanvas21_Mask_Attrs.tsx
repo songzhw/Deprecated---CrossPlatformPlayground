@@ -1,16 +1,16 @@
 import React from "react";
 import { View, ViewProps, Text, StyleSheet, SafeAreaView } from "react-native";
-import Svg, { Circle, Defs, EMaskUnits, Mask, Rect } from "react-native-svg";
+import Svg, { Circle, Defs, Mask, Rect } from "react-native-svg";
 
-interface IProps extends ViewProps  {}
+// Mask的maskUnits好像不起作用!
 
-export const SvgCanvas21_Mask_Attrs = (props: IProps) => {
+export const SvgCanvas21_Mask_Attrs = () => {
 
   return (
     <SafeAreaView>
       <Svg>
         <Defs>
-          <Mask id="mask2" x={0} y={0} width={100} height={100} maskUnits={EMaskUnits.OBJECT_BOUNDING_BOX}>
+          <Mask id="mask2" x={0} y={0} width={100} height={100} maskUnits="userSpaceOnUse">
             <Rect x={0} y={0} width={100} height={100} fill="#fff"/>
           </Mask>
         </Defs>

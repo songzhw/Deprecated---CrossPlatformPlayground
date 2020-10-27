@@ -48,11 +48,12 @@ import { SvgCanvas19_ClipPath_Image } from "./src/biz/svg/SvgCanvas19_ClipPath_I
 import { Svg101_Icon_ChangeColor } from "./src/biz/svg/Svg101_Icon_ChangeColor";
 import { Svg101B_Icon_ChangeColor } from "./src/biz/svg/Svg101B_Icon_ChangeColor";
 import { SvgCanvas20_Mask_Basic } from "./src/biz/svg/SvgCanvas20_Mask_Basic";
+import { SvgCanvas21_Mask_Attrs } from "./src/biz/svg/SvgCanvas21_Mask_Attrs";
 
 
 const App = () => {
   return (
-    <SvgCanvas20_Mask_Basic/>
+    <SvgCanvas21_Mask_Attrs/>
   );
 };
 
