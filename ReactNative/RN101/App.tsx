@@ -44,14 +44,15 @@ import { SvgCanvas15_TextPath } from "./src/biz/svg/SvgCanvas15_TextPath";
 import { SvgCanvas16_ClipPath } from "./src/biz/svg/SvgCanvas16_ClipPath";
 import { SvgCanvas17_ClipPath_Text } from "./src/biz/svg/SvgCanvas17_ClipPath_Text";
 import { SvgCanvas18_ClipPath_Image } from "./src/biz/svg/SvgCanvas18_ClipPath_Image";
-import { SvgCanvas19_ClipPath_Image } from "./src/biz/svg/SvgCanva19_ClipPath_Image";
+import { SvgCanvas19_ClipPath_Image } from "./src/biz/svg/SvgCanvas19_ClipPath_Image";
 import { Svg101_Icon_ChangeColor } from "./src/biz/svg/Svg101_Icon_ChangeColor";
 import { Svg101B_Icon_ChangeColor } from "./src/biz/svg/Svg101B_Icon_ChangeColor";
+import { SvgCanvas20_Mask_Basic } from "./src/biz/svg/SvgCanvas20_Mask_Basic";
 
 
 const App = () => {
   return (
-    <AvatarDemo/>
+    <SvgCanvas20_Mask_Basic/>
   );
 };
 

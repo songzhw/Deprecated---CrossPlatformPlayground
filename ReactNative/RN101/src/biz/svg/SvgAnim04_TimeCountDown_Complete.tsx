@@ -3,7 +3,7 @@ import { View, StyleSheet, Animated, Button, Easing } from "react-native";
 import { CountDownView } from "../../ui/circle/CountDownView";
 
 export const SvgAnim04_TimeCountDown_Complete = () => {
-  const duration = 3;  // 持续时间（单位：s）
+  const duration = 5;  // 持续时间（单位：s）
   const [progress, setProgress] = useState(new Animated.Value(0));  // 倒计时动画进度
 
   const startAnim = () => {
