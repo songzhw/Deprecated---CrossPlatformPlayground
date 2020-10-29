@@ -49,11 +49,12 @@ import { Svg101_Icon_ChangeColor } from "./src/biz/svg/Svg101_Icon_ChangeColor";
 import { Svg101B_Icon_ChangeColor } from "./src/biz/svg/Svg101B_Icon_ChangeColor";
 import { SvgCanvas20_Mask_Basic } from "./src/biz/svg/SvgCanvas20_Mask_Basic";
 import { SvgCanvas21_Mask_Attrs } from "./src/biz/svg/SvgCanvas21_Mask_Attrs";
+import { SvgAnim08_check } from "./src/biz/svg/SvgAnim08_check";
 
 
 const App = () => {
   return (
-    <SvgCanvas21_Mask_Attrs/>
+    <SvgAnim08_check/>
   );
 };
 
