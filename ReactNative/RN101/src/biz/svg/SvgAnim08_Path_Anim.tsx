@@ -4,12 +4,12 @@ import Svg, { Path } from "react-native-svg";
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 
-export const SvgAnim08_check = () => {
-  const [offset, setOffset] = useState(new Animated.Value(0));
+export const SvgAnim08_Path_Anim = () => {
+  const [offset, setOffset] = useState(new Animated.Value(80));
 
   function startAnim() {
     Animated.timing(offset, {
-      toValue: 80,
+      toValue: 0,
       duration: 1000,
       useNativeDriver: true,
       easing: Easing.linear
@@ -26,8 +26,3 @@ export const SvgAnim08_check = () => {
     </SafeAreaView>
   );
 };
-
-
-const styles = StyleSheet.create({
-  root: {}
-});
