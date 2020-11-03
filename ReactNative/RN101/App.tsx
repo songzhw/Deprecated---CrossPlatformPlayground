@@ -50,11 +50,12 @@ import { Svg101B_Icon_ChangeColor } from "./src/biz/svg/Svg101B_Icon_ChangeColor
 import { SvgCanvas20_Mask_Basic } from "./src/biz/svg/SvgCanvas20_Mask_Basic";
 import { SvgCanvas21_Mask_Attrs } from "./src/biz/svg/SvgCanvas21_Mask_Attrs";
 import { SvgAnim08_Path_Anim } from "./src/biz/svg/SvgAnim08_Path_Anim";
+import { FolderDemo } from "./src/biz/ui/FolderDemo";
 
 
 const App = () => {
   return (
-    <SvgAnim08_Path_Anim/>
+    <FolderDemo/>
   );
 };
 
