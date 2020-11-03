@@ -24,6 +24,8 @@ export const FolderDemo = () => {
       const transformProps = { style: { transform: [{ matrix }] } };
       // @ts-ignore
       avImage.current?.setNativeProps(transformProps);
+      // @ts-ignore
+      backView.current?.setNativeProps(transformProps);
     });
 
     const startAnim = () => {
