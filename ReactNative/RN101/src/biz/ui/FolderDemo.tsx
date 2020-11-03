@@ -16,6 +16,7 @@ export const FolderDemo = () => {
     const [animValue, setAnimVlaue] = useState(new Animated.Value(0));
 
     const avImage = useRef();
+    const backView = useRef();
 
     let baseline = avHeight / 6;
     animValue.addListener(({ value }) => {
@@ -45,13 +46,19 @@ export const FolderDemo = () => {
     };
 
     const animStyle = {
-      av: { width: 330, height: 570, marginTop: 50, backfaceVisibility: "hidden", position: "absolute" }
+      av: { width, height, position: "absolute", backfaceVisibility: "hidden" },
+      gray: { width, height, position: "absolute" },
+      grayView: {width, height, backgroundColor: "#ddd" }
     };
 
 
     return (
       <View style={styles.root}>
 
+        {/*纸片的背面; 灰色bg */}
+        <Animated.View style={animStyle.gray} ref={backView}>
+          <View style={animStyle.grayView}/>
+        </Animated.View>
 
         <Animated.View style={animStyle.av} ref={avImage}>
           <Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>
