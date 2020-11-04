@@ -54,7 +54,6 @@ export const FolderDemo = () => {
       gray: { width, height: backHeight, position: "absolute", overflow: "hidden" },
       grayView: { width, height: backHeight, backgroundColor: "#ddd" },
       container: { position: "absolute", left:0, right: 0, top:0, height: backHeight, width, backgroundColor: "white" },
-      mask: { position: "absolute", left: 0, right: 0, top: 0, height: (backHeight + 12) }
     };
 
 
@@ -65,9 +64,6 @@ export const FolderDemo = () => {
           <Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>
 
           <View style={animStyle.container}>
-
-            <View style={animStyle.mask}/>
-
             {/*纸片的背面; 灰色bg */}
             <Animated.View style={animStyle.gray} ref={backView}>
               <View style={animStyle.grayView}/>
