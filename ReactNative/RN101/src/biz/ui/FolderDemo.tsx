@@ -17,7 +17,6 @@ export const FolderDemo = () => {
 
     const [isAnimStart, setAnimStart] = useState(false);
     const [animValue, setAnimValue] = useState(new Animated.Value(0));
-    const [isImageLoaded, setImageLoaded] = useState(false);
 
     const avImage = useRef();
     const backView = useRef();
@@ -54,12 +53,9 @@ export const FolderDemo = () => {
       av: { width, height: backHeight, position: "absolute", backfaceVisibility: "hidden", overflow: "hidden" },
       gray: { width, height: backHeight, position: "absolute", overflow: "hidden" },
       grayView: { width, height: backHeight, backgroundColor: "#ddd" },
-      container: { position: "absolute", left, right: 0, top, height: backHeight, opacity: isImageLoaded ? 1 : 0, }
+      container: { position: "absolute", left, right: 0, top, height: backHeight },
+      mask: { position: "absolute", left:0, right:0, top:-12, height: (backHeight+12), backgroundColor:"#fff" }
     };
-
-    const onLoadImage = useCallback(() => {
-      setImageLoaded(true);
-    }, []);
 
 
     return (
@@ -68,13 +64,16 @@ export const FolderDemo = () => {
         <Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>
 
         <View style={animStyle.container}>
+
+          <View style={animStyle.mask}/>
+
           {/*纸片的背面; 灰色bg */}
           <Animated.View style={animStyle.gray} ref={backView}>
             <View style={animStyle.grayView}/>
           </Animated.View>
 
           <Animated.View style={animStyle.av} ref={avImage}>
-            <Image source={require("../../../res/img/batman.jpg")} style={styles.img} onLoad={onLoadImage}/>
+            <Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>
           </Animated.View>
         </View>
 
@@ -89,7 +88,7 @@ export const FolderDemo = () => {
 
 
 const styles = StyleSheet.create({
-  root: { flex: 1, justifyContent: "center", alignItems: "center" },
+  root: { flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#fff" },
   img: { width, height },
   button: { position: "absolute", left: 10, top: 10, width: 70, height: 20, backgroundColor: "#ba68c8" }
 });
