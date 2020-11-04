@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { View, ViewProps, Text, StyleSheet, Image, useWindowDimensions, Button, Animated, Platform, Dimensions, PixelRatio, TouchableOpacity } from "react-native";
 import { rotateX } from "../../utils/TransformUtils";
 
@@ -16,7 +16,8 @@ export const FolderDemo = () => {
     const top = (screenHeight - height) / 2;
 
     const [isAnimStart, setAnimStart] = useState(false);
-    const [animValue, setAnimVlaue] = useState(new Animated.Value(0));
+    const [animValue, setAnimValue] = useState(new Animated.Value(0));
+    const [isImageLoaded, setImageLoaded] = useState(false);
 
     const avImage = useRef();
     const backView = useRef();
@@ -53,8 +54,12 @@ export const FolderDemo = () => {
       av: { width, height: backHeight, position: "absolute", backfaceVisibility: "hidden", overflow: "hidden" },
       gray: { width, height: backHeight, position: "absolute", overflow: "hidden" },
       grayView: { width, height: backHeight, backgroundColor: "#ddd" },
-      container: { position: "absolute", left, right: 0, top, height: backHeight }
+      container: { position: "absolute", left, right: 0, top, height: backHeight, opacity: isImageLoaded ? 1 : 0, }
     };
+
+    const onLoadImage = useCallback(() => {
+      setImageLoaded(true);
+    }, []);
 
 
     return (
@@ -69,7 +74,7 @@ export const FolderDemo = () => {
           </Animated.View>
 
           <Animated.View style={animStyle.av} ref={avImage}>
-            <Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>
+            <Image source={require("../../../res/img/batman.jpg")} style={styles.img} onLoad={onLoadImage}/>
           </Animated.View>
         </View>
 
@@ -85,6 +90,6 @@ export const FolderDemo = () => {
 
 const styles = StyleSheet.create({
   root: { flex: 1, justifyContent: "center", alignItems: "center" },
-  img: { width, height: height, resizeMode: "cover" },
+  img: { width, height },
   button: { position: "absolute", left: 10, top: 10, width: 70, height: 20, backgroundColor: "#ba68c8" }
 });
