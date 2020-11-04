@@ -52,7 +52,9 @@ export const FolderDemo = () => {
     const animStyle = {
       av: { width, height: backHeight, position: "absolute", backfaceVisibility: "hidden", overflow: "hidden" },
       gray: { width, height: backHeight, position: "absolute", overflow: "hidden" },
+      tmp: { width, height: backHeight, position: "absolute", backgroundColor:"red" },
       grayView: { width, height: backHeight, backgroundColor: "#ddd" }
+
     };
 
 
@@ -73,6 +75,8 @@ export const FolderDemo = () => {
         <TouchableOpacity onPress={startAnim} style={styles.button}>
           <Text>Start Anim</Text>
         </TouchableOpacity>
+
+        <View style={animStyle.tmp}/>
       </View>
     );
   }
