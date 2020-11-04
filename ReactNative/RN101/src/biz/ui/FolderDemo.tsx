@@ -11,9 +11,9 @@ const PERSPECTIVE = IS_ANDROID ? 25000 : 1500;
 const width = 330, height = 570, backHeight = 190;
 
 export const FolderDemo = () => {
-  const {height:h , width:w } = Dimensions.get('window') //=> w=392.73, h=737.45 (前面":h"是重命名)
-  const density = PixelRatio.get()  //设备密度, d=2.75
-  console.log(`szw w=${w}, h=${h}, d = ${density}`) //=> //=> 对1080x2160的android手机, w=392.73, h=737.45,d=2.75
+    const { height: h, width: w } = Dimensions.get("window"); //=> w=392.73, h=737.45 (前面":h"是重命名)
+    const density = PixelRatio.get();  //设备密度, d=2.75
+    console.log(`szw w=${w}, h=${h}, d = ${density}`); //=> //=> 对1080x2160的android手机, w=392.73, h=737.45,d=2.75
 
     const [isAnimStart, setAnimStart] = useState(false);
     const [animValue, setAnimVlaue] = useState(new Animated.Value(0));
@@ -50,16 +50,16 @@ export const FolderDemo = () => {
     };
 
     const animStyle = {
-      av: { width, height, position: "absolute", backfaceVisibility: "hidden" },
-      gray: { width, height, position: "absolute" },
-      grayView: {width, height, backgroundColor: "#ddd" }
+      av: { width, height: backHeight, position: "absolute", backfaceVisibility: "hidden", overflow: "hidden" },
+      gray: { width, height: backHeight, position: "absolute", overflow: "hidden" },
+      grayView: { width, height: backHeight, backgroundColor: "#ddd" }
     };
 
 
     return (
       <View style={styles.root}>
 
-        {/*<Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>*/}
+        <Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>
 
         {/*纸片的背面; 灰色bg */}
         <Animated.View style={animStyle.gray} ref={backView}>
@@ -82,5 +82,5 @@ export const FolderDemo = () => {
 const styles = StyleSheet.create({
   root: { flex: 1, justifyContent: "center", alignItems: "center" },
   img: { width, height: height, resizeMode: "cover" },
-  button: {position: "absolute", left:10, top:10, width: 70, height:20, backgroundColor: "#ba68c8"}
+  button: { position: "absolute", left: 10, top: 10, width: 70, height: 20, backgroundColor: "#ba68c8" }
 });
