@@ -5,15 +5,15 @@ import { rotateX } from "../../utils/TransformUtils";
 interface IProps extends ViewProps {
 }
 
-// const { width, height } = useWindowDimensions(); //=> 对1080x2160的android手机, 它的值是392.73与737.45
+
 const IS_ANDROID = Platform.OS === "android";
 const PERSPECTIVE = IS_ANDROID ? 25000 : 1500;
 const width = 330, height = 570, backHeight = 190;
 
 export const FolderDemo = () => {
-    const { height: h, width: w } = Dimensions.get("window"); //=> w=392.73, h=737.45 (前面":h"是重命名)
-    const density = PixelRatio.get();  //设备密度, d=2.75
-    console.log(`szw w=${w}, h=${h}, d = ${density}`); //=> //=> 对1080x2160的android手机, w=392.73, h=737.45,d=2.75
+    const { width: screenWidth, height: screenHeight } = useWindowDimensions(); //=> 对1080x2160的android手机, 它的值是392.73与737.45
+    const left = (screenWidth - width) / 2;
+    const top = (screenHeight - height) / 2;
 
     const [isAnimStart, setAnimStart] = useState(false);
     const [animValue, setAnimVlaue] = useState(new Animated.Value(0));
@@ -52,9 +52,8 @@ export const FolderDemo = () => {
     const animStyle = {
       av: { width, height: backHeight, position: "absolute", backfaceVisibility: "hidden", overflow: "hidden" },
       gray: { width, height: backHeight, position: "absolute", overflow: "hidden" },
-      tmp: { width, height: backHeight, position: "absolute", backgroundColor:"red" },
-      grayView: { width, height: backHeight, backgroundColor: "#ddd" }
-
+      grayView: { width, height: backHeight, backgroundColor: "#ddd" },
+      container: { position: "absolute", left, right: 0, top, height: backHeight }
     };
 
 
@@ -63,20 +62,21 @@ export const FolderDemo = () => {
 
         <Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>
 
-        {/*纸片的背面; 灰色bg */}
-        <Animated.View style={animStyle.gray} ref={backView}>
-          <View style={animStyle.grayView}/>
-        </Animated.View>
+        <View style={animStyle.container}>
+          {/*纸片的背面; 灰色bg */}
+          <Animated.View style={animStyle.gray} ref={backView}>
+            <View style={animStyle.grayView}/>
+          </Animated.View>
 
-        <Animated.View style={animStyle.av} ref={avImage}>
-          <Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>
-        </Animated.View>
+          <Animated.View style={animStyle.av} ref={avImage}>
+            <Image source={require("../../../res/img/batman.jpg")} style={styles.img}/>
+          </Animated.View>
+        </View>
 
         <TouchableOpacity onPress={startAnim} style={styles.button}>
           <Text>Start Anim</Text>
         </TouchableOpacity>
 
-        <View style={animStyle.tmp}/>
       </View>
     );
   }
