@@ -1,3 +1,8 @@
 .song {
   font-size: 40px;
 }
+
+.playIcon {
+  width: 40px;
+  height: 40px;
+}
