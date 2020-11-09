@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState } from "react";
+import React, { MouseEvent, useCallback, useState } from "react";
 import { PlayerConsole2 } from "./PlayerConsole";
 import "./Music.css";
 
@@ -28,7 +28,7 @@ export const MusicListScreen = () => {
 
   const work = () => {
     console.log(`szw work`);
-  };
+  }
 
   return (
     <div>
