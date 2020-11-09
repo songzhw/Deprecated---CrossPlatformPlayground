@@ -19,8 +19,15 @@ export const MusicListScreen = () => {
 
   const selectItem = (ev: MouseEvent<HTMLDivElement>) => {
     const id = parseInt(ev.currentTarget.dataset.item!, 10);
-    const song : ISong = data.filter(item => item.id === id)[0];
-    song.isPlaying = true;
+    const songs = data.map(item => {
+      item.isPlaying = item.id === id;
+      return item;
+    });
+    setData(songs);
+  };
+
+  const work = () => {
+    console.log(`szw work`);
   };
 
   return (
@@ -36,7 +43,9 @@ export const MusicListScreen = () => {
           <span className="song">{item.title}</span>
         </div>
       ))}
-      <PlayerConsole2/>
+
+      <PlayerConsole2 job={work}/>
+
     </div>
   );
 };
