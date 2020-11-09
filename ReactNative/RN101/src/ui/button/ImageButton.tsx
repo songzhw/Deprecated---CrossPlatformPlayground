@@ -8,10 +8,11 @@ interface IProps extends ViewProps {
 }
 
 export const ImageButton = (props: IProps) => {
+  const { size } = props;
 
   return (
-    <TouchableOpacity style={props.style} onPress={props.onPressed}>
-      <Image source={props.source} width={props.size}/>
+    <TouchableOpacity style={[props.style, { width: size, height: size}]} onPress={props.onPressed}>
+      <Image source={props.source} resizeMode="stretch" style={{width: size, height: size}}/>
     </TouchableOpacity>
   );
 };
