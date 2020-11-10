@@ -53,11 +53,12 @@ import { SvgAnim08_Path_Anim } from "./src/biz/svg/SvgAnim08_Path_Anim";
 import { FolderDemo } from "./src/biz/ui/FolderDemo";
 import { SvgAnim09_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09_ViewPagerTransition";
 import { SvgAnim09B_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09B_ViewPager_Transition";
+import { SvgAnim09C_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09C_ViewPagerTransition";
 
 
 const App = () => {
   return (
-    <SvgAnim09B_ViewPagerTransition/>
+    <SvgAnim09C_ViewPagerTransition/>
   );
 };
 
