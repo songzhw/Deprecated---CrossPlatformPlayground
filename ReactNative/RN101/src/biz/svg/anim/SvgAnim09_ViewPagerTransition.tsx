@@ -7,7 +7,7 @@ const data = [
   { color: "#3f51b5", next: "#e91e63" },
   { color: "#e91e63", next: "#4caf50" },
   { color: "#4caf50", next: "#a156c9" },
-  { color: "#a156c9", next: "#3f51b5" },
+  { color: "#a156c9", next: "#3f51b5" }
 ];
 
 export const SvgAnim09_ViewPagerTransition = () => {
@@ -36,7 +36,7 @@ export const SvgAnim09_ViewPagerTransition = () => {
   const item = data[index];
   return (
     <View style={styles.root}>
-      <RippleBg color={item.color} nextColor={item.next} r={r}/>
+      <RippleBg01 color={item.color} nextColor={item.next} r={r}/>
       <ImageButton size={60} source={require("../../../../res/img/ic_left.png")} onPressed={leftPressed} style={{ marginLeft: 20 }}/>
       <ImageButton size={60} source={require("../../../../res/img/ic_right.png")} onPressed={rightPressed} style={{ marginRight: 20 }}/>
     </View>
@@ -50,7 +50,7 @@ interface IProps extends ViewProps {
 }
 
 const AnimCircle = Animated.createAnimatedComponent(Circle);
-export const RippleBg = (props: IProps) => {
+export const RippleBg01 = (props: IProps) => {
   const { color, nextColor, r } = props;
   const { width, height } = useWindowDimensions();
 

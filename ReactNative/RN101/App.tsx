@@ -52,11 +52,12 @@ import { SvgCanvas21_Mask_Attrs } from "./src/biz/svg/SvgCanvas21_Mask_Attrs";
 import { SvgAnim08_Path_Anim } from "./src/biz/svg/SvgAnim08_Path_Anim";
 import { FolderDemo } from "./src/biz/ui/FolderDemo";
 import { SvgAnim09_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09_ViewPagerTransition";
+import { SvgAnim09B_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09B_ViewPager_Transition";
 
 
 const App = () => {
   return (
-    <SvgAnim09_ViewPagerTransition/>
+    <SvgAnim09B_ViewPagerTransition/>
   );
 };
 
