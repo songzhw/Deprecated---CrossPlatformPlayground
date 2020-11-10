@@ -40,9 +40,10 @@ export const SvgAnim09B_ViewPagerTransition = () => {
   };
 
   const item = data[index];
+  const nextItem = data[(index + 1) % data.length];
   return (
     <View style={styles.root}>
-      <RippleBg color={item.color} nextColor={item.next} r={r} cx={item.cx} cy={cy}/>
+      <RippleBg color={item.color} nextColor={item.next} r={r} cx={nextItem.cx} cy={cy}/>
       <VpIndicator data={data} cy={cy} r={10}/>
       <ImageButton size={60} source={require("../../../../res/img/ic_left.png")} onPressed={leftPressed} style={{ marginLeft: 20 }}/>
       <ImageButton size={60} source={require("../../../../res/img/ic_right.png")} onPressed={rightPressed} style={{ marginRight: 20 }}/>
