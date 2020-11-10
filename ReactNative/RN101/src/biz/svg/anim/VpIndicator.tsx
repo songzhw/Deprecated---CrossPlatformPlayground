@@ -18,11 +18,11 @@ export const VpIndicator = (props: IProps) => {
   const { data, cy, r } = props;
   return (
     <Svg style={styles.root}>
-      {data.map((item, index) => {
-        const nextIndex = (index + 1) % data.length;
-        const nextItem = data[nextIndex];
-        return <Circle key={`vpIndicator${index}`} cx={nextItem.cx} cy={cy} r={r} fill={item.color}/>;
-      })}
+      {data.map((item, index) => (
+        <Circle key={`vpIndicator${index}`} cx={item.cx} cy={cy} r={r} fill={item.color}
+                stroke={"white"} strokeWidth={1}
+        />
+      ))}
     </Svg>
   );
 };
