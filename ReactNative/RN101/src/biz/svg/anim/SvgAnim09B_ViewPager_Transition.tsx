@@ -3,6 +3,7 @@ import { View, ViewProps, Text, StyleSheet, useWindowDimensions, Animated, Dimen
 import { ImageButton } from "../../../ui/button/ImageButton";
 import Svg, { Circle } from "react-native-svg";
 import { RippleBg } from "./RippleBg";
+import { VpIndicator } from "./VpIndicator";
 
 
 const { width, height } = Dimensions.get("window");
@@ -42,6 +43,7 @@ export const SvgAnim09B_ViewPagerTransition = () => {
   return (
     <View style={styles.root}>
       <RippleBg color={item.color} nextColor={item.next} r={r} cx={item.cx} cy={cy}/>
+      <VpIndicator data={data} cy={cy} r={10}/>
       <ImageButton size={60} source={require("../../../../res/img/ic_left.png")} onPressed={leftPressed} style={{ marginLeft: 20 }}/>
       <ImageButton size={60} source={require("../../../../res/img/ic_right.png")} onPressed={rightPressed} style={{ marginRight: 20 }}/>
     </View>
