@@ -26,9 +26,9 @@ export const MusicListScreen = () => {
     setData(songs);
   };
 
-  const work = () => {
+  const work = useCallback(() => {
     console.log(`szw work`);
-  }
+  }, []);
 
   return (
     <div>
