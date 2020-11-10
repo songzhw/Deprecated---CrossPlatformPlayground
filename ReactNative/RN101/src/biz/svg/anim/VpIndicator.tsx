@@ -18,9 +18,11 @@ export const VpIndicator = (props: IProps) => {
   const { data, cy, r } = props;
   return (
     <Svg style={styles.root}>
-      {data.map((item, index) => (
-        <Circle key={`vpIndicator${index}`} cx={item.cx} cy={cy} r={r} fill={item.color}/>
-      ))}
+      {data.map((item, index) => {
+        const nextIndex = (index + 1) % data.length;
+        const nextItem = data[nextIndex];
+        return <Circle key={`vpIndicator${index}`} cx={nextItem.cx} cy={cy} r={r} fill={item.color}/>;
+      })}
     </Svg>
   );
 };
@@ -28,7 +30,6 @@ export const VpIndicator = (props: IProps) => {
 
 const styles = StyleSheet.create({
   root: {
-    backgroundColor: "#fff3",
-    position: "absolute", left: 0, right: 0, bottom: 0, top:0
+    position: "absolute", left: 0, right: 0, bottom: 0, top: 0
   }
 });
