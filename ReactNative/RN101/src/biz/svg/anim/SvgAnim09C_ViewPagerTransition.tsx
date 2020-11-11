@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { View, ViewProps, Text, StyleSheet, useWindowDimensions, Animated, Dimensions, Image } from "react-native";
 import { ImageButton } from "../../../ui/button/ImageButton";
 import Svg, { Circle } from "react-native-svg";
@@ -20,11 +20,10 @@ export const SvgAnim09C_ViewPagerTransition = () => {
   const [r, setR] = useState(new Animated.Value(10));
   const [index, setIndex] = useState(0);
 
-
   const leftPressed = () => {
   };
 
-  const rightPressed = () => {
+  const rightPressed = useCallback(() => {
     Animated.timing(r, {
       toValue: maxSize,
       duration: 250,
@@ -36,7 +35,7 @@ export const SvgAnim09C_ViewPagerTransition = () => {
         setIndex(newIndex);
         setR(new Animated.Value(10));
       });
-  };
+  }, []);
 
   const item = data[index];
   const nextItem = data[(index + 1) % data.length];
@@ -49,8 +48,8 @@ export const SvgAnim09C_ViewPagerTransition = () => {
         <Image source={item.href}/>
       </View>
 
-      <ImageButton size={60} source={require("../../../../res/img/ic_left.png")} onPressed={leftPressed} style={{ marginLeft: 20 }}/>
-      <ImageButton size={60} source={require("../../../../res/img/ic_right.png")} onPressed={rightPressed} style={{ marginRight: 20 }}/>
+      {/*<ImageButton size={60} source={require("../../../../res/img/ic_left.png")} onPressed={leftPressed} style={{ marginLeft: 20 }}/>*/}
+      <ImageButton size={6d0} source={require("../../../../res/img/ic_right.png")} onPressed={rightPressed} style={{ marginRight: 20 }}/>
     </View>
   );
 };

@@ -7,14 +7,17 @@ interface IProps extends ViewProps {
   onPressed: () => void
 }
 
-export const ImageButton = (props: IProps) => {
+export const _ImageButton = (props: IProps) => {
   const { size } = props;
 
+  console.log(`szw ImageButton: child render`);
   return (
     <TouchableOpacity style={[props.style, { width: size, height: size}]} onPress={props.onPressed}>
       <Image source={props.source} resizeMode="stretch" style={{width: size, height: size}}/>
     </TouchableOpacity>
   );
 };
+
+export const ImageButton = React.memo(_ImageButton)
 
 
