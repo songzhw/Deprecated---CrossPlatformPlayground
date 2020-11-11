@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { View, ViewProps, Text, StyleSheet, useWindowDimensions, Animated, Dimensions, Image } from "react-native";
 import { ImageButton } from "../../../ui/button/ImageButton";
 import Svg, { Circle } from "react-native-svg";
@@ -17,17 +17,15 @@ const data = [
 ];
 
 export const SvgAnim09C_ViewPagerTransition = () => {
-  const radiusRef = useRef(new Animated.Value(10))
-  const indexRef = useRef(0);
-
+  const [r, setR] = useState(new Animated.Value(10));
+  const [index, setIndex] = useState(0);
 
   const leftPressed = () => {
   };
 
-  const rightPressed = useCallback(() => {
-    const index = indexRef.current;
-    const r = radiusRef.current;
-    console.log(`szw useCallback(index = ${index}`);
+  // 尝试给这加上useCallback(), 即失败了. 因为它依赖于index与r.
+  // 要是把index与r都放到useCallback()第二参里, 那ImageButton仍会无谓刷新, 等于是没有解决问题.
+  const rightPressed = () => {
     Animated.timing(r, {
       toValue: maxSize,
       duration: 250,
@@ -36,13 +34,11 @@ export const SvgAnim09C_ViewPagerTransition = () => {
       .start(() => {
         console.log(`timing callback: index = `, index);
         const newIndex = (index + 1) % data.length;
-        indexRef.current = newIndex;
-        radiusRef.current = new Animated.Value(10);
+        setIndex(newIndex);
+        setR(new Animated.Value(10));
       });
-  }, []);
+  }
 
-  const r = radiusRef.current;
-  const index = indexRef.current;
   const item = data[index];
   const nextItem = data[(index + 1) % data.length];
   return (
