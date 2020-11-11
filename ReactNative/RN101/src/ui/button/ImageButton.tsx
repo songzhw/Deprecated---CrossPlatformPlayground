@@ -18,6 +18,10 @@ export const _ImageButton = (props: IProps) => {
   );
 };
 
-export const ImageButton = React.memo(_ImageButton)
+export const ImageButton = React.memo(_ImageButton, (prevProps, nextProps) =>
+  nextProps.size === prevProps.size
+    && nextProps.onPressed === prevProps.onPressed
+    && nextProps.source === prevProps.source
+)
 
 
