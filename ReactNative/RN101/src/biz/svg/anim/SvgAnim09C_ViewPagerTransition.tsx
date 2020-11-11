@@ -17,7 +17,7 @@ const data = [
 ];
 
 export const SvgAnim09C_ViewPagerTransition = () => {
-  const [r, setR] = useState(new Animated.Value(10));
+  const radiusRef = useRef(new Animated.Value(10))
   const indexRef = useRef(0);
 
 
@@ -26,6 +26,7 @@ export const SvgAnim09C_ViewPagerTransition = () => {
 
   const rightPressed = useCallback(() => {
     const index = indexRef.current;
+    const r = radiusRef.current;
     console.log(`szw useCallback(index = ${index}`);
     Animated.timing(r, {
       toValue: maxSize,
@@ -36,10 +37,11 @@ export const SvgAnim09C_ViewPagerTransition = () => {
         console.log(`timing callback: index = `, index);
         const newIndex = (index + 1) % data.length;
         indexRef.current = newIndex;
-        setR(new Animated.Value(10));
+        radiusRef.current = new Animated.Value(10);
       });
   }, []);
 
+  const r = radiusRef.current;
   const index = indexRef.current;
   const item = data[index];
   const nextItem = data[(index + 1) % data.length];
@@ -52,7 +54,7 @@ export const SvgAnim09C_ViewPagerTransition = () => {
         <Image source={item.href}/>
       </View>
 
-      {/*<ImageButton size={60} source={require("../../../../res/img/ic_left.png")} onPressed={leftPressed} style={{ marginLeft: 20 }}/>*/}
+      <ImageButton size={60} source={require("../../../../res/img/ic_left.png")} onPressed={leftPressed} style={{ marginLeft: 20 }}/>
       <ImageButton size={60} source={require("../../../../res/img/ic_right.png")} onPressed={rightPressed} style={{ marginRight: 20 }}/>
     </View>
   );
