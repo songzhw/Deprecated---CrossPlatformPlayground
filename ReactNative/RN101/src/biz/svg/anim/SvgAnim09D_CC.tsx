@@ -5,6 +5,9 @@ import Svg, { Circle } from "react-native-svg";
 import { RippleBg } from "./RippleBg";
 import { VpIndicator } from "./VpIndicator";
 
+// ImageButton不会做无谓的刷新 , 性能更好.
+
+
 const { width, height } = Dimensions.get("window");
 const cy = height - 50;
 const middleX = width / 2;
