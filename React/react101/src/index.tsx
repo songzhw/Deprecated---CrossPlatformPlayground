@@ -6,6 +6,7 @@ import "./index.css";
 import { applyMiddleware, createStore, Store } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
+import { KeyboardResponderDemo } from "./biz/keyboards/KeyboardResponderDemo";
 import { KeyImportancePage } from "./performance/keys/KeyImportancePage";
 import { MusicListScreen } from "./performance/usecallback/MusicListScreen";
 import { BeforeUseCallback1 } from "./Rtutor/hooks/useCallback/before/BeforeUseCallback";
@@ -44,9 +45,10 @@ const theme = createMuiTheme({
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <MusicListScreen/>
-      </ThemeProvider>
+      <KeyboardResponderDemo/>
+      {/*<ThemeProvider theme={theme}>*/}
+      {/*  <MusicListScreen/>*/}
+      {/*</ThemeProvider>*/}
     </Provider>
   )
     ;
