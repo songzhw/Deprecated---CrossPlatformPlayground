@@ -25,7 +25,7 @@ const target = {
 };
 
 const UnnecessaryRender4 = () => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState({count:0});
 
   function clicks() {
     setValue(target);

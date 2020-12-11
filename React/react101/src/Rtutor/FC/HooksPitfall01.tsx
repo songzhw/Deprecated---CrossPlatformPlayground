@@ -4,8 +4,8 @@
 import React, { useEffect, useState } from "react";
 
 export const HooksPitfall01 = () => {
-  const [apple, setApple] = useState();
-  const [banana, setBanana] = useState();
+  const [apple, setApple] = useState("");
+  const [banana, setBanana] = useState("");
 
   useEffect(() => {
     if (apple === undefined) {

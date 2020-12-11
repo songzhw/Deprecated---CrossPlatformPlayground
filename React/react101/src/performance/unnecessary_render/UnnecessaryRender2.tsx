@@ -5,7 +5,7 @@ const UnnecessaryRender2 = () => {
   const target = {
     count: 1
   };
-  const [value, setValue] = useState();
+  const [value, setValue] = useState({count:0});
 
   function clicks() {
     setValue(target);
