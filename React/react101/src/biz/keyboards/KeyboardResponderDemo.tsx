@@ -8,14 +8,14 @@ export class KeyboardResponderDemo extends React.Component {
   }
 
   onKeyPressed = (event: KeyboardEvent) => {
-    console.log(`szw event = `, event.key);
+    console.log(`szw event : key = `, event.key, "; code = ", event.keyCode);
   };
 
   render() {
     return (
       <div>
         <p>keyboard</p>
-        <input type="text" id="keys" onKeyPress={this.onKeyPressed}/>
+        <input onKeyPress={this.onKeyPressed}/>
       </div>
     );
   }
