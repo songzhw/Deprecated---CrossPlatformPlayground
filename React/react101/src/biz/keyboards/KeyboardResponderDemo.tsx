@@ -15,7 +15,7 @@ export class KeyboardResponderDemo extends React.Component {
     return (
       <div>
         <p>keyboard</p>
-        <input onKeyPress={this.onKeyPressed}/>
+        <input onKeyDown={this.onKeyPressed}/>
       </div>
     );
   }
