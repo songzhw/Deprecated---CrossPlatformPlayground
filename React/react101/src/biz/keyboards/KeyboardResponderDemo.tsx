@@ -1,10 +1,25 @@
 import React, { KeyboardEvent } from "react";
+import { ArrowKeysReact } from "./ArrowDetector";
 
 export class KeyboardResponderDemo extends React.Component {
   state = {};
 
-  componentDidMount() {
-
+  constructor(props: any) {
+    super(props);
+    ArrowKeysReact.config({
+      left: () => {
+        console.log("left key detected.");
+      },
+      right: () => {
+        console.log("right key detected.");
+      },
+      up: () => {
+        console.log("up key detected.");
+      },
+      down: () => {
+        console.log("down key detected.");
+      }
+    });
   }
 
   onKeyPressed = (event: KeyboardEvent) => {
@@ -13,9 +28,8 @@ export class KeyboardResponderDemo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div {...ArrowKeysReact.events} style={{backgroundColor: "red", display: "flex", width: "100%", height:"100%"}}>
         <p>keyboard</p>
-        <input onKeyDown={this.onKeyPressed}/>
       </div>
     );
   }
