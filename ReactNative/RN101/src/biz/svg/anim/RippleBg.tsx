@@ -13,14 +13,13 @@ export const RippleBg = (props: IProps) => {
   const [radius, setRadius] = useState(new Animated.Value(50));
 
   return (
-    <Svg style={[props.style, styles.root]}>
+    <Svg style={props.style}>
       <AnimCircle x={windowWidth / 2} y={windowHeight / 2} r={radius}
+                  strokeWidth={5} stroke={"white"}
       />
     </Svg>
   );
 };
 
 
-const styles = StyleSheet.create({
-  root: { flex: 1, alignItems: "center", justifyContent: "center" }
-});
+const styles = StyleSheet.create({});
