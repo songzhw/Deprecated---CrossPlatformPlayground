@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, ViewProps, Text, StyleSheet, useWindowDimensions, Animated, Dimensions } from "react-native";
 import { ImageButton } from "../../../ui/button/ImageButton";
 import Svg, { Circle } from "react-native-svg";
-import { RippleBg } from "./RippleBg";
+import { RippleTransitionBg } from "./RippleTransitionBg";
 import { VpIndicator } from "./VpIndicator";
 
 
@@ -43,7 +43,7 @@ export const SvgAnim09B_ViewPagerTransition = () => {
   const nextItem = data[(index + 1) % data.length];
   return (
     <View style={styles.root}>
-      <RippleBg color={item.color} nextColor={item.next} r={r} cx={nextItem.cx} cy={cy}/>
+      <RippleTransitionBg color={item.color} nextColor={item.next} r={r} cx={nextItem.cx} cy={cy}/>
       <VpIndicator data={data} cy={cy} r={10}/>
       <ImageButton size={60} source={require("../../../../res/img/ic_left.png")} onPressed={leftPressed} style={{ marginLeft: 20 }}/>
       <ImageButton size={60} source={require("../../../../res/img/ic_right.png")} onPressed={rightPressed} style={{ marginRight: 20 }}/>

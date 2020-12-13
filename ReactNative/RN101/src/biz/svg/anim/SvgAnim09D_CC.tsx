@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { View, ViewProps, Text, StyleSheet, useWindowDimensions, Animated, Dimensions, Image } from "react-native";
 import { ImageButton } from "../../../ui/button/ImageButton";
 import Svg, { Circle } from "react-native-svg";
-import { RippleBg } from "./RippleBg";
+import { RippleTransitionBg } from "./RippleTransitionBg";
 import { VpIndicator } from "./VpIndicator";
 
 // ImageButton不会做无谓的刷新 , 性能更好.
@@ -45,7 +45,7 @@ export class SvgAnim09D_CC extends React.Component {
     const nextItem = data[(this.state.index + 1) % data.length];
     return (
       <View style={styles.root}>
-        <RippleBg color={item.color} nextColor={item.next} r={this.state.r} cx={nextItem.cx} cy={cy}/>
+        <RippleTransitionBg color={item.color} nextColor={item.next} r={this.state.r} cx={nextItem.cx} cy={cy}/>
         <VpIndicator data={data} cy={cy} r={10}/>
 
         <View style={{ position: "absolute", left: 0, right: 0, top: 0, bottom: 0, justifyContent: "center", alignItems: "center" }}>

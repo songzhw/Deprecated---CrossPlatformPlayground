@@ -12,7 +12,7 @@ interface IProps extends ViewProps {
 }
 
 const AnimCircle = Animated.createAnimatedComponent(Circle);
-export const RippleBg = (props: IProps) => {
+export const RippleTransitionBg = (props: IProps) => {
   const { color, nextColor, r, cx, cy } = props;
 
   return (
