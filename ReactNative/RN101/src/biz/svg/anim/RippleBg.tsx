@@ -1,24 +1,26 @@
 import React, { useState } from "react";
-import { View, ViewProps, Text, StyleSheet, Animated, useWindowDimensions } from "react-native";
-import { Circle } from "react-native-svg";
+import { View, ViewProps, Text, StyleSheet, Animated, useWindowDimensions, Dimensions } from "react-native";
+import Svg, { Circle } from "react-native-svg";
 
 interface IProps extends ViewProps {
 }
 
 const AnimCircle = Animated.createAnimatedComponent(Circle);
-const windowWidth = useWindowDimensions().width;
-const windowHeight = useWindowDimensions().height;
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
+
 export const RippleBg = (props: IProps) => {
-  const [radius, setRadius] = useState(50);
+  const [radius, setRadius] = useState(new Animated.Value(50));
 
   return (
-    <View>
-      <AnimCircle x={windowWidth / 2} y={windowHeight / 2} r={radius}/>
-    </View>
+    <Svg style={[props.style, styles.root]}>
+      <AnimCircle x={windowWidth / 2} y={windowHeight / 2} r={radius}
+      />
+    </Svg>
   );
 };
 
 
 const styles = StyleSheet.create({
-  root: {}
+  root: { flex: 1, alignItems: "center", justifyContent: "center" }
 });
