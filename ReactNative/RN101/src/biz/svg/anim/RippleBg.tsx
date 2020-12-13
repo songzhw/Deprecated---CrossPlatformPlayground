@@ -11,23 +11,23 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 export const RippleBg = (props: IProps) => {
-  const [animValue, setAnimValue] = useState(new Animated.Value(0.1));
-  const [radius, setRadius] = useState(0);
-  const [strokeWidth, setStrokeWidth] = useState(0);
+  const [radius, setRadius] = useState(new Animated.Value(0.1));
+  // const [radius, setRadius] = useState(0);
+  const [strokeWidth, setStrokeWidth] = useState(10);
 
   useEffect(() => {
-    animValue.addListener(({ value }) => {
-      setRadius(value * windowWidth);
-      setStrokeWidth(value * 15);
-    });
+    // animValue.addListener(({ value }) => {
+    //   setRadius(value * windowWidth);
+    //   setStrokeWidth(value * 15);
+    // });
 
     runAnimation();
   }, []);
 
   const runAnimation = () => {
-    animValue.setValue(0.1);
+    // animValue.setValue(0.1);
 
-    Animated.timing(animValue, { toValue: 1, duration: 3000, useNativeDriver: true })
+    Animated.timing(radius, { toValue: windowWidth, duration: 3000, useNativeDriver: true })
       .start();
   };
 
