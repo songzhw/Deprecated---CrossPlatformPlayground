@@ -55,11 +55,12 @@ import { SvgAnim09_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09_View
 import { SvgAnim09B_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09B_ViewPager_Transition";
 import { SvgAnim09C_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09C_ViewPagerTransition";
 import { SvgAnim09D_CC } from "./src/biz/svg/anim/SvgAnim09D_CC";
+import { SvgAnim10_Ripple } from "./src/biz/svg/anim/SvgAnim10_Ripple";
 
 
 const App = () => {
   return (
-    <SvgAnim09D_CC/>
+    <SvgAnim10_Ripple/>
   );
 };
 
