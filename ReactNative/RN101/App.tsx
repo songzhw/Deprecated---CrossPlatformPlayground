@@ -56,11 +56,15 @@ import { SvgAnim09B_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09B_Vi
 import { SvgAnim09C_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09C_ViewPagerTransition";
 import { SvgAnim09D_CC } from "./src/biz/svg/anim/SvgAnim09D_CC";
 import { SvgAnim10_Ripple } from "./src/biz/svg/anim/SvgAnim10_Ripple";
-import RNFS from "react-native-fs"
+import RNFS from "react-native-fs";
+import { Image } from "react-native";
 
 const App = () => {
-  const path = RNFS.MainBundlePath+"/res"
-  console.log(`szw path = `, path)
+  const res = require("./static/one.html");
+  const { uri } = Image.resolveAssetSource(res);
+  console.log(`szw srcPath = `, uri); //=> http://localhost:8081/assets/static/one.html?platform=ios&hash=96b507ed7cbdef2474ca850fe000d877
+
+
 
   return (
     <FsDemo/>
