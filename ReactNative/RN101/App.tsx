@@ -56,11 +56,14 @@ import { SvgAnim09B_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09B_Vi
 import { SvgAnim09C_ViewPagerTransition } from "./src/biz/svg/anim/SvgAnim09C_ViewPagerTransition";
 import { SvgAnim09D_CC } from "./src/biz/svg/anim/SvgAnim09D_CC";
 import { SvgAnim10_Ripple } from "./src/biz/svg/anim/SvgAnim10_Ripple";
-
+import RNFS from "react-native-fs"
 
 const App = () => {
+  const path = RNFS.MainBundlePath+"/res"
+  console.log(`szw path = `, path)
+
   return (
-    <SvgAnim10_Ripple/>
+    <FsDemo/>
   );
 };
 
