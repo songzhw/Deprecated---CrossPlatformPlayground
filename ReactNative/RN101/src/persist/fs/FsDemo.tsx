@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, ViewProps, Image, StyleSheet, Button, Animated } from "react-native";
 import RnFs from "react-native-fs";
 
@@ -12,6 +12,17 @@ export const FsDemo = (props: IProps) => {
   // console.log(`LibraryDir1 = `, RnFs.LibraryDirectoryPath); //=>  undefined
   // console.log(`MainBundle1 = `, RnFs.MainBundlePath); //=>  /data/user/0/com.rn101
 
+  useEffect(() => {
+    const res = require("../../../static/one.html");
+    const { uri } = Image.resolveAssetSource(res);
+    console.log(`szw srcPath = `, uri); //=> http://localhost:8081/assets/static/one.html?platform=ios&hash=96b507ed7cbdef2474ca850fe000d877
+
+    const destPath = RnFs.DocumentDirectoryPath+"/fsdemo/"
+    const destFile = destPath+"two.html"
+    console.log(`szw destFile = `, destFile)
+    RnFs.mkdir(destPath, {NSURLIsExcludedFromBackupKey: true})
+    RnFs.downloadFile({fromUrl: uri, toFile: destFile})
+  }, []);
 
   const downloadHtml = () => {
     const url = "https://songzhw.github.io/repo/index.html";

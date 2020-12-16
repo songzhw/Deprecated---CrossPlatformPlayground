@@ -60,12 +60,6 @@ import RNFS from "react-native-fs";
 import { Image } from "react-native";
 
 const App = () => {
-  const res = require("./static/one.html");
-  const { uri } = Image.resolveAssetSource(res);
-  console.log(`szw srcPath = `, uri); //=> http://localhost:8081/assets/static/one.html?platform=ios&hash=96b507ed7cbdef2474ca850fe000d877
-
-
-
   return (
     <FsDemo/>
   );
