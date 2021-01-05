@@ -9,7 +9,7 @@
     "temp": "open 'http://www.google.ca' && which java"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "expo": "^31.0.2",
     "fela": "^10.1.0",
     "fela-native": "^10.1.1",
