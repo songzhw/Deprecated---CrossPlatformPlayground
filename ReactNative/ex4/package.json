@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "expo": "^31.0.2",
+    "expo": "^46.0.14",
     "fela": "^10.1.0",
     "fela-native": "^10.1.1",
     "fela-tools": "^10.1.0",
